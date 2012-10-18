@@ -8,7 +8,10 @@
 /CharImport/bin/old
 CharImport.suo
 Thumbs.db
+Errorlog.log
 /CharImport/Resources/Thumbs.db
+/CharImport/bin/Debug/Errorlog.log
+*vshost
 *suo
 *log
 *exe
