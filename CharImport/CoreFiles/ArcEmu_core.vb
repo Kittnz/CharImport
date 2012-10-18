@@ -12,10 +12,7 @@
 '****************************************************************************************
 '****************************************************************************************
 '..................Comments:
-
 Imports MySql.Data.MySqlClient
-Imports System.Net
-Imports System.Text
 
 Public Class ArcEmu_core
     Dim runfunction As New Functions
@@ -35,7 +32,11 @@ Public Class ArcEmu_core
     Dim guid As String = ""
     Dim accguid As String = ""
     Dim lastnumber As String = ""
-    Dim finalstring As String = "kopf 0 hals 0 schulter 0 hemd 0 brust 0 guertel 0 beine 0 stiefel 0 handgelenke 0 haende 0 finger1 0 finger2 0 schmuck1 0 schmuck2 0 ruecken 0 haupt 0 off 0 distanz 0 wappenrock 0 "
+
+    Dim _
+        finalstring As String =
+            "kopf 0 hals 0 schulter 0 hemd 0 brust 0 guertel 0 beine 0 stiefel 0 handgelenke 0 haende 0 finger1 0 finger2 0 schmuck1 0 schmuck2 0 ruecken 0 haupt 0 off 0 distanz 0 wappenrock 0 "
+
     ' Dim newcharguid As String
     Public spellitemtext As String
     Public spellgemtext As String
@@ -91,8 +92,8 @@ Public Class ArcEmu_core
             Main.GLOBALconnRealmd.Close()
             Main.GLOBALconnRealmd.Dispose()
         End Try
-
     End Sub
+
     Public Sub closesql()
 
         Try
@@ -108,6 +109,7 @@ Public Class ArcEmu_core
 
         End Try
     End Sub
+
     Public Sub getallchars()
 
         runfunction.writelog("getallchars_call @arcemu")
@@ -126,7 +128,12 @@ Public Class ArcEmu_core
         If My.Settings.lastloginactive = True Or My.Settings.gmlevelactive = False Then
             If My.Settings.lastloginactive = True Then
                 If My.Settings.gmlevelactive = True Then
-                    Dim da As New MySqlDataAdapter("SELECT `login` FROM `accounts` WHERE lastlogin>='" & My.Settings.lastlogindate1 & "' AND lastlogin<='" & My.Settings.lastlogindate2 & "' AND gm='" & My.Settings.gmlevel.ToString & "'", Main.GLOBALconnRealmd)
+                    Dim _
+                        da As _
+                            New MySqlDataAdapter(
+                                "SELECT `login` FROM `accounts` WHERE lastlogin>='" & My.Settings.lastlogindate1 &
+                                "' AND lastlogin<='" & My.Settings.lastlogindate2 & "' AND gm='" &
+                                My.Settings.gmlevel.ToString & "'", Main.GLOBALconnRealmd)
                     Dim dt As New DataTable
                     Try
                         da.Fill(dt)
@@ -144,7 +151,11 @@ Public Class ArcEmu_core
 
                     End Try
                 Else
-                    Dim da As New MySqlDataAdapter("SELECT `login` FROM `accounts` WHERE lastlogin>='" & My.Settings.lastlogindate1 & "' AND lastlogin<='" & My.Settings.lastlogindate2 & "'", Main.GLOBALconnRealmd)
+                    Dim _
+                        da As _
+                            New MySqlDataAdapter(
+                                "SELECT `login` FROM `accounts` WHERE lastlogin>='" & My.Settings.lastlogindate1 &
+                                "' AND lastlogin<='" & My.Settings.lastlogindate2 & "'", Main.GLOBALconnRealmd)
                     Dim dt As New DataTable
                     Try
                         da.Fill(dt)
@@ -165,7 +176,11 @@ Public Class ArcEmu_core
             Else
                 If My.Settings.gmlevelactive = True Then
 
-                    Dim da As New MySqlDataAdapter("SELECT `login` FROM `accounts` WHERE gm='" & My.Settings.gmlevel.ToString & "'", Main.GLOBALconnRealmd)
+                    Dim _
+                        da As _
+                            New MySqlDataAdapter(
+                                "SELECT `login` FROM `accounts` WHERE gm='" & My.Settings.gmlevel.ToString & "'",
+                                Main.GLOBALconnRealmd)
                     Dim dt As New DataTable
                     Try
                         da.Fill(dt)
@@ -190,7 +205,11 @@ Public Class ArcEmu_core
         Else
             If My.Settings.levelrangeactive = True Then
 
-                Dim da As New MySqlDataAdapter("SELECT guid FROM characters WHERE level>='" & My.Settings.levelrangemin.ToString & "' AND level<='" & My.Settings.levelrangemax & "'", Main.GLOBALconn)
+                Dim _
+                    da As _
+                        New MySqlDataAdapter(
+                            "SELECT guid FROM characters WHERE level>='" & My.Settings.levelrangemin.ToString &
+                            "' AND level<='" & My.Settings.levelrangemax & "'", Main.GLOBALconn)
                 Dim dt As New DataTable
                 Try
                     da.Fill(dt)
@@ -230,8 +249,8 @@ Public Class ArcEmu_core
 
             gochars()
         End If
-
     End Sub
+
     Public Sub getallchars_old()
 
 
@@ -265,9 +284,8 @@ Public Class ArcEmu_core
 
         gochars()
     End Sub
+
     Public Sub getthischar(ByVal charname As String)
-
-
 
 
         Dim da As New MySqlDataAdapter("SELECT guid FROM characters WHERE name='" & charname & "'", Main.GLOBALconn)
@@ -287,12 +305,14 @@ Public Class ArcEmu_core
         Catch ex As Exception
 
         End Try
-
-
     End Sub
+
     Public Function accountexist(ByVal accountname As String) As Boolean
 
-        Dim da As New MySqlDataAdapter("SELECT `acct` FROM account WHERE `login`='" & accountname & "'", Main.GLOBALconnRealmd)
+        Dim _
+            da As _
+                New MySqlDataAdapter("SELECT `acct` FROM account WHERE `login`='" & accountname & "'",
+                                     Main.GLOBALconnRealmd)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
@@ -307,6 +327,7 @@ Public Class ArcEmu_core
             Return False
         End Try
     End Function
+
     Public Function characterexist(ByVal charname As String) As Boolean
 
         Dim da As New MySqlDataAdapter("SELECT guid FROM characters WHERE name='" & charname & "'", Main.GLOBALconn)
@@ -324,13 +345,15 @@ Public Class ArcEmu_core
             Return False
         End Try
     End Function
+
     Public Sub getallcharsfromaccount(ByVal accountname As String)
         Try
             guidlist.Clear()
         Catch ex As Exception
 
         End Try
-        Dim accid As String = runfunction.runcommandRealmd("SELECT `acct` FROM account WHERE `login`='" & accountname & "'", "acct")
+        Dim accid As String =
+                runfunction.runcommandRealmd("SELECT `acct` FROM account WHERE `login`='" & accountname & "'", "acct")
         guidlist = New List(Of String)
 
 
@@ -354,6 +377,7 @@ Public Class ArcEmu_core
 
         gochars()
     End Sub
+
     Private Sub gochars()
         For Each guid As String In guidlist
             GetCharFromDatabase(guid)
@@ -366,7 +390,6 @@ Public Class ArcEmu_core
         'Get Character Guid
 
 
-
         '****************************************************************************************
         '****************************************************************************************
         'Get Main Character atributes
@@ -377,10 +400,12 @@ Public Class ArcEmu_core
         Main.char_guid = CInt(Val(charguid))
         characterguid = CInt(Val(charguid))
 
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Race from Database..." & vbNewLine)
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Race from Database..." & vbNewLine)
         Application.DoEvents()
         Try
-            Main.char_race = CInt(Val(runfunction.runcommand("SELECT race FROM characters WHERE guid='" & charguid & "'", "race")))
+            Main.char_race = CInt(Val(runfunction.runcommand("SELECT race FROM characters WHERE guid='" & charguid & "'",
+                                                             "race")))
         Catch ex As Exception
 
         End Try
@@ -398,10 +423,12 @@ Public Class ArcEmu_core
         '11	}}  Draenei
 
         'Character Class
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Class from Database..." & vbNewLine)
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Class from Database..." & vbNewLine)
         Application.DoEvents()
         Try
-            Main.char_class = CInt(Val(runfunction.runcommand("SELECT class FROM characters WHERE guid='" & charguid & "'", "class")))
+            Main.char_class =
+                CInt(Val(runfunction.runcommand("SELECT class FROM characters WHERE guid='" & charguid & "'", "class")))
         Catch ex As Exception
 
         End Try
@@ -418,19 +445,23 @@ Public Class ArcEmu_core
 
         'Character gender
         '0=male, 1=female
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Gender from Database..." & vbNewLine)
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Gender from Database..." & vbNewLine)
         Application.DoEvents()
         Try
-            Main.char_gender = CInt(Val(runfunction.runcommand("SELECT gender FROM characters WHERE guid='" & charguid & "'", "gender")))
+            Main.char_gender =
+                CInt(Val(runfunction.runcommand("SELECT gender FROM characters WHERE guid='" & charguid & "'", "gender")))
         Catch ex As Exception
 
         End Try
 
         'Character level
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Level from Database..." & vbNewLine)
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Level from Database..." & vbNewLine)
         Application.DoEvents()
         Try
-            Main.char_level = CInt(Val(runfunction.runcommand("SELECT level FROM characters WHERE guid='" & charguid & "'", "level")))
+            Main.char_level =
+                CInt(Val(runfunction.runcommand("SELECT level FROM characters WHERE guid='" & charguid & "'", "level")))
 
         Catch ex As Exception
 
@@ -440,21 +471,37 @@ Public Class ArcEmu_core
 
         Main.char_name = runfunction.runcommand("SELECT name FROM characters WHERE guid='" & charguid & "'", "name")
 
-        Main.accountid = CInt(Val(runfunction.runcommand("SELECT acct FROM characters WHERE guid='" & charguid & "'", "acct")))
+        Main.accountid = CInt(Val(runfunction.runcommand("SELECT acct FROM characters WHERE guid='" & charguid & "'",
+                                                         "acct")))
         Main.char_xp = CInt(Val(runfunction.runcommand("SELECT xp FROM characters WHERE guid='" & charguid & "'", "xp")))
-        Main.player_money = CInt(Val(runfunction.runcommand("SELECT gold FROM characters WHERE guid='" & charguid & "'", "gold")))
-        Main.playerBytes = CInt(Val(runfunction.runcommand("SELECT bytes FROM characters WHERE guid='" & charguid & "'", "bytes")))
-        Main.playerBytes2 = CInt(Val(runfunction.runcommand("SELECT bytes2 FROM characters WHERE guid='" & charguid & "'", "bytes2")))
-        Main.playerFlags = CInt(Val(runfunction.runcommand("SELECT player_flags FROM characters WHERE guid='" & charguid & "'", "player_flags")))
-        Main.position_x = runfunction.runcommand("SELECT positionX FROM characters WHERE guid='" & charguid & "'", "positionX")
-        Main.position_y = runfunction.runcommand("SELECT positionY FROM characters WHERE guid='" & charguid & "'", "positionY")
-        Main.position_z = runfunction.runcommand("SELECT positionZ FROM characters WHERE guid='" & charguid & "'", "positionZ")
+        Main.player_money = CInt(Val(runfunction.runcommand("SELECT gold FROM characters WHERE guid='" & charguid & "'",
+                                                            "gold")))
+        Main.playerBytes = CInt(Val(runfunction.runcommand("SELECT bytes FROM characters WHERE guid='" & charguid & "'",
+                                                           "bytes")))
+        Main.playerBytes2 =
+            CInt(Val(runfunction.runcommand("SELECT bytes2 FROM characters WHERE guid='" & charguid & "'", "bytes2")))
+        Main.playerFlags =
+            CInt(Val(runfunction.runcommand("SELECT player_flags FROM characters WHERE guid='" & charguid & "'",
+                                            "player_flags")))
+        Main.position_x = runfunction.runcommand("SELECT positionX FROM characters WHERE guid='" & charguid & "'",
+                                                 "positionX")
+        Main.position_y = runfunction.runcommand("SELECT positionY FROM characters WHERE guid='" & charguid & "'",
+                                                 "positionY")
+        Main.position_z = runfunction.runcommand("SELECT positionZ FROM characters WHERE guid='" & charguid & "'",
+                                                 "positionZ")
         Main.map = CInt(Val(runfunction.runcommand("SELECT mapId FROM characters WHERE guid='" & charguid & "'", "mapId")))
-        Main.instance_id = CInt(Val(runfunction.runcommand("SELECT instance_id FROM characters WHERE guid='" & charguid & "'", "instance_id")))
-        Main.orientation = runfunction.runcommand("SELECT orientation FROM characters WHERE guid='" & charguid & "'", "orientation")
-        Main.taximask = runfunction.runcommand("SELECT taximask FROM characters WHERE guid='" & charguid & "'", "taximask")
-        Main.cinematic = CInt(Val(runfunction.runcommand("SELECT first_login FROM characters WHERE guid='" & charguid & "'", "first_login")))
-        Dim leveltime As String = runfunction.runcommand("SELECT playedtime FROM characters WHERE guid='" & charguid & "'", "playedtime")
+        Main.instance_id =
+            CInt(Val(runfunction.runcommand("SELECT instance_id FROM characters WHERE guid='" & charguid & "'",
+                                            "instance_id")))
+        Main.orientation = runfunction.runcommand("SELECT orientation FROM characters WHERE guid='" & charguid & "'",
+                                                  "orientation")
+        Main.taximask = runfunction.runcommand("SELECT taximask FROM characters WHERE guid='" & charguid & "'",
+                                               "taximask")
+        Main.cinematic =
+            CInt(Val(runfunction.runcommand("SELECT first_login FROM characters WHERE guid='" & charguid & "'",
+                                            "first_login")))
+        Dim leveltime As String =
+                runfunction.runcommand("SELECT playedtime FROM characters WHERE guid='" & charguid & "'", "playedtime")
         Dim parts() As String = leveltime.Split(" "c)
         Try
             Main.totaltime = CInt(Val(parts(0)))
@@ -462,68 +509,129 @@ Public Class ArcEmu_core
 
         End Try
 
-        Main.stable_slots = runfunction.runcommand("SELECT totalstableslots FROM characters WHERE guid='" & charguid & "'", "totalstableslots")
-        Main.zone = CInt(Val(runfunction.runcommand("SELECT zoneId FROM characters WHERE guid='" & charguid & "'", "zoneId")))
-        Main.arenaPoints = CInt(Val(runfunction.runcommand("SELECT arenaPoints FROM characters WHERE guid='" & charguid & "'", "arenaPoints")))
-        Main.totalHonorPoints = CInt(Val(runfunction.runcommand("SELECT honorPoints FROM characters WHERE guid='" & charguid & "'", "honorPoints")))
-        Main.totalKills = CInt(Val(runfunction.runcommand("SELECT killsLifeTime FROM characters WHERE guid='" & charguid & "'", "killsLifeTime")))
-        Main.chosenTitle = runfunction.runcommand("SELECT selected_pvp_title  FROM characters WHERE guid='" & charguid & "'", "selected_pvp_title ")
-        Main.watchedFaction = runfunction.runcommand("SELECT watched_faction_index  FROM characters WHERE guid='" & charguid & "'", "watched_faction_index ")
-        Main.health = CInt(Val(runfunction.runcommand("SELECT current_hp FROM characters WHERE guid='" & charguid & "'", "current_hp")))
-        Main.speccount = CInt(Val(runfunction.runcommand("SELECT NumSpecs FROM characters WHERE guid='" & charguid & "'", "NumSpecs")))
-        Main.activespec = CInt(Val(runfunction.runcommand("SELECT Currentspec FROM characters WHERE guid='" & charguid & "'", "Currentspec")))
-        Main.exploredZones = runfunction.runcommand("SELECT exploration_data FROM characters WHERE guid='" & charguid & "'", "exploration_data")
-        Main.knownTitles = runfunction.runcommand("SELECT available_pvp_titles FROM characters WHERE guid='" & charguid & "'", "available_pvp_titles")
-        Main.arcemu_talentpoints = runfunction.runcommand("SELECT talentpoints FROM characters WHERE guid='" & charguid & "'", "talentpoints")
-        Main.finished_quests = runfunction.runcommand("SELECT finished_quests FROM characters WHERE guid='" & charguid & "'", "finished_quests")
-        Main.accountname = runfunction.runcommandRealmd("SELECT login FROM accounts WHERE acct='" & Main.accountid.ToString & "'", "login")
-        Main.arcemu_pass = runfunction.runcommandRealmd("SELECT password FROM accounts WHERE acct='" & Main.accountid.ToString & "'", "password")
+        Main.stable_slots =
+            runfunction.runcommand("SELECT totalstableslots FROM characters WHERE guid='" & charguid & "'",
+                                   "totalstableslots")
+        Main.zone = CInt(Val(runfunction.runcommand("SELECT zoneId FROM characters WHERE guid='" & charguid & "'",
+                                                    "zoneId")))
+        Main.arenaPoints =
+            CInt(Val(runfunction.runcommand("SELECT arenaPoints FROM characters WHERE guid='" & charguid & "'",
+                                            "arenaPoints")))
+        Main.totalHonorPoints =
+            CInt(Val(runfunction.runcommand("SELECT honorPoints FROM characters WHERE guid='" & charguid & "'",
+                                            "honorPoints")))
+        Main.totalKills =
+            CInt(Val(runfunction.runcommand("SELECT killsLifeTime FROM characters WHERE guid='" & charguid & "'",
+                                            "killsLifeTime")))
+        Main.chosenTitle =
+            runfunction.runcommand("SELECT selected_pvp_title  FROM characters WHERE guid='" & charguid & "'",
+                                   "selected_pvp_title ")
+        Main.watchedFaction =
+            runfunction.runcommand("SELECT watched_faction_index  FROM characters WHERE guid='" & charguid & "'",
+                                   "watched_faction_index ")
+        Main.health = CInt(Val(runfunction.runcommand("SELECT current_hp FROM characters WHERE guid='" & charguid & "'",
+                                                      "current_hp")))
+        Main.speccount = CInt(Val(runfunction.runcommand("SELECT NumSpecs FROM characters WHERE guid='" & charguid & "'",
+                                                         "NumSpecs")))
+        Main.activespec =
+            CInt(Val(runfunction.runcommand("SELECT Currentspec FROM characters WHERE guid='" & charguid & "'",
+                                            "Currentspec")))
+        Main.exploredZones =
+            runfunction.runcommand("SELECT exploration_data FROM characters WHERE guid='" & charguid & "'",
+                                   "exploration_data")
+        Main.knownTitles =
+            runfunction.runcommand("SELECT available_pvp_titles FROM characters WHERE guid='" & charguid & "'",
+                                   "available_pvp_titles")
+        Main.arcemu_talentpoints =
+            runfunction.runcommand("SELECT talentpoints FROM characters WHERE guid='" & charguid & "'", "talentpoints")
+        Main.finished_quests =
+            runfunction.runcommand("SELECT finished_quests FROM characters WHERE guid='" & charguid & "'",
+                                   "finished_quests")
+        Main.accountname =
+            runfunction.runcommandRealmd("SELECT login FROM accounts WHERE acct='" & Main.accountid.ToString & "'",
+                                         "login")
+        Main.arcemu_pass =
+            runfunction.runcommandRealmd("SELECT password FROM accounts WHERE acct='" & Main.accountid.ToString & "'",
+                                         "password")
         ' Main.sha_pass_hash = runfunction.runcommandRealmd("SELECT password FROM accounts WHERE `id`='" & Main.accountid.ToString & "'", "sha_pass_hash")
-        Main.email = runfunction.runcommandRealmd("SELECT email FROM accounts WHERE acct='" & Main.accountid.ToString & "'", "email")
-        Main.locale = CInt(Val(runfunction.runcommandRealmd("SELECT forceLanguage FROM accounts WHERE acct='" & Main.accountid.ToString & "'", "forceLanguage")))
-        Main.account_access_gmlevel = CInt(Val(runfunction.runcommandRealmd("SELECT gm FROM accounts WHERE acct='" & Main.accountid.ToString & "'", "gm")))
+        Main.email =
+            runfunction.runcommandRealmd("SELECT email FROM accounts WHERE acct='" & Main.accountid.ToString & "'",
+                                         "email")
+        Main.locale =
+            CInt(
+                Val(
+                    runfunction.runcommandRealmd(
+                        "SELECT forceLanguage FROM accounts WHERE acct='" & Main.accountid.ToString & "'",
+                        "forceLanguage")))
+        Main.account_access_gmlevel =
+            CInt(Val(runfunction.runcommandRealmd("SELECT gm FROM accounts WHERE acct='" & Main.accountid.ToString & "'",
+                                                  "gm")))
         Main.account_access_RealmID = 1
-        Main.custom_faction = runfunction.runcommand("SELECT custom_faction FROM characters WHERE guid='" & charguid & "'", "custom_faction ")
+        Main.custom_faction =
+            runfunction.runcommand("SELECT custom_faction FROM characters WHERE guid='" & charguid & "'",
+                                   "custom_faction ")
         Main.level.Text = Main.char_name & ", " & Main.char_level & ", " & Main.char_race & ", " & Main.char_class
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "/ Loading Character Homebind from Database..." & vbNewLine)
-        Main.character_homebind = ("<map>" & runfunction.runcommand("SELECT bindmapId FROM characters WHERE guid='" & Main.char_guid.ToString & "'", "bindmapId") & "</map><zone>" & runfunction.runcommand("SELECT bindzoneId FROM characters WHERE guid='" & Main.char_guid.ToString & "'", "bindzoneId") & "</zone><position_x>" & runfunction.runcommand("SELECT bindpositionX FROM characters WHERE guid='" & Main.char_guid.ToString & "'", "bindpositionX") & "</position_x><position_y>" & runfunction.runcommand("SELECT bindpositionY FROM characters WHERE guid='" & Main.char_guid.ToString & "'", "bindpositionY") & "</position_y><position_z>" & runfunction.runcommand("SELECT bindpositionZ FROM characters WHERE guid='" & Main.char_guid.ToString & "'", "bindpositionZ") & "</position_z>")
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Spells from Database..." & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Homebind from Database..." & vbNewLine)
+        Main.character_homebind =
+            ("<map>" &
+             runfunction.runcommand("SELECT bindmapId FROM characters WHERE guid='" & Main.char_guid.ToString & "'",
+                                    "bindmapId") & "</map><zone>" &
+             runfunction.runcommand("SELECT bindzoneId FROM characters WHERE guid='" & Main.char_guid.ToString & "'",
+                                    "bindzoneId") & "</zone><position_x>" &
+             runfunction.runcommand("SELECT bindpositionX FROM characters WHERE guid='" & Main.char_guid.ToString & "'",
+                                    "bindpositionX") & "</position_x><position_y>" &
+             runfunction.runcommand("SELECT bindpositionY FROM characters WHERE guid='" & Main.char_guid.ToString & "'",
+                                    "bindpositionY") & "</position_y><position_z>" &
+             runfunction.runcommand("SELECT bindpositionZ FROM characters WHERE guid='" & Main.char_guid.ToString & "'",
+                                    "bindpositionZ") & "</position_z>")
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Spells from Database..." & vbNewLine)
         Application.DoEvents()
         getspells()
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Talents from Database..." & vbNewLine)
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Talents from Database..." & vbNewLine)
         Application.DoEvents()
         gettalents()
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Skills from Database..." & vbNewLine)
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Skills from Database..." & vbNewLine)
         Application.DoEvents()
         getskills()
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Reputation from Database..." & vbNewLine)
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Reputation from Database..." & vbNewLine)
         Application.DoEvents()
         getREPlists()
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Action from Database..." & vbNewLine)
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Action from Database..." & vbNewLine)
         Application.DoEvents()
         getactionlist()
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Achievements from Database..." & vbNewLine)
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Achievements from Database..." & vbNewLine)
         Application.DoEvents()
         getavlists()
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "/ Loading Character Questlog from Database..." & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Questlog from Database..." & vbNewLine)
         Application.DoEvents()
         getqueststatus()
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Inventory from Database..." & vbNewLine)
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Inventory from Database..." & vbNewLine)
         Application.DoEvents()
         getinventoryitems()
 
         'GET ITEMS
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Items from Database..." & vbNewLine)
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Items from Database..." & vbNewLine)
         Application.DoEvents()
         getitems()
 
 
-
         'GET GLYPHS
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Primary Glyphs from Database..." & vbNewLine)
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Primary Glyphs from Database..." & vbNewLine)
         Application.DoEvents()
         getglyphs()
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Secondary Glyphs from Database..." & vbNewLine)
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Secondary Glyphs from Database..." & vbNewLine)
         Application.DoEvents()
         getsecglyphs()
         handleenchantments()
@@ -537,9 +645,13 @@ Public Class ArcEmu_core
 
         Application.DoEvents()
     End Sub
+
     Public Sub getspells_old()
 
-        Dim da As New MySqlDataAdapter("SELECT SpellID FROM playerspells WHERE GUID='" & Main.char_guid.ToString & "'", Main.GLOBALconn)
+        Dim _
+            da As _
+                New MySqlDataAdapter("SELECT SpellID FROM playerspells WHERE GUID='" & Main.char_guid.ToString & "'",
+                                     Main.GLOBALconn)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
@@ -561,12 +673,13 @@ Public Class ArcEmu_core
         Catch ex As Exception
 
         End Try
-
-
-
     End Sub
+
     Public Sub getspells()
-        Dim da As New MySqlDataAdapter("SELECT spells FROM characters WHERE guid='" & Main.char_guid.ToString & "'", Main.GLOBALconn)
+        Dim _
+            da As _
+                New MySqlDataAdapter("SELECT spells FROM characters WHERE guid='" & Main.char_guid.ToString & "'",
+                                     Main.GLOBALconn)
         Dim dt As New DataTable
 
         da.Fill(dt)
@@ -593,12 +706,15 @@ Public Class ArcEmu_core
 
         End Try
     End Sub
+
     Public Sub gettalents()
         sdatatable.Clear()
         sdatatable.Dispose()
         sdatatable = gettable()
 
-        Dim talentstring As String = runfunction.runcommand("SELECT talents1 FROM characters WHERE guid='" & Main.char_guid.ToString & "'", "talents1")
+        Dim talentstring As String =
+                runfunction.runcommand("SELECT talents1 FROM characters WHERE guid='" & Main.char_guid.ToString & "'",
+                                       "talents1")
         If talentstring.Contains(",") Then
 
             Dim excounter As Integer = UBound(talentstring.Split(CChar(",")))
@@ -612,7 +728,9 @@ Public Class ArcEmu_core
                 Main.character_talent_list.Add("<spell>" & checkfield2(talentid, rurrentrank) & "</spell><spec>0</spec>")
             Loop Until startcounter = excounter
         End If
-        Dim talentstring2 As String = runfunction.runcommand("SELECT talents2 FROM characters WHERE guid='" & Main.char_guid.ToString & "'", "talents2")
+        Dim talentstring2 As String =
+                runfunction.runcommand("SELECT talents2 FROM characters WHERE guid='" & Main.char_guid.ToString & "'",
+                                       "talents2")
         If talentstring2.Contains(",") Then
             Dim excounter As Integer = UBound(talentstring2.Split(CChar(",")))
             Dim startcounter As Integer = 0
@@ -625,7 +743,6 @@ Public Class ArcEmu_core
                 Main.character_talent_list.Add("<spell>" & checkfield2(talentid, rurrentrank) & "</spell><spec>1</spec>")
             Loop Until startcounter = excounter
         End If
-
     End Sub
 
     Private Function checkfield2(ByVal lID As String, ByVal rank As String) As String
@@ -637,9 +754,8 @@ Public Class ArcEmu_core
         Else
             Return "0"
         End If
-
-
     End Function
+
     Private Function executex2(ByVal field As String, ByVal sID As String, ByVal rank As Integer) As String
         Try
             Dim foundRows() As DataRow
@@ -661,12 +777,14 @@ Public Class ArcEmu_core
         Catch ex As Exception
             Return "-"
         End Try
-
     End Function
 
     Public Sub getqueststatus()
 
-        Dim da As New MySqlDataAdapter("SELECT quest_id FROM questlog WHERE player_guid='" & Main.char_guid.ToString & "'", Main.GLOBALconn)
+        Dim _
+            da As _
+                New MySqlDataAdapter("SELECT quest_id FROM questlog WHERE player_guid='" & Main.char_guid.ToString & "'",
+                                     Main.GLOBALconn)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
@@ -677,11 +795,25 @@ Public Class ArcEmu_core
                 Do
                     Dim readedcode As String = (dt.Rows(count).Item(0)).ToString
                     Dim quest As String = readedcode
-                    Dim status As String = runfunction.runcommand("SELECT completed FROM questlog WHERE quest='" & quest & "' AND player_guid='" & Main.char_guid.ToString & "'", "completed")
-                    Dim explored As String = runfunction.runcommand("SELECT explored_area1 FROM questlog WHERE quest='" & quest & "' AND player_guid='" & Main.char_guid.ToString & "'", "explored_area1")
-                    Dim timer As String = runfunction.runcommand("SELECT expirytimy FROM questlog WHERE quest='" & quest & "' AND player_guid='" & Main.char_guid.ToString & "'", "expirytimy")
-                    Dim slot As String = runfunction.runcommand("SELECT slot FROM questlog WHERE quest='" & quest & "' AND player_guid='" & Main.char_guid.ToString & "'", "slot")
-                    Main.character_queststatus.Add("<quest>" & quest & "</quest><status>" & status & "</status><explored>" & explored & "</explored><timer>" & timer & "</timer><slot>" & slot & "</slot>")
+                    Dim status As String =
+                            runfunction.runcommand(
+                                "SELECT completed FROM questlog WHERE quest='" & quest & "' AND player_guid='" &
+                                Main.char_guid.ToString & "'", "completed")
+                    Dim explored As String =
+                            runfunction.runcommand(
+                                "SELECT explored_area1 FROM questlog WHERE quest='" & quest & "' AND player_guid='" &
+                                Main.char_guid.ToString & "'", "explored_area1")
+                    Dim timer As String =
+                            runfunction.runcommand(
+                                "SELECT expirytimy FROM questlog WHERE quest='" & quest & "' AND player_guid='" &
+                                Main.char_guid.ToString & "'", "expirytimy")
+                    Dim slot As String =
+                            runfunction.runcommand(
+                                "SELECT slot FROM questlog WHERE quest='" & quest & "' AND player_guid='" &
+                                Main.char_guid.ToString & "'", "slot")
+                    Main.character_queststatus.Add(
+                        "<quest>" & quest & "</quest><status>" & status & "</status><explored>" & explored &
+                        "</explored><timer>" & timer & "</timer><slot>" & slot & "</slot>")
 
                     count += 1
                 Loop Until count = lastcount
@@ -689,11 +821,14 @@ Public Class ArcEmu_core
         Catch ex As Exception
 
         End Try
-
     End Sub
+
     Public Sub getskills_old()
 
-        Dim da As New MySqlDataAdapter("SELECT SkillID FROM playerskills WHERE GUID='" & Main.char_guid.ToString & "'", Main.GLOBALconn)
+        Dim _
+            da As _
+                New MySqlDataAdapter("SELECT SkillID FROM playerskills WHERE GUID='" & Main.char_guid.ToString & "'",
+                                     Main.GLOBALconn)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
@@ -704,10 +839,17 @@ Public Class ArcEmu_core
                 Do
                     Dim readedcode As String = (dt.Rows(count).Item(0)).ToString
                     Dim skill As String = readedcode
-                    Dim value As String = runfunction.runcommand("SELECT CurrentValue FROM playerskills WHERE SkillID='" & skill & "' AND GUID='" & Main.char_guid.ToString & "'", "CurrentValue")
-                    Dim max As String = runfunction.runcommand("SELECT MaximumValue FROM playerskills WHERE SkillID='" & skill & "' AND GUID='" & Main.char_guid.ToString & "'", "MaximumValue")
+                    Dim value As String =
+                            runfunction.runcommand(
+                                "SELECT CurrentValue FROM playerskills WHERE SkillID='" & skill & "' AND GUID='" &
+                                Main.char_guid.ToString & "'", "CurrentValue")
+                    Dim max As String =
+                            runfunction.runcommand(
+                                "SELECT MaximumValue FROM playerskills WHERE SkillID='" & skill & "' AND GUID='" &
+                                Main.char_guid.ToString & "'", "MaximumValue")
 
-                    Main.character_skills_list.Add("<skill>" & skill & "</skill><value>" & value & "</value><max>" & max & "</max>")
+                    Main.character_skills_list.Add(
+                        "<skill>" & skill & "</skill><value>" & value & "</value><max>" & max & "</max>")
 
                     count += 1
                 Loop Until count = lastcount
@@ -715,11 +857,13 @@ Public Class ArcEmu_core
         Catch ex As Exception
 
         End Try
-
-
     End Sub
+
     Public Sub getskills()
-        Dim da As New MySqlDataAdapter("SELECT skills FROM characters WHERE guid='" & Main.char_guid.ToString & "'", Main.GLOBALconn)
+        Dim _
+            da As _
+                New MySqlDataAdapter("SELECT skills FROM characters WHERE guid='" & Main.char_guid.ToString & "'",
+                                     Main.GLOBALconn)
         Dim dt As New DataTable
 
         da.Fill(dt)
@@ -731,7 +875,7 @@ Public Class ArcEmu_core
                     Dim readedcode As String = (dt.Rows(count).Item(0)).ToString
                     Dim excounter As Integer = UBound(readedcode.Split(CChar(";")))
                     Dim loopcounter As Integer = 0
-                    Dim finalcounter As Integer = CInt(excounter / 3)
+                    Dim finalcounter As Integer = CInt(excounter/3)
                     Dim partscounter As Integer = 0
                     Do
                         Dim parts() As String = readedcode.Split(","c)
@@ -741,7 +885,8 @@ Public Class ArcEmu_core
                         partscounter += 1
                         Dim max As String = parts(partscounter).ToString
                         partscounter += 1
-                        Main.character_skills_list.Add("<skill>" & skill & "</skill><value>" & value & "</value><max>" & max & "</max>")
+                        Main.character_skills_list.Add(
+                            "<skill>" & skill & "</skill><value>" & value & "</value><max>" & max & "</max>")
                         loopcounter += 1
                     Loop Until loopcounter = finalcounter
 
@@ -753,9 +898,14 @@ Public Class ArcEmu_core
 
         End Try
     End Sub
+
     Public Sub getREPlists_old()
 
-        Dim da As New MySqlDataAdapter("SELECT faction FROM playerreputations WHERE guid='" & Main.char_guid.ToString & "'", Main.GLOBALconn)
+        Dim _
+            da As _
+                New MySqlDataAdapter(
+                    "SELECT faction FROM playerreputations WHERE guid='" & Main.char_guid.ToString & "'",
+                    Main.GLOBALconn)
         Dim dt As New DataTable
 
         da.Fill(dt)
@@ -766,10 +916,18 @@ Public Class ArcEmu_core
                 Do
                     Dim readedcode As String = (dt.Rows(count).Item(0)).ToString
                     Dim faction As String = readedcode
-                    Dim standing As String = runfunction.runcommand("SELECT standing FROM character_reputation WHERE faction='" & faction & "' AND guid='" & Main.char_guid.ToString & "'", "standing")
-                    Dim flags As String = runfunction.runcommand("SELECT flag FROM playerreputations WHERE faction='" & faction & "' AND guid='" & Main.char_guid.ToString & "'", "flag FROM")
+                    Dim standing As String =
+                            runfunction.runcommand(
+                                "SELECT standing FROM character_reputation WHERE faction='" & faction & "' AND guid='" &
+                                Main.char_guid.ToString & "'", "standing")
+                    Dim flags As String =
+                            runfunction.runcommand(
+                                "SELECT flag FROM playerreputations WHERE faction='" & faction & "' AND guid='" &
+                                Main.char_guid.ToString & "'", "flag FROM")
 
-                    Main.character_reputatuion_list.Add("<faction>" & faction & "</faction><standing>" & standing & "</standing><flags>" & flags & "</flags>")
+                    Main.character_reputatuion_list.Add(
+                        "<faction>" & faction & "</faction><standing>" & standing & "</standing><flags>" & flags &
+                        "</flags>")
 
                     count += 1
                 Loop Until count = lastcount
@@ -777,11 +935,13 @@ Public Class ArcEmu_core
         Catch ex As Exception
 
         End Try
-
-
     End Sub
+
     Public Sub getREPlists()
-        Dim da As New MySqlDataAdapter("SELECT reputation FROM characters WHERE guid='" & Main.char_guid.ToString & "'", Main.GLOBALconn)
+        Dim _
+            da As _
+                New MySqlDataAdapter("SELECT reputation FROM characters WHERE guid='" & Main.char_guid.ToString & "'",
+                                     Main.GLOBALconn)
         Dim dt As New DataTable
 
         da.Fill(dt)
@@ -793,7 +953,7 @@ Public Class ArcEmu_core
                     Dim readedcode As String = (dt.Rows(count).Item(0)).ToString
                     Dim excounter As Integer = UBound(readedcode.Split(CChar(",")))
                     Dim loopcounter As Integer = 0
-                    Dim finalcounter As Integer = CInt(excounter / 4)
+                    Dim finalcounter As Integer = CInt(excounter/4)
                     Dim partscounter As Integer = 0
                     Do
                         Dim parts() As String = readedcode.Split(","c)
@@ -803,7 +963,9 @@ Public Class ArcEmu_core
                         partscounter += 1
                         Dim standing As String = parts(partscounter).ToString
                         partscounter += 2
-                        Main.character_reputatuion_list.Add("<faction>" & faction & "</faction><standing>" & standing & "</standing><flags>" & flags & "</flags>")
+                        Main.character_reputatuion_list.Add(
+                            "<faction>" & faction & "</faction><standing>" & standing & "</standing><flags>" & flags &
+                            "</flags>")
                         loopcounter += 1
                     Loop Until loopcounter = finalcounter
 
@@ -815,41 +977,53 @@ Public Class ArcEmu_core
 
         End Try
     End Sub
+
     Public Sub getactionlist()
         'needs to be tested!
-        Main.arcemu_action1 = runfunction.runcommand("SELECT actions1 FROM characters WHERE guid='" & Main.char_guid.ToString & "'", "actions1")
-        Main.arcemu_action2 = runfunction.runcommand("SELECT actions2 FROM characters WHERE guid='" & Main.char_guid.ToString & "'", "actions2")
+        Main.arcemu_action1 =
+            runfunction.runcommand("SELECT actions1 FROM characters WHERE guid='" & Main.char_guid.ToString & "'",
+                                   "actions1")
+        Main.arcemu_action2 =
+            runfunction.runcommand("SELECT actions2 FROM characters WHERE guid='" & Main.char_guid.ToString & "'",
+                                   "actions2")
 
         Dim readedcode As String = Main.arcemu_action1
         Dim excounter As Integer = UBound(readedcode.Split(CChar(",")))
         Dim loopcounter As Integer = 0
-        Dim finalcounter As Integer = CInt(excounter / 3)
+        Dim finalcounter As Integer = CInt(excounter/3)
         Dim partscounter As Integer = 0
         Do
             Dim parts() As String = readedcode.Split(","c)
             Dim Action As String = parts(partscounter).ToString
             Dim gbutton As String = (loopcounter + 1).ToString
             partscounter += 3
-            Main.character_action_list.Add("<action>" & Action & "</action><spec>0</spec><button>" & gbutton & "</button><type>0</type>")
+            Main.character_action_list.Add(
+                "<action>" & Action & "</action><spec>0</spec><button>" & gbutton & "</button><type>0</type>")
             loopcounter += 1
         Loop Until loopcounter = finalcounter
         Dim readedcode2 As String = Main.arcemu_action2
         Dim excounter2 As Integer = UBound(readedcode2.Split(CChar(",")))
         Dim loopcounter2 As Integer = 0
-        Dim finalcounter2 As Integer = CInt(excounter2 / 3)
+        Dim finalcounter2 As Integer = CInt(excounter2/3)
         Dim partscounter2 As Integer = 0
         Do
             Dim parts() As String = readedcode2.Split(","c)
             Dim Action As String = parts(partscounter2).ToString
             Dim gbutton As String = (loopcounter2 + 1).ToString
             partscounter2 += 3
-            Main.character_action_list.Add("<action>" & Action & "</action><spec>1</spec><button>" & gbutton & "</button><type>0</type>")
+            Main.character_action_list.Add(
+                "<action>" & Action & "</action><spec>1</spec><button>" & gbutton & "</button><type>0</type>")
             loopcounter2 += 1
         Loop Until loopcounter2 = finalcounter2
     End Sub
+
     Public Sub getavlists()
 
-        Dim da As New MySqlDataAdapter("SELECT achievement FROM character_achievement WHERE guid='" & Main.char_guid.ToString & "'", Main.GLOBALconn)
+        Dim _
+            da As _
+                New MySqlDataAdapter(
+                    "SELECT achievement FROM character_achievement WHERE guid='" & Main.char_guid.ToString & "'",
+                    Main.GLOBALconn)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
@@ -860,7 +1034,10 @@ Public Class ArcEmu_core
                 Do
                     Dim readedcode As String = (dt.Rows(count).Item(0)).ToString
                     Dim avid As String = readedcode
-                    Dim xdate As String = runfunction.runcommand("SELECT date FROM character_achievement WHERE achievement='" & avid & "' AND guid='" & Main.char_guid.ToString & "'", "date")
+                    Dim xdate As String =
+                            runfunction.runcommand(
+                                "SELECT date FROM character_achievement WHERE achievement='" & avid & "' AND guid='" &
+                                Main.char_guid.ToString & "'", "date")
                     Main.character_achievement_list.Add("<av>" & avid & "</av><date>" & xdate & "</date>")
 
                     count += 1
@@ -870,14 +1047,16 @@ Public Class ArcEmu_core
         Catch ex As Exception
 
         End Try
-
-
     End Sub
+
     Public Sub getinventoryitems()
 
         Dim tmpext As Integer
         Dim slotlist As String = ""
-        Dim da As New MySqlDataAdapter("SELECT slot FROM playeritems WHERE ownerguid='" & Main.char_guid.ToString & "'", Main.GLOBALconn)
+        Dim _
+            da As _
+                New MySqlDataAdapter("SELECT slot FROM playeritems WHERE ownerguid='" & Main.char_guid.ToString & "'",
+                                     Main.GLOBALconn)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
@@ -890,14 +1069,24 @@ Public Class ArcEmu_core
                     If Not slotlist.Contains("#" & readedcode & "#") Then
                         slotlist = slotlist & "#" & readedcode & "#"
                         tmpext = CInt(Val(readedcode))
-                        Dim numresults As Integer = runfunction.returncountresults("SELECT containerslot FROM playeritems WHERE ownerguid='" & Main.char_guid.ToString & "' AND slot='" & tmpext.ToString & "'", "containerslot")
+                        Dim numresults As Integer =
+                                runfunction.returncountresults(
+                                    "SELECT containerslot FROM playeritems WHERE ownerguid='" & Main.char_guid.ToString &
+                                    "' AND slot='" & tmpext.ToString & "'", "containerslot")
                         If numresults = 1 Then
-                            Dim containerslot As String = runfunction.runcommand("SELECT containerslot FROM playeritems WHERE ownerguid='" & Main.char_guid.ToString & "' AND slot='" & tmpext.ToString & "'", "containerslot")
+                            Dim containerslot As String =
+                                    runfunction.runcommand(
+                                        "SELECT containerslot FROM playeritems WHERE ownerguid='" &
+                                        Main.char_guid.ToString & "' AND slot='" & tmpext.ToString & "'",
+                                        "containerslot")
                             Dim bagguid As String = "-1"
                             If containerslot = "-1" Then
 
                             Else
-                                bagguid = runfunction.runcommand("SELECT guid FROM playeritems WHERE ownerguid='" & Main.char_guid.ToString & "' AND slot='" & containerslot & "' AND containerslot='-1'", "guid")
+                                bagguid =
+                                    runfunction.runcommand(
+                                        "SELECT guid FROM playeritems WHERE ownerguid='" & Main.char_guid.ToString &
+                                        "' AND slot='" & containerslot & "' AND containerslot='-1'", "guid")
 
                             End If
 
@@ -912,11 +1101,24 @@ Public Class ArcEmu_core
                                     bag = bagguid
 
 
-                                    item = runfunction.runcommand("SELECT guid FROM playeritems WHERE ownerguid='" & Main.char_guid.ToString & "' AND slot='" & tmpext.ToString & "' AND containerslot='-1'", "guid")
-                                    entryid = runfunction.runcommand("SELECT entry FROM playeritems WHERE guid = '" & item & "'", "entry")
-                                    enchantments = runfunction.runcommand("SELECT enchantments FROM playeritems WHERE guid='" & item & "'", "enchantments")
-                                    itemcount = runfunction.runcommand("SELECT count FROM playeritems WHERE guid='" & item & "'", "count")
-                                    Main.character_inventoryzero_list.Add("<slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid & "</bagguid><item>" & entryid & "</item><enchant>" & enchantments & "</enchant><count>" & itemcount & "</count><container>-1</container>")
+                                    item =
+                                        runfunction.runcommand(
+                                            "SELECT guid FROM playeritems WHERE ownerguid='" & Main.char_guid.ToString &
+                                            "' AND slot='" & tmpext.ToString & "' AND containerslot='-1'", "guid")
+                                    entryid =
+                                        runfunction.runcommand(
+                                            "SELECT entry FROM playeritems WHERE guid = '" & item & "'", "entry")
+                                    enchantments =
+                                        runfunction.runcommand(
+                                            "SELECT enchantments FROM playeritems WHERE guid='" & item & "'",
+                                            "enchantments")
+                                    itemcount =
+                                        runfunction.runcommand("SELECT count FROM playeritems WHERE guid='" & item & "'",
+                                                               "count")
+                                    Main.character_inventoryzero_list.Add(
+                                        "<slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid &
+                                        "</bagguid><item>" & entryid & "</item><enchant>" & enchantments &
+                                        "</enchant><count>" & itemcount & "</count><container>-1</container>")
                                 End If
                             Else
                                 Dim bag As String = "0"
@@ -924,22 +1126,43 @@ Public Class ArcEmu_core
                                 Dim entryid As String
                                 Dim enchantments As String
                                 Dim itemcount As String = "1"
-                                bag = runfunction.runcommand("SELECT entry FROM playeritems WHERE guid = '" & bagguid & "'", "entry")
+                                bag =
+                                    runfunction.runcommand(
+                                        "SELECT entry FROM playeritems WHERE guid = '" & bagguid & "'", "entry")
 
 
-                                item = runfunction.runcommand("SELECT guid FROM playeritems WHERE ownerguid='" & Main.char_guid.ToString & "' AND slot='" & tmpext.ToString & "'", "guid")
-                                entryid = runfunction.runcommand("SELECT entry FROM playeritems WHERE guid = '" & item & "'", "entry")
-                                enchantments = runfunction.runcommand("SELECT enchantments FROM playeritems WHERE guid='" & item & "'", "enchantments")
-                                itemcount = runfunction.runcommand("SELECT count FROM playeritems WHERE guid='" & item & "'", "count")
-                                Main.character_inventoryzero_list.Add("<slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid & "</bagguid><item>" & entryid & "</item><enchant>" & enchantments & "</enchant><count>" & itemcount & "</count><container>-1</container>")
+                                item =
+                                    runfunction.runcommand(
+                                        "SELECT guid FROM playeritems WHERE ownerguid='" & Main.char_guid.ToString &
+                                        "' AND slot='" & tmpext.ToString & "'", "guid")
+                                entryid =
+                                    runfunction.runcommand("SELECT entry FROM playeritems WHERE guid = '" & item & "'",
+                                                           "entry")
+                                enchantments =
+                                    runfunction.runcommand(
+                                        "SELECT enchantments FROM playeritems WHERE guid='" & item & "'", "enchantments")
+                                itemcount =
+                                    runfunction.runcommand("SELECT count FROM playeritems WHERE guid='" & item & "'",
+                                                           "count")
+                                Main.character_inventoryzero_list.Add(
+                                    "<slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid &
+                                    "</bagguid><item>" & entryid & "</item><enchant>" & enchantments &
+                                    "</enchant><count>" & itemcount & "</count><container>-1</container>")
                             End If
                         Else
-                            Dim containerslot As String = runfunction.returnresultwithrow("SELECT containerslot FROM playeritems WHERE ownerguid='" & Main.char_guid.ToString & "' AND slot='" & tmpext.ToString & "'", "containerslot", 0)
+                            Dim containerslot As String =
+                                    runfunction.returnresultwithrow(
+                                        "SELECT containerslot FROM playeritems WHERE ownerguid='" &
+                                        Main.char_guid.ToString & "' AND slot='" & tmpext.ToString & "'",
+                                        "containerslot", 0)
                             Dim bagguid As String = "-1"
                             If containerslot = "-1" Then
 
                             Else
-                                bagguid = runfunction.runcommand("SELECT guid FROM playeritems WHERE ownerguid='" & Main.char_guid.ToString & "' AND slot='" & containerslot & "' AND containerslot='-1'", "guid")
+                                bagguid =
+                                    runfunction.runcommand(
+                                        "SELECT guid FROM playeritems WHERE ownerguid='" & Main.char_guid.ToString &
+                                        "' AND slot='" & containerslot & "' AND containerslot='-1'", "guid")
 
                             End If
 
@@ -954,11 +1177,24 @@ Public Class ArcEmu_core
                                     bag = bagguid
 
 
-                                    item = runfunction.runcommand("SELECT guid FROM playeritems WHERE ownerguid='" & Main.char_guid.ToString & "' AND slot='" & tmpext.ToString & "' AND containerslot='-1'", "guid")
-                                    entryid = runfunction.runcommand("SELECT entry FROM playeritems WHERE guid = '" & item & "'", "entry")
-                                    enchantments = runfunction.runcommand("SELECT enchantments FROM playeritems WHERE guid='" & item & "'", "enchantments")
-                                    itemcount = runfunction.runcommand("SELECT count FROM playeritems WHERE guid='" & item & "'", "count")
-                                    Main.character_inventoryzero_list.Add("<slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid & "</bagguid><item>" & entryid & "</item><enchant>" & enchantments & "</enchant><count>" & itemcount & "</count><container>-1</container>")
+                                    item =
+                                        runfunction.runcommand(
+                                            "SELECT guid FROM playeritems WHERE ownerguid='" & Main.char_guid.ToString &
+                                            "' AND slot='" & tmpext.ToString & "' AND containerslot='-1'", "guid")
+                                    entryid =
+                                        runfunction.runcommand(
+                                            "SELECT entry FROM playeritems WHERE guid = '" & item & "'", "entry")
+                                    enchantments =
+                                        runfunction.runcommand(
+                                            "SELECT enchantments FROM playeritems WHERE guid='" & item & "'",
+                                            "enchantments")
+                                    itemcount =
+                                        runfunction.runcommand("SELECT count FROM playeritems WHERE guid='" & item & "'",
+                                                               "count")
+                                    Main.character_inventoryzero_list.Add(
+                                        "<slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid &
+                                        "</bagguid><item>" & entryid & "</item><enchant>" & enchantments &
+                                        "</enchant><count>" & itemcount & "</count><container>-1</container>")
                                 End If
                             Else
                                 Dim bag As String = "0"
@@ -966,21 +1202,42 @@ Public Class ArcEmu_core
                                 Dim entryid As String
                                 Dim enchantments As String
                                 Dim itemcount As String = "1"
-                                bag = runfunction.runcommand("SELECT entry FROM playeritems WHERE guid = '" & bagguid & "'", "entry")
+                                bag =
+                                    runfunction.runcommand(
+                                        "SELECT entry FROM playeritems WHERE guid = '" & bagguid & "'", "entry")
 
 
-                                item = runfunction.returnresultwithrow("SELECT guid FROM playeritems WHERE ownerguid='" & Main.char_guid.ToString & "' AND slot='" & tmpext.ToString & "'", "guid", 1)
-                                entryid = runfunction.runcommand("SELECT entry FROM playeritems WHERE guid = '" & item & "'", "entry")
-                                enchantments = runfunction.runcommand("SELECT enchantments FROM playeritems WHERE guid='" & item & "'", "enchantments")
-                                itemcount = runfunction.runcommand("SELECT count FROM playeritems WHERE guid='" & item & "'", "count")
-                                Main.character_inventoryzero_list.Add("<slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid & "</bagguid><item>" & entryid & "</item><enchant>" & enchantments & "</enchant><count>" & itemcount & "</count><container>-1</container>")
+                                item =
+                                    runfunction.returnresultwithrow(
+                                        "SELECT guid FROM playeritems WHERE ownerguid='" & Main.char_guid.ToString &
+                                        "' AND slot='" & tmpext.ToString & "'", "guid", 1)
+                                entryid =
+                                    runfunction.runcommand("SELECT entry FROM playeritems WHERE guid = '" & item & "'",
+                                                           "entry")
+                                enchantments =
+                                    runfunction.runcommand(
+                                        "SELECT enchantments FROM playeritems WHERE guid='" & item & "'", "enchantments")
+                                itemcount =
+                                    runfunction.runcommand("SELECT count FROM playeritems WHERE guid='" & item & "'",
+                                                           "count")
+                                Main.character_inventoryzero_list.Add(
+                                    "<slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid &
+                                    "</bagguid><item>" & entryid & "</item><enchant>" & enchantments &
+                                    "</enchant><count>" & itemcount & "</count><container>-1</container>")
                             End If
-                            Dim containerslot2 As String = runfunction.returnresultwithrow("SELECT containerslot FROM playeritems WHERE ownerguid='" & Main.char_guid.ToString & "' AND slot='" & tmpext.ToString & "'", "containerslot", 1)
+                            Dim containerslot2 As String =
+                                    runfunction.returnresultwithrow(
+                                        "SELECT containerslot FROM playeritems WHERE ownerguid='" &
+                                        Main.char_guid.ToString & "' AND slot='" & tmpext.ToString & "'",
+                                        "containerslot", 1)
                             Dim bagguid2 As String = "-1"
                             If containerslot2 = "-1" Then
 
                             Else
-                                bagguid2 = runfunction.runcommand("SELECT guid FROM playeritems WHERE ownerguid='" & Main.char_guid.ToString & "' AND slot='" & containerslot2 & "' AND containerslot='-1'", "guid")
+                                bagguid2 =
+                                    runfunction.runcommand(
+                                        "SELECT guid FROM playeritems WHERE ownerguid='" & Main.char_guid.ToString &
+                                        "' AND slot='" & containerslot2 & "' AND containerslot='-1'", "guid")
 
                             End If
 
@@ -995,11 +1252,24 @@ Public Class ArcEmu_core
                                     bag = bagguid2
 
 
-                                    item = runfunction.returnresultwithrow("SELECT guid FROM playeritems WHERE ownerguid='" & Main.char_guid.ToString & "' AND slot='" & tmpext.ToString & "' AND containerslot='-1'", "guid", 1)
-                                    entryid = runfunction.runcommand("SELECT entry FROM playeritems WHERE guid = '" & item & "'", "entry")
-                                    enchantments = runfunction.runcommand("SELECT enchantments FROM playeritems WHERE guid='" & item & "'", "enchantments")
-                                    itemcount = runfunction.runcommand("SELECT count FROM playeritems WHERE guid='" & item & "'", "count")
-                                    Main.character_inventoryzero_list.Add("<slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid & "</bagguid><item>" & entryid & "</item><enchant>" & enchantments & "</enchant><count>" & itemcount & "</count><container>-1</container>")
+                                    item =
+                                        runfunction.returnresultwithrow(
+                                            "SELECT guid FROM playeritems WHERE ownerguid='" & Main.char_guid.ToString &
+                                            "' AND slot='" & tmpext.ToString & "' AND containerslot='-1'", "guid", 1)
+                                    entryid =
+                                        runfunction.runcommand(
+                                            "SELECT entry FROM playeritems WHERE guid = '" & item & "'", "entry")
+                                    enchantments =
+                                        runfunction.runcommand(
+                                            "SELECT enchantments FROM playeritems WHERE guid='" & item & "'",
+                                            "enchantments")
+                                    itemcount =
+                                        runfunction.runcommand("SELECT count FROM playeritems WHERE guid='" & item & "'",
+                                                               "count")
+                                    Main.character_inventoryzero_list.Add(
+                                        "<slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid &
+                                        "</bagguid><item>" & entryid & "</item><enchant>" & enchantments &
+                                        "</enchant><count>" & itemcount & "</count><container>-1</container>")
                                 End If
                             Else
                                 Dim bag As String = "0"
@@ -1007,17 +1277,31 @@ Public Class ArcEmu_core
                                 Dim entryid As String
                                 Dim enchantments As String
                                 Dim itemcount As String = "1"
-                                bag = runfunction.runcommand("SELECT entry FROM playeritems WHERE guid = '" & bagguid2 & "'", "entry")
+                                bag =
+                                    runfunction.runcommand(
+                                        "SELECT entry FROM playeritems WHERE guid = '" & bagguid2 & "'", "entry")
 
 
-                                item = runfunction.returnresultwithrow("SELECT guid FROM playeritems WHERE ownerguid='" & Main.char_guid.ToString & "' AND slot='" & tmpext.ToString & "'", "guid", 1)
-                                entryid = runfunction.runcommand("SELECT entry FROM playeritems WHERE guid = '" & item & "'", "entry")
-                                enchantments = runfunction.runcommand("SELECT enchantments FROM playeritems WHERE guid='" & item & "'", "enchantments")
-                                itemcount = runfunction.runcommand("SELECT count FROM playeritems WHERE guid='" & item & "'", "count")
-                                Main.character_inventoryzero_list.Add("<slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid2 & "</bagguid><item>" & entryid & "</item><enchant>" & enchantments & "</enchant><count>" & itemcount & "</count><container>" & containerslot2 & "</container>")
+                                item =
+                                    runfunction.returnresultwithrow(
+                                        "SELECT guid FROM playeritems WHERE ownerguid='" & Main.char_guid.ToString &
+                                        "' AND slot='" & tmpext.ToString & "'", "guid", 1)
+                                entryid =
+                                    runfunction.runcommand("SELECT entry FROM playeritems WHERE guid = '" & item & "'",
+                                                           "entry")
+                                enchantments =
+                                    runfunction.runcommand(
+                                        "SELECT enchantments FROM playeritems WHERE guid='" & item & "'", "enchantments")
+                                itemcount =
+                                    runfunction.runcommand("SELECT count FROM playeritems WHERE guid='" & item & "'",
+                                                           "count")
+                                Main.character_inventoryzero_list.Add(
+                                    "<slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid2 &
+                                    "</bagguid><item>" & entryid & "</item><enchant>" & enchantments &
+                                    "</enchant><count>" & itemcount & "</count><container>" & containerslot2 &
+                                    "</container>")
                             End If
                         End If
-
 
 
                         count += 1
@@ -1029,9 +1313,8 @@ Public Class ArcEmu_core
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
-
-
     End Sub
+
     Public Sub getglyphs()
 
 
@@ -1039,7 +1322,9 @@ Public Class ArcEmu_core
         Dim glyphname As String = ""
         Dim glyphpic As Image = My.Resources.empty
 
-        Dim glyphstring As String = runfunction.runcommand("SELECT glyphs1 from characters WHERE guid='" & characterguid.ToString & "'", "glyphs1")
+        Dim glyphstring As String =
+                runfunction.runcommand("SELECT glyphs1 from characters WHERE guid='" & characterguid.ToString & "'",
+                                       "glyphs1")
 
         Try
             Dim parts() As String = glyphstring.Split(","c)
@@ -1136,12 +1421,15 @@ Public Class ArcEmu_core
 
         Glyphs.prim3pic.Image = My.Resources.empty
     End Sub
+
     Public Sub getsecglyphs()
 
         Dim glyphid As Integer
         Dim glyphname As String = ""
         Dim glyphpic As Image = My.Resources.empty
-        Dim glyphstring As String = runfunction.runcommand("SELECT glyphs2 from characters WHERE guid='" & characterguid.ToString & "'", "glyphs2")
+        Dim glyphstring As String =
+                runfunction.runcommand("SELECT glyphs2 from characters WHERE guid='" & characterguid.ToString & "'",
+                                       "glyphs2")
         Try
             Dim parts() As String = glyphstring.Split(","c)
             Dim prevglyphid As Integer = CInt(Val(parts(0)))
@@ -1232,7 +1520,6 @@ Public Class ArcEmu_core
         Glyphs.secprim2pic.Image = My.Resources.empty
 
         Glyphs.secprim3pic.Image = My.Resources.empty
-
     End Sub
 
     Private Sub saveglyphs()
@@ -1276,6 +1563,7 @@ Public Class ArcEmu_core
         Main.secglyphpic8 = Glyphs.secgering2pic.Image
         Main.secglyphpic9 = Glyphs.secgering3pic.Image
     End Sub
+
     Public Sub getitems()
         'Get Instance
         Dim xslot As Integer = 0
@@ -1284,8 +1572,17 @@ Public Class ArcEmu_core
         Dim realxentryid As Integer
         Do
             Try
-                xentryid = CInt(Val(runfunction.runcommand("SELECT guid FROM playeritems WHERE ownerguid = '" & characterguid & "' AND slot = '" & xslot & "' AND containerslot='-1'", "guid")))
-                realxentryid = CInt(Val(runfunction.runcommand("SELECT entry FROM playeritems WHERE guid = '" & xentryid.ToString & "'", "playeritems")))
+                xentryid =
+                    CInt(
+                        Val(
+                            runfunction.runcommand(
+                                "SELECT guid FROM playeritems WHERE ownerguid = '" & characterguid & "' AND slot = '" &
+                                xslot & "' AND containerslot='-1'", "guid")))
+                realxentryid =
+                    CInt(
+                        Val(
+                            runfunction.runcommand(
+                                "SELECT entry FROM playeritems WHERE guid = '" & xentryid.ToString & "'", "playeritems")))
                 If Main.anzahldurchlaufe = 1 Then itemname = runfunction.getnamefromid(realxentryid)
                 Dim wartemal As String = ""
             Catch ex As Exception
@@ -1433,7 +1730,6 @@ Public Class ArcEmu_core
             End Select
             xslot += 1
         Loop Until xslot = 19
-
     End Sub
 
     Public Sub handleenchantments()
@@ -1549,10 +1845,8 @@ Public Class ArcEmu_core
 
         If Main.anzahldurchlaufe = 1 Then Main.schmuck2vz.Text = splitstringvz(Main.schmuck2ench, 23)
         Main.schmuck2vz.Visible = True
-
-
-
     End Sub
+
     Public Function splitstringvz(ByVal input As String, ByVal position As Integer) As String
         Dim xpacressource As String
         Select Case Main.xpac
@@ -1633,8 +1927,8 @@ Public Class ArcEmu_core
 
             Return ""
         End Try
-
     End Function
+
     Public Function splitstringgem(ByVal input As String, ByVal position As Integer) As String
         Dim xpacressource As String
         Select Case Main.xpac
@@ -1666,7 +1960,7 @@ Public Class ArcEmu_core
                 Dim parts2() As String = parts(0).Split(","c)
                 If xvalue = "0,6" Then
                     Return parts2(0)
-                    Exit Function
+
                 End If
                 Dim anfangyx88 As String = parts2(0) & ";"
                 Dim endeyx88 As String = ";xxxx"
@@ -1679,7 +1973,7 @@ Public Class ArcEmu_core
                 Dim parts2() As String = parts(1).Split(","c)
                 If xvalue = "0,6" Then
                     Return parts2(0)
-                    Exit Function
+
                 End If
                 Dim anfangyx88 As String = parts2(0) & ";"
                 Dim endeyx88 As String = ";xxxx"
@@ -1692,7 +1986,7 @@ Public Class ArcEmu_core
                 Dim parts2() As String = parts(2).Split(","c)
                 If xvalue = "0,6" Then
                     Return parts2(0)
-                    Exit Function
+
                 End If
                 Dim anfangyx88 As String = parts2(0) & ";"
                 Dim endeyx88 As String = ";xxxx"
@@ -1705,7 +1999,7 @@ Public Class ArcEmu_core
                 Dim parts2() As String = parts(3).Split(","c)
                 If xvalue = "0,6" Then
                     Return parts2(0)
-                    Exit Function
+
                 End If
                 Dim anfangyx88 As String = parts2(0) & ";"
                 Dim endeyx88 As String = ";xxxx"
@@ -1718,7 +2012,7 @@ Public Class ArcEmu_core
                 Dim parts2() As String = parts(4).Split(","c)
                 If xvalue = "0,6" Then
                     Return parts2(0)
-                    Exit Function
+
                 End If
                 Dim anfangyx88 As String = parts2(0) & ";"
                 Dim endeyx88 As String = ";xxxx"
@@ -1731,7 +2025,7 @@ Public Class ArcEmu_core
                 Dim parts2() As String = parts(5).Split(","c)
                 If xvalue = "0,6" Then
                     Return parts2(0)
-                    Exit Function
+
                 End If
                 Dim anfangyx88 As String = parts2(0) & ";"
                 Dim endeyx88 As String = ";xxxx"
@@ -1745,44 +2039,34 @@ Public Class ArcEmu_core
         Catch ex As Exception
             Return ""
         End Try
-
     End Function
-
-
-
 
 
     Public Function getcharguid(ByVal charname As String) As Integer
         Try
-            Return CInt(Val(runfunction.runcommand("SELECT guid FROM characters WHERE name = '" & charname & "'", "guid")))
+            Return _
+                CInt(Val(runfunction.runcommand("SELECT guid FROM characters WHERE name = '" & charname & "'", "guid")))
 
         Catch ex As Exception
-            MsgBox("Charakter Guid konnte nicht gelesen werden! Überprüfe die Datanbankeintragungen.", MsgBoxStyle.Critical, "Fehler")
-            Return -1
+            MsgBox("Charakter Guid konnte nicht gelesen werden! Überprüfe die Datanbankeintragungen.",
+                   MsgBoxStyle.Critical, "Fehler")
+            Return - 1
         End Try
-
-
     End Function
 
 
     Public Sub getitemstats(ByVal itemguid As Integer, ByRef slotvar As String)
         Try
-            slotvar = runfunction.runcommand("SELECT enchantments FROM playeritems WHERE guid='" & itemguid.ToString & "'", "enchantments")
+            slotvar =
+                runfunction.runcommand("SELECT enchantments FROM playeritems WHERE guid='" & itemguid.ToString & "'",
+                                       "enchantments")
             Dim lol As String = ""
         Catch ex As Exception
             slotvar = "-1"
         End Try
-
-
     End Sub
 
 
-
-
-
-
-
-
     '##############################################################################################################################################################################
     '##############################################################################################################################################################################
     '##############################################################################################################################################################################
@@ -1797,17 +2081,13 @@ Public Class ArcEmu_core
     '##############################################################################################################################################################################
     '##############################################################################################################################################################################
     '##############################################################################################################################################################################
-
-
-
-
 
 
     Public Sub createnewaccounts(ByVal writestring As String)
 
         runfunction.normalsqlcommandRealmd(writestring)
-
     End Sub
+
     Public Sub create_new_account_if_not_exist(ByVal accname As String, ByVal command As String, ByVal accguid As String)
 
 
@@ -1836,247 +2116,357 @@ Public Class ArcEmu_core
         Catch
             runfunction.normalsqlcommandRealmd(command)
         End Try
-
     End Sub
 
-    Public Sub addchars(ByVal targetaccount As String, ByVal charactername As String, ByVal namechangeeverytime As Boolean)
+    Public Sub addchars(ByVal targetaccount As String, ByVal charactername As String,
+                        ByVal namechangeeverytime As Boolean)
 
-        Dim newcharguid As Integer = CInt(Val(runfunction.runcommand("SELECT guid FROM characters WHERE guid=(SELECT MAX(guid) FROM characters)", "guid"))) + 1
+        Dim newcharguid As Integer =
+                CInt(
+                    Val(
+                        runfunction.runcommand(
+                            "SELECT guid FROM characters WHERE guid=(SELECT MAX(guid) FROM characters)", "guid"))) + 1
         guid = newcharguid.ToString
         Main.coreguid = newcharguid.ToString
-        targetaccount = runfunction.runcommandRealmd("SELECT acct FROM accounts WHERE login='" & targetaccount & "'", "acct")
+        targetaccount = runfunction.runcommandRealmd("SELECT acct FROM accounts WHERE login='" & targetaccount & "'",
+                                                     "acct")
         If namechangeeverytime = True Then
-            Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Player will be asked to change character name! : reason-nce=true" & vbNewLine)
-            runfunction.normalsqlcommand("INSERT INTO characters ( `acct`, `guid`, `name`, `race`, `class`, `gender`, `level`, `xp`, `gold`, current_hp, `positionX`, positionY, positionZ, orientation, mapId, taximask, playedtime ) VALUES ( '" & targetaccount & "', '" & newcharguid.ToString & "', '" & charactername & "', '0', '0', '0', '1', '0', '0', '1000','-14305.7', '514.08', '10', '4.30671', '0', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '98 98 5 ' )")
+            Process_Status.processreport.AppendText(
+                Now.TimeOfDay.ToString & "// Player will be asked to change character name! : reason-nce=true" &
+                vbNewLine)
+            runfunction.normalsqlcommand(
+                "INSERT INTO characters ( `acct`, `guid`, `name`, `race`, `class`, `gender`, `level`, `xp`, `gold`, current_hp, `positionX`, positionY, positionZ, orientation, mapId, taximask, playedtime ) VALUES ( '" &
+                targetaccount & "', '" & newcharguid.ToString & "', '" & charactername &
+                "', '0', '0', '0', '1', '0', '0', '1000','-14305.7', '514.08', '10', '4.30671', '0', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '98 98 5 ' )")
 
-            runfunction.normalsqlcommand("UPDATE characters SET forced_rename_pending='1' WHERE guid='" & newcharguid.ToString & "'")
+            runfunction.normalsqlcommand(
+                "UPDATE characters SET forced_rename_pending='1' WHERE guid='" & newcharguid.ToString & "'")
         Else
             If charexist(charactername) = True Then
-                Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Player will be asked to change charactername!" & vbNewLine)
-                runfunction.normalsqlcommand("INSERT INTO characters ( `acct`, `guid`, `name`, `race`, `class`, `gender`, `level`, `xp`, `gold`, current_hp, `positionX`, positionY, positionZ, orientation, mapId, taximask, playedtime ) VALUES ( '" & targetaccount & "', '" & newcharguid.ToString & "', '" & charactername & "', '0', '0', '0', '1', '0', '0', '1000','-14305.7', '514.08', '10', '4.30671', '0', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '98 98 5 ' )")
-                runfunction.normalsqlcommand("UPDATE characters SET forced_rename_pending ='1' WHERE guid='" & newcharguid.ToString & "'")
+                Process_Status.processreport.AppendText(
+                    Now.TimeOfDay.ToString & "// Player will be asked to change charactername!" & vbNewLine)
+                runfunction.normalsqlcommand(
+                    "INSERT INTO characters ( `acct`, `guid`, `name`, `race`, `class`, `gender`, `level`, `xp`, `gold`, current_hp, `positionX`, positionY, positionZ, orientation, mapId, taximask, playedtime ) VALUES ( '" &
+                    targetaccount & "', '" & newcharguid.ToString & "', '" & charactername &
+                    "', '0', '0', '0', '1', '0', '0', '1000','-14305.7', '514.08', '10', '4.30671', '0', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '98 98 5 ' )")
+                runfunction.normalsqlcommand(
+                    "UPDATE characters SET forced_rename_pending ='1' WHERE guid='" & newcharguid.ToString & "'")
             Else
-                runfunction.normalsqlcommand("INSERT INTO characters ( `acct`, `guid`, `name`, `race`, `class`, `gender`, `level`, `xp`, `gold`, current_hp, `positionX`, positionY, positionZ, orientation, mapId, taximask, playedtime ) VALUES ( '" & targetaccount & "', '" & newcharguid.ToString & "', '" & charactername & "', '0', '0', '0', '1', '0', '0', '1000','-14305.7', '514.08', '10', '4.30671', '0', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '98 98 5 ' )")
-                runfunction.normalsqlcommand("UPDATE characters SET forced_rename_pending='0' WHERE guid='" & newcharguid.ToString & "'")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO characters ( `acct`, `guid`, `name`, `race`, `class`, `gender`, `level`, `xp`, `gold`, current_hp, `positionX`, positionY, positionZ, orientation, mapId, taximask, playedtime ) VALUES ( '" &
+                    targetaccount & "', '" & newcharguid.ToString & "', '" & charactername &
+                    "', '0', '0', '0', '1', '0', '0', '1000','-14305.7', '514.08', '10', '4.30671', '0', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '98 98 5 ' )")
+                runfunction.normalsqlcommand(
+                    "UPDATE characters SET forced_rename_pending='0' WHERE guid='" & newcharguid.ToString & "'")
             End If
 
         End If
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Creating Hearthstone for Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Creating Hearthstone for Character: " & Main.char_name & vbNewLine)
 
-        Dim newguid As String = ((CInt(Val(runfunction.runcommand("SELECT guid FROM playeritems WHERE guid=(SELECT MAX(guid) FROM playeritems)", "guid")))) + 1).ToString
+        Dim newguid As String =
+                ((CInt(
+                    Val(
+                        runfunction.runcommand(
+                            "SELECT guid FROM playeritems WHERE guid=(SELECT MAX(guid) FROM playeritems)", "guid")))) +
+                 1).ToString
 
-        runfunction.normalsqlcommand("INSERT INTO playeritems ( ownerguid, guid, entry, flags, containerslot, slot ) VALUES ( '" & newguid & "', '" & Main.coreguid & "', '6948', '1', '-1', '23' )")
+        runfunction.normalsqlcommand(
+            "INSERT INTO playeritems ( ownerguid, guid, entry, flags, containerslot, slot ) VALUES ( '" & newguid &
+            "', '" & Main.coreguid & "', '6948', '1', '-1', '23' )")
 
         If Main.char_race = 1 Then
             If Main.char_class = 1 Then
                 addmultipleskills("26;1;1;43;1;5;54;1;5;55;1;5;95;1;5;162;1;5;413;1;1;414;1;1;415;1;1;433;1;1;754;1;1;")
-                addmultiplespell("78,81,107,196,198,201,202,203,204,522,668,2382,2457,2479,3050,3127,3365,5301,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,8737,9077,9078,9116,9125,20597,20598,20599,20864,21651,21652,22027,22810,58985,59752,")
+                addmultiplespell(
+                    "78,81,107,196,198,201,202,203,204,522,668,2382,2457,2479,3050,3127,3365,5301,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,8737,9077,9078,9116,9125,20597,20598,20599,20864,21651,21652,22027,22810,58985,59752,")
             ElseIf Main.char_class = 2 Then
                 addmultipleskills("54;1;5;95;1;5;160;1;5;162;1;5;413;1;1;414;1;1;415;1;1;433;1;1;594;1;1;754;1;1;")
-                addmultiplespell("81,107,198,199,203,204,522,635,668,2382,2479,3050,3127,3365,5301,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,8737,9077,9078,9116,9125,20597,20598,20599,20864,21084,21651,21652,22027,22810,27762,34082,58985,59752,")
+                addmultiplespell(
+                    "81,107,198,199,203,204,522,635,668,2382,2479,3050,3127,3365,5301,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,8737,9077,9078,9116,9125,20597,20598,20599,20864,21084,21651,21652,22027,22810,27762,34082,58985,59752,")
             ElseIf Main.char_class = 4 Then
                 addmultipleskills("38;1;1;95;1;5;162;1;5;173;1;5;176;1;5;253;1;1;414;1;1;415;1;1;754;1;1;")
-                addmultiplespell("81,203,204,522,668,674,1180,1752,2098,2382,2479,2567,2764,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9077,9078,9125,16092,20597,20598,20599,20864,21184,21651,21652,22027,22810,58985,59752,")
+                addmultiplespell(
+                    "81,203,204,522,668,674,1180,1752,2098,2382,2479,2567,2764,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9077,9078,9125,16092,20597,20598,20599,20864,21184,21651,21652,22027,22810,58985,59752,")
             ElseIf Main.char_class = 5 Then
                 addmultipleskills("54;1;5;56;1;1;95;1;5;136;1;5;162;1;5;228;1;5;415;1;1;754;1;1;")
-                addmultiplespell("81,198,203,204,227,522,585,668,2050,2382,2479,3050,3127,3365,5009,5019,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9078,9125,20597,20598,20599,20864,21651,21652,22027,22810,58985,59752,")
+                addmultiplespell(
+                    "81,198,203,204,227,522,585,668,2050,2382,2479,3050,3127,3365,5009,5019,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9078,9125,20597,20598,20599,20864,21651,21652,22027,22810,58985,59752,")
             ElseIf Main.char_class = 6 Then
-                addmultipleskills("43;270;275;44;270;275;55;270;275;95;270;275;129;270;300;162;270;275;172;270;275;229;270;275;293;1;1;413;1;1;414;1;1;415;1;1;754;1;1;762;150;150;770;1;1;771;1;1;772;1;1;")
-                addmultiplespell("81,196,197,200,201,202,203,204,522,668,674,750,2382,2479,3050,3127,3275,3276,3277,3278,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,7928,7929,7934,8386,8737,9077,9078,9125,10840,10841,10846,18629,18630,20597,20598,20599,20864,21651,21652,22027,22810,33391,45462,45477,45902,47541,48266,49410,49576,52665,58985,59752,59879,59921,61455,")
+                addmultipleskills(
+                    "43;270;275;44;270;275;55;270;275;95;270;275;129;270;300;162;270;275;172;270;275;229;270;275;293;1;1;413;1;1;414;1;1;415;1;1;754;1;1;762;150;150;770;1;1;771;1;1;772;1;1;")
+                addmultiplespell(
+                    "81,196,197,200,201,202,203,204,522,668,674,750,2382,2479,3050,3127,3275,3276,3277,3278,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,7928,7929,7934,8386,8737,9077,9078,9125,10840,10841,10846,18629,18630,20597,20598,20599,20864,21651,21652,22027,22810,33391,45462,45477,45902,47541,48266,49410,49576,52665,58985,59752,59879,59921,61455,")
             ElseIf Main.char_class = 8 Then
-                addmultipleskills("43;270;275;44;270;275;55;270;275;95;270;275;118;1;1;129;270;300;162;270;275;172;270;275;183;1;1;229;270;275;293;1;1;413;1;1;414;1;1;415;1;1;754;1;1;762;150;150;770;1;1;771;1;1;772;1;1;")
-                addmultiplespell("81,196,197,200,201,202,203,204,522,668,669,670,671,672,674,750,813,2382,2479,3050,3127,3275,3276,3277,3278,3365,6233,6246,6247,6477,6478,6603,7266,7267,7341,7355,7928,7929,7934,8386,8737,9077,9078,9125,10840,10841,10846,17737,18629,18630,20597,20598,20599,20864,21651,21652,22027,22810,29932,33391,45462,45477,45902,47541,48266,49410,49576,52665,58985,59752,59879,59921,61455,")
+                addmultipleskills(
+                    "43;270;275;44;270;275;55;270;275;95;270;275;118;1;1;129;270;300;162;270;275;172;270;275;183;1;1;229;270;275;293;1;1;413;1;1;414;1;1;415;1;1;754;1;1;762;150;150;770;1;1;771;1;1;772;1;1;")
+                addmultiplespell(
+                    "81,196,197,200,201,202,203,204,522,668,669,670,671,672,674,750,813,2382,2479,3050,3127,3275,3276,3277,3278,3365,6233,6246,6247,6477,6478,6603,7266,7267,7341,7355,7928,7929,7934,8386,8737,9077,9078,9125,10840,10841,10846,17737,18629,18630,20597,20598,20599,20864,21651,21652,22027,22810,29932,33391,45462,45477,45902,47541,48266,49410,49576,52665,58985,59752,59879,59921,61455,")
             ElseIf Main.char_class = 9 Then
-                addmultipleskills("43;270;275;44;270;275;55;270;275;95;270;275;118;1;1;129;270;300;162;270;275;172;270;275;183;1;1;229;270;275;293;1;1;413;1;1;414;1;1;415;1;1;754;1;1;762;150;150;770;1;1;771;1;1;772;1;1;")
-                addmultiplespell("81,196,197,200,201,202,203,204,522,668,669,670,671,672,674,750,813,2382,2479,3050,3127,3275,3276,3277,3278,3365,6233,6246,6247,6477,6478,6603,7266,7267,7341,7355,7928,7929,7934,8386,8737,9077,9078,9125,10840,10841,10846,17737,18629,18630,20597,20598,20599,20864,21651,21652,22027,22810,29932,33391,45462,45477,45902,47541,48266,49410,49576,52665,58985,59752,59879,59921,61455,")
+                addmultipleskills(
+                    "43;270;275;44;270;275;55;270;275;95;270;275;118;1;1;129;270;300;162;270;275;172;270;275;183;1;1;229;270;275;293;1;1;413;1;1;414;1;1;415;1;1;754;1;1;762;150;150;770;1;1;771;1;1;772;1;1;")
+                addmultiplespell(
+                    "81,196,197,200,201,202,203,204,522,668,669,670,671,672,674,750,813,2382,2479,3050,3127,3275,3276,3277,3278,3365,6233,6246,6247,6477,6478,6603,7266,7267,7341,7355,7928,7929,7934,8386,8737,9077,9078,9125,10840,10841,10846,17737,18629,18630,20597,20598,20599,20864,21651,21652,22027,22810,29932,33391,45462,45477,45902,47541,48266,49410,49576,52665,58985,59752,59879,59921,61455,")
             End If
         ElseIf Main.char_race = 2 Then
             If Main.char_class = 1 Then
-                addmultipleskills("26;1;1;43;1;5;44;1;5;55;1;5;95;1;5;125;1;1;162;1;5;172;1;5;183;1;1;413;1;1;414;1;1;415;1;1;433;1;1;")
-                addmultiplespell("78,81,107,196,197,201,202,203,204,522,668,669,670,671,672,813,2382,2457,2479,3050,3127,3365,5301,6233,6246,6247,6477,6478,6603,7266,7267,7341,7355,8386,8737,9077,9078,9116,9125,17737,20572,20573,20574,21651,21652,22027,22810,29932,54562,")
+                addmultipleskills(
+                    "26;1;1;43;1;5;44;1;5;55;1;5;95;1;5;125;1;1;162;1;5;172;1;5;183;1;1;413;1;1;414;1;1;415;1;1;433;1;1;")
+                addmultiplespell(
+                    "78,81,107,196,197,201,202,203,204,522,668,669,670,671,672,813,2382,2457,2479,3050,3127,3365,5301,6233,6246,6247,6477,6478,6603,7266,7267,7341,7355,8386,8737,9077,9078,9116,9125,17737,20572,20573,20574,21651,21652,22027,22810,29932,54562,")
             ElseIf Main.char_class = 3 Then
                 addmultipleskills("44;1;5;45;1;5;51;1;1;95;1;5;125;1;1;162;1;5;163;1;1;172;1;5;414;1;1;415;1;1;")
-                addmultiplespell("78,81,107,196,197,201,202,203,204,522,668,669,670,671,672,813,2382,2457,2479,3050,3127,3365,5301,6233,6246,6247,6477,6478,6603,7266,7267,7341,7355,8386,8737,9077,9078,9116,9125,17737,20572,20573,20574,21651,21652,22027,22810,29932,54562,")
+                addmultiplespell(
+                    "78,81,107,196,197,201,202,203,204,522,668,669,670,671,672,813,2382,2457,2479,3050,3127,3365,5301,6233,6246,6247,6477,6478,6603,7266,7267,7341,7355,8386,8737,9077,9078,9116,9125,17737,20572,20573,20574,21651,21652,22027,22810,29932,54562,")
             ElseIf Main.char_class = 4 Then
                 addmultipleskills("38;1;1;95;1;5;125;1;1;162;1;5;173;1;5;176;1;5;253;1;1;414;1;1;415;1;1;")
-                addmultiplespell("81,203,204,522,669,674,1180,1752,2098,2382,2479,2567,2764,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9077,9078,9125,16092,20572,20573,20574,21184,21651,21652,22027,22810,54562,")
+                addmultiplespell(
+                    "81,203,204,522,669,674,1180,1752,2098,2382,2479,2567,2764,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9077,9078,9125,16092,20572,20573,20574,21184,21651,21652,22027,22810,54562,")
             ElseIf Main.char_class = 6 Then
-                addmultipleskills("43;270;275;44;270;275;55;270;275;95;270;275;125;1;1;129;270;300;162;270;275;172;270;275;229;270;275;293;1;1;413;1;1;414;1;1;415;1;1;762;150;150;770;1;1;771;1;1;772;1;1;")
-                addmultiplespell("81,196,197,200,201,202,203,204,522,669,674,750,2382,2479,3050,3127,3275,3276,3277,3278,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,7928,7929,7934,8386,8737,9077,9078,9125,10840,10841,10846,18629,18630,20572,20573,20574,21651,21652,22027,22810,33391,45462,45477,45902,47541,48266,49410,49576,52665,54562,59879,59921,61455,")
+                addmultipleskills(
+                    "43;270;275;44;270;275;55;270;275;95;270;275;125;1;1;129;270;300;162;270;275;172;270;275;229;270;275;293;1;1;413;1;1;414;1;1;415;1;1;762;150;150;770;1;1;771;1;1;772;1;1;")
+                addmultiplespell(
+                    "81,196,197,200,201,202,203,204,522,669,674,750,2382,2479,3050,3127,3275,3276,3277,3278,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,7928,7929,7934,8386,8737,9077,9078,9125,10840,10841,10846,18629,18630,20572,20573,20574,21651,21652,22027,22810,33391,45462,45477,45902,47541,48266,49410,49576,52665,54562,59879,59921,61455,")
             ElseIf Main.char_class = 7 Then
                 addmultipleskills("54;1;5;95;1;5;125;1;1;136;1;5;162;1;5;375;1;1;414;1;1;415;1;1;433;1;1;573;1;1;")
-                addmultiplespell("81,107,198,203,204,227,331,403,522,669,2382,2479,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9077,9078,9116,9125,20573,20574,21651,21652,22027,22810,27763,33697,54562,")
+                addmultiplespell(
+                    "81,107,198,203,204,227,331,403,522,669,2382,2479,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9077,9078,9116,9125,20573,20574,21651,21652,22027,22810,27763,33697,54562,")
             ElseIf Main.char_class = 9 Then
                 addmultipleskills("95;1;5;125;1;1;136;1;5;162;1;5;173;1;5;228;1;5;354;1;1;415;1;1;593;1;1;")
-                addmultiplespell("81,203,204,227,522,669,686,687,1180,2382,2479,3050,3127,3365,5009,5019,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9078,9125,20573,20574,21651,21652,22027,22810,33702,54562,")
+                addmultiplespell(
+                    "81,203,204,227,522,669,686,687,1180,2382,2479,3050,3127,3365,5009,5019,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9078,9125,20573,20574,21651,21652,22027,22810,33702,54562,")
             End If
         ElseIf Main.char_race = 3 Then
             If Main.char_class = 1 Then
-                addmultipleskills("26;1;1;44;1;5;54;1;5;55;1;5;95;1;5;101;1;1;162;1;5;172;1;5;413;1;1;414;1;1;415;1;1;433;1;1;")
-                addmultiplespell("78,81,107,196,197,198,202,203,204,522,668,672,2382,2457,2479,2481,3050,3127,3365,5301,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,8737,9077,9078,9116,9125,20594,20595,20596,21651,21652,22027,22810,59224,")
+                addmultipleskills(
+                    "26;1;1;44;1;5;54;1;5;55;1;5;95;1;5;101;1;1;162;1;5;172;1;5;413;1;1;414;1;1;415;1;1;433;1;1;")
+                addmultiplespell(
+                    "78,81,107,196,197,198,202,203,204,522,668,672,2382,2457,2479,2481,3050,3127,3365,5301,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,8737,9077,9078,9116,9125,20594,20595,20596,21651,21652,22027,22810,59224,")
             ElseIf Main.char_class = 2 Then
                 addmultipleskills("54;1;5;95;1;5;101;1;1;160;1;5;162;1;5;413;1;1;414;1;1;415;1;1;433;1;1;594;1;1;")
-                addmultiplespell("81,107,198,199,203,204,522,635,668,672,2382,2479,2481,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,8737,9077,9078,9116,9125,20594,20595,20596,21084,21651,21652,22027,22810,27762,34082,59224,")
+                addmultiplespell(
+                    "81,107,198,199,203,204,522,635,668,672,2382,2479,2481,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,8737,9077,9078,9116,9125,20594,20595,20596,21084,21651,21652,22027,22810,27762,34082,59224,")
             ElseIf Main.char_class = 3 Then
                 addmultipleskills("44;1;5;46;1;5;51;1;1;95;1;5;101;1;1;162;1;5;163;1;1;172;1;5;414;1;1;415;1;1;")
-                addmultiplespell("75,81,196,197,203,204,266,522,668,672,2382,2479,2481,2973,3018,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9077,9078,9125,13358,20594,20595,20596,21651,21652,22027,22810,24949,59224,")
+                addmultiplespell(
+                    "75,81,196,197,203,204,266,522,668,672,2382,2479,2481,2973,3018,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9077,9078,9125,13358,20594,20595,20596,21651,21652,22027,22810,24949,59224,")
             ElseIf Main.char_class = 4 Then
                 addmultipleskills("38;1;1;95;1;5;101;1;1;162;1;5;173;1;5;176;1;5;253;1;1;414;1;1;415;1;1;")
-                addmultiplespell("81,203,204,522,668,672,674,1180,1752,2098,2382,2479,2481,2567,2764,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9077,9078,9125,16092,20594,20595,20596,21184,21651,21652,22027,22810,59224,")
+                addmultiplespell(
+                    "81,203,204,522,668,672,674,1180,1752,2098,2382,2479,2481,2567,2764,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9077,9078,9125,16092,20594,20595,20596,21184,21651,21652,22027,22810,59224,")
             ElseIf Main.char_class = 5 Then
                 addmultipleskills("54;1;5;56;1;1;95;1;5;101;1;1;136;1;5;162;1;5;228;1;5;415;1;1;")
-                addmultiplespell("81,198,203,204,227,522,585,668,672,2050,2382,2479,2481,3050,3127,3365,5009,5019,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9078,9125,20594,20595,20596,21651,21652,22027,22810,59224,")
+                addmultiplespell(
+                    "81,198,203,204,227,522,585,668,672,2050,2382,2479,2481,3050,3127,3365,5009,5019,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9078,9125,20594,20595,20596,21651,21652,22027,22810,59224,")
             ElseIf Main.char_class = 6 Then
-                addmultipleskills("43;270;275;44;270;275;55;270;275;95;270;275;101;1;1;129;270;300;162;270;275;172;270;275;229;270;275;293;1;1;413;1;1;414;1;1;415;1;1;762;150;150;770;1;1;771;1;1;772;1;1;")
-                addmultiplespell("81,196,197,200,201,202,203,204,522,668,672,674,750,2382,2479,2481,3050,3127,3275,3276,3277,3278,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,7928,7929,7934,8386,8737,9077,9078,9125,10840,10841,10846,18629,18630,20594,20595,20596,21651,21652,22027,22810,33391,45462,45477,45902,47541,48266,49410,49576,52665,59224,59879,59921,61455,")
+                addmultipleskills(
+                    "43;270;275;44;270;275;55;270;275;95;270;275;101;1;1;129;270;300;162;270;275;172;270;275;229;270;275;293;1;1;413;1;1;414;1;1;415;1;1;762;150;150;770;1;1;771;1;1;772;1;1;")
+                addmultiplespell(
+                    "81,196,197,200,201,202,203,204,522,668,672,674,750,2382,2479,2481,3050,3127,3275,3276,3277,3278,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,7928,7929,7934,8386,8737,9077,9078,9125,10840,10841,10846,18629,18630,20594,20595,20596,21651,21652,22027,22810,33391,45462,45477,45902,47541,48266,49410,49576,52665,59224,59879,59921,61455,")
             End If
         ElseIf Main.char_race = 4 Then
             If Main.char_class = 1 Then
-                addmultipleskills("26;1;1;43;1;5;54;1;5;55;1;5;95;1;5;126;1;1;162;1;5;173;1;5;413;1;1;414;1;1;415;1;1;433;1;1;")
-                addmultiplespell("78,81,107,198,201,202,203,204,522,668,671,1180,2382,2457,2479,3050,3127,3365,5301,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,8737,9077,9078,9116,9125,20582,20583,20585,21009,21651,21652,22027,22810,58984,")
+                addmultipleskills(
+                    "26;1;1;43;1;5;54;1;5;55;1;5;95;1;5;126;1;1;162;1;5;173;1;5;413;1;1;414;1;1;415;1;1;433;1;1;")
+                addmultiplespell(
+                    "78,81,107,198,201,202,203,204,522,668,671,1180,2382,2457,2479,3050,3127,3365,5301,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,8737,9077,9078,9116,9125,20582,20583,20585,21009,21651,21652,22027,22810,58984,")
             ElseIf Main.char_class = 3 Then
                 addmultipleskills("45;1;5;51;1;1;95;1;5;126;1;1;162;1;5;163;1;1;172;1;5;173;1;5;414;1;1;415;1;1;")
-                addmultiplespell("75,81,197,203,204,264,522,668,671,1180,2382,2479,2973,3018,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9077,9078,9125,13358,20582,20583,20585,21009,21651,21652,22027,22810,24949,58984,")
+                addmultiplespell(
+                    "75,81,197,203,204,264,522,668,671,1180,2382,2479,2973,3018,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9077,9078,9125,13358,20582,20583,20585,21009,21651,21652,22027,22810,24949,58984,")
             ElseIf Main.char_class = 4 Then
                 addmultipleskills("38;1;1;95;1;5;126;1;1;162;1;5;173;1;5;176;1;5;253;1;1;414;1;1;415;1;1;")
-                addmultiplespell("81,203,204,522,668,671,674,1180,1752,2098,2382,2479,2567,2764,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9077,9078,9125,16092,20582,20583,20585,21009,21184,21651,21652,22027,22810,58984,")
+                addmultiplespell(
+                    "81,203,204,522,668,671,674,1180,1752,2098,2382,2479,2567,2764,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9077,9078,9125,16092,20582,20583,20585,21009,21184,21651,21652,22027,22810,58984,")
             ElseIf Main.char_class = 5 Then
                 addmultipleskills("54;1;5;56;1;1;95;1;5;126;1;1;136;1;5;162;1;5;228;1;5;415;1;1;")
-                addmultiplespell("81,198,203,204,227,522,585,668,671,2050,2382,2479,3050,3127,3365,5009,5019,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9078,9125,20582,20583,20585,21009,21651,21652,22027,22810,58984,")
+                addmultiplespell(
+                    "81,198,203,204,227,522,585,668,671,2050,2382,2479,3050,3127,3365,5009,5019,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9078,9125,20582,20583,20585,21009,21651,21652,22027,22810,58984,")
             ElseIf Main.char_class = 6 Then
-                addmultipleskills("43;270;275;44;270;275;55;270;275;95;270;275;126;1;1;129;270;300;162;270;275;172;270;275;229;270;275;293;1;1;413;1;1;414;1;1;415;1;1;762;150;150;770;1;1;771;1;1;772;1;1;")
-                addmultiplespell("81,196,197,200,201,202,203,204,522,668,671,674,750,2382,2479,3050,3127,3275,3276,3277,3278,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,7928,7929,7934,8386,8737,9077,9078,9125,10840,10841,10846,18629,18630,20582,20583,20585,21009,21651,21652,22027,22810,33391,45462,45477,45902,47541,48266,49410,49576,52665,58984,59879,59921,61455,")
+                addmultipleskills(
+                    "43;270;275;44;270;275;55;270;275;95;270;275;126;1;1;129;270;300;162;270;275;172;270;275;229;270;275;293;1;1;413;1;1;414;1;1;415;1;1;762;150;150;770;1;1;771;1;1;772;1;1;")
+                addmultiplespell(
+                    "81,196,197,200,201,202,203,204,522,668,671,674,750,2382,2479,3050,3127,3275,3276,3277,3278,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,7928,7929,7934,8386,8737,9077,9078,9125,10840,10841,10846,18629,18630,20582,20583,20585,21009,21651,21652,22027,22810,33391,45462,45477,45902,47541,48266,49410,49576,52665,58984,59879,59921,61455,")
             ElseIf Main.char_class = 11 Then
                 addmultipleskills("95;1;5;126;1;1;136;1;5;162;1;5;173;1;5;414;1;1;415;1;1;573;1;1;574;1;1;")
-                addmultiplespell("81,203,204,227,522,668,671,1180,2382,2479,3050,3127,3365,5176,5185,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9077,9078,9125,20582,20583,20585,21009,21651,21652,22027,22810,27764,58984,")
+                addmultiplespell(
+                    "81,203,204,227,522,668,671,1180,2382,2479,3050,3127,3365,5176,5185,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9077,9078,9125,20582,20583,20585,21009,21651,21652,22027,22810,27764,58984,")
             End If
         ElseIf Main.char_race = 5 Then
             If Main.char_class = 1 Then
                 addmultipleskills("26;1;1;43;1;5;55;1;5;95;1;5;162;1;5;173;1;5;220;1;1;413;1;1;414;1;1;415;1;1;433;1;1;")
-                addmultiplespell("78,81,107,201,202,203,204,522,669,1180,2382,2457,2479,3050,3127,3365,5227,5301,6233,6246,6247,6477,6478,6603,7266,7267,7355,7744,8386,8737,9077,9078,9116,9125,17737,20577,20579,21651,21652,22027,22810,")
+                addmultiplespell(
+                    "78,81,107,201,202,203,204,522,669,1180,2382,2457,2479,3050,3127,3365,5227,5301,6233,6246,6247,6477,6478,6603,7266,7267,7355,7744,8386,8737,9077,9078,9116,9125,17737,20577,20579,21651,21652,22027,22810,")
             ElseIf Main.char_class = 4 Then
                 addmultipleskills("38;1;1;95;1;5;162;1;5;173;1;5;176;1;5;220;1;1;253;1;1;414;1;1;415;1;1;")
-                addmultiplespell("81,203,204,522,669,674,1180,1752,2098,2382,2479,2567,2764,3050,3127,3365,5227,6233,6246,6247,6477,6478,6603,7266,7267,7355,7744,8386,9077,9078,9125,16092,17737,20577,20579,21184,21651,21652,22027,22810,")
+                addmultiplespell(
+                    "81,203,204,522,669,674,1180,1752,2098,2382,2479,2567,2764,3050,3127,3365,5227,6233,6246,6247,6477,6478,6603,7266,7267,7355,7744,8386,9077,9078,9125,16092,17737,20577,20579,21184,21651,21652,22027,22810,")
             ElseIf Main.char_class = 5 Then
                 addmultipleskills("54;1;5;56;1;1;95;1;5;136;1;5;162;1;5;220;1;1;228;1;5;415;1;1;")
-                addmultiplespell("81,198,203,204,227,522,585,669,2050,2382,2479,3050,3127,3365,5009,5019,5227,6233,6246,6247,6477,6478,6603,7266,7267,7355,7744,8386,9078,9125,17737,20577,20579,21651,21652,22027,22810,")
+                addmultiplespell(
+                    "81,198,203,204,227,522,585,669,2050,2382,2479,3050,3127,3365,5009,5019,5227,6233,6246,6247,6477,6478,6603,7266,7267,7355,7744,8386,9078,9125,17737,20577,20579,21651,21652,22027,22810,")
             ElseIf Main.char_class = 6 Then
-                addmultipleskills("43;270;275;44;270;275;55;270;275;95;270;275;129;270;300;162;270;275;172;270;275;220;1;1;229;270;275;293;1;1;413;1;1;414;1;1;415;1;1;762;150;150;770;1;1;771;1;1;772;1;1;")
-                addmultiplespell("81,196,197,200,201,202,203,204,522,669,674,750,2382,2479,3050,3127,3275,3276,3277,3278,3365,5227,6233,6246,6247,6477,6478,6603,7266,7267,7355,7744,7928,7929,7934,8386,8737,9077,9078,9125,10840,10841,10846,17737,18629,18630,20577,20579,21651,21652,22027,22810,33391,45462,45477,45902,47541,48266,49410,49576,52665,59879,59921,61455,")
+                addmultipleskills(
+                    "43;270;275;44;270;275;55;270;275;95;270;275;129;270;300;162;270;275;172;270;275;220;1;1;229;270;275;293;1;1;413;1;1;414;1;1;415;1;1;762;150;150;770;1;1;771;1;1;772;1;1;")
+                addmultiplespell(
+                    "81,196,197,200,201,202,203,204,522,669,674,750,2382,2479,3050,3127,3275,3276,3277,3278,3365,5227,6233,6246,6247,6477,6478,6603,7266,7267,7355,7744,7928,7929,7934,8386,8737,9077,9078,9125,10840,10841,10846,17737,18629,18630,20577,20579,21651,21652,22027,22810,33391,45462,45477,45902,47541,48266,49410,49576,52665,59879,59921,61455,")
             ElseIf Main.char_class = 8 Then
                 addmultipleskills("6;1;1;8;1;1;95;1;5;136;1;5;162;1;5;220;1;1;228;1;5;415;1;1;")
-                addmultiplespell("81,133,168,203,204,227,522,669,2382,2479,3050,3127,3365,5009,5019,5227,6233,6246,6247,6477,6478,6603,7266,7267,7355,7744,8386,9078,9125,17737,20577,20579,21651,21652,22027,22810,")
+                addmultiplespell(
+                    "81,133,168,203,204,227,522,669,2382,2479,3050,3127,3365,5009,5019,5227,6233,6246,6247,6477,6478,6603,7266,7267,7355,7744,8386,9078,9125,17737,20577,20579,21651,21652,22027,22810,")
             ElseIf Main.char_class = 9 Then
                 addmultipleskills("95;1;5;136;1;5;162;1;5;173;1;5;220;1;1;228;1;5;354;1;1;415;1;1;593;1;1;")
-                addmultiplespell("81,203,204,227,522,669,686,687,1180,2382,2479,3050,3127,3365,5009,5019,5227,6233,6246,6247,6477,6478,6603,7266,7267,7355,7744,8386,9078,9125,17737,20577,20579,21651,21652,22027,22810,")
+                addmultiplespell(
+                    "81,203,204,227,522,669,686,687,1180,2382,2479,3050,3127,3365,5009,5019,5227,6233,6246,6247,6477,6478,6603,7266,7267,7355,7744,8386,9078,9125,17737,20577,20579,21651,21652,22027,22810,")
             End If
         ElseIf Main.char_race = 6 Then
             If Main.char_class = 1 Then
-                addmultipleskills("26;1;1;44;1;5;54;1;5;55;1;5;95;1;5;124;1;1;160;1;5;162;1;5;413;1;1;414;1;1;415;1;1;433;1;1;")
-                addmultiplespell("78,81,107,196,198,199,202,203,204,522,669,670,2382,2457,2479,3050,3127,3365,5301,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,8737,9077,9078,9116,9125,20549,20550,20551,20552,21651,21652,22027,22810,")
+                addmultipleskills(
+                    "26;1;1;44;1;5;54;1;5;55;1;5;95;1;5;124;1;1;160;1;5;162;1;5;413;1;1;414;1;1;415;1;1;433;1;1;")
+                addmultiplespell(
+                    "78,81,107,196,198,199,202,203,204,522,669,670,2382,2457,2479,3050,3127,3365,5301,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,8737,9077,9078,9116,9125,20549,20550,20551,20552,21651,21652,22027,22810,")
             ElseIf Main.char_class = 3 Then
                 addmultipleskills("44;1;5;46;1;5;51;1;1;95;1;5;124;1;1;162;1;5;163;1;1;172;1;5;414;1;1;415;1;1;")
-                addmultiplespell("75,81,196,197,203,204,266,522,669,670,2382,2479,2973,3018,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9077,9078,9125,13358,20549,20550,20551,20552,21651,21652,22027,22810,24949,")
+                addmultiplespell(
+                    "75,81,196,197,203,204,266,522,669,670,2382,2479,2973,3018,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9077,9078,9125,13358,20549,20550,20551,20552,21651,21652,22027,22810,24949,")
             ElseIf Main.char_class = 6 Then
-                addmultipleskills("43;270;275;44;270;275;55;270;275;95;270;275;124;1;1;129;270;300;162;270;275;172;270;275;229;270;275;293;1;1;413;1;1;414;1;1;415;1;1;762;150;150;770;1;1;771;1;1;772;1;1;")
-                addmultiplespell("81,196,197,200,201,202,203,204,522,669,670,674,750,2382,2479,3050,3127,3275,3276,3277,3278,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,7928,7929,7934,8386,8737,9077,9078,9125,10840,10841,10846,18629,18630,20549,20550,20551,20552,21651,21652,22027,22810,33391,45462,45477,45902,47541,48266,49410,49576,52665,59879,59921,61455,")
+                addmultipleskills(
+                    "43;270;275;44;270;275;55;270;275;95;270;275;124;1;1;129;270;300;162;270;275;172;270;275;229;270;275;293;1;1;413;1;1;414;1;1;415;1;1;762;150;150;770;1;1;771;1;1;772;1;1;")
+                addmultiplespell(
+                    "81,196,197,200,201,202,203,204,522,669,670,674,750,2382,2479,3050,3127,3275,3276,3277,3278,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,7928,7929,7934,8386,8737,9077,9078,9125,10840,10841,10846,18629,18630,20549,20550,20551,20552,21651,21652,22027,22810,33391,45462,45477,45902,47541,48266,49410,49576,52665,59879,59921,61455,")
             ElseIf Main.char_class = 7 Then
                 addmultipleskills("54;1;5;95;1;5;124;1;1;136;1;5;162;1;5;375;1;1;414;1;1;415;1;1;433;1;1;573;1;1;")
-                addmultiplespell("81,107,198,203,204,227,331,403,522,669,670,2382,2479,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9077,9078,9116,9125,20549,20550,20551,20552,21651,21652,22027,22810,27763,")
+                addmultiplespell(
+                    "81,107,198,203,204,227,331,403,522,669,670,2382,2479,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9077,9078,9116,9125,20549,20550,20551,20552,21651,21652,22027,22810,27763,")
             ElseIf Main.char_class = 11 Then
                 addmultipleskills("54;1;5;95;1;5;124;1;1;136;1;5;162;1;5;414;1;1;415;1;1;573;1;1;574;1;1;")
-                addmultiplespell("81,198,203,204,227,522,669,670,2382,2479,3050,3127,3365,5176,5185,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9077,9078,9125,20549,20550,20551,20552,21651,21652,22027,22810,27764,")
+                addmultiplespell(
+                    "81,198,203,204,227,522,669,670,2382,2479,3050,3127,3365,5176,5185,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9077,9078,9125,20549,20550,20551,20552,21651,21652,22027,22810,27764,")
             End If
         ElseIf Main.char_race = 7 Then
             If Main.char_class = 1 Then
-                addmultipleskills("26;1;1;43;1;5;54;1;5;55;1;5;95;1;5;162;1;5;173;1;5;413;1;1;414;1;1;415;1;1;433;1;1;753;1;1;")
-                addmultiplespell("78,81,107,198,201,202,203,204,522,668,1180,2382,2457,2479,3050,3127,3365,5301,6233,6246,6247,6477,6478,6603,7266,7267,7340,7355,8386,8737,9077,9078,9116,9125,20589,20591,20592,20593,21651,21652,22027,22810,")
+                addmultipleskills(
+                    "26;1;1;43;1;5;54;1;5;55;1;5;95;1;5;162;1;5;173;1;5;413;1;1;414;1;1;415;1;1;433;1;1;753;1;1;")
+                addmultiplespell(
+                    "78,81,107,198,201,202,203,204,522,668,1180,2382,2457,2479,3050,3127,3365,5301,6233,6246,6247,6477,6478,6603,7266,7267,7340,7355,8386,8737,9077,9078,9116,9125,20589,20591,20592,20593,21651,21652,22027,22810,")
             ElseIf Main.char_class = 4 Then
                 addmultipleskills("38;1;1;95;1;5;162;1;5;173;1;5;176;1;5;253;1;1;414;1;1;415;1;1;753;1;1;")
-                addmultiplespell("81,203,204,522,668,674,1180,1752,2098,2382,2479,2567,2764,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7340,7355,8386,9077,9078,9125,16092,20589,20591,20592,20593,21184,21651,21652,22027,22810,")
+                addmultiplespell(
+                    "81,203,204,522,668,674,1180,1752,2098,2382,2479,2567,2764,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7340,7355,8386,9077,9078,9125,16092,20589,20591,20592,20593,21184,21651,21652,22027,22810,")
             ElseIf Main.char_class = 6 Then
-                addmultipleskills("43;270;275;44;270;275;55;270;275;95;270;275;129;270;300;162;270;275;172;270;275;229;270;275;293;1;1;413;1;1;414;1;1;415;1;1;753;1;1;762;150;150;770;1;1;771;1;1;772;1;1;")
-                addmultiplespell("81,196,197,200,201,202,203,204,522,668,674,750,2382,2479,3050,3127,3275,3276,3277,3278,3365,6233,6246,6247,6477,6478,6603,7266,7267,7340,7355,7928,7929,7934,8386,8737,9077,9078,9125,10840,10841,10846,18629,18630,20589,20591,20592,20593,21651,21652,22027,22810,33391,45462,45477,45902,47541,48266,49410,49576,52665,59879,59921,61455,")
+                addmultipleskills(
+                    "43;270;275;44;270;275;55;270;275;95;270;275;129;270;300;162;270;275;172;270;275;229;270;275;293;1;1;413;1;1;414;1;1;415;1;1;753;1;1;762;150;150;770;1;1;771;1;1;772;1;1;")
+                addmultiplespell(
+                    "81,196,197,200,201,202,203,204,522,668,674,750,2382,2479,3050,3127,3275,3276,3277,3278,3365,6233,6246,6247,6477,6478,6603,7266,7267,7340,7355,7928,7929,7934,8386,8737,9077,9078,9125,10840,10841,10846,18629,18630,20589,20591,20592,20593,21651,21652,22027,22810,33391,45462,45477,45902,47541,48266,49410,49576,52665,59879,59921,61455,")
             ElseIf Main.char_class = 8 Then
                 addmultipleskills("6;1;1;8;1;1;95;1;5;136;1;5;162;1;5;228;1;5;415;1;1;753;1;1;")
-                addmultiplespell("81,133,168,203,204,227,522,668,2382,2479,3050,3127,3365,5009,5019,6233,6246,6247,6477,6478,6603,7266,7267,7340,7355,8386,9078,9125,20589,20591,20592,20593,21651,21652,22027,22810,")
+                addmultiplespell(
+                    "81,133,168,203,204,227,522,668,2382,2479,3050,3127,3365,5009,5019,6233,6246,6247,6477,6478,6603,7266,7267,7340,7355,8386,9078,9125,20589,20591,20592,20593,21651,21652,22027,22810,")
             ElseIf Main.char_class = 9 Then
                 addmultipleskills("95;1;5;136;1;5;162;1;5;173;1;5;228;1;5;354;1;1;415;1;1;593;1;1;753;1;1;")
-                addmultiplespell("81,203,204,227,522,668,686,687,1180,2382,2479,3050,3127,3365,5009,5019,6233,6246,6247,6477,6478,6603,7266,7267,7340,7355,8386,9078,9125,20589,20591,20592,20593,21651,21652,22027,22810,")
+                addmultiplespell(
+                    "81,203,204,227,522,668,686,687,1180,2382,2479,3050,3127,3365,5009,5019,6233,6246,6247,6477,6478,6603,7266,7267,7340,7355,8386,9078,9125,20589,20591,20592,20593,21651,21652,22027,22810,")
             End If
         ElseIf Main.char_race = 8 Then
             If Main.char_class = 1 Then
-                addmultipleskills("26;1;1;44;1;5;55;1;5;95;1;5;162;1;5;173;1;5;176;1;5;413;1;1;414;1;1;415;1;1;433;1;1;733;1;1;")
-                addmultiplespell("78,81,107,196,202,203,204,522,669,1180,2382,2457,2479,2567,2764,3050,3127,3365,5301,6233,6246,6247,6477,6478,6603,7266,7267,7341,7355,8386,8737,9077,9078,9116,9125,20555,20557,20558,21651,21652,22027,22810,26290,26297,58943,")
+                addmultipleskills(
+                    "26;1;1;44;1;5;55;1;5;95;1;5;162;1;5;173;1;5;176;1;5;413;1;1;414;1;1;415;1;1;433;1;1;733;1;1;")
+                addmultiplespell(
+                    "78,81,107,196,202,203,204,522,669,1180,2382,2457,2479,2567,2764,3050,3127,3365,5301,6233,6246,6247,6477,6478,6603,7266,7267,7341,7355,8386,8737,9077,9078,9116,9125,20555,20557,20558,21651,21652,22027,22810,26290,26297,58943,")
             ElseIf Main.char_class = 3 Then
                 addmultipleskills("44;1;5;45;1;5;51;1;1;95;1;5;162;1;5;163;1;1;172;1;5;414;1;1;415;1;1;733;1;1;")
-                addmultiplespell("75,81,196,197,203,204,264,522,669,2382,2479,2973,3018,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7341,7355,8386,9077,9078,9125,13358,20555,20557,20558,21651,21652,22027,22810,24949,26290,26297,58943,")
+                addmultiplespell(
+                    "75,81,196,197,203,204,264,522,669,2382,2479,2973,3018,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7341,7355,8386,9077,9078,9125,13358,20555,20557,20558,21651,21652,22027,22810,24949,26290,26297,58943,")
             ElseIf Main.char_class = 4 Then
                 addmultipleskills("38;1;1;95;1;5;162;1;5;173;1;5;176;1;5;253;1;1;414;1;1;415;1;1;733;1;1;")
-                addmultiplespell("81,203,204,522,669,674,1180,1752,2098,2382,2479,2567,2764,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7341,7355,8386,9077,9078,9125,16092,20555,20557,20558,21184,21651,21652,22027,22810,26290,26297,58943,")
+                addmultiplespell(
+                    "81,203,204,522,669,674,1180,1752,2098,2382,2479,2567,2764,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7341,7355,8386,9077,9078,9125,16092,20555,20557,20558,21184,21651,21652,22027,22810,26290,26297,58943,")
             ElseIf Main.char_class = 5 Then
                 addmultipleskills("54;1;5;56;1;1;95;1;5;136;1;5;162;1;5;228;1;5;415;1;1;733;1;1;")
-                addmultiplespell("81,198,203,204,227,522,585,669,2050,2382,2479,3050,3127,3365,5009,5019,6233,6246,6247,6477,6478,6603,7266,7267,7341,7355,8386,9078,9125,20555,20557,20558,21651,21652,22027,22810,26290,26297,58943,")
+                addmultiplespell(
+                    "81,198,203,204,227,522,585,669,2050,2382,2479,3050,3127,3365,5009,5019,6233,6246,6247,6477,6478,6603,7266,7267,7341,7355,8386,9078,9125,20555,20557,20558,21651,21652,22027,22810,26290,26297,58943,")
             ElseIf Main.char_class = 6 Then
-                addmultipleskills("43;270;275;44;270;275;55;270;275;95;270;275;129;270;300;162;270;275;172;270;275;229;270;275;293;1;1;413;1;1;414;1;1;415;1;1;733;1;1;762;150;150;770;1;1;771;1;1;772;1;1;")
-                addmultiplespell("81,196,197,200,201,202,203,204,522,669,674,750,2382,2479,3050,3127,3275,3276,3277,3278,3365,6233,6246,6247,6477,6478,6603,7266,7267,7341,7355,7928,7929,7934,8386,8737,9077,9078,9125,10840,10841,10846,18629,18630,20555,20557,20558,21651,21652,22027,22810,26290,26297,33391,45462,45477,45902,47541,48266,49410,49576,52665,58943,59879,59921,61455,")
+                addmultipleskills(
+                    "43;270;275;44;270;275;55;270;275;95;270;275;129;270;300;162;270;275;172;270;275;229;270;275;293;1;1;413;1;1;414;1;1;415;1;1;733;1;1;762;150;150;770;1;1;771;1;1;772;1;1;")
+                addmultiplespell(
+                    "81,196,197,200,201,202,203,204,522,669,674,750,2382,2479,3050,3127,3275,3276,3277,3278,3365,6233,6246,6247,6477,6478,6603,7266,7267,7341,7355,7928,7929,7934,8386,8737,9077,9078,9125,10840,10841,10846,18629,18630,20555,20557,20558,21651,21652,22027,22810,26290,26297,33391,45462,45477,45902,47541,48266,49410,49576,52665,58943,59879,59921,61455,")
             ElseIf Main.char_class = 7 Then
                 addmultipleskills("54;1;5;95;1;5;136;1;5;162;1;5;375;1;1;414;1;1;415;1;1;573;1;1;733;1;1;")
-                addmultiplespell("81,107,198,203,204,227,331,403,522,669,2382,2479,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7341,7355,8386,9077,9078,9116,9125,20555,20557,20558,21651,21652,22027,22810,26290,26297,27763,58943,")
+                addmultiplespell(
+                    "81,107,198,203,204,227,331,403,522,669,2382,2479,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7341,7355,8386,9077,9078,9116,9125,20555,20557,20558,21651,21652,22027,22810,26290,26297,27763,58943,")
             ElseIf Main.char_class = 8 Then
                 addmultipleskills("6;1;1;8;1;1;95;1;5;136;1;5;162;1;5;228;1;5;415;1;1;733;1;1;")
-                addmultiplespell("81,133,168,203,204,227,522,669,2382,2479,3050,3127,3365,5009,5019,6233,6246,6247,6477,6478,6603,7266,7267,7341,7355,8386,9078,9125,20555,20557,20558,21651,21652,22027,22810,26290,26297,58943,")
+                addmultiplespell(
+                    "81,133,168,203,204,227,522,669,2382,2479,3050,3127,3365,5009,5019,6233,6246,6247,6477,6478,6603,7266,7267,7341,7355,8386,9078,9125,20555,20557,20558,21651,21652,22027,22810,26290,26297,58943,")
             End If
         ElseIf Main.char_race = 10 Then
             If Main.char_class = 2 Then
                 addmultipleskills("43;1;5;55;1;5;95;1;5;162;1;5;413;1;1;414;1;1;415;1;1;433;1;1;594;1;1;756;1;1;")
-                addmultiplespell("81,107,201,202,203,204,522,635,669,813,822,2382,2479,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,8737,9077,9078,9116,9125,21084,21651,21652,22027,22810,25046,27762,28877,34082,")
+                addmultiplespell(
+                    "81,107,201,202,203,204,522,635,669,813,822,2382,2479,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,8737,9077,9078,9116,9125,21084,21651,21652,22027,22810,25046,27762,28877,34082,")
             ElseIf Main.char_class = 3 Then
                 addmultipleskills("45;1;5;51;1;1;95;1;5;162;1;5;163;1;1;172;1;5;173;1;5;414;1;1;415;1;1;756;1;1;")
-                addmultiplespell("75,81,197,203,204,264,522,669,813,822,1180,2382,2479,2973,3018,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9077,9078,9125,13358,21651,21652,22027,22810,24949,25046,28877,")
+                addmultiplespell(
+                    "75,81,197,203,204,264,522,669,813,822,1180,2382,2479,2973,3018,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9077,9078,9125,13358,21651,21652,22027,22810,24949,25046,28877,")
             ElseIf Main.char_class = 4 Then
                 addmultipleskills("38;1;1;95;1;5;162;1;5;173;1;5;176;1;5;253;1;1;414;1;1;415;1;1;756;1;1;")
-                addmultiplespell("81,203,204,522,669,674,813,822,1180,1752,2098,2382,2479,2567,2764,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9077,9078,9125,16092,21184,21651,21652,22027,22810,25046,28877,")
+                addmultiplespell(
+                    "81,203,204,522,669,674,813,822,1180,1752,2098,2382,2479,2567,2764,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9077,9078,9125,16092,21184,21651,21652,22027,22810,25046,28877,")
             ElseIf Main.char_class = 5 Then
                 addmultipleskills("54;1;5;56;1;1;95;1;5;136;1;5;162;1;5;228;1;5;415;1;1;756;1;1;")
-                addmultiplespell("81,198,203,204,227,522,585,669,813,822,2050,2382,2479,3050,3127,3365,5009,5019,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9078,9125,21651,21652,22027,22810,28730,28877,")
+                addmultiplespell(
+                    "81,198,203,204,227,522,585,669,813,822,2050,2382,2479,3050,3127,3365,5009,5019,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9078,9125,21651,21652,22027,22810,28730,28877,")
             ElseIf Main.char_class = 6 Then
-                addmultipleskills("43;270;275;44;270;275;55;270;275;95;270;275;129;270;300;162;270;275;172;270;275;229;270;275;293;1;1;413;1;1;414;1;1;415;1;1;756;1;1;762;150;150;770;1;1;771;1;1;772;1;1;")
-                addmultiplespell("81,196,197,200,201,202,203,204,522,669,674,750,813,822,2382,2479,3050,3127,3275,3276,3277,3278,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,7928,7929,7934,8386,8737,9077,9078,9125,10840,10841,10846,18629,18630,21651,21652,22027,22810,28877,33391,45462,45477,45902,47541,48266,49410,49576,50613,52665,59879,59921,61455,")
+                addmultipleskills(
+                    "43;270;275;44;270;275;55;270;275;95;270;275;129;270;300;162;270;275;172;270;275;229;270;275;293;1;1;413;1;1;414;1;1;415;1;1;756;1;1;762;150;150;770;1;1;771;1;1;772;1;1;")
+                addmultiplespell(
+                    "81,196,197,200,201,202,203,204,522,669,674,750,813,822,2382,2479,3050,3127,3275,3276,3277,3278,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,7928,7929,7934,8386,8737,9077,9078,9125,10840,10841,10846,18629,18630,21651,21652,22027,22810,28877,33391,45462,45477,45902,47541,48266,49410,49576,50613,52665,59879,59921,61455,")
             ElseIf Main.char_class = 8 Then
                 addmultipleskills("6;1;1;8;1;1;95;1;5;136;1;5;162;1;5;228;1;5;415;1;1;756;1;1;")
-                addmultiplespell("81,133,168,203,204,227,522,669,813,822,2382,2479,3050,3127,3365,5009,5019,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9078,9125,21651,21652,22027,22810,28730,28877,")
+                addmultiplespell(
+                    "81,133,168,203,204,227,522,669,813,822,2382,2479,3050,3127,3365,5009,5019,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9078,9125,21651,21652,22027,22810,28730,28877,")
             ElseIf Main.char_class = 9 Then
                 addmultipleskills("95;1;5;136;1;5;162;1;5;173;1;5;228;1;5;354;1;1;415;1;1;593;1;1;756;1;1;")
-                addmultiplespell("81,203,204,227,522,669,686,687,813,822,1180,2382,2479,3050,3127,3365,5009,5019,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9078,9125,21651,21652,22027,22810,28730,28877,")
+                addmultiplespell(
+                    "81,203,204,227,522,669,686,687,813,822,1180,2382,2479,3050,3127,3365,5009,5019,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9078,9125,21651,21652,22027,22810,28730,28877,")
             End If
         ElseIf Main.char_race = 11 Then
             If Main.char_class = 1 Then
                 addmultipleskills("26;1;1;43;1;5;54;1;5;55;1;5;95;1;5;162;1;5;413;1;1;414;1;1;415;1;1;433;1;1;760;1;1;")
-                addmultiplespell("78,81,107,198,201,202,203,204,522,668,2382,2457,2479,3050,3127,3365,5301,6233,6246,6247,6477,6478,6562,6603,7266,7267,7355,8386,8737,9077,9078,9116,9125,20579,21651,21652,22027,22810,28875,28880,29932,32215,")
+                addmultiplespell(
+                    "78,81,107,198,201,202,203,204,522,668,2382,2457,2479,3050,3127,3365,5301,6233,6246,6247,6477,6478,6562,6603,7266,7267,7355,8386,8737,9077,9078,9116,9125,20579,21651,21652,22027,22810,28875,28880,29932,32215,")
             ElseIf Main.char_class = 2 Then
                 addmultipleskills("54;1;5;95;1;5;160;1;5;162;1;5;413;1;1;414;1;1;415;1;1;433;1;1;594;1;1;760;1;1;")
-                addmultiplespell("81,107,198,199,203,204,522,635,668,2382,2479,3050,3127,3365,6233,6246,6247,6477,6478,6562,6603,7266,7267,7355,8386,8737,9077,9078,9116,9125,20579,21084,21651,21652,22027,22810,27762,28875,28880,29932,34082,")
+                addmultiplespell(
+                    "81,107,198,199,203,204,522,635,668,2382,2479,3050,3127,3365,6233,6246,6247,6477,6478,6562,6603,7266,7267,7355,8386,8737,9077,9078,9116,9125,20579,21084,21651,21652,22027,22810,27762,28875,28880,29932,34082,")
             ElseIf Main.char_class = 3 Then
                 addmultipleskills("43;1;5;51;1;1;95;1;5;162;1;5;163;1;1;172;1;5;226;1;5;414;1;1;415;1;1;760;1;1;")
-                addmultiplespell("75,81,197,201,203,204,522,668,2382,2479,2973,3018,3050,3127,3365,5011,6233,6246,6247,6477,6478,6562,6603,7266,7267,7355,8386,9077,9078,9125,13358,20579,21651,21652,22027,22810,24949,28875,28880,29932,")
+                addmultiplespell(
+                    "75,81,197,201,203,204,522,668,2382,2479,2973,3018,3050,3127,3365,5011,6233,6246,6247,6477,6478,6562,6603,7266,7267,7355,8386,9077,9078,9125,13358,20579,21651,21652,22027,22810,24949,28875,28880,29932,")
             ElseIf Main.char_class = 5 Then
                 addmultipleskills("54;1;5;56;1;1;95;1;5;136;1;5;162;1;5;228;1;5;415;1;1;760;1;1;")
-                addmultiplespell("81,198,203,204,227,522,585,668,2050,2382,2479,3050,3127,3365,5009,5019,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9078,9125,20579,21651,21652,22027,22810,28875,28878,28880,29932,")
+                addmultiplespell(
+                    "81,198,203,204,227,522,585,668,2050,2382,2479,3050,3127,3365,5009,5019,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9078,9125,20579,21651,21652,22027,22810,28875,28878,28880,29932,")
             ElseIf Main.char_class = 6 Then
-                addmultipleskills("43;270;275;44;270;275;55;270;275;95;270;275;129;270;300;162;270;275;172;270;275;229;270;275;293;1;1;413;1;1;414;1;1;415;1;1;760;1;1;762;150;150;770;1;1;771;1;1;772;1;1;")
-                addmultiplespell("81,196,197,200,201,202,203,204,522,668,674,750,2382,2479,3050,3127,3275,3276,3277,3278,3365,6233,6246,6247,6477,6478,6562,6603,7266,7267,7355,7928,7929,7934,8386,8737,9077,9078,9125,10840,10841,10846,18629,18630,20579,21651,21652,22027,22810,28875,28880,29932,33391,45462,45477,45902,47541,48266,49410,49576,52665,59879,59921,61455,")
+                addmultipleskills(
+                    "43;270;275;44;270;275;55;270;275;95;270;275;129;270;300;162;270;275;172;270;275;229;270;275;293;1;1;413;1;1;414;1;1;415;1;1;760;1;1;762;150;150;770;1;1;771;1;1;772;1;1;")
+                addmultiplespell(
+                    "81,196,197,200,201,202,203,204,522,668,674,750,2382,2479,3050,3127,3275,3276,3277,3278,3365,6233,6246,6247,6477,6478,6562,6603,7266,7267,7355,7928,7929,7934,8386,8737,9077,9078,9125,10840,10841,10846,18629,18630,20579,21651,21652,22027,22810,28875,28880,29932,33391,45462,45477,45902,47541,48266,49410,49576,52665,59879,59921,61455,")
             ElseIf Main.char_class = 7 Then
                 addmultipleskills("54;1;5;95;1;5;136;1;5;162;1;5;375;1;1;414;1;1;415;1;1;433;1;1;573;1;1;760;1;1;")
-                addmultiplespell("81,107,198,203,204,227,331,403,522,668,2382,2479,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9077,9078,9116,9125,20579,21651,21652,22027,22810,27763,28875,28878,28880,29932,")
+                addmultiplespell(
+                    "81,107,198,203,204,227,331,403,522,668,2382,2479,3050,3127,3365,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9077,9078,9116,9125,20579,21651,21652,22027,22810,27763,28875,28878,28880,29932,")
             ElseIf Main.char_class = 8 Then
                 addmultipleskills("6;1;1;8;1;1;95;1;5;136;1;5;162;1;5;228;1;5;415;1;1;760;1;1;")
-                addmultiplespell("81,133,168,203,204,227,522,668,2382,2479,3050,3127,3365,5009,5019,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9078,9125,20579,21651,21652,22027,22810,28875,28878,28880,29932,")
+                addmultiplespell(
+                    "81,133,168,203,204,227,522,668,2382,2479,3050,3127,3365,5009,5019,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9078,9125,20579,21651,21652,22027,22810,28875,28878,28880,29932,")
             End If
         End If
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Created Character " & charactername & "!" & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Created Character " & charactername & "!" & vbNewLine)
         Application.DoEvents()
     End Sub
+
     Public Sub addmultipleskills(ByVal skillstring As String)
 
         Dim excounter As Integer = UBound(skillstring.Split(CChar(";")))
@@ -2092,8 +2482,8 @@ Public Class ArcEmu_core
             addsingleskill(skillid, standing, basestanding)
 
         Loop Until startcounter = excounter
-
     End Sub
+
     Public Sub addmultiplespell(ByVal spells As String)
         Dim excounter As Integer = UBound(spells.Split(CChar(",")))
         Dim startcounter As Integer = 0
@@ -2103,59 +2493,121 @@ Public Class ArcEmu_core
             addsinglespell(spellid)
             startcounter += 1
         Loop Until startcounter = excounter
-
     End Sub
-    Public Sub addsingleskill(ByVal skillid As Integer, Optional ByVal value As Integer = 1, Optional ByVal max As Integer = 1)
-        Dim skillstring As String = runfunction.runcommand("SELECT `skills` FROM characters WHERE `guid`='" & Main.coreguid & "'", "skills")
-        runfunction.normalsqlcommand("UPDATE characters SET skills='" & skillstring & skillid.ToString & ";" & value.ToString & ";" & max.ToString & ";' WHERE guid='" & Main.coreguid & "'")
 
+    Public Sub addsingleskill(ByVal skillid As Integer, Optional ByVal value As Integer = 1,
+                              Optional ByVal max As Integer = 1)
+        Dim skillstring As String =
+                runfunction.runcommand("SELECT `skills` FROM characters WHERE `guid`='" & Main.coreguid & "'", "skills")
+        runfunction.normalsqlcommand(
+            "UPDATE characters SET skills='" & skillstring & skillid.ToString & ";" & value.ToString & ";" &
+            max.ToString & ";' WHERE guid='" & Main.coreguid & "'")
     End Sub
+
     Public Sub addsinglespell(ByVal spellid As Integer)
-        Dim skillstring As String = runfunction.runcommand("SELECT `spells` FROM characters WHERE `guid`='" & Main.coreguid & "'", "spells")
-        runfunction.normalsqlcommand("UPDATE characters SET spells='" & skillstring & spellid.ToString & ",' WHERE guid='" & Main.coreguid & "'")
+        Dim skillstring As String =
+                runfunction.runcommand("SELECT `spells` FROM characters WHERE `guid`='" & Main.coreguid & "'", "spells")
+        runfunction.normalsqlcommand(
+            "UPDATE characters SET spells='" & skillstring & spellid.ToString & ",' WHERE guid='" & Main.coreguid & "'")
     End Sub
+
     Public Sub sethome()
         Dim tmpstring As String = Main.character_homebind
-        runfunction.normalsqlcommand("UPDATE characters SET bindpositionX='" & splitlist(Main.character_homebind, "position_x") & "' WHERE guid='" & Main.coreguid & "'")
-        runfunction.normalsqlcommand("UPDATE characters SET bindpositionY='" & splitlist(Main.character_homebind, "position_y") & "' WHERE guid='" & Main.coreguid & "'")
-        runfunction.normalsqlcommand("UPDATE characters SET bindpositionZ='" & splitlist(Main.character_homebind, "position_z") & "' WHERE guid='" & Main.coreguid & "'")
-        runfunction.normalsqlcommand("UPDATE characters SET bindmapId='" & splitlist(Main.character_homebind, "map") & "' WHERE guid='" & Main.coreguid & "'")
-        runfunction.normalsqlcommand("UPDATE characters SET bindzoneId='" & splitlist(Main.character_homebind, "zone") & "' WHERE guid='" & Main.coreguid & "'")
+        runfunction.normalsqlcommand(
+            "UPDATE characters SET bindpositionX='" & splitlist(Main.character_homebind, "position_x") &
+            "' WHERE guid='" & Main.coreguid & "'")
+        runfunction.normalsqlcommand(
+            "UPDATE characters SET bindpositionY='" & splitlist(Main.character_homebind, "position_y") &
+            "' WHERE guid='" & Main.coreguid & "'")
+        runfunction.normalsqlcommand(
+            "UPDATE characters SET bindpositionZ='" & splitlist(Main.character_homebind, "position_z") &
+            "' WHERE guid='" & Main.coreguid & "'")
+        runfunction.normalsqlcommand(
+            "UPDATE characters SET bindmapId='" & splitlist(Main.character_homebind, "map") & "' WHERE guid='" &
+            Main.coreguid & "'")
+        runfunction.normalsqlcommand(
+            "UPDATE characters SET bindzoneId='" & splitlist(Main.character_homebind, "zone") & "' WHERE guid='" &
+            Main.coreguid & "'")
     End Sub
-    Public Sub adddetailedchar(ByVal targetaccount As String, ByVal charactername As String, ByVal namechangeeverytime As Boolean)
 
-        Dim newcharguid As Integer = CInt(Val(runfunction.runcommand("SELECT guid FROM characters WHERE guid=(SELECT MAX(guid) FROM characters)", "guid"))) + 1
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Creating Character " & charactername & "!" & vbNewLine)
+    Public Sub adddetailedchar(ByVal targetaccount As String, ByVal charactername As String,
+                               ByVal namechangeeverytime As Boolean)
+
+        Dim newcharguid As Integer =
+                CInt(
+                    Val(
+                        runfunction.runcommand(
+                            "SELECT guid FROM characters WHERE guid=(SELECT MAX(guid) FROM characters)", "guid"))) + 1
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Creating Character " & charactername & "!" & vbNewLine)
         guid = newcharguid.ToString
         Main.coreguid = newcharguid.ToString
-        targetaccount = runfunction.runcommandRealmd("SELECT acct FROM accounts WHERE login='" & targetaccount & "'", "acct")
+        targetaccount = runfunction.runcommandRealmd("SELECT acct FROM accounts WHERE login='" & targetaccount & "'",
+                                                     "acct")
         If namechangeeverytime = True Then
-            Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Player will be asked to change charactername! : reason-nce=true" & vbNewLine)
-            runfunction.normalsqlcommand("INSERT INTO characters ( `guid`, `acct`, `name`, `race`, `class`, `gender`, `level`, `xp`, `gold`, `bytes`, `bytes2`, `player_flags`, `positionX`, positionY, positionZ, mapId, orientation, taximask, playedtime, totalstableslots, zoneId, selected_pvp_title, watched_faction_index, current_hp, numspecs, currentspec, exploration_data, available_pvp_titles ) VALUES ( '" & newcharguid.ToString & "', '" & targetaccount & "', '" & charactername & "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" & Main.playerBytes2.ToString & "', '" & Main.playerFlags.ToString & "', '" & Main.position_x.ToString & "', '" & Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 1).ToString & "', '" & Main.map.ToString & "', '4,40671', '" & Main.taximask & "', '0 0 0 ', '" & Main.stable_slots & "', '" & Main.zone.ToString & "', '" & Main.chosenTitle & "', '" & Main.watchedFaction & "', '1000', '" & Main.speccount.ToString & "', '" & Main.activespec.ToString & "', '" & Main.exploredZones & "', '" & Main.knownTitles & "' )")
+            Process_Status.processreport.AppendText(
+                Now.TimeOfDay.ToString & "// Player will be asked to change charactername! : reason-nce=true" &
+                vbNewLine)
+            runfunction.normalsqlcommand(
+                "INSERT INTO characters ( `guid`, `acct`, `name`, `race`, `class`, `gender`, `level`, `xp`, `gold`, `bytes`, `bytes2`, `player_flags`, `positionX`, positionY, positionZ, mapId, orientation, taximask, playedtime, totalstableslots, zoneId, selected_pvp_title, watched_faction_index, current_hp, numspecs, currentspec, exploration_data, available_pvp_titles ) VALUES ( '" &
+                newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
+                "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" & Main.playerBytes2.ToString &
+                "', '" & Main.playerFlags.ToString & "', '" & Main.position_x.ToString & "', '" &
+                Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 1).ToString & "', '" & Main.map.ToString &
+                "', '4,40671', '" & Main.taximask & "', '0 0 0 ', '" & Main.stable_slots & "', '" & Main.zone.ToString &
+                "', '" & Main.chosenTitle & "', '" & Main.watchedFaction & "', '1000', '" & Main.speccount.ToString &
+                "', '" & Main.activespec.ToString & "', '" & Main.exploredZones & "', '" & Main.knownTitles & "' )")
             'PlayerBytes coloumn might not be correct! check player_bytes, bytes, bytes2
             'playedtime format might be different: playedtime, leveltime
-            runfunction.normalsqlcommand("UPDATE characters SET forced_rename_pending='1' WHERE guid='" & newcharguid.ToString & "'")
+            runfunction.normalsqlcommand(
+                "UPDATE characters SET forced_rename_pending='1' WHERE guid='" & newcharguid.ToString & "'")
         Else
             If charexist(charactername) = True Then
-                Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Player will be asked to change charactername!" & vbNewLine)
-                runfunction.normalsqlcommand("INSERT INTO characters ( `guid`, `acct`, `name`, `race`, `class`, `gender`, `level`, `xp`, `gold`, `bytes`, `bytes2`, `player_flags`, `positionX`, positionY, positionZ, mapId, orientation, taximask, playedtime, totalstableslots, zoneId, selected_pvp_title, watched_faction_index, current_hp, numspecs, currentspec, exploration_data, available_pvp_titles ) VALUES ( '" & newcharguid.ToString & "', '" & targetaccount & "', '" & charactername & "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" & Main.playerBytes2.ToString & "', '" & Main.playerFlags.ToString & "', '" & Main.position_x.ToString & "', '" & Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 1).ToString & "', '" & Main.map.ToString & "', '4,40671', '" & Main.taximask & "', '0 0 0 ', '" & Main.stable_slots & "', '" & Main.zone.ToString & "', '" & Main.chosenTitle & "', '" & Main.watchedFaction & "', '1000', '" & Main.speccount.ToString & "', '" & Main.activespec.ToString & "', '" & Main.exploredZones & "', '" & Main.knownTitles & "' )")
-                runfunction.normalsqlcommand("UPDATE characters SET forced_rename_pending='1' WHERE guid='" & newcharguid.ToString & "'")
+                Process_Status.processreport.AppendText(
+                    Now.TimeOfDay.ToString & "// Player will be asked to change charactername!" & vbNewLine)
+                runfunction.normalsqlcommand(
+                    "INSERT INTO characters ( `guid`, `acct`, `name`, `race`, `class`, `gender`, `level`, `xp`, `gold`, `bytes`, `bytes2`, `player_flags`, `positionX`, positionY, positionZ, mapId, orientation, taximask, playedtime, totalstableslots, zoneId, selected_pvp_title, watched_faction_index, current_hp, numspecs, currentspec, exploration_data, available_pvp_titles ) VALUES ( '" &
+                    newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
+                    "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" &
+                    Main.playerBytes2.ToString & "', '" & Main.playerFlags.ToString & "', '" & Main.position_x.ToString &
+                    "', '" & Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 1).ToString & "', '" &
+                    Main.map.ToString & "', '4,40671', '" & Main.taximask & "', '0 0 0 ', '" & Main.stable_slots &
+                    "', '" & Main.zone.ToString & "', '" & Main.chosenTitle & "', '" & Main.watchedFaction &
+                    "', '1000', '" & Main.speccount.ToString & "', '" & Main.activespec.ToString & "', '" &
+                    Main.exploredZones & "', '" & Main.knownTitles & "' )")
+                runfunction.normalsqlcommand(
+                    "UPDATE characters SET forced_rename_pending='1' WHERE guid='" & newcharguid.ToString & "'")
             Else
-                runfunction.normalsqlcommand("INSERT INTO characters ( `guid`, `acct`, `name`, `race`, `class`, `gender`, `level`, `xp`, `gold`, `bytes`, `bytes2`, `player_flags`, `positionX`, positionY, positionZ, mapId, orientation, taximask, playedtime, totalstableslots, zoneId, selected_pvp_title, watched_faction_index, current_hp, numspecs, currentspec, exploration_data, available_pvp_titles ) VALUES ( '" & newcharguid.ToString & "', '" & targetaccount & "', '" & charactername & "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" & Main.playerBytes2.ToString & "', '" & Main.playerFlags.ToString & "', '" & Main.position_x.ToString & "', '" & Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 1).ToString & "', '" & Main.map.ToString & "', '4,40671', '" & Main.taximask & "', '0 0 0 ', '" & Main.stable_slots & "', '" & Main.zone.ToString & "', '" & Main.chosenTitle & "', '" & Main.watchedFaction & "', '1000', '" & Main.speccount.ToString & "', '" & Main.activespec.ToString & "', '" & Main.exploredZones & "', '" & Main.knownTitles & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO characters ( `guid`, `acct`, `name`, `race`, `class`, `gender`, `level`, `xp`, `gold`, `bytes`, `bytes2`, `player_flags`, `positionX`, positionY, positionZ, mapId, orientation, taximask, playedtime, totalstableslots, zoneId, selected_pvp_title, watched_faction_index, current_hp, numspecs, currentspec, exploration_data, available_pvp_titles ) VALUES ( '" &
+                    newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
+                    "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" &
+                    Main.playerBytes2.ToString & "', '" & Main.playerFlags.ToString & "', '" & Main.position_x.ToString &
+                    "', '" & Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 1).ToString & "', '" &
+                    Main.map.ToString & "', '4,40671', '" & Main.taximask & "', '0 0 0 ', '" & Main.stable_slots &
+                    "', '" & Main.zone.ToString & "', '" & Main.chosenTitle & "', '" & Main.watchedFaction &
+                    "', '1000', '" & Main.speccount.ToString & "', '" & Main.activespec.ToString & "', '" &
+                    Main.exploredZones & "', '" & Main.knownTitles & "' )")
 
             End If
 
         End If
-        If Not Main.custom_faction = "" Then runfunction.normalsqlcommand("UPDATE characters SET custom_faction='" & Main.custom_faction & "' WHERE guid='" & newcharguid.ToString & "'")
+        If Not Main.custom_faction = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE characters SET custom_faction='" & Main.custom_faction & "' WHERE guid='" & newcharguid.ToString &
+                "'")
         sethome()
         addaction()
         setqueststatus()
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Created Character " & charactername & "!" & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Created Character " & charactername & "!" & vbNewLine)
         Application.DoEvents()
     End Sub
+
     Public Sub requestnamechange(ByVal charname As String)
         runfunction.normalsqlcommand("UPDATE characters SET forced_rename_pending='1' WHERE name='" & charname & "'")
     End Sub
+
     Public Function charexist(ByVal charname As String) As Boolean
 
         Try
@@ -2185,32 +2637,40 @@ Public Class ArcEmu_core
 
             Return False
         End Try
-
     End Function
+
     Public Sub updatechars(ByVal charname As String)
         '  Dim accguid As String = runfunction.runcommandRealmd("SELECT id FROM account WHERE username='" & accountname & "'", "id")
 
         runfunction.normalsqlcommand("UPDATE characters SET forced_rename_pending='1' WHERE name='" & charname & "'")
-
     End Sub
+
     Public Sub getguidfromname(ByVal charactername As String)
         guid = runfunction.runcommand("SELECT guid FROM characters WHERE name = '" & charactername & "'", "guid")
         Main.coreguid = guid
         addaction()
     End Sub
+
     Public Sub additems()
         guid = Main.coreguid
-        finalstring = "kopf 0 hals 0 schulter 0 hemd 0 brust 0 guertel 0 beine 0 stiefel 0 handgelenke 0 haende 0 finger1 0 finger2 0 schmuck1 0 schmuck2 0 ruecken 0 haupt 0 off 0 distanz 0 wappenrock 0 "
-        lastnumber = runfunction.runcommand("SELECT guid FROM playeritems WHERE guid=(SELECT MAX(guid) FROM playeritems)", "guid")
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Creating Items for Character: " & Main.char_name & vbNewLine)
+        finalstring =
+            "kopf 0 hals 0 schulter 0 hemd 0 brust 0 guertel 0 beine 0 stiefel 0 handgelenke 0 haende 0 finger1 0 finger2 0 schmuck1 0 schmuck2 0 ruecken 0 haupt 0 off 0 distanz 0 wappenrock 0 "
+        lastnumber =
+            runfunction.runcommand("SELECT guid FROM playeritems WHERE guid=(SELECT MAX(guid) FROM playeritems)", "guid")
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Creating Items for Character: " & Main.char_name & vbNewLine)
         Application.DoEvents()
         If Main.char_class = 1 Or Main.char_class = 2 Or Main.char_class = 6 Then
             addsinglespell(750)
             addsingleskill(293)
-        ElseIf Main.char_class = 1 Or Main.char_class = 2 Or Main.char_class = 3 Or Main.char_class = 6 Or Main.char_class = 7 Then
+        ElseIf _
+            Main.char_class = 1 Or Main.char_class = 2 Or Main.char_class = 3 Or Main.char_class = 6 Or
+            Main.char_class = 7 Then
             addsinglespell(8737)
             addsingleskill(413)
-        ElseIf Main.char_class = 1 Or Main.char_class = 2 Or Main.char_class = 3 Or Main.char_class = 4 Or Main.char_class = 6 Or Main.char_class = 7 Or Main.char_class = 11 Then
+        ElseIf _
+            Main.char_class = 1 Or Main.char_class = 2 Or Main.char_class = 3 Or Main.char_class = 4 Or
+            Main.char_class = 6 Or Main.char_class = 7 Or Main.char_class = 11 Then
             addsinglespell(9077)
             addsingleskill(414)
         Else
@@ -2218,7 +2678,8 @@ Public Class ArcEmu_core
         End If
         Dim specialskill As String
         Dim specialspell As String
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Creating special spells and skills for relevant items..." & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Creating special spells and skills for relevant items..." & vbNewLine)
         Dim spellcounter As Integer = 0
         Dim skillcounter As Integer = 0
         For Each specialskill In Main.specialskills
@@ -2237,7 +2698,9 @@ Public Class ArcEmu_core
             End Try
             spellcounter += 1
         Next
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Created " & spellcounter.ToString & " spells and " & skillcounter.ToString & " skills!" & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Created " & spellcounter.ToString & " spells and " & skillcounter.ToString &
+            " skills!" & vbNewLine)
 
         If Not Main.kopfid = Nothing Then
 
@@ -2358,14 +2821,14 @@ Public Class ArcEmu_core
         End If
         makestring(0, "", True)
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Created Items!" & vbNewLine)
-
-
     End Sub
+
     Public Sub addglyphs(ByVal expansion As String)
 
         guid = Main.coreguid
         checkglyphsanddelete(Main.coreguid)
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Adding Glyphs to Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Adding Glyphs to Character: " & Main.char_name & vbNewLine)
         Dim glyphstring1 As String = "major1, minor1, minor2, major2, minor3, major3,"
         Dim glyphstring2 As String = "major1, minor1, minor2, major2, minor3, major3,"
 
@@ -2384,54 +2847,71 @@ Public Class ArcEmu_core
         glyphstring2 = glyphstring2.Replace("major3", (runfunction.getglyphid2(Main.secmajorglyph3)).ToString)
 
 
-
-        runfunction.normalsqlcommand("UPDATE characters SET glyphs1='" & glyphstring1 & "' WHERE guid='" & Main.coreguid & "'")
-        runfunction.normalsqlcommand("UPDATE characters SET glyphs2='" & glyphstring2 & "' WHERE guid='" & Main.coreguid & "'")
+        runfunction.normalsqlcommand(
+            "UPDATE characters SET glyphs1='" & glyphstring1 & "' WHERE guid='" & Main.coreguid & "'")
+        runfunction.normalsqlcommand(
+            "UPDATE characters SET glyphs2='" & glyphstring2 & "' WHERE guid='" & Main.coreguid & "'")
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Added Glyphs!" & vbNewLine)
-
-
     End Sub
+
     Public Sub setgender(ByVal gender As String)
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Setting gender for Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Setting gender for Character: " & Main.char_name & vbNewLine)
         guid = Main.coreguid
         runfunction.normalsqlcommand("UPDATE `characters` SET gender='" & gender & "' WHERE guid='" & guid & "'")
     End Sub
+
     Public Sub setlevel()
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Setting Level for Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Setting Level for Character: " & Main.char_name & vbNewLine)
         guid = Main.coreguid
-        runfunction.normalsqlcommand("UPDATE `characters` SET level='" & Main.char_level.ToString & "' WHERE guid='" & guid & "'")
+        runfunction.normalsqlcommand(
+            "UPDATE `characters` SET level='" & Main.char_level.ToString & "' WHERE guid='" & guid & "'")
     End Sub
+
     Public Sub setrace()
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Setting race for Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Setting race for Character: " & Main.char_name & vbNewLine)
         guid = Main.coreguid
-        runfunction.normalsqlcommand("UPDATE `characters` SET race='" & Main.char_race.ToString & "' WHERE guid='" & guid & "'")
+        runfunction.normalsqlcommand(
+            "UPDATE `characters` SET race='" & Main.char_race.ToString & "' WHERE guid='" & guid & "'")
     End Sub
+
     Public Sub setclass()
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Setting class for Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Setting class for Character: " & Main.char_name & vbNewLine)
         guid = Main.coreguid
-        runfunction.normalsqlcommand("UPDATE `characters` SET `class`='" & Main.char_class.ToString & "' WHERE guid='" & guid & "'")
+        runfunction.normalsqlcommand(
+            "UPDATE `characters` SET `class`='" & Main.char_class.ToString & "' WHERE guid='" & guid & "'")
     End Sub
+
     Public Sub setalternatelevel(ByVal alternatelevel As String)
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Setting alternative level for Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Setting alternative level for Character: " & Main.char_name & vbNewLine)
         guid = Main.coreguid
         runfunction.normalsqlcommand("UPDATE `characters` SET level='" & alternatelevel & "' WHERE guid='" & guid & "'")
     End Sub
+
     Public Sub setgold(ByVal amount As String)
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Adding gold..." & vbNewLine)
         guid = Main.coreguid
-        runfunction.normalsqlcommand("UPDATE `characters` SET gold='" & (CInt(Val(amount)) * 10000).ToString & "' WHERE guid='" & guid & "'")
+        runfunction.normalsqlcommand(
+            "UPDATE `characters` SET gold='" & (CInt(Val(amount))*10000).ToString & "' WHERE guid='" & guid & "'")
     End Sub
+
     Public Sub addgold(ByVal amount As Integer)
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Adding gold..." & vbNewLine)
         guid = Main.coreguid
         runfunction.normalsqlcommand("UPDATE `characters` SET gold='" & amount.ToString & "' WHERE guid='" & guid & "'")
     End Sub
+
     Public Sub addtalents()
 
         sdatatable.Clear()
         sdatatable.Dispose()
         sdatatable = gettable()
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Setting Talents for Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Setting Talents for Character: " & Main.char_name & vbNewLine)
         Dim talentlist As String = ""
         Dim talentlist2 As String = ""
         Dim finaltalentstring As String = ""
@@ -2458,27 +2938,32 @@ Public Class ArcEmu_core
                             If CInt(Val(rank)) <= 4 Then
                             Else
                                 Try
-                                    finaltalentstring = finaltalentstring.Replace(talentid & ",0", (CInt(Val(rank))).ToString)
+                                    finaltalentstring = finaltalentstring.Replace(talentid & ",0",
+                                                                                  (CInt(Val(rank))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
-                                    finaltalentstring = finaltalentstring.Replace(talentid & ",1", (CInt(Val(rank))).ToString)
+                                    finaltalentstring = finaltalentstring.Replace(talentid & ",1",
+                                                                                  (CInt(Val(rank))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
-                                    finaltalentstring = finaltalentstring.Replace(talentid & ",2", (CInt(Val(rank))).ToString)
+                                    finaltalentstring = finaltalentstring.Replace(talentid & ",2",
+                                                                                  (CInt(Val(rank))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
-                                    finaltalentstring = finaltalentstring.Replace(talentid & ",3", (CInt(Val(rank))).ToString)
+                                    finaltalentstring = finaltalentstring.Replace(talentid & ",3",
+                                                                                  (CInt(Val(rank))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
-                                    finaltalentstring = finaltalentstring.Replace(talentid & ",4", (CInt(Val(rank))).ToString)
+                                    finaltalentstring = finaltalentstring.Replace(talentid & ",4",
+                                                                                  (CInt(Val(rank))).ToString)
                                 Catch ex As Exception
 
                                 End Try
@@ -2488,22 +2973,26 @@ Public Class ArcEmu_core
                             If CInt(Val(rank)) <= 3 Then
                             Else
                                 Try
-                                    finaltalentstring = finaltalentstring.Replace(talentid & ",0", (CInt(Val(rank))).ToString)
+                                    finaltalentstring = finaltalentstring.Replace(talentid & ",0",
+                                                                                  (CInt(Val(rank))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
-                                    finaltalentstring = finaltalentstring.Replace(talentid & ",1", (CInt(Val(rank))).ToString)
+                                    finaltalentstring = finaltalentstring.Replace(talentid & ",1",
+                                                                                  (CInt(Val(rank))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
-                                    finaltalentstring = finaltalentstring.Replace(talentid & ",2", (CInt(Val(rank))).ToString)
+                                    finaltalentstring = finaltalentstring.Replace(talentid & ",2",
+                                                                                  (CInt(Val(rank))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
-                                    finaltalentstring = finaltalentstring.Replace(talentid & ",3", (CInt(Val(rank))).ToString)
+                                    finaltalentstring = finaltalentstring.Replace(talentid & ",3",
+                                                                                  (CInt(Val(rank))).ToString)
                                 Catch ex As Exception
 
                                 End Try
@@ -2513,17 +3002,20 @@ Public Class ArcEmu_core
                             If CInt(Val(rank)) <= 2 Then
                             Else
                                 Try
-                                    finaltalentstring = finaltalentstring.Replace(talentid & ",0", (CInt(Val(rank))).ToString)
+                                    finaltalentstring = finaltalentstring.Replace(talentid & ",0",
+                                                                                  (CInt(Val(rank))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
-                                    finaltalentstring = finaltalentstring.Replace(talentid & ",1", (CInt(Val(rank))).ToString)
+                                    finaltalentstring = finaltalentstring.Replace(talentid & ",1",
+                                                                                  (CInt(Val(rank))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
-                                    finaltalentstring = finaltalentstring.Replace(talentid & ",2", (CInt(Val(rank)) - 1).ToString)
+                                    finaltalentstring = finaltalentstring.Replace(talentid & ",2",
+                                                                                  (CInt(Val(rank)) - 1).ToString)
                                 Catch ex As Exception
 
                                 End Try
@@ -2533,12 +3025,14 @@ Public Class ArcEmu_core
                             If CInt(Val(rank)) <= 1 Then
                             Else
                                 Try
-                                    finaltalentstring = finaltalentstring.Replace(talentid & ",0", (CInt(Val(rank))).ToString)
+                                    finaltalentstring = finaltalentstring.Replace(talentid & ",0",
+                                                                                  (CInt(Val(rank))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
-                                    finaltalentstring = finaltalentstring.Replace(talentid & ",1", (CInt(Val(rank))).ToString)
+                                    finaltalentstring = finaltalentstring.Replace(talentid & ",1",
+                                                                                  (CInt(Val(rank))).ToString)
                                 Catch ex As Exception
 
                                 End Try
@@ -2563,27 +3057,32 @@ Public Class ArcEmu_core
                             If CInt(Val(rank)) <= 4 Then
                             Else
                                 Try
-                                    finaltalentstring2 = finaltalentstring2.Replace(talentid & ",0", (CInt(Val(rank))).ToString)
+                                    finaltalentstring2 = finaltalentstring2.Replace(talentid & ",0",
+                                                                                    (CInt(Val(rank))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
-                                    finaltalentstring2 = finaltalentstring2.Replace(talentid & ",1", (CInt(Val(rank))).ToString)
+                                    finaltalentstring2 = finaltalentstring2.Replace(talentid & ",1",
+                                                                                    (CInt(Val(rank))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
-                                    finaltalentstring2 = finaltalentstring2.Replace(talentid & ",2", (CInt(Val(rank))).ToString)
+                                    finaltalentstring2 = finaltalentstring2.Replace(talentid & ",2",
+                                                                                    (CInt(Val(rank))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
-                                    finaltalentstring2 = finaltalentstring2.Replace(talentid & ",3", (CInt(Val(rank))).ToString)
+                                    finaltalentstring2 = finaltalentstring2.Replace(talentid & ",3",
+                                                                                    (CInt(Val(rank))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
-                                    finaltalentstring2 = finaltalentstring2.Replace(talentid & ",4", (CInt(Val(rank))).ToString)
+                                    finaltalentstring2 = finaltalentstring2.Replace(talentid & ",4",
+                                                                                    (CInt(Val(rank))).ToString)
                                 Catch ex As Exception
 
                                 End Try
@@ -2593,22 +3092,26 @@ Public Class ArcEmu_core
                             If CInt(Val(rank)) <= 3 Then
                             Else
                                 Try
-                                    finaltalentstring2 = finaltalentstring2.Replace(talentid & ",0", (CInt(Val(rank))).ToString)
+                                    finaltalentstring2 = finaltalentstring2.Replace(talentid & ",0",
+                                                                                    (CInt(Val(rank))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
-                                    finaltalentstring2 = finaltalentstring2.Replace(talentid & ",1", (CInt(Val(rank))).ToString)
+                                    finaltalentstring2 = finaltalentstring2.Replace(talentid & ",1",
+                                                                                    (CInt(Val(rank))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
-                                    finaltalentstring2 = finaltalentstring2.Replace(talentid & ",2", (CInt(Val(rank))).ToString)
+                                    finaltalentstring2 = finaltalentstring2.Replace(talentid & ",2",
+                                                                                    (CInt(Val(rank))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
-                                    finaltalentstring2 = finaltalentstring2.Replace(talentid & ",3", (CInt(Val(rank))).ToString)
+                                    finaltalentstring2 = finaltalentstring2.Replace(talentid & ",3",
+                                                                                    (CInt(Val(rank))).ToString)
                                 Catch ex As Exception
 
                                 End Try
@@ -2619,17 +3122,20 @@ Public Class ArcEmu_core
                             If CInt(Val(rank)) <= 2 Then
                             Else
                                 Try
-                                    finaltalentstring2 = finaltalentstring2.Replace(talentid & ",0", (CInt(Val(rank))).ToString)
+                                    finaltalentstring2 = finaltalentstring2.Replace(talentid & ",0",
+                                                                                    (CInt(Val(rank))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
-                                    finaltalentstring2 = finaltalentstring2.Replace(talentid & ",1", (CInt(Val(rank))).ToString)
+                                    finaltalentstring2 = finaltalentstring2.Replace(talentid & ",1",
+                                                                                    (CInt(Val(rank))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
-                                    finaltalentstring2 = finaltalentstring2.Replace(talentid & ",2", (CInt(Val(rank))).ToString)
+                                    finaltalentstring2 = finaltalentstring2.Replace(talentid & ",2",
+                                                                                    (CInt(Val(rank))).ToString)
                                 Catch ex As Exception
 
                                 End Try
@@ -2640,12 +3146,15 @@ Public Class ArcEmu_core
                             If CInt(Val(rank)) <= 1 Then
                             Else
                                 Try
-                                    finaltalentstring2 = finaltalentstring2.Replace(talentid & ",0", (CInt(Val(rank))).ToString)
+                                    finaltalentstring2 = finaltalentstring2.Replace(talentid & ",0",
+                                                                                    (CInt(Val(rank))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
-                                    finaltalentstring2 = finaltalentstring2.Replace(talentid & ",1", (CInt(Val(rank))).ToString) 'rank - 1 ???
+                                    finaltalentstring2 = finaltalentstring2.Replace(talentid & ",1",
+                                                                                    (CInt(Val(rank))).ToString)
+                                    'rank - 1 ???
                                 Catch ex As Exception
 
                                 End Try
@@ -2656,7 +3165,8 @@ Public Class ArcEmu_core
 
                         End If
                     Else
-                        finaltalentstring2 = finaltalentstring2 & talentid & "," & (CInt(Val(rank))).ToString & "," 'rank - 1 ???
+                        finaltalentstring2 = finaltalentstring2 & talentid & "," & (CInt(Val(rank))).ToString & ","
+                        'rank - 1 ???
                         talentlist2 = talentlist2 & " " & talentid & "rank" & rank
 
                     End If
@@ -2664,9 +3174,11 @@ Public Class ArcEmu_core
             End If
 
 
-                runfunction.normalsqlcommand("UPDATE characters SET talents1='" & finaltalentstring & "' WHERE guid='" & Main.coreguid & "'")
-                runfunction.normalsqlcommand("UPDATE characters SET talents2='" & finaltalentstring2 & "' WHERE guid='" & Main.coreguid & "'")
-                '  ("<spell>" & spell & "</spell><spec>" & spec & "</spec>")
+            runfunction.normalsqlcommand(
+                "UPDATE characters SET talents1='" & finaltalentstring & "' WHERE guid='" & Main.coreguid & "'")
+            runfunction.normalsqlcommand(
+                "UPDATE characters SET talents2='" & finaltalentstring2 & "' WHERE guid='" & Main.coreguid & "'")
+            '  ("<spell>" & spell & "</spell><spec>" & spec & "</spec>")
         Next
     End Sub
 
@@ -2690,11 +3202,8 @@ Public Class ArcEmu_core
             rank = "0"
             Return "0"
         End If
-
-
-
-
     End Function
+
     Private Function executex(ByVal field As String, ByVal sID As String) As String
         Try
             Dim foundRows() As DataRow
@@ -2716,8 +3225,8 @@ Public Class ArcEmu_core
         Catch ex As Exception
             Return "-"
         End Try
-
     End Function
+
     Private Function gettable() As DataTable
         Try
             Dim dt As New DataTable()
@@ -2749,97 +3258,167 @@ Public Class ArcEmu_core
             Return New DataTable
         End Try
     End Function
+
     Public Sub setqueststatus()
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Setting queststatus for Character: " & Main.char_name & vbNewLine)
-        Dim lastslot As Integer = CInt(Val(runfunction.runcommand("SELECT slot FROM questlog WHERE player_guid='" & Main.coreguid & "' AND slot=(SELECT MAX(slot) FROM characters)", "slot"))) + 1
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Setting queststatus for Character: " & Main.char_name & vbNewLine)
+        Dim lastslot As Integer =
+                CInt(
+                    Val(
+                        runfunction.runcommand(
+                            "SELECT slot FROM questlog WHERE player_guid='" & Main.coreguid &
+                            "' AND slot=(SELECT MAX(slot) FROM characters)", "slot"))) + 1
         For Each queststring As String In Main.character_queststatus
             Dim explored As String = splitlist(queststring, "explored")
             If explored = Nothing Then explored = ""
             Dim tmpcommand As String = ""
-            tmpcommand = "INSERT INTO questlog ( player_guid, quest_id, slot, `completed`, `explored_area1` ) VALUES ( '" & Main.coreguid & "', '" & splitlist(queststring, "quest") & "', '" & lastslot.ToString & "', '" & splitlist(queststring, "status") & "',"
+            tmpcommand =
+                "INSERT INTO questlog ( player_guid, quest_id, slot, `completed`, `explored_area1` ) VALUES ( '" &
+                Main.coreguid & "', '" & splitlist(queststring, "quest") & "', '" & lastslot.ToString & "', '" &
+                splitlist(queststring, "status") & "',"
             tmpcommand = tmpcommand & " '" & explored & "')"
             runfunction.normalsqlcommand(tmpcommand)
             lastslot += 1
 
         Next
-        If Not Main.finished_quests = "" Then runfunction.normalsqlcommand("UPDATE characters SET finished_quests='" & Main.finished_quests & "' WHERE guid='" & Main.coreguid & "'")
+        If Not Main.finished_quests = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE characters SET finished_quests='" & Main.finished_quests & "' WHERE guid='" & Main.coreguid &
+                "'")
     End Sub
+
     Public Sub addachievements()
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Adding achievements for Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Adding achievements for Character: " & Main.char_name & vbNewLine)
         For Each avstring As String In Main.character_achievement_list
-            runfunction.normalsqlcommand("INSERT INTO character_achievement ( guid, achievement, date ) VALUES ( '" & Main.coreguid & "', '" & splitlist(avstring, "av") & "', '" & splitlist(avstring, "date") & "')")
+            runfunction.normalsqlcommand(
+                "INSERT INTO character_achievement ( guid, achievement, date ) VALUES ( '" & Main.coreguid & "', '" &
+                splitlist(avstring, "av") & "', '" & splitlist(avstring, "date") & "')")
 
             ' "<av>" & avid & "</av><date>" & xdate & "</date>"
         Next
     End Sub
+
     Public Sub addskills()
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Setting skills for Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Setting skills for Character: " & Main.char_name & vbNewLine)
         For Each skill As String In Main.character_skills_list
-            Dim skillstring As String = runfunction.runcommand("SELECT `skills` FROM characters WHERE `guid`='" & Main.coreguid & "'", "skills")
-            runfunction.normalsqlcommand("UPDATE characters SET skills='" & skillstring & splitlist(skill, "skill") & ";" & splitlist(skill, "value") & ";" & splitlist(skill, "max") & ";' WHERE guid='" & Main.coreguid & "'")
+            Dim skillstring As String =
+                    runfunction.runcommand("SELECT `skills` FROM characters WHERE `guid`='" & Main.coreguid & "'",
+                                           "skills")
+            runfunction.normalsqlcommand(
+                "UPDATE characters SET skills='" & skillstring & splitlist(skill, "skill") & ";" &
+                splitlist(skill, "value") & ";" & splitlist(skill, "max") & ";' WHERE guid='" & Main.coreguid & "'")
             ' "<skill>" & skill & "</skill><value>" & value & "</value><max>" & max & "</max>"
         Next
     End Sub
+
     Public Sub addspells()
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Teaching spells for Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Teaching spells for Character: " & Main.char_name & vbNewLine)
         For Each spell As String In Main.character_spells
             'runfunction.normalsqlcommand("INSERT INTO character_spell ( GUID, SpellID ) VALUES ( '" & Main.coreguid & "', '" & splitlist(spell, "spell") & "' )")
-            Dim spellstring As String = runfunction.runcommand("SELECT `spells` FROM characters WHERE `guid`='" & Main.coreguid & "'", "spells")
-            runfunction.normalsqlcommand("UPDATE characters SET spells='" & spellstring & splitlist(spell, "spell") & ",' WHERE guid='" & Main.coreguid & "'")
+            Dim spellstring As String =
+                    runfunction.runcommand("SELECT `spells` FROM characters WHERE `guid`='" & Main.coreguid & "'",
+                                           "spells")
+            runfunction.normalsqlcommand(
+                "UPDATE characters SET spells='" & spellstring & splitlist(spell, "spell") & ",' WHERE guid='" &
+                Main.coreguid & "'")
             ' "<spell>" & spell & "</spell><active>" & active & "</active><disabled>" & disabled & "</disabled>"
         Next
     End Sub
+
     Public Sub addreputation()
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Adding reputation for Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Adding reputation for Character: " & Main.char_name & vbNewLine)
         For Each repstring As String In Main.character_reputatuion_list
             '  runfunction.normalsqlcommand("INSERT INTO playerreputations ( guid, faction, `standing`, `flag` ) VALUES ( '" & Main.coreguid & "', '" & splitlist(repstring, "faction") & "', '" & splitlist(repstring, "standing") & "', '" & splitlist(repstring, "flags") & "')")
-            Dim selectrepstring As String = runfunction.runcommand("SELECT `reputation` FROM characters WHERE `guid`='" & Main.coreguid & "'", "reputation")
-            runfunction.normalsqlcommand("UPDATE characters SET reputation='" & selectrepstring & splitlist(repstring, "faction") & "," & splitlist(repstring, "flags") & "," & splitlist(repstring, "standing") & "," & splitlist(repstring, "standing") & ",' WHERE guid='" & Main.coreguid & "'")
+            Dim selectrepstring As String =
+                    runfunction.runcommand("SELECT `reputation` FROM characters WHERE `guid`='" & Main.coreguid & "'",
+                                           "reputation")
+            runfunction.normalsqlcommand(
+                "UPDATE characters SET reputation='" & selectrepstring & splitlist(repstring, "faction") & "," &
+                splitlist(repstring, "flags") & "," & splitlist(repstring, "standing") & "," &
+                splitlist(repstring, "standing") & ",' WHERE guid='" & Main.coreguid & "'")
             ' "<faction>" & faction & "</faction><standing>" & standing & "</standing><flags>" & flags & "</flags>"
         Next
     End Sub
+
     Public Sub addaction()
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Setting up actionbars for Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Setting up actionbars for Character: " & Main.char_name & vbNewLine)
         For Each actionstring As String In Main.character_action_list
             If splitlist(actionstring, "spec") = "0" Then
-                Dim selectactionstring As String = runfunction.runcommand("SELECT `actions1` FROM characters WHERE `guid`='" & Main.coreguid & "'", "actions1")
-                runfunction.normalsqlcommand("UPDATE characters SET actions1='" & selectactionstring & splitlist(actionstring, "action") & ",0,0,' WHERE guid='" & Main.coreguid & "'")
+                Dim selectactionstring As String =
+                        runfunction.runcommand("SELECT `actions1` FROM characters WHERE `guid`='" & Main.coreguid & "'",
+                                               "actions1")
+                runfunction.normalsqlcommand(
+                    "UPDATE characters SET actions1='" & selectactionstring & splitlist(actionstring, "action") &
+                    ",0,0,' WHERE guid='" & Main.coreguid & "'")
             Else
-                Dim selectactionstring As String = runfunction.runcommand("SELECT `actions2` FROM characters WHERE `guid`='" & Main.coreguid & "'", "actions2")
-                runfunction.normalsqlcommand("UPDATE characters SET actions2='" & selectactionstring & splitlist(actionstring, "action") & ",0,0,' WHERE guid='" & Main.coreguid & "'")
+                Dim selectactionstring As String =
+                        runfunction.runcommand("SELECT `actions2` FROM characters WHERE `guid`='" & Main.coreguid & "'",
+                                               "actions2")
+                runfunction.normalsqlcommand(
+                    "UPDATE characters SET actions2='" & selectactionstring & splitlist(actionstring, "action") &
+                    ",0,0,' WHERE guid='" & Main.coreguid & "'")
             End If
         Next
     End Sub
+
     Public Sub addinventory()
         'only arcemu
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Adding Items to inventory for Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Adding Items to inventory for Character: " & Main.char_name & vbNewLine)
         Dim bagexist As List(Of String) = New List(Of String)
         bagexist.Clear()
         For Each inventorystring As String In Main.character_inventoryzero_list
             Dim bagguid As String = splitlist(inventorystring, "bagguid")
             Dim bag As String = splitlist(inventorystring, "bag")
-            Dim newguid As String = ((CInt(Val(runfunction.runcommand("SELECT guid FROM playeritems WHERE guid=(SELECT MAX(guid) FROM playeritems)", "guid")))) + 1).ToString
+            Dim newguid As String =
+                    ((CInt(
+                        Val(
+                            runfunction.runcommand(
+                                "SELECT guid FROM playeritems WHERE guid=(SELECT MAX(guid) FROM playeritems)", "guid")))) +
+                     1).ToString
             Dim itemcount As String = splitlist(inventorystring, "count")
             Dim containerslot As String = splitlist(inventorystring, "container")
-            runfunction.normalsqlcommand("INSERT INTO playeritems ( guid, ownerguid, entry, `count`, containerslot, slot, enchantments ) VALUES ( '" & newguid & "', '" & Main.coreguid & "', '" & splitlist(inventorystring, "item") & "', '" & itemcount & "', '" & containerslot & "', '" & splitlist(inventorystring, "slot") & "', '" & splitenchstring(splitlist(inventorystring, "enchant"), newguid, splitlist(inventorystring, "item")) & "' )")
+            runfunction.normalsqlcommand(
+                "INSERT INTO playeritems ( guid, ownerguid, entry, `count`, containerslot, slot, enchantments ) VALUES ( '" &
+                newguid & "', '" & Main.coreguid & "', '" & splitlist(inventorystring, "item") & "', '" & itemcount &
+                "', '" & containerslot & "', '" & splitlist(inventorystring, "slot") & "', '" &
+                splitenchstring(splitlist(inventorystring, "enchant"), newguid, splitlist(inventorystring, "item")) &
+                "' )")
 
 
         Next
         For Each inventorystring As String In Main.character_inventory_list
             Dim bagguid As String = splitlist(inventorystring, "bagguid")
             Dim bag As String = splitlist(inventorystring, "bag")
-            Dim newguid As String = ((CInt(Val(runfunction.runcommand("SELECT guid FROM playeritems WHERE guid=(SELECT MAX(guid) FROM playeritems)", "guid")))) + 1).ToString
+            Dim newguid As String =
+                    ((CInt(
+                        Val(
+                            runfunction.runcommand(
+                                "SELECT guid FROM playeritems WHERE guid=(SELECT MAX(guid) FROM playeritems)", "guid")))) +
+                     1).ToString
             Dim itemcount As String = splitlist(inventorystring, "count")
             Dim containerslot As String = splitlist(inventorystring, "container")
-            Dim newbagguid As String = runfunction.runcommand("SELECT item FROM playeritems WHERE item_template='" & bag & "' AND guid='" & Main.coreguid & "'", "item")
-            runfunction.normalsqlcommand("INSERT INTO playeritems ( guid, ownerguid, entry, `count`, containerslot, slot, enchantments ) VALUES ( '" & newguid & "', '" & Main.coreguid & "', '" & splitlist(inventorystring, "item") & "', '" & itemcount & "', '" & containerslot & "', '" & splitlist(inventorystring, "slot") & "', '" & splitenchstring(splitlist(inventorystring, "enchant"), newguid, splitlist(inventorystring, "item")) & "' )")
-
-
+            Dim newbagguid As String =
+                    runfunction.runcommand(
+                        "SELECT item FROM playeritems WHERE item_template='" & bag & "' AND guid='" & Main.coreguid &
+                        "'", "item")
+            runfunction.normalsqlcommand(
+                "INSERT INTO playeritems ( guid, ownerguid, entry, `count`, containerslot, slot, enchantments ) VALUES ( '" &
+                newguid & "', '" & Main.coreguid & "', '" & splitlist(inventorystring, "item") & "', '" & itemcount &
+                "', '" & containerslot & "', '" & splitlist(inventorystring, "slot") & "', '" &
+                splitenchstring(splitlist(inventorystring, "enchant"), newguid, splitlist(inventorystring, "item")) &
+                "' )")
 
 
             ' <slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><item>" & entryid & "</item><enchant>" & enchantments & "</enchant><count>" & itemcount & "</count><container></container>"
         Next
     End Sub
+
     Private Function splitenchstring(ByVal enchstring As String, ByVal guid As String, ByVal entry As String) As String
         Dim anzahl As Integer = 0
         Try
@@ -2879,8 +3458,8 @@ Public Class ArcEmu_core
                 Return arcenchstring
             End If
         End If
-
     End Function
+
     Private Function splitlist(ByVal tstring As String, ByVal category As String) As String
         Try
 
@@ -2895,28 +3474,105 @@ Public Class ArcEmu_core
             Return ""
         End Try
     End Function
+
     Public Sub addench()
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Adding item enchantments..." & vbNewLine)
         Application.DoEvents()
-        If Not Main.kopfench = "" Then runfunction.normalsqlcommand("UPDATE `playeritems` SET enchantments='" & splitenchstring(Main.kopfench, kopfwearguid.ToString, Main.kopfid.ToString) & "' WHERE guid='" & kopfwearguid.ToString & "'")
-        If Not Main.halsench = "" Then runfunction.normalsqlcommand("UPDATE `playeritems` SET enchantments='" & splitenchstring(Main.halsench, halswearguid.ToString, Main.halsid.ToString) & "' WHERE guid='" & halswearguid.ToString & "'")
-        If Not Main.schulterench = "" Then runfunction.normalsqlcommand("UPDATE `playeritems` SET enchantments='" & splitenchstring(Main.schulterench, schulterwearguid.ToString, Main.schulterid.ToString) & "' WHERE guid='" & schulterwearguid.ToString & "'")
-        If Not Main.rueckenench = "" Then runfunction.normalsqlcommand("UPDATE `playeritems` SET enchantments='" & splitenchstring(Main.rueckenench, rueckenwearguid.ToString, Main.rueckenid.ToString) & "' WHERE guid='" & rueckenwearguid.ToString & "'")
-        If Not Main.brustench = "" Then runfunction.normalsqlcommand("UPDATE `playeritems` SET enchantments='" & splitenchstring(Main.brustench, brustwearguid.ToString, Main.brustid.ToString) & "' WHERE guid='" & brustwearguid.ToString & "'")
-        If Not Main.hemdench = "" Then runfunction.normalsqlcommand("UPDATE `playeritems` SET enchantments='" & splitenchstring(Main.hemdench, hemdwearguid.ToString, Main.hemdid.ToString) & "' WHERE guid='" & hemdwearguid.ToString & "'")
-        If Not Main.wappenrockench = "" Then runfunction.normalsqlcommand("UPDATE `playeritems` SET enchantments='" & splitenchstring(Main.wappenrockench, wappenrockwearguid.ToString, Main.wappenrockid.ToString) & "' WHERE guid='" & wappenrockwearguid.ToString & "'")
-        If Not Main.handgelenkeench = "" Then runfunction.normalsqlcommand("UPDATE `playeritems` SET enchantments='" & splitenchstring(Main.handgelenkeench, handgelenkewearguid.ToString, Main.handgelenkeid.ToString) & "' WHERE guid='" & handgelenkewearguid.ToString & "'")
-        If Not Main.haendeench = "" Then runfunction.normalsqlcommand("UPDATE `playeritems` SET enchantments='" & splitenchstring(Main.haendeench, haendewearguid.ToString, Main.haendeid.ToString) & "' WHERE guid='" & haendewearguid.ToString & "'")
-        If Not Main.hauptench = "" Then runfunction.normalsqlcommand("UPDATE `playeritems` SET enchantments='" & splitenchstring(Main.hauptench, hauptwearguid.ToString, Main.hauptid.ToString) & "' WHERE guid='" & hauptwearguid.ToString & "'")
-        If Not Main.offench = "" Then runfunction.normalsqlcommand("UPDATE `playeritems` SET enchantments='" & splitenchstring(Main.offench, offwearguid.ToString, Main.offid.ToString) & "' WHERE guid='" & offwearguid.ToString & "'")
-        If Not Main.distanzench = "" Then runfunction.normalsqlcommand("UPDATE `playeritems` SET enchantments='" & splitenchstring(Main.distanzench, distanzwearguid.ToString, Main.distanzid.ToString) & "' WHERE guid='" & distanzwearguid.ToString & "'")
-        If Not Main.guertelench = "" Then runfunction.normalsqlcommand("UPDATE `playeritems` SET enchantments='" & splitenchstring(Main.guertelench, guertelwearguid.ToString, Main.guertelid.ToString) & "' WHERE guid='" & guertelwearguid.ToString & "'")
-        If Not Main.beineench = "" Then runfunction.normalsqlcommand("UPDATE `playeritems` SET enchantments='" & splitenchstring(Main.beineench, beinewearguid.ToString, Main.beineid.ToString) & "' WHERE guid='" & beinewearguid.ToString & "'")
-        If Not Main.stiefelench = "" Then runfunction.normalsqlcommand("UPDATE `playeritems` SET enchantments='" & splitenchstring(Main.stiefelench, stiefelwearguid.ToString, Main.stiefelid.ToString) & "' WHERE guid='" & stiefelwearguid.ToString & "'")
-        If Not Main.ring1ench = "" Then runfunction.normalsqlcommand("UPDATE `playeritems` SET enchantments='" & splitenchstring(Main.ring1ench, ring1wearguid.ToString, Main.ring1id.ToString) & "' WHERE guid='" & ring1wearguid.ToString & "'")
-        If Not Main.ring2ench = "" Then runfunction.normalsqlcommand("UPDATE `playeritems` SET enchantments='" & splitenchstring(Main.ring2ench, ring2wearguid.ToString, Main.ring2id.ToString) & "' WHERE guid='" & ring2wearguid.ToString & "'")
-        If Not Main.schmuck1ench = "" Then runfunction.normalsqlcommand("UPDATE `playeritems` SET enchantments='" & splitenchstring(Main.schmuck1ench, schmuck1wearguid.ToString, Main.schmuck1id.ToString) & "' WHERE guid='" & schmuck1wearguid.ToString & "'")
-        If Not Main.schmuck2ench = "" Then runfunction.normalsqlcommand("UPDATE `playeritems` SET enchantments='" & splitenchstring(Main.schmuck2ench, schmuck2wearguid.ToString, Main.schmuck2id.ToString) & "' WHERE guid='" & schmuck2wearguid.ToString & "'")
+        If Not Main.kopfench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `playeritems` SET enchantments='" &
+                splitenchstring(Main.kopfench, kopfwearguid.ToString, Main.kopfid.ToString) & "' WHERE guid='" &
+                kopfwearguid.ToString & "'")
+        If Not Main.halsench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `playeritems` SET enchantments='" &
+                splitenchstring(Main.halsench, halswearguid.ToString, Main.halsid.ToString) & "' WHERE guid='" &
+                halswearguid.ToString & "'")
+        If Not Main.schulterench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `playeritems` SET enchantments='" &
+                splitenchstring(Main.schulterench, schulterwearguid.ToString, Main.schulterid.ToString) &
+                "' WHERE guid='" & schulterwearguid.ToString & "'")
+        If Not Main.rueckenench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `playeritems` SET enchantments='" &
+                splitenchstring(Main.rueckenench, rueckenwearguid.ToString, Main.rueckenid.ToString) & "' WHERE guid='" &
+                rueckenwearguid.ToString & "'")
+        If Not Main.brustench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `playeritems` SET enchantments='" &
+                splitenchstring(Main.brustench, brustwearguid.ToString, Main.brustid.ToString) & "' WHERE guid='" &
+                brustwearguid.ToString & "'")
+        If Not Main.hemdench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `playeritems` SET enchantments='" &
+                splitenchstring(Main.hemdench, hemdwearguid.ToString, Main.hemdid.ToString) & "' WHERE guid='" &
+                hemdwearguid.ToString & "'")
+        If Not Main.wappenrockench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `playeritems` SET enchantments='" &
+                splitenchstring(Main.wappenrockench, wappenrockwearguid.ToString, Main.wappenrockid.ToString) &
+                "' WHERE guid='" & wappenrockwearguid.ToString & "'")
+        If Not Main.handgelenkeench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `playeritems` SET enchantments='" &
+                splitenchstring(Main.handgelenkeench, handgelenkewearguid.ToString, Main.handgelenkeid.ToString) &
+                "' WHERE guid='" & handgelenkewearguid.ToString & "'")
+        If Not Main.haendeench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `playeritems` SET enchantments='" &
+                splitenchstring(Main.haendeench, haendewearguid.ToString, Main.haendeid.ToString) & "' WHERE guid='" &
+                haendewearguid.ToString & "'")
+        If Not Main.hauptench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `playeritems` SET enchantments='" &
+                splitenchstring(Main.hauptench, hauptwearguid.ToString, Main.hauptid.ToString) & "' WHERE guid='" &
+                hauptwearguid.ToString & "'")
+        If Not Main.offench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `playeritems` SET enchantments='" &
+                splitenchstring(Main.offench, offwearguid.ToString, Main.offid.ToString) & "' WHERE guid='" &
+                offwearguid.ToString & "'")
+        If Not Main.distanzench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `playeritems` SET enchantments='" &
+                splitenchstring(Main.distanzench, distanzwearguid.ToString, Main.distanzid.ToString) & "' WHERE guid='" &
+                distanzwearguid.ToString & "'")
+        If Not Main.guertelench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `playeritems` SET enchantments='" &
+                splitenchstring(Main.guertelench, guertelwearguid.ToString, Main.guertelid.ToString) & "' WHERE guid='" &
+                guertelwearguid.ToString & "'")
+        If Not Main.beineench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `playeritems` SET enchantments='" &
+                splitenchstring(Main.beineench, beinewearguid.ToString, Main.beineid.ToString) & "' WHERE guid='" &
+                beinewearguid.ToString & "'")
+        If Not Main.stiefelench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `playeritems` SET enchantments='" &
+                splitenchstring(Main.stiefelench, stiefelwearguid.ToString, Main.stiefelid.ToString) & "' WHERE guid='" &
+                stiefelwearguid.ToString & "'")
+        If Not Main.ring1ench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `playeritems` SET enchantments='" &
+                splitenchstring(Main.ring1ench, ring1wearguid.ToString, Main.ring1id.ToString) & "' WHERE guid='" &
+                ring1wearguid.ToString & "'")
+        If Not Main.ring2ench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `playeritems` SET enchantments='" &
+                splitenchstring(Main.ring2ench, ring2wearguid.ToString, Main.ring2id.ToString) & "' WHERE guid='" &
+                ring2wearguid.ToString & "'")
+        If Not Main.schmuck1ench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `playeritems` SET enchantments='" &
+                splitenchstring(Main.schmuck1ench, schmuck1wearguid.ToString, Main.schmuck1id.ToString) &
+                "' WHERE guid='" & schmuck1wearguid.ToString & "'")
+        If Not Main.schmuck2ench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `playeritems` SET enchantments='" &
+                splitenchstring(Main.schmuck2ench, schmuck2wearguid.ToString, Main.schmuck2id.ToString) &
+                "' WHERE guid='" & schmuck2wearguid.ToString & "'")
     End Sub
 
     Public Sub addgems()
@@ -2926,10 +3582,12 @@ Public Class ArcEmu_core
         If Main.schultersocket1id > 0 Then socketinsert(Main.schultersocket1id.ToString, schulterwearguid.ToString, 7)
         If Main.rueckensocket1id > 0 Then socketinsert(Main.rueckensocket1id.ToString, rueckenwearguid.ToString, 7)
         If Main.brustsocket1id > 0 Then socketinsert(Main.brustsocket1id.ToString, brustwearguid.ToString, 7)
-        If Main.handgelenkesocket1id > 0 Then socketinsert(Main.handgelenkesocket1id.ToString, handgelenkewearguid.ToString, 7)
+        If Main.handgelenkesocket1id > 0 Then _
+            socketinsert(Main.handgelenkesocket1id.ToString, handgelenkewearguid.ToString, 7)
         If Main.haendesocket1id > 0 Then socketinsert(Main.haendesocket1id.ToString, haendewearguid.ToString, 7)
         If Main.guertelsocket1id > 0 Then
-            beltinsert("3729", guertelwearguid.ToString, 41) '41 may be wrong!...
+            beltinsert("3729", guertelwearguid.ToString, 41)
+            '41 may be wrong!...
             socketinsert(Main.guertelsocket1id.ToString, guertelwearguid.ToString, 7)
         End If
 
@@ -2948,7 +3606,8 @@ Public Class ArcEmu_core
         If Main.schultersocket2id > 0 Then socketinsert(Main.schultersocket2id.ToString, schulterwearguid.ToString, 10)
         If Main.rueckensocket2id > 0 Then socketinsert(Main.rueckensocket2id.ToString, rueckenwearguid.ToString, 10)
         If Main.brustsocket2id > 0 Then socketinsert(Main.brustsocket2id.ToString, brustwearguid.ToString, 10)
-        If Main.handgelenkesocket2id > 0 Then socketinsert(Main.handgelenkesocket2id.ToString, handgelenkewearguid.ToString, 10)
+        If Main.handgelenkesocket2id > 0 Then _
+            socketinsert(Main.handgelenkesocket2id.ToString, handgelenkewearguid.ToString, 10)
         If Main.haendesocket2id > 0 Then socketinsert(Main.haendesocket2id.ToString, haendewearguid.ToString, 10)
         If Main.guertelsocket2id > 0 Then
             beltinsert("3729", guertelwearguid.ToString, 41)
@@ -2970,7 +3629,8 @@ Public Class ArcEmu_core
         If Main.schultersocket3id > 0 Then socketinsert(Main.schultersocket3id.ToString, schulterwearguid.ToString, 13)
         If Main.rueckensocket3id > 0 Then socketinsert(Main.rueckensocket3id.ToString, rueckenwearguid.ToString, 13)
         If Main.brustsocket3id > 0 Then socketinsert(Main.brustsocket3id.ToString, brustwearguid.ToString, 13)
-        If Main.handgelenkesocket3id > 0 Then socketinsert(Main.handgelenkesocket3id.ToString, handgelenkewearguid.ToString, 13)
+        If Main.handgelenkesocket3id > 0 Then _
+            socketinsert(Main.handgelenkesocket3id.ToString, handgelenkewearguid.ToString, 13)
         If Main.haendesocket3id > 0 Then socketinsert(Main.haendesocket3id.ToString, haendewearguid.ToString, 13)
         If Main.guertelsocket3id > 0 Then
             beltinsert("3729", guertelwearguid.ToString, 41)
@@ -2988,8 +3648,10 @@ Public Class ArcEmu_core
         If Main.offsocket3id > 0 Then socketinsert(Main.offsocket3id.ToString, offwearguid.ToString, 13)
         If Main.distanzsocket3id > 0 Then socketinsert(Main.distanzsocket3id.ToString, distanzwearguid.ToString, 13)
     End Sub
+
     Public Sub addenchantments()
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Adding character enchantments..." & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Adding character enchantments..." & vbNewLine)
         If Main.kopfvzid > 0 Then vzinsert(Main.kopfvzid, kopfwearguid, 1)
         If Main.halsvzid > 0 Then vzinsert(Main.halsvzid, halswearguid, 1)
         If Main.schultervzid > 0 Then vzinsert(Main.schultervzid, schulterwearguid, 1)
@@ -3008,13 +3670,20 @@ Public Class ArcEmu_core
         If Main.offvzid > 0 Then vzinsert(Main.offvzid, offwearguid, 1)
         If Main.distanzvzid > 0 Then vzinsert(Main.distanzvzid, distanzwearguid, 1)
     End Sub
+
     Public Sub addpvp()
 
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Setting character honor/kills..." & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Setting character honor/kills..." & vbNewLine)
 
-        runfunction.normalsqlcommand("UPDATE `characters` SET arenaPoints='" & Main.arenaPoints.ToString & "' WHERE guid='" & Main.coreguid & "'")
-        runfunction.normalsqlcommand("UPDATE `characters` SET honorPoints='" & Main.totalHonorPoints.ToString & "' WHERE guid='" & Main.coreguid & "'")
-        runfunction.normalsqlcommand("UPDATE `characters` SET killsLifeTime='" & Main.totalKills.ToString & "' WHERE guid='" & Main.coreguid & "'")
+        runfunction.normalsqlcommand(
+            "UPDATE `characters` SET arenaPoints='" & Main.arenaPoints.ToString & "' WHERE guid='" & Main.coreguid & "'")
+        runfunction.normalsqlcommand(
+            "UPDATE `characters` SET honorPoints='" & Main.totalHonorPoints.ToString & "' WHERE guid='" & Main.coreguid &
+            "'")
+        runfunction.normalsqlcommand(
+            "UPDATE `characters` SET killsLifeTime='" & Main.totalKills.ToString & "' WHERE guid='" & Main.coreguid &
+            "'")
     End Sub
 
     Public Sub socketinsert(ByVal socketid As String, ByVal itemguid As String, ByVal position As Integer)
@@ -3031,14 +3700,14 @@ Public Class ArcEmu_core
         End If
 
         Try
-            runfunction.normalsqlcommand("UPDATE `playeritems` SET enchantments='" & runfunction.getgemeffectid(socketid).ToString & "," & xvalue & ",' WHERE guid = '" & itemguid & "'")
+            runfunction.normalsqlcommand(
+                "UPDATE `playeritems` SET enchantments='" & runfunction.getgemeffectid(socketid).ToString & "," & xvalue &
+                ",' WHERE guid = '" & itemguid & "'")
         Catch ex As Exception
 
         End Try
-
-
-
     End Sub
+
     Public Sub beltinsert(ByVal beltid As String, ByVal itemguid As String, ByVal position As Integer)
         'TO DO
 
@@ -3058,25 +3727,23 @@ Public Class ArcEmu_core
         'Catch ex As Exception
 
         'End Try
-
-
     End Sub
+
     Public Sub vzinsert(ByVal vzid As Integer, ByVal itemguid As Integer, ByVal position As Integer)
 
 
-
-
         Try
-            runfunction.normalsqlcommand("UPDATE `playeritems` SET enchantments='" & runfunction.getvzeffectid(runfunction.getvzeffectname2(vzid)).ToString & ",0,5' WHERE guid = '" & itemguid.ToString & "'")
+            runfunction.normalsqlcommand(
+                "UPDATE `playeritems` SET enchantments='" &
+                runfunction.getvzeffectid(runfunction.getvzeffectname2(vzid)).ToString & ",0,5' WHERE guid = '" &
+                itemguid.ToString & "'")
         Catch ex As Exception
 
         End Try
-
-
-
     End Sub
 
-    Private Sub checkexist_anddelete(ByVal xguid As String, ByVal xslot As String, ByVal item As String, ByVal itementry As Integer)
+    Private Sub checkexist_anddelete(ByVal xguid As String, ByVal xslot As String, ByVal item As String,
+                                     ByVal itementry As Integer)
         '"SELECT `columname` FROM `tabelle`"
 
         Try
@@ -3084,7 +3751,8 @@ Public Class ArcEmu_core
             '  ("SELECT * FROM characters WHERE name = '" & charname.Text & "'")
             Dim myAdapter As New MySqlDataAdapter
 
-            Dim sqlquery = "SELECT * FROM playeritems WHERE guid = '" & xguid & "' AND ownerguid='" & Main.coreguid & "' AND slot = '" & xslot & "' AND containerslot='-1'"
+            Dim sqlquery = "SELECT * FROM playeritems WHERE guid = '" & xguid & "' AND ownerguid='" & Main.coreguid &
+                           "' AND slot = '" & xslot & "' AND containerslot='-1'"
             Dim myCommand As New MySqlCommand()
             myCommand.Connection = Main.GLOBALconn
             myCommand.CommandText = sqlquery
@@ -3094,18 +3762,24 @@ Public Class ArcEmu_core
             myData = myCommand.ExecuteReader()
             If CInt(myData.HasRows) = 0 Then
                 myData.Close()
-                runfunction.normalsqlcommand("INSERT INTO playeritems ( guid, ownerguid, entry, containerslot, slot) VALUES ( '" & lastnumber & "', '" & guid & "', '" & itementry.ToString & "', '-1', '" & xslot & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO playeritems ( guid, ownerguid, entry, containerslot, slot) VALUES ( '" & lastnumber &
+                    "', '" & guid & "', '" & itementry.ToString & "', '-1', '" & xslot & "' )")
 
             Else
                 myData.Close()
-                runfunction.normalsqlcommand("DELETE FROM playeritems WHERE guid = '" & xguid & "' AND slot = '" & xslot & "'", False)
-                runfunction.normalsqlcommand("INSERT INTO playeritems ( guid, ownerguid, entry, containerslot, slot) VALUES ( '" & lastnumber & "', '" & guid & "', '" & itementry.ToString & "', '-1', '" & xslot & "' )")
+                runfunction.normalsqlcommand(
+                    "DELETE FROM playeritems WHERE guid = '" & xguid & "' AND slot = '" & xslot & "'", False)
+                runfunction.normalsqlcommand(
+                    "INSERT INTO playeritems ( guid, ownerguid, entry, containerslot, slot) VALUES ( '" & lastnumber &
+                    "', '" & guid & "', '" & itementry.ToString & "', '-1', '" & xslot & "' )")
             End If
 
         Catch
 
         End Try
     End Sub
+
     Private Sub checkglyphsanddelete(ByVal playerguid As String)
 
         Try
@@ -3119,7 +3793,6 @@ Public Class ArcEmu_core
         Catch ex As Exception
 
         End Try
-
     End Sub
 
 
@@ -3229,5 +3902,4 @@ Public Class ArcEmu_core
             '  runfunction.normalsqlcommand("UPDATE characters SET equipmentCache='" & finalstring & "' WHERE (guid='" & guid & "')")
         End If
     End Sub
-
 End Class

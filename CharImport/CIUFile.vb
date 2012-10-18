@@ -14,10 +14,8 @@
 '..................Comments:
 'Talents need to be compiled into citf
 
-
-
-
 Imports System.IO
+Imports System.Drawing.Imaging
 Imports System.Text
 
 Public Class CIUFile
@@ -27,22 +25,23 @@ Public Class CIUFile
     Dim readstring As String
     Dim strread As StreamReader
     Dim fileextract As String
+
     Public Sub createfile(ByVal xpath As String)
         writepath = xpath
-    
+
 
         nowwrite()
-
 
 
         'Lists
 
         '    writeit("talentpage", clsConvert.ConvListObject2String(Main.talentlist), True)
     End Sub
+
     Public Sub nowread()
         Starter.Hide()
         Try
-            strread = New StreamReader(Main.tmplpath, System.Text.Encoding.Default)
+            strread = New StreamReader(Main.tmplpath, Encoding.Default)
             Dim xXquellcodeyx88 As String = strread.ReadLine
             Dim xXanfangyx88 As String = "<<datasets>>"
             Dim xXendeyx88 As String = "<</datasets>>"
@@ -70,8 +69,8 @@ Public Class CIUFile
 
                 Application.DoEvents()
                 Main.Show()
-                Main.Panel21.Location = New System.Drawing.Point(5000, 5000)
-                Main.Panel21.Size = New System.Drawing.Size(0, 0)
+                Main.Panel21.Location = New Point(5000, 5000)
+                Main.Panel21.Size = New Size(0, 0)
                 wait.Close()
                 Application.DoEvents()
 
@@ -100,8 +99,8 @@ Public Class CIUFile
         Catch ex As Exception
 
         End Try
-
     End Sub
+
     Public Sub readtempdataset(ByVal dataset As Integer)
         Try
 
@@ -117,9 +116,10 @@ Public Class CIUFile
 
         End Try
     End Sub
+
     Public Sub readspecial(ByVal dataset As Integer)
         Try
-            strread = New StreamReader(Main.tmplpath, System.Text.Encoding.Default)
+            strread = New StreamReader(Main.tmplpath, Encoding.Default)
             Dim xXquellcodeyx88 As String = strread.ReadLine
             Dim xXanfangyx88 As String = "<startdataset" & dataset.ToString & ">"
             Dim xXendeyx88 As String = "<enddataset" & dataset.ToString & ">"
@@ -132,6 +132,7 @@ Public Class CIUFile
 
         End Try
     End Sub
+
     Public Sub adddataset()
         prepare_new_dataset(Main.datasets.ToString)
         writeit("importmode", Main.progressmode.ToString, False)
@@ -437,7 +438,6 @@ Public Class CIUFile
         'character_action Table
 
 
-
         writeit("character_action_list", list2string(Main.character_action_list), False)
 
         writeit("character_inventory_list", list2string(Main.character_inventory_list), False)
@@ -505,6 +505,7 @@ Public Class CIUFile
         writeit("last", "go", True)
         end_dataset(Main.datasets.ToString)
     End Sub
+
     Public Sub getfile()
 
         readitINT("charlevel", Main.char_level, False, True)
@@ -817,7 +818,6 @@ Public Class CIUFile
         'character_action Table
 
 
-
         string2list("character_action_list", Main.character_action_list)
 
         string2list("character_inventory_list", Main.character_inventory_list)
@@ -881,10 +881,10 @@ Public Class CIUFile
         readimage("secgering1pic", Main.secglyphpic7, False)
         readimage("secgering2pic", Main.secglyphpic8, False)
         readimage("secgering3pic", Main.secglyphpic9, True)
-
     End Sub
 
-    Public Sub readit(ByVal schlüssel As String, ByRef nonsense As String, ByVal lastone As Boolean, Optional ByVal isint As Boolean = False)
+    Public Sub readit(ByVal schlüssel As String, ByRef nonsense As String, ByVal lastone As Boolean,
+                      Optional ByVal isint As Boolean = False)
 
         If lastone = False Then
             Try
@@ -896,23 +896,22 @@ Public Class CIUFile
                 xXquellcodeSplityx88 = Split(xXquellcodeSplityx88, xXendeyx88, 6)(0)
                 Dim s As String = xXquellcodeSplityx88
                 Dim b() As Byte = Encoding.Default.GetBytes(s)
-                Dim s1 As String = System.Text.Encoding.UTF8.GetString(b)
-               
-                    nonsense = s1
+                Dim s1 As String = Encoding.UTF8.GetString(b)
+
+                nonsense = s1
 
             Catch ex As Exception
                 nonsense = ""
             End Try
 
 
-
         Else
 
         End If
-
-
     End Sub
-    Public Sub readitINT(ByVal schlüssel As String, ByRef nonsense As Integer, ByVal lastone As Boolean, Optional ByVal isint As Boolean = False)
+
+    Public Sub readitINT(ByVal schlüssel As String, ByRef nonsense As Integer, ByVal lastone As Boolean,
+                         Optional ByVal isint As Boolean = False)
 
         If lastone = False Then
             Try
@@ -924,7 +923,7 @@ Public Class CIUFile
                 xXquellcodeSplityx88 = Split(xXquellcodeSplityx88, xXendeyx88, 6)(0)
                 Dim s As String = xXquellcodeSplityx88
                 Dim b() As Byte = Encoding.Default.GetBytes(s)
-                Dim s1 As String = System.Text.Encoding.UTF8.GetString(b)
+                Dim s1 As String = Encoding.UTF8.GetString(b)
 
                 nonsense = CInt(s1)
 
@@ -933,13 +932,11 @@ Public Class CIUFile
             End Try
 
 
-
         Else
 
         End If
-
-
     End Sub
+
     Private Function list2string(ByVal xlist As List(Of String)) As String
         Try
             Dim builder As StringBuilder = New StringBuilder()
@@ -952,12 +949,11 @@ Public Class CIUFile
         Catch ex As Exception
             Return ""
         End Try
-
-
     End Function
+
     Private Sub string2list(ByVal schlüssel As String, ByRef dieliste As List(Of String))
         Try
-         
+
             Dim xXquellcodeyx88 As String = fileextract
             Dim xXanfangyx88 As String = schlüssel & "="
             Dim xXendeyx88 As String = "<++>"
@@ -966,7 +962,7 @@ Public Class CIUFile
             xXquellcodeSplityx88 = Split(xXquellcodeSplityx88, xXendeyx88, 6)(0)
             Dim s As String = xXquellcodeSplityx88
             Dim b() As Byte = Encoding.Default.GetBytes(s)
-            Dim s1 As String = System.Text.Encoding.UTF8.GetString(b)
+            Dim s1 As String = Encoding.UTF8.GetString(b)
 
             Dim stringlist As String() = s1.Split("|"c)
             Dim position As Integer = 0
@@ -988,10 +984,11 @@ Public Class CIUFile
             dieliste = leerelist
         End Try
     End Sub
+
     Public Sub readit2(ByVal schlüssel As String, ByRef nonsense As Label, ByVal lastone As Boolean)
         If lastone = False Then
 
-           
+
             Dim xXquellcodeyx88 As String = fileextract
             Dim xXanfangyx88 As String = schlüssel & "="
             Dim xXendeyx88 As String = "<++>"
@@ -1001,7 +998,7 @@ Public Class CIUFile
             nonsense.Text = xXquellcodeSplityx88
             Dim s As String = xXquellcodeSplityx88
             Dim b() As Byte = Encoding.Default.GetBytes(s)
-            Dim s1 As String = System.Text.Encoding.UTF8.GetString(b)
+            Dim s1 As String = Encoding.UTF8.GetString(b)
             If s1 = "" Then
                 nonsense.Visible = False
             ElseIf s1 = "Platz leer" Then
@@ -1014,16 +1011,15 @@ Public Class CIUFile
             nonsense.Text = s1
             Application.DoEvents()
         Else
-         
+
         End If
-
-
     End Sub
+
     Public Sub readimage(ByVal schlüssel As String, ByRef nonsense As Image, ByVal lastone As Boolean)
         Try
             If lastone = False Then
 
-              
+
                 Dim xXquellcodeyx88 As String = fileextract
                 Dim xXanfangyx88 As String = schlüssel & "="
                 Dim xXendeyx88 As String = "<++>"
@@ -1032,7 +1028,7 @@ Public Class CIUFile
                 xXquellcodeSplityx88 = Split(xXquellcodeSplityx88, xXendeyx88, 6)(0)
                 nonsense = ConvertStringToImage(xXquellcodeSplityx88)
             Else
-               
+
                 Dim xXquellcodeyx88 As String = fileextract
                 Dim xXanfangyx88 As String = schlüssel & "="
                 Dim xXendeyx88 As String = "<++>"
@@ -1047,13 +1043,13 @@ Public Class CIUFile
         Catch ex As Exception
 
         End Try
-
     End Sub
+
     Public Sub readimage2(ByVal schlüssel As String, ByRef nonsense As PictureBox, ByVal lastone As Boolean)
         Try
             If lastone = False Then
 
-               
+
                 Dim xXquellcodeyx88 As String = fileextract
                 Dim xXanfangyx88 As String = schlüssel & "="
                 Dim xXendeyx88 As String = "<++>"
@@ -1062,7 +1058,7 @@ Public Class CIUFile
                 xXquellcodeSplityx88 = Split(xXquellcodeSplityx88, xXendeyx88, 6)(0)
                 nonsense.Image = ConvertStringToImage(xXquellcodeSplityx88)
             Else
-              
+
                 Dim xXquellcodeyx88 As String = fileextract
                 Dim xXanfangyx88 As String = schlüssel & "="
                 Dim xXendeyx88 As String = "<++>"
@@ -1078,30 +1074,29 @@ Public Class CIUFile
         Catch ex As Exception
 
         End Try
-
     End Sub
 
 
-
-    Public Function Image2ByteArray(ByVal Bild As Image, ByVal Bildformat As System.Drawing.Imaging.ImageFormat) As Byte()
+    Public Function Image2ByteArray(ByVal Bild As Image, ByVal Bildformat As ImageFormat) As Byte()
 
         Try
-            Dim MS As New IO.MemoryStream
+            Dim MS As New MemoryStream
             Bild.Save(MS, Bildformat)
             MS.Flush()
             Return MS.ToArray
         Catch ex As Exception
-            Dim MS As New IO.MemoryStream
+            Dim MS As New MemoryStream
             My.Resources.empty.Save(MS, Bildformat)
             MS.Flush()
             Return MS.ToArray
         End Try
-
     End Function
+
     Private Sub prepare_new_dataset(ByVal dataset As String)
         My.Settings.savecontent = My.Settings.savecontent & "<startdataset" & dataset & ">"
         My.Settings.Save()
     End Sub
+
     Private Sub writeit(ByVal schlüssel As String, ByVal wert As String, ByVal lastone As Boolean)
 
 
@@ -1109,31 +1104,27 @@ Public Class CIUFile
         If lastone = True Then
             My.Settings.Save()
         End If
-
-
     End Sub
+
     Private Sub end_dataset(ByVal dataset As String)
         My.Settings.savecontent = My.Settings.savecontent & "<enddataset" & dataset & ">"
         My.Settings.Save()
     End Sub
+
     Private Sub nowwrite()
-        Dim fs As FileStream = New FileStream(writepath, FileMode.OpenOrCreate, FileAccess.Write)
-
-
-        Dim w As StreamWriter = New StreamWriter(fs)
-
-
-        w.WriteLine("<<datasets>>" & Main.datasets & "<</datasets>> <<importmode>>" & Main.progressmode.ToString & "<</importmode>>" & My.Settings.savecontent)
-
-        w.WriteLine()
-
-        w.Close()
-        fs.Close()
-        '      MsgBox("Template erfolgreich erstellt!", MsgBoxStyle.OkOnly, "Hinweis")
+        Using fs As New FileStream(writepath, FileMode.OpenOrCreate, FileAccess.Write)
+            Dim w As StreamWriter = New StreamWriter(fs)
+            w.WriteLine(
+                "<<datasets>>" & Main.datasets & "<</datasets>> <<importmode>>" & Main.progressmode.ToString &
+                "<</importmode>>" & My.Settings.savecontent)
+            w.WriteLine()
+            w.Close()
+        End Using
     End Sub
+
     Public Function ByteArray2Image(ByVal ByAr() As Byte) As Image
         Dim img As Image
-        Dim MS As New IO.MemoryStream(ByAr)
+        Dim MS As New MemoryStream(ByAr)
 
         'das TRY ist Notwending, da wenn ein ARRAY eingelesen wird, welches KEIN Bild war,
         'eine Exception auftritt!
@@ -1145,6 +1136,7 @@ Public Class CIUFile
 
         Return img
     End Function
+
     Public Function StringToByteArray(ByRef str As String) As Byte()
         Return Convert.FromBase64String(str)
     End Function
@@ -1155,10 +1147,11 @@ Public Class CIUFile
 
     '------------------Text in Bytearray und zurück-------------------
     Public Function TextStringToByteArray(ByRef str As String) As Byte()
-        Dim enc As System.Text.Encoding = System.Text.Encoding.Default
+        Dim enc As Encoding = Encoding.Default
 
         Return enc.GetBytes(str)
     End Function
+
     Public Shared Function ConvertImageToString(ByVal bild As Image) As String
         Dim Result As String = String.Empty
 
@@ -1193,14 +1186,14 @@ Public Class CIUFile
         End If
         Return img
     End Function
+
     Public Function ByteArrayToTextString(ByRef Barr() As Byte) As String
         Try
-            Dim enc As System.Text.Encoding = System.Text.Encoding.Default
+            Dim enc As Encoding = Encoding.Default
 
             Return enc.GetString(Barr)
         Catch ex As Exception
             Return ""
         End Try
-
     End Function
 End Class

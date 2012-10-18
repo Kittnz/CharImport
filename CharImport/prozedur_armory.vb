@@ -14,10 +14,9 @@
 '..................Comments:
 'Talent-Tree needs to be loaded
 
-
 Imports System.Net
 Imports System.Text
-Imports MySql.Data.MySqlClient
+
 Public Class prozedur_armory
     Public test6 As String
     Dim ServerString As String = Main.ServerString
@@ -28,7 +27,7 @@ Public Class prozedur_armory
 
     Public Sub prozedur(ByVal armory_link As String, ByVal cnumber As Integer, ByVal overview As Boolean)
         Process_Status.BringToFront()
-       
+
         xoverview = overview
         Main.setallempty()
         charnumber = cnumber
@@ -76,7 +75,7 @@ Public Class prozedur_armory
             Main.quelltext = quellclient.DownloadString(armory_link)
             Dim s As String = Main.quelltext
             Dim b() As Byte = Encoding.Default.GetBytes(s)
-            Dim s1 As String = System.Text.Encoding.UTF8.GetString(b)
+            Dim s1 As String = Encoding.UTF8.GetString(b)
             Main.quelltext = s1
             If Main.quelltext.Contains("#39;") Then Main.quelltext = Main.quelltext.Replace("#39;", "'")
             If Main.quelltext.Contains("Ã¼") Then Main.quelltext = Main.quelltext.Replace("Ã¼", "ü")
@@ -103,11 +102,11 @@ Public Class prozedur_armory
         My.Application.DoEvents()
         'status.Text = ""
 
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "/ Loading Characters from Armory..." & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "/ Loading Characters from Armory..." & vbNewLine)
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "/ Loading new Character..." & vbNewLine)
 
-        
-     
+
         Try
 
             Dim clienyx88 As New WebClient
@@ -120,7 +119,8 @@ Public Class prozedur_armory
             Main.char_name = quellcodeSplityx88
             Main.level.Text = quellcodeSplityx88 & ", "
             Main.charopt.Add("name" & charnumber.ToString & "=" & quellcodeSplityx88)
-            Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Got Character Name: " & quellcodeSplityx88 & vbNewLine)
+            Process_Status.processreport.AppendText(
+                Now.TimeOfDay.ToString & "// Got Character Name: " & quellcodeSplityx88 & vbNewLine)
             My.Application.DoEvents()
         Catch ex As Exception
             Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Error: " & ex.ToString & vbNewLine)
@@ -143,10 +143,12 @@ Public Class prozedur_armory
             Main.levelid = CInt(Val(quellcodeSplityx88))
             Main.char_level = CInt(Val(quellcodeSplityx88))
             Main.charopt.Add("level" & charnumber.ToString & "=" & quellcodeSplityx88)
-            Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Got Character Level: " & quellcodeSplityx88 & vbNewLine)
+            Process_Status.processreport.appendText(
+                Now.TimeOfDay.ToString & "// Got Character Level: " & quellcodeSplityx88 & vbNewLine)
             My.Application.DoEvents()
         Catch ex As Exception
-            Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Error (Set Level to 80 instead): " & ex.ToString & vbNewLine)
+            Process_Status.processreport.appendText(
+                Now.TimeOfDay.ToString & "// Error (Set Level to 80 instead): " & ex.ToString & vbNewLine)
             Main.errorcount += 1
 
             Main.level.Text = "Failed to load!"
@@ -158,14 +160,18 @@ Public Class prozedur_armory
         Try
             '### NEW ### Get Gender
             Dim clienyx88 As New WebClient
-            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://" & Main.battlenet_region & ".battle.net/api/wow/character/" & Main.realmname & "/" & Main.char_name)
+            Dim quellcodeyx88 As String =
+                    clienyx88.DownloadString(
+                        "http://" & Main.battlenet_region & ".battle.net/api/wow/character/" & Main.realmname & "/" &
+                        Main.char_name)
             Dim anfangyx88 As String = """gender"":"
             Dim endeyx88 As String = ","""
             Dim quellcodeSplityx88 As String
             quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
             quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
             Main.char_gender = CInt(quellcodeSplityx88)
-            Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Got Character Gender: " & quellcodeSplityx88 & vbNewLine)
+            Process_Status.processreport.AppendText(
+                Now.TimeOfDay.ToString & "// Got Character Gender: " & quellcodeSplityx88 & vbNewLine)
             My.Application.DoEvents()
         Catch ex As Exception
             Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Error: " & ex.ToString & vbNewLine)
@@ -196,11 +202,13 @@ Public Class prozedur_armory
             If quellcodeSplityx88 = "draenei" Then quellcodeSplityx88 = "11"
             Main.char_race = CInt(Val(quellcodeSplityx88))
             Main.charopt.Add("race" & charnumber.ToString & "=" & quellcodeSplityx88)
-            Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Got Character Race: " & quellcodeSplityx88 & vbNewLine)
+            Process_Status.processreport.appendText(
+                Now.TimeOfDay.ToString & "// Got Character Race: " & quellcodeSplityx88 & vbNewLine)
             My.Application.DoEvents()
             Connect.race.Visible = True
         Catch ex As Exception
-            Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Error (Set race to human instead): " & ex.ToString & vbNewLine)
+            Process_Status.processreport.appendText(
+                Now.TimeOfDay.ToString & "// Error (Set race to human instead): " & ex.ToString & vbNewLine)
             Main.errorcount += 1
             Main.char_race = 1
             My.Application.DoEvents()
@@ -229,11 +237,13 @@ Public Class prozedur_armory
             If quellcodeSplityx88 = "druid" Then quellcodeSplityx88 = "11"
             Main.char_class = CInt(Val(quellcodeSplityx88))
             Main.charopt.Add("class" & charnumber.ToString & "=" & quellcodeSplityx88)
-            Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Got Character Class: " & quellcodeSplityx88 & vbNewLine)
+            Process_Status.processreport.appendText(
+                Now.TimeOfDay.ToString & "// Got Character Class: " & quellcodeSplityx88 & vbNewLine)
             My.Application.DoEvents()
             Connect.playerclass.Visible = True
         Catch ex As Exception
-            Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Error (Set class to warrior instead): " & ex.ToString & vbNewLine)
+            Process_Status.processreport.appendText(
+                Now.TimeOfDay.ToString & "// Error (Set class to warrior instead): " & ex.ToString & vbNewLine)
             Main.errorcount += 1
             Main.char_class = 1
             My.Application.DoEvents()
@@ -395,23 +405,28 @@ Public Class prozedur_armory
         Main.datasets += 1
         Dim addtataset As New CIUFile
         addtataset.adddataset()
-        Main.Panel21.Location = New System.Drawing.Point(5000, 5000)
+        Main.Panel21.Location = New Point(5000, 5000)
         Main.UseWaitCursor = False
         'Starter.Close()
         Application.DoEvents()
     End Sub
+
     Private Sub addtoglyphlist(ByVal key As String, ByVal value As String)
         Main.glyphlist.Add(charnumber & key & "=" & value)
     End Sub
+
     Private Sub addtovzlist(ByVal key As String, ByVal value As String)
         Main.vzlist.Add(charnumber & key & "=" & value)
     End Sub
+
     Private Sub addtogemlist(ByVal key As String, ByVal value As String)
         Main.gemlist.Add(charnumber & key & "=" & value)
     End Sub
+
     Private Sub addtoitemlist(ByVal key As String, ByVal value As String)
         Main.itemlist.Add(charnumber & key & "=" & value)
     End Sub
+
     Private Sub goitem()
         getitem(1)
         getitem(2)
@@ -433,6 +448,7 @@ Public Class prozedur_armory
         getitem(18)
         getitem(19)
     End Sub
+
     Private Sub gogems()
 
         getgem(1)
@@ -455,6 +471,7 @@ Public Class prozedur_armory
         getgem(18)
         getgem(19)
     End Sub
+
     Private Sub govz()
         getvz(1)
         getvz(2)
@@ -475,8 +492,8 @@ Public Class prozedur_armory
         getvz(17)
         getvz(18)
         getvz(19)
-
     End Sub
+
     Private Sub gettalents()
         Main.talentlist = Main.emptylist
         Main.talentlist.Clear()
@@ -511,9 +528,9 @@ Public Class prozedur_armory
         End If
 
 
-
         ' Dim ressource2 As String = quellcodeSplit88.Remove(0, ressource1 + 14)
     End Sub
+
     Private Sub getimage(ByVal itemid As String, ByVal picbox As PictureBox)
         Try
             Dim clienyx88 As New WebClient
@@ -525,10 +542,13 @@ Public Class prozedur_armory
             quellcodeSplityx88 = "http://wowdata.buffed.de" & Split(quellcodeSplityx88, endeyx88, 6)(0)
             LoadImageFromUrl(quellcodeSplityx88, picbox)
         Catch ex As Exception
-            Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Error while loading itemimage with itemid: " & itemid & " > " & ex.ToString & vbNewLine)
+            Process_Status.processreport.appendText(
+                Now.TimeOfDay.ToString & "// Error while loading itemimage with itemid: " & itemid & " > " & ex.ToString &
+                vbNewLine)
             My.Application.DoEvents()
         End Try
     End Sub
+
     Private Function getspellidfromitem(ByVal itemid As String) As Integer
         Try
             Dim clienyx88 As New WebClient
@@ -541,11 +561,14 @@ Public Class prozedur_armory
 
             Return CInt(Val(quellcodeSplityx88))
         Catch ex As Exception
-            Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Error while loading spellid from itemid: " & itemid & " > " & ex.ToString & vbNewLine)
+            Process_Status.processreport.appendText(
+                Now.TimeOfDay.ToString & "// Error while loading spellid from itemid: " & itemid & " > " & ex.ToString &
+                vbNewLine)
             My.Application.DoEvents()
             Return 0
         End Try
     End Function
+
     Private Function getnamefromid(ByVal itemid As String) As String
         Try
             Dim clienyx88 As New WebClient
@@ -558,11 +581,13 @@ Public Class prozedur_armory
 
             Dim s As String = quellcodeSplityx88
             Dim b() As Byte = Encoding.Default.GetBytes(s)
-            Dim s1 As String = System.Text.Encoding.UTF8.GetString(b)
+            Dim s1 As String = Encoding.UTF8.GetString(b)
 
             Return s1
         Catch ex As Exception
-            Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Error while getting name from itemid: " & itemid & " > " & ex.ToString & vbNewLine)
+            Process_Status.processreport.appendText(
+                Now.TimeOfDay.ToString & "// Error while getting name from itemid: " & itemid & " > " & ex.ToString &
+                vbNewLine)
             My.Application.DoEvents()
             Return "Fehler"
         End Try
@@ -580,15 +605,18 @@ Public Class prozedur_armory
 
             Dim s As String = quellcodeSplityx88
             Dim b() As Byte = Encoding.Default.GetBytes(s)
-            Dim s1 As String = System.Text.Encoding.UTF8.GetString(b)
+            Dim s1 As String = Encoding.UTF8.GetString(b)
 
             Return s1
         Catch ex As Exception
-            Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Error while spell name from spellid: " & spellid & " > " & ex.ToString & vbNewLine)
+            Process_Status.processreport.appendText(
+                Now.TimeOfDay.ToString & "// Error while spell name from spellid: " & spellid & " > " & ex.ToString &
+                vbNewLine)
             My.Application.DoEvents()
             Return "Fehler"
         End Try
     End Function
+
     Public Function getvzeffectname(ByVal vzid As String) As String
         Try
             Dim clienyx88 As New WebClient
@@ -610,7 +638,7 @@ Public Class prozedur_armory
 
             End If
             Dim b() As Byte = Encoding.Default.GetBytes(quellcodeSplityx88)
-            quellcodeSplityx88 = System.Text.Encoding.UTF8.GetString(b)
+            quellcodeSplityx88 = Encoding.UTF8.GetString(b)
             Try
                 quellcodeSplityx88 = quellcodeSplityx88.Replace("Tempo", "Tempowertung")
             Catch ex As Exception
@@ -668,11 +696,14 @@ Public Class prozedur_armory
             End Try
             Return quellcodeSplityx88
         Catch ex As Exception
-            Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Error while getting effectname from vzid: " & vzid & " > " & ex.ToString & vbNewLine)
+            Process_Status.processreport.appendText(
+                Now.TimeOfDay.ToString & "// Error while getting effectname from vzid: " & vzid & " > " & ex.ToString &
+                vbNewLine)
             My.Application.DoEvents()
             Return ""
         End Try
     End Function
+
     Public Function getsocketeffectname(ByVal socketid As String) As String
         Try
             Dim clienyx88 As New WebClient
@@ -694,7 +725,7 @@ Public Class prozedur_armory
 
             End If
             Dim b() As Byte = Encoding.Default.GetBytes(quellcodeSplityx88)
-            quellcodeSplityx88 = System.Text.Encoding.UTF8.GetString(b)
+            quellcodeSplityx88 = Encoding.UTF8.GetString(b)
 
             Try
                 quellcodeSplityx88 = quellcodeSplityx88.Replace("Tempo", "Tempowertung")
@@ -753,11 +784,14 @@ Public Class prozedur_armory
             End Try
             Return quellcodeSplityx88
         Catch ex As Exception
-            Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Error while getting effectname from socket: " & socketid & " > " & ex.ToString & vbNewLine)
+            Process_Status.processreport.appendText(
+                Now.TimeOfDay.ToString & "// Error while getting effectname from socket: " & socketid & " > " &
+                ex.ToString & vbNewLine)
             My.Application.DoEvents()
             Return ""
         End Try
     End Function
+
     Public Sub checkpatchversion(ByVal version As String)
         Filtern.Close()
 
@@ -1484,7 +1518,6 @@ Public Class prozedur_armory
         End Try
 
 
-
         'SekundärGlyphen
         Try
             Dim clienyx88 As New WebClient
@@ -1663,6 +1696,7 @@ Public Class prozedur_armory
         MsgBox("Gegenstände wurden gefiltert!", MsgBoxStyle.Information, "Info")
         Main.BringToFront()
     End Sub
+
     Private Sub getplayerbytes()
         Dim tmpface As String = ""
         Dim tmpskin As String = ""
@@ -1672,7 +1706,10 @@ Public Class prozedur_armory
         Dim appearance As String = ""
         Try
             Dim client As New WebClient
-            Dim quellcode As String = client.DownloadString("http://" & Main.battlenet_region & ".battle.net/api/wow/character/" & Main.realmname & "/" & Main.char_name & "?fields=appearance")
+            Dim quellcode As String =
+                    client.DownloadString(
+                        "http://" & Main.battlenet_region & ".battle.net/api/wow/character/" & Main.realmname & "/" &
+                        Main.char_name & "?fields=appearance")
             Dim anfangyx88 As String = """faceVariation"":"
             Dim endeyx88 As String = ","
             Dim quellcodeSplityx88 As String
@@ -1698,7 +1735,8 @@ Public Class prozedur_armory
             Dim quellcodeSplityx888888 As String
             quellcodeSplityx888888 = Split(quellcode, anfangyx888888, 5)(1)
             tmpfeature = Split(quellcodeSplityx888888, endeyx888888, 6)(0)
-        Catch : End Try
+        Catch :
+        End Try
         Try
 
             Dim face As String = Hex$(Long.Parse(tmpface))
@@ -1711,7 +1749,8 @@ Public Class prozedur_armory
             If hairColor.ToString.Length = 1 Then hairColor = 0 & hairColor
             Dim bytestring As String = ((hairColor) & (hairStyle) & (face) & (skin)).ToString
             Main.playerBytes = CInt(CLng("&H" & bytestring).ToString)
-        Catch : End Try
+        Catch :
+        End Try
         Try
             Dim feature As String = Hex$(Long.Parse(tmpfeature))
             If feature.Length = 1 Then feature = "0" & feature
@@ -1720,14 +1759,17 @@ Public Class prozedur_armory
 
         End Try
         ' value?
-
     End Sub
+
     ' Main.character_reputatuion_list.Add("<faction>" & faction & "</faction><standing>" & standing & "</standing><flags>" & flags & "</flags>")
     Private Sub getquests()
         Dim queststring As String = ""
         Try
             Dim client As New WebClient
-            Dim quellcode As String = client.DownloadString("http://" & Main.battlenet_region & ".battle.net/api/wow/character/" & Main.realmname & "/" & Main.char_name & "?fields=quests")
+            Dim quellcode As String =
+                    client.DownloadString(
+                        "http://" & Main.battlenet_region & ".battle.net/api/wow/character/" & Main.realmname & "/" &
+                        Main.char_name & "?fields=quests")
             Dim anfangyx88 As String = """quests"":["
             Dim endeyx88 As String = "]}"
             Dim quellcodeSplityx88 As String
@@ -1738,6 +1780,7 @@ Public Class prozedur_armory
 
         End Try
     End Sub
+
     Private Sub getrep()
         Dim factionid As String = ""
         Dim repstring As String = ""
@@ -1745,7 +1788,10 @@ Public Class prozedur_armory
         Dim quellcode As String = ""
         Try
             Dim client As New WebClient
-            quellcode = client.DownloadString("http://" & Main.battlenet_region & ".battle.net/api/wow/character/" & Main.realmname & "/" & Main.char_name & "?fields=reputation")
+            quellcode =
+                client.DownloadString(
+                    "http://" & Main.battlenet_region & ".battle.net/api/wow/character/" & Main.realmname & "/" &
+                    Main.char_name & "?fields=reputation")
             Dim anfangyx88 As String = """reputation"":["
             Dim endeyx88 As String = "]"
             Dim quellcodeSplityx88 As String
@@ -1758,7 +1804,8 @@ Public Class prozedur_armory
             Dim excounter As Integer = UBound(Split(repstring, ",{"))
             Try
                 repstring = repstring.Replace(",{", "§")
-            Catch : End Try
+            Catch :
+            End Try
 
             Dim parts() As String = repstring.Split("$"c)
             Dim loopcounter As Integer = 0
@@ -1774,11 +1821,13 @@ Public Class prozedur_armory
                 quellcodeSplityx888 = Split(parts(loopcounter), anfangyx888, 5)(1)
                 standing = Split(quellcodeSplityx888, endeyx888, 6)(0)
                 loopcounter += 1
-                Main.character_reputatuion_list.Add("<faction>" & factionid & "</faction><standing>" & standing & "</standing><flags>1</flags>")
+                Main.character_reputatuion_list.Add(
+                    "<faction>" & factionid & "</faction><standing>" & standing & "</standing><flags>1</flags>")
             Loop Until loopcounter = excounter
 
         End If
     End Sub
+
     '     Main.character_achievement_list.Add("<av>" & avid & "</av><date>" & xdate & "</date>")
     Private Sub getavs()
         Dim avid As String = ""
@@ -1788,7 +1837,10 @@ Public Class prozedur_armory
         Dim quellcodeyx88 As String = ""
         Try
             Dim clienyx88 As New WebClient
-            quellcodeyx88 = clienyx88.DownloadString("http://" & Main.battlenet_region & ".battle.net/api/wow/character/" & Main.realmname & "/" & Main.char_name & "?fields=achievements")
+            quellcodeyx88 =
+                clienyx88.DownloadString(
+                    "http://" & Main.battlenet_region & ".battle.net/api/wow/character/" & Main.realmname & "/" &
+                    Main.char_name & "?fields=achievements")
             Dim anfangyx88 As String = "{""achievementsCompleted"":["
             Dim endeyx88 As String = "],"""
             Dim quellcodeSplityx88 As String
@@ -1828,8 +1880,8 @@ Public Class prozedur_armory
         Catch ex As Exception
 
         End Try
-
     End Sub
+
     Private Sub getglyph()
         Dim glyphid As String = ""
         Dim glyphstring As String = ""
@@ -1838,7 +1890,10 @@ Public Class prozedur_armory
         Dim zname As String = Main.char_name
         Try
             Dim clienyx88 As New WebClient
-            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://" & Main.battlenet_region & ".battle.net/api/wow/character/" & Main.realmname & "/" & Main.char_name & "?fields=talents")
+            Dim quellcodeyx88 As String =
+                    clienyx88.DownloadString(
+                        "http://" & Main.battlenet_region & ".battle.net/api/wow/character/" & Main.realmname & "/" &
+                        Main.char_name & "?fields=talents")
             If Not quellcodeyx88.Contains("""glyphs"":") Then Exit Sub
             Dim anfangyx88 As String = """glyphs"":"
             Dim endeyx88 As String = ",""spec"":"
@@ -1913,7 +1968,6 @@ Public Class prozedur_armory
                     startcounter += 1
 
 
-
                 Loop Until startcounter = excounter
 
             End If
@@ -1976,7 +2030,6 @@ Public Class prozedur_armory
                     startcounter += 1
 
 
-
                 Loop Until startcounter = excounter
 
             End If
@@ -1985,15 +2038,18 @@ Public Class prozedur_armory
             Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Error: " & ex.ToString & vbNewLine)
             Main.errorcount += 1
         End Try
-
     End Sub
+
     Private Sub getsecglyph()
         Dim glyphid As String = ""
         Dim glyphstring As String = ""
         Dim glyphname As String = ""
         Try
             Dim clienyx88 As New WebClient
-            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://" & Main.battlenet_region & ".battle.net/api/wow/character/" & Main.realmname & "/" & Main.char_name & "?fields=talents")
+            Dim quellcodeyx88 As String =
+                    clienyx88.DownloadString(
+                        "http://" & Main.battlenet_region & ".battle.net/api/wow/character/" & Main.realmname & "/" &
+                        Main.char_name & "?fields=talents")
             Dim anfangyx88 As String = ",""spec"":"
             Dim endeyx88 As String = "}]}"
             Dim quellcodeSplityx88 As String
@@ -2068,7 +2124,6 @@ Public Class prozedur_armory
                     startcounter += 1
 
 
-
                 Loop Until startcounter = excounter
 
             End If
@@ -2131,7 +2186,6 @@ Public Class prozedur_armory
                     startcounter += 1
 
 
-
                 Loop Until startcounter = excounter
 
             End If
@@ -2141,6 +2195,7 @@ Public Class prozedur_armory
             Main.errorcount += 1
         End Try
     End Sub
+
     Private Sub saveglyphs()
         Main.textprimeglyph1 = Glyphs.prim1.Text
         Main.textprimeglyph2 = Glyphs.prim2.Text
@@ -2182,6 +2237,7 @@ Public Class prozedur_armory
         Main.secglyphpic8 = Glyphs.secgering2pic.Image
         Main.secglyphpic9 = Glyphs.secgering3pic.Image
     End Sub
+
     Private Sub getvz(ByVal slot As Integer)
 
         Dim starting As String = ""
@@ -2261,7 +2317,8 @@ Public Class prozedur_armory
                     If xXquellcodeSplityx88.Contains("Ã¶") Then xXquellcodeSplityx88.Replace("Ã¶", "")
                     If xXquellcodeSplityx88.Contains("ÃŸ") Then xXquellcodeSplityx88.Replace("ÃŸ", "")
                     Dim vzid As String = xXquellcodeSplityx88
-                    Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Got Enchantment for Slot: " & slot.ToString & vbNewLine)
+                    Process_Status.processreport.appendText(
+                        Now.TimeOfDay.ToString & "// Got Enchantment for Slot: " & slot.ToString & vbNewLine)
                     My.Application.DoEvents()
                     Select Case slot
                         Case 1
@@ -2400,7 +2457,8 @@ Public Class prozedur_armory
                     If xXquellcodeSplityx88.Contains("Ã¶") Then xXquellcodeSplityx88.Replace("Ã¶", "")
                     If xXquellcodeSplityx88.Contains("ÃŸ") Then xXquellcodeSplityx88.Replace("ÃŸ", "")
                     Dim vzid As String = xXquellcodeSplityx88.ToString
-                    Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Got Enchantment for slot: " & slot.ToString & vbNewLine)
+                    Process_Status.processreport.appendText(
+                        Now.TimeOfDay.ToString & "// Got Enchantment for slot: " & slot.ToString & vbNewLine)
                     My.Application.DoEvents()
                     Select Case slot
                         Case 1
@@ -2533,8 +2591,8 @@ Public Class prozedur_armory
         Catch
 
         End Try
-
     End Sub
+
     Private Sub getgem(ByVal slot As Integer)
 
         Dim starting As String = ""
@@ -2615,7 +2673,8 @@ Public Class prozedur_armory
                 If quellcodeSplityx88.Contains("ÃŸ") Then quellcodeSplityx88.Replace("ÃŸ", "")
                 socket1 = quellcodeSplityx88
                 Dim sockettext As String = "Platz leer"
-                Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Loaded Socket1 for slot : " & slot.ToString & vbNewLine)
+                Process_Status.processreport.appendText(
+                    Now.TimeOfDay.ToString & "// Loaded Socket1 for slot : " & slot.ToString & vbNewLine)
                 My.Application.DoEvents()
                 Select Case slot
                     Case 1
@@ -2719,7 +2778,6 @@ Public Class prozedur_armory
                 End Select
 
 
-
                 Dim xquellcodey88 As String = quellcodeSplit88
                 Dim xanfangy88 As String = "<span class=""sockets"">"
                 Dim xendey88 As String = "</div>"
@@ -2749,7 +2807,8 @@ Public Class prozedur_armory
                     If XquellcodeSplityx88.Contains("Ã¶") Then XquellcodeSplityx88.Replace("Ã¶", "")
                     If XquellcodeSplityx88.Contains("ÃŸ") Then XquellcodeSplityx88.Replace("ÃŸ", "")
                     socket2 = XquellcodeSplityx88
-                    Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Loaded Socket2 for slot : " & slot.ToString & vbNewLine)
+                    Process_Status.processreport.appendText(
+                        Now.TimeOfDay.ToString & "// Loaded Socket2 for slot : " & slot.ToString & vbNewLine)
                     My.Application.DoEvents()
                     Select Case slot
                         Case 1
@@ -2868,7 +2927,8 @@ Public Class prozedur_armory
                         If xXquellcodeSplityx88.Contains("Ã¶") Then xXquellcodeSplityx88.Replace("Ã¶", "")
                         If xXquellcodeSplityx88.Contains("ÃŸ") Then xXquellcodeSplityx88.Replace("ÃŸ", "")
                         socket3 = xXquellcodeSplityx88
-                        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Loaded Socket3 for slot : " & slot.ToString & vbNewLine)
+                        Process_Status.processreport.appendText(
+                            Now.TimeOfDay.ToString & "// Loaded Socket3 for slot : " & slot.ToString & vbNewLine)
                         My.Application.DoEvents()
                         Select Case slot
                             Case 1
@@ -2983,15 +3043,13 @@ Public Class prozedur_armory
             End If
 
 
-
-
-
         Catch
 
         End Try
 
         My.Application.DoEvents()
     End Sub
+
     Private Sub getitem(ByVal slot As Integer)
 
         Dim starting As String = ""
@@ -3125,7 +3183,8 @@ Public Class prozedur_armory
                     quellcodeSplity89 = Split(quellcodey89, anfangy89, 5)(1)
                     quellcodeSplity89 = Split(quellcodeSplity89, endey89, 6)(0) & ".jpg"
                 Catch ex As Exception
-                    Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Error while loading itemid! > " & ex.ToString & vbNewLine)
+                    Process_Status.processreport.appendText(
+                        Now.TimeOfDay.ToString & "// Error while loading itemid! > " & ex.ToString & vbNewLine)
                     My.Application.DoEvents()
                 End Try
 
@@ -3143,7 +3202,9 @@ Public Class prozedur_armory
                     If xquellcodesplity89.Contains("Ã¶") Then xquellcodesplity89 = xquellcodesplity89.Replace("Ã¶", "ö")
                     If xquellcodesplity89.Contains("ÃŸ") Then xquellcodesplity89 = xquellcodesplity89.Replace("ÃŸ", "ß")
                 Catch ex As Exception
-                    Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Error while loading item with id: " & quellcodeSplity88 & " > " & ex.ToString & vbNewLine)
+                    Process_Status.processreport.appendText(
+                        Now.TimeOfDay.ToString & "// Error while loading item with id: " & quellcodeSplity88 & " > " &
+                        ex.ToString & vbNewLine)
                     My.Application.DoEvents()
                     xquellcodesplity89 = "Fehler"
                 End Try
@@ -3156,7 +3217,8 @@ Public Class prozedur_armory
                 '  Dim quellcodeSplityx88 As String
                 '    quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
                 ' "http://wowdata.buffed.de" & Split(quellcodeSplityx88, endeyx88, 6)(0)
-                Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Setting up Item Slot: " & slot.ToString & vbNewLine)
+                Process_Status.processreport.appendText(
+                    Now.TimeOfDay.ToString & "// Setting up Item Slot: " & slot.ToString & vbNewLine)
                 My.Application.DoEvents()
                 Dim quellcodeSplityx88 = quellcodeSplity89
                 Select Case slot
@@ -3263,7 +3325,8 @@ Public Class prozedur_armory
 
 
         Catch ex As Exception
-            Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Error while setting up Itemslot: " & slot.ToString & vbNewLine)
+            Process_Status.processreport.appendText(
+                Now.TimeOfDay.ToString & "// Error while setting up Itemslot: " & slot.ToString & vbNewLine)
             My.Application.DoEvents()
             Select Case slot
                 Case 1
@@ -3306,26 +3369,28 @@ Public Class prozedur_armory
                     Main.Schmuck2.Text = "Fehler! =)"
             End Select
         End Try
-
     End Sub
+
     Public Sub LoadImageFromUrl(ByRef url As String, ByVal pb As PictureBox)
         Try
-            Dim request As Net.HttpWebRequest = DirectCast(Net.HttpWebRequest.Create(url), Net.HttpWebRequest)
-            Dim response As Net.HttpWebResponse = DirectCast(request.GetResponse, Net.HttpWebResponse)
+            Dim request As HttpWebRequest = DirectCast(HttpWebRequest.Create(url), HttpWebRequest)
+            Dim response As HttpWebResponse = DirectCast(request.GetResponse, HttpWebResponse)
             Dim img As Image = Image.FromStream(response.GetResponseStream())
             response.Close()
             pb.SizeMode = PictureBoxSizeMode.StretchImage
             pb.Image = img
         Catch ex As Exception
-            Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Error while loading Image from URL: " & url & " > " & ex.ToString & vbNewLine)
+            Process_Status.processreport.appendText(
+                Now.TimeOfDay.ToString & "// Error while loading Image from URL: " & url & " > " & ex.ToString &
+                vbNewLine)
             My.Application.DoEvents()
         End Try
-
     End Sub
 
     Public Sub getweapontype(ByVal itemid As Integer)
         Try
-            Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Loading Weapontype from itemid: " & itemid & vbNewLine)
+            Process_Status.processreport.appendText(
+                Now.TimeOfDay.ToString & "// Loading Weapontype from itemid: " & itemid & vbNewLine)
             My.Application.DoEvents()
             Dim clienyx88 As New WebClient
             Dim quellcodeyx88 As String = clienyx88.DownloadString("http://www.wowhead.com/item=" & itemid.ToString)
@@ -3397,11 +3462,10 @@ Public Class prozedur_armory
 
             End Select
         Catch ex As Exception
-            Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Error while loading Weapontype with itemid: " & itemid & " > " & ex.ToString & vbNewLine)
+            Process_Status.processreport.appendText(
+                Now.TimeOfDay.ToString & "// Error while loading Weapontype with itemid: " & itemid & " > " &
+                ex.ToString & vbNewLine)
             My.Application.DoEvents()
         End Try
-
     End Sub
-
-
 End Class

@@ -1,5 +1,8 @@
 ﻿Public Class LanguageEN
-    Public armoryinterface_txt1 As String = "Please enter the name of the new template file with the help of the upcoming window."
+    Public _
+        armoryinterface_txt1 As String =
+            "Please enter the name of the new template file with the help of the upcoming window."
+
     Public armoryinterface_txt2 As String = "New template"
     Public armoryinterface_txt3 As String = "Invalid file name!"
     Public armoryinterface_txt4 As String = "Error"
@@ -49,8 +52,8 @@
     Public connect_txt24 As String = "Error!: "
     Public connect_txt25 As String = "Attention"
 
-    Public database_check_txt1 As String = "Thank you for reporting. " & _
-          "You can now continue with the transfer, or cancel."
+    Public database_check_txt1 As String = "Thank you for reporting. " &
+                                           "You can now continue with the transfer, or cancel."
 
     Public filter_txt1 As String = "Please select a patch!"
 
@@ -65,16 +68,29 @@
 
     Public minlevelnotset As String = "Please enter a valid value for the minimum level!"
     Public maxlevelnotset As String = "Please enter a valid value for the maximum level!"
-    Public maxlevelsmallerminlevel As String = "The minimum level is bigger than the maximum level! The maximum level has to be bigger."
+
+    Public _
+        maxlevelsmallerminlevel As String =
+            "The minimum level is bigger than the maximum level! The maximum level has to be bigger."
+
     Public maxminlevelerror As String = "Please enter a valid value for minimum and maximum level!"
     Public invalidinput As String = "Invalid input"
-    Public mindatebiggermaxdate As String = "The minimum-last-login-date has to be older than the maximum-last-login-date!"
+
+    Public _
+        mindatebiggermaxdate As String = "The minimum-last-login-date has to be older than the maximum-last-login-date!"
+
     Public gmlevelnotset As String = "Please enter a valid value for the gm level!"
 
     Public attention As String = "Warning"
-    Public nointernetconnection As String = "You are not connectet to the internet" & vbCrLf & "CharImport will not work properly."
+
+    Public _
+        nointernetconnection As String = "You are not connectet to the internet" & vbCrLf &
+                                         "CharImport will not work properly."
+
     Public regionnotset As String = "You did not select any Battle.net region."
     Public norealmname As String = "You did not set any realm name."
     Public nocharname As String = "You did not set any character name."
-    Public charnotfound As String = "The character has not been found! Please check the character and realm information."
+
+    Public _
+        charnotfound As String = "The character has not been found! Please check the character and realm information."
 End Class

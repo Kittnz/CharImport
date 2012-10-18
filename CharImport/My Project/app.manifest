@@ -5,7 +5,7 @@
     <security>
       <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
         <!-- UAC-Manifestoptionen
-          Wenn Sie die Zugangsebene für das Windows-Benutzerkonto ändern möchten, ersetzen Sie den 
+          Wenn Sie die Zugangsebene für das Windows-Benutzerkonto ändern möchten, ersetzen Sie den
           requestedExecutionLevel-Knoten durch eines der folgenden Elemente.
 
         <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
@@ -13,7 +13,7 @@
         <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
 
             Durch Angeben des requestedExecutionLevel-Knotens wird die Datei- und Registrierungsvirtualisierung deaktiviert.
-            Wenn Sie Datei- und Registrierungsvirtualisierung für Abwärts- 
+            Wenn Sie Datei- und Registrierungsvirtualisierung für Abwärts-
             kompatibilität verwenden möchten, löschen Sie den requestedExecutionLevel-Knoten.
         -->
         <requestedExecutionLevel level="requireAdministrator" uiAccess="false" />

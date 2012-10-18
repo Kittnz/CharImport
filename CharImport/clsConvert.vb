@@ -13,7 +13,7 @@
 '****************************************************************************************
 '..................Comments:
 '
-
+Imports System.Text
 
 Public Class clsConvert
     ''' <summary>
@@ -22,7 +22,7 @@ Public Class clsConvert
     ''' <param name="Ar">Erwartet ein Stringarray</param>
     ''' <param name="Seperator">Ein Trennzeichen für die Arrays, Standard ist ", "</param>
     Public Function ArrayToString(ByVal ar() As String, Optional ByVal Seperator As String = ", ") As String
-        Dim AtS As New System.Text.StringBuilder
+        Dim AtS As New StringBuilder
         For i As Integer = 0 To ar.Length - 1
             AtS.Append(ar(i))
             If i <> ar.Length - 1 Then
@@ -38,8 +38,9 @@ Public Class clsConvert
     ''' </summary>
     ''' <param name="lst">Die zu konvertierende Liste.</param>
     ''' <param name="Seperator">Ein Trennzeichen für die Arrays, Standard ist ", "</param>
-    Public Overloads Function ConvListObject2String(ByVal lst As List(Of String), Optional ByVal Seperator As String = ", ") As String
-        Dim str As New System.Text.StringBuilder
+    Public Overloads Function ConvListObject2String(ByVal lst As List(Of String),
+                                                    Optional ByVal Seperator As String = ", ") As String
+        Dim str As New StringBuilder
         For i As Integer = 0 To lst.Count - 1
             str.AppendFormat("{0}{1}", lst.Item(i), Seperator)
         Next
@@ -103,12 +104,14 @@ Public Class clsConvert
     End Function
 
 #Region "ADD X to Listbox"
+
     ''' <summary>
     ''' Fügt einer Listbox eine ListOfString hinzu
     ''' </summary>
     ''' <param name="lst">Die Listbox, in die geschreiben werden soll.</param>
     ''' <param name="strngList">Die ListOfString, die in die Listbox geschrieben werden soll.</param>
-    Public Overloads Function ConvListOfString2ListObject(ByRef lst As ListBox, ByVal strngList As List(Of String)) As ListBox
+    Public Overloads Function ConvListOfString2ListObject(ByRef lst As ListBox, ByVal strngList As List(Of String)) _
+        As ListBox
         For i As Integer = 0 To strngList.Count - 1
             lst.Items.Add(strngList.Item(i))
         Next
@@ -132,12 +135,14 @@ Public Class clsConvert
 #End Region
 
 #Region "ADD X to ToolStripComboBox"
+
     ''' <summary>
     ''' Fügt einer ToolStripComboBox eine ListOfString hinzu
     ''' </summary>
     ''' <param name="lst">Die ToolStripComboBox, in die geschreiben werden soll.</param>
     ''' <param name="strngList">Die ListOfString, die in die ToolStripComboBox geschrieben werden soll.</param>
-    Public Overloads Function ConvListOfString2ListObject(ByRef lst As ToolStripComboBox, ByVal strngList As List(Of String)) As ToolStripComboBox
+    Public Overloads Function ConvListOfString2ListObject(ByRef lst As ToolStripComboBox,
+                                                          ByVal strngList As List(Of String)) As ToolStripComboBox
         For i As Integer = 0 To strngList.Count - 1
             lst.Items.Add(strngList.Item(i))
         Next
@@ -150,22 +155,26 @@ Public Class clsConvert
     ''' </summary>
     ''' <param name="lst">Die ToolStripComboBox, in die geschreiben werden soll.</param>
     ''' <param name="strngList">Das Stringarray, das in die ToolStripComboBox geschrieben werden soll.</param>
-    Public Overloads Function ConvListOfString2ListObject(ByRef lst As ToolStripComboBox, ByVal strngList() As String) As ToolStripComboBox
+    Public Overloads Function ConvListOfString2ListObject(ByRef lst As ToolStripComboBox, ByVal strngList() As String) _
+        As ToolStripComboBox
         For i As Integer = 0 To strngList.Length - 1
             lst.Items.Add(strngList(i))
         Next
 
         Return lst
     End Function
+
 #End Region
 
 #Region "ADD X to ComboBox"
+
     ''' <summary>
     ''' Fügt einer ComboBox eine ListOfString hinzu
     ''' </summary>
     ''' <param name="lst">Die ComboBox, in die geschreiben werden soll.</param>
     ''' <param name="strngList">Die ListOfString, die in die Listbox geschrieben werden soll.</param>
-    Public Overloads Function ConvListOfString2ListObject(ByRef lst As ComboBox, ByVal strngList As List(Of String)) As ComboBox
+    Public Overloads Function ConvListOfString2ListObject(ByRef lst As ComboBox, ByVal strngList As List(Of String)) _
+        As ComboBox
         For i As Integer = 0 To strngList.Count - 1
             lst.Items.Add(strngList.Item(i))
         Next
@@ -178,13 +187,14 @@ Public Class clsConvert
     ''' </summary>
     ''' <param name="lst">Die ComboBox, in die geschreiben werden soll.</param>
     ''' <param name="strngList">Das Stringarray, das in die Listbox geschrieben werden soll.</param>
-    Public Overloads Function ConvListOfString2ListObject(ByRef lst As ComboBox, ByVal strngList() As String) As ComboBox
+    Public Overloads Function ConvListOfString2ListObject(ByRef lst As ComboBox, ByVal strngList() As String) _
+        As ComboBox
         For i As Integer = 0 To strngList.Length - 1
             lst.Items.Add(strngList(i))
         Next
 
         Return lst
     End Function
-#End Region
 
+#End Region
 End Class

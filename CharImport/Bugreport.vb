@@ -1,5 +1,7 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.Threading
+Imports System.Globalization
 Imports System.Net.Mail
+Imports System.Net
 
 Public Class Bugreport
     Dim localeDE As New LanguageDE
@@ -8,19 +10,19 @@ Public Class Bugreport
     Public Sub New()
         MyBase.New()
 
-        Threading.Thread.CurrentThread.CurrentUICulture = New Globalization.CultureInfo(My.Settings.language)
+        Thread.CurrentThread.CurrentUICulture = New CultureInfo(My.Settings.language)
         InitializeComponent()
     End Sub
 
 
-    Private Sub Button6_Click(sender As System.Object, e As System.EventArgs) Handles Button6.Click
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         If sendername.Text = "" Then
             If My.Settings.language = "de" Then
                 MsgBox(localeDE.bugreport_txt1, MsgBoxStyle.Critical, localeDE.bugreport_txt2)
             Else
                 MsgBox(localeEN.bugreport_txt1, MsgBoxStyle.Critical, localeEN.bugreport_txt2)
             End If
-             ElseIf message.Text = "" Then
+        ElseIf message.Text = "" Then
             If My.Settings.language = "de" Then
                 MsgBox(localeDE.bugreport_txt3, MsgBoxStyle.Critical, localeDE.bugreport_txt4)
             Else
@@ -36,7 +38,7 @@ Public Class Bugreport
             Try
                 Dim smtpserver As New SmtpClient()
                 Dim mail As New MailMessage()
-                smtpserver.Credentials = New Net.NetworkCredential("charimport@gmx.de", ".ciupass#")
+                smtpserver.Credentials = New NetworkCredential("charimport@gmx.de", ".ciupass#")
                 ' smtpserver.Port = 465
                 smtpserver.Host = "mail.gmx.net"
                 smtpserver.EnableSsl = True
@@ -44,7 +46,9 @@ Public Class Bugreport
                 mail.From = New MailAddress("charimport@gmx.de")
                 mail.To.Add("geslauncher@web.de")
                 mail.Subject = "Bugreport - CharImport"
-                mail.Body = "Fehlerbericht von " & sendername.Text & " in Version " & Me.ProductVersion & " Nachricht: " & vbNewLine & vbNewLine & message.Text & vbNewLine & vbNewLine & " / System: " & System.Environment.OSVersion.ToString
+                mail.Body = "Fehlerbericht von " & sendername.Text & " in Version " & Me.ProductVersion & " Nachricht: " &
+                            vbNewLine & vbNewLine & message.Text & vbNewLine & vbNewLine & " / System: " &
+                            Environment.OSVersion.ToString
                 smtpserver.Send(mail)
             Catch ex As Exception
 
@@ -61,12 +65,12 @@ Public Class Bugreport
         End If
     End Sub
 
-    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Main.BringToFront()
         Me.Close()
     End Sub
 
-    Private Sub Bugreport_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Sub Bugreport_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.MaximumSize = Me.Size
     End Sub
 End Class

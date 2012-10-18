@@ -1,5 +1,8 @@
 ﻿Public Class LanguageDE
-    Public armoryinterface_txt1 As String = "Bitte gib jetzt mithilfe des folgenden Fensters den Namen des neuen Templates an."
+    Public _
+        armoryinterface_txt1 As String =
+            "Bitte gib jetzt mithilfe des folgenden Fensters den Namen des neuen Templates an."
+
     Public armoryinterface_txt2 As String = "Neues Template"
     Public armoryinterface_txt3 As String = "Ungültiger Dateiname!"
     Public armoryinterface_txt4 As String = "Fehler"
@@ -28,7 +31,11 @@
     Public connect_txt3 As String = "Überprüfe deine Anmeldeinformationen und die Datenbanknamen."
     Public connect_txt4 As String = "Achtung"
     Public connect_txt5 As String = "Verbindung hergestellt!"
-    Public connect_txt6 As String = "Wenn ein neuer Charakter erstellt werden soll, muss das Charakter-Level definiert werden."
+
+    Public _
+        connect_txt6 As String =
+            "Wenn ein neuer Charakter erstellt werden soll, muss das Charakter-Level definiert werden."
+
     Public connect_txt7 As String = "Achtung"
     Public connect_txt8 As String = "Bitte gib das Geschlecht des Charakters an!"
     Public connect_txt9 As String = "Achtung"
@@ -49,8 +56,8 @@
     Public connect_txt24 As String = "Fehler!: "
     Public connect_txt25 As String = "Achtung"
 
-    Public database_check_txt1 As String = "Vielen Dank für den Fehlerbericht. " & _
-          "Du kannst nun die Übertragung fortsetzen, oder abbrechen."
+    Public database_check_txt1 As String = "Vielen Dank für den Fehlerbericht. " &
+                                           "Du kannst nun die Übertragung fortsetzen, oder abbrechen."
 
     Public filter_txt1 As String = "Bitte wähle einen Patch aus!"
 
@@ -65,14 +72,22 @@
 
     Public minlevelnotset As String = "Bitte gib eine gültige Zahl für das Mindestlevel an!"
     Public maxlevelnotset As String = "Bitte gib eine gültige Zahl für das Maximallevel an!"
-    Public maxlevelsmallerminlevel As String = "Das Maximallevel ist kleiner als das Mindestlevel! Das Mindestlevel muss größer sein."
+
+    Public _
+        maxlevelsmallerminlevel As String =
+            "Das Maximallevel ist kleiner als das Mindestlevel! Das Mindestlevel muss größer sein."
+
     Public maxminlevelerror As String = "Bitte gib gültige Zahlen für das Maximal- und Mindestlevel an!"
     Public invalidinput As String = "Ungültige Eingabe"
     Public mindatebiggermaxdate As String = "Das Mindest-Login-Datum darf nicht neuer sein als das Maximal-Login-Datum!"
     Public gmlevelnotset As String = "Bitte gib eine gültige Zahl für das GM-Level ein!"
 
     Public attention As String = "Achtung"
-    Public nointernetconnection As String = "Es konnte keine Verbindung mit dem Internet hergestellt werden!" & vbCrLf & "CharImport wird nicht ordnungsgemäß funktionieren."
+
+    Public _
+        nointernetconnection As String = "Es konnte keine Verbindung mit dem Internet hergestellt werden!" & vbCrLf &
+                                         "CharImport wird nicht ordnungsgemäß funktionieren."
+
     Public regionnotset As String = "Die Battle.net Region wurde nicht ausgewählt."
     Public norealmname As String = "Der Name des Realms wurde nicht festgelegt."
     Public nocharname As String = "Der Name des Charakters wurde nicht festgelegt."

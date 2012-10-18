@@ -12,10 +12,7 @@
 '****************************************************************************************
 '****************************************************************************************
 '..................Comments:
-
 Imports MySql.Data.MySqlClient
-Imports System.Net
-Imports System.Text
 
 Public Class Mangos_core
     Dim runfunction As New Functions
@@ -34,7 +31,11 @@ Public Class Mangos_core
     Dim guid As String = ""
     Dim accguid As String = ""
     Dim lastnumber As String = ""
-    Dim finalstring As String = "kopf 0 hals 0 schulter 0 hemd 0 brust 0 guertel 0 beine 0 stiefel 0 handgelenke 0 haende 0 finger1 0 finger2 0 schmuck1 0 schmuck2 0 ruecken 0 haupt 0 off 0 distanz 0 wappenrock 0 "
+
+    Dim _
+        finalstring As String =
+            "kopf 0 hals 0 schulter 0 hemd 0 brust 0 guertel 0 beine 0 stiefel 0 handgelenke 0 haende 0 finger1 0 finger2 0 schmuck1 0 schmuck2 0 ruecken 0 haupt 0 off 0 distanz 0 wappenrock 0 "
+
     Dim newcharguid As String
     Public spellitemtext As String
     Public spellgemtext As String
@@ -91,8 +92,8 @@ Public Class Mangos_core
             Main.GLOBALconnRealmd.Close()
             Main.GLOBALconnRealmd.Dispose()
         End Try
-
     End Sub
+
     Public Sub closesql()
         runfunction.writelog("Close SQL connection @mangos")
 
@@ -109,6 +110,7 @@ Public Class Mangos_core
 
         End Try
     End Sub
+
     Public Sub getallchars()
 
         runfunction.writelog("getallchars_call @mangos")
@@ -127,7 +129,12 @@ Public Class Mangos_core
         If My.Settings.lastloginactive = True Or My.Settings.gmlevelactive = False Then
             If My.Settings.lastloginactive = True Then
                 If My.Settings.gmlevelactive = True Then
-                    Dim da As New MySqlDataAdapter("SELECT `username` FROM `account` WHERE last_login>='" & My.Settings.lastlogindate1 & "' AND last_login<='" & My.Settings.lastlogindate2 & "' AND gmlevel='" & My.Settings.gmlevel.ToString & "'", Main.GLOBALconnRealmd)
+                    Dim _
+                        da As _
+                            New MySqlDataAdapter(
+                                "SELECT `username` FROM `account` WHERE last_login>='" & My.Settings.lastlogindate1 &
+                                "' AND last_login<='" & My.Settings.lastlogindate2 & "' AND gmlevel='" &
+                                My.Settings.gmlevel.ToString & "'", Main.GLOBALconnRealmd)
                     Dim dt As New DataTable
                     Try
                         da.Fill(dt)
@@ -145,7 +152,11 @@ Public Class Mangos_core
 
                     End Try
                 Else
-                    Dim da As New MySqlDataAdapter("SELECT `username` FROM `account` WHERE last_login>='" & My.Settings.lastlogindate1 & "' AND last_login<='" & My.Settings.lastlogindate2 & "'", Main.GLOBALconnRealmd)
+                    Dim _
+                        da As _
+                            New MySqlDataAdapter(
+                                "SELECT `username` FROM `account` WHERE last_login>='" & My.Settings.lastlogindate1 &
+                                "' AND last_login<='" & My.Settings.lastlogindate2 & "'", Main.GLOBALconnRealmd)
                     Dim dt As New DataTable
                     Try
                         da.Fill(dt)
@@ -166,7 +177,11 @@ Public Class Mangos_core
             Else
                 If My.Settings.gmlevelactive = True Then
 
-                    Dim da As New MySqlDataAdapter("SELECT `username` FROM `account` WHERE gmlevel='" & My.Settings.gmlevel.ToString & "'", Main.GLOBALconnRealmd)
+                    Dim _
+                        da As _
+                            New MySqlDataAdapter(
+                                "SELECT `username` FROM `account` WHERE gmlevel='" & My.Settings.gmlevel.ToString & "'",
+                                Main.GLOBALconnRealmd)
                     Dim dt As New DataTable
                     Try
                         da.Fill(dt)
@@ -190,8 +205,12 @@ Public Class Mangos_core
             Next
         Else
             If My.Settings.levelrangeactive = True Then
-               
-                Dim da As New MySqlDataAdapter("SELECT guid FROM characters WHERE level>='" & My.Settings.levelrangemin.ToString & "' AND level<='" & My.Settings.levelrangemax & "'", Main.GLOBALconn)
+
+                Dim _
+                    da As _
+                        New MySqlDataAdapter(
+                            "SELECT guid FROM characters WHERE level>='" & My.Settings.levelrangemin.ToString &
+                            "' AND level<='" & My.Settings.levelrangemax & "'", Main.GLOBALconn)
                 Dim dt As New DataTable
                 Try
                     da.Fill(dt)
@@ -231,11 +250,14 @@ Public Class Mangos_core
 
             gochars()
         End If
-
     End Sub
+
     Public Function accountexist(ByVal accountname As String) As Boolean
 
-        Dim da As New MySqlDataAdapter("SELECT `id` FROM account WHERE `username`='" & accountname & "'", Main.GLOBALconnRealmd)
+        Dim _
+            da As _
+                New MySqlDataAdapter("SELECT `id` FROM account WHERE `username`='" & accountname & "'",
+                                     Main.GLOBALconnRealmd)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
@@ -250,6 +272,7 @@ Public Class Mangos_core
             Return False
         End Try
     End Function
+
     Public Function characterexist(ByVal charname As String) As Boolean
 
         Dim da As New MySqlDataAdapter("SELECT guid FROM characters WHERE name='" & charname & "'", Main.GLOBALconn)
@@ -267,6 +290,7 @@ Public Class Mangos_core
             Return False
         End Try
     End Function
+
     Public Sub getthischar(ByVal charname As String)
 
 
@@ -274,7 +298,8 @@ Public Class Mangos_core
 
         Dim da As New MySqlDataAdapter("SELECT guid FROM characters WHERE name='" & charname & "'", Main.GLOBALconn)
         Dim dt As New DataTable
-        runfunction.writelog("connection: " & Main.GLOBALconn.ConnectionString & " // connectionstate: " & Main.GLOBALconn.State.ToString)
+        runfunction.writelog(
+            "connection: " & Main.GLOBALconn.ConnectionString & " // connectionstate: " & Main.GLOBALconn.State.ToString)
         Try
             da.Fill(dt)
 
@@ -292,9 +317,8 @@ Public Class Mangos_core
         Catch ex As Exception
 
         End Try
-
-
     End Sub
+
     Public Sub getallcharsfromaccount(ByVal accountname As String)
         runfunction.writelog("getallcharsfromaccount_call @mangos for accountname: " & accountname)
         Try
@@ -302,14 +326,20 @@ Public Class Mangos_core
         Catch ex As Exception
 
         End Try
-        Dim accid As String = runfunction.runcommandRealmd("SELECT `id` FROM account WHERE `username`='" & accountname & "'", "id")
+        Dim accid As String =
+                runfunction.runcommandRealmd("SELECT `id` FROM account WHERE `username`='" & accountname & "'", "id")
         guidlist = New List(Of String)
 
         runfunction.writelog("AccountId is: " & accid)
-      
+
         If My.Settings.levelrangeactive = True Then
 
-            Dim da As New MySqlDataAdapter("SELECT guid FROM characters WHERE `account`='" & accid & "' AND level>='" & My.Settings.levelrangemin.ToString & "' AND level<='" & My.Settings.levelrangemax & "'", Main.GLOBALconn)
+            Dim _
+                da As _
+                    New MySqlDataAdapter(
+                        "SELECT guid FROM characters WHERE `account`='" & accid & "' AND level>='" &
+                        My.Settings.levelrangemin.ToString & "' AND level<='" & My.Settings.levelrangemax & "'",
+                        Main.GLOBALconn)
             Dim dt As New DataTable
             Try
                 da.Fill(dt)
@@ -329,7 +359,9 @@ Public Class Mangos_core
 
             End Try
         Else
-            Dim da As New MySqlDataAdapter("SELECT guid FROM characters WHERE `account`='" & accid & "'", Main.GLOBALconn)
+            Dim _
+                da As _
+                    New MySqlDataAdapter("SELECT guid FROM characters WHERE `account`='" & accid & "'", Main.GLOBALconn)
             Dim dt As New DataTable
             Try
                 da.Fill(dt)
@@ -351,6 +383,7 @@ Public Class Mangos_core
         End If
         gochars()
     End Sub
+
     Private Sub gochars()
         For Each guid As String In guidlist
             runfunction.writelog("gochars_call @mangos for guid: " & guid)
@@ -364,7 +397,6 @@ Public Class Mangos_core
         'Get Character Guid
 
 
-
         '****************************************************************************************
         '****************************************************************************************
         'Get Main Character atributes
@@ -376,10 +408,12 @@ Public Class Mangos_core
         Main.char_guid = CInt(Val(charguid))
         characterguid = CInt(Val(charguid))
 
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Race from Database..." & vbNewLine)
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Race from Database..." & vbNewLine)
         Application.DoEvents()
         Try
-            Main.char_race = CInt(Val(runfunction.runcommand("SELECT race FROM characters WHERE guid='" & charguid & "'", "race")))
+            Main.char_race = CInt(Val(runfunction.runcommand("SELECT race FROM characters WHERE guid='" & charguid & "'",
+                                                             "race")))
         Catch ex As Exception
 
         End Try
@@ -397,10 +431,12 @@ Public Class Mangos_core
         '11	}}  Draenei
 
         'Character Class
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Class from Database..." & vbNewLine)
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Class from Database..." & vbNewLine)
         Application.DoEvents()
         Try
-            Main.char_class = CInt(Val(runfunction.runcommand("SELECT class FROM characters WHERE guid='" & charguid & "'", "class")))
+            Main.char_class =
+                CInt(Val(runfunction.runcommand("SELECT class FROM characters WHERE guid='" & charguid & "'", "class")))
         Catch ex As Exception
 
         End Try
@@ -417,19 +453,23 @@ Public Class Mangos_core
 
         'Character gender
         '0=male, 1=female
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Gender from Database..." & vbNewLine)
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Gender from Database..." & vbNewLine)
         Application.DoEvents()
         Try
-            Main.char_gender = CInt(Val(runfunction.runcommand("SELECT gender FROM characters WHERE guid='" & charguid & "'", "gender")))
+            Main.char_gender =
+                CInt(Val(runfunction.runcommand("SELECT gender FROM characters WHERE guid='" & charguid & "'", "gender")))
         Catch ex As Exception
 
         End Try
 
         'Character level
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Level from Database..." & vbNewLine)
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Level from Database..." & vbNewLine)
         Application.DoEvents()
         Try
-            Main.char_level = CInt(Val(runfunction.runcommand("SELECT level FROM characters WHERE guid='" & charguid & "'", "level")))
+            Main.char_level =
+                CInt(Val(runfunction.runcommand("SELECT level FROM characters WHERE guid='" & charguid & "'", "level")))
 
         Catch ex As Exception
 
@@ -439,88 +479,187 @@ Public Class Mangos_core
 
         Main.char_name = runfunction.runcommand("SELECT name FROM characters WHERE guid='" & charguid & "'", "name")
 
-        Main.accountid = CInt(Val(runfunction.runcommand("SELECT account FROM characters WHERE guid='" & charguid & "'", "account")))
+        Main.accountid = CInt(Val(runfunction.runcommand("SELECT account FROM characters WHERE guid='" & charguid & "'",
+                                                         "account")))
         Main.char_xp = CInt(Val(runfunction.runcommand("SELECT xp FROM characters WHERE guid='" & charguid & "'", "xp")))
-        Main.player_money = CInt(Val(runfunction.runcommand("SELECT money FROM characters WHERE guid='" & charguid & "'", "money")))
-        Main.playerBytes = CInt(Val(runfunction.runcommand("SELECT playerBytes FROM characters WHERE guid='" & charguid & "'", "playerBytes")))
-        Main.playerBytes2 = CInt(Val(runfunction.runcommand("SELECT playerBytes2 FROM characters WHERE guid='" & charguid & "'", "playerBytes2")))
-        Main.playerFlags = CInt(Val(runfunction.runcommand("SELECT playerFlags FROM characters WHERE guid='" & charguid & "'", "playerFlags")))
-        Main.position_x = runfunction.runcommand("SELECT position_x FROM characters WHERE guid='" & charguid & "'", "position_x")
-        Main.position_y = runfunction.runcommand("SELECT position_y FROM characters WHERE guid='" & charguid & "'", "position_y")
-        Main.position_z = runfunction.runcommand("SELECT position_z FROM characters WHERE guid='" & charguid & "'", "position_z")
+        Main.player_money = CInt(Val(runfunction.runcommand("SELECT money FROM characters WHERE guid='" & charguid & "'",
+                                                            "money")))
+        Main.playerBytes =
+            CInt(Val(runfunction.runcommand("SELECT playerBytes FROM characters WHERE guid='" & charguid & "'",
+                                            "playerBytes")))
+        Main.playerBytes2 =
+            CInt(Val(runfunction.runcommand("SELECT playerBytes2 FROM characters WHERE guid='" & charguid & "'",
+                                            "playerBytes2")))
+        Main.playerFlags =
+            CInt(Val(runfunction.runcommand("SELECT playerFlags FROM characters WHERE guid='" & charguid & "'",
+                                            "playerFlags")))
+        Main.position_x = runfunction.runcommand("SELECT position_x FROM characters WHERE guid='" & charguid & "'",
+                                                 "position_x")
+        Main.position_y = runfunction.runcommand("SELECT position_y FROM characters WHERE guid='" & charguid & "'",
+                                                 "position_y")
+        Main.position_z = runfunction.runcommand("SELECT position_z FROM characters WHERE guid='" & charguid & "'",
+                                                 "position_z")
         Main.map = CInt(Val(runfunction.runcommand("SELECT map FROM characters WHERE guid='" & charguid & "'", "map")))
-        Main.instance_id = CInt(Val(runfunction.runcommand("SELECT instance_id FROM characters WHERE guid='" & charguid & "'", "instance_id")))
-        Main.instance_mode_mask = runfunction.runcommand("SELECT instance_mode_mask FROM characters WHERE guid='" & charguid & "'", "instance_mode_mask")
-        Main.orientation = runfunction.runcommand("SELECT orientation FROM characters WHERE guid='" & charguid & "'", "orientation")
-        Main.taximask = runfunction.runcommand("SELECT taximask FROM characters WHERE guid='" & charguid & "'", "taximask")
-        Main.cinematic = CInt(Val(runfunction.runcommand("SELECT cinematic FROM characters WHERE guid='" & charguid & "'", "cinematic")))
-        Main.totaltime = CInt(Val(runfunction.runcommand("SELECT totaltime FROM characters WHERE guid='" & charguid & "'", "totaltime")))
-        Main.leveltime = CInt(Val(runfunction.runcommand("SELECT leveltime FROM characters WHERE guid='" & charguid & "'", "leveltime")))
-        Main.extra_flags = runfunction.runcommand("SELECT extra_flags FROM characters WHERE guid='" & charguid & "'", "extra_flags")
-        Main.stable_slots = runfunction.runcommand("SELECT stable_slots FROM characters WHERE guid='" & charguid & "'", "stable_slots")
-        Main.at_login = runfunction.runcommand("SELECT at_login FROM characters WHERE guid='" & charguid & "'", "at_login")
+        Main.instance_id =
+            CInt(Val(runfunction.runcommand("SELECT instance_id FROM characters WHERE guid='" & charguid & "'",
+                                            "instance_id")))
+        Main.instance_mode_mask =
+            runfunction.runcommand("SELECT instance_mode_mask FROM characters WHERE guid='" & charguid & "'",
+                                   "instance_mode_mask")
+        Main.orientation = runfunction.runcommand("SELECT orientation FROM characters WHERE guid='" & charguid & "'",
+                                                  "orientation")
+        Main.taximask = runfunction.runcommand("SELECT taximask FROM characters WHERE guid='" & charguid & "'",
+                                               "taximask")
+        Main.cinematic =
+            CInt(Val(runfunction.runcommand("SELECT cinematic FROM characters WHERE guid='" & charguid & "'",
+                                            "cinematic")))
+        Main.totaltime =
+            CInt(Val(runfunction.runcommand("SELECT totaltime FROM characters WHERE guid='" & charguid & "'",
+                                            "totaltime")))
+        Main.leveltime =
+            CInt(Val(runfunction.runcommand("SELECT leveltime FROM characters WHERE guid='" & charguid & "'",
+                                            "leveltime")))
+        Main.extra_flags = runfunction.runcommand("SELECT extra_flags FROM characters WHERE guid='" & charguid & "'",
+                                                  "extra_flags")
+        Main.stable_slots = runfunction.runcommand("SELECT stable_slots FROM characters WHERE guid='" & charguid & "'",
+                                                   "stable_slots")
+        Main.at_login = runfunction.runcommand("SELECT at_login FROM characters WHERE guid='" & charguid & "'",
+                                               "at_login")
         Main.zone = CInt(Val(runfunction.runcommand("SELECT zone FROM characters WHERE guid='" & charguid & "'", "zone")))
-        Main.arenaPoints = CInt(Val(runfunction.runcommand("SELECT arenaPoints FROM characters WHERE guid='" & charguid & "'", "arenaPoints")))
-        Main.totalHonorPoints = CInt(Val(runfunction.runcommand("SELECT totalHonorPoints FROM characters WHERE guid='" & charguid & "'", "totalHonorPoints")))
-        Main.totalKills = CInt(Val(runfunction.runcommand("SELECT totalKills FROM characters WHERE guid='" & charguid & "'", "totalKills")))
-        Main.chosenTitle = runfunction.runcommand("SELECT chosenTitle FROM characters WHERE guid='" & charguid & "'", "chosenTitle")
-        Main.knownCurrencies = runfunction.runcommand("SELECT knownCurrencies FROM characters WHERE guid='" & charguid & "'", "knownCurrencies")
-        Main.watchedFaction = runfunction.runcommand("SELECT watchedFaction FROM characters WHERE guid='" & charguid & "'", "watchedFaction")
-        Main.health = CInt(Val(runfunction.runcommand("SELECT health FROM characters WHERE guid='" & charguid & "'", "health")))
-        Main.speccount = CInt(Val(runfunction.runcommand("SELECT speccount FROM characters WHERE guid='" & charguid & "'", "speccount")))
-        Main.activespec = CInt(Val(runfunction.runcommand("SELECT activespec FROM characters WHERE guid='" & charguid & "'", "activespec")))
-        Main.exploredZones = runfunction.runcommand("SELECT exploredZones FROM characters WHERE guid='" & charguid & "'", "exploredZones")
-        Main.knownTitles = runfunction.runcommand("SELECT knownTitles FROM characters WHERE guid='" & charguid & "'", "knownTitles")
-        Main.actionBars = runfunction.runcommand("SELECT actionBars FROM characters WHERE guid='" & charguid & "'", "actionBars")
+        Main.arenaPoints =
+            CInt(Val(runfunction.runcommand("SELECT arenaPoints FROM characters WHERE guid='" & charguid & "'",
+                                            "arenaPoints")))
+        Main.totalHonorPoints =
+            CInt(Val(runfunction.runcommand("SELECT totalHonorPoints FROM characters WHERE guid='" & charguid & "'",
+                                            "totalHonorPoints")))
+        Main.totalKills =
+            CInt(Val(runfunction.runcommand("SELECT totalKills FROM characters WHERE guid='" & charguid & "'",
+                                            "totalKills")))
+        Main.chosenTitle = runfunction.runcommand("SELECT chosenTitle FROM characters WHERE guid='" & charguid & "'",
+                                                  "chosenTitle")
+        Main.knownCurrencies =
+            runfunction.runcommand("SELECT knownCurrencies FROM characters WHERE guid='" & charguid & "'",
+                                   "knownCurrencies")
+        Main.watchedFaction =
+            runfunction.runcommand("SELECT watchedFaction FROM characters WHERE guid='" & charguid & "'",
+                                   "watchedFaction")
+        Main.health = CInt(Val(runfunction.runcommand("SELECT health FROM characters WHERE guid='" & charguid & "'",
+                                                      "health")))
+        Main.speccount =
+            CInt(Val(runfunction.runcommand("SELECT speccount FROM characters WHERE guid='" & charguid & "'",
+                                            "speccount")))
+        Main.activespec =
+            CInt(Val(runfunction.runcommand("SELECT activespec FROM characters WHERE guid='" & charguid & "'",
+                                            "activespec")))
+        Main.exploredZones = runfunction.runcommand("SELECT exploredZones FROM characters WHERE guid='" & charguid & "'",
+                                                    "exploredZones")
+        Main.knownTitles = runfunction.runcommand("SELECT knownTitles FROM characters WHERE guid='" & charguid & "'",
+                                                  "knownTitles")
+        Main.actionBars = runfunction.runcommand("SELECT actionBars FROM characters WHERE guid='" & charguid & "'",
+                                                 "actionBars")
 
-        Main.accountname = runfunction.runcommandRealmd("SELECT username FROM account WHERE `id`='" & Main.accountid.ToString & "'", "username")
-        Main.sha_pass_hash = runfunction.runcommandRealmd("SELECT sha_pass_hash FROM account WHERE `id`='" & Main.accountid.ToString & "'", "sha_pass_hash")
-        Main.sessionkey = runfunction.runcommandRealmd("SELECT sessionkey FROM account WHERE `id`='" & Main.accountid.ToString & "'", "sessionkey")
-        Main.account_v = runfunction.runcommandRealmd("SELECT v FROM account WHERE `id`='" & Main.accountid.ToString & "'", "v")
-        Main.account_s = runfunction.runcommandRealmd("SELECT s FROM account WHERE `id`='" & Main.accountid.ToString & "'", "s")
-        Main.email = runfunction.runcommandRealmd("SELECT email FROM account WHERE `id`='" & Main.accountid.ToString & "'", "email")
-        Main.joindate = runfunction.runcommandRealmd("SELECT joindate FROM account WHERE `id`='" & Main.accountid.ToString & "'", "joindate")
-        Main.expansion = CInt(Val(runfunction.runcommandRealmd("SELECT expansion FROM account WHERE `id`='" & Main.accountid.ToString & "'", "expansion")))
-        Main.locale = CInt(Val(runfunction.runcommandRealmd("SELECT locale FROM account WHERE `id`='" & Main.accountid.ToString & "'", "locale")))
-        Main.account_access_gmlevel = CInt(Val(runfunction.runcommandRealmd("SELECT gmlevel FROM account WHERE `id`='" & Main.accountid.ToString & "'", "gmlevel")))
-        Main.account_access_RealmID = CInt(Val(runfunction.runcommandRealmd("SELECT active_realm_id FROM account WHERE `id`='" & Main.accountid.ToString & "'", "RealmID")))
+        Main.accountname =
+            runfunction.runcommandRealmd("SELECT username FROM account WHERE `id`='" & Main.accountid.ToString & "'",
+                                         "username")
+        Main.sha_pass_hash =
+            runfunction.runcommandRealmd(
+                "SELECT sha_pass_hash FROM account WHERE `id`='" & Main.accountid.ToString & "'", "sha_pass_hash")
+        Main.sessionkey =
+            runfunction.runcommandRealmd("SELECT sessionkey FROM account WHERE `id`='" & Main.accountid.ToString & "'",
+                                         "sessionkey")
+        Main.account_v =
+            runfunction.runcommandRealmd("SELECT v FROM account WHERE `id`='" & Main.accountid.ToString & "'", "v")
+        Main.account_s =
+            runfunction.runcommandRealmd("SELECT s FROM account WHERE `id`='" & Main.accountid.ToString & "'", "s")
+        Main.email =
+            runfunction.runcommandRealmd("SELECT email FROM account WHERE `id`='" & Main.accountid.ToString & "'",
+                                         "email")
+        Main.joindate =
+            runfunction.runcommandRealmd("SELECT joindate FROM account WHERE `id`='" & Main.accountid.ToString & "'",
+                                         "joindate")
+        Main.expansion =
+            CInt(
+                Val(
+                    runfunction.runcommandRealmd(
+                        "SELECT expansion FROM account WHERE `id`='" & Main.accountid.ToString & "'", "expansion")))
+        Main.locale =
+            CInt(
+                Val(
+                    runfunction.runcommandRealmd(
+                        "SELECT locale FROM account WHERE `id`='" & Main.accountid.ToString & "'", "locale")))
+        Main.account_access_gmlevel =
+            CInt(
+                Val(
+                    runfunction.runcommandRealmd(
+                        "SELECT gmlevel FROM account WHERE `id`='" & Main.accountid.ToString & "'", "gmlevel")))
+        Main.account_access_RealmID =
+            CInt(
+                Val(
+                    runfunction.runcommandRealmd(
+                        "SELECT active_realm_id FROM account WHERE `id`='" & Main.accountid.ToString & "'", "RealmID")))
         Main.level.Text = Main.char_name & ", " & Main.char_level & ", " & Main.char_race & ", " & Main.char_class
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Homebind from Database..." & vbNewLine)
-        Main.character_homebind = ("<map>" & runfunction.runcommand("SELECT " & Main.homebind_map & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString & "'", Main.homebind_map) & "</map><zone>" & runfunction.runcommand("SELECT " & Main.homebind_zone & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString & "'", Main.homebind_zone) & "</zone><position_x>" & runfunction.runcommand("SELECT " & Main.homebind_posx & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString & "'", Main.homebind_posx) & "</position_x><position_y>" & runfunction.runcommand("SELECT " & Main.homebind_posy & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString & "'", Main.homebind_posy) & "</position_y><position_z>" & runfunction.runcommand("SELECT " & Main.homebind_posz & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString & "'", Main.homebind_posz) & "</position_z>")
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Spells from Database..." & vbNewLine)
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Homebind from Database..." & vbNewLine)
+        Main.character_homebind =
+            ("<map>" &
+             runfunction.runcommand(
+                 "SELECT " & Main.homebind_map & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString & "'",
+                 Main.homebind_map) & "</map><zone>" &
+             runfunction.runcommand(
+                 "SELECT " & Main.homebind_zone & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
+                 "'", Main.homebind_zone) & "</zone><position_x>" &
+             runfunction.runcommand(
+                 "SELECT " & Main.homebind_posx & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
+                 "'", Main.homebind_posx) & "</position_x><position_y>" &
+             runfunction.runcommand(
+                 "SELECT " & Main.homebind_posy & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
+                 "'", Main.homebind_posy) & "</position_y><position_z>" &
+             runfunction.runcommand(
+                 "SELECT " & Main.homebind_posz & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
+                 "'", Main.homebind_posz) & "</position_z>")
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Spells from Database..." & vbNewLine)
         Application.DoEvents()
         getspells()
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Talents from Database..." & vbNewLine)
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Talents from Database..." & vbNewLine)
         Application.DoEvents()
         gettalents()
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Skills from Database..." & vbNewLine)
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Skills from Database..." & vbNewLine)
         Application.DoEvents()
         getskills()
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Reputation from Database..." & vbNewLine)
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Reputation from Database..." & vbNewLine)
         Application.DoEvents()
         getREPlists()
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Action from Database..." & vbNewLine)
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Action from Database..." & vbNewLine)
         Application.DoEvents()
         getactionlist()
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Achievements from Database..." & vbNewLine)
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Achievements from Database..." & vbNewLine)
         Application.DoEvents()
         getavlists()
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Inventory from Database..." & vbNewLine)
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Inventory from Database..." & vbNewLine)
         Application.DoEvents()
         getinventoryitems()
 
         'GET ITEMS
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Items from Database..." & vbNewLine)
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Items from Database..." & vbNewLine)
         Application.DoEvents()
         getitems()
 
 
-
         'GET GLYPHS
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Primary Glyphs from Database..." & vbNewLine)
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Primary Glyphs from Database..." & vbNewLine)
         Application.DoEvents()
         getglyphs()
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Secondary Glyphs from Database..." & vbNewLine)
+        Process_Status.processreport.appendText(
+            Now.TimeOfDay.ToString & "/ Loading Character Secondary Glyphs from Database..." & vbNewLine)
         Application.DoEvents()
         getsecglyphs()
         handleenchantments()
@@ -534,9 +673,13 @@ Public Class Mangos_core
 
         Application.DoEvents()
     End Sub
+
     Public Sub getspells()
         runfunction.writelog("getspells_call @mangos for charguid: " & Main.char_guid.ToString)
-        Dim da As New MySqlDataAdapter("SELECT spell FROM character_spell WHERE guid='" & Main.char_guid.ToString & "'", Main.GLOBALconn)
+        Dim _
+            da As _
+                New MySqlDataAdapter("SELECT spell FROM character_spell WHERE guid='" & Main.char_guid.ToString & "'",
+                                     Main.GLOBALconn)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
@@ -547,10 +690,18 @@ Public Class Mangos_core
                 Do
                     Dim readedcode As String = (dt.Rows(count).Item(0)).ToString
                     Dim spell As String = readedcode
-                    Dim active As String = runfunction.runcommand("SELECT `active` FROM character_spell WHERE spell='" & spell & "' AND guid='" & Main.char_guid.ToString & "'", "active")
-                    Dim disabled As String = runfunction.runcommand("SELECT `disabled` FROM character_spell WHERE spell='" & spell & "' AND guid='" & Main.char_guid.ToString & "'", "disabled")
+                    Dim active As String =
+                            runfunction.runcommand(
+                                "SELECT `active` FROM character_spell WHERE spell='" & spell & "' AND guid='" &
+                                Main.char_guid.ToString & "'", "active")
+                    Dim disabled As String =
+                            runfunction.runcommand(
+                                "SELECT `disabled` FROM character_spell WHERE spell='" & spell & "' AND guid='" &
+                                Main.char_guid.ToString & "'", "disabled")
 
-                    Main.character_spells.Add("<spell>" & spell & "</spell><active>" & active & "</active><disabled>" & disabled & "</disabled>")
+                    Main.character_spells.Add(
+                        "<spell>" & spell & "</spell><active>" & active & "</active><disabled>" & disabled &
+                        "</disabled>")
 
                     count += 1
                 Loop Until count = lastcount
@@ -560,11 +711,8 @@ Public Class Mangos_core
         Catch ex As Exception
 
         End Try
-
-
-
-
     End Sub
+
     Public Sub gettalents()
 
         runfunction.writelog("gettalents_call @mangos")
@@ -572,7 +720,11 @@ Public Class Mangos_core
         sdatatable.Dispose()
         sdatatable = gettable()
         Try
-            Dim da As New MySqlDataAdapter("SELECT talent_id FROM character_talent WHERE guid='" & Main.char_guid.ToString & "' AND spec='0'", Main.GLOBALconn)
+            Dim _
+                da As _
+                    New MySqlDataAdapter(
+                        "SELECT talent_id FROM character_talent WHERE guid='" & Main.char_guid.ToString &
+                        "' AND spec='0'", Main.GLOBALconn)
             Dim dt As New DataTable
 
             da.Fill(dt)
@@ -583,8 +735,12 @@ Public Class Mangos_core
                 Do
                     Dim readedcode As String = (dt.Rows(count).Item(0)).ToString
                     Dim idtalent As String = readedcode
-                    Dim rurrentrank As String = runfunction.runcommand("SELECT current_rank FROM character_talent WHERE talent_id='" & idtalent & "' AND guid='" & Main.char_guid.ToString & "' AND spec='0'", "current_rank")
-                    Main.character_talent_list.Add("<spell>" & checkfield2(idtalent, rurrentrank) & "</spell><spec>0</spec>")
+                    Dim rurrentrank As String =
+                            runfunction.runcommand(
+                                "SELECT current_rank FROM character_talent WHERE talent_id='" & idtalent &
+                                "' AND guid='" & Main.char_guid.ToString & "' AND spec='0'", "current_rank")
+                    Main.character_talent_list.Add(
+                        "<spell>" & checkfield2(idtalent, rurrentrank) & "</spell><spec>0</spec>")
 
                     count += 1
                 Loop Until count = lastcount
@@ -598,13 +754,18 @@ Public Class Mangos_core
         End Try
         getspec1()
     End Sub
+
     Private Sub getspec1()
         runfunction.writelog("getspec1_call @mangos")
         sdatatable.Clear()
         sdatatable.Dispose()
         sdatatable = gettable()
         Try
-            Dim da As New MySqlDataAdapter("SELECT talent_id FROM character_talent WHERE guid='" & Main.char_guid.ToString & "' AND spec='1'", Main.GLOBALconn)
+            Dim _
+                da As _
+                    New MySqlDataAdapter(
+                        "SELECT talent_id FROM character_talent WHERE guid='" & Main.char_guid.ToString &
+                        "' AND spec='1'", Main.GLOBALconn)
             Dim dt As New DataTable
 
             da.Fill(dt)
@@ -615,8 +776,12 @@ Public Class Mangos_core
                 Do
                     Dim readedcode As String = (dt.Rows(count).Item(0)).ToString
                     Dim idtalent As String = readedcode
-                    Dim rurrentrank As String = runfunction.runcommand("SELECT current_rank FROM character_talent WHERE talent_id='" & idtalent & "' AND guid='" & Main.char_guid.ToString & "' AND spec='1'", "current_rank")
-                    Main.character_talent_list.Add("<spell>" & checkfield2(idtalent, rurrentrank) & "</spell><spec>1</spec>")
+                    Dim rurrentrank As String =
+                            runfunction.runcommand(
+                                "SELECT current_rank FROM character_talent WHERE talent_id='" & idtalent &
+                                "' AND guid='" & Main.char_guid.ToString & "' AND spec='1'", "current_rank")
+                    Main.character_talent_list.Add(
+                        "<spell>" & checkfield2(idtalent, rurrentrank) & "</spell><spec>1</spec>")
 
                     count += 1
                 Loop Until count = lastcount
@@ -628,6 +793,7 @@ Public Class Mangos_core
 
         End Try
     End Sub
+
     Private Function checkfield2(ByVal lID As String, ByVal rank As String) As String
         If Not executex2("TalentId", lID, CInt(Val(rank))) = "-" Then
 
@@ -635,9 +801,8 @@ Public Class Mangos_core
         Else
             Return "0"
         End If
-
-
     End Function
+
     Private Function executex2(ByVal field As String, ByVal sID As String, ByVal rank As Integer) As String
         Try
             Dim foundRows() As DataRow
@@ -659,12 +824,15 @@ Public Class Mangos_core
         Catch ex As Exception
             Return "-"
         End Try
-
     End Function
 
     Public Sub getqueststatus()
         runfunction.writelog("getqueststatus_call @mangos")
-        Dim da As New MySqlDataAdapter("SELECT quest FROM character_queststatus WHERE guid='" & Main.char_guid.ToString & "'", Main.GLOBALconn)
+        Dim _
+            da As _
+                New MySqlDataAdapter(
+                    "SELECT quest FROM character_queststatus WHERE guid='" & Main.char_guid.ToString & "'",
+                    Main.GLOBALconn)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
@@ -675,10 +843,21 @@ Public Class Mangos_core
                 Do
                     Dim readedcode As String = (dt.Rows(count).Item(0)).ToString
                     Dim quest As String = readedcode
-                    Dim status As String = runfunction.runcommand("SELECT `status` FROM character_queststatus WHERE quest='" & quest & "' AND guid='" & Main.char_guid.ToString & "'", "status")
-                    Dim explored As String = runfunction.runcommand("SELECT `explored` FROM character_queststatus WHERE quest='" & quest & "' AND guid='" & Main.char_guid.ToString & "'", "explored")
-                    Dim timer As String = runfunction.runcommand("SELECT `timer` FROM character_queststatus WHERE quest='" & quest & "' AND guid='" & Main.char_guid.ToString & "'", "timer")
-                    Main.character_queststatus.Add("<quest>" & quest & "</quest><status>" & status & "</status><explored>" & explored & "</explored><timer>" & timer & "</timer>")
+                    Dim status As String =
+                            runfunction.runcommand(
+                                "SELECT `status` FROM character_queststatus WHERE quest='" & quest & "' AND guid='" &
+                                Main.char_guid.ToString & "'", "status")
+                    Dim explored As String =
+                            runfunction.runcommand(
+                                "SELECT `explored` FROM character_queststatus WHERE quest='" & quest & "' AND guid='" &
+                                Main.char_guid.ToString & "'", "explored")
+                    Dim timer As String =
+                            runfunction.runcommand(
+                                "SELECT `timer` FROM character_queststatus WHERE quest='" & quest & "' AND guid='" &
+                                Main.char_guid.ToString & "'", "timer")
+                    Main.character_queststatus.Add(
+                        "<quest>" & quest & "</quest><status>" & status & "</status><explored>" & explored &
+                        "</explored><timer>" & timer & "</timer>")
 
                     count += 1
                 Loop Until count = lastcount
@@ -688,11 +867,14 @@ Public Class Mangos_core
         Catch ex As Exception
 
         End Try
-
     End Sub
+
     Public Sub getskills()
         runfunction.writelog("getskills_call @mangos")
-        Dim da As New MySqlDataAdapter("SELECT skill FROM character_skills WHERE guid='" & Main.char_guid.ToString & "'", Main.GLOBALconn)
+        Dim _
+            da As _
+                New MySqlDataAdapter("SELECT skill FROM character_skills WHERE guid='" & Main.char_guid.ToString & "'",
+                                     Main.GLOBALconn)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
@@ -703,10 +885,17 @@ Public Class Mangos_core
                 Do
                     Dim readedcode As String = (dt.Rows(count).Item(0)).ToString
                     Dim skill As String = readedcode
-                    Dim value As String = runfunction.runcommand("SELECT `value` FROM character_skills WHERE skill='" & skill & "' AND guid='" & Main.char_guid.ToString & "'", "value")
-                    Dim max As String = runfunction.runcommand("SELECT max FROM character_skills WHERE skill='" & skill & "' AND guid='" & Main.char_guid.ToString & "'", "max")
+                    Dim value As String =
+                            runfunction.runcommand(
+                                "SELECT `value` FROM character_skills WHERE skill='" & skill & "' AND guid='" &
+                                Main.char_guid.ToString & "'", "value")
+                    Dim max As String =
+                            runfunction.runcommand(
+                                "SELECT max FROM character_skills WHERE skill='" & skill & "' AND guid='" &
+                                Main.char_guid.ToString & "'", "max")
 
-                    Main.character_skills_list.Add("<skill>" & skill & "</skill><value>" & value & "</value><max>" & max & "</max>")
+                    Main.character_skills_list.Add(
+                        "<skill>" & skill & "</skill><value>" & value & "</value><max>" & max & "</max>")
 
                     count += 1
                 Loop Until count = lastcount
@@ -716,12 +905,15 @@ Public Class Mangos_core
         Catch ex As Exception
 
         End Try
-
-
     End Sub
+
     Public Sub getREPlists()
         runfunction.writelog("getREPlists_call @mangos")
-        Dim da As New MySqlDataAdapter("SELECT faction FROM character_reputation WHERE guid='" & Main.char_guid.ToString & "'", Main.GLOBALconn)
+        Dim _
+            da As _
+                New MySqlDataAdapter(
+                    "SELECT faction FROM character_reputation WHERE guid='" & Main.char_guid.ToString & "'",
+                    Main.GLOBALconn)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
@@ -732,10 +924,18 @@ Public Class Mangos_core
                 Do
                     Dim readedcode As String = (dt.Rows(count).Item(0)).ToString
                     Dim faction As String = readedcode
-                    Dim standing As String = runfunction.runcommand("SELECT standing FROM character_reputation WHERE faction='" & faction & "' AND guid='" & Main.char_guid.ToString & "'", "standing")
-                    Dim flags As String = runfunction.runcommand("SELECT flags FROM character_reputation WHERE faction='" & faction & "' AND guid='" & Main.char_guid.ToString & "'", "flags")
+                    Dim standing As String =
+                            runfunction.runcommand(
+                                "SELECT standing FROM character_reputation WHERE faction='" & faction & "' AND guid='" &
+                                Main.char_guid.ToString & "'", "standing")
+                    Dim flags As String =
+                            runfunction.runcommand(
+                                "SELECT flags FROM character_reputation WHERE faction='" & faction & "' AND guid='" &
+                                Main.char_guid.ToString & "'", "flags")
 
-                    Main.character_reputatuion_list.Add("<faction>" & faction & "</faction><standing>" & standing & "</standing><flags>" & flags & "</flags>")
+                    Main.character_reputatuion_list.Add(
+                        "<faction>" & faction & "</faction><standing>" & standing & "</standing><flags>" & flags &
+                        "</flags>")
 
                     count += 1
                 Loop Until count = lastcount
@@ -745,13 +945,15 @@ Public Class Mangos_core
         Catch ex As Exception
 
         End Try
-
-
     End Sub
+
     Public Sub getactionlist()
-     
+
         runfunction.writelog("getactionlist_call @mangos")
-        Dim da As New MySqlDataAdapter("SELECT button FROM character_action WHERE guid='" & Main.char_guid.ToString & "'", Main.GLOBALconn)
+        Dim _
+            da As _
+                New MySqlDataAdapter("SELECT button FROM character_action WHERE guid='" & Main.char_guid.ToString & "'",
+                                     Main.GLOBALconn)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
@@ -762,11 +964,22 @@ Public Class Mangos_core
                 Do
                     Dim readedcode As String = (dt.Rows(count).Item(0)).ToString
                     Dim gbutton As String = readedcode
-                    Dim spec As String = runfunction.runcommand("SELECT spec FROM character_action WHERE button='" & gbutton & "' AND guid='" & Main.char_guid.ToString & "'", "spec")
-                    Dim action As String = runfunction.runcommand("SELECT action FROM character_action WHERE button='" & gbutton & "' AND guid='" & Main.char_guid.ToString & "'", "action")
-                    Dim atype As String = runfunction.runcommand("SELECT type FROM character_action WHERE button='" & gbutton & "' AND guid='" & Main.char_guid.ToString & "'", "type")
+                    Dim spec As String =
+                            runfunction.runcommand(
+                                "SELECT spec FROM character_action WHERE button='" & gbutton & "' AND guid='" &
+                                Main.char_guid.ToString & "'", "spec")
+                    Dim action As String =
+                            runfunction.runcommand(
+                                "SELECT action FROM character_action WHERE button='" & gbutton & "' AND guid='" &
+                                Main.char_guid.ToString & "'", "action")
+                    Dim atype As String =
+                            runfunction.runcommand(
+                                "SELECT type FROM character_action WHERE button='" & gbutton & "' AND guid='" &
+                                Main.char_guid.ToString & "'", "type")
 
-                    Main.character_action_list.Add("<action>" & action & "</action><spec>" & spec & "</spec><button>" & gbutton & "</button><type>" & atype & "</type>")
+                    Main.character_action_list.Add(
+                        "<action>" & action & "</action><spec>" & spec & "</spec><button>" & gbutton & "</button><type>" &
+                        atype & "</type>")
 
                     count += 1
                 Loop Until count = lastcount
@@ -776,11 +989,15 @@ Public Class Mangos_core
         Catch ex As Exception
 
         End Try
-
     End Sub
+
     Public Sub getavlists()
         runfunction.writelog("getavlists_call @mangos")
-        Dim da As New MySqlDataAdapter("SELECT achievement FROM character_achievement WHERE guid='" & Main.char_guid.ToString & "'", Main.GLOBALconn)
+        Dim _
+            da As _
+                New MySqlDataAdapter(
+                    "SELECT achievement FROM character_achievement WHERE guid='" & Main.char_guid.ToString & "'",
+                    Main.GLOBALconn)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
@@ -791,7 +1008,10 @@ Public Class Mangos_core
                 Do
                     Dim readedcode As String = (dt.Rows(count).Item(0)).ToString
                     Dim avid As String = readedcode
-                    Dim xdate As String = runfunction.runcommand("SELECT date FROM character_achievement WHERE achievement='" & avid & "' AND guid='" & Main.char_guid.ToString & "'", "date")
+                    Dim xdate As String =
+                            runfunction.runcommand(
+                                "SELECT date FROM character_achievement WHERE achievement='" & avid & "' AND guid='" &
+                                Main.char_guid.ToString & "'", "date")
                     Main.character_achievement_list.Add("<av>" & avid & "</av><date>" & xdate & "</date>")
 
                     count += 1
@@ -802,14 +1022,16 @@ Public Class Mangos_core
         Catch ex As Exception
 
         End Try
-
-
     End Sub
+
     Public Sub getinventoryitems()
         runfunction.writelog("getinventoryitems_call @mangos")
         Dim tmpext As Integer
 
-        Dim da As New MySqlDataAdapter("SELECT slot FROM character_inventory WHERE guid='" & Main.char_guid.ToString & "'", Main.GLOBALconn)
+        Dim _
+            da As _
+                New MySqlDataAdapter("SELECT slot FROM character_inventory WHERE guid='" & Main.char_guid.ToString & "'",
+                                     Main.GLOBALconn)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
@@ -820,7 +1042,10 @@ Public Class Mangos_core
                 Do
                     Dim readedcode As String = (dt.Rows(count).Item(0)).ToString
                     tmpext = CInt(Val(readedcode))
-                    Dim bagguid As String = runfunction.runcommand("SELECT bag FROM character_inventory WHERE guid='" & Main.char_guid.ToString & "' AND slot='" & tmpext.ToString & "'", "bag")
+                    Dim bagguid As String =
+                            runfunction.runcommand(
+                                "SELECT bag FROM character_inventory WHERE guid='" & Main.char_guid.ToString &
+                                "' AND slot='" & tmpext.ToString & "'", "bag")
                     If CInt(bagguid) = 0 Then
                         If tmpext > 18 Then
                             Dim bag As String = "0"
@@ -832,10 +1057,21 @@ Public Class Mangos_core
                             bag = bagguid
 
 
-                            item = runfunction.runcommand("SELECT item FROM character_inventory WHERE guid='" & Main.char_guid.ToString & "' AND slot='" & tmpext.ToString & "'", "item")
-                            entryid = runfunction.runcommand("SELECT item_template FROM character_inventory WHERE guid = '" & Main.char_guid.ToString & "' AND slot='" & tmpext.ToString & "' AND item='" & item & "'", "item_template")
-                            enchantments = runfunction.runcommand("SELECT `data` FROM item_instance WHERE guid = '" & item & "'", "data")
-                            Main.character_inventoryzero_list.Add("<slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid & "</bagguid><item>" & entryid & "</item><enchant>" & enchantments & "</enchant>")
+                            item =
+                                runfunction.runcommand(
+                                    "SELECT item FROM character_inventory WHERE guid='" & Main.char_guid.ToString &
+                                    "' AND slot='" & tmpext.ToString & "'", "item")
+                            entryid =
+                                runfunction.runcommand(
+                                    "SELECT item_template FROM character_inventory WHERE guid = '" &
+                                    Main.char_guid.ToString & "' AND slot='" & tmpext.ToString & "' AND item='" & item &
+                                    "'", "item_template")
+                            enchantments =
+                                runfunction.runcommand("SELECT `data` FROM item_instance WHERE guid = '" & item & "'",
+                                                       "data")
+                            Main.character_inventoryzero_list.Add(
+                                "<slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid &
+                                "</bagguid><item>" & entryid & "</item><enchant>" & enchantments & "</enchant>")
                         End If
                     Else
                         Dim bag As String = "0"
@@ -843,13 +1079,25 @@ Public Class Mangos_core
                         Dim entryid As String
                         Dim enchantments As String
 
-                        bag = runfunction.runcommand("SELECT itemEntry FROM item_instance WHERE guid = '" & bagguid & "'", "itemEntry")
+                        bag =
+                            runfunction.runcommand("SELECT itemEntry FROM item_instance WHERE guid = '" & bagguid & "'",
+                                                   "itemEntry")
 
 
-                        item = runfunction.runcommand("SELECT item FROM character_inventory WHERE guid='" & Main.char_guid.ToString & "' AND slot='" & tmpext.ToString & "'", "item")
-                        entryid = runfunction.runcommand("SELECT item_template FROM character_inventory WHERE guid = '" & Main.char_guid.ToString & "' AND slot='" & tmpext.ToString & "' AND item='" & bagguid.ToString & "'", "itemEntry")
-                        enchantments = runfunction.runcommand("SELECT `data` FROM item_instance WHERE guid = '" & item & "'", "data")
-                        Main.character_inventory_list.Add("<slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid & "</bagguid><item>" & entryid & "</item><enchant>" & enchantments & "</enchant>")
+                        item =
+                            runfunction.runcommand(
+                                "SELECT item FROM character_inventory WHERE guid='" & Main.char_guid.ToString &
+                                "' AND slot='" & tmpext.ToString & "'", "item")
+                        entryid =
+                            runfunction.runcommand(
+                                "SELECT item_template FROM character_inventory WHERE guid = '" & Main.char_guid.ToString &
+                                "' AND slot='" & tmpext.ToString & "' AND item='" & bagguid.ToString & "'", "itemEntry")
+                        enchantments =
+                            runfunction.runcommand("SELECT `data` FROM item_instance WHERE guid = '" & item & "'",
+                                                   "data")
+                        Main.character_inventory_list.Add(
+                            "<slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid &
+                            "</bagguid><item>" & entryid & "</item><enchant>" & enchantments & "</enchant>")
                     End If
 
 
@@ -861,9 +1109,8 @@ Public Class Mangos_core
         Catch ex As Exception
 
         End Try
-
-
     End Sub
+
     Public Sub getglyphs()
         runfunction.writelog("getglyphs_call @mangos")
         Dim prevglyphid As Integer
@@ -871,7 +1118,12 @@ Public Class Mangos_core
         Dim glyphname As String = ""
         Dim glyphpic As Image = My.Resources.empty
         Try
-            prevglyphid = CInt(Val(runfunction.runcommand("SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString & "' AND spec='0' AND slot='0'", "glyph")))
+            prevglyphid =
+                CInt(
+                    Val(
+                        runfunction.runcommand(
+                            "SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString &
+                            "' AND spec='0' AND slot='0'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
                 If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
@@ -884,7 +1136,12 @@ Public Class Mangos_core
             Glyphs.erheb1pic.Image = My.Resources.empty
         End Try
         Try
-            prevglyphid = CInt(Val(runfunction.runcommand("SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString & "' AND spec='0' AND slot='3'", "glyph")))
+            prevglyphid =
+                CInt(
+                    Val(
+                        runfunction.runcommand(
+                            "SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString &
+                            "' AND spec='0' AND slot='3'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
                 If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
@@ -899,7 +1156,12 @@ Public Class Mangos_core
 
         Try
 
-            prevglyphid = CInt(Val(runfunction.runcommand("SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString & "' AND spec='0' AND slot='5'", "glyph")))
+            prevglyphid =
+                CInt(
+                    Val(
+                        runfunction.runcommand(
+                            "SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString &
+                            "' AND spec='0' AND slot='5'", "glyph")))
             Application.DoEvents()
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
@@ -915,7 +1177,12 @@ Public Class Mangos_core
             Glyphs.erheb3pic.Image = My.Resources.empty
         End Try
         Try
-            prevglyphid = CInt(Val(runfunction.runcommand("SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString & "' AND spec='0' AND slot='4'", "glyph")))
+            prevglyphid =
+                CInt(
+                    Val(
+                        runfunction.runcommand(
+                            "SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString &
+                            "' AND spec='0' AND slot='4'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
                 If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
@@ -928,7 +1195,12 @@ Public Class Mangos_core
             Glyphs.gering1pic.Image = My.Resources.empty
         End Try
         Try
-            prevglyphid = CInt(Val(runfunction.runcommand("SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString & "' AND spec='0' AND slot='1'", "glyph")))
+            prevglyphid =
+                CInt(
+                    Val(
+                        runfunction.runcommand(
+                            "SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString &
+                            "' AND spec='0' AND slot='1'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
                 If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
@@ -941,7 +1213,12 @@ Public Class Mangos_core
             Glyphs.gering2pic.Image = My.Resources.empty
         End Try
         Try
-            prevglyphid = CInt(Val(runfunction.runcommand("SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString & "' AND spec='0' AND slot='2'", "glyph")))
+            prevglyphid =
+                CInt(
+                    Val(
+                        runfunction.runcommand(
+                            "SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString &
+                            "' AND spec='0' AND slot='2'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
                 If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
@@ -954,7 +1231,12 @@ Public Class Mangos_core
             Glyphs.gering3pic.Image = My.Resources.empty
         End Try
         Try
-            prevglyphid = CInt(Val(runfunction.runcommand("SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString & "' AND spec='0' AND slot='6'", "glyph")))
+            prevglyphid =
+                CInt(
+                    Val(
+                        runfunction.runcommand(
+                            "SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString &
+                            "' AND spec='0' AND slot='6'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
                 If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
@@ -967,7 +1249,12 @@ Public Class Mangos_core
             Glyphs.prim1pic.Image = My.Resources.empty
         End Try
         Try
-            prevglyphid = CInt(Val(runfunction.runcommand("SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString & "' AND spec='0' AND slot='7'", "glyph")))
+            prevglyphid =
+                CInt(
+                    Val(
+                        runfunction.runcommand(
+                            "SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString &
+                            "' AND spec='0' AND slot='7'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
                 If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
@@ -980,7 +1267,12 @@ Public Class Mangos_core
             Glyphs.prim2pic.Image = My.Resources.empty
         End Try
         Try
-            prevglyphid = CInt(Val(runfunction.runcommand("SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString & "' AND spec='0' AND slot='8'", "glyph")))
+            prevglyphid =
+                CInt(
+                    Val(
+                        runfunction.runcommand(
+                            "SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString &
+                            "' AND spec='0' AND slot='8'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
                 If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
@@ -993,13 +1285,19 @@ Public Class Mangos_core
             Glyphs.prim3pic.Image = My.Resources.empty
         End Try
     End Sub
+
     Public Sub getsecglyphs()
         Dim prevglyphid As Integer
         Dim glyphid As Integer
         Dim glyphname As String = ""
         Dim glyphpic As Image = My.Resources.empty
         Try
-            prevglyphid = CInt(Val(runfunction.runcommand("SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString & "' AND spec='1' AND slot='0'", "glyph")))
+            prevglyphid =
+                CInt(
+                    Val(
+                        runfunction.runcommand(
+                            "SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString &
+                            "' AND spec='1' AND slot='0'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
                 If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
@@ -1012,7 +1310,12 @@ Public Class Mangos_core
             Glyphs.secerheb1pic.Image = My.Resources.empty
         End Try
         Try
-            prevglyphid = CInt(Val(runfunction.runcommand("SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString & "' AND spec='1' AND slot='3'", "glyph")))
+            prevglyphid =
+                CInt(
+                    Val(
+                        runfunction.runcommand(
+                            "SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString &
+                            "' AND spec='1' AND slot='3'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
                 If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
@@ -1025,7 +1328,12 @@ Public Class Mangos_core
             Glyphs.secerheb2pic.Image = My.Resources.empty
         End Try
         Try
-            prevglyphid = CInt(Val(runfunction.runcommand("SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString & "' AND spec='1' AND slot='5'", "glyph")))
+            prevglyphid =
+                CInt(
+                    Val(
+                        runfunction.runcommand(
+                            "SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString &
+                            "' AND spec='1' AND slot='5'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
                 If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
@@ -1038,7 +1346,12 @@ Public Class Mangos_core
             Glyphs.secerheb3pic.Image = My.Resources.empty
         End Try
         Try
-            prevglyphid = CInt(Val(runfunction.runcommand("SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString & "' AND spec='1' AND slot='4'", "glyph")))
+            prevglyphid =
+                CInt(
+                    Val(
+                        runfunction.runcommand(
+                            "SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString &
+                            "' AND spec='1' AND slot='4'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
                 If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
@@ -1051,7 +1364,12 @@ Public Class Mangos_core
             Glyphs.secgering1pic.Image = My.Resources.empty
         End Try
         Try
-            prevglyphid = CInt(Val(runfunction.runcommand("SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString & "' AND spec='1' AND slot='1'", "glyph")))
+            prevglyphid =
+                CInt(
+                    Val(
+                        runfunction.runcommand(
+                            "SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString &
+                            "' AND spec='1' AND slot='1'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
                 If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
@@ -1064,7 +1382,12 @@ Public Class Mangos_core
             Glyphs.secgering2pic.Image = My.Resources.empty
         End Try
         Try
-            prevglyphid = CInt(Val(runfunction.runcommand("SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString & "' AND spec='1' AND slot='2'", "glyph")))
+            prevglyphid =
+                CInt(
+                    Val(
+                        runfunction.runcommand(
+                            "SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString &
+                            "' AND spec='1' AND slot='2'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
                 If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
@@ -1077,7 +1400,12 @@ Public Class Mangos_core
             Glyphs.secgering3pic.Image = My.Resources.empty
         End Try
         Try
-            prevglyphid = CInt(Val(runfunction.runcommand("SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString & "' AND spec='1' AND slot='6'", "glyph")))
+            prevglyphid =
+                CInt(
+                    Val(
+                        runfunction.runcommand(
+                            "SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString &
+                            "' AND spec='1' AND slot='6'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
                 If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
@@ -1090,7 +1418,12 @@ Public Class Mangos_core
             Glyphs.secprim1pic.Image = My.Resources.empty
         End Try
         Try
-            prevglyphid = CInt(Val(runfunction.runcommand("SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString & "' AND spec='1' AND slot='7'", "glyph")))
+            prevglyphid =
+                CInt(
+                    Val(
+                        runfunction.runcommand(
+                            "SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString &
+                            "' AND spec='1' AND slot='7'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
                 If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
@@ -1103,7 +1436,12 @@ Public Class Mangos_core
             Glyphs.secprim2pic.Image = My.Resources.empty
         End Try
         Try
-            prevglyphid = CInt(Val(runfunction.runcommand("SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString & "' AND spec='1' AND slot='8'", "glyph")))
+            prevglyphid =
+                CInt(
+                    Val(
+                        runfunction.runcommand(
+                            "SELECT glyph from character_glyphs WHERE guid='" & characterguid.ToString &
+                            "' AND spec='1' AND slot='8'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
                 If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
@@ -1158,6 +1496,7 @@ Public Class Mangos_core
         Main.secglyphpic8 = Glyphs.secgering2pic.Image
         Main.secglyphpic9 = Glyphs.secgering3pic.Image
     End Sub
+
     Public Sub getitems()
         runfunction.writelog("getitems_call @mangos")
         'Get Instance
@@ -1167,8 +1506,18 @@ Public Class Mangos_core
         Dim realxentryid As Integer
         Do
             Try
-                xentryid = CInt(Val(runfunction.runcommand("SELECT item FROM character_inventory WHERE guid = '" & characterguid & "' AND slot = '" & xslot & "' AND bag='0'", "item")))
-                realxentryid = CInt(Val(runfunction.runcommand("SELECT item_template FROM character_inventory WHERE item = '" & xentryid & "'", "item_template")))
+                xentryid =
+                    CInt(
+                        Val(
+                            runfunction.runcommand(
+                                "SELECT item FROM character_inventory WHERE guid = '" & characterguid & "' AND slot = '" &
+                                xslot & "' AND bag='0'", "item")))
+                realxentryid =
+                    CInt(
+                        Val(
+                            runfunction.runcommand(
+                                "SELECT item_template FROM character_inventory WHERE item = '" & xentryid & "'",
+                                "item_template")))
                 If Main.anzahldurchlaufe = 1 Then itemname = runfunction.getnamefromid(realxentryid)
                 Dim wartemal As String = ""
             Catch ex As Exception
@@ -1316,7 +1665,6 @@ Public Class Mangos_core
             End Select
             xslot += 1
         Loop Until xslot = 19
-
     End Sub
 
     Public Sub handleenchantments()
@@ -1423,10 +1771,8 @@ Public Class Mangos_core
 
         If Main.anzahldurchlaufe = 1 Then Main.schmuck2vz.Text = splitstringvz(Main.schmuck2ench, 23)
         Main.schmuck2vz.Visible = True
-
-
-
     End Sub
+
     Public Function splitstringvz(ByVal input As String, ByVal position As Integer) As String
         Dim xpacressource As String
         Select Case Main.xpac
@@ -1463,8 +1809,8 @@ Public Class Mangos_core
 
             Return ""
         End Try
-
     End Function
+
     Public Function splitstringgem(ByVal input As String, ByVal position As Integer) As String
         Dim xpacressource As String
         Select Case Main.xpac
@@ -1492,12 +1838,20 @@ Public Class Mangos_core
         Catch ex As Exception
             Return ""
         End Try
-
     End Function
 
     Public Function getentrybyiteminstance(ByVal instanceid As Integer) As Integer
         Try
-            Return CInt(Val(getentrybyiteminstance(getentrybyiteminstance(CInt(Val(runfunction.runcommand("SELECT itemEntry FROM character_instance WHERE guid = '" & instanceid & "'", "itemEntry")))))))
+            Return _
+                CInt(
+                    Val(
+                        getentrybyiteminstance(
+                            getentrybyiteminstance(
+                                CInt(
+                                    Val(
+                                        runfunction.runcommand(
+                                            "SELECT itemEntry FROM character_instance WHERE guid = '" & instanceid & "'",
+                                            "itemEntry")))))))
 
         Catch ex As Exception
             Return 0
@@ -1506,14 +1860,14 @@ Public Class Mangos_core
 
     Public Function getcharguid(ByVal charname As String) As Integer
         Try
-            Return CInt(Val(runfunction.runcommand("SELECT guid FROM characters WHERE name = '" & charname & "'", "guid")))
+            Return _
+                CInt(Val(runfunction.runcommand("SELECT guid FROM characters WHERE name = '" & charname & "'", "guid")))
 
         Catch ex As Exception
-            MsgBox("Charakter Guid konnte nicht gelesen werden! Überprüfe die Datanbankeintragungen.", MsgBoxStyle.Critical, "Fehler")
-            Return -1
+            MsgBox("Charakter Guid konnte nicht gelesen werden! Überprüfe die Datanbankeintragungen.",
+                   MsgBoxStyle.Critical, "Fehler")
+            Return - 1
         End Try
-
-
     End Function
 
 
@@ -1524,17 +1878,9 @@ Public Class Mangos_core
         Catch ex As Exception
             slotvar = "-1"
         End Try
-
-
     End Sub
 
 
-
-
-
-
-
-
     '##############################################################################################################################################################################
     '##############################################################################################################################################################################
     '##############################################################################################################################################################################
@@ -1549,19 +1895,17 @@ Public Class Mangos_core
     '##############################################################################################################################################################################
     '##############################################################################################################################################################################
     '##############################################################################################################################################################################
-
-
-
-
 
 
     Public Sub createnewaccounts(ByVal writestring As String)
         runfunction.writelog("createnewaccounts_call @mangos with writestring: " & writestring)
         runfunction.normalsqlcommandRealmd(writestring)
-
     End Sub
+
     Public Sub create_new_account_if_not_exist(ByVal accname As String, ByVal command As String, ByVal accguid As String)
-        runfunction.writelog("create_new_account_if_not_exist_call @mangos with accname: " & accname & ", command: " & command & ", accguid : " & accguid)
+        runfunction.writelog(
+            "create_new_account_if_not_exist_call @mangos with accname: " & accname & ", command: " & command &
+            ", accguid : " & accguid)
         Try
 
             '  ("SELECT * FROM characters WHERE name = '" & charname.Text & "'")
@@ -1587,68 +1931,154 @@ Public Class Mangos_core
         Catch
             runfunction.normalsqlcommandRealmd(command)
         End Try
-
     End Sub
 
-    Public Sub addchars(ByVal targetaccount As String, ByVal charactername As String, ByVal namechangeeverytime As Boolean)
-        runfunction.writelog("addchars_call @mangos with targetaccount: " & targetaccount & ", charactername: " & charactername & ", namechangeeverytime : " & namechangeeverytime.ToString)
-        Dim newcharguid As Integer = CInt(Val(runfunction.runcommand("SELECT guid FROM characters WHERE guid=(SELECT MAX(guid) FROM characters)", "guid"))) + 1
+    Public Sub addchars(ByVal targetaccount As String, ByVal charactername As String,
+                        ByVal namechangeeverytime As Boolean)
+        runfunction.writelog(
+            "addchars_call @mangos with targetaccount: " & targetaccount & ", charactername: " & charactername &
+            ", namechangeeverytime : " & namechangeeverytime.ToString)
+        Dim newcharguid As Integer =
+                CInt(
+                    Val(
+                        runfunction.runcommand(
+                            "SELECT guid FROM characters WHERE guid=(SELECT MAX(guid) FROM characters)", "guid"))) + 1
         guid = newcharguid.ToString
         Main.coreguid = newcharguid.ToString
-        targetaccount = runfunction.runcommandRealmd("SELECT id FROM account WHERE username='" & targetaccount & "'", "id")
+        targetaccount = runfunction.runcommandRealmd("SELECT id FROM account WHERE username='" & targetaccount & "'",
+                                                     "id")
         If namechangeeverytime = True Then
-            Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Player will be asked to change charactername! : reason-nce=true" & vbNewLine)
-            runfunction.normalsqlcommand("INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `position_x`, position_y, position_z, map, orientation, taximask `health` ) VALUES ( '" & newcharguid.ToString & "', '" & targetaccount & "', '" & charactername & "', '0', '0', '0', '1', '0', '0', '-14305.7', '514.08', '10', '0', '4.30671', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ','1000' )")
+            Process_Status.processreport.AppendText(
+                Now.TimeOfDay.ToString & "// Player will be asked to change charactername! : reason-nce=true" &
+                vbNewLine)
+            runfunction.normalsqlcommand(
+                "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `position_x`, position_y, position_z, map, orientation, taximask `health` ) VALUES ( '" &
+                newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
+                "', '0', '0', '0', '1', '0', '0', '-14305.7', '514.08', '10', '0', '4.30671', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ','1000' )")
 
             runfunction.normalsqlcommand("UPDATE characters SET at_login='1' WHERE guid='" & newcharguid.ToString & "'")
         Else
             If charexist(charactername) = True Then
-                Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Player will be asked to change charactername!" & vbNewLine)
-                runfunction.normalsqlcommand("INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `position_x`, position_y, position_z, map, orientation, taximask, `health` ) VALUES ( '" & newcharguid.ToString & "', '" & targetaccount & "', '" & charactername & "', '0', '0', '0', '1', '0', '0', '-14305.7', '514.08', '10', '0', '4.30671', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '1000' )")
-                runfunction.normalsqlcommand("UPDATE characters SET at_login='1' WHERE guid='" & newcharguid.ToString & "'")
+                Process_Status.processreport.AppendText(
+                    Now.TimeOfDay.ToString & "// Player will be asked to change charactername!" & vbNewLine)
+                runfunction.normalsqlcommand(
+                    "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `position_x`, position_y, position_z, map, orientation, taximask, `health` ) VALUES ( '" &
+                    newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
+                    "', '0', '0', '0', '1', '0', '0', '-14305.7', '514.08', '10', '0', '4.30671', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '1000' )")
+                runfunction.normalsqlcommand(
+                    "UPDATE characters SET at_login='1' WHERE guid='" & newcharguid.ToString & "'")
             Else
-                runfunction.normalsqlcommand("INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `position_x`, position_y, position_z, map, orientation, taximask, `health` ) VALUES ( '" & newcharguid.ToString & "', '" & targetaccount & "', '" & charactername & "', '0', '0', '0', '1', '0', '0', '-14305.7', '514.08', '10', '0', '4.30671', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '1000' )")
-                runfunction.normalsqlcommand("UPDATE characters SET at_login='0' WHERE guid='" & newcharguid.ToString & "'")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `position_x`, position_y, position_z, map, orientation, taximask, `health` ) VALUES ( '" &
+                    newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
+                    "', '0', '0', '0', '1', '0', '0', '-14305.7', '514.08', '10', '0', '4.30671', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '1000' )")
+                runfunction.normalsqlcommand(
+                    "UPDATE characters SET at_login='0' WHERE guid='" & newcharguid.ToString & "'")
             End If
 
         End If
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Creating Hearthstone for Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Creating Hearthstone for Character: " & Main.char_name & vbNewLine)
 
-        Dim newguid As String = ((CInt(Val(runfunction.runcommand("SELECT guid FROM item_instance WHERE guid=(SELECT MAX(guid) FROM item_instance)", "guid")))) + 1).ToString
+        Dim newguid As String =
+                ((CInt(
+                    Val(
+                        runfunction.runcommand(
+                            "SELECT guid FROM item_instance WHERE guid=(SELECT MAX(guid) FROM item_instance)", "guid")))) +
+                 1).ToString
         If Main.xpac >= 3 Then
-            runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data ) VALUES ( '" & newguid & "', '" & Main.coreguid & "', '" & newguid & " 1191182336 3 6948 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ' )")
+            runfunction.normalsqlcommand(
+                "INSERT INTO item_instance ( guid, owner_guid, data ) VALUES ( '" & newguid & "', '" & Main.coreguid &
+                "', '" & newguid &
+                " 1191182336 3 6948 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ' )")
         Else
             'MaNGOS 2.4.3 Core: Problem with data length, to long, remove 3 positions
-            runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data ) VALUES ( '" & newguid & "', '" & Main.coreguid & "', '" & newguid & " 1073741824 3 6948 1065353216 0 8 0 8 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ' )")
+            runfunction.normalsqlcommand(
+                "INSERT INTO item_instance ( guid, owner_guid, data ) VALUES ( '" & newguid & "', '" & Main.coreguid &
+                "', '" & newguid &
+                " 1073741824 3 6948 1065353216 0 8 0 8 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ' )")
         End If
-        runfunction.normalsqlcommand("INSERT INTO character_inventory ( guid, bag, slot, item, item_template ) VALUES ( '" & Main.coreguid & "', '0', '23', '" & newguid & "', '6948')")
+        runfunction.normalsqlcommand(
+            "INSERT INTO character_inventory ( guid, bag, slot, item, item_template ) VALUES ( '" & Main.coreguid &
+            "', '0', '23', '" & newguid & "', '6948')")
 
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Created Character " & charactername & "!" & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Created Character " & charactername & "!" & vbNewLine)
         Application.DoEvents()
     End Sub
+
     Public Sub sethome()
         runfunction.writelog("sethome_call @mangos")
-        runfunction.normalsqlcommand("INSERT INTO character_homebind ( guid, " & Main.homebind_map & ", " & Main.homebind_zone & ", " & Main.homebind_posx & ", " & Main.homebind_posy & ", " & Main.homebind_posz & " ) VALUES ( '" & Main.coreguid & "', '" & splitlist(Main.character_homebind, "map") & "', '" & splitlist(Main.character_homebind, "zone") & "', '" & splitlist(Main.character_homebind, "position_x") & "', '" & splitlist(Main.character_homebind, "position_y") & "', '" & splitlist(Main.character_homebind, "position_z") & "' )")
+        runfunction.normalsqlcommand(
+            "INSERT INTO character_homebind ( guid, " & Main.homebind_map & ", " & Main.homebind_zone & ", " &
+            Main.homebind_posx & ", " & Main.homebind_posy & ", " & Main.homebind_posz & " ) VALUES ( '" & Main.coreguid &
+            "', '" & splitlist(Main.character_homebind, "map") & "', '" & splitlist(Main.character_homebind, "zone") &
+            "', '" & splitlist(Main.character_homebind, "position_x") & "', '" &
+            splitlist(Main.character_homebind, "position_y") & "', '" & splitlist(Main.character_homebind, "position_z") &
+            "' )")
     End Sub
-    Public Sub adddetailedchar(ByVal targetaccount As String, ByVal charactername As String, ByVal namechangeeverytime As Boolean)
-        runfunction.writelog("adddetailedchar_call @mangos with targetaccount: " & targetaccount & ", charactername: " & charactername & ", namechangeeverytime : " & namechangeeverytime.ToString)
-        Dim newcharguid As Integer = CInt(Val(runfunction.runcommand("SELECT guid FROM characters WHERE guid=(SELECT MAX(guid) FROM characters)", "guid"))) + 1
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Creating Character " & charactername & "!" & vbNewLine)
+
+    Public Sub adddetailedchar(ByVal targetaccount As String, ByVal charactername As String,
+                               ByVal namechangeeverytime As Boolean)
+        runfunction.writelog(
+            "adddetailedchar_call @mangos with targetaccount: " & targetaccount & ", charactername: " & charactername &
+            ", namechangeeverytime : " & namechangeeverytime.ToString)
+        Dim newcharguid As Integer =
+                CInt(
+                    Val(
+                        runfunction.runcommand(
+                            "SELECT guid FROM characters WHERE guid=(SELECT MAX(guid) FROM characters)", "guid"))) + 1
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Creating Character " & charactername & "!" & vbNewLine)
         guid = newcharguid.ToString
         Main.coreguid = newcharguid.ToString
-        targetaccount = runfunction.runcommandRealmd("SELECT id FROM account WHERE username='" & targetaccount & "'", "id")
+        targetaccount = runfunction.runcommandRealmd("SELECT id FROM account WHERE username='" & targetaccount & "'",
+                                                     "id")
         If namechangeeverytime = True Then
-            Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Player will be asked to change charactername! : reason-nce=true" & vbNewLine)
-            runfunction.normalsqlcommand("INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, watchedFaction, `health`, exploredZones, knownTitles, actionBars ) VALUES ( '" & newcharguid.ToString & "', '" & targetaccount & "', '" & charactername & "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" & Main.playerBytes2.ToString & "', '" & Main.playerFlags.ToString & "', '" & Main.position_x.ToString & "', '" & Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 1).ToString & "', '" & Main.map.ToString & "', '4,40671', '" & Main.taximask & "', '" & Main.totaltime.ToString & "', '" & Main.leveltime.ToString & "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" & Main.at_login & "', '" & Main.zone.ToString & "', '" & Main.chosenTitle & "', '" & Main.watchedFaction & "', '1000', '" & Main.exploredZones & "', '" & Main.knownTitles & "', '" & Main.actionBars & "' )")
+            Process_Status.processreport.AppendText(
+                Now.TimeOfDay.ToString & "// Player will be asked to change charactername! : reason-nce=true" &
+                vbNewLine)
+            runfunction.normalsqlcommand(
+                "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, watchedFaction, `health`, exploredZones, knownTitles, actionBars ) VALUES ( '" &
+                newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
+                "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" & Main.playerBytes2.ToString &
+                "', '" & Main.playerFlags.ToString & "', '" & Main.position_x.ToString & "', '" &
+                Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 1).ToString & "', '" & Main.map.ToString &
+                "', '4,40671', '" & Main.taximask & "', '" & Main.totaltime.ToString & "', '" & Main.leveltime.ToString &
+                "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" & Main.at_login & "', '" &
+                Main.zone.ToString & "', '" & Main.chosenTitle & "', '" & Main.watchedFaction & "', '1000', '" &
+                Main.exploredZones & "', '" & Main.knownTitles & "', '" & Main.actionBars & "' )")
 
             runfunction.normalsqlcommand("UPDATE characters SET at_login='1' WHERE guid='" & newcharguid.ToString & "'")
         Else
             If charexist(charactername) = True Then
-                Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Player will be asked to change charactername!" & vbNewLine)
-                runfunction.normalsqlcommand("INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, watchedFaction, `health`, exploredZones, knownTitles, actionBars ) VALUES ( '" & newcharguid.ToString & "', '" & targetaccount & "', '" & charactername & "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" & Main.playerBytes2.ToString & "', '" & Main.playerFlags.ToString & "', '" & Main.position_x.ToString & "', '" & Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 1).ToString & "', '" & Main.map.ToString & "', '4,40671', '" & Main.taximask & "', '" & Main.totaltime.ToString & "', '" & Main.leveltime.ToString & "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" & Main.at_login & "', '" & Main.zone.ToString & "', '" & Main.chosenTitle & "', '" & Main.watchedFaction & "', '1000', '" & Main.exploredZones & "', '" & Main.knownTitles & "', '" & Main.actionBars & "' )")
-                runfunction.normalsqlcommand("UPDATE characters SET at_login='1' WHERE guid='" & newcharguid.ToString & "'")
+                Process_Status.processreport.AppendText(
+                    Now.TimeOfDay.ToString & "// Player will be asked to change charactername!" & vbNewLine)
+                runfunction.normalsqlcommand(
+                    "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, watchedFaction, `health`, exploredZones, knownTitles, actionBars ) VALUES ( '" &
+                    newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
+                    "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" &
+                    Main.playerBytes2.ToString & "', '" & Main.playerFlags.ToString & "', '" & Main.position_x.ToString &
+                    "', '" & Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 1).ToString & "', '" &
+                    Main.map.ToString & "', '4,40671', '" & Main.taximask & "', '" & Main.totaltime.ToString & "', '" &
+                    Main.leveltime.ToString & "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" &
+                    Main.at_login & "', '" & Main.zone.ToString & "', '" & Main.chosenTitle & "', '" &
+                    Main.watchedFaction & "', '1000', '" & Main.exploredZones & "', '" & Main.knownTitles & "', '" &
+                    Main.actionBars & "' )")
+                runfunction.normalsqlcommand(
+                    "UPDATE characters SET at_login='1' WHERE guid='" & newcharguid.ToString & "'")
             Else
-                runfunction.normalsqlcommand("INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, watchedFaction, `health`, exploredZones, knownTitles, actionBars ) VALUES ( '" & newcharguid.ToString & "', '" & targetaccount & "', '" & charactername & "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" & Main.playerBytes2.ToString & "', '" & Main.playerFlags.ToString & "', '" & Main.position_x.ToString & "', '" & Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 1).ToString & "', '" & Main.map.ToString & "', '4,40671', '" & Main.taximask & "', '" & Main.totaltime.ToString & "', '" & Main.leveltime.ToString & "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" & Main.at_login & "', '" & Main.zone.ToString & "', '" & Main.chosenTitle & "', '" & Main.watchedFaction & "', '1000', '" & Main.exploredZones & "', '" & Main.knownTitles & "', '" & Main.actionBars & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, watchedFaction, `health`, exploredZones, knownTitles, actionBars ) VALUES ( '" &
+                    newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
+                    "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" &
+                    Main.playerBytes2.ToString & "', '" & Main.playerFlags.ToString & "', '" & Main.position_x.ToString &
+                    "', '" & Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 1).ToString & "', '" &
+                    Main.map.ToString & "', '4,40671', '" & Main.taximask & "', '" & Main.totaltime.ToString & "', '" &
+                    Main.leveltime.ToString & "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" &
+                    Main.at_login & "', '" & Main.zone.ToString & "', '" & Main.chosenTitle & "', '" &
+                    Main.watchedFaction & "', '1000', '" & Main.exploredZones & "', '" & Main.knownTitles & "', '" &
+                    Main.actionBars & "' )")
 
             End If
 
@@ -1656,19 +2086,25 @@ Public Class Mangos_core
         setmissingcolumns(newcharguid)
         sethome()
         addaction()
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Created Character " & charactername & "!" & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Created Character " & charactername & "!" & vbNewLine)
         Application.DoEvents()
     End Sub
-    Public Sub setmissingcolumns(ByVal guid As Integer)
-        runfunction.normalsqlcommand("UPDATE characters SET knownCurrencies='" & Main.knownCurrencies & "' WHERE guid='" & guid.ToString & "'")
-        runfunction.normalsqlcommand("UPDATE characters SET speccount='" & Main.speccount.ToString & "' WHERE guid='" & guid.ToString & "'")
-        runfunction.normalsqlcommand("UPDATE characters SET activespec='" & Main.activespec.ToString & "' WHERE guid='" & guid.ToString & "'")
 
+    Public Sub setmissingcolumns(ByVal guid As Integer)
+        runfunction.normalsqlcommand(
+            "UPDATE characters SET knownCurrencies='" & Main.knownCurrencies & "' WHERE guid='" & guid.ToString & "'")
+        runfunction.normalsqlcommand(
+            "UPDATE characters SET speccount='" & Main.speccount.ToString & "' WHERE guid='" & guid.ToString & "'")
+        runfunction.normalsqlcommand(
+            "UPDATE characters SET activespec='" & Main.activespec.ToString & "' WHERE guid='" & guid.ToString & "'")
     End Sub
+
     Public Sub requestnamechange(ByVal charname As String)
         runfunction.writelog("requestnamechange_call @mangos for character: " & charname)
         runfunction.normalsqlcommand("UPDATE characters SET at_login='1' WHERE name='" & charname & "'")
     End Sub
+
     Public Function charexist(ByVal charname As String) As Boolean
         runfunction.writelog("charexist_call @mangos for character: " & charname)
         Try
@@ -1697,61 +2133,95 @@ Public Class Mangos_core
             Return False
         End Try
     End Function
+
     Public Sub updatechars(ByVal charname As String)
         '  Dim accguid As String = runfunction.runcommandRealmd("SELECT id FROM account WHERE username='" & accountname & "'", "id")
         runfunction.writelog("updatechars_call @mangos for character: " & charname)
         runfunction.normalsqlcommand("UPDATE characters SET at_login='1' WHERE name='" & charname & "'")
-
     End Sub
+
     Public Sub getguidfromname(ByVal charactername As String)
         runfunction.writelog("getguidfromname_call @mangos for character: " & charactername)
         guid = runfunction.runcommand("SELECT guid FROM characters WHERE name = '" & charactername & "'", "guid")
         Main.coreguid = guid
         addaction()
     End Sub
+
     Public Sub additems()
         runfunction.writelog("additems_call @mangos")
         guid = Main.coreguid
-        finalstring = "kopf 0 hals 0 schulter 0 hemd 0 brust 0 guertel 0 beine 0 stiefel 0 handgelenke 0 haende 0 finger1 0 finger2 0 schmuck1 0 schmuck2 0 ruecken 0 haupt 0 off 0 distanz 0 wappenrock 0 "
-        lastnumber = runfunction.runcommand("SELECT guid FROM item_instance WHERE guid=(SELECT MAX(guid) FROM item_instance)", "guid")
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Creating Items for Character: " & Main.char_name & vbNewLine)
+        finalstring =
+            "kopf 0 hals 0 schulter 0 hemd 0 brust 0 guertel 0 beine 0 stiefel 0 handgelenke 0 haende 0 finger1 0 finger2 0 schmuck1 0 schmuck2 0 ruecken 0 haupt 0 off 0 distanz 0 wappenrock 0 "
+        lastnumber =
+            runfunction.runcommand("SELECT guid FROM item_instance WHERE guid=(SELECT MAX(guid) FROM item_instance)",
+                                   "guid")
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Creating Items for Character: " & Main.char_name & vbNewLine)
         Application.DoEvents()
         If Main.char_class = 1 Or Main.char_class = 2 Or Main.char_class = 6 Then
-            runfunction.normalsqlcommand("INSERT INTO character_spell ( guid, spell, active, disabled ) VALUES ( '" & guid & "', '750', '1', '0' )")
-            runfunction.normalsqlcommand("INSERT INTO character_skills ( guid, skill, value, max ) VALUES ( '" & guid & "', '293', '1', '1' )")
-        ElseIf Main.char_class = 1 Or Main.char_class = 2 Or Main.char_class = 3 Or Main.char_class = 6 Or Main.char_class = 7 Then
-            runfunction.normalsqlcommand("INSERT INTO character_spell ( guid, spell, active, disabled ) VALUES ( '" & guid & "', '8737', '1', '0' )")
-            runfunction.normalsqlcommand("INSERT INTO character_skills ( guid, skill, value, max ) VALUES ( '" & guid & "', '413', '1', '1' )")
-        ElseIf Main.char_class = 1 Or Main.char_class = 2 Or Main.char_class = 3 Or Main.char_class = 4 Or Main.char_class = 6 Or Main.char_class = 7 Or Main.char_class = 11 Then
-            runfunction.normalsqlcommand("INSERT INTO character_spell ( guid, spell, active, disabled ) VALUES ( '" & guid & "', '9077', '1', '0' )")
-            runfunction.normalsqlcommand("INSERT INTO character_skills ( guid, skill, value, max ) VALUES ( '" & guid & "', '414', '1', '1' )")
+            runfunction.normalsqlcommand(
+                "INSERT INTO character_spell ( guid, spell, active, disabled ) VALUES ( '" & guid &
+                "', '750', '1', '0' )")
+            runfunction.normalsqlcommand(
+                "INSERT INTO character_skills ( guid, skill, value, max ) VALUES ( '" & guid & "', '293', '1', '1' )")
+        ElseIf _
+            Main.char_class = 1 Or Main.char_class = 2 Or Main.char_class = 3 Or Main.char_class = 6 Or
+            Main.char_class = 7 Then
+            runfunction.normalsqlcommand(
+                "INSERT INTO character_spell ( guid, spell, active, disabled ) VALUES ( '" & guid &
+                "', '8737', '1', '0' )")
+            runfunction.normalsqlcommand(
+                "INSERT INTO character_skills ( guid, skill, value, max ) VALUES ( '" & guid & "', '413', '1', '1' )")
+        ElseIf _
+            Main.char_class = 1 Or Main.char_class = 2 Or Main.char_class = 3 Or Main.char_class = 4 Or
+            Main.char_class = 6 Or Main.char_class = 7 Or Main.char_class = 11 Then
+            runfunction.normalsqlcommand(
+                "INSERT INTO character_spell ( guid, spell, active, disabled ) VALUES ( '" & guid &
+                "', '9077', '1', '0' )")
+            runfunction.normalsqlcommand(
+                "INSERT INTO character_skills ( guid, skill, value, max ) VALUES ( '" & guid & "', '414', '1', '1' )")
         Else
 
         End If
         Dim specialskill As String
         Dim specialspell As String
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Creating special spells and skills for relevant items..." & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Creating special spells and skills for relevant items..." & vbNewLine)
         Dim spellcounter As Integer = 0
         Dim skillcounter As Integer = 0
         For Each specialskill In Main.specialskills
-            runfunction.normalsqlcommand("INSERT INTO character_skills ( guid, skill, value, max ) VALUES ( '" & guid & "', '" & specialskill & "', '1', '1' )")
+            runfunction.normalsqlcommand(
+                "INSERT INTO character_skills ( guid, skill, value, max ) VALUES ( '" & guid & "', '" & specialskill &
+                "', '1', '1' )")
             skillcounter += 1
         Next
         For Each specialspell In Main.specialspells
-            runfunction.normalsqlcommand("INSERT INTO character_spell ( guid, spell, active, disabled ) VALUES ( '" & guid & "', '" & specialspell & "', '1', '0' )")
+            runfunction.normalsqlcommand(
+                "INSERT INTO character_spell ( guid, spell, active, disabled ) VALUES ( '" & guid & "', '" &
+                specialspell & "', '1', '0' )")
             spellcounter += 1
         Next
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Created " & spellcounter.ToString & " spells and " & skillcounter.ToString & " skills!" & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Created " & spellcounter.ToString & " spells and " & skillcounter.ToString &
+            " skills!" & vbNewLine)
 
         If Not Main.kopfid = Nothing Then
 
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             kopfwearguid = CInt(lastnumber)
             If Main.xpac >= 3 Then
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.kopfid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.kopfid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.kopfid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.kopfid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             End If
             makestring(Main.kopfid, "kopf", False)
             checkexist_anddelete(guid, "0", lastnumber, Main.kopfid)
@@ -1760,11 +2230,19 @@ Public Class Mangos_core
         If Not Main.halsid = Nothing Then
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             halswearguid = CInt(lastnumber)
-             If Main.xpac >= 3 Then
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.halsid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+            If Main.xpac >= 3 Then
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.halsid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.halsid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.halsid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             End If
             makestring(Main.halsid, "hals", False)
             checkexist_anddelete(guid, "1", lastnumber, Main.halsid)
@@ -1772,11 +2250,19 @@ Public Class Mangos_core
         If Not Main.schulterid = Nothing Then
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             schulterwearguid = CInt(lastnumber)
-             If Main.xpac >= 3 Then
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.schulterid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+            If Main.xpac >= 3 Then
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.schulterid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.schulterid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.schulterid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             End If
             makestring(Main.schulterid, "schulter", False)
             checkexist_anddelete(guid, "2", lastnumber, Main.schulterid)
@@ -1786,10 +2272,18 @@ Public Class Mangos_core
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             rueckenwearguid = CInt(lastnumber)
             If Main.xpac >= 3 Then
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.rueckenid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.rueckenid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.rueckenid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.rueckenid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             End If
             makestring(Main.rueckenid, "ruecken", False)
             checkexist_anddelete(guid, "14", lastnumber, Main.rueckenid)
@@ -1798,10 +2292,18 @@ Public Class Mangos_core
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             brustwearguid = CInt(lastnumber)
             If Main.xpac >= 3 Then
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.brustid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.brustid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.brustid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.brustid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             End If
             makestring(Main.brustid, "brust", False)
             checkexist_anddelete(guid, "4", lastnumber, Main.brustid)
@@ -1809,11 +2311,19 @@ Public Class Mangos_core
         If Not Main.hemdid = Nothing Then
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             hemdwearguid = CInt(lastnumber)
-             If Main.xpac >= 3 Then
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.hemdid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+            If Main.xpac >= 3 Then
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.hemdid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.hemdid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.hemdid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             End If
             makestring(Main.hemdid, "hemd", False)
             checkexist_anddelete(guid, "3", lastnumber, Main.hemdid)
@@ -1822,10 +2332,18 @@ Public Class Mangos_core
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             wappenrockwearguid = CInt(lastnumber)
             If Main.xpac >= 3 Then
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.wappenrockid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.wappenrockid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.wappenrockid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.wappenrockid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             End If
             makestring(Main.wappenrockid, "wappenrock", False)
             checkexist_anddelete(guid, "18", lastnumber, Main.wappenrockid)
@@ -1834,10 +2352,18 @@ Public Class Mangos_core
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             handgelenkewearguid = CInt(lastnumber)
             If Main.xpac >= 3 Then
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.handgelenkeid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.handgelenkeid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.handgelenkeid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.handgelenkeid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             End If
             makestring(Main.handgelenkeid, "handgelenke", False)
             checkexist_anddelete(guid, "8", lastnumber, Main.handgelenkeid)
@@ -1845,11 +2371,19 @@ Public Class Mangos_core
         If Not Main.hauptid = Nothing Then
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             hauptwearguid = CInt(lastnumber)
-           If Main.xpac >= 3 Then
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.hauptid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+            If Main.xpac >= 3 Then
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.hauptid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.hauptid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.hauptid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             End If
             makestring(Main.hauptid, "haupt", False)
             checkexist_anddelete(guid, "15", lastnumber, Main.hauptid)
@@ -1858,10 +2392,18 @@ Public Class Mangos_core
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             offwearguid = CInt(lastnumber)
             If Main.xpac >= 3 Then
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.offid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.offid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.offid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.offid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             End If
             makestring(Main.offid, "off", False)
             checkexist_anddelete(guid, "16", lastnumber, Main.offid)
@@ -1870,10 +2412,18 @@ Public Class Mangos_core
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             distanzwearguid = CInt(lastnumber)
             If Main.xpac >= 3 Then
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.distanzid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.distanzid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.distanzid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.distanzid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             End If
             makestring(Main.distanzid, "distanz", False)
             checkexist_anddelete(guid, "17", lastnumber, Main.distanzid)
@@ -1882,10 +2432,18 @@ Public Class Mangos_core
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             haendewearguid = CInt(lastnumber)
             If Main.xpac >= 3 Then
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.haendeid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.haendeid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.haendeid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.haendeid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             End If
             makestring(Main.haendeid, "haende", False)
             checkexist_anddelete(guid, "9", lastnumber, Main.haendeid)
@@ -1894,10 +2452,18 @@ Public Class Mangos_core
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             guertelwearguid = CInt(lastnumber)
             If Main.xpac >= 3 Then
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.guertelid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.guertelid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.guertelid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.guertelid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             End If
             makestring(Main.guertelid, "guertel", False)
             checkexist_anddelete(guid, "5", lastnumber, Main.guertelid)
@@ -1906,10 +2472,18 @@ Public Class Mangos_core
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             beinewearguid = CInt(lastnumber)
             If Main.xpac >= 3 Then
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.beineid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.beineid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.beineid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.beineid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             End If
             makestring(Main.beineid, "beine", False)
             checkexist_anddelete(guid, "6", lastnumber, Main.beineid)
@@ -1917,11 +2491,19 @@ Public Class Mangos_core
         If Not Main.stiefelid = Nothing Then
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             stiefelwearguid = CInt(lastnumber)
-             If Main.xpac >= 3 Then
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.stiefelid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+            If Main.xpac >= 3 Then
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.stiefelid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.stiefelid.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.stiefelid.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             End If
             makestring(Main.stiefelid, "stiefel", False)
             checkexist_anddelete(guid, "7", lastnumber, Main.stiefelid)
@@ -1929,11 +2511,19 @@ Public Class Mangos_core
         If Not Main.ring1id = Nothing Then
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             ring1wearguid = CInt(lastnumber)
-             If Main.xpac >= 3 Then
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.ring1id.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+            If Main.xpac >= 3 Then
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.ring1id.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.ring1id.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.ring1id.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             End If
             makestring(Main.ring1id, "finger1", False)
             checkexist_anddelete(guid, "10", lastnumber, Main.ring1id)
@@ -1942,10 +2532,18 @@ Public Class Mangos_core
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             ring2wearguid = CInt(lastnumber)
             If Main.xpac >= 3 Then
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.ring2id.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.ring2id.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.ring2id.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.ring2id.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             End If
             makestring(Main.ring2id, "finger2", False)
             checkexist_anddelete(guid, "11", lastnumber, Main.ring2id)
@@ -1953,11 +2551,19 @@ Public Class Mangos_core
         If Not Main.schmuck1id = Nothing Then
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             schmuck1wearguid = CInt(lastnumber)
-           If Main.xpac >= 3 Then
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.schmuck1id.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+            If Main.xpac >= 3 Then
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.schmuck1id.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.schmuck1id.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.schmuck1id.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             End If
             makestring(Main.schmuck1id, "schmuck1", False)
             checkexist_anddelete(guid, "12", lastnumber, Main.schmuck1id)
@@ -1966,176 +2572,259 @@ Public Class Mangos_core
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             schmuck2wearguid = CInt(lastnumber)
             If Main.xpac >= 3 Then
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.schmuck2id.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.schmuck2id.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
-                runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid & "', '" & lastnumber & " 1191182336 3 " & Main.schmuck2id.ToString & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')") '3462 0 0 3448 0 0 3535 0 0 3753
+                runfunction.normalsqlcommand(
+                    "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.schmuck2id.ToString &
+                    " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
+                '3462 0 0 3448 0 0 3535 0 0 3753
             End If
             makestring(Main.schmuck2id, "schmuck2", False)
             checkexist_anddelete(guid, "13", lastnumber, Main.schmuck2id)
         End If
         makestring(0, "", True)
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Created Items!" & vbNewLine)
-
-
     End Sub
+
     Public Sub addglyphs(ByVal expansion As String)
         runfunction.writelog("addglyphs_call @mangos expansion: " & expansion)
         newcharguid = Main.coreguid
         guid = Main.coreguid
         checkglyphsanddelete(newcharguid)
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Adding Glyphs to Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Adding Glyphs to Character: " & Main.char_name & vbNewLine)
         If expansion = "cata" Then
             If Not Main.minorglyph1 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '4', '" & runfunction.getglyphid2(Main.minorglyph1) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '4', '" &
+                    runfunction.getglyphid2(Main.minorglyph1) & "' )")
             End If
             If Not Main.minorglyph2 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '1', '" & runfunction.getglyphid2(Main.minorglyph2) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '1', '" &
+                    runfunction.getglyphid2(Main.minorglyph2) & "' )")
             End If
             If Not Main.minorglyph3 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '2', '" & runfunction.getglyphid2(Main.minorglyph3) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '2', '" &
+                    runfunction.getglyphid2(Main.minorglyph3) & "' )")
             End If
             If Not Main.majorglyph1 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '0', '" & runfunction.getglyphid2(Main.majorglyph1) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '0', '" &
+                    runfunction.getglyphid2(Main.majorglyph1) & "' )")
             End If
             If Not Main.majorglyph2 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '3', '" & runfunction.getglyphid2(Main.majorglyph2) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '3', '" &
+                    runfunction.getglyphid2(Main.majorglyph2) & "' )")
             End If
             If Not Main.majorglyph3 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '5', '" & runfunction.getglyphid2(Main.majorglyph3) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '5', '" &
+                    runfunction.getglyphid2(Main.majorglyph3) & "' )")
             End If
             If Not Main.primeglyph1 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '6', '" & runfunction.getglyphid2(Main.primeglyph1) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '6', '" &
+                    runfunction.getglyphid2(Main.primeglyph1) & "' )")
             End If
             If Not Main.primeglyph2 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '7', '" & runfunction.getglyphid2(Main.primeglyph2) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '7', '" &
+                    runfunction.getglyphid2(Main.primeglyph2) & "' )")
             End If
             If Not Main.primeglyph3 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '8', '" & runfunction.getglyphid2(Main.primeglyph3) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '8', '" &
+                    runfunction.getglyphid2(Main.primeglyph3) & "' )")
             End If
 
 
             If Not Main.secminorglyph1 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '4', '" & runfunction.getglyphid2(Main.secminorglyph1) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '4', '" &
+                    runfunction.getglyphid2(Main.secminorglyph1) & "' )")
             End If
             If Not Main.secminorglyph2 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '1', '" & runfunction.getglyphid2(Main.secminorglyph2) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '1', '" &
+                    runfunction.getglyphid2(Main.secminorglyph2) & "' )")
             End If
             If Not Main.secminorglyph3 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '2', '" & runfunction.getglyphid2(Main.secminorglyph3) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '2', '" &
+                    runfunction.getglyphid2(Main.secminorglyph3) & "' )")
             End If
             If Not Main.secmajorglyph1 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '0', '" & runfunction.getglyphid2(Main.secmajorglyph1) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '0', '" &
+                    runfunction.getglyphid2(Main.secmajorglyph1) & "' )")
             End If
             If Not Main.secmajorglyph2 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '3', '" & runfunction.getglyphid2(Main.secmajorglyph2) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '3', '" &
+                    runfunction.getglyphid2(Main.secmajorglyph2) & "' )")
             End If
             If Not Main.secmajorglyph3 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '5', '" & runfunction.getglyphid2(Main.secmajorglyph3) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '5', '" &
+                    runfunction.getglyphid2(Main.secmajorglyph3) & "' )")
             End If
             If Not Main.secprimeglyph1 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '6', '" & runfunction.getglyphid2(Main.secprimeglyph1) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '6', '" &
+                    runfunction.getglyphid2(Main.secprimeglyph1) & "' )")
             End If
             If Not Main.secprimeglyph2 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '7', '" & runfunction.getglyphid2(Main.secprimeglyph2) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '7', '" &
+                    runfunction.getglyphid2(Main.secprimeglyph2) & "' )")
             End If
             If Not Main.secprimeglyph3 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '8', '" & runfunction.getglyphid2(Main.secprimeglyph3) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '8', '" &
+                    runfunction.getglyphid2(Main.secprimeglyph3) & "' )")
             End If
         Else
             If Not Main.minorglyph1 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '4', '" & runfunction.getglyphid2(Main.minorglyph1) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '4', '" &
+                    runfunction.getglyphid2(Main.minorglyph1) & "' )")
             End If
             If Not Main.minorglyph2 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '1', '" & runfunction.getglyphid2(Main.minorglyph2) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '1', '" &
+                    runfunction.getglyphid2(Main.minorglyph2) & "' )")
             End If
             If Not Main.minorglyph3 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '2', '" & runfunction.getglyphid2(Main.minorglyph3) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '2', '" &
+                    runfunction.getglyphid2(Main.minorglyph3) & "' )")
             End If
             If Not Main.majorglyph1 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '0', '" & runfunction.getglyphid2(Main.majorglyph1) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '0', '" &
+                    runfunction.getglyphid2(Main.majorglyph1) & "' )")
             End If
             If Not Main.majorglyph2 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '3', '" & runfunction.getglyphid2(Main.majorglyph2) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '3', '" &
+                    runfunction.getglyphid2(Main.majorglyph2) & "' )")
             End If
             If Not Main.majorglyph3 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '5', '" & runfunction.getglyphid2(Main.majorglyph3) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '5', '" &
+                    runfunction.getglyphid2(Main.majorglyph3) & "' )")
             End If
-
 
 
             If Not Main.secminorglyph1 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '4', '" & runfunction.getglyphid2(Main.secminorglyph1) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '4', '" &
+                    runfunction.getglyphid2(Main.secminorglyph1) & "' )")
             End If
             If Not Main.secminorglyph2 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '1', '" & runfunction.getglyphid2(Main.secminorglyph2) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '1', '" &
+                    runfunction.getglyphid2(Main.secminorglyph2) & "' )")
             End If
             If Not Main.secminorglyph3 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '2', '" & runfunction.getglyphid2(Main.secminorglyph3) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '2', '" &
+                    runfunction.getglyphid2(Main.secminorglyph3) & "' )")
             End If
             If Not Main.secmajorglyph1 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '0', '" & runfunction.getglyphid2(Main.secmajorglyph1) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '0', '" &
+                    runfunction.getglyphid2(Main.secmajorglyph1) & "' )")
             End If
             If Not Main.secmajorglyph2 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '3', '" & runfunction.getglyphid2(Main.secmajorglyph2) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '3', '" &
+                    runfunction.getglyphid2(Main.secmajorglyph2) & "' )")
             End If
             If Not Main.secmajorglyph3 = "" Then
-                runfunction.normalsqlcommand("INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '5', '" & runfunction.getglyphid2(Main.secmajorglyph3) & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '5', '" &
+                    runfunction.getglyphid2(Main.secmajorglyph3) & "' )")
             End If
 
         End If
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Added Glyphs!" & vbNewLine)
-
-
     End Sub
+
     Public Sub setgender(ByVal gender As String)
         runfunction.writelog("setgender_call @mangos gender: " & gender)
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Setting gender for Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Setting gender for Character: " & Main.char_name & vbNewLine)
         guid = Main.coreguid
         runfunction.normalsqlcommand("UPDATE `characters` SET gender='" & gender & "' WHERE guid='" & guid & "'")
     End Sub
+
     Public Sub setlevel()
         runfunction.writelog("setlevel_call @mangos")
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Setting Level for Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Setting Level for Character: " & Main.char_name & vbNewLine)
         guid = Main.coreguid
-        runfunction.normalsqlcommand("UPDATE `characters` SET level='" & Main.char_level.ToString & "' WHERE guid='" & guid & "'")
+        runfunction.normalsqlcommand(
+            "UPDATE `characters` SET level='" & Main.char_level.ToString & "' WHERE guid='" & guid & "'")
     End Sub
+
     Public Sub setrace()
         runfunction.writelog("setrace_call @mangos")
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Setting race for Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Setting race for Character: " & Main.char_name & vbNewLine)
         guid = Main.coreguid
-        runfunction.normalsqlcommand("UPDATE `characters` SET race='" & Main.char_race.ToString & "' WHERE guid='" & guid & "'")
+        runfunction.normalsqlcommand(
+            "UPDATE `characters` SET race='" & Main.char_race.ToString & "' WHERE guid='" & guid & "'")
     End Sub
+
     Public Sub setclass()
         runfunction.writelog("setclass_call @mangos")
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Setting class for Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Setting class for Character: " & Main.char_name & vbNewLine)
         guid = Main.coreguid
-        runfunction.normalsqlcommand("UPDATE `characters` SET `class`='" & Main.char_class.ToString & "' WHERE guid='" & guid & "'")
+        runfunction.normalsqlcommand(
+            "UPDATE `characters` SET `class`='" & Main.char_class.ToString & "' WHERE guid='" & guid & "'")
     End Sub
+
     Public Sub setalternatelevel(ByVal alternatelevel As String)
         runfunction.writelog("setalternatelevel_call @mangos with a.level: " & alternatelevel)
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Setting alternative level for Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Setting alternative level for Character: " & Main.char_name & vbNewLine)
         guid = Main.coreguid
         runfunction.normalsqlcommand("UPDATE `characters` SET level='" & alternatelevel & "' WHERE guid='" & guid & "'")
     End Sub
+
     Public Sub setgold(ByVal amount As String)
         runfunction.writelog("setgold_call @mangos with amount: " & amount)
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Adding gold..." & vbNewLine)
         guid = Main.coreguid
-        runfunction.normalsqlcommand("UPDATE `characters` SET money='" & (CInt(Val(amount)) * 10000).ToString & "' WHERE guid='" & guid & "'")
+        runfunction.normalsqlcommand(
+            "UPDATE `characters` SET money='" & (CInt(Val(amount))*10000).ToString & "' WHERE guid='" & guid & "'")
     End Sub
+
     Public Sub addgold(ByVal amount As Integer)
         runfunction.writelog("addgold_call @mangos with amount: " & amount)
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Adding gold..." & vbNewLine)
         guid = Main.coreguid
         runfunction.normalsqlcommand("UPDATE `characters` SET money='" & amount.ToString & "' WHERE guid='" & guid & "'")
     End Sub
+
     Public Sub addtalents()
         runfunction.writelog("addtalents_call @mangos")
         sdatatable.Clear()
         sdatatable.Dispose()
         sdatatable = gettable()
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Setting Talents for Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Setting Talents for Character: " & Main.char_name & vbNewLine)
         Dim talentlist As String = ""
         Dim talentlist2 As String = ""
         'talentid/rank
@@ -2149,32 +2838,42 @@ Public Class Mangos_core
                     ElseIf talentlist.Contains(talentid & "rank4") Then
                         If CInt(Val(rank)) <= 4 Then
                         Else
-                            runfunction.normalsqlcommand("UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.coreguid & "' AND talent_id='" & talentid & "' AND spec='0'")
+                            runfunction.normalsqlcommand(
+                                "UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.coreguid &
+                                "' AND talent_id='" & talentid & "' AND spec='0'")
                             talentlist = talentlist & " " & talentid & "rank" & rank
                         End If
                     ElseIf talentlist.Contains(talentid & "rank3") Then
                         If CInt(Val(rank)) <= 3 Then
                         Else
-                            runfunction.normalsqlcommand("UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.coreguid & "' AND talent_id='" & talentid & "' AND spec='0'")
+                            runfunction.normalsqlcommand(
+                                "UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.coreguid &
+                                "' AND talent_id='" & talentid & "' AND spec='0'")
                             talentlist = talentlist & " " & talentid & "rank" & rank
                         End If
                     ElseIf talentlist.Contains(talentid & "rank2") Then
                         If CInt(Val(rank)) <= 2 Then
                         Else
-                            runfunction.normalsqlcommand("UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.coreguid & "' AND talent_id='" & talentid & "' AND spec='0'")
+                            runfunction.normalsqlcommand(
+                                "UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.coreguid &
+                                "' AND talent_id='" & talentid & "' AND spec='0'")
                             talentlist = talentlist & " " & talentid & "rank" & rank
                         End If
                     ElseIf talentlist.Contains(talentid & "rank1") Then
                         If CInt(Val(rank)) <= 1 Then
                         Else
-                            runfunction.normalsqlcommand("UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.coreguid & "' AND talent_id='" & talentid & "' AND spec='0'")
+                            runfunction.normalsqlcommand(
+                                "UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.coreguid &
+                                "' AND talent_id='" & talentid & "' AND spec='0'")
                             talentlist = talentlist & " " & talentid & "rank" & rank
                         End If
                     Else
 
                     End If
                 Else
-                    runfunction.normalsqlcommand("INSERT INTO character_talent ( guid, talent_id, current_rank, spec ) VALUES ( '" & Main.coreguid & "', '" & talentid & "', '" & rank & "', '0' )")
+                    runfunction.normalsqlcommand(
+                        "INSERT INTO character_talent ( guid, talent_id, current_rank, spec ) VALUES ( '" &
+                        Main.coreguid & "', '" & talentid & "', '" & rank & "', '0' )")
 
                     talentlist = talentlist & " " & talentid & "rank" & rank
 
@@ -2188,32 +2887,42 @@ Public Class Mangos_core
                     ElseIf talentlist2.Contains(talentid & "rank4") Then
                         If CInt(Val(rank)) <= 4 Then
                         Else
-                            runfunction.normalsqlcommand("UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.coreguid & "' AND talent_id='" & talentid & "' AND spec='1'")
+                            runfunction.normalsqlcommand(
+                                "UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.coreguid &
+                                "' AND talent_id='" & talentid & "' AND spec='1'")
                             talentlist2 = talentlist2 & " " & talentid & "rank" & rank
                         End If
                     ElseIf talentlist2.Contains(talentid & "rank3") Then
                         If CInt(Val(rank)) <= 3 Then
                         Else
-                            runfunction.normalsqlcommand("UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.coreguid & "' AND talent_id='" & talentid & "' AND spec='1'")
+                            runfunction.normalsqlcommand(
+                                "UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.coreguid &
+                                "' AND talent_id='" & talentid & "' AND spec='1'")
                             talentlist2 = talentlist2 & " " & talentid & "rank" & rank
                         End If
                     ElseIf talentlist2.Contains(talentid & "rank2") Then
                         If CInt(Val(rank)) <= 2 Then
                         Else
-                            runfunction.normalsqlcommand("UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.coreguid & "' AND talent_id='" & talentid & "' AND spec='1'")
+                            runfunction.normalsqlcommand(
+                                "UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.coreguid &
+                                "' AND talent_id='" & talentid & "' AND spec='1'")
                             talentlist2 = talentlist2 & " " & talentid & "rank" & rank
                         End If
                     ElseIf talentlist2.Contains(talentid & "rank1") Then
                         If CInt(Val(rank)) <= 1 Then
                         Else
-                            runfunction.normalsqlcommand("UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.coreguid & "' AND talent_id='" & talentid & "' AND spec='1'")
+                            runfunction.normalsqlcommand(
+                                "UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.coreguid &
+                                "' AND talent_id='" & talentid & "' AND spec='1'")
                             talentlist2 = talentlist2 & " " & talentid & "rank" & rank
                         End If
                     Else
 
                     End If
                 Else
-                    runfunction.normalsqlcommand("INSERT INTO character_talent ( guid, talent_id, current_rank, spec ) VALUES ( '" & Main.coreguid & "', '" & talentid & "', '" & rank & "', '1' )")
+                    runfunction.normalsqlcommand(
+                        "INSERT INTO character_talent ( guid, talent_id, current_rank, spec ) VALUES ( '" &
+                        Main.coreguid & "', '" & talentid & "', '" & rank & "', '1' )")
 
                     talentlist2 = talentlist2 & " " & talentid & "rank" & rank
 
@@ -2245,11 +2954,8 @@ Public Class Mangos_core
             rank = "0"
             Return "0"
         End If
-
-
-
-
     End Function
+
     Private Function executex(ByVal field As String, ByVal sID As String) As String
         Try
             Dim foundRows() As DataRow
@@ -2271,8 +2977,8 @@ Public Class Mangos_core
         Catch ex As Exception
             Return "-"
         End Try
-
     End Function
+
     Private Function gettable() As DataTable
         Try
             Dim dt As New DataTable()
@@ -2304,103 +3010,165 @@ Public Class Mangos_core
             Return New DataTable
         End Try
     End Function
+
     Public Sub setqueststatus()
         runfunction.writelog("setqueststatus_call @mangos")
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Setting queststatus for Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Setting queststatus for Character: " & Main.char_name & vbNewLine)
         For Each queststring As String In Main.character_queststatus
-            runfunction.normalsqlcommand("INSERT INTO character_queststatus ( guid, quest, `status`, `explored` ) VALUES ( '" & Main.coreguid & "', '" & splitlist(queststring, "quest") & "', '" & splitlist(queststring, "status") & "', '" & splitlist(queststring, "explored") & "')")
+            runfunction.normalsqlcommand(
+                "INSERT INTO character_queststatus ( guid, quest, `status`, `explored` ) VALUES ( '" & Main.coreguid &
+                "', '" & splitlist(queststring, "quest") & "', '" & splitlist(queststring, "status") & "', '" &
+                splitlist(queststring, "explored") & "')")
 
 
         Next
     End Sub
+
     Public Sub addachievements()
         runfunction.writelog("addachievements_call @mangos")
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Adding achievements for Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Adding achievements for Character: " & Main.char_name & vbNewLine)
         For Each avstring As String In Main.character_achievement_list
-            runfunction.normalsqlcommand("INSERT INTO character_achievement ( guid, achievement, date ) VALUES ( '" & Main.coreguid & "', '" & splitlist(avstring, "av") & "', '" & splitlist(avstring, "date") & "')")
+            runfunction.normalsqlcommand(
+                "INSERT INTO character_achievement ( guid, achievement, date ) VALUES ( '" & Main.coreguid & "', '" &
+                splitlist(avstring, "av") & "', '" & splitlist(avstring, "date") & "')")
 
             ' "<av>" & avid & "</av><date>" & xdate & "</date>"
         Next
     End Sub
+
     Public Sub addskills()
         runfunction.writelog("addskills_call @mangos")
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Setting skills for Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Setting skills for Character: " & Main.char_name & vbNewLine)
         For Each skill As String In Main.character_skills_list
-            runfunction.normalsqlcommand("INSERT INTO character_skills ( guid, skill, `value`, `max` ) VALUES ( '" & Main.coreguid & "', '" & splitlist(skill, "skill") & "', '" & splitlist(skill, "value") & "', '" & splitlist(skill, "max") & "')")
+            runfunction.normalsqlcommand(
+                "INSERT INTO character_skills ( guid, skill, `value`, `max` ) VALUES ( '" & Main.coreguid & "', '" &
+                splitlist(skill, "skill") & "', '" & splitlist(skill, "value") & "', '" & splitlist(skill, "max") & "')")
 
             ' "<skill>" & skill & "</skill><value>" & value & "</value><max>" & max & "</max>"
         Next
     End Sub
+
     Public Sub addspells()
         runfunction.writelog("addspells_call @mangos")
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Teaching spells for Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Teaching spells for Character: " & Main.char_name & vbNewLine)
         For Each spell As String In Main.character_spells
-            runfunction.normalsqlcommand("INSERT INTO character_spell ( guid, spell, `active`, `disabled` ) VALUES ( '" & Main.coreguid & "', '" & splitlist(spell, "spell") & "', '" & splitlist(spell, "active") & "', '" & splitlist(spell, "disabled") & "')")
+            runfunction.normalsqlcommand(
+                "INSERT INTO character_spell ( guid, spell, `active`, `disabled` ) VALUES ( '" & Main.coreguid & "', '" &
+                splitlist(spell, "spell") & "', '" & splitlist(spell, "active") & "', '" & splitlist(spell, "disabled") &
+                "')")
 
             ' "<spell>" & spell & "</spell><active>" & active & "</active><disabled>" & disabled & "</disabled>"
         Next
     End Sub
+
     Public Sub addreputation()
         runfunction.writelog("addreputation_call @mangos")
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Adding reputation for Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Adding reputation for Character: " & Main.char_name & vbNewLine)
         For Each repstring As String In Main.character_reputatuion_list
-            runfunction.normalsqlcommand("INSERT INTO character_reputation ( guid, faction, `standing`, `flags` ) VALUES ( '" & Main.coreguid & "', '" & splitlist(repstring, "faction") & "', '" & splitlist(repstring, "standing") & "', '" & splitlist(repstring, "flags") & "')")
+            runfunction.normalsqlcommand(
+                "INSERT INTO character_reputation ( guid, faction, `standing`, `flags` ) VALUES ( '" & Main.coreguid &
+                "', '" & splitlist(repstring, "faction") & "', '" & splitlist(repstring, "standing") & "', '" &
+                splitlist(repstring, "flags") & "')")
 
             ' "<faction>" & faction & "</faction><standing>" & standing & "</standing><flags>" & flags & "</flags>"
         Next
     End Sub
+
     Public Sub addaction()
         runfunction.writelog("addaction_call @mangos")
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Setting up actionbars for Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Setting up actionbars for Character: " & Main.char_name & vbNewLine)
         For Each actionstring As String In Main.character_action_list
             If Main.xpac >= 3 Then
-                runfunction.normalsqlcommand("INSERT INTO character_action ( guid, spec, `button`, `action`, `type` ) VALUES ( '" & Main.coreguid & "', '" & splitlist(actionstring, "spec") & "', '" & splitlist(actionstring, "button") & "', '" & splitlist(actionstring, "action") & "', '" & splitlist(actionstring, "type") & "')")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_action ( guid, spec, `button`, `action`, `type` ) VALUES ( '" & Main.coreguid &
+                    "', '" & splitlist(actionstring, "spec") & "', '" & splitlist(actionstring, "button") & "', '" &
+                    splitlist(actionstring, "action") & "', '" & splitlist(actionstring, "type") & "')")
 
             Else
-                runfunction.normalsqlcommand("INSERT INTO character_action ( guid, `button`, `action`, `type` ) VALUES ( '" & Main.coreguid & "', '" & splitlist(actionstring, "button") & "', '" & splitlist(actionstring, "action") & "', '" & splitlist(actionstring, "type") & "')")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_action ( guid, `button`, `action`, `type` ) VALUES ( '" & Main.coreguid &
+                    "', '" & splitlist(actionstring, "button") & "', '" & splitlist(actionstring, "action") & "', '" &
+                    splitlist(actionstring, "type") & "')")
 
             End If
 
             ' "<action>" & action & "</action><spec>" & spec & "</spec><button>" & gbutton & "</button><type>" & atype & "</atype>"
         Next
     End Sub
+
     Public Sub addinventory()
         runfunction.writelog("addinventory_call @mangos")
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Adding Items to inventory for Character: " & Main.char_name & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Adding Items to inventory for Character: " & Main.char_name & vbNewLine)
         Dim bagexist As List(Of String) = New List(Of String)
         bagexist.Clear()
         For Each inventorystring As String In Main.character_inventoryzero_list
             Dim bagguid As String = splitlist(inventorystring, "bagguid")
             Dim bag As String = splitlist(inventorystring, "bag")
-            Dim newguid As String = ((CInt(Val(runfunction.runcommand("SELECT guid FROM item_instance WHERE guid=(SELECT MAX(guid) FROM item_instance)", "guid")))) + 1).ToString
+            Dim newguid As String =
+                    ((CInt(
+                        Val(
+                            runfunction.runcommand(
+                                "SELECT guid FROM item_instance WHERE guid=(SELECT MAX(guid) FROM item_instance)",
+                                "guid")))) + 1).ToString
 
-            runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data ) VALUES ( '" & newguid & "', '" & Main.coreguid & "', '" & splitenchstring(splitlist(inventorystring, "enchant"), CInt(newguid), splitlist(inventorystring, "item")) & "' )")
-            runfunction.normalsqlcommand("INSERT INTO character_inventory ( guid, bag, slot, item, item_template ) VALUES ( '" & Main.coreguid & "', '" & bag & "', '" & splitlist(inventorystring, "slot") & "', '" & newguid & "', '" & splitlist(inventorystring, "item") & "')")
+            runfunction.normalsqlcommand(
+                "INSERT INTO item_instance ( guid, owner_guid, data ) VALUES ( '" & newguid & "', '" & Main.coreguid &
+                "', '" &
+                splitenchstring(splitlist(inventorystring, "enchant"), CInt(newguid), splitlist(inventorystring, "item")) &
+                "' )")
+            runfunction.normalsqlcommand(
+                "INSERT INTO character_inventory ( guid, bag, slot, item, item_template ) VALUES ( '" & Main.coreguid &
+                "', '" & bag & "', '" & splitlist(inventorystring, "slot") & "', '" & newguid & "', '" &
+                splitlist(inventorystring, "item") & "')")
 
 
         Next
         For Each inventorystring As String In Main.character_inventory_list
             Dim bagguid As String = splitlist(inventorystring, "bagguid")
             Dim bag As String = splitlist(inventorystring, "bag")
-            Dim newguid As String = ((CInt(Val(runfunction.runcommand("SELECT guid FROM item_instance WHERE guid=(SELECT MAX(guid) FROM item_instance)", "guid")))) + 1).ToString
+            Dim newguid As String =
+                    ((CInt(
+                        Val(
+                            runfunction.runcommand(
+                                "SELECT guid FROM item_instance WHERE guid=(SELECT MAX(guid) FROM item_instance)",
+                                "guid")))) + 1).ToString
 
 
-            Dim newbagguid As String = runfunction.runcommand("SELECT item FROM character_inventory WHERE item_template='" & bag & "' AND guid='" & Main.coreguid & "'", "item")
-            runfunction.normalsqlcommand("INSERT INTO item_instance ( guid, owner_guid, data ) VALUES ( '" & newguid & "', '" & Main.coreguid & "', '" & splitenchstring(splitlist(inventorystring, "enchant"), CInt(newguid), splitlist(inventorystring, "item")) & "' )")
-            runfunction.normalsqlcommand("INSERT INTO character_inventory ( guid, bag, slot, item, item_template ) VALUES ( '" & Main.coreguid & "', '" & newbagguid & "', '" & splitlist(inventorystring, "slot") & "', '" & newguid & "', '" & splitlist(inventorystring, "item") & "')")
-
-
+            Dim newbagguid As String =
+                    runfunction.runcommand(
+                        "SELECT item FROM character_inventory WHERE item_template='" & bag & "' AND guid='" &
+                        Main.coreguid & "'", "item")
+            runfunction.normalsqlcommand(
+                "INSERT INTO item_instance ( guid, owner_guid, data ) VALUES ( '" & newguid & "', '" & Main.coreguid &
+                "', '" &
+                splitenchstring(splitlist(inventorystring, "enchant"), CInt(newguid), splitlist(inventorystring, "item")) &
+                "' )")
+            runfunction.normalsqlcommand(
+                "INSERT INTO character_inventory ( guid, bag, slot, item, item_template ) VALUES ( '" & Main.coreguid &
+                "', '" & newbagguid & "', '" & splitlist(inventorystring, "slot") & "', '" & newguid & "', '" &
+                splitlist(inventorystring, "item") & "')")
 
 
             ' <slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><item>" & entryid & "</item><enchant>" & enchantments & "</enchant>
         Next
     End Sub
+
     Private Function splitenchstring(ByVal enchstring As String, ByVal guid As Integer, ByVal entry As String) As String
         Dim Anzahl As Integer = UBound(enchstring.Split(CChar(" ")))
-        Dim normalenchstring As String = "0 1191182336 3 0 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3753 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 "
+        Dim normalenchstring As String =
+                "0 1191182336 3 0 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3753 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 "
         If Main.xpac < 3 Then
 
-            normalenchstring = "0 1191182336 3 0 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 3753 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 " 'May cause error: data length
+            normalenchstring =
+                "0 1191182336 3 0 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 3753 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 "
+            'May cause error: data length
 
         End If
         '0:guid 3:entry 22:vz 28:gem1 31:gem2 34 gem3
@@ -2472,7 +3240,8 @@ Public Class Mangos_core
                         Dim output As String
                         parts(0) = guid.ToString
                         parts(4) = entry.ToString
-                        parts(40) = "0 0 0" 'needs validation
+                        parts(40) = "0 0 0"
+                        'needs validation
                         output = String.Join(" ", parts)
                         Return output
                     End If
@@ -2480,7 +3249,8 @@ Public Class Mangos_core
                     If Anzahl > 63 Then
                         'Sourcecore: WotLK/Cata
                         Dim input As String = enchstring
-                        input = input.Replace("0 0 0 0 0 0 0 0", "0 0 0 0 0") 'needs validation
+                        input = input.Replace("0 0 0 0 0 0 0 0", "0 0 0 0 0")
+                        'needs validation
                         Dim parts() As String = input.Split(" "c)
                         Dim output As String
                         parts(0) = guid.ToString
@@ -2489,7 +3259,7 @@ Public Class Mangos_core
                         Return output
                     Else
                         'Sourcecore: TBC/Vanilla
-                         Dim input As String = enchstring
+                        Dim input As String = enchstring
                         Dim parts() As String = input.Split(" "c)
                         Dim output As String
                         parts(0) = guid.ToString
@@ -2517,16 +3287,20 @@ Public Class Mangos_core
                 xXquellcodeSplityx88 = Split(xXquellcodeSplityx88, xXendeyx88, 6)(0)
                 Dim resultString As String
                 If Main.xpac >= 3 Then
-                    resultString = guid & " 1191182336 3 " & entry & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1" & xXquellcodeSplityx88 & "0 0 3753 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 "
+                    resultString = guid & " 1191182336 3 " & entry & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1" &
+                                   xXquellcodeSplityx88 &
+                                   "0 0 3753 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 "
                 Else
-                    resultString = guid & " 1191182336 3 " & entry & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1" & xXquellcodeSplityx88 & "0 0 3753 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 " ' may cause error: data length
+                    resultString = guid & " 1191182336 3 " & entry & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1" &
+                                   xXquellcodeSplityx88 & "0 0 3753 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 "
+                    ' may cause error: data length
                 End If
 
                 Return resultString
             End If
         End If
-
     End Function
+
     Private Function splitlist(ByVal tstring As String, ByVal category As String) As String
         Try
 
@@ -2541,29 +3315,102 @@ Public Class Mangos_core
             Return ""
         End Try
     End Function
+
     Public Sub addench()
         runfunction.writelog("addench_call @mangos")
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Adding item enchantments..." & vbNewLine)
         Application.DoEvents()
-        If Not Main.kopfench = "" Then runfunction.normalsqlcommand("UPDATE `item_instance` SET data='" & splitenchstring(Main.kopfench, kopfwearguid, Main.kopfid.ToString) & "' WHERE guid='" & kopfwearguid & "'")
-        If Not Main.halsench = "" Then runfunction.normalsqlcommand("UPDATE `item_instance` SET data='" & splitenchstring(Main.halsench, halswearguid, Main.halsid.ToString) & "' WHERE guid='" & halswearguid & "'")
-        If Not Main.schulterench = "" Then runfunction.normalsqlcommand("UPDATE `item_instance` SET data='" & splitenchstring(Main.schulterench, schulterwearguid, Main.schulterid.ToString) & "' WHERE guid='" & schulterwearguid & "'")
-        If Not Main.rueckenench = "" Then runfunction.normalsqlcommand("UPDATE `item_instance` SET data='" & splitenchstring(Main.rueckenench, rueckenwearguid, Main.rueckenid.ToString) & "' WHERE guid='" & rueckenwearguid & "'")
-        If Not Main.brustench = "" Then runfunction.normalsqlcommand("UPDATE `item_instance` SET data='" & splitenchstring(Main.brustench, brustwearguid, Main.brustid.ToString) & "' WHERE guid='" & brustwearguid & "'")
-        If Not Main.hemdench = "" Then runfunction.normalsqlcommand("UPDATE `item_instance` SET data='" & splitenchstring(Main.hemdench, hemdwearguid, Main.hemdid.ToString) & "' WHERE guid='" & hemdwearguid & "'")
-        If Not Main.wappenrockench = "" Then runfunction.normalsqlcommand("UPDATE `item_instance` SET data='" & splitenchstring(Main.wappenrockench, wappenrockwearguid, Main.wappenrockid.ToString) & "' WHERE guid='" & wappenrockwearguid & "'")
-        If Not Main.handgelenkeench = "" Then runfunction.normalsqlcommand("UPDATE `item_instance` SET data='" & splitenchstring(Main.handgelenkeench, handgelenkewearguid, Main.handgelenkeid.ToString) & "' WHERE guid='" & handgelenkewearguid & "'")
-        If Not Main.haendeench = "" Then runfunction.normalsqlcommand("UPDATE `item_instance` SET data='" & splitenchstring(Main.haendeench, haendewearguid, Main.haendeid.ToString) & "' WHERE guid='" & haendewearguid & "'")
-        If Not Main.hauptench = "" Then runfunction.normalsqlcommand("UPDATE `item_instance` SET data='" & splitenchstring(Main.hauptench, hauptwearguid, Main.hauptid.ToString) & "' WHERE guid='" & hauptwearguid & "'")
-        If Not Main.offench = "" Then runfunction.normalsqlcommand("UPDATE `item_instance` SET data='" & splitenchstring(Main.offench, offwearguid, Main.offid.ToString) & "' WHERE guid='" & offwearguid & "'")
-        If Not Main.distanzench = "" Then runfunction.normalsqlcommand("UPDATE `item_instance` SET data='" & splitenchstring(Main.distanzench, distanzwearguid, Main.distanzid.ToString) & "' WHERE guid='" & distanzwearguid & "'")
-        If Not Main.guertelench = "" Then runfunction.normalsqlcommand("UPDATE `item_instance` SET data='" & splitenchstring(Main.guertelench, guertelwearguid, Main.guertelid.ToString) & "' WHERE guid='" & guertelwearguid & "'")
-        If Not Main.beineench = "" Then runfunction.normalsqlcommand("UPDATE `item_instance` SET data='" & splitenchstring(Main.beineench, beinewearguid, Main.beineid.ToString) & "' WHERE guid='" & beinewearguid & "'")
-        If Not Main.stiefelench = "" Then runfunction.normalsqlcommand("UPDATE `item_instance` SET data='" & splitenchstring(Main.stiefelench, stiefelwearguid, Main.stiefelid.ToString) & "' WHERE guid='" & stiefelwearguid & "'")
-        If Not Main.ring1ench = "" Then runfunction.normalsqlcommand("UPDATE `item_instance` SET data='" & splitenchstring(Main.ring1ench, ring1wearguid, Main.ring1id.ToString) & "' WHERE guid='" & ring1wearguid & "'")
-        If Not Main.ring2ench = "" Then runfunction.normalsqlcommand("UPDATE `item_instance` SET data='" & splitenchstring(Main.ring2ench, ring2wearguid, Main.ring2id.ToString) & "' WHERE guid='" & ring2wearguid & "'")
-        If Not Main.schmuck1ench = "" Then runfunction.normalsqlcommand("UPDATE `item_instance` SET data='" & splitenchstring(Main.schmuck1ench, schmuck1wearguid, Main.schmuck1id.ToString) & "' WHERE guid='" & schmuck1wearguid & "'")
-        If Not Main.schmuck2ench = "" Then runfunction.normalsqlcommand("UPDATE `item_instance` SET data='" & splitenchstring(Main.schmuck2ench, schmuck2wearguid, Main.schmuck2id.ToString) & "' WHERE guid='" & schmuck2wearguid & "'")
+        If Not Main.kopfench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `item_instance` SET data='" & splitenchstring(Main.kopfench, kopfwearguid, Main.kopfid.ToString) &
+                "' WHERE guid='" & kopfwearguid & "'")
+        If Not Main.halsench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `item_instance` SET data='" & splitenchstring(Main.halsench, halswearguid, Main.halsid.ToString) &
+                "' WHERE guid='" & halswearguid & "'")
+        If Not Main.schulterench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `item_instance` SET data='" &
+                splitenchstring(Main.schulterench, schulterwearguid, Main.schulterid.ToString) & "' WHERE guid='" &
+                schulterwearguid & "'")
+        If Not Main.rueckenench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `item_instance` SET data='" &
+                splitenchstring(Main.rueckenench, rueckenwearguid, Main.rueckenid.ToString) & "' WHERE guid='" &
+                rueckenwearguid & "'")
+        If Not Main.brustench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `item_instance` SET data='" &
+                splitenchstring(Main.brustench, brustwearguid, Main.brustid.ToString) & "' WHERE guid='" & brustwearguid &
+                "'")
+        If Not Main.hemdench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `item_instance` SET data='" & splitenchstring(Main.hemdench, hemdwearguid, Main.hemdid.ToString) &
+                "' WHERE guid='" & hemdwearguid & "'")
+        If Not Main.wappenrockench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `item_instance` SET data='" &
+                splitenchstring(Main.wappenrockench, wappenrockwearguid, Main.wappenrockid.ToString) & "' WHERE guid='" &
+                wappenrockwearguid & "'")
+        If Not Main.handgelenkeench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `item_instance` SET data='" &
+                splitenchstring(Main.handgelenkeench, handgelenkewearguid, Main.handgelenkeid.ToString) &
+                "' WHERE guid='" & handgelenkewearguid & "'")
+        If Not Main.haendeench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `item_instance` SET data='" &
+                splitenchstring(Main.haendeench, haendewearguid, Main.haendeid.ToString) & "' WHERE guid='" &
+                haendewearguid & "'")
+        If Not Main.hauptench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `item_instance` SET data='" &
+                splitenchstring(Main.hauptench, hauptwearguid, Main.hauptid.ToString) & "' WHERE guid='" & hauptwearguid &
+                "'")
+        If Not Main.offench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `item_instance` SET data='" & splitenchstring(Main.offench, offwearguid, Main.offid.ToString) &
+                "' WHERE guid='" & offwearguid & "'")
+        If Not Main.distanzench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `item_instance` SET data='" &
+                splitenchstring(Main.distanzench, distanzwearguid, Main.distanzid.ToString) & "' WHERE guid='" &
+                distanzwearguid & "'")
+        If Not Main.guertelench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `item_instance` SET data='" &
+                splitenchstring(Main.guertelench, guertelwearguid, Main.guertelid.ToString) & "' WHERE guid='" &
+                guertelwearguid & "'")
+        If Not Main.beineench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `item_instance` SET data='" &
+                splitenchstring(Main.beineench, beinewearguid, Main.beineid.ToString) & "' WHERE guid='" & beinewearguid &
+                "'")
+        If Not Main.stiefelench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `item_instance` SET data='" &
+                splitenchstring(Main.stiefelench, stiefelwearguid, Main.stiefelid.ToString) & "' WHERE guid='" &
+                stiefelwearguid & "'")
+        If Not Main.ring1ench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `item_instance` SET data='" &
+                splitenchstring(Main.ring1ench, ring1wearguid, Main.ring1id.ToString) & "' WHERE guid='" & ring1wearguid &
+                "'")
+        If Not Main.ring2ench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `item_instance` SET data='" &
+                splitenchstring(Main.ring2ench, ring2wearguid, Main.ring2id.ToString) & "' WHERE guid='" & ring2wearguid &
+                "'")
+        If Not Main.schmuck1ench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `item_instance` SET data='" &
+                splitenchstring(Main.schmuck1ench, schmuck1wearguid, Main.schmuck1id.ToString) & "' WHERE guid='" &
+                schmuck1wearguid & "'")
+        If Not Main.schmuck2ench = "" Then _
+            runfunction.normalsqlcommand(
+                "UPDATE `item_instance` SET data='" &
+                splitenchstring(Main.schmuck2ench, schmuck2wearguid, Main.schmuck2id.ToString) & "' WHERE guid='" &
+                schmuck2wearguid & "'")
     End Sub
 
     Public Sub addgems()
@@ -2574,10 +3421,12 @@ Public Class Mangos_core
         If Main.schultersocket1id > 0 Then socketinsert(Main.schultersocket1id.ToString, schulterwearguid.ToString, 7)
         If Main.rueckensocket1id > 0 Then socketinsert(Main.rueckensocket1id.ToString, rueckenwearguid.ToString, 7)
         If Main.brustsocket1id > 0 Then socketinsert(Main.brustsocket1id.ToString, brustwearguid.ToString, 7)
-        If Main.handgelenkesocket1id > 0 Then socketinsert(Main.handgelenkesocket1id.ToString, handgelenkewearguid.ToString, 7)
+        If Main.handgelenkesocket1id > 0 Then _
+            socketinsert(Main.handgelenkesocket1id.ToString, handgelenkewearguid.ToString, 7)
         If Main.haendesocket1id > 0 Then socketinsert(Main.haendesocket1id.ToString, haendewearguid.ToString, 7)
         If Main.guertelsocket1id > 0 Then
-            beltinsert("3729", guertelwearguid.ToString, 41) '41 may be wrong!...
+            beltinsert("3729", guertelwearguid.ToString, 41)
+            '41 may be wrong!...
             socketinsert(Main.guertelsocket1id.ToString, guertelwearguid.ToString, 7)
         End If
 
@@ -2596,7 +3445,8 @@ Public Class Mangos_core
         If Main.schultersocket2id > 0 Then socketinsert(Main.schultersocket2id.ToString, schulterwearguid.ToString, 10)
         If Main.rueckensocket2id > 0 Then socketinsert(Main.rueckensocket2id.ToString, rueckenwearguid.ToString, 10)
         If Main.brustsocket2id > 0 Then socketinsert(Main.brustsocket2id.ToString, brustwearguid.ToString, 10)
-        If Main.handgelenkesocket2id > 0 Then socketinsert(Main.handgelenkesocket2id.ToString, handgelenkewearguid.ToString, 10)
+        If Main.handgelenkesocket2id > 0 Then _
+            socketinsert(Main.handgelenkesocket2id.ToString, handgelenkewearguid.ToString, 10)
         If Main.haendesocket2id > 0 Then socketinsert(Main.haendesocket2id.ToString, haendewearguid.ToString, 10)
         If Main.guertelsocket2id > 0 Then
             beltinsert("3729", guertelwearguid.ToString, 41)
@@ -2618,7 +3468,8 @@ Public Class Mangos_core
         If Main.schultersocket3id > 0 Then socketinsert(Main.schultersocket3id.ToString, schulterwearguid.ToString, 13)
         If Main.rueckensocket3id > 0 Then socketinsert(Main.rueckensocket3id.ToString, rueckenwearguid.ToString, 13)
         If Main.brustsocket3id > 0 Then socketinsert(Main.brustsocket3id.ToString, brustwearguid.ToString, 13)
-        If Main.handgelenkesocket3id > 0 Then socketinsert(Main.handgelenkesocket3id.ToString, handgelenkewearguid.ToString, 13)
+        If Main.handgelenkesocket3id > 0 Then _
+            socketinsert(Main.handgelenkesocket3id.ToString, handgelenkewearguid.ToString, 13)
         If Main.haendesocket3id > 0 Then socketinsert(Main.haendesocket3id.ToString, haendewearguid.ToString, 13)
         If Main.guertelsocket3id > 0 Then
             beltinsert("3729", guertelwearguid.ToString, 41)
@@ -2636,9 +3487,11 @@ Public Class Mangos_core
         If Main.offsocket3id > 0 Then socketinsert(Main.offsocket3id.ToString, offwearguid.ToString, 13)
         If Main.distanzsocket3id > 0 Then socketinsert(Main.distanzsocket3id.ToString, distanzwearguid.ToString, 13)
     End Sub
+
     Public Sub addenchantments()
         runfunction.writelog("addenchantments_call @mangos")
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Adding character enchantments..." & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Adding character enchantments..." & vbNewLine)
         If Main.kopfvzid > 0 Then vzinsert(Main.kopfvzid, kopfwearguid, 1)
         If Main.halsvzid > 0 Then vzinsert(Main.halsvzid, halswearguid, 1)
         If Main.schultervzid > 0 Then vzinsert(Main.schultervzid, schulterwearguid, 1)
@@ -2657,76 +3510,86 @@ Public Class Mangos_core
         If Main.offvzid > 0 Then vzinsert(Main.offvzid, offwearguid, 1)
         If Main.distanzvzid > 0 Then vzinsert(Main.distanzvzid, distanzwearguid, 1)
     End Sub
+
     Public Sub addpvp()
         runfunction.writelog("addpvp_call @mangos")
-        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Setting character honor/kills..." & vbNewLine)
+        Process_Status.processreport.AppendText(
+            Now.TimeOfDay.ToString & "// Setting character honor/kills..." & vbNewLine)
 
-        runfunction.normalsqlcommand("UPDATE `characters` SET arenaPoints='" & Main.arenaPoints.ToString & "' WHERE guid='" & Main.coreguid & "'")
-        runfunction.normalsqlcommand("UPDATE `characters` SET totalHonorPoints='" & Main.totalHonorPoints.ToString & "' WHERE guid='" & Main.coreguid & "'")
-        runfunction.normalsqlcommand("UPDATE `characters` SET totalKills='" & Main.totalKills.ToString & "' WHERE guid='" & Main.coreguid & "'")
+        runfunction.normalsqlcommand(
+            "UPDATE `characters` SET arenaPoints='" & Main.arenaPoints.ToString & "' WHERE guid='" & Main.coreguid & "'")
+        runfunction.normalsqlcommand(
+            "UPDATE `characters` SET totalHonorPoints='" & Main.totalHonorPoints.ToString & "' WHERE guid='" &
+            Main.coreguid & "'")
+        runfunction.normalsqlcommand(
+            "UPDATE `characters` SET totalKills='" & Main.totalKills.ToString & "' WHERE guid='" & Main.coreguid & "'")
     End Sub
 
     Public Sub socketinsert(ByVal socketid As String, ByVal itemguid As String, ByVal position As Integer)
         Dim enchantmenttext As String
         Try
-            enchantmenttext = runfunction.runcommand("SELECT data FROM item_instance WHERE guid='" & itemguid & "'", "data")
+            enchantmenttext = runfunction.runcommand("SELECT data FROM item_instance WHERE guid='" & itemguid & "'",
+                                                     "data")
             Dim input As String = enchantmenttext
             Dim parts() As String = input.Split(" "c)
             Dim output As String
             parts(position + 21) = (runfunction.getgemeffectid(socketid)).ToString
             output = String.Join(" ", parts)
             Try
-                runfunction.normalsqlcommand("UPDATE `item_instance` SET data='" & output & "' WHERE guid = '" & itemguid & "'")
+                runfunction.normalsqlcommand(
+                    "UPDATE `item_instance` SET data='" & output & "' WHERE guid = '" & itemguid & "'")
             Catch ex As Exception
 
             End Try
         Catch ex As Exception
 
         End Try
-
-
     End Sub
+
     Public Sub beltinsert(ByVal beltid As String, ByVal itemguid As String, ByVal position As Integer)
         Dim enchantmenttext As String
         Try
-            enchantmenttext = runfunction.runcommand("SELECT data FROM item_instance WHERE guid='" & itemguid & "'", "data")
+            enchantmenttext = runfunction.runcommand("SELECT data FROM item_instance WHERE guid='" & itemguid & "'",
+                                                     "data")
             Dim input As String = enchantmenttext
             Dim parts() As String = input.Split(" "c)
             Dim output As String
             parts(position) = beltid
             output = String.Join(" ", parts)
             Try
-                runfunction.normalsqlcommand("UPDATE `item_instance` SET data='" & output & "' WHERE guid = '" & itemguid & "'")
+                runfunction.normalsqlcommand(
+                    "UPDATE `item_instance` SET data='" & output & "' WHERE guid = '" & itemguid & "'")
             Catch ex As Exception
 
             End Try
         Catch ex As Exception
 
         End Try
-
-
     End Sub
+
     Public Sub vzinsert(ByVal vzid As Integer, ByVal itemguid As Integer, ByVal position As Integer)
         Dim enchantmenttext As String
         Try
-            enchantmenttext = runfunction.runcommand("SELECT data FROM item_instance WHERE guid='" & itemguid & "'", "data")
+            enchantmenttext = runfunction.runcommand("SELECT data FROM item_instance WHERE guid='" & itemguid & "'",
+                                                     "data")
             Dim input As String = enchantmenttext
             Dim parts() As String = input.Split(" "c)
             Dim output As String
             parts(position + 21) = (runfunction.getvzeffectid(runfunction.getvzeffectname2(vzid))).ToString
             output = String.Join(" ", parts)
             Try
-                runfunction.normalsqlcommand("UPDATE `item_instance` SET data='" & output & "' WHERE guid = '" & itemguid & "'")
+                runfunction.normalsqlcommand(
+                    "UPDATE `item_instance` SET data='" & output & "' WHERE guid = '" & itemguid & "'")
             Catch ex As Exception
 
             End Try
         Catch ex As Exception
 
         End Try
-
     End Sub
 
-    Private Sub checkexist_anddelete(ByVal xguid As String, ByVal xslot As String, ByVal item As String, ByVal itementry As Integer)
+    Private Sub checkexist_anddelete(ByVal xguid As String, ByVal xslot As String, ByVal item As String,
+                                     ByVal itementry As Integer)
         '"SELECT `columname` FROM `tabelle`"
 
         Try
@@ -2744,18 +3607,24 @@ Public Class Mangos_core
             myData = myCommand.ExecuteReader()
             If CInt(myData.HasRows) = 0 Then
                 myData.Close()
-                runfunction.normalsqlcommand("INSERT INTO character_inventory ( guid, bag, slot, item, item_template ) VALUES ( '" & xguid & "', '0', '" & xslot & "', '" & item & "', '" & itementry.ToString & "' )")
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_inventory ( guid, bag, slot, item, item_template ) VALUES ( '" & xguid &
+                    "', '0', '" & xslot & "', '" & item & "', '" & itementry.ToString & "' )")
 
             Else
                 myData.Close()
-                runfunction.normalsqlcommand("DELETE FROM character_inventory WHERE guid = '" & xguid & "' AND slot = '" & xslot & "'", False)
-                runfunction.normalsqlcommand("INSERT INTO character_inventory ( guid, bag, slot, item, item_template ) VALUES ( '" & xguid & "', '0', '" & xslot & "', '" & item & "', '" & itementry.ToString & "' )")
+                runfunction.normalsqlcommand(
+                    "DELETE FROM character_inventory WHERE guid = '" & xguid & "' AND slot = '" & xslot & "'", False)
+                runfunction.normalsqlcommand(
+                    "INSERT INTO character_inventory ( guid, bag, slot, item, item_template ) VALUES ( '" & xguid &
+                    "', '0', '" & xslot & "', '" & item & "', '" & itementry.ToString & "' )")
             End If
 
         Catch
 
         End Try
     End Sub
+
     Private Sub checkglyphsanddelete(ByVal playerguid As String)
 
         Try
@@ -2763,9 +3632,6 @@ Public Class Mangos_core
         Catch ex As Exception
 
         End Try
-
-
-
     End Sub
 
 
@@ -2872,8 +3738,8 @@ Public Class Mangos_core
                 finalstring = finalstring.Replace("wappenrock", "0")
             Catch ex As Exception
             End Try
-            runfunction.normalsqlcommand("UPDATE characters SET equipmentCache='" & finalstring & "' WHERE (guid='" & guid & "')")
+            runfunction.normalsqlcommand(
+                "UPDATE characters SET equipmentCache='" & finalstring & "' WHERE (guid='" & guid & "')")
         End If
     End Sub
-
 End Class

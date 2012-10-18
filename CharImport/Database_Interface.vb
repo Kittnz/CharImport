@@ -1,4 +1,7 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.Globalization
+Imports MySql.Data.MySqlClient
+Imports System.Threading
+
 Public Class Database_Interface
     Dim armoryproc As New prozedur_armory
     Dim SQLConnection As MySqlConnection = New MySqlConnection
@@ -14,13 +17,15 @@ Public Class Database_Interface
     Dim localeDE As New LanguageDE
     Dim localeEN As New LanguageEN
     Dim runfunction As New Functions
+
     Public Sub New()
         MyBase.New()
 
-        Threading.Thread.CurrentThread.CurrentUICulture = New Globalization.CultureInfo(My.Settings.language)
+        Thread.CurrentThread.CurrentUICulture = New CultureInfo(My.Settings.language)
         InitializeComponent()
     End Sub
-    Private Sub Database_Interface_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+
+    Private Sub Database_Interface_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.MaximumSize = Me.Size
         auth.Text = My.Settings.realmd
         characters.Text = My.Settings.characters
@@ -39,13 +44,13 @@ Public Class Database_Interface
         End Select
     End Sub
 
-    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         runfunction.writelog("Database_Interface_closing request")
         Starter.Show()
         Me.Close()
     End Sub
 
-    Private Sub Button13_Click(sender As System.Object, e As System.EventArgs) Handles Button13.Click
+    Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
 
         address.Text = My.Settings.address
         port.Text = My.Settings.port
@@ -53,17 +58,25 @@ Public Class Database_Interface
         password.Text = My.Settings.pass
     End Sub
 
-    Private Sub Button14_Click(sender As System.Object, e As System.EventArgs) Handles Button14.Click
-        My.Settings.savecontent = "" ' ???? 29/07 should fix: (Load char from db > load char from armory > store it > import template = first character)
+    Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
+        My.Settings.savecontent = ""
+        ' ???? 29/07 should fix: (Load char from db > load char from armory > store it > import template = first character)
         My.Settings.realmd = auth.Text
         My.Settings.characters = characters.Text
         My.Settings.Save()
-        Main.ServerStringInfo = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=information_schema"
+        Main.ServerStringInfo = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
+                                password.Text & ";Database=information_schema"
 
         If automatic.Checked = True Then
             runfunction.writelog("Connect request with automatic checked")
-            If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=characters") = False Then
-                If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=character") = False Then
+            If _
+                trytoconnect(
+                    "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
+                    password.Text & ";Database=characters") = False Then
+                If _
+                    trytoconnect(
+                        "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
+                        password.Text & ";Database=character") = False Then
                     runfunction.writelog("Could not find character db or connection info wrong")
                     If My.Settings.language = "de" Then
                         xlabel.Text = localeDE.armory2database_txt1
@@ -72,39 +85,74 @@ Public Class Database_Interface
                     End If
 
                 Else
-                    If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=realmd") = False Then
-                        If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=realm") = False Then
-                            If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=auth") = False Then
-                                If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=logon") = False Then
-                                    If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=op_realm") = False Then
-                                        If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=" & auth.Text) = False Then
+                    If _
+                        trytoconnect(
+                            "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
+                            password.Text & ";Database=realmd") = False Then
+                        If _
+                            trytoconnect(
+                                "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
+                                password.Text & ";Database=realm") = False Then
+                            If _
+                                trytoconnect(
+                                    "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                                    ";Password=" & password.Text & ";Database=auth") = False Then
+                                If _
+                                    trytoconnect(
+                                        "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                                        ";Password=" & password.Text & ";Database=logon") = False Then
+                                    If _
+                                        trytoconnect(
+                                            "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                                            ";Password=" & password.Text & ";Database=op_realm") = False Then
+                                        If _
+                                            trytoconnect(
+                                                "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                                                user.Text & ";Password=" & password.Text & ";Database=" & auth.Text) =
+                                            False Then
                                             runfunction.writelog("Could find character db but not auth db")
                                             If My.Settings.language = "de" Then
-                                                MsgBox(localeDE.armory2database_txt2 & vbNewLine & localeDE.armory2database_txt3, MsgBoxStyle.Critical, localeDE.armory2database_txt3)
+                                                MsgBox(
+                                                    localeDE.armory2database_txt2 & vbNewLine &
+                                                    localeDE.armory2database_txt3, MsgBoxStyle.Critical,
+                                                    localeDE.armory2database_txt3)
                                             Else
-                                                MsgBox(localeEN.armory2database_txt2 & vbNewLine & localeEN.armory2database_txt3, MsgBoxStyle.Critical, localeEN.armory2database_txt3)
+                                                MsgBox(
+                                                    localeEN.armory2database_txt2 & vbNewLine &
+                                                    localeEN.armory2database_txt3, MsgBoxStyle.Critical,
+                                                    localeEN.armory2database_txt3)
                                             End If
                                             Exit Sub
                                         Else
-                                            Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=" & auth.Text
+                                            Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
+                                                                      ";User id=" & user.Text & ";Password=" &
+                                                                      password.Text & ";Database=" & auth.Text
                                         End If
                                     Else
-                                        Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=op_realm"
+                                        Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
+                                                                  ";User id=" & user.Text & ";Password=" & password.Text &
+                                                                  ";Database=op_realm"
                                     End If
                                 Else
-                                    Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=logon"
+                                    Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
+                                                              ";User id=" & user.Text & ";Password=" & password.Text &
+                                                              ";Database=logon"
                                 End If
                             Else
-                                Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=auth"
+                                Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                                                          user.Text & ";Password=" & password.Text & ";Database=auth"
                             End If
                         Else
-                            Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=realm"
+                            Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                                                      user.Text & ";Password=" & password.Text & ";Database=realm"
                         End If
                     Else
-                        Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=realmd"
+                        Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                                                  user.Text & ";Password=" & password.Text & ";Database=realmd"
                     End If
                     runfunction.writelog("Could find character db and auth db")
-                    Main.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=character"
+                    Main.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                                        ";Password=" & password.Text & ";Database=character"
                     Main.characterdbname = "character"
                     Main.ServerStringCheck = Main.ServerString
                     If My.Settings.language = "de" Then
@@ -113,47 +161,80 @@ Public Class Database_Interface
                         xlabel.Text = localeEN.armory2database_txt5
                     End If
 
-                    optionspanel.Location = New System.Drawing.Point(0, 0)
-                    connectpanel.Location = New System.Drawing.Point(4000, 4000)
-                    Me.MinimumSize = New System.Drawing.Size(0, 0)
-                    Me.MaximumSize = New System.Drawing.Size(4000, 4000)
-                    Me.Size = New System.Drawing.Size(618, 657)
+                    optionspanel.Location = New Point(0, 0)
+                    connectpanel.Location = New Point(4000, 4000)
+                    Me.MinimumSize = New Size(0, 0)
+                    Me.MaximumSize = New Size(4000, 4000)
+                    Me.Size = New Size(618, 657)
                     Me.MaximumSize = Me.Size
                     Me.MinimumSize = Me.Size
                 End If
             Else
-                If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=realmd") = False Then
-                    If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=realm") = False Then
-                        If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=auth") = False Then
-                            If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=logon") = False Then
-                                If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=op_realm") = False Then
-                                    If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=" & auth.Text) = False Then
+                If _
+                    trytoconnect(
+                        "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
+                        password.Text & ";Database=realmd") = False Then
+                    If _
+                        trytoconnect(
+                            "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
+                            password.Text & ";Database=realm") = False Then
+                        If _
+                            trytoconnect(
+                                "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
+                                password.Text & ";Database=auth") = False Then
+                            If _
+                                trytoconnect(
+                                    "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                                    ";Password=" & password.Text & ";Database=logon") = False Then
+                                If _
+                                    trytoconnect(
+                                        "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                                        ";Password=" & password.Text & ";Database=op_realm") = False Then
+                                    If _
+                                        trytoconnect(
+                                            "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                                            ";Password=" & password.Text & ";Database=" & auth.Text) = False Then
                                         If My.Settings.language = "de" Then
-                                            MsgBox(localeDE.armory2database_txt2 & vbNewLine & localeDE.armory2database_txt3, MsgBoxStyle.Critical, localeDE.armory2database_txt3)
+                                            MsgBox(
+                                                localeDE.armory2database_txt2 & vbNewLine &
+                                                localeDE.armory2database_txt3, MsgBoxStyle.Critical,
+                                                localeDE.armory2database_txt3)
                                         Else
-                                            MsgBox(localeEN.armory2database_txt2 & vbNewLine & localeEN.armory2database_txt3, MsgBoxStyle.Critical, localeEN.armory2database_txt3)
+                                            MsgBox(
+                                                localeEN.armory2database_txt2 & vbNewLine &
+                                                localeEN.armory2database_txt3, MsgBoxStyle.Critical,
+                                                localeEN.armory2database_txt3)
                                         End If
                                         runfunction.writelog("Could find character db but not auth db")
                                         Exit Sub
                                     Else
-                                        Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=" & auth.Text
+                                        Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
+                                                                  ";User id=" & user.Text & ";Password=" & password.Text &
+                                                                  ";Database=" & auth.Text
                                     End If
                                 Else
-                                    Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=op_realm"
+                                    Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
+                                                              ";User id=" & user.Text & ";Password=" & password.Text &
+                                                              ";Database=op_realm"
                                 End If
                             Else
-                                Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=logon"
+                                Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                                                          user.Text & ";Password=" & password.Text & ";Database=logon"
                             End If
                         Else
-                            Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=auth"
+                            Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                                                      user.Text & ";Password=" & password.Text & ";Database=auth"
                         End If
                     Else
-                        Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=realm"
+                        Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                                                  user.Text & ";Password=" & password.Text & ";Database=realm"
                     End If
                 Else
-                    Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=realmd"
+                    Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                                              ";Password=" & password.Text & ";Database=realmd"
                 End If
-                Main.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=characters"
+                Main.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                                    ";Password=" & password.Text & ";Database=characters"
                 Main.ServerStringCheck = Main.ServerString
                 Main.characterdbname = "characters"
                 runfunction.writelog("Could find character db and auth db")
@@ -163,22 +244,30 @@ Public Class Database_Interface
                     xlabel.Text = localeEN.armory2database_txt5
                 End If
 
-                optionspanel.Location = New System.Drawing.Point(0, 0)
-                connectpanel.Location = New System.Drawing.Point(4000, 4000)
-                Me.MinimumSize = New System.Drawing.Size(0, 0)
-                Me.MaximumSize = New System.Drawing.Size(4000, 4000)
-                Me.Size = New System.Drawing.Size(618, 657)
+                optionspanel.Location = New Point(0, 0)
+                connectpanel.Location = New Point(4000, 4000)
+                Me.MinimumSize = New Size(0, 0)
+                Me.MaximumSize = New Size(4000, 4000)
+                Me.Size = New Size(618, 657)
                 Me.MaximumSize = Me.Size
                 Me.MinimumSize = Me.Size
             End If
         Else
             runfunction.writelog("Connect request with manually checked")
-            If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=" & characters.Text) = True Then
+            If _
+                trytoconnect(
+                    "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
+                    password.Text & ";Database=" & characters.Text) = True Then
                 runfunction.writelog("Could find character db")
-                If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=" & auth.Text) = True Then
+                If _
+                    trytoconnect(
+                        "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
+                        password.Text & ";Database=" & auth.Text) = True Then
                     runfunction.writelog("Could find auth db")
-                    Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=" & auth.Text
-                    Main.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=" & characters.Text
+                    Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                                              ";Password=" & password.Text & ";Database=" & auth.Text
+                    Main.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                                        ";Password=" & password.Text & ";Database=" & characters.Text
                     Main.characterdbname = characters.Text
                     Main.ServerStringCheck = Main.ServerString
                     If My.Settings.language = "de" Then
@@ -187,33 +276,36 @@ Public Class Database_Interface
                         xlabel.Text = localeEN.armory2database_txt5
                     End If
 
-                    optionspanel.Location = New System.Drawing.Point(0, 0)
-                    connectpanel.Location = New System.Drawing.Point(4000, 4000)
-                    Me.MinimumSize = New System.Drawing.Size(0, 0)
-                    Me.MaximumSize = New System.Drawing.Size(4000, 4000)
-                    Me.Size = New System.Drawing.Size(618, 657)
+                    optionspanel.Location = New Point(0, 0)
+                    connectpanel.Location = New Point(4000, 4000)
+                    Me.MinimumSize = New Size(0, 0)
+                    Me.MaximumSize = New Size(4000, 4000)
+                    Me.Size = New Size(618, 657)
                     Me.MaximumSize = Me.Size
                     Me.MinimumSize = Me.Size
                 Else
                     runfunction.writelog("Could find character db but not auth db")
                     If My.Settings.language = "de" Then
-                        MsgBox(localeDE.armory2database_txt2 & vbNewLine & localeDE.armory2database_txt3, MsgBoxStyle.Critical, localeDE.armory2database_txt3)
+                        MsgBox(localeDE.armory2database_txt2 & vbNewLine & localeDE.armory2database_txt3,
+                               MsgBoxStyle.Critical, localeDE.armory2database_txt3)
                     Else
-                        MsgBox(localeEN.armory2database_txt2 & vbNewLine & localeEN.armory2database_txt3, MsgBoxStyle.Critical, localeEN.armory2database_txt3)
+                        MsgBox(localeEN.armory2database_txt2 & vbNewLine & localeEN.armory2database_txt3,
+                               MsgBoxStyle.Critical, localeEN.armory2database_txt3)
                     End If
                     Exit Sub
                 End If
             Else
                 runfunction.writelog("Could not find character db or login info wrong")
                 If My.Settings.language = "de" Then
-                    MsgBox(localeDE.armory2database_txt2 & vbNewLine & localeDE.armory2database_txt3, MsgBoxStyle.Critical, localeDE.armory2database_txt3)
+                    MsgBox(localeDE.armory2database_txt2 & vbNewLine & localeDE.armory2database_txt3,
+                           MsgBoxStyle.Critical, localeDE.armory2database_txt3)
                 Else
-                    MsgBox(localeEN.armory2database_txt2 & vbNewLine & localeEN.armory2database_txt3, MsgBoxStyle.Critical, localeEN.armory2database_txt3)
+                    MsgBox(localeEN.armory2database_txt2 & vbNewLine & localeEN.armory2database_txt3,
+                           MsgBoxStyle.Critical, localeEN.armory2database_txt3)
                 End If
                 Exit Sub
             End If
         End If
-
     End Sub
 
     Private Function trytoconnect(ByVal connectionstring As String) As Boolean
@@ -228,12 +320,12 @@ Public Class Database_Interface
 
             If SQLConnection.State = ConnectionState.Closed Then
                 SQLConnection.Open()
-
+                SQLConnection.Close()
+                SQLConnection.Dispose()
                 Return True
 
 
-                SQLConnection.Close()
-                SQLConnection.Dispose()
+
 
             Else
 
@@ -252,10 +344,9 @@ Public Class Database_Interface
 
 
         End Try
-
-
     End Function
-    Private Sub CheckBox1_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox1.CheckedChanged
+
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
         If CheckBox1.Checked = True Then
             runfunction.writelog("Checkbox1 checked")
             Button2.Enabled = True
@@ -266,10 +357,9 @@ Public Class Database_Interface
             gmlevelcheck.Enabled = True
             lastlogincheck.Enabled = True
         End If
-
     End Sub
 
-    Private Sub charnames_TextChanged(sender As System.Object, e As System.EventArgs) Handles charnames.TextChanged
+    Private Sub charnames_TextChanged(sender As Object, e As EventArgs) Handles charnames.TextChanged
         Dim sLines() As String = charnames.Lines
         Dim xstring As String
         Dim xcount As Integer = 0
@@ -301,10 +391,10 @@ Public Class Database_Interface
                 Button4.Enabled = False
                 Button2.Enabled = False
             End If
-            End If
+        End If
     End Sub
 
-    Private Sub accnames_TextChanged(sender As System.Object, e As System.EventArgs) Handles accnames.TextChanged
+    Private Sub accnames_TextChanged(sender As Object, e As EventArgs) Handles accnames.TextChanged
         If CheckBox2.Checked = True Then
             If accnames.Text = "" Then
                 Button3.Enabled = False
@@ -317,6 +407,7 @@ Public Class Database_Interface
             End If
         End If
     End Sub
+
     Public Sub button4click()
         Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Preparing Transmission!" & vbNewLine)
         Application.DoEvents()
@@ -431,7 +522,7 @@ Public Class Database_Interface
         Me.Close()
     End Sub
 
-    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
+    Private Sub Button4_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button4.Click
         Dim errortext As String = ""
         If CheckBox2.Checked = True Then
             runfunction.writelog("Accountnames: " & accnames.Text)
@@ -444,15 +535,18 @@ Public Class Database_Interface
                 Else
                     If trinity1.Checked = True Then
                         trinitycore1.opensql()
-                        If trinitycore1.accountexist((sLines(i)).ToUpper) = False Then errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
+                        If trinitycore1.accountexist((sLines(i)).ToUpper) = False Then _
+                            errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     ElseIf mangos.Checked = True Then
                         trinitycore1.opensql()
-                        If mangoscore.accountexist((sLines(i)).ToUpper) = False Then errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
+                        If mangoscore.accountexist((sLines(i)).ToUpper) = False Then _
+                            errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     Else
                         trinitycore1.opensql()
-                        If arcemucore.accountexist((sLines(i)).ToUpper) = False Then errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
+                        If arcemucore.accountexist((sLines(i)).ToUpper) = False Then _
+                            errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     End If
                 End If
@@ -470,15 +564,18 @@ Public Class Database_Interface
                 Else
                     If trinity1.Checked = True Then
                         trinitycore1.opensql()
-                        If trinitycore1.characterexist((sLines(i)).ToUpper) = False Then errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
+                        If trinitycore1.characterexist((sLines(i)).ToUpper) = False Then _
+                            errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     ElseIf mangos.Checked = True Then
                         trinitycore1.opensql()
-                        If mangoscore.characterexist((sLines(i)).ToUpper) = False Then errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
+                        If mangoscore.characterexist((sLines(i)).ToUpper) = False Then _
+                            errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     Else
                         trinitycore1.opensql()
-                        If arcemucore.characterexist((sLines(i)).ToUpper) = False Then errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
+                        If arcemucore.characterexist((sLines(i)).ToUpper) = False Then _
+                            errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     End If
                 End If
@@ -488,7 +585,8 @@ Public Class Database_Interface
 
         End If
         If Not errortext = "" Then
-            MsgBox("The following errors occurred:" & vbNewLine & vbNewLine & errortext, MsgBoxStyle.Critical, "Attention!")
+            MsgBox("The following errors occurred:" & vbNewLine & vbNewLine & errortext, MsgBoxStyle.Critical,
+                   "Attention!")
             Exit Sub
         End If
         If levelrangecheck.Checked = True Then
@@ -611,7 +709,7 @@ Public Class Database_Interface
 
             .CheckPathExists = True
 
-            If (.ShowDialog() = Windows.Forms.DialogResult.OK) Then
+            If (.ShowDialog() = DialogResult.OK) Then
 
                 writepath = .FileName()
             Else
@@ -639,12 +737,8 @@ Public Class Database_Interface
         Else
 
         End If
-
-
-
-
-
     End Sub
+
     Public Sub button3click()
         Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Preparing Transmission!" & vbNewLine)
         Application.DoEvents()
@@ -674,7 +768,7 @@ Public Class Database_Interface
         Next
 
 
-        Main.Panel21.Location = New System.Drawing.Point(9999, 9999)
+        Main.Panel21.Location = New Point(9999, 9999)
         Process_Status.UseWaitCursor = False
         Application.DoEvents()
         Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Finished!" & vbNewLine)
@@ -685,7 +779,8 @@ Public Class Database_Interface
         trinitycore1.closesql()
         Me.Close()
     End Sub
-    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
+
+    Private Sub Button3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button3.Click
         Dim errortext As String = ""
         If CheckBox2.Checked = True Then
             runfunction.writelog("Accountnames: " & accnames.Text)
@@ -698,15 +793,18 @@ Public Class Database_Interface
                 Else
                     If trinity1.Checked = True Then
                         trinitycore1.opensql()
-                        If trinitycore1.accountexist((sLines(i)).ToUpper) = False Then errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
+                        If trinitycore1.accountexist((sLines(i)).ToUpper) = False Then _
+                            errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     ElseIf mangos.Checked = True Then
                         trinitycore1.opensql()
-                        If mangoscore.accountexist((sLines(i)).ToUpper) = False Then errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
+                        If mangoscore.accountexist((sLines(i)).ToUpper) = False Then _
+                            errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     Else
                         trinitycore1.opensql()
-                        If arcemucore.accountexist((sLines(i)).ToUpper) = False Then errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
+                        If arcemucore.accountexist((sLines(i)).ToUpper) = False Then _
+                            errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     End If
                 End If
@@ -724,15 +822,18 @@ Public Class Database_Interface
                 Else
                     If trinity1.Checked = True Then
                         trinitycore1.opensql()
-                        If trinitycore1.characterexist((sLines(i)).ToUpper) = False Then errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
+                        If trinitycore1.characterexist((sLines(i)).ToUpper) = False Then _
+                            errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     ElseIf mangos.Checked = True Then
                         trinitycore1.opensql()
-                        If mangoscore.characterexist((sLines(i)).ToUpper) = False Then errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
+                        If mangoscore.characterexist((sLines(i)).ToUpper) = False Then _
+                            errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     Else
                         trinitycore1.opensql()
-                        If arcemucore.characterexist((sLines(i)).ToUpper) = False Then errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
+                        If arcemucore.characterexist((sLines(i)).ToUpper) = False Then _
+                            errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     End If
                 End If
@@ -742,7 +843,8 @@ Public Class Database_Interface
 
         End If
         If Not errortext = "" Then
-            MsgBox("The following errors occurred:" & vbNewLine & vbNewLine & errortext, MsgBoxStyle.Critical, "Attention!")
+            MsgBox("The following errors occurred:" & vbNewLine & vbNewLine & errortext, MsgBoxStyle.Critical,
+                   "Attention!")
             Exit Sub
         End If
         runfunction.writelog("""character overview"" request")
@@ -769,14 +871,9 @@ Public Class Database_Interface
         Else
 
         End If
-
-
-
-
-
     End Sub
 
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button2.Click
         Dim errortext As String = ""
         If CheckBox2.Checked = True Then
             runfunction.writelog("Accountnames: " & accnames.Text)
@@ -789,15 +886,18 @@ Public Class Database_Interface
                 Else
                     If trinity1.Checked = True Then
                         trinitycore1.opensql()
-                        If trinitycore1.accountexist((sLines(i)).ToUpper) = False Then errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
+                        If trinitycore1.accountexist((sLines(i)).ToUpper) = False Then _
+                            errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     ElseIf mangos.Checked = True Then
                         trinitycore1.opensql()
-                        If mangoscore.accountexist((sLines(i)).ToUpper) = False Then errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
+                        If mangoscore.accountexist((sLines(i)).ToUpper) = False Then _
+                            errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     Else
                         trinitycore1.opensql()
-                        If arcemucore.accountexist((sLines(i)).ToUpper) = False Then errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
+                        If arcemucore.accountexist((sLines(i)).ToUpper) = False Then _
+                            errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     End If
                 End If
@@ -815,15 +915,18 @@ Public Class Database_Interface
                 Else
                     If trinity1.Checked = True Then
                         trinitycore1.opensql()
-                        If trinitycore1.characterexist((sLines(i)).ToUpper) = False Then errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
+                        If trinitycore1.characterexist((sLines(i)).ToUpper) = False Then _
+                            errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     ElseIf mangos.Checked = True Then
                         trinitycore1.opensql()
-                        If mangoscore.characterexist((sLines(i)).ToUpper) = False Then errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
+                        If mangoscore.characterexist((sLines(i)).ToUpper) = False Then _
+                            errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     Else
                         trinitycore1.opensql()
-                        If arcemucore.characterexist((sLines(i)).ToUpper) = False Then errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
+                        If arcemucore.characterexist((sLines(i)).ToUpper) = False Then _
+                            errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     End If
                 End If
@@ -833,7 +936,8 @@ Public Class Database_Interface
 
         End If
         If Not errortext = "" Then
-            MsgBox("The following errors occurred:" & vbNewLine & vbNewLine & errortext, MsgBoxStyle.Critical, "Attention!")
+            MsgBox("The following errors occurred:" & vbNewLine & vbNewLine & errortext, MsgBoxStyle.Critical,
+                   "Attention!")
             Exit Sub
         End If
         If levelrangecheck.Checked = True Then
@@ -857,12 +961,13 @@ Public Class Database_Interface
             Try
                 My.Settings.levelrangemax = CInt(levelmax.Text)
             Catch ex As Exception
-                Exit Sub
                 If My.Settings.language = "de" Then
                     MsgBox(localeDE.maxlevelnotset, MsgBoxStyle.Critical, localeDE.invalidinput)
                 Else
                     MsgBox(localeEN.maxlevelnotset, MsgBoxStyle.Critical, localeEN.invalidinput)
                 End If
+                Exit Sub
+
             End Try
             Try
                 My.Settings.levelrangemin = CInt(levelmin.Text)
@@ -872,7 +977,7 @@ Public Class Database_Interface
                 Else
                     MsgBox(localeEN.minlevelnotset, MsgBoxStyle.Critical, localeEN.invalidinput)
                 End If
-                Exit Sub
+
             End Try
             Try
                 If My.Settings.levelrangemax < My.Settings.levelrangemin Then
@@ -882,7 +987,7 @@ Public Class Database_Interface
                         MsgBox(localeEN.maxlevelsmallerminlevel, MsgBoxStyle.Critical, localeEN.invalidinput)
                     End If
                 End If
-                Exit Sub
+
             Catch ex As Exception
                 If My.Settings.language = "de" Then
                     MsgBox(localeDE.maxminlevelerror, MsgBoxStyle.Critical, localeDE.invalidinput)
@@ -894,6 +999,7 @@ Public Class Database_Interface
 
             My.Settings.levelrangeactive = True
             My.Settings.Save()
+            Exit Sub
 
         End If
         If lastlogincheck.Checked = True Then
@@ -946,21 +1052,19 @@ Public Class Database_Interface
         Else
 
         End If
-
     End Sub
 
-    Private Sub GroupBox4_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GroupBox4.Enter
-
+    Private Sub GroupBox4_Enter(ByVal sender As Object, ByVal e As EventArgs) Handles GroupBox4.Enter
     End Sub
 
-    Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
+    Private Sub Button5_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button5.Click
 
         runfunction.writelog("Database_Interface_closing call")
         Starter.Show()
         Me.Close()
     End Sub
 
-    Private Sub CheckBox2_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox2.CheckedChanged
+    Private Sub CheckBox2_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles CheckBox2.CheckedChanged
         If CheckBox2.Checked = True Then
             runfunction.writelog("Checkbox2 checked")
             CheckBox1.Checked = False
@@ -969,10 +1073,9 @@ Public Class Database_Interface
             gmlevelcheck.Enabled = True
             lastlogincheck.Enabled = True
         End If
-
     End Sub
 
-    Private Sub CheckBox3_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox3.CheckedChanged
+    Private Sub CheckBox3_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles CheckBox3.CheckedChanged
         If CheckBox3.Checked = True Then
             runfunction.writelog("Checkbox3 checked")
             CheckBox2.Checked = False
@@ -986,7 +1089,7 @@ Public Class Database_Interface
         End If
     End Sub
 
-    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
+    Private Sub Timer1_Tick(ByVal sender As Object, ByVal e As EventArgs) Handles Timer1.Tick
         If CheckBox1.Checked = True Then
             Button2.Enabled = True
             Button4.Enabled = True
@@ -1037,7 +1140,7 @@ Public Class Database_Interface
         End If
     End Sub
 
-    Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub Button6_Click(ByVal sender As Object, ByVal e As EventArgs)
         If trinity1.Checked = True Then
             trinitycorecheck.begincheck(1)
         ElseIf mangos.Checked = True Then
@@ -1047,10 +1150,9 @@ Public Class Database_Interface
         Else
 
         End If
-
     End Sub
 
-    Private Sub Button7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button7.Click
+    Private Sub Button7_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button7.Click
         My.Settings.address = address.Text
         My.Settings.port = port.Text
         My.Settings.user = user.Text
@@ -1061,11 +1163,13 @@ Public Class Database_Interface
             My.Settings.favcore = 2
         ElseIf arcemu.Checked = True Then
             My.Settings.favcore = 3
-        Else : End If
+        Else :
+        End If
         My.Settings.Save()
     End Sub
 
-    Private Sub CoreCheck_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles CoreCheck.LinkClicked
+    Private Sub CoreCheck_LinkClicked(ByVal sender As Object, ByVal e As LinkLabelLinkClickedEventArgs) _
+        Handles CoreCheck.LinkClicked
         'Main.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=characters"
         'Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=auth"
         'Main.ServerStringInfo = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=information_schema"
@@ -1079,7 +1183,6 @@ Public Class Database_Interface
         Else
 
         End If
-
     End Sub
 
 
@@ -1090,7 +1193,8 @@ Public Class Database_Interface
         Catch ex As Exception
 
         End Try
-        SQLConnection.ConnectionString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=strawberry"
+        SQLConnection.ConnectionString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                                         ";Password=" & password.Text & ";Database=strawberry"
 
 
         Try
@@ -1108,12 +1212,17 @@ Public Class Database_Interface
             If ex.ToString.Contains("Duplicate entry ") Then
 
             Else
-                If showerror = True Then Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "> ERROR WHILE EXECUTING MYSQL COMMAND (MAYBE YOU CAN IGNORE THIS): command is: " & command & "| ErrMsg is:" & ex.ToString & vbNewLine)
+                If showerror = True Then _
+                    Process_Status.processreport.appendText(
+                        Now.TimeOfDay.ToString &
+                        "> ERROR WHILE EXECUTING MYSQL COMMAND (MAYBE YOU CAN IGNORE THIS): command is: " & command &
+                        "| ErrMsg is:" & ex.ToString & vbNewLine)
 
             End If
 
         End Try
     End Sub
+
     Public Sub NewUser(ByRef SQLStatement As String)
 
         Dim cmd As MySqlCommand = New MySqlCommand
@@ -1130,11 +1239,9 @@ Public Class Database_Interface
         SQLConnection.Close()
 
         SQLConnection.Dispose()
-
-
     End Sub
 
-    Private Sub tbc_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbc.CheckedChanged
+    Private Sub tbc_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles tbc.CheckedChanged
         If tbc.Checked = True Then
             runfunction.writelog("Classic checked")
             Main.xpac = 2
@@ -1143,11 +1250,9 @@ Public Class Database_Interface
             wotlk.Checked = False
             cata.Checked = False
         End If
-
-
     End Sub
 
-    Private Sub classic_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles classic.CheckedChanged
+    Private Sub classic_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles classic.CheckedChanged
         If classic.Checked = True Then
             runfunction.writelog("Classic checked")
             Main.xpac = 1
@@ -1156,10 +1261,9 @@ Public Class Database_Interface
             wotlk.Checked = False
             cata.Checked = False
         End If
-
     End Sub
 
-    Private Sub wotlk_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles wotlk.CheckedChanged
+    Private Sub wotlk_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles wotlk.CheckedChanged
         If wotlk.Checked = True Then
             runfunction.writelog("Classic checked")
             Main.xpac = 3
@@ -1168,10 +1272,9 @@ Public Class Database_Interface
             classic.Checked = False
             cata.Checked = False
         End If
-
     End Sub
 
-    Private Sub cata_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cata.CheckedChanged
+    Private Sub cata_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles cata.CheckedChanged
         If cata.Checked = True Then
             runfunction.writelog("Classic checked")
             Main.xpac = 4
@@ -1180,18 +1283,17 @@ Public Class Database_Interface
             wotlk.Checked = False
             classic.Checked = False
         End If
-
     End Sub
 
-    Private Sub mangos_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mangos.CheckedChanged
+    Private Sub mangos_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles mangos.CheckedChanged
         If mangos.Checked = True Then runfunction.writelog("Mangos checked")
     End Sub
 
-    Private Sub arcemu_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles arcemu.CheckedChanged
+    Private Sub arcemu_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles arcemu.CheckedChanged
         If arcemu.Checked = True Then runfunction.writelog("ArcEmu checked")
     End Sub
 
-    Private Sub trinity1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles trinity1.CheckedChanged
+    Private Sub trinity1_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles trinity1.CheckedChanged
         If trinity1.Checked = True Then runfunction.writelog("Trinity checked")
     End Sub
 End Class

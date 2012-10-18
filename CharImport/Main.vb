@@ -14,12 +14,8 @@
 '..................Comments:
 'Talent-Tree needs to be loaded
 
-
-
-
-
+Imports System.Globalization
 Imports MySql.Data.MySqlClient
-Imports System.Net
 Imports System.Threading
 
 Public Class Main
@@ -28,7 +24,8 @@ Public Class Main
     'Mid(text, 1, 18) Gibt den Text von "text" zwischen Zeichen 1 bis 18 aus
     '############################## DEKLARATION DER IDs
     Public readyforreturn As Boolean = False
-    Public battlenet_region As String 'eu/us...
+    Public battlenet_region As String
+    'eu/us...
     Public xpac As Integer
     Public realmname As String
     Public characterdbname As String
@@ -328,15 +325,15 @@ Public Class Main
     Public textminorglyph2 As String = ""
     Public textminorglyph3 As String = ""
 
-    Public glyphpic1 As System.Drawing.Image = My.Resources.empty
-    Public glyphpic2 As System.Drawing.Image = My.Resources.empty
-    Public glyphpic3 As System.Drawing.Image = My.Resources.empty
-    Public glyphpic4 As System.Drawing.Image = My.Resources.empty
-    Public glyphpic5 As System.Drawing.Image = My.Resources.empty
-    Public glyphpic6 As System.Drawing.Image = My.Resources.empty
-    Public glyphpic7 As System.Drawing.Image = My.Resources.empty
-    Public glyphpic8 As System.Drawing.Image = My.Resources.empty
-    Public glyphpic9 As System.Drawing.Image = My.Resources.empty
+    Public glyphpic1 As Image = My.Resources.empty
+    Public glyphpic2 As Image = My.Resources.empty
+    Public glyphpic3 As Image = My.Resources.empty
+    Public glyphpic4 As Image = My.Resources.empty
+    Public glyphpic5 As Image = My.Resources.empty
+    Public glyphpic6 As Image = My.Resources.empty
+    Public glyphpic7 As Image = My.Resources.empty
+    Public glyphpic8 As Image = My.Resources.empty
+    Public glyphpic9 As Image = My.Resources.empty
 
 
     'secundär
@@ -365,15 +362,15 @@ Public Class Main
     Public sectextminorglyph2 As String = ""
     Public sectextminorglyph3 As String = ""
 
-    Public secglyphpic1 As System.Drawing.Image = My.Resources.empty
-    Public secglyphpic2 As System.Drawing.Image = My.Resources.empty
-    Public secglyphpic3 As System.Drawing.Image = My.Resources.empty
-    Public secglyphpic4 As System.Drawing.Image = My.Resources.empty
-    Public secglyphpic5 As System.Drawing.Image = My.Resources.empty
-    Public secglyphpic6 As System.Drawing.Image = My.Resources.empty
-    Public secglyphpic7 As System.Drawing.Image = My.Resources.empty
-    Public secglyphpic8 As System.Drawing.Image = My.Resources.empty
-    Public secglyphpic9 As System.Drawing.Image = My.Resources.empty
+    Public secglyphpic1 As Image = My.Resources.empty
+    Public secglyphpic2 As Image = My.Resources.empty
+    Public secglyphpic3 As Image = My.Resources.empty
+    Public secglyphpic4 As Image = My.Resources.empty
+    Public secglyphpic5 As Image = My.Resources.empty
+    Public secglyphpic6 As Image = My.Resources.empty
+    Public secglyphpic7 As Image = My.Resources.empty
+    Public secglyphpic8 As Image = My.Resources.empty
+    Public secglyphpic9 As Image = My.Resources.empty
 
     '##############################
     '###### Deklaration der Talente ######
@@ -729,7 +726,6 @@ Public Class Main
     End Sub
 
 
-
     Public Sub NewUser(ByRef SQLStatement As String)
 
         Dim cmd As MySqlCommand = New MySqlCommand
@@ -746,17 +742,16 @@ Public Class Main
         SQLConnection.Close()
         MsgBox("erfolgreich angelegt!")
         SQLConnection.Dispose()
-
-
     End Sub
+
     Public Sub New()
         MyBase.New()
 
-        Threading.Thread.CurrentThread.CurrentUICulture = New Globalization.CultureInfo(My.Settings.language)
+        Thread.CurrentThread.CurrentUICulture = New CultureInfo(My.Settings.language)
         InitializeComponent()
     End Sub
 
-    Private Sub Main_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub Main_FormClosing(ByVal sender As Object, ByVal e As FormClosingEventArgs) Handles Me.FormClosing
         If My.Settings.shellclose = True Then
 
             Starter.Show()
@@ -764,28 +759,26 @@ Public Class Main
 
         End If
     End Sub
-    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+    Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Starter.Hide()
 
-        Me.Size = New System.Drawing.Size(1119, 642)
-        Me.MaximumSize = New System.Drawing.Size(1119, 642)
+        Me.Size = New Size(1119, 642)
+        Me.MaximumSize = New Size(1119, 642)
         Select Case progressmode
             Case 1
-                Panel21.Location = New System.Drawing.Point(-6, -1)
-                Panel21.Size = New System.Drawing.Size(1124, 741)
+                Panel21.Location = New Point(- 6, - 1)
+                Panel21.Size = New Size(1124, 741)
             Case 2
-                Panel21.Location = New System.Drawing.Point(-6, -1)
-                Panel21.Size = New System.Drawing.Size(1124, 741)
+                Panel21.Location = New Point(- 6, - 1)
+                Panel21.Size = New Size(1124, 741)
             Case 3
-                Panel21.Location = New System.Drawing.Point(-6, -1)
-                Panel21.Size = New System.Drawing.Size(1124, 741)
+                Panel21.Location = New Point(- 6, - 1)
+                Panel21.Size = New Size(1124, 741)
             Case Else
 
         End Select
         Application.DoEvents()
-
-
-
     End Sub
 
     Public Sub setvisible(ByVal doit As Boolean)
@@ -952,44 +945,36 @@ Public Class Main
         Ring2pic.Image = My.Resources.empty
         Schmuck1pic.Image = My.Resources.empty
         Schmuck2pic.Image = My.Resources.empty
-
-
-
     End Sub
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+
+    Private Sub Button2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button2.Click
         ' Dim SQLStatement As String = "UPDATE characters SET name=LOL WHERE (guc
         My.Settings.shellclose = False
         My.Settings.Save()
         Process_Status.Close()
         Connect.Show()
-
     End Sub
 
-    Private Sub Off_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Off.Click
-
+    Private Sub Off_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Off.Click
     End Sub
 
 
-
-
-
-    Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
+    Private Sub Button6_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button6.Click
 
         Application.DoEvents()
         Filtern.Show()
     End Sub
 
 
-    Private Sub kopfpic_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles kopfpic.Click
+    Private Sub kopfpic_Click(ByVal sender As Object, ByVal e As EventArgs) Handles kopfpic.Click
         If kopfid.ToString = "" Then
 
         Else
             Process.Start("http://wowhead.com/item=" & kopfid.ToString)
         End If
-
     End Sub
 
-    Private Sub kopfpic_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles kopfpic.MouseLeave
+    Private Sub kopfpic_MouseLeave(ByVal sender As Object, ByVal e As EventArgs) Handles kopfpic.MouseLeave
         infopanel.Visible = False
         panelname.Text = ""
         panelvz.Text = ""
@@ -998,7 +983,7 @@ Public Class Main
         panelgem3.Text = ""
     End Sub
 
-    Private Sub kopfpic_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles kopfpic.MouseMove
+    Private Sub kopfpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles kopfpic.MouseMove
         If Kopf.Text.Contains("Platz leer") Then
             panelname.Text = ""
             panelvz.Text = ""
@@ -1006,7 +991,7 @@ Public Class Main
             panelgem2.Text = ""
             panelgem3.Text = ""
         Else
-            infopanel.Location = New System.Drawing.Point(59, 42)
+            infopanel.Location = New Point(59, 42)
 
             panelname.Text = Kopf.Text
             panelvz.Text = kopfvz.Text
@@ -1015,11 +1000,9 @@ Public Class Main
             panelgem3.Text = kopfsocket3.Text
             infopanel.Visible = True
         End If
-
-
     End Sub
 
-    Private Sub Halspic_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Halspic.Click
+    Private Sub Halspic_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Halspic.Click
         If halsid.ToString = "" Then
 
         Else
@@ -1027,7 +1010,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Halspic_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Halspic.MouseLeave
+    Private Sub Halspic_MouseLeave(ByVal sender As Object, ByVal e As EventArgs) Handles Halspic.MouseLeave
         infopanel.Visible = False
         panelname.Text = ""
         panelvz.Text = ""
@@ -1036,7 +1019,7 @@ Public Class Main
         panelgem3.Text = ""
     End Sub
 
-    Private Sub Halspic_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Halspic.MouseMove
+    Private Sub Halspic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Halspic.MouseMove
         If Hals.Text.Contains("Platz leer") Then
             panelname.Text = ""
             panelvz.Text = ""
@@ -1044,7 +1027,7 @@ Public Class Main
             panelgem2.Text = ""
             panelgem3.Text = ""
         Else
-            infopanel.Location = New System.Drawing.Point(59, 98)
+            infopanel.Location = New Point(59, 98)
 
             panelname.Text = Hals.Text
             panelvz.Text = halsvz.Text
@@ -1055,7 +1038,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Schulterpic_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Schulterpic.Click
+    Private Sub Schulterpic_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Schulterpic.Click
         If schulterid.ToString = "" Then
 
         Else
@@ -1063,7 +1046,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Schulterpic_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Schulterpic.MouseLeave
+    Private Sub Schulterpic_MouseLeave(ByVal sender As Object, ByVal e As EventArgs) Handles Schulterpic.MouseLeave
         infopanel.Visible = False
         panelname.Text = ""
         panelvz.Text = ""
@@ -1072,7 +1055,7 @@ Public Class Main
         panelgem3.Text = ""
     End Sub
 
-    Private Sub Schulterpic_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Schulterpic.MouseMove
+    Private Sub Schulterpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Schulterpic.MouseMove
         If Schulter.Text.Contains("Platz leer") Then
             panelname.Text = ""
             panelvz.Text = ""
@@ -1080,7 +1063,7 @@ Public Class Main
             panelgem2.Text = ""
             panelgem3.Text = ""
         Else
-            infopanel.Location = New System.Drawing.Point(59, 154)
+            infopanel.Location = New Point(59, 154)
 
             panelname.Text = Schulter.Text
             panelvz.Text = schultervz.Text
@@ -1091,7 +1074,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Rueckenpic_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Rueckenpic.Click
+    Private Sub Rueckenpic_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Rueckenpic.Click
         If rueckenid.ToString = "" Then
 
         Else
@@ -1099,7 +1082,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Rueckenpic_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Rueckenpic.MouseLeave
+    Private Sub Rueckenpic_MouseLeave(ByVal sender As Object, ByVal e As EventArgs) Handles Rueckenpic.MouseLeave
         infopanel.Visible = False
         panelname.Text = ""
         panelvz.Text = ""
@@ -1108,7 +1091,7 @@ Public Class Main
         panelgem3.Text = ""
     End Sub
 
-    Private Sub Rueckenpic_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Rueckenpic.MouseMove
+    Private Sub Rueckenpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Rueckenpic.MouseMove
         If Ruecken.Text.Contains("Platz leer") Then
             panelname.Text = ""
             panelvz.Text = ""
@@ -1116,7 +1099,7 @@ Public Class Main
             panelgem2.Text = ""
             panelgem3.Text = ""
         Else
-            infopanel.Location = New System.Drawing.Point(59, 210)
+            infopanel.Location = New Point(59, 210)
 
             panelname.Text = Ruecken.Text
             panelvz.Text = rueckenvz.Text
@@ -1127,7 +1110,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Brustpic_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Brustpic.Click
+    Private Sub Brustpic_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Brustpic.Click
         If brustid.ToString = "" Then
 
         Else
@@ -1135,7 +1118,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Brustpic_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Brustpic.MouseLeave
+    Private Sub Brustpic_MouseLeave(ByVal sender As Object, ByVal e As EventArgs) Handles Brustpic.MouseLeave
         infopanel.Visible = False
         panelname.Text = ""
         panelvz.Text = ""
@@ -1144,7 +1127,7 @@ Public Class Main
         panelgem3.Text = ""
     End Sub
 
-    Private Sub Brustpic_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Brustpic.MouseMove
+    Private Sub Brustpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Brustpic.MouseMove
         If Brust.Text.Contains("Platz leer") Then
             panelname.Text = ""
             panelvz.Text = ""
@@ -1152,7 +1135,7 @@ Public Class Main
             panelgem2.Text = ""
             panelgem3.Text = ""
         Else
-            infopanel.Location = New System.Drawing.Point(59, 266)
+            infopanel.Location = New Point(59, 266)
 
             panelname.Text = Brust.Text
             panelvz.Text = brustvz.Text
@@ -1163,7 +1146,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Hemdpic_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Hemdpic.Click
+    Private Sub Hemdpic_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Hemdpic.Click
         If hemdid.ToString = "" Then
 
         Else
@@ -1171,7 +1154,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Hemdpic_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Hemdpic.MouseLeave
+    Private Sub Hemdpic_MouseLeave(ByVal sender As Object, ByVal e As EventArgs) Handles Hemdpic.MouseLeave
         infopanel.Visible = False
         panelname.Text = ""
         panelvz.Text = ""
@@ -1180,7 +1163,7 @@ Public Class Main
         panelgem3.Text = ""
     End Sub
 
-    Private Sub Hemdpic_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Hemdpic.MouseMove
+    Private Sub Hemdpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Hemdpic.MouseMove
         If Hemd.Text.Contains("Platz leer") Then
             panelname.Text = ""
             panelvz.Text = ""
@@ -1188,7 +1171,7 @@ Public Class Main
             panelgem2.Text = ""
             panelgem3.Text = ""
         Else
-            infopanel.Location = New System.Drawing.Point(59, 322)
+            infopanel.Location = New Point(59, 322)
 
             panelname.Text = Hemd.Text
 
@@ -1196,7 +1179,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Wappenrockpic_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Wappenrockpic.Click
+    Private Sub Wappenrockpic_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Wappenrockpic.Click
         If wappenrockid.ToString = "" Then
 
         Else
@@ -1204,7 +1187,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Wappenrockpic_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Wappenrockpic.MouseLeave
+    Private Sub Wappenrockpic_MouseLeave(ByVal sender As Object, ByVal e As EventArgs) Handles Wappenrockpic.MouseLeave
         infopanel.Visible = False
         panelname.Text = ""
         panelvz.Text = ""
@@ -1213,7 +1196,8 @@ Public Class Main
         panelgem3.Text = ""
     End Sub
 
-    Private Sub Wappenrockpic_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Wappenrockpic.MouseMove
+    Private Sub Wappenrockpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) _
+        Handles Wappenrockpic.MouseMove
         If Wappenrock.Text.Contains("Platz leer") Then
             panelname.Text = ""
             panelvz.Text = ""
@@ -1221,7 +1205,7 @@ Public Class Main
             panelgem2.Text = ""
             panelgem3.Text = ""
         Else
-            infopanel.Location = New System.Drawing.Point(59, 378)
+            infopanel.Location = New Point(59, 378)
 
             panelname.Text = Wappenrock.Text
 
@@ -1229,7 +1213,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Handgelenkepic_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Handgelenkepic.Click
+    Private Sub Handgelenkepic_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Handgelenkepic.Click
         If handgelenkeid.ToString = "" Then
 
         Else
@@ -1237,7 +1221,8 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Handgelenkepic_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Handgelenkepic.MouseLeave
+    Private Sub Handgelenkepic_MouseLeave(ByVal sender As Object, ByVal e As EventArgs) _
+        Handles Handgelenkepic.MouseLeave
         infopanel.Visible = False
         panelname.Text = ""
         panelvz.Text = ""
@@ -1246,7 +1231,8 @@ Public Class Main
         panelgem3.Text = ""
     End Sub
 
-    Private Sub Handgelenkepic_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Handgelenkepic.MouseMove
+    Private Sub Handgelenkepic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) _
+        Handles Handgelenkepic.MouseMove
         If Handgelenke.Text.Contains("Platz leer") Then
             panelname.Text = ""
             panelvz.Text = ""
@@ -1254,7 +1240,7 @@ Public Class Main
             panelgem2.Text = ""
             panelgem3.Text = ""
         Else
-            infopanel.Location = New System.Drawing.Point(59, 434)
+            infopanel.Location = New Point(59, 434)
 
             panelname.Text = Handgelenke.Text
             panelvz.Text = handgelenkevz.Text
@@ -1265,7 +1251,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Hauptpic_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Hauptpic.Click
+    Private Sub Hauptpic_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Hauptpic.Click
         If hauptid.ToString = "" Then
 
         Else
@@ -1273,7 +1259,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Hauptpic_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Hauptpic.MouseLeave
+    Private Sub Hauptpic_MouseLeave(ByVal sender As Object, ByVal e As EventArgs) Handles Hauptpic.MouseLeave
         infopanel.Visible = False
         panelname.Text = ""
         panelvz.Text = ""
@@ -1282,7 +1268,7 @@ Public Class Main
         panelgem3.Text = ""
     End Sub
 
-    Private Sub Hauptpic_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Hauptpic.MouseMove
+    Private Sub Hauptpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Hauptpic.MouseMove
         If Haupt.Text.Contains("Platz leer") Then
             panelname.Text = ""
             panelvz.Text = ""
@@ -1290,7 +1276,7 @@ Public Class Main
             panelgem2.Text = ""
             panelgem3.Text = ""
         Else
-            infopanel.Location = New System.Drawing.Point(63, 525)
+            infopanel.Location = New Point(63, 525)
 
             panelname.Text = Haupt.Text
             panelvz.Text = hauptvz.Text
@@ -1301,7 +1287,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Offpic_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Offpic.Click
+    Private Sub Offpic_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Offpic.Click
         If offid.ToString = "" Then
 
         Else
@@ -1309,7 +1295,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Offpic_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Offpic.MouseLeave
+    Private Sub Offpic_MouseLeave(ByVal sender As Object, ByVal e As EventArgs) Handles Offpic.MouseLeave
         infopanel.Visible = False
         panelname.Text = ""
         panelvz.Text = ""
@@ -1318,7 +1304,7 @@ Public Class Main
         panelgem3.Text = ""
     End Sub
 
-    Private Sub Offpic_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Offpic.MouseMove
+    Private Sub Offpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Offpic.MouseMove
         If Off.Text.Contains("Platz leer") Then
             panelname.Text = ""
             panelvz.Text = ""
@@ -1326,7 +1312,7 @@ Public Class Main
             panelgem2.Text = ""
             panelgem3.Text = ""
         Else
-            infopanel.Location = New System.Drawing.Point(313, 525)
+            infopanel.Location = New Point(313, 525)
 
             panelname.Text = Off.Text
             panelvz.Text = offvz.Text
@@ -1337,7 +1323,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Distanzpic_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Distanzpic.Click
+    Private Sub Distanzpic_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Distanzpic.Click
         If distanzid.ToString = "" Then
 
         Else
@@ -1345,7 +1331,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Distanzpic_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Distanzpic.MouseLeave
+    Private Sub Distanzpic_MouseLeave(ByVal sender As Object, ByVal e As EventArgs) Handles Distanzpic.MouseLeave
         infopanel.Visible = False
         panelname.Text = ""
         panelvz.Text = ""
@@ -1354,7 +1340,7 @@ Public Class Main
         panelgem3.Text = ""
     End Sub
 
-    Private Sub Distanzpic_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Distanzpic.MouseMove
+    Private Sub Distanzpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Distanzpic.MouseMove
         If Distanz.Text.Contains("Platz leer") Then
             panelname.Text = ""
             panelvz.Text = ""
@@ -1362,7 +1348,7 @@ Public Class Main
             panelgem2.Text = ""
             panelgem3.Text = ""
         Else
-            infopanel.Location = New System.Drawing.Point(533, 525)
+            infopanel.Location = New Point(533, 525)
 
             panelname.Text = Distanz.Text
             panelvz.Text = distanzvz.Text
@@ -1373,7 +1359,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Haendepic_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Haendepic.Click
+    Private Sub Haendepic_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Haendepic.Click
         If haendeid.ToString = "" Then
 
         Else
@@ -1381,7 +1367,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Haendepic_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Haendepic.MouseLeave
+    Private Sub Haendepic_MouseLeave(ByVal sender As Object, ByVal e As EventArgs) Handles Haendepic.MouseLeave
         infopanel.Visible = False
         panelname.Text = ""
         panelvz.Text = ""
@@ -1390,7 +1376,7 @@ Public Class Main
         panelgem3.Text = ""
     End Sub
 
-    Private Sub Haendepic_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Haendepic.MouseMove
+    Private Sub Haendepic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Haendepic.MouseMove
         If Haende.Text.Contains("Platz leer") Then
             panelname.Text = ""
             panelvz.Text = ""
@@ -1398,7 +1384,7 @@ Public Class Main
             panelgem2.Text = ""
             panelgem3.Text = ""
         Else
-            infopanel.Location = New System.Drawing.Point(534, 42)
+            infopanel.Location = New Point(534, 42)
 
             panelname.Text = Haende.Text
             panelvz.Text = haendevz.Text
@@ -1409,7 +1395,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Guertelpic_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Guertelpic.Click
+    Private Sub Guertelpic_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Guertelpic.Click
         If guertelid.ToString = "" Then
 
         Else
@@ -1417,7 +1403,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Guertelpic_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Guertelpic.MouseLeave
+    Private Sub Guertelpic_MouseLeave(ByVal sender As Object, ByVal e As EventArgs) Handles Guertelpic.MouseLeave
         infopanel.Visible = False
         panelname.Text = ""
         panelvz.Text = ""
@@ -1426,7 +1412,7 @@ Public Class Main
         panelgem3.Text = ""
     End Sub
 
-    Private Sub Guertelpic_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Guertelpic.MouseMove
+    Private Sub Guertelpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Guertelpic.MouseMove
         If Guertel.Text.Contains("Platz leer") Then
             panelname.Text = ""
             panelvz.Text = ""
@@ -1434,7 +1420,7 @@ Public Class Main
             panelgem2.Text = ""
             panelgem3.Text = ""
         Else
-            infopanel.Location = New System.Drawing.Point(534, 98)
+            infopanel.Location = New Point(534, 98)
 
             panelname.Text = Guertel.Text
             panelvz.Text = guertelvz.Text
@@ -1445,7 +1431,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Beinepic_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Beinepic.Click
+    Private Sub Beinepic_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Beinepic.Click
         If beineid.ToString = "" Then
 
         Else
@@ -1453,7 +1439,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Beinepic_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Beinepic.MouseLeave
+    Private Sub Beinepic_MouseLeave(ByVal sender As Object, ByVal e As EventArgs) Handles Beinepic.MouseLeave
         infopanel.Visible = False
         panelname.Text = ""
         panelvz.Text = ""
@@ -1462,7 +1448,7 @@ Public Class Main
         panelgem3.Text = ""
     End Sub
 
-    Private Sub Beinepic_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Beinepic.MouseMove
+    Private Sub Beinepic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Beinepic.MouseMove
         If Beine.Text.Contains("Platz leer") Then
             panelname.Text = ""
             panelvz.Text = ""
@@ -1470,7 +1456,7 @@ Public Class Main
             panelgem2.Text = ""
             panelgem3.Text = ""
         Else
-            infopanel.Location = New System.Drawing.Point(534, 154)
+            infopanel.Location = New Point(534, 154)
 
             panelname.Text = Beine.Text
             panelvz.Text = beinevz.Text
@@ -1481,7 +1467,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Stiefelpic_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Stiefelpic.Click
+    Private Sub Stiefelpic_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Stiefelpic.Click
         If stiefelid.ToString = "" Then
 
         Else
@@ -1489,7 +1475,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Stiefelpic_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Stiefelpic.MouseLeave
+    Private Sub Stiefelpic_MouseLeave(ByVal sender As Object, ByVal e As EventArgs) Handles Stiefelpic.MouseLeave
         infopanel.Visible = False
         panelname.Text = ""
         panelvz.Text = ""
@@ -1498,7 +1484,7 @@ Public Class Main
         panelgem3.Text = ""
     End Sub
 
-    Private Sub Stiefelpic_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Stiefelpic.MouseMove
+    Private Sub Stiefelpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Stiefelpic.MouseMove
         If Stiefel.Text.Contains("Platz leer") Then
             panelname.Text = ""
             panelvz.Text = ""
@@ -1506,7 +1492,7 @@ Public Class Main
             panelgem2.Text = ""
             panelgem3.Text = ""
         Else
-            infopanel.Location = New System.Drawing.Point(534, 210)
+            infopanel.Location = New Point(534, 210)
 
             panelname.Text = Stiefel.Text
             panelvz.Text = stiefelvz.Text
@@ -1517,7 +1503,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Ring1pic_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Ring1pic.Click
+    Private Sub Ring1pic_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Ring1pic.Click
         If ring1id.ToString = "" Then
 
         Else
@@ -1525,7 +1511,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Ring1pic_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Ring1pic.MouseLeave
+    Private Sub Ring1pic_MouseLeave(ByVal sender As Object, ByVal e As EventArgs) Handles Ring1pic.MouseLeave
         infopanel.Visible = False
         panelname.Text = ""
         panelvz.Text = ""
@@ -1534,7 +1520,7 @@ Public Class Main
         panelgem3.Text = ""
     End Sub
 
-    Private Sub Ring1pic_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Ring1pic.MouseMove
+    Private Sub Ring1pic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Ring1pic.MouseMove
         If Ring1.Text.Contains("Platz leer") Then
             panelname.Text = ""
             panelvz.Text = ""
@@ -1542,7 +1528,7 @@ Public Class Main
             panelgem2.Text = ""
             panelgem3.Text = ""
         Else
-            infopanel.Location = New System.Drawing.Point(534, 266)
+            infopanel.Location = New Point(534, 266)
 
             panelname.Text = Ring1.Text
             panelvz.Text = ring1vz.Text
@@ -1553,14 +1539,15 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Ring2pic_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Ring2pic.Click
+    Private Sub Ring2pic_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Ring2pic.Click
         If ring2id.ToString = "" Then
 
         Else
             Process.Start("http://wowhead.com/item=" & ring2id.ToString)
         End If
     End Sub
-    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
+
+    Private Sub Button4_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button4.Click
         Glyphs.prim1.Text = textprimeglyph1
         Glyphs.prim2.Text = textprimeglyph2
         Glyphs.prim3.Text = textprimeglyph3
@@ -1602,7 +1589,8 @@ Public Class Main
         Glyphs.secgering3pic.Image = secglyphpic9
         Glyphs.Show()
     End Sub
-    Private Sub Ring2pic_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Ring2pic.MouseLeave
+
+    Private Sub Ring2pic_MouseLeave(ByVal sender As Object, ByVal e As EventArgs) Handles Ring2pic.MouseLeave
         infopanel.Visible = False
         panelname.Text = ""
         panelvz.Text = ""
@@ -1611,7 +1599,7 @@ Public Class Main
         panelgem3.Text = ""
     End Sub
 
-    Private Sub Ring2pic_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Ring2pic.MouseMove
+    Private Sub Ring2pic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Ring2pic.MouseMove
         If Ring2.Text.Contains("Platz leer") Then
             panelname.Text = ""
             panelvz.Text = ""
@@ -1619,7 +1607,7 @@ Public Class Main
             panelgem2.Text = ""
             panelgem3.Text = ""
         Else
-            infopanel.Location = New System.Drawing.Point(534, 322)
+            infopanel.Location = New Point(534, 322)
 
             panelname.Text = Ring2.Text
             panelvz.Text = ring2vz.Text
@@ -1630,7 +1618,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Schmuck1pic_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Schmuck1pic.Click
+    Private Sub Schmuck1pic_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Schmuck1pic.Click
         If schmuck1id.ToString = "" Then
 
         Else
@@ -1638,7 +1626,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Schmuck1pic_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Schmuck1pic.MouseLeave
+    Private Sub Schmuck1pic_MouseLeave(ByVal sender As Object, ByVal e As EventArgs) Handles Schmuck1pic.MouseLeave
         infopanel.Visible = False
         panelname.Text = ""
         panelvz.Text = ""
@@ -1647,7 +1635,7 @@ Public Class Main
         panelgem3.Text = ""
     End Sub
 
-    Private Sub Schmuck1pic_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Schmuck1pic.MouseMove
+    Private Sub Schmuck1pic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Schmuck1pic.MouseMove
         If Schmuck1.Text.Contains("Platz leer") Then
             panelname.Text = ""
             panelvz.Text = ""
@@ -1655,7 +1643,7 @@ Public Class Main
             panelgem2.Text = ""
             panelgem3.Text = ""
         Else
-            infopanel.Location = New System.Drawing.Point(534, 378)
+            infopanel.Location = New Point(534, 378)
 
             panelname.Text = Schmuck1.Text
             panelvz.Text = schmuck1vz.Text
@@ -1664,7 +1652,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Schmuck2pic_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Schmuck2pic.Click
+    Private Sub Schmuck2pic_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Schmuck2pic.Click
         If schmuck2id.ToString = "" Then
 
         Else
@@ -1672,7 +1660,7 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Schmuck2pic_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Schmuck2pic.MouseLeave
+    Private Sub Schmuck2pic_MouseLeave(ByVal sender As Object, ByVal e As EventArgs) Handles Schmuck2pic.MouseLeave
         infopanel.Visible = False
         panelname.Text = ""
         panelvz.Text = ""
@@ -1681,7 +1669,7 @@ Public Class Main
         panelgem3.Text = ""
     End Sub
 
-    Private Sub Schmuck2pic_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Schmuck2pic.MouseMove
+    Private Sub Schmuck2pic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Schmuck2pic.MouseMove
         If Schmuck2.Text.Contains("Platz leer") Then
             panelname.Text = ""
             panelvz.Text = ""
@@ -1689,7 +1677,7 @@ Public Class Main
             panelgem2.Text = ""
             panelgem3.Text = ""
         Else
-            infopanel.Location = New System.Drawing.Point(534, 434)
+            infopanel.Location = New Point(534, 434)
 
             panelname.Text = Schmuck2.Text
             panelvz.Text = schmuck2vz.Text
@@ -1698,19 +1686,18 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub Button1_Click_1(ByVal sender As Object, ByVal e As EventArgs)
         AboutBox.Show()
     End Sub
 
 
-
-    Private Sub Button8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button8.Click
+    Private Sub Button8_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button8.Click
         Me.Close()
         Starter.Show()
     End Sub
 
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button1.Click
 
         If My.Settings.language = "de" Then
             MsgBox(localeDE.armoryinterface_txt1)
@@ -1735,7 +1722,7 @@ Public Class Main
 
             .CheckPathExists = True
 
-            If (.ShowDialog() = Windows.Forms.DialogResult.OK) Then
+            If (.ShowDialog() = DialogResult.OK) Then
 
                 writepath = .FileName()
             Else
@@ -1749,9 +1736,8 @@ Public Class Main
             Else
                 MsgBox(localeEN.armoryinterface_txt3, MsgBoxStyle.Critical, localeEN.armoryinterface_txt4)
             End If
-             Exit Sub
+            Exit Sub
         End If
-
 
 
         ciu.createfile(writepath)
@@ -1760,34 +1746,21 @@ Public Class Main
         Else
             MsgBox(localeEN.main_txt1)
         End If
-
-
     End Sub
 
-    Private Sub Button10_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub Button10_Click(ByVal sender As Object, ByVal e As EventArgs)
         Dim cit As New CIUFile
         cit.getfile()
     End Sub
 
 
-
-
-
-
-
-
-
-    Private Sub Schmuck2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Schmuck2.Click
-
+    Private Sub Schmuck2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Schmuck2.Click
     End Sub
 
-    Private Sub Panel23_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs)
-
+    Private Sub Panel23_Paint(ByVal sender As Object, ByVal e As PaintEventArgs)
     End Sub
 
-    Private Sub Button7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub Button7_Click(ByVal sender As Object, ByVal e As EventArgs)
         level.Visible = True
     End Sub
-
-
 End Class

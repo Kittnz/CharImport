@@ -16,8 +16,7 @@
 
 
 Public Class talents
-
-    Private Sub talents_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Sub talents_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.MaximumSize = Me.Size
     End Sub
 End Class

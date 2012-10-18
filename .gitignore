@@ -3,6 +3,8 @@
 /talentclasses
 /Core_Lib
 /ciulib
+/_ReSharper.CharImport
+_ReSharper.CharImport/
 /CharImport/xobj
 /CharImport/bin/Release
 /CharImport/bin/old

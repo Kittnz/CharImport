@@ -15,22 +15,18 @@
 '
 
 
-Imports System.Windows.Forms
 
 Public Class xReport
-
-
-
-    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Connect.Close()
         Me.Close()
     End Sub
 
-    Private Sub xReport_FormClosing(sender As Object, e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub xReport_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         Connect.Close()
     End Sub
 
-    Private Sub xReport_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Sub xReport_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.MaximumSize = Me.Size
         Me.MinimumSize = Me.Size
     End Sub

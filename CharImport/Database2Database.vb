@@ -1,4 +1,7 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.Globalization
+Imports MySql.Data.MySqlClient
+Imports System.Threading
+
 Public Class Database2Database
     Dim armoryproc As New prozedur_armory
     Dim SQLConnection As MySqlConnection = New MySqlConnection
@@ -20,24 +23,33 @@ Public Class Database2Database
     Dim runfunction As New Functions
     Dim localeDE As New LanguageDE
     Dim localeEN As New LanguageEN
+
     Public Sub New()
         MyBase.New()
 
-        Threading.Thread.CurrentThread.CurrentUICulture = New Globalization.CultureInfo(My.Settings.language)
+        Thread.CurrentThread.CurrentUICulture = New CultureInfo(My.Settings.language)
         InitializeComponent()
     End Sub
-    Private Sub Button14_Click(sender As System.Object, e As System.EventArgs) Handles Button14.Click
-    
+
+    Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
+
 
         My.Settings.realmd = auth.Text
         My.Settings.characters = characters.Text
         My.Settings.Save()
-        Main.ServerStringInfo = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=information_schema"
+        Main.ServerStringInfo = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
+                                password.Text & ";Database=information_schema"
 
         If automatic.Checked = True Then
             runfunction.writelog("Connect request with automatic checked")
-            If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=characters") = False Then
-                If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=character") = False Then
+            If _
+                trytoconnect(
+                    "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
+                    password.Text & ";Database=characters") = False Then
+                If _
+                    trytoconnect(
+                        "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
+                        password.Text & ";Database=character") = False Then
                     runfunction.writelog("Could not find character db or connection info wrong")
                     If My.Settings.language = "de" Then
                         xlabel.Text = localeDE.armory2database_txt1
@@ -46,39 +58,74 @@ Public Class Database2Database
                     End If
 
                 Else
-                    If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=realmd") = False Then
-                        If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=realm") = False Then
-                            If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=auth") = False Then
-                                If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=logon") = False Then
-                                    If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=op_realm") = False Then
-                                        If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=" & auth.Text) = False Then
+                    If _
+                        trytoconnect(
+                            "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
+                            password.Text & ";Database=realmd") = False Then
+                        If _
+                            trytoconnect(
+                                "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
+                                password.Text & ";Database=realm") = False Then
+                            If _
+                                trytoconnect(
+                                    "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                                    ";Password=" & password.Text & ";Database=auth") = False Then
+                                If _
+                                    trytoconnect(
+                                        "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                                        ";Password=" & password.Text & ";Database=logon") = False Then
+                                    If _
+                                        trytoconnect(
+                                            "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                                            ";Password=" & password.Text & ";Database=op_realm") = False Then
+                                        If _
+                                            trytoconnect(
+                                                "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                                                user.Text & ";Password=" & password.Text & ";Database=" & auth.Text) =
+                                            False Then
                                             runfunction.writelog("Could find character db but not auth db")
                                             If My.Settings.language = "de" Then
-                                                MsgBox(localeDE.armory2database_txt2 & vbNewLine & localeDE.armory2database_txt3, MsgBoxStyle.Critical, localeDE.armory2database_txt3)
+                                                MsgBox(
+                                                    localeDE.armory2database_txt2 & vbNewLine &
+                                                    localeDE.armory2database_txt3, MsgBoxStyle.Critical,
+                                                    localeDE.armory2database_txt3)
                                             Else
-                                                MsgBox(localeEN.armory2database_txt2 & vbNewLine & localeEN.armory2database_txt3, MsgBoxStyle.Critical, localeEN.armory2database_txt3)
+                                                MsgBox(
+                                                    localeEN.armory2database_txt2 & vbNewLine &
+                                                    localeEN.armory2database_txt3, MsgBoxStyle.Critical,
+                                                    localeEN.armory2database_txt3)
                                             End If
                                             Exit Sub
                                         Else
-                                            alternaterealmdstring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=" & auth.Text
+                                            alternaterealmdstring = "server=" & address.Text & ";Port=" & port.Text &
+                                                                    ";User id=" & user.Text & ";Password=" &
+                                                                    password.Text & ";Database=" & auth.Text
                                         End If
                                     Else
-                                        alternaterealmdstring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=op_realm"
+                                        alternaterealmdstring = "server=" & address.Text & ";Port=" & port.Text &
+                                                                ";User id=" & user.Text & ";Password=" & password.Text &
+                                                                ";Database=op_realm"
                                     End If
                                 Else
-                                    alternaterealmdstring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=logon"
+                                    alternaterealmdstring = "server=" & address.Text & ";Port=" & port.Text &
+                                                            ";User id=" & user.Text & ";Password=" & password.Text &
+                                                            ";Database=logon"
                                 End If
                             Else
-                                alternaterealmdstring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=auth"
+                                alternaterealmdstring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                                                        user.Text & ";Password=" & password.Text & ";Database=auth"
                             End If
                         Else
-                            alternaterealmdstring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=realm"
+                            alternaterealmdstring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                                                    user.Text & ";Password=" & password.Text & ";Database=realm"
                         End If
                     Else
-                        alternaterealmdstring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=realmd"
+                        alternaterealmdstring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                                                user.Text & ";Password=" & password.Text & ";Database=realmd"
                     End If
                     runfunction.writelog("Could find character db and auth db")
-                    alternatestring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=character"
+                    alternatestring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                                      ";Password=" & password.Text & ";Database=character"
                     Main.characterdbname = "character"
                     Main.ServerStringCheck = alternatestring
                     If My.Settings.language = "de" Then
@@ -86,44 +133,77 @@ Public Class Database2Database
                     Else
                         xlabel.Text = localeEN.armory2database_txt5
                     End If
-                    Me.MaximumSize = New System.Drawing.Size(5000, 5000)
-                    Me.Size = New System.Drawing.Size(676, 598)
-                    optionspanel.Location = New System.Drawing.Point(0, 0)
-                    connectpanel.Location = New System.Drawing.Point(4000, 4000)
+                    Me.MaximumSize = New Size(5000, 5000)
+                    Me.Size = New Size(676, 598)
+                    optionspanel.Location = New Point(0, 0)
+                    connectpanel.Location = New Point(4000, 4000)
                 End If
             Else
-                If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=realmd") = False Then
-                    If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=realm") = False Then
-                        If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=auth") = False Then
-                            If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=logon") = False Then
-                                If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=op_realm") = False Then
-                                    If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=" & auth.Text) = False Then
+                If _
+                    trytoconnect(
+                        "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
+                        password.Text & ";Database=realmd") = False Then
+                    If _
+                        trytoconnect(
+                            "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
+                            password.Text & ";Database=realm") = False Then
+                        If _
+                            trytoconnect(
+                                "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
+                                password.Text & ";Database=auth") = False Then
+                            If _
+                                trytoconnect(
+                                    "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                                    ";Password=" & password.Text & ";Database=logon") = False Then
+                                If _
+                                    trytoconnect(
+                                        "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                                        ";Password=" & password.Text & ";Database=op_realm") = False Then
+                                    If _
+                                        trytoconnect(
+                                            "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                                            ";Password=" & password.Text & ";Database=" & auth.Text) = False Then
                                         If My.Settings.language = "de" Then
-                                            MsgBox(localeDE.armory2database_txt2 & vbNewLine & localeDE.armory2database_txt3, MsgBoxStyle.Critical, localeDE.armory2database_txt3)
+                                            MsgBox(
+                                                localeDE.armory2database_txt2 & vbNewLine &
+                                                localeDE.armory2database_txt3, MsgBoxStyle.Critical,
+                                                localeDE.armory2database_txt3)
                                         Else
-                                            MsgBox(localeEN.armory2database_txt2 & vbNewLine & localeEN.armory2database_txt3, MsgBoxStyle.Critical, localeEN.armory2database_txt3)
+                                            MsgBox(
+                                                localeEN.armory2database_txt2 & vbNewLine &
+                                                localeEN.armory2database_txt3, MsgBoxStyle.Critical,
+                                                localeEN.armory2database_txt3)
                                         End If
                                         runfunction.writelog("Could find character db but not auth db")
                                         Exit Sub
                                     Else
-                                        alternaterealmdstring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=" & auth.Text
+                                        alternaterealmdstring = "server=" & address.Text & ";Port=" & port.Text &
+                                                                ";User id=" & user.Text & ";Password=" & password.Text &
+                                                                ";Database=" & auth.Text
                                     End If
                                 Else
-                                    alternaterealmdstring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=op_realm"
+                                    alternaterealmdstring = "server=" & address.Text & ";Port=" & port.Text &
+                                                            ";User id=" & user.Text & ";Password=" & password.Text &
+                                                            ";Database=op_realm"
                                 End If
                             Else
-                                alternaterealmdstring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=logon"
+                                alternaterealmdstring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                                                        user.Text & ";Password=" & password.Text & ";Database=logon"
                             End If
                         Else
-                            alternaterealmdstring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=auth"
+                            alternaterealmdstring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                                                    user.Text & ";Password=" & password.Text & ";Database=auth"
                         End If
                     Else
-                        alternaterealmdstring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=realm"
+                        alternaterealmdstring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                                                user.Text & ";Password=" & password.Text & ";Database=realm"
                     End If
                 Else
-                    alternaterealmdstring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=realmd"
+                    alternaterealmdstring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                                            ";Password=" & password.Text & ";Database=realmd"
                 End If
-                alternatestring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=characters"
+                alternatestring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                                  ";Password=" & password.Text & ";Database=characters"
                 Main.ServerStringCheck = alternatestring
                 Main.characterdbname = "characters"
                 runfunction.writelog("Could find character db and auth db")
@@ -132,19 +212,27 @@ Public Class Database2Database
                 Else
                     xlabel.Text = localeEN.armory2database_txt5
                 End If
-                Me.MaximumSize = New System.Drawing.Size(5000, 5000)
-                Me.Size = New System.Drawing.Size(676, 598)
-                optionspanel.Location = New System.Drawing.Point(0, 0)
-                connectpanel.Location = New System.Drawing.Point(4000, 4000)
+                Me.MaximumSize = New Size(5000, 5000)
+                Me.Size = New Size(676, 598)
+                optionspanel.Location = New Point(0, 0)
+                connectpanel.Location = New Point(4000, 4000)
             End If
         Else
             runfunction.writelog("Connect request with manually checked")
-            If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=" & characters.Text) = True Then
+            If _
+                trytoconnect(
+                    "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
+                    password.Text & ";Database=" & characters.Text) = True Then
                 runfunction.writelog("Could find character db")
-                If trytoconnect("server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=" & auth.Text) = True Then
+                If _
+                    trytoconnect(
+                        "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
+                        password.Text & ";Database=" & auth.Text) = True Then
                     runfunction.writelog("Could find auth db")
-                    alternaterealmdstring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=" & auth.Text
-                    alternatestring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=" & characters.Text
+                    alternaterealmdstring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                                            ";Password=" & password.Text & ";Database=" & auth.Text
+                    alternatestring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                                      ";Password=" & password.Text & ";Database=" & characters.Text
                     Main.characterdbname = characters.Text
                     Main.ServerStringCheck = alternatestring
                     If My.Settings.language = "de" Then
@@ -152,32 +240,34 @@ Public Class Database2Database
                     Else
                         xlabel.Text = localeEN.armory2database_txt5
                     End If
-                    Me.MaximumSize = New System.Drawing.Size(5000, 5000)
-                    Me.Size = New System.Drawing.Size(676, 598)
-                    optionspanel.Location = New System.Drawing.Point(0, 0)
-                    connectpanel.Location = New System.Drawing.Point(4000, 4000)
+                    Me.MaximumSize = New Size(5000, 5000)
+                    Me.Size = New Size(676, 598)
+                    optionspanel.Location = New Point(0, 0)
+                    connectpanel.Location = New Point(4000, 4000)
                 Else
                     runfunction.writelog("Could find character db but not auth db")
                     If My.Settings.language = "de" Then
-                        MsgBox(localeDE.armory2database_txt2 & vbNewLine & localeDE.armory2database_txt3, MsgBoxStyle.Critical, localeDE.armory2database_txt3)
+                        MsgBox(localeDE.armory2database_txt2 & vbNewLine & localeDE.armory2database_txt3,
+                               MsgBoxStyle.Critical, localeDE.armory2database_txt3)
                     Else
-                        MsgBox(localeEN.armory2database_txt2 & vbNewLine & localeEN.armory2database_txt3, MsgBoxStyle.Critical, localeEN.armory2database_txt3)
+                        MsgBox(localeEN.armory2database_txt2 & vbNewLine & localeEN.armory2database_txt3,
+                               MsgBoxStyle.Critical, localeEN.armory2database_txt3)
                     End If
                     Exit Sub
                 End If
             Else
                 runfunction.writelog("Could not find character db or login info wrong")
                 If My.Settings.language = "de" Then
-                    MsgBox(localeDE.armory2database_txt2 & vbNewLine & localeDE.armory2database_txt3, MsgBoxStyle.Critical, localeDE.armory2database_txt3)
+                    MsgBox(localeDE.armory2database_txt2 & vbNewLine & localeDE.armory2database_txt3,
+                           MsgBoxStyle.Critical, localeDE.armory2database_txt3)
                 Else
-                    MsgBox(localeEN.armory2database_txt2 & vbNewLine & localeEN.armory2database_txt3, MsgBoxStyle.Critical, localeEN.armory2database_txt3)
+                    MsgBox(localeEN.armory2database_txt2 & vbNewLine & localeEN.armory2database_txt3,
+                           MsgBoxStyle.Critical, localeEN.armory2database_txt3)
                 End If
                 Exit Sub
             End If
         End If
-
     End Sub
-    
 
 
     Private Function trytoconnect(ByVal connectionstring As String) As Boolean
@@ -192,12 +282,12 @@ Public Class Database2Database
 
             If SQLConnection.State = ConnectionState.Closed Then
                 SQLConnection.Open()
-
+                SQLConnection.Close()
+                SQLConnection.Dispose()
                 Return True
 
 
-                SQLConnection.Close()
-                SQLConnection.Dispose()
+
 
             Else
 
@@ -216,17 +306,16 @@ Public Class Database2Database
 
 
         End Try
-
-
     End Function
-    Private Sub Button13_Click(sender As System.Object, e As System.EventArgs) Handles Button13.Click
+
+    Private Sub Button13_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button13.Click
         address.Text = My.Settings.address
         port.Text = My.Settings.port
         user.Text = My.Settings.user
         password.Text = My.Settings.pass
     End Sub
 
-    Private Sub Database2Database_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub Database2Database_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         runfunction.writelog("Database2Database_Load call")
         Me.MaximumSize = Me.Size
         auth.Text = My.Settings.realmd
@@ -244,38 +333,34 @@ Public Class Database2Database
         Me.BringToFront()
     End Sub
 
-    Private Sub connectpanel_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles connectpanel.Paint
-
+    Private Sub connectpanel_Paint(ByVal sender As Object, ByVal e As PaintEventArgs) Handles connectpanel.Paint
     End Sub
 
-    Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button2.Click
         runfunction.writelog("Database2Database_closing call")
         Me.Close()
         Starter.Show()
     End Sub
 
-    Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
-      
-
+    Private Sub Timer1_Tick(ByVal sender As Object, ByVal e As EventArgs) Handles Timer1.Tick
     End Sub
 
 
-
-    Private Sub male_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles male.CheckedChanged
+    Private Sub male_CheckedChanged(sender As Object, e As EventArgs) Handles male.CheckedChanged
         If male.Checked = True Then
             female.Checked = False
             genderstay.Checked = False
         End If
     End Sub
 
-    Private Sub female_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles female.CheckedChanged
+    Private Sub female_CheckedChanged(sender As Object, e As EventArgs) Handles female.CheckedChanged
         If female.Checked = True Then
             male.Checked = False
             genderstay.Checked = False
         End If
     End Sub
 
-    Private Sub tbc_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbc.CheckedChanged
+    Private Sub tbc_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles tbc.CheckedChanged
         If tbc.Checked = True Then
             runfunction.writelog("tbc checked")
             Main.xpac = 2
@@ -284,11 +369,9 @@ Public Class Database2Database
             wotlk.Checked = False
             cata.Checked = False
         End If
-
-
     End Sub
 
-    Private Sub classic_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles classic.CheckedChanged
+    Private Sub classic_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles classic.CheckedChanged
         If classic.Checked = True Then
             runfunction.writelog("classic checked")
             Main.xpac = 1
@@ -297,10 +380,9 @@ Public Class Database2Database
             wotlk.Checked = False
             cata.Checked = False
         End If
-
     End Sub
 
-    Private Sub wotlk_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles wotlk.CheckedChanged
+    Private Sub wotlk_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles wotlk.CheckedChanged
         If wotlk.Checked = True Then
             runfunction.writelog("wotlk checked")
             Main.xpac = 3
@@ -309,10 +391,9 @@ Public Class Database2Database
             classic.Checked = False
             cata.Checked = False
         End If
-
     End Sub
 
-    Private Sub cata_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cata.CheckedChanged
+    Private Sub cata_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles cata.CheckedChanged
         If cata.Checked = True Then
             runfunction.writelog("cata checked")
             Main.xpac = 4
@@ -321,8 +402,8 @@ Public Class Database2Database
             wotlk.Checked = False
             classic.Checked = False
         End If
-
     End Sub
+
     Public Sub button4click()
         trinitycore1.opensql()
         If trinity1.Checked = True Then
@@ -406,7 +487,6 @@ Public Class Database2Database
                         End If
 
 
-
                     ElseIf Database_Interface.CheckBox3.Checked = True Then
                         If Database_Interface.trinity1.Checked = True Then
                             Dim sLines() As String = Database_Interface.charnames.Lines
@@ -464,8 +544,18 @@ Public Class Database2Database
                         cui.readtempdataset(counter)
 
                         Application.DoEvents()
-                        Dim newid As String = (CInt(Val(runcommandRealmd("SELECT id FROM account WHERE id=(SELECT MAX(id) FROM account)", "id"))) + 1).ToString
-                        trinitycore1.create_new_account_if_not_exist(Main.accountname, "INSERT INTO account ( `id`, `username`, `sha_pass_hash`, `sessionkey`, `v`, `s`, `email`, `joindate`, `expansion`, locale ) VALUES ( '" & newid & "', '" & Main.accountname & "', '" & Main.sha_pass_hash & "', '" & Main.sessionkey & "', '" & Main.account_v & "', '" & Main.account_s & "', '" & Main.email & "', '" & Main.joindate & "', '" & Main.expansion & "', '" & Main.locale & "' )", newid)
+                        Dim newid As String =
+                                (CInt(
+                                    Val(runcommandRealmd("SELECT id FROM account WHERE id=(SELECT MAX(id) FROM account)",
+                                                         "id"))) + 1).ToString
+                        trinitycore1.create_new_account_if_not_exist(Main.accountname,
+                                                                     "INSERT INTO account ( `id`, `username`, `sha_pass_hash`, `sessionkey`, `v`, `s`, `email`, `joindate`, `expansion`, locale ) VALUES ( '" &
+                                                                     newid & "', '" & Main.accountname & "', '" &
+                                                                     Main.sha_pass_hash & "', '" & Main.sessionkey &
+                                                                     "', '" & Main.account_v & "', '" & Main.account_s &
+                                                                     "', '" & Main.email & "', '" & Main.joindate &
+                                                                     "', '" & Main.expansion & "', '" & Main.locale &
+                                                                     "' )", newid)
                         trinitycore1.adddetailedchar(Main.accountname, Main.char_name, namechange1.Checked)
                         If items.Checked = True Then trinitycore1.additems()
                         If enchantments.Checked = True Then trinitycore1.addench()
@@ -475,7 +565,8 @@ Public Class Database2Database
                         If female.Checked = True Then trinitycore1.setgender("1")
                         If genderstay.Checked = True Then trinitycore1.setgender(Main.char_gender.ToString)
                         If level.Checked = True Then trinitycore1.setlevel()
-                        If alternatelevellabel.Checked = True Then trinitycore1.setalternatelevel(alternateleveltext.Text)
+                        If alternatelevellabel.Checked = True Then _
+                            trinitycore1.setalternatelevel(alternateleveltext.Text)
                         If race.Checked = True Then trinitycore1.setrace()
                         If playerclass.Checked = True Then trinitycore1.setclass()
                         If goldlabel.Checked = True Then trinitycore1.setgold(goldtext.Text)
@@ -500,8 +591,18 @@ Public Class Database2Database
                         Main.cuisets -= 1
 
 
-                        Dim newid As String = (CInt(Val(runcommandRealmd("SELECT id FROM account WHERE id=(SELECT MAX(id) FROM account)", "id"))) + 1).ToString
-                        trinitycore1.create_new_account_if_not_exist(Main.accountname, "INSERT INTO account ( `id`, `username`, `sha_pass_hash`, `sessionkey`, `v`, `s`, `email`, `joindate`, `expansion`, locale ) VALUES ( '" & newid & "', '" & Main.accountname & "', '" & Main.sha_pass_hash & "', '" & Main.sessionkey & "', '" & Main.account_v & "', '" & Main.account_s & "', '" & Main.email & "', '" & Main.joindate & "', '" & Main.expansion & "', '" & Main.locale & "' )", newid)
+                        Dim newid As String =
+                                (CInt(
+                                    Val(runcommandRealmd("SELECT id FROM account WHERE id=(SELECT MAX(id) FROM account)",
+                                                         "id"))) + 1).ToString
+                        trinitycore1.create_new_account_if_not_exist(Main.accountname,
+                                                                     "INSERT INTO account ( `id`, `username`, `sha_pass_hash`, `sessionkey`, `v`, `s`, `email`, `joindate`, `expansion`, locale ) VALUES ( '" &
+                                                                     newid & "', '" & Main.accountname & "', '" &
+                                                                     Main.sha_pass_hash & "', '" & Main.sessionkey &
+                                                                     "', '" & Main.account_v & "', '" & Main.account_s &
+                                                                     "', '" & Main.email & "', '" & Main.joindate &
+                                                                     "', '" & Main.expansion & "', '" & Main.locale &
+                                                                     "' )", newid)
 
                         trinitycore1.adddetailedchar(Main.accountname, Main.char_name, namechange1.Checked)
 
@@ -514,7 +615,8 @@ Public Class Database2Database
                         If female.Checked = True Then trinitycore1.setgender("1")
                         If genderstay.Checked = True Then trinitycore1.setgender(Main.char_gender.ToString)
                         If level.Checked = True Then trinitycore1.setlevel()
-                        If alternatelevellabel.Checked = True Then trinitycore1.setalternatelevel(alternateleveltext.Text)
+                        If alternatelevellabel.Checked = True Then _
+                            trinitycore1.setalternatelevel(alternateleveltext.Text)
                         If race.Checked = True Then trinitycore1.setrace()
                         If playerclass.Checked = True Then trinitycore1.setclass()
                         If goldlabel.Checked = True Then trinitycore1.setgold(goldtext.Text)
@@ -665,7 +767,8 @@ Public Class Database2Database
                                 If female.Checked = True Then trinitycore1.setgender("1")
                                 If genderstay.Checked = True Then trinitycore1.setgender(Main.char_gender.ToString)
                                 If level.Checked = True Then trinitycore1.setlevel()
-                                If alternatelevellabel.Checked = True Then trinitycore1.setalternatelevel(alternateleveltext.Text)
+                                If alternatelevellabel.Checked = True Then _
+                                    trinitycore1.setalternatelevel(alternateleveltext.Text)
                                 If race.Checked = True Then trinitycore1.setrace()
                                 If playerclass.Checked = True Then trinitycore1.setclass()
                                 If goldlabel.Checked = True Then trinitycore1.setgold(goldtext.Text)
@@ -697,7 +800,6 @@ Public Class Database2Database
                                 Main.cuisets -= 1
 
 
-
                                 trinitycore1.adddetailedchar(sLines(i), Main.char_name, namechange1.Checked)
 
                                 '  trinitycore1.updatechars(sLines(i), Main.char_name, namechange2.Checked)
@@ -709,7 +811,8 @@ Public Class Database2Database
                                 If female.Checked = True Then trinitycore1.setgender("1")
                                 If genderstay.Checked = True Then trinitycore1.setgender(Main.char_gender.ToString)
                                 If level.Checked = True Then trinitycore1.setlevel()
-                                If alternatelevellabel.Checked = True Then trinitycore1.setalternatelevel(alternateleveltext.Text)
+                                If alternatelevellabel.Checked = True Then _
+                                    trinitycore1.setalternatelevel(alternateleveltext.Text)
                                 If race.Checked = True Then trinitycore1.setrace()
                                 If playerclass.Checked = True Then trinitycore1.setclass()
                                 If goldlabel.Checked = True Then trinitycore1.setgold(goldtext.Text)
@@ -728,9 +831,6 @@ Public Class Database2Database
                     Next
                 End If
             End If
-
-
-
 
 
         ElseIf mangos.Checked = True Then
@@ -814,7 +914,6 @@ Public Class Database2Database
                         End If
 
 
-
                     ElseIf Database_Interface.CheckBox3.Checked = True Then
                         If Database_Interface.trinity1.Checked = True Then
                             Dim sLines() As String = Database_Interface.charnames.Lines
@@ -872,8 +971,19 @@ Public Class Database2Database
                         cui.readtempdataset(counter)
 
                         Application.DoEvents()
-                        Dim newid As String = (CInt(Val(runcommandRealmd("SELECT id FROM account WHERE id=(SELECT MAX(id) FROM account)", "id"))) + 1).ToString
-                        mangoscore.create_new_account_if_not_exist(Main.accountname, "INSERT INTO account ( `id`, `username`, gmlevel,`sha_pass_hash`, `sessionkey`, `v`, `s`, `email`, `joindate`, active_realm_id, `expansion`, locale ) VALUES ( '" & newid & "', '" & Main.accountname & "', '" & Main.account_access_gmlevel.ToString & "', '" & Main.sha_pass_hash & "', '" & Main.sessionkey & "', '" & Main.account_v & "', '" & Main.account_s & "', '" & Main.email & "', '" & Main.joindate & "', '" & Main.account_access_RealmID & "', '" & Main.expansion & "', '" & Main.locale & "' )", newid)
+                        Dim newid As String =
+                                (CInt(
+                                    Val(runcommandRealmd("SELECT id FROM account WHERE id=(SELECT MAX(id) FROM account)",
+                                                         "id"))) + 1).ToString
+                        mangoscore.create_new_account_if_not_exist(Main.accountname,
+                                                                   "INSERT INTO account ( `id`, `username`, gmlevel,`sha_pass_hash`, `sessionkey`, `v`, `s`, `email`, `joindate`, active_realm_id, `expansion`, locale ) VALUES ( '" &
+                                                                   newid & "', '" & Main.accountname & "', '" &
+                                                                   Main.account_access_gmlevel.ToString & "', '" &
+                                                                   Main.sha_pass_hash & "', '" & Main.sessionkey &
+                                                                   "', '" & Main.account_v & "', '" & Main.account_s &
+                                                                   "', '" & Main.email & "', '" & Main.joindate & "', '" &
+                                                                   Main.account_access_RealmID & "', '" & Main.expansion &
+                                                                   "', '" & Main.locale & "' )", newid)
                         mangoscore.adddetailedchar(Main.accountname, Main.char_name, namechange1.Checked)
                         If items.Checked = True Then mangoscore.additems()
                         If enchantments.Checked = True Then mangoscore.addench()
@@ -908,8 +1018,19 @@ Public Class Database2Database
                         Main.cuisets -= 1
 
 
-                        Dim newid As String = (CInt(Val(runcommandRealmd("SELECT id FROM account WHERE id=(SELECT MAX(id) FROM account)", "id"))) + 1).ToString
-                        mangoscore.create_new_account_if_not_exist(Main.accountname, "INSERT INTO account ( `id`, `username`, gmlevel,`sha_pass_hash`, `sessionkey`, `v`, `s`, `email`, `joindate`, active_realm_id, `expansion`, locale ) VALUES ( '" & newid & "', '" & Main.accountname & "', '" & Main.account_access_gmlevel.ToString & "', '" & Main.sha_pass_hash & "', '" & Main.sessionkey & "', '" & Main.account_v & "', '" & Main.account_s & "', '" & Main.email & "', '" & Main.joindate & "', '" & Main.account_access_RealmID & "', '" & Main.expansion & "', '" & Main.locale & "' )", newid)
+                        Dim newid As String =
+                                (CInt(
+                                    Val(runcommandRealmd("SELECT id FROM account WHERE id=(SELECT MAX(id) FROM account)",
+                                                         "id"))) + 1).ToString
+                        mangoscore.create_new_account_if_not_exist(Main.accountname,
+                                                                   "INSERT INTO account ( `id`, `username`, gmlevel,`sha_pass_hash`, `sessionkey`, `v`, `s`, `email`, `joindate`, active_realm_id, `expansion`, locale ) VALUES ( '" &
+                                                                   newid & "', '" & Main.accountname & "', '" &
+                                                                   Main.account_access_gmlevel.ToString & "', '" &
+                                                                   Main.sha_pass_hash & "', '" & Main.sessionkey &
+                                                                   "', '" & Main.account_v & "', '" & Main.account_s &
+                                                                   "', '" & Main.email & "', '" & Main.joindate & "', '" &
+                                                                   Main.account_access_RealmID & "', '" & Main.expansion &
+                                                                   "', '" & Main.locale & "' )", newid)
 
                         mangoscore.adddetailedchar(Main.accountname, Main.char_name, namechange1.Checked)
 
@@ -1072,7 +1193,8 @@ Public Class Database2Database
                                 If female.Checked = True Then mangoscore.setgender("1")
                                 If genderstay.Checked = True Then mangoscore.setgender(Main.char_gender.ToString)
                                 If level.Checked = True Then mangoscore.setlevel()
-                                If alternatelevellabel.Checked = True Then mangoscore.setalternatelevel(alternateleveltext.Text)
+                                If alternatelevellabel.Checked = True Then _
+                                    mangoscore.setalternatelevel(alternateleveltext.Text)
                                 If race.Checked = True Then mangoscore.setrace()
                                 If playerclass.Checked = True Then mangoscore.setclass()
                                 If goldlabel.Checked = True Then mangoscore.setgold(goldtext.Text)
@@ -1104,7 +1226,6 @@ Public Class Database2Database
                                 Main.cuisets -= 1
 
 
-
                                 mangoscore.adddetailedchar(sLines(i), Main.char_name, namechange1.Checked)
 
                                 '  mangoscore.updatechars(sLines(i), Main.char_name, namechange2.Checked)
@@ -1116,7 +1237,8 @@ Public Class Database2Database
                                 If female.Checked = True Then mangoscore.setgender("1")
                                 If genderstay.Checked = True Then mangoscore.setgender(Main.char_gender.ToString)
                                 If level.Checked = True Then mangoscore.setlevel()
-                                If alternatelevellabel.Checked = True Then mangoscore.setalternatelevel(alternateleveltext.Text)
+                                If alternatelevellabel.Checked = True Then _
+                                    mangoscore.setalternatelevel(alternateleveltext.Text)
                                 If race.Checked = True Then mangoscore.setrace()
                                 If playerclass.Checked = True Then mangoscore.setclass()
                                 If goldlabel.Checked = True Then mangoscore.setgold(goldtext.Text)
@@ -1216,7 +1338,6 @@ Public Class Database2Database
                         End If
 
 
-
                     ElseIf Database_Interface.CheckBox3.Checked = True Then
                         If Database_Interface.trinity1.Checked = True Then
                             Dim sLines() As String = Database_Interface.charnames.Lines
@@ -1274,8 +1395,19 @@ Public Class Database2Database
                         cui.readtempdataset(counter)
 
                         Application.DoEvents()
-                        Dim newid As String = (CInt(Val(runcommandRealmd("SELECT id FROM account WHERE id=(SELECT MAX(id) FROM account)", "id"))) + 1).ToString
-                        arcemucore.create_new_account_if_not_exist(Main.accountname, "INSERT INTO account ( `id`, `username`, gmlevel,`sha_pass_hash`, `sessionkey`, `v`, `s`, `email`, `joindate`, active_realm_id, `expansion`, locale ) VALUES ( '" & newid & "', '" & Main.accountname & "', '" & Main.account_access_gmlevel.ToString & "', '" & Main.sha_pass_hash & "', '" & Main.sessionkey & "', '" & Main.account_v & "', '" & Main.account_s & "', '" & Main.email & "', '" & Main.joindate & "', '" & Main.account_access_RealmID & "', '" & Main.expansion & "', '" & Main.locale & "' )", newid)
+                        Dim newid As String =
+                                (CInt(
+                                    Val(runcommandRealmd("SELECT id FROM account WHERE id=(SELECT MAX(id) FROM account)",
+                                                         "id"))) + 1).ToString
+                        arcemucore.create_new_account_if_not_exist(Main.accountname,
+                                                                   "INSERT INTO account ( `id`, `username`, gmlevel,`sha_pass_hash`, `sessionkey`, `v`, `s`, `email`, `joindate`, active_realm_id, `expansion`, locale ) VALUES ( '" &
+                                                                   newid & "', '" & Main.accountname & "', '" &
+                                                                   Main.account_access_gmlevel.ToString & "', '" &
+                                                                   Main.sha_pass_hash & "', '" & Main.sessionkey &
+                                                                   "', '" & Main.account_v & "', '" & Main.account_s &
+                                                                   "', '" & Main.email & "', '" & Main.joindate & "', '" &
+                                                                   Main.account_access_RealmID & "', '" & Main.expansion &
+                                                                   "', '" & Main.locale & "' )", newid)
                         arcemucore.adddetailedchar(Main.accountname, Main.char_name, namechange1.Checked)
                         If items.Checked = True Then arcemucore.additems()
                         If enchantments.Checked = True Then arcemucore.addench()
@@ -1310,8 +1442,19 @@ Public Class Database2Database
                         Main.cuisets -= 1
 
 
-                        Dim newid As String = (CInt(Val(runcommandRealmd("SELECT id FROM account WHERE id=(SELECT MAX(id) FROM account)", "id"))) + 1).ToString
-                        arcemucore.create_new_account_if_not_exist(Main.accountname, "INSERT INTO account ( `id`, `username`, gmlevel,`sha_pass_hash`, `sessionkey`, `v`, `s`, `email`, `joindate`, active_realm_id, `expansion`, locale ) VALUES ( '" & newid & "', '" & Main.accountname & "', '" & Main.account_access_gmlevel.ToString & "', '" & Main.sha_pass_hash & "', '" & Main.sessionkey & "', '" & Main.account_v & "', '" & Main.account_s & "', '" & Main.email & "', '" & Main.joindate & "', '" & Main.account_access_RealmID & "', '" & Main.expansion & "', '" & Main.locale & "' )", newid)
+                        Dim newid As String =
+                                (CInt(
+                                    Val(runcommandRealmd("SELECT id FROM account WHERE id=(SELECT MAX(id) FROM account)",
+                                                         "id"))) + 1).ToString
+                        arcemucore.create_new_account_if_not_exist(Main.accountname,
+                                                                   "INSERT INTO account ( `id`, `username`, gmlevel,`sha_pass_hash`, `sessionkey`, `v`, `s`, `email`, `joindate`, active_realm_id, `expansion`, locale ) VALUES ( '" &
+                                                                   newid & "', '" & Main.accountname & "', '" &
+                                                                   Main.account_access_gmlevel.ToString & "', '" &
+                                                                   Main.sha_pass_hash & "', '" & Main.sessionkey &
+                                                                   "', '" & Main.account_v & "', '" & Main.account_s &
+                                                                   "', '" & Main.email & "', '" & Main.joindate & "', '" &
+                                                                   Main.account_access_RealmID & "', '" & Main.expansion &
+                                                                   "', '" & Main.locale & "' )", newid)
 
                         arcemucore.adddetailedchar(Main.accountname, Main.char_name, namechange1.Checked)
 
@@ -1474,7 +1617,8 @@ Public Class Database2Database
                                 If female.Checked = True Then arcemucore.setgender("1")
                                 If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
                                 If level.Checked = True Then arcemucore.setlevel()
-                                If alternatelevellabel.Checked = True Then arcemucore.setalternatelevel(alternateleveltext.Text)
+                                If alternatelevellabel.Checked = True Then _
+                                    arcemucore.setalternatelevel(alternateleveltext.Text)
                                 If race.Checked = True Then arcemucore.setrace()
                                 If playerclass.Checked = True Then arcemucore.setclass()
                                 If goldlabel.Checked = True Then arcemucore.setgold(goldtext.Text)
@@ -1506,7 +1650,6 @@ Public Class Database2Database
                                 Main.cuisets -= 1
 
 
-
                                 arcemucore.adddetailedchar(sLines(i), Main.char_name, namechange1.Checked)
 
                                 '  arcemucore.updatechars(sLines(i), Main.char_name, namechange2.Checked)
@@ -1518,7 +1661,8 @@ Public Class Database2Database
                                 If female.Checked = True Then arcemucore.setgender("1")
                                 If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
                                 If level.Checked = True Then arcemucore.setlevel()
-                                If alternatelevellabel.Checked = True Then arcemucore.setalternatelevel(alternateleveltext.Text)
+                                If alternatelevellabel.Checked = True Then _
+                                    arcemucore.setalternatelevel(alternateleveltext.Text)
                                 If race.Checked = True Then arcemucore.setrace()
                                 If playerclass.Checked = True Then arcemucore.setclass()
                                 If goldlabel.Checked = True Then arcemucore.setgold(goldtext.Text)
@@ -1548,7 +1692,8 @@ Public Class Database2Database
         Starter.Show()
         Me.Close()
     End Sub
-    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
+
+    Private Sub Button4_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button4.Click
         Dim errortext As String = ""
         If CheckBox3.Checked = True Then
 
@@ -1563,15 +1708,18 @@ Public Class Database2Database
                 Else
                     If trinity1.Checked = True Then
                         trinitycore1.opensql()
-                        If trinitycore1.accountexist((sLines(i)).ToUpper) = False Then errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
+                        If trinitycore1.accountexist((sLines(i)).ToUpper) = False Then _
+                            errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     ElseIf mangos.Checked = True Then
                         trinitycore1.opensql()
-                        If mangoscore.accountexist((sLines(i)).ToUpper) = False Then errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
+                        If mangoscore.accountexist((sLines(i)).ToUpper) = False Then _
+                            errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     Else
                         trinitycore1.opensql()
-                        If arcemucore.accountexist((sLines(i)).ToUpper) = False Then errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
+                        If arcemucore.accountexist((sLines(i)).ToUpper) = False Then _
+                            errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     End If
                 End If
@@ -1580,7 +1728,8 @@ Public Class Database2Database
 
         End If
         If Not errortext = "" Then
-            MsgBox("The following errors occurred:" & vbNewLine & vbNewLine & errortext, MsgBoxStyle.Critical, "Attention!")
+            MsgBox("The following errors occurred:" & vbNewLine & vbNewLine & errortext, MsgBoxStyle.Critical,
+                   "Attention!")
             Exit Sub
         End If
 
@@ -1611,19 +1760,17 @@ Public Class Database2Database
         Else
 
         End If
-
-
     End Sub
 
-    Private Sub CheckBox3_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox3.CheckedChanged
+    Private Sub CheckBox3_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles CheckBox3.CheckedChanged
         If CheckBox3.Checked = True Then
             runfunction.writelog("Checkbox3 checked")
             CheckBox2.Checked = False
         Else
             CheckBox2.Checked = True
         End If
-
     End Sub
+
     Private Function runcommandRealmd(ByVal command As String, ByVal spalte As String) As String
         Dim conn As New MySqlConnection(Main.ServerStringRealmd)
         Dim da As New MySqlDataAdapter(command, conn)
@@ -1635,8 +1782,11 @@ Public Class Database2Database
             conn.Dispose()
         End Try
         da.Fill(dt)
-        conn.Close()
-        conn.Dispose()
+        Try
+            conn.Close()
+            conn.Dispose()
+        Catch :
+        End Try
         Dim lastcount As Integer = CInt(Val(dt.Rows.Count.ToString))
 
         If Not lastcount = 0 Then
@@ -1653,10 +1803,7 @@ Public Class Database2Database
     End Function
 
 
-
-
-
-    Private Sub items_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles items.CheckedChanged
+    Private Sub items_CheckedChanged(sender As Object, e As EventArgs) Handles items.CheckedChanged
         If items.Checked = True Then
 
             enchantments.Enabled = True
@@ -1668,7 +1815,7 @@ Public Class Database2Database
         End If
     End Sub
 
-    Private Sub namechange1_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles namechange1.CheckedChanged
+    Private Sub namechange1_CheckedChanged(sender As Object, e As EventArgs) Handles namechange1.CheckedChanged
         If namechange1.Checked = True Then
             namechange2.Checked = False
 
@@ -1677,7 +1824,7 @@ Public Class Database2Database
         End If
     End Sub
 
-    Private Sub namechange2_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles namechange2.CheckedChanged
+    Private Sub namechange2_CheckedChanged(sender As Object, e As EventArgs) Handles namechange2.CheckedChanged
         If namechange2.Checked = True Then
             namechange1.Checked = False
 
@@ -1686,15 +1833,14 @@ Public Class Database2Database
         End If
     End Sub
 
-    Private Sub optionspanel_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles optionspanel.Paint
-
+    Private Sub optionspanel_Paint(sender As Object, e As PaintEventArgs) Handles optionspanel.Paint
     End Sub
 
-    Private Sub CheckBox9_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles pvp.CheckedChanged
-
+    Private Sub CheckBox9_CheckedChanged(sender As Object, e As EventArgs) Handles pvp.CheckedChanged
     End Sub
 
-    Private Sub LinkLabel1_LinkClicked(sender As System.Object, e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) _
+        Handles LinkLabel1.LinkClicked
         items.Checked = True
 
         enchantments.Checked = True
@@ -1710,14 +1856,13 @@ Public Class Database2Database
         ruf.Checked = True
         inventar.Checked = True
         gold.Checked = True
-
     End Sub
 
-    Private Sub alternatelevellabel_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles alternatelevellabel.CheckedChanged
-
+    Private Sub alternatelevellabel_CheckedChanged(sender As Object, e As EventArgs) _
+        Handles alternatelevellabel.CheckedChanged
     End Sub
 
-    Private Sub CheckBox2_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox2.CheckedChanged
+    Private Sub CheckBox2_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox2.CheckedChanged
         If CheckBox2.Checked = True Then
             runfunction.writelog("Checkbox2 checked")
             CheckBox3.Checked = False
@@ -1726,21 +1871,21 @@ Public Class Database2Database
         End If
     End Sub
 
-    Private Sub genderstay_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles genderstay.CheckedChanged
+    Private Sub genderstay_CheckedChanged(sender As Object, e As EventArgs) Handles genderstay.CheckedChanged
         If genderstay.Checked = True Then
             female.Checked = False
             male.Checked = False
         End If
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button1.Click
         runfunction.writelog("Database2Database_closing call")
         Database_Interface.Close()
         Me.Close()
         Starter.Show()
     End Sub
 
-    Private Sub Button3_Click(sender As System.Object, e As System.EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         My.Settings.address = address.Text
         My.Settings.port = port.Text
         My.Settings.user = user.Text
@@ -1751,15 +1896,15 @@ Public Class Database2Database
             My.Settings.favcore = 2
         ElseIf arcemu.Checked = True Then
             My.Settings.favcore = 3
-        Else : End If
+        Else :
+        End If
         My.Settings.Save()
     End Sub
 
-    Private Sub GroupBox4_Enter(sender As System.Object, e As System.EventArgs) Handles GroupBox4.Enter
-
+    Private Sub GroupBox4_Enter(sender As Object, e As EventArgs) Handles GroupBox4.Enter
     End Sub
 
-    Private Sub trinity1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles trinity1.CheckedChanged
+    Private Sub trinity1_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles trinity1.CheckedChanged
         If trinity1.Checked = True Then
             runfunction.writelog("Trinity checked")
         Else
@@ -1767,7 +1912,7 @@ Public Class Database2Database
         End If
     End Sub
 
-    Private Sub mangos_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mangos.CheckedChanged
+    Private Sub mangos_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles mangos.CheckedChanged
         If mangos.Checked = True Then
             runfunction.writelog("mangos checked")
         Else
@@ -1775,7 +1920,7 @@ Public Class Database2Database
         End If
     End Sub
 
-    Private Sub arcemu_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles arcemu.CheckedChanged
+    Private Sub arcemu_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles arcemu.CheckedChanged
         If arcemu.Checked = True Then
             runfunction.writelog("arcemu checked")
         Else

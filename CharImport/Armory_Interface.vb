@@ -1,6 +1,8 @@
 ﻿
+Imports System.Threading
+Imports System.Globalization
 Imports System.Net
-Imports System.Text
+
 Public Class Armory_Interface
     Dim armoryproc As New prozedur_armory
     Dim reporttext As RichTextBox
@@ -14,15 +16,17 @@ Public Class Armory_Interface
     Public Sub New()
         MyBase.New()
 
-        Threading.Thread.CurrentThread.CurrentUICulture = New Globalization.CultureInfo(My.Settings.language)
+        Thread.CurrentThread.CurrentUICulture = New CultureInfo(My.Settings.language)
         InitializeComponent()
     End Sub
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+
+    Private Sub Button2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button2.Click
         My.Settings.shellclose = False
         My.Settings.Save()
         runfunction.writelog("""Copy Characters directly into Database"" selected")
         Main.importmode = 1
-        My.Settings.savecontent = "" ' ???? 29/07 should fix: (Load char from db > load char from armory > store it > import template = first character)
+        My.Settings.savecontent = ""
+        ' ???? 29/07 should fix: (Load char from db > load char from armory > store it > import template = first character)
         My.Settings.Save()
         Main.overview = False
         Main.linklist.Clear()
@@ -30,11 +34,11 @@ Public Class Armory_Interface
         My.Settings.shellclose = True
         My.Settings.Save()
         '   runfunction.writelog("Characters are: " & TextBox1.Text)
-     
+
         For Each xitem As ListViewItem In ListView1.Items
             Main.linklist.Add(xitem.SubItems(3).Text)
         Next
-        
+
         runfunction.writelog("Armory_Interface_Load call")
         If ListView1.Items.Count = 1 Then
             runfunction.writelog("Connect open request")
@@ -54,15 +58,14 @@ Public Class Armory_Interface
             runfunction.writelog("Armory_Interface_closing call")
 
         End If
-
     End Sub
 
-    Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub TextBox1_TextChanged(ByVal sender As Object, ByVal e As EventArgs)
 
 
         Dim xcount As Integer = 0
         Dim removecount As Integer = 0
-     
+
         If xcount - removecount = 1 Then
             Button3.Enabled = True
             Button1.Enabled = True
@@ -78,17 +81,18 @@ Public Class Armory_Interface
         End If
     End Sub
 
-    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button3.Click
         runfunction.writelog("""Character overview"" selected")
         runfunction.writelog("Set-All-Empty and Set-visible request")
         My.Settings.shellclose = False
-        My.Settings.savecontent = "" ' ???? 29/07 should fix: (Load char from db > load char from armory > store it > import template = first character)
+        My.Settings.savecontent = ""
+        ' ???? 29/07 should fix: (Load char from db > load char from armory > store it > import template = first character)
         My.Settings.Save()
         Main.setvisible(False)
         Main.setallempty()
         Main.overview = True
         runfunction.writelog("Character link is: " & ListView1.Items(0).SubItems(3).Text)
-      
+
         Main.importmode = 1
         Main.progressmode = 1
         Main.Show()
@@ -107,7 +111,7 @@ Public Class Armory_Interface
         Me.Close()
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button1.Click
         runfunction.writelog("""Store Armory Character into template"" selected")
         My.Settings.savecontent = ""
         My.Settings.Save()
@@ -134,7 +138,7 @@ Public Class Armory_Interface
 
             .CheckPathExists = True
 
-            If (.ShowDialog() = Windows.Forms.DialogResult.OK) Then
+            If (.ShowDialog() = DialogResult.OK) Then
 
                 writepath = .FileName()
             Else
@@ -158,15 +162,13 @@ Public Class Armory_Interface
         Main.linklist.Clear()
         Main.linklist = New List(Of String)
         ' runfunction.writelog("Links entered: " & TextBox1.Text)
-      
+
         Dim xnumber As Integer = 0
-       
+
         For Each xitem As ListViewItem In ListView1.Items
             Main.linklist.Add(xitem.SubItems(3).Text)
         Next
 
-
-         
 
         Process_Status.Show()
         For Each link As String In Main.linklist
@@ -190,18 +192,16 @@ Public Class Armory_Interface
         runfunction.writelog("Armory_Interface_closing call")
         Me.Close()
         Starter.Show()
-
     End Sub
 
-    Private Sub Button8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button8.Click
+    Private Sub Button8_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button8.Click
         Me.Close()
         runfunction.writelog("Armory_Interface_closing call")
         Starter.Show()
-
-
     End Sub
 
-    Private Sub Armory_Interface_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub Armory_Interface_FormClosing(ByVal sender As Object, ByVal e As FormClosingEventArgs) _
+        Handles Me.FormClosing
         If My.Settings.shellclose = False Then
             Starter.Show()
 
@@ -209,7 +209,7 @@ Public Class Armory_Interface
         End If
     End Sub
 
-    Private Sub Armory_Interface_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub Armory_Interface_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Main.getfromarmoryfirst = False
         runfunction.writelog("Armory_Interface_Load call")
         Me.MaximumSize = Me.Size
@@ -217,14 +217,13 @@ Public Class Armory_Interface
         Main.datasets = vbEmpty
     End Sub
 
-    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
+    Private Sub Button4_Click(ByVal sender As Object, ByVal e As EventArgs)
     End Sub
-   
- 
 
-    Private Sub add_button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles add_button.Click
-        Dim templink As String = "http://#replaceregion#.battle.net/wow/#replacelang#/character/#replacerealm#/#replacecharacter#/advanced"
+
+    Private Sub add_button_Click(ByVal sender As Object, ByVal e As EventArgs) Handles add_button.Click
+        Dim templink As String =
+                "http://#replaceregion#.battle.net/wow/#replacelang#/character/#replacerealm#/#replacecharacter#/advanced"
         If globalregion.SelectedItem Is Nothing Then
             If My.Settings.language = "de" Then
                 MsgBox(localeDE.regionnotset, MsgBoxStyle.Critical, localeDE.attention)
@@ -309,10 +308,11 @@ Public Class Armory_Interface
 
         End If
     End Sub
-    Private Sub ListView1_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles ListView1.MouseDown
+
+    Private Sub ListView1_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs) Handles ListView1.MouseDown
         ' Rechtsklick?
         ' Rechtsklick?
-        If e.Button = Windows.Forms.MouseButtons.Right Then
+        If e.Button = MouseButtons.Right Then
             ' Eintrag ermitteln ...
             Dim oItem As ListViewItem = ListView1.GetItemAt(e.X, e.Y)
             If oItem IsNot Nothing Then
@@ -328,14 +328,14 @@ Public Class Armory_Interface
 
             End If
         End If
-
     End Sub
-    Private Sub ToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem1.Click
+
+    Private Sub ToolStripMenuItem1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripMenuItem1.Click
         Try
             Dim xnummer = ListView1.SelectedItems(0).SubItems(2).Text
 
         Catch ex As Exception
-         
+
         End Try
 
         Dim I As Integer
@@ -358,28 +358,29 @@ Public Class Armory_Interface
             Button3.Enabled = False
         End If
     End Sub
-    Private Sub realmname_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles realmname.KeyDown
+
+    Private Sub realmname_KeyDown(ByVal sender As Object, ByVal e As KeyEventArgs) Handles realmname.KeyDown
         If e.KeyCode = Keys.Enter And Me.ActiveControl.Name Is "realmname" Then
             Me.SelectNextControl(Me.ActiveControl, True, True, True, True)
             e.Handled = True
         End If
     End Sub
-    Private Sub charname_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles charname.KeyDown
+
+    Private Sub charname_KeyDown(ByVal sender As Object, ByVal e As KeyEventArgs) Handles charname.KeyDown
         If e.KeyCode = Keys.Enter And Me.ActiveControl.Name Is "charname" Then
             Me.SelectNextControl(Me.ActiveControl, True, True, True, True)
             e.Handled = True
         End If
     End Sub
-  
-    Private Sub realmname_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles realmname.TextChanged
 
+    Private Sub realmname_TextChanged(ByVal sender As Object, ByVal e As EventArgs) Handles realmname.TextChanged
     End Sub
 
-    Private Sub globalregion_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles globalregion.SelectedIndexChanged
-
+    Private Sub globalregion_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) _
+        Handles globalregion.SelectedIndexChanged
     End Sub
 
-    Private Sub ListView1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListView1.SelectedIndexChanged
-
+    Private Sub ListView1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) _
+        Handles ListView1.SelectedIndexChanged
     End Sub
 End Class

@@ -1,16 +1,21 @@
-﻿Imports System.Net.Mail
+﻿Imports System.Threading
+Imports System.Globalization
+Imports System.Net.Mail
+Imports System.Net
 
 Public Class Database_Check
     Dim localeDE As New LanguageDE
     Dim localeEN As New LanguageEN
     Dim runfunction As New Functions
+
     Public Sub New()
         MyBase.New()
 
-        Threading.Thread.CurrentThread.CurrentUICulture = New Globalization.CultureInfo(My.Settings.language)
+        Thread.CurrentThread.CurrentUICulture = New CultureInfo(My.Settings.language)
         InitializeComponent()
     End Sub
-    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
+
+    Private Sub Button3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button3.Click
         runfunction.writelog("Cancel Transmission call")
         Main.nowexit = True
         Armory2Database.Close()
@@ -22,7 +27,7 @@ Public Class Database_Check
         Me.Close()
     End Sub
 
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button2.Click
         runfunction.writelog("Continue Transmission call with startcondition: " & Main.startcond.ToString)
         Me.Hide()
         Main.nowgoon = True
@@ -46,13 +51,13 @@ Public Class Database_Check
         Me.Close()
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button1.Click
         runfunction.writelog("Send report call")
         Try
 
             Dim smtpserver As New SmtpClient()
             Dim mail As New MailMessage()
-            smtpserver.Credentials = New Net.NetworkCredential("charimport@gmx.de", ".ciupass#")
+            smtpserver.Credentials = New NetworkCredential("charimport@gmx.de", ".ciupass#")
             ' smtpserver.Port = 465
             smtpserver.Host = "mail.gmx.net"
             smtpserver.EnableSsl = True
@@ -60,7 +65,9 @@ Public Class Database_Check
             mail.From = New MailAddress("charimport@gmx.de")
             mail.To.Add("geslauncher@web.de")
             mail.Subject = "Bugreport - CharImport"
-            mail.Body = "Fehlerbericht in Version " & Me.ProductVersion & " Tabellen-Überprüfungs-Bericht: " & vbNewLine & report.Text & vbNewLine & "////////////" & vbNewLine & Main.tableschema & vbNewLine & vbNewLine & " / System: " & System.Environment.OSVersion.ToString
+            mail.Body = "Fehlerbericht in Version " & Me.ProductVersion & " Tabellen-Überprüfungs-Bericht: " & vbNewLine &
+                        report.Text & vbNewLine & "////////////" & vbNewLine & Main.tableschema & vbNewLine & vbNewLine &
+                        " / System: " & Environment.OSVersion.ToString
             smtpserver.Send(mail)
         Catch ex As Exception
             runfunction.writelog("Error sending report: " & ex.ToString)
@@ -70,15 +77,11 @@ Public Class Database_Check
         Else
             MsgBox(localeEN.database_check_txt1, vbInformation)
         End If
-
     End Sub
 
-    Private Sub Database_Check_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub Database_Check_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         runfunction.writelog("Database_Check_Load call")
         Me.UseWaitCursor = False
         runfunction.writelog("DB Report: " & report.Text & vbNewLine & "Table_Schema: " & vbNewLine & Main.tableschema)
     End Sub
-
-   
-   
 End Class

@@ -15,23 +15,20 @@
 '
 
 
-Imports System.Windows.Forms
 
 Public Class wait
-
-    Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Me.DialogResult = System.Windows.Forms.DialogResult.OK
+    Private Sub OK_Button_Click(ByVal sender As Object, ByVal e As EventArgs)
+        Me.DialogResult = DialogResult.OK
         Me.Close()
     End Sub
 
-    Private Sub Cancel_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Me.DialogResult = System.Windows.Forms.DialogResult.Cancel
+    Private Sub Cancel_Button_Click(ByVal sender As Object, ByVal e As EventArgs)
+        Me.DialogResult = DialogResult.Cancel
         Me.Close()
     End Sub
 
-    Private Sub wait_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Sub wait_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.MaximumSize = Me.Size
         My.Application.DoEvents()
-
     End Sub
 End Class
