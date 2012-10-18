@@ -8,7 +8,9 @@
 /CharImport/bin/Release
 /CharImport/bin/old
 CharImport.suo
+Thumbs.db
 /CharImport/Resources/Thumbs.db
 *suo
 *vsp
 *psess
+*db
