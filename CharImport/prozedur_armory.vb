@@ -261,6 +261,10 @@ Public Class prozedur_armory
         Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Character loaded!" & vbNewLine)
         My.Application.DoEvents()
         saveglyphs()
+        getavs()
+        getquests()
+        getrep()
+        getplayerbytes()
 
         If xoverview = True Then
             addtoglyphlist("primeglyph1", Main.primeglyph1)
@@ -1659,7 +1663,7 @@ Public Class prozedur_armory
         MsgBox("Gegenstände wurden gefiltert!", MsgBoxStyle.Information, "Info")
         Main.BringToFront()
     End Sub
-    Private Sub getplayerbaytes()
+    Private Sub getplayerbytes()
         Dim tmpface As String = ""
         Dim tmpskin As String = ""
         Dim tmphairStyle As String = ""

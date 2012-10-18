@@ -135,6 +135,11 @@ However, there will be regular updates in order to support the latest revisions.
  &gt; Full support for "TBC" cores added
  &gt; Full support for "Cata" cores added
  &gt; Advanced filter options should now work for Tritity, ArcEmu and MaNGOS (forks)
+ &gt; When loading characters from WoW Armory following additional options should be transferable now:
+   &gt; Appearance of the character
+   &gt; Reputation
+   &gt; Finished quests
+   &gt; Gained achievements
  &gt; "MySqlException: Data truncated for column x" error should no longer occur
  &gt; Fixed an issue that could prevent item icons from loading
  &gt; Users will now be informed when a character or an account can not be found
