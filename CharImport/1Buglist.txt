@@ -23,6 +23,5 @@ Main Interface:
  > Starter Interface wird beim Schließen nicht angezeigt
 
 Weiteres:
- > Bevorzugtes Core automatisch auswählen
  > Bei Fehlerberichten ausgewähltes Core mitgeben
  > TBC Datenbanken inkompatibel
