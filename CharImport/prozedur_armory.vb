@@ -1715,6 +1715,7 @@ Public Class prozedur_armory
         Catch ex As Exception
 
         End Try
+        ' value?
 
     End Sub
     ' Main.character_reputatuion_list.Add("<faction>" & faction & "</faction><standing>" & standing & "</standing><flags>" & flags & "</flags>")
