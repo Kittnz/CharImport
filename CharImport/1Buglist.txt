@@ -19,9 +19,6 @@ SkyFireEmu:
 Connect Interface:
  > Starter Interface wird beim Schließen nicht angezeigt (ohne Übersicht)
 
-Main Interface:
- > Starter Interface wird beim Schließen nicht angezeigt
-
 Weiteres:
  > Bei Fehlerberichten ausgewähltes Core mitgeben
  > TBC Datenbanken inkompatibel
