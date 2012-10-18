@@ -1,0 +1,28 @@
+****************************************************************************************
+****************************************************************************************
+************************************** Bugs ********************************************
+****************************************************************************************
+
+****************************************************************************************
+****************************************************************************************
+..................Revision: 0.10 (xx)
+****************************************************************************************
+****************************************************************************************
+
+
+Glyphen Interface:
+ > Zurück Button überschattet Glyphenname
+
+SkyFireEmu:
+ > 3 Spalten der Charakter Datenbank werden nicht erkannt
+
+Connect Interface:
+ > Starter Interface wird beim Schließen nicht angezeigt (ohne Übersicht)
+
+Main Interface:
+ > Starter Interface wird beim Schließen nicht angezeigt
+
+Weiteres:
+ > Bevorzugtes Core automatisch auswählen
+ > Bei Fehlerberichten ausgewähltes Core mitgeben
+ > TBC Datenbanken inkompatibel
