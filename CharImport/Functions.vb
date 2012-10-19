@@ -768,55 +768,59 @@ Public Class Functions
     End Function
 
     Public Function getglyphid2(ByVal glyphid As String) As Integer
-        Process_Status.processreport.AppendText(
-            Now.TimeOfDay.ToString & "// Loading Glyphid from id: " & glyphid & "..." & vbNewLine)
-        Select Case Main.xpac
-            Case 3
-                xpacressource = My.Resources.GlyphProperties_335
-            Case 4
-                xpacressource = My.Resources.GlyphProperties_434
-            Case Else
-                xpacressource = My.Resources.GlyphProperties_335
-        End Select
-        Try
-            Dim clienyx88 As New WebClient
-            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://wowhead.com/item=" & glyphid)
-            Dim anfangyx88 As String = "<a href=""/spell="
-            Dim endeyx88 As String = """ "
-            Dim quellcodeSplityx88 As String
-            quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-            quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-            Process_Status.processreport.appendText(
-                Now.TimeOfDay.ToString & "/// SpellId of glyph is: " & quellcodeSplityx88 & "!?" & vbNewLine)
-            Dim zclienyx88 As New WebClient
-            Dim zquellcodeyx88 As String = xpacressource
-            Dim zanfangyx88 As String = "<spell>" & quellcodeSplityx88 & "</spell><entry2>"
-            Dim zendeyx88 As String = "</entry2><spell2>"
-            Dim zquellcodeSplityx88 As String
-            zquellcodeSplityx88 = Split(zquellcodeyx88, zanfangyx88, 5)(1)
-            zquellcodeSplityx88 = Split(zquellcodeSplityx88, zendeyx88, 6)(0)
+        If Not glyphid = "" And Not glyphid = " " Then
+            Process_Status.processreport.AppendText(
+                Now.TimeOfDay.ToString & "// Loading Glyphid from id: " & glyphid & "..." & vbNewLine)
+            Select Case Main.xpac
+                Case 3
+                    xpacressource = My.Resources.GlyphProperties_335
+                Case 4
+                    xpacressource = My.Resources.GlyphProperties_434
+                Case Else
+                    xpacressource = My.Resources.GlyphProperties_335
+            End Select
+            Try
+                Dim clienyx88 As New WebClient
+                Dim quellcodeyx88 As String = clienyx88.DownloadString("http://wowhead.com/item=" & glyphid)
+                Dim anfangyx88 As String = "<a href=""/spell="
+                Dim endeyx88 As String = """ "
+                Dim quellcodeSplityx88 As String
+                quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
+                quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
+                Process_Status.processreport.AppendText(
+                    Now.TimeOfDay.ToString & "/// SpellId of glyph is: " & quellcodeSplityx88 & "!?" & vbNewLine)
+                Dim zclienyx88 As New WebClient
+                Dim zquellcodeyx88 As String = xpacressource
+                Dim zanfangyx88 As String = "<spell>" & quellcodeSplityx88 & "</spell><entry2>"
+                Dim zendeyx88 As String = "</entry2><spell2>"
+                Dim zquellcodeSplityx88 As String
+                zquellcodeSplityx88 = Split(zquellcodeyx88, zanfangyx88, 5)(1)
+                zquellcodeSplityx88 = Split(zquellcodeSplityx88, zendeyx88, 6)(0)
 
-            If zquellcodeSplityx88.Length > 10 Then
+                If zquellcodeSplityx88.Length > 10 Then
+                    If Not glyphid = "0" Then _
+                        Process_Status.processreport.AppendText(
+                            Now.TimeOfDay.ToString & "> ERROR WHILE GETTING GLYPHID FROM ID: " & glyphid & vbNewLine)
+
+                    Return 0
+                Else
+                    Process_Status.processreport.AppendText(
+                        Now.TimeOfDay.ToString & "/// GlyphId is: " & zquellcodeSplityx88 & "!?" & vbNewLine)
+                    Return CInt(zquellcodeSplityx88)
+                End If
+
+            Catch ex As Exception
                 If Not glyphid = "0" Then _
-                    Process_Status.processreport.appendText(
-                        Now.TimeOfDay.ToString & "> ERROR WHILE GETTING GLYPHID FROM ID: " & glyphid & vbNewLine)
+                    Process_Status.processreport.AppendText(
+                        Now.TimeOfDay.ToString & "> ERROR WHILE GETTING GLYPHID FROM ID: " & glyphid & " ## " & ex.ToString &
+                        vbNewLine)
 
                 Return 0
-            Else
-                Process_Status.processreport.appendText(
-                    Now.TimeOfDay.ToString & "/// GlyphId is: " & zquellcodeSplityx88 & "!?" & vbNewLine)
-                Return CInt(zquellcodeSplityx88)
-            End If
+            End Try
 
-        Catch ex As Exception
-            If Not glyphid = "0" Then _
-                Process_Status.processreport.appendText(
-                    Now.TimeOfDay.ToString & "> ERROR WHILE GETTING GLYPHID FROM ID: " & glyphid & " ## " & ex.ToString &
-                    vbNewLine)
-
+        Else
             Return 0
-        End Try
-
+        End If
         'Dim trinitycore As New Trinity_core
         'Return trinitycore.getglyphid2(glyphid)
     End Function

@@ -2135,9 +2135,9 @@ Public Class ArcEmu_core
                 Now.TimeOfDay.ToString & "// Player will be asked to change character name! : reason-nce=true" &
                 vbNewLine)
             runfunction.normalsqlcommand(
-                "INSERT INTO characters ( `acct`, `guid`, `name`, `race`, `class`, `gender`, `level`, `xp`, `gold`, current_hp, `positionX`, positionY, positionZ, orientation, mapId, taximask, playedtime ) VALUES ( '" &
+                "INSERT INTO characters ( `acct`, `guid`, `name`, `race`, `class`, `gender`, `level`, `xp`, `gold`, current_hp, `bytes`, `positionX`, positionY, positionZ, orientation, mapId, taximask, playedtime ) VALUES ( '" &
                 targetaccount & "', '" & newcharguid.ToString & "', '" & charactername &
-                "', '0', '0', '0', '1', '0', '0', '1000','-14305.7', '514.08', '10', '4.30671', '0', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '98 98 5 ' )")
+                "', '0', '0', '0', '1', '0', '0', '1000', '" & Main.playerBytes & "', '-14305.7', '514.08', '10', '4.30671', '0', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '98 98 5 ' )")
 
             runfunction.normalsqlcommand(
                 "UPDATE characters SET forced_rename_pending='1' WHERE guid='" & newcharguid.ToString & "'")
@@ -2146,16 +2146,16 @@ Public Class ArcEmu_core
                 Process_Status.processreport.AppendText(
                     Now.TimeOfDay.ToString & "// Player will be asked to change charactername!" & vbNewLine)
                 runfunction.normalsqlcommand(
-                    "INSERT INTO characters ( `acct`, `guid`, `name`, `race`, `class`, `gender`, `level`, `xp`, `gold`, current_hp, `positionX`, positionY, positionZ, orientation, mapId, taximask, playedtime ) VALUES ( '" &
+                    "INSERT INTO characters ( `acct`, `guid`, `name`, `race`, `class`, `gender`, `level`, `xp`, `gold`, current_hp, `bytes`, `positionX`, positionY, positionZ, orientation, mapId, taximask, playedtime ) VALUES ( '" &
                     targetaccount & "', '" & newcharguid.ToString & "', '" & charactername &
-                    "', '0', '0', '0', '1', '0', '0', '1000','-14305.7', '514.08', '10', '4.30671', '0', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '98 98 5 ' )")
+                    "', '0', '0', '0', '1', '0', '0', '1000', '" & Main.playerBytes & "', '-14305.7', '514.08', '10', '4.30671', '0', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '98 98 5 ' )")
                 runfunction.normalsqlcommand(
                     "UPDATE characters SET forced_rename_pending ='1' WHERE guid='" & newcharguid.ToString & "'")
             Else
                 runfunction.normalsqlcommand(
-                    "INSERT INTO characters ( `acct`, `guid`, `name`, `race`, `class`, `gender`, `level`, `xp`, `gold`, current_hp, `positionX`, positionY, positionZ, orientation, mapId, taximask, playedtime ) VALUES ( '" &
+                    "INSERT INTO characters ( `acct`, `guid`, `name`, `race`, `class`, `gender`, `level`, `xp`, `gold`, current_hp, `bytes`, `positionX`, positionY, positionZ, orientation, mapId, taximask, playedtime ) VALUES ( '" &
                     targetaccount & "', '" & newcharguid.ToString & "', '" & charactername &
-                    "', '0', '0', '0', '1', '0', '0', '1000','-14305.7', '514.08', '10', '4.30671', '0', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '98 98 5 ' )")
+                    "', '0', '0', '0', '1', '0', '0', '1000', '" & Main.playerBytes & "', '-14305.7', '514.08', '10', '4.30671', '0', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '98 98 5 ' )")
                 runfunction.normalsqlcommand(
                     "UPDATE characters SET forced_rename_pending='0' WHERE guid='" & newcharguid.ToString & "'")
             End If
@@ -2172,8 +2172,8 @@ Public Class ArcEmu_core
                  1).ToString
 
         runfunction.normalsqlcommand(
-            "INSERT INTO playeritems ( ownerguid, guid, entry, flags, containerslot, slot ) VALUES ( '" & newguid &
-            "', '" & Main.coreguid & "', '6948', '1', '-1', '23' )")
+            "INSERT INTO playeritems ( ownerguid, guid, entry, flags, containerslot, slot ) VALUES ( '" & Main.coreguid &
+            "', '" & newguid & "', '6948', '1', '-1', '23' )")
 
         If Main.char_race = 1 Then
             If Main.char_class = 1 Then
@@ -2462,6 +2462,8 @@ Public Class ArcEmu_core
                     "81,133,168,203,204,227,522,668,2382,2479,3050,3127,3365,5009,5019,6233,6246,6247,6477,6478,6603,7266,7267,7355,8386,9078,9125,20579,21651,21652,22027,22810,28875,28878,28880,29932,")
             End If
         End If
+        addfinishedquests()
+        additems()
         Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "// Created Character " & charactername & "!" & vbNewLine)
         Application.DoEvents()
@@ -2472,7 +2474,7 @@ Public Class ArcEmu_core
         Dim excounter As Integer = UBound(skillstring.Split(CChar(";")))
         Dim startcounter As Integer = 0
         Do
-            Dim parts() As String = skillstring.Split(","c)
+            Dim parts() As String = skillstring.Split(";"c)
             Dim skillid As Integer = CInt(parts(startcounter))
             startcounter += 1
             Dim standing As Integer = CInt(parts(startcounter))
@@ -2596,6 +2598,8 @@ Public Class ArcEmu_core
             runfunction.normalsqlcommand(
                 "UPDATE characters SET custom_faction='" & Main.custom_faction & "' WHERE guid='" & newcharguid.ToString &
                 "'")
+        additems()
+        addfinishedquests()
         sethome()
         addaction()
         setqueststatus()
@@ -2644,7 +2648,9 @@ Public Class ArcEmu_core
 
         runfunction.normalsqlcommand("UPDATE characters SET forced_rename_pending='1' WHERE name='" & charname & "'")
     End Sub
-
+    Public Sub addfinishedquests()
+        runfunction.normalsqlcommand("UPDATE characters SET finished_quests='" & Main.finished_quests & "' WHERE guid='" & Main.coreguid & "'")
+    End Sub
     Public Sub getguidfromname(ByVal charactername As String)
         guid = runfunction.runcommand("SELECT guid FROM characters WHERE name = '" & charactername & "'", "guid")
         Main.coreguid = guid
@@ -3338,7 +3344,7 @@ Public Class ArcEmu_core
                                            "reputation")
             runfunction.normalsqlcommand(
                 "UPDATE characters SET reputation='" & selectrepstring & splitlist(repstring, "faction") & "," &
-                splitlist(repstring, "flags") & "," & splitlist(repstring, "standing") & "," &
+                splitlist(repstring, "flags") & ",0," &
                 splitlist(repstring, "standing") & ",' WHERE guid='" & Main.coreguid & "'")
             ' "<faction>" & faction & "</faction><standing>" & standing & "</standing><flags>" & flags & "</flags>"
         Next

@@ -417,31 +417,31 @@ Public Class Connect
         End Select
         If Main.progressmode = 0 Then
             spellitemtext = My.Resources.SpellItemEnchantmentCata
-            erfolge.Enabled = False
+            '   erfolge.Enabled = False
             talents.Enabled = False
-            erfolge.Enabled = False
-            skills.Enabled = False
+            '  erfolge.Enabled = False
+            '  skills.Enabled = False
             zauber.Enabled = False
             pvp.Enabled = False
-            ruf.Enabled = False
+            '  ruf.Enabled = False
             inventar.Enabled = False
             gold.Enabled = False
         ElseIf Main.progressmode = 1 Then
             spellitemtext = My.Resources.SpellItemEnchantmentCata
-            erfolge.Enabled = False
+            '  erfolge.Enabled = False
             talents.Enabled = False
-            erfolge.Enabled = False
-            skills.Enabled = False
+            '   erfolge.Enabled = False
+            '   skills.Enabled = False
             zauber.Enabled = False
             pvp.Enabled = False
-            ruf.Enabled = False
+            '  ruf.Enabled = False
             inventar.Enabled = False
             gold.Enabled = False
         Else
 
             spellitemtext = My.Resources.SpellItemEnchantment
         End If
-        spellitemtext = My.Resources.VZ_ID_wotlk
+      spellitemtext = My.Resources.VZ_ID_wotlk
         spellgemtext = My.Resources.GEM_ID_wotlk
     End Sub
 
@@ -1000,614 +1000,653 @@ Public Class Connect
                     If glyphs.Checked = True Then trinitycore1.addglyphs(xpansion)
                     If sockets.Checked = True Then trinitycore1.addgems()
                     If vzs.Checked = True Then trinitycore1.addenchantments()
-                    Process_Status.processreport.AppendText(
-                        Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
-                End If
-                If CheckBox2.Checked = True Then
-                    trinitycore1.getguidfromname(charname.Text)
-
-                    If male.Checked = True Then
-                        trinitycore1.setgender("0")
-                    ElseIf female.Checked = True Then
-                        trinitycore1.setgender("1")
-                    ElseIf genderstay.Checked = True Then
-                        trinitycore1.setgender(Main.char_gender.ToString)
+                    If erfolge.Checked = True Then trinitycore1.addachievements()
+                    If skills.Checked = True Then trinitycore1.addskills()
+                    If ruf.Checked = True Then trinitycore1.addreputation()
+                   Process_Status.processreport.AppendText(
+                            Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
                     End If
-                    If level.Checked = True Then trinitycore1.setlevel()
-                    If race.Checked = True Then trinitycore1.setrace()
-                    If playerclass.Checked = True Then trinitycore1.setclass()
-                    If alternatelevellabel.Checked = True Then trinitycore1.setalternatelevel(alternateleveltext.Text)
-                    If goldlabel.Checked = True Then trinitycore1.setgold(goldtext.Text)
-                    If items.Checked = True Then trinitycore1.additems()
-                    If glyphs.Checked = True Then trinitycore1.addglyphs(xpansion)
-                    If sockets.Checked = True Then trinitycore1.addgems()
-                    If vzs.Checked = True Then trinitycore1.addenchantments()
-                    Process_Status.processreport.AppendText(
-                        Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
-                End If
+                    If CheckBox2.Checked = True Then
+                        trinitycore1.getguidfromname(charname.Text)
 
-                If CheckBox3.Checked = True Then
-                    Dim sLines() As String = accnames.Lines
-                    For i As Integer = 0 To sLines.Length - 1
-                        If sLines(i) = "" Then
-                        Else
-                            trinitycore1.addchars(sLines(i), Main.char_name, False)
-                            '  trinitycore1.updatechars(sLines(i), Main.char_name, False)
-                            If items.Checked = True Then trinitycore1.additems()
-                            If sockets.Checked = True Then trinitycore1.addgems()
-                            If vzs.Checked = True Then trinitycore1.addenchantments()
-                            If glyphs.Checked = True Then trinitycore1.addglyphs(xpansion)
-                            If male.Checked = True Then trinitycore1.setgender("0")
-                            If female.Checked = True Then trinitycore1.setgender("1")
-                            If genderstay.Checked = True Then trinitycore1.setgender(Main.char_gender.ToString)
-                            If level.Checked = True Then trinitycore1.setlevel()
-                            If alternatelevellabel.Checked = True Then _
-                                trinitycore1.setalternatelevel(alternateleveltext.Text)
-                            If race.Checked = True Then trinitycore1.setrace()
-                            If playerclass.Checked = True Then trinitycore1.setclass()
-                            If goldlabel.Checked = True Then trinitycore1.setgold(goldtext.Text)
-                            Process_Status.processreport.AppendText(
-                                Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
+                        If male.Checked = True Then
+                            trinitycore1.setgender("0")
+                        ElseIf female.Checked = True Then
+                            trinitycore1.setgender("1")
+                        ElseIf genderstay.Checked = True Then
+                            trinitycore1.setgender(Main.char_gender.ToString)
                         End If
-
-                    Next
-                End If
-            Else
-                Dim xpacressource As String
-                Dim xpacressource2 As String
-                Select Case Main.xpac
-                    Case 3
-                        xpacressource = My.Resources.GEM_ID_wotlk
-                        xpacressource2 = My.Resources.VZ_ID_wotlk
-                    Case 4
-                        xpacressource = My.Resources.GEM_ID_cata
-                        xpacressource2 = My.Resources.VZ_ID_cata
-                    Case Else
-                        xpacressource = My.Resources.GEM_ID_wotlk
-                        xpacressource2 = My.Resources.VZ_ID_wotlk
-                End Select
-                trinitycore1.spellgemtext = xpacressource
-                trinitycore1.spellitemtext = xpacressource2
-                If CheckBox1.Checked = True Then
-
-                    trinitycore1.adddetailedchar(accname.Text, newcharname.Text, False)
-                    If items.Checked = True Then trinitycore1.additems()
-                    If sockets.Checked = True And vzs.Checked = True Then
-                        trinitycore1.addench()
-                    ElseIf sockets.Checked = True Then
-                        trinitycore1.addgems()
-                    ElseIf vzs.Checked = True Then
-                        trinitycore1.addenchantments()
-                    Else :
-                    End If
-                    If glyphs.Checked = True Then trinitycore1.addglyphs(xpansion)
-                    If talents.Checked = True Then trinitycore1.addtalents()
-                    If male.Checked = True Then trinitycore1.setgender("0")
-                    If female.Checked = True Then trinitycore1.setgender("1")
-                    If genderstay.Checked = True Then trinitycore1.setgender(Main.char_gender.ToString)
-                    If level.Checked = True Then trinitycore1.setlevel()
-                    If alternatelevellabel.Checked = True Then trinitycore1.setalternatelevel(alternateleveltext.Text)
-                    If race.Checked = True Then trinitycore1.setrace()
-                    If playerclass.Checked = True Then trinitycore1.setclass()
-                    If goldlabel.Checked = True Then trinitycore1.setgold(goldtext.Text)
+                        If level.Checked = True Then trinitycore1.setlevel()
+                        If race.Checked = True Then trinitycore1.setrace()
+                        If playerclass.Checked = True Then trinitycore1.setclass()
+                        If alternatelevellabel.Checked = True Then trinitycore1.setalternatelevel(alternateleveltext.Text)
+                        If goldlabel.Checked = True Then trinitycore1.setgold(goldtext.Text)
+                        If items.Checked = True Then trinitycore1.additems()
+                        If glyphs.Checked = True Then trinitycore1.addglyphs(xpansion)
+                        If sockets.Checked = True Then trinitycore1.addgems()
+                    If vzs.Checked = True Then trinitycore1.addenchantments()
                     If erfolge.Checked = True Then trinitycore1.addachievements()
                     If skills.Checked = True Then trinitycore1.addskills()
-                    If zauber.Checked = True Then trinitycore1.addspells()
-                    If pvp.Checked = True Then trinitycore1.addpvp()
                     If ruf.Checked = True Then trinitycore1.addreputation()
-                    If inventar.Checked = True Then trinitycore1.addinventory()
-                    If gold.Checked = True Then trinitycore1.addgold(Main.player_money)
-                    Process_Status.processreport.AppendText(
-                        Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
-                End If
-                If CheckBox2.Checked = True Then
-                    trinitycore1.getguidfromname(charname.Text)
-
-
-                    If items.Checked = True Then trinitycore1.additems()
-                    If sockets.Checked = True And vzs.Checked = True Then
-                        trinitycore1.addench()
-                    ElseIf sockets.Checked = True Then
-                        trinitycore1.addgems()
-                    ElseIf vzs.Checked = True Then
-                        trinitycore1.addenchantments()
-                    Else :
+                        Process_Status.processreport.AppendText(
+                            Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
                     End If
-                    If glyphs.Checked = True Then trinitycore1.addglyphs(xpansion)
-                    If talents.Checked = True Then trinitycore1.addtalents()
-                    If male.Checked = True Then trinitycore1.setgender("0")
-                    If female.Checked = True Then trinitycore1.setgender("1")
-                    If genderstay.Checked = True Then trinitycore1.setgender(Main.char_gender.ToString)
-                    If level.Checked = True Then trinitycore1.setlevel()
-                    If alternatelevellabel.Checked = True Then trinitycore1.setalternatelevel(alternateleveltext.Text)
-                    If race.Checked = True Then trinitycore1.setrace()
-                    If playerclass.Checked = True Then trinitycore1.setclass()
-                    If goldlabel.Checked = True Then trinitycore1.setgold(goldtext.Text)
-                    If erfolge.Checked = True Then trinitycore1.addachievements()
-                    If skills.Checked = True Then trinitycore1.addskills()
-                    If zauber.Checked = True Then trinitycore1.addspells()
-                    If pvp.Checked = True Then trinitycore1.addpvp()
-                    If ruf.Checked = True Then trinitycore1.addreputation()
-                    If inventar.Checked = True Then trinitycore1.addinventory()
-                    If gold.Checked = True Then trinitycore1.addgold(Main.player_money)
-                    Process_Status.processreport.AppendText(
-                        Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
-                End If
 
-                If CheckBox3.Checked = True Then
-                    Dim sLines() As String = accnames.Lines
-                    For i As Integer = 0 To sLines.Length - 1
-                        If sLines(i) = "" Then
-                        Else
-
-                            trinitycore1.adddetailedchar(sLines(i), Main.char_name, False)
-                            If items.Checked = True Then trinitycore1.additems()
-                            If sockets.Checked = True And vzs.Checked = True Then
-                                trinitycore1.addench()
-                            ElseIf sockets.Checked = True Then
-                                trinitycore1.addgems()
-                            ElseIf vzs.Checked = True Then
-                                trinitycore1.addenchantments()
-                            Else :
-                            End If
-                            If glyphs.Checked = True Then trinitycore1.addglyphs(xpansion)
-                            If talents.Checked = True Then trinitycore1.addtalents()
-                            If male.Checked = True Then trinitycore1.setgender("0")
-                            If female.Checked = True Then trinitycore1.setgender("1")
-                            If genderstay.Checked = True Then trinitycore1.setgender(Main.char_gender.ToString)
-                            If level.Checked = True Then trinitycore1.setlevel()
-                            If alternatelevellabel.Checked = True Then _
-                                trinitycore1.setalternatelevel(alternateleveltext.Text)
-                            If race.Checked = True Then trinitycore1.setrace()
-                            If playerclass.Checked = True Then trinitycore1.setclass()
+                    If CheckBox3.Checked = True Then
+                        Dim sLines() As String = accnames.Lines
+                        For i As Integer = 0 To sLines.Length - 1
+                            If sLines(i) = "" Then
+                            Else
+                                trinitycore1.addchars(sLines(i), Main.char_name, False)
+                                '  trinitycore1.updatechars(sLines(i), Main.char_name, False)
+                                If items.Checked = True Then trinitycore1.additems()
+                                If sockets.Checked = True Then trinitycore1.addgems()
+                                If vzs.Checked = True Then trinitycore1.addenchantments()
+                                If glyphs.Checked = True Then trinitycore1.addglyphs(xpansion)
+                                If male.Checked = True Then trinitycore1.setgender("0")
+                                If female.Checked = True Then trinitycore1.setgender("1")
+                                If genderstay.Checked = True Then trinitycore1.setgender(Main.char_gender.ToString)
+                                If level.Checked = True Then trinitycore1.setlevel()
+                                If alternatelevellabel.Checked = True Then _
+                                    trinitycore1.setalternatelevel(alternateleveltext.Text)
+                                If race.Checked = True Then trinitycore1.setrace()
+                                If playerclass.Checked = True Then trinitycore1.setclass()
                             If goldlabel.Checked = True Then trinitycore1.setgold(goldtext.Text)
                             If erfolge.Checked = True Then trinitycore1.addachievements()
                             If skills.Checked = True Then trinitycore1.addskills()
-                            If zauber.Checked = True Then trinitycore1.addspells()
-                            If pvp.Checked = True Then trinitycore1.addpvp()
                             If ruf.Checked = True Then trinitycore1.addreputation()
-                            If inventar.Checked = True Then trinitycore1.addinventory()
-                            If gold.Checked = True Then trinitycore1.addgold(Main.player_money)
-                            Process_Status.processreport.AppendText(
-                                Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
-                        End If
-
-                    Next
-                End If
-            End If
-
-        ElseIf mangos.Checked = True Then
-            Main.outputcore = "mangos"
-            If Main.progressmode = 0 Or Main.progressmode = 1 Then
-                Dim xpacressource As String
-                Dim xpacressource2 As String
-                Select Case Main.xpac
-                    Case 3
-                        xpacressource = My.Resources.GEM_ID_wotlk
-                        xpacressource2 = My.Resources.VZ_ID_wotlk
-                    Case 4
-                        xpacressource = My.Resources.GEM_ID_cata
-                        xpacressource2 = My.Resources.VZ_ID_cata
-                    Case Else
-                        xpacressource = My.Resources.GEM_ID_wotlk
-                        xpacressource2 = My.Resources.VZ_ID_wotlk
-                End Select
-                mangoscore.spellgemtext = xpacressource
-                mangoscore.spellitemtext = xpacressource2
-                If CheckBox1.Checked = True Then
-                    mangoscore.addchars(accname.Text, newcharname.Text, False)
-                    ' mangoscore.updatechars(accname.Text, Main.char_name, False)
-                    If male.Checked = True Then
-                        mangoscore.setgender("0")
-                    ElseIf female.Checked = True Then
-                        mangoscore.setgender("1")
-                    ElseIf genderstay.Checked = True Then
-                        mangoscore.setgender(Main.char_gender.ToString)
-                    End If
-                    If level.Checked = True Then mangoscore.setlevel()
-                    If race.Checked = True Then mangoscore.setrace()
-                    If playerclass.Checked = True Then mangoscore.setclass()
-                    If alternatelevellabel.Checked = True Then mangoscore.setalternatelevel(alternateleveltext.Text)
-                    If goldlabel.Checked = True Then mangoscore.setgold(goldtext.Text)
-                    If items.Checked = True Then mangoscore.additems()
-                    If glyphs.Checked = True Then mangoscore.addglyphs(xpansion)
-                    If sockets.Checked = True Then mangoscore.addgems()
-                    If vzs.Checked = True Then mangoscore.addenchantments()
-                    Process_Status.processreport.AppendText(
-                        Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
-                End If
-                If CheckBox2.Checked = True Then
-                    mangoscore.getguidfromname(charname.Text)
-                    If male.Checked = True Then
-                        mangoscore.setgender("0")
-                    ElseIf female.Checked = True Then
-                        mangoscore.setgender("1")
-                    ElseIf genderstay.Checked = True Then
-                        mangoscore.setgender(Main.char_gender.ToString)
-                    End If
-                    If level.Checked = True Then mangoscore.setlevel()
-                    If race.Checked = True Then mangoscore.setrace()
-                    If playerclass.Checked = True Then mangoscore.setclass()
-                    If alternatelevellabel.Checked = True Then mangoscore.setalternatelevel(alternateleveltext.Text)
-                    If goldlabel.Checked = True Then mangoscore.setgold(goldtext.Text)
-                    If items.Checked = True Then mangoscore.additems()
-                    If glyphs.Checked = True Then mangoscore.addglyphs(xpansion)
-                    If sockets.Checked = True Then mangoscore.addgems()
-                    If vzs.Checked = True Then mangoscore.addenchantments()
-                    Process_Status.processreport.AppendText(
-                        Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
-                End If
-
-                If CheckBox3.Checked = True Then
-                    Dim sLines() As String = accnames.Lines
-                    For i As Integer = 0 To sLines.Length - 1
-                        If sLines(i) = "" Then
-                        Else
-                            mangoscore.addchars(sLines(i), Main.char_name, False)
-                            '  mangoscore.updatechars(sLines(i), Main.char_name, False)
-                            If items.Checked = True Then mangoscore.additems()
-                            If sockets.Checked = True Then mangoscore.addgems()
-                            If vzs.Checked = True Then mangoscore.addenchantments()
-                            If glyphs.Checked = True Then mangoscore.addglyphs(xpansion)
-                            If male.Checked = True Then mangoscore.setgender("0")
-                            If female.Checked = True Then mangoscore.setgender("1")
-                            If genderstay.Checked = True Then mangoscore.setgender(Main.char_gender.ToString)
-                            If level.Checked = True Then mangoscore.setlevel()
-                            If alternatelevellabel.Checked = True Then _
-                                mangoscore.setalternatelevel(alternateleveltext.Text)
-                            If race.Checked = True Then mangoscore.setrace()
-                            If playerclass.Checked = True Then mangoscore.setclass()
-                            If goldlabel.Checked = True Then mangoscore.setgold(goldtext.Text)
-                            Process_Status.processreport.AppendText(
-                                Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
-                        End If
-
-                    Next
-                End If
-            Else
-                Dim xpacressource As String
-                Dim xpacressource2 As String
-                Select Case Main.xpac
-                    Case 3
-                        xpacressource = My.Resources.GEM_ID_wotlk
-                        xpacressource2 = My.Resources.VZ_ID_wotlk
-                    Case 4
-                        xpacressource = My.Resources.GEM_ID_cata
-                        xpacressource2 = My.Resources.VZ_ID_cata
-                    Case Else
-                        xpacressource = My.Resources.GEM_ID_wotlk
-                        xpacressource2 = My.Resources.VZ_ID_wotlk
-                End Select
-                mangoscore.spellgemtext = xpacressource
-                mangoscore.spellitemtext = xpacressource2
-                If CheckBox1.Checked = True Then
-
-                    mangoscore.adddetailedchar(accname.Text, newcharname.Text, False)
-                    If items.Checked = True Then mangoscore.additems()
-                    If sockets.Checked = True And vzs.Checked = True Then
-                        mangoscore.addench()
-                    ElseIf sockets.Checked = True Then
-                        mangoscore.addgems()
-                    ElseIf vzs.Checked = True Then
-                        mangoscore.addenchantments()
-                    Else :
-                    End If
-                    If glyphs.Checked = True Then mangoscore.addglyphs(xpansion)
-                    If talents.Checked = True Then mangoscore.addtalents()
-                    If male.Checked = True Then mangoscore.setgender("0")
-                    If female.Checked = True Then mangoscore.setgender("1")
-                    If genderstay.Checked = True Then mangoscore.setgender(Main.char_gender.ToString)
-                    If level.Checked = True Then mangoscore.setlevel()
-                    If alternatelevellabel.Checked = True Then mangoscore.setalternatelevel(alternateleveltext.Text)
-                    If race.Checked = True Then mangoscore.setrace()
-                    If playerclass.Checked = True Then mangoscore.setclass()
-                    If goldlabel.Checked = True Then mangoscore.setgold(goldtext.Text)
-                    If erfolge.Checked = True Then mangoscore.addachievements()
-                    If skills.Checked = True Then mangoscore.addskills()
-                    If zauber.Checked = True Then mangoscore.addspells()
-                    If pvp.Checked = True Then mangoscore.addpvp()
-                    If ruf.Checked = True Then mangoscore.addreputation()
-                    If inventar.Checked = True Then mangoscore.addinventory()
-                    If gold.Checked = True Then mangoscore.addgold(Main.player_money)
-                    Process_Status.processreport.AppendText(
-                        Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
-                End If
-                If CheckBox2.Checked = True Then
-                    mangoscore.getguidfromname(charname.Text)
-
-
-                    If items.Checked = True Then mangoscore.additems()
-                    If sockets.Checked = True And vzs.Checked = True Then
-                        mangoscore.addench()
-                    ElseIf sockets.Checked = True Then
-                        mangoscore.addgems()
-                    ElseIf vzs.Checked = True Then
-                        mangoscore.addenchantments()
-                    Else :
-                    End If
-                    If glyphs.Checked = True Then mangoscore.addglyphs(xpansion)
-                    If talents.Checked = True Then mangoscore.addtalents()
-                    If male.Checked = True Then mangoscore.setgender("0")
-                    If female.Checked = True Then mangoscore.setgender("1")
-                    If genderstay.Checked = True Then mangoscore.setgender(Main.char_gender.ToString)
-                    If level.Checked = True Then mangoscore.setlevel()
-                    If alternatelevellabel.Checked = True Then mangoscore.setalternatelevel(alternateleveltext.Text)
-                    If race.Checked = True Then mangoscore.setrace()
-                    If playerclass.Checked = True Then mangoscore.setclass()
-                    If goldlabel.Checked = True Then mangoscore.setgold(goldtext.Text)
-                    If erfolge.Checked = True Then mangoscore.addachievements()
-                    If skills.Checked = True Then mangoscore.addskills()
-                    If zauber.Checked = True Then mangoscore.addspells()
-                    If pvp.Checked = True Then mangoscore.addpvp()
-                    If ruf.Checked = True Then mangoscore.addreputation()
-                    If inventar.Checked = True Then mangoscore.addinventory()
-                    If gold.Checked = True Then mangoscore.addgold(Main.player_money)
-                    Process_Status.processreport.AppendText(
-                        Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
-                End If
-
-                If CheckBox3.Checked = True Then
-                    Dim sLines() As String = accnames.Lines
-                    For i As Integer = 0 To sLines.Length - 1
-                        If sLines(i) = "" Then
-                        Else
-
-                            mangoscore.adddetailedchar(sLines(i), Main.char_name, False)
-                            If items.Checked = True Then mangoscore.additems()
-                            If sockets.Checked = True And vzs.Checked = True Then
-                                mangoscore.addench()
-                            ElseIf sockets.Checked = True Then
-                                mangoscore.addgems()
-                            ElseIf vzs.Checked = True Then
-                                mangoscore.addenchantments()
-                            Else :
+                                Process_Status.processreport.AppendText(
+                                    Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
                             End If
-                            If glyphs.Checked = True Then mangoscore.addglyphs(xpansion)
-                            If talents.Checked = True Then mangoscore.addtalents()
-                            If male.Checked = True Then mangoscore.setgender("0")
-                            If female.Checked = True Then mangoscore.setgender("1")
-                            If genderstay.Checked = True Then mangoscore.setgender(Main.char_gender.ToString)
-                            If level.Checked = True Then mangoscore.setlevel()
-                            If alternatelevellabel.Checked = True Then _
-                                mangoscore.setalternatelevel(alternateleveltext.Text)
-                            If race.Checked = True Then mangoscore.setrace()
-                            If playerclass.Checked = True Then mangoscore.setclass()
+
+                        Next
+                    End If
+                Else
+                    Dim xpacressource As String
+                    Dim xpacressource2 As String
+                    Select Case Main.xpac
+                        Case 3
+                            xpacressource = My.Resources.GEM_ID_wotlk
+                            xpacressource2 = My.Resources.VZ_ID_wotlk
+                        Case 4
+                            xpacressource = My.Resources.GEM_ID_cata
+                            xpacressource2 = My.Resources.VZ_ID_cata
+                        Case Else
+                            xpacressource = My.Resources.GEM_ID_wotlk
+                            xpacressource2 = My.Resources.VZ_ID_wotlk
+                    End Select
+                    trinitycore1.spellgemtext = xpacressource
+                    trinitycore1.spellitemtext = xpacressource2
+                    If CheckBox1.Checked = True Then
+
+                        trinitycore1.adddetailedchar(accname.Text, newcharname.Text, False)
+                        If items.Checked = True Then trinitycore1.additems()
+                        If sockets.Checked = True And vzs.Checked = True Then
+                            trinitycore1.addench()
+                        ElseIf sockets.Checked = True Then
+                            trinitycore1.addgems()
+                        ElseIf vzs.Checked = True Then
+                            trinitycore1.addenchantments()
+                        Else
+                        End If
+                        If glyphs.Checked = True Then trinitycore1.addglyphs(xpansion)
+                        If talents.Checked = True Then trinitycore1.addtalents()
+                        If male.Checked = True Then trinitycore1.setgender("0")
+                        If female.Checked = True Then trinitycore1.setgender("1")
+                        If genderstay.Checked = True Then trinitycore1.setgender(Main.char_gender.ToString)
+                        If level.Checked = True Then trinitycore1.setlevel()
+                        If alternatelevellabel.Checked = True Then trinitycore1.setalternatelevel(alternateleveltext.Text)
+                        If race.Checked = True Then trinitycore1.setrace()
+                        If playerclass.Checked = True Then trinitycore1.setclass()
+                        If goldlabel.Checked = True Then trinitycore1.setgold(goldtext.Text)
+                        If erfolge.Checked = True Then trinitycore1.addachievements()
+                        If skills.Checked = True Then trinitycore1.addskills()
+                        If zauber.Checked = True Then trinitycore1.addspells()
+                        If pvp.Checked = True Then trinitycore1.addpvp()
+                        If ruf.Checked = True Then trinitycore1.addreputation()
+                        If inventar.Checked = True Then trinitycore1.addinventory()
+                        If gold.Checked = True Then trinitycore1.addgold(Main.player_money)
+                        Process_Status.processreport.AppendText(
+                            Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
+                    End If
+                    If CheckBox2.Checked = True Then
+                        trinitycore1.getguidfromname(charname.Text)
+
+
+                        If items.Checked = True Then trinitycore1.additems()
+                        If sockets.Checked = True And vzs.Checked = True Then
+                            trinitycore1.addench()
+                        ElseIf sockets.Checked = True Then
+                            trinitycore1.addgems()
+                        ElseIf vzs.Checked = True Then
+                            trinitycore1.addenchantments()
+                        Else
+                        End If
+                        If glyphs.Checked = True Then trinitycore1.addglyphs(xpansion)
+                        If talents.Checked = True Then trinitycore1.addtalents()
+                        If male.Checked = True Then trinitycore1.setgender("0")
+                        If female.Checked = True Then trinitycore1.setgender("1")
+                        If genderstay.Checked = True Then trinitycore1.setgender(Main.char_gender.ToString)
+                        If level.Checked = True Then trinitycore1.setlevel()
+                        If alternatelevellabel.Checked = True Then trinitycore1.setalternatelevel(alternateleveltext.Text)
+                        If race.Checked = True Then trinitycore1.setrace()
+                        If playerclass.Checked = True Then trinitycore1.setclass()
+                        If goldlabel.Checked = True Then trinitycore1.setgold(goldtext.Text)
+                        If erfolge.Checked = True Then trinitycore1.addachievements()
+                        If skills.Checked = True Then trinitycore1.addskills()
+                        If zauber.Checked = True Then trinitycore1.addspells()
+                        If pvp.Checked = True Then trinitycore1.addpvp()
+                        If ruf.Checked = True Then trinitycore1.addreputation()
+                        If inventar.Checked = True Then trinitycore1.addinventory()
+                        If gold.Checked = True Then trinitycore1.addgold(Main.player_money)
+                        Process_Status.processreport.AppendText(
+                            Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
+                    End If
+
+                    If CheckBox3.Checked = True Then
+                        Dim sLines() As String = accnames.Lines
+                        For i As Integer = 0 To sLines.Length - 1
+                            If sLines(i) = "" Then
+                            Else
+
+                                trinitycore1.adddetailedchar(sLines(i), Main.char_name, False)
+                                If items.Checked = True Then trinitycore1.additems()
+                                If sockets.Checked = True And vzs.Checked = True Then
+                                    trinitycore1.addench()
+                                ElseIf sockets.Checked = True Then
+                                    trinitycore1.addgems()
+                                ElseIf vzs.Checked = True Then
+                                    trinitycore1.addenchantments()
+                                Else
+                                End If
+                                If glyphs.Checked = True Then trinitycore1.addglyphs(xpansion)
+                                If talents.Checked = True Then trinitycore1.addtalents()
+                                If male.Checked = True Then trinitycore1.setgender("0")
+                                If female.Checked = True Then trinitycore1.setgender("1")
+                                If genderstay.Checked = True Then trinitycore1.setgender(Main.char_gender.ToString)
+                                If level.Checked = True Then trinitycore1.setlevel()
+                                If alternatelevellabel.Checked = True Then _
+                                    trinitycore1.setalternatelevel(alternateleveltext.Text)
+                                If race.Checked = True Then trinitycore1.setrace()
+                                If playerclass.Checked = True Then trinitycore1.setclass()
+                                If goldlabel.Checked = True Then trinitycore1.setgold(goldtext.Text)
+                                If erfolge.Checked = True Then trinitycore1.addachievements()
+                                If skills.Checked = True Then trinitycore1.addskills()
+                                If zauber.Checked = True Then trinitycore1.addspells()
+                                If pvp.Checked = True Then trinitycore1.addpvp()
+                                If ruf.Checked = True Then trinitycore1.addreputation()
+                                If inventar.Checked = True Then trinitycore1.addinventory()
+                                If gold.Checked = True Then trinitycore1.addgold(Main.player_money)
+                                Process_Status.processreport.AppendText(
+                                    Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
+                            End If
+
+                        Next
+                    End If
+                End If
+
+            ElseIf mangos.Checked = True Then
+                Main.outputcore = "mangos"
+                If Main.progressmode = 0 Or Main.progressmode = 1 Then
+                    Dim xpacressource As String
+                    Dim xpacressource2 As String
+                    Select Case Main.xpac
+                        Case 3
+                            xpacressource = My.Resources.GEM_ID_wotlk
+                            xpacressource2 = My.Resources.VZ_ID_wotlk
+                        Case 4
+                            xpacressource = My.Resources.GEM_ID_cata
+                            xpacressource2 = My.Resources.VZ_ID_cata
+                        Case Else
+                            xpacressource = My.Resources.GEM_ID_wotlk
+                            xpacressource2 = My.Resources.VZ_ID_wotlk
+                    End Select
+                    mangoscore.spellgemtext = xpacressource
+                    mangoscore.spellitemtext = xpacressource2
+                    If CheckBox1.Checked = True Then
+                        mangoscore.addchars(accname.Text, newcharname.Text, False)
+                        ' mangoscore.updatechars(accname.Text, Main.char_name, False)
+                        If male.Checked = True Then
+                            mangoscore.setgender("0")
+                        ElseIf female.Checked = True Then
+                            mangoscore.setgender("1")
+                        ElseIf genderstay.Checked = True Then
+                            mangoscore.setgender(Main.char_gender.ToString)
+                        End If
+                        If level.Checked = True Then mangoscore.setlevel()
+                        If race.Checked = True Then mangoscore.setrace()
+                        If playerclass.Checked = True Then mangoscore.setclass()
+                        If alternatelevellabel.Checked = True Then mangoscore.setalternatelevel(alternateleveltext.Text)
+                        If goldlabel.Checked = True Then mangoscore.setgold(goldtext.Text)
+                        If items.Checked = True Then mangoscore.additems()
+                        If glyphs.Checked = True Then mangoscore.addglyphs(xpansion)
+                        If sockets.Checked = True Then mangoscore.addgems()
+                    If vzs.Checked = True Then mangoscore.addenchantments()
+                    If erfolge.Checked = True Then mangoscore.addachievements()
+                    If skills.Checked = True Then mangoscore.addskills()
+                    If ruf.Checked = True Then mangoscore.addreputation()
+                        Process_Status.processreport.AppendText(
+                            Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
+                    End If
+                    If CheckBox2.Checked = True Then
+                        mangoscore.getguidfromname(charname.Text)
+                        If male.Checked = True Then
+                            mangoscore.setgender("0")
+                        ElseIf female.Checked = True Then
+                            mangoscore.setgender("1")
+                        ElseIf genderstay.Checked = True Then
+                            mangoscore.setgender(Main.char_gender.ToString)
+                        End If
+                        If level.Checked = True Then mangoscore.setlevel()
+                        If race.Checked = True Then mangoscore.setrace()
+                        If playerclass.Checked = True Then mangoscore.setclass()
+                        If alternatelevellabel.Checked = True Then mangoscore.setalternatelevel(alternateleveltext.Text)
+                        If goldlabel.Checked = True Then mangoscore.setgold(goldtext.Text)
+                        If items.Checked = True Then mangoscore.additems()
+                        If glyphs.Checked = True Then mangoscore.addglyphs(xpansion)
+                        If sockets.Checked = True Then mangoscore.addgems()
+                    If vzs.Checked = True Then mangoscore.addenchantments()
+                    If erfolge.Checked = True Then mangoscore.addachievements()
+                    If skills.Checked = True Then mangoscore.addskills()
+                    If ruf.Checked = True Then mangoscore.addreputation()
+                        Process_Status.processreport.AppendText(
+                            Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
+                    End If
+
+                    If CheckBox3.Checked = True Then
+                        Dim sLines() As String = accnames.Lines
+                        For i As Integer = 0 To sLines.Length - 1
+                            If sLines(i) = "" Then
+                            Else
+                                mangoscore.addchars(sLines(i), Main.char_name, False)
+                                '  mangoscore.updatechars(sLines(i), Main.char_name, False)
+                                If items.Checked = True Then mangoscore.additems()
+                                If sockets.Checked = True Then mangoscore.addgems()
+                                If vzs.Checked = True Then mangoscore.addenchantments()
+                                If glyphs.Checked = True Then mangoscore.addglyphs(xpansion)
+                                If male.Checked = True Then mangoscore.setgender("0")
+                                If female.Checked = True Then mangoscore.setgender("1")
+                                If genderstay.Checked = True Then mangoscore.setgender(Main.char_gender.ToString)
+                                If level.Checked = True Then mangoscore.setlevel()
+                                If alternatelevellabel.Checked = True Then _
+                                    mangoscore.setalternatelevel(alternateleveltext.Text)
+                                If race.Checked = True Then mangoscore.setrace()
+                                If playerclass.Checked = True Then mangoscore.setclass()
                             If goldlabel.Checked = True Then mangoscore.setgold(goldtext.Text)
                             If erfolge.Checked = True Then mangoscore.addachievements()
                             If skills.Checked = True Then mangoscore.addskills()
-                            If zauber.Checked = True Then mangoscore.addspells()
-                            If pvp.Checked = True Then mangoscore.addpvp()
                             If ruf.Checked = True Then mangoscore.addreputation()
-                            If inventar.Checked = True Then mangoscore.addinventory()
-                            If gold.Checked = True Then mangoscore.addgold(Main.player_money)
-                            Process_Status.processreport.AppendText(
-                                Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
-                        End If
+                                Process_Status.processreport.AppendText(
+                                    Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
+                            End If
 
-                    Next
-                End If
-            End If
-        ElseIf arcemu.Checked = True Then
-            Main.outputcore = "arcemu"
-            If Main.progressmode = 0 Or Main.progressmode = 1 Then
-                Dim xpacressource As String
-                Dim xpacressource2 As String
-                Select Case Main.xpac
-                    Case 3
-                        xpacressource = My.Resources.GEM_ID_wotlk
-                        xpacressource2 = My.Resources.VZ_ID_wotlk
-                    Case 4
-                        xpacressource = My.Resources.GEM_ID_cata
-                        xpacressource2 = My.Resources.VZ_ID_cata
-                    Case Else
-                        xpacressource = My.Resources.GEM_ID_wotlk
-                        xpacressource2 = My.Resources.VZ_ID_wotlk
-                End Select
-                arcemucore.spellgemtext = xpacressource
-                arcemucore.spellitemtext = xpacressource2
-                If CheckBox1.Checked = True Then
-                    arcemucore.addchars(accname.Text, newcharname.Text, False)
-                    ' arcemucore.updatechars(accname.Text, Main.char_name, False)
-                    If male.Checked = True Then
-                        arcemucore.setgender("0")
-                    ElseIf female.Checked = True Then
-                        arcemucore.setgender("1")
-                    ElseIf genderstay.Checked = True Then
-                        arcemucore.setgender(Main.char_gender.ToString)
+                        Next
                     End If
-                    If level.Checked = True Then arcemucore.setlevel()
-                    If race.Checked = True Then arcemucore.setrace()
-                    If playerclass.Checked = True Then arcemucore.setclass()
-                    If alternatelevellabel.Checked = True Then arcemucore.setalternatelevel(alternateleveltext.Text)
-                    If goldlabel.Checked = True Then arcemucore.setgold(goldtext.Text)
-                    If items.Checked = True Then arcemucore.additems()
-                    If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
-                    If sockets.Checked = True Then arcemucore.addgems()
-                    If vzs.Checked = True Then arcemucore.addenchantments()
-                    Process_Status.processreport.AppendText(
-                        Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
-                End If
-                If CheckBox2.Checked = True Then
-                    arcemucore.getguidfromname(charname.Text)
+                Else
+                    Dim xpacressource As String
+                    Dim xpacressource2 As String
+                    Select Case Main.xpac
+                        Case 3
+                            xpacressource = My.Resources.GEM_ID_wotlk
+                            xpacressource2 = My.Resources.VZ_ID_wotlk
+                        Case 4
+                            xpacressource = My.Resources.GEM_ID_cata
+                            xpacressource2 = My.Resources.VZ_ID_cata
+                        Case Else
+                            xpacressource = My.Resources.GEM_ID_wotlk
+                            xpacressource2 = My.Resources.VZ_ID_wotlk
+                    End Select
+                    mangoscore.spellgemtext = xpacressource
+                    mangoscore.spellitemtext = xpacressource2
+                    If CheckBox1.Checked = True Then
 
-                    If male.Checked = True Then
-                        arcemucore.setgender("0")
-                    ElseIf female.Checked = True Then
-                        arcemucore.setgender("1")
-                    ElseIf genderstay.Checked = True Then
-                        arcemucore.setgender(Main.char_gender.ToString)
-                    End If
-                    If level.Checked = True Then arcemucore.setlevel()
-                    If race.Checked = True Then arcemucore.setrace()
-                    If playerclass.Checked = True Then arcemucore.setclass()
-                    If alternatelevellabel.Checked = True Then arcemucore.setalternatelevel(alternateleveltext.Text)
-                    If goldlabel.Checked = True Then arcemucore.setgold(goldtext.Text)
-                    If items.Checked = True Then arcemucore.additems()
-                    If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
-                    If sockets.Checked = True Then arcemucore.addgems()
-                    If vzs.Checked = True Then arcemucore.addenchantments()
-                    Process_Status.processreport.AppendText(
-                        Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
-                End If
-
-                If CheckBox3.Checked = True Then
-                    Dim sLines() As String = accnames.Lines
-                    For i As Integer = 0 To sLines.Length - 1
-                        If sLines(i) = "" Then
+                        mangoscore.adddetailedchar(accname.Text, newcharname.Text, False)
+                        If items.Checked = True Then mangoscore.additems()
+                        If sockets.Checked = True And vzs.Checked = True Then
+                            mangoscore.addench()
+                        ElseIf sockets.Checked = True Then
+                            mangoscore.addgems()
+                        ElseIf vzs.Checked = True Then
+                            mangoscore.addenchantments()
                         Else
-                            arcemucore.addchars(sLines(i), Main.char_name, False)
-                            '  arcemucore.updatechars(sLines(i), Main.char_name, False)
-                            If items.Checked = True Then arcemucore.additems()
-                            If sockets.Checked = True Then arcemucore.addgems()
-                            If vzs.Checked = True Then arcemucore.addenchantments()
-                            If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
-                            If male.Checked = True Then arcemucore.setgender("0")
-                            If female.Checked = True Then arcemucore.setgender("1")
-                            If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
-                            If level.Checked = True Then arcemucore.setlevel()
-                            If alternatelevellabel.Checked = True Then _
-                                arcemucore.setalternatelevel(alternateleveltext.Text)
-                            If race.Checked = True Then arcemucore.setrace()
-                            If playerclass.Checked = True Then arcemucore.setclass()
-                            If goldlabel.Checked = True Then arcemucore.setgold(goldtext.Text)
-                            Process_Status.processreport.AppendText(
-                                Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
                         End If
+                        If glyphs.Checked = True Then mangoscore.addglyphs(xpansion)
+                        If talents.Checked = True Then mangoscore.addtalents()
+                        If male.Checked = True Then mangoscore.setgender("0")
+                        If female.Checked = True Then mangoscore.setgender("1")
+                        If genderstay.Checked = True Then mangoscore.setgender(Main.char_gender.ToString)
+                        If level.Checked = True Then mangoscore.setlevel()
+                        If alternatelevellabel.Checked = True Then mangoscore.setalternatelevel(alternateleveltext.Text)
+                        If race.Checked = True Then mangoscore.setrace()
+                        If playerclass.Checked = True Then mangoscore.setclass()
+                        If goldlabel.Checked = True Then mangoscore.setgold(goldtext.Text)
+                        If erfolge.Checked = True Then mangoscore.addachievements()
+                        If skills.Checked = True Then mangoscore.addskills()
+                        If zauber.Checked = True Then mangoscore.addspells()
+                        If pvp.Checked = True Then mangoscore.addpvp()
+                        If ruf.Checked = True Then mangoscore.addreputation()
+                        If inventar.Checked = True Then mangoscore.addinventory()
+                        If gold.Checked = True Then mangoscore.addgold(Main.player_money)
+                        Process_Status.processreport.AppendText(
+                            Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
+                    End If
+                    If CheckBox2.Checked = True Then
+                        mangoscore.getguidfromname(charname.Text)
 
-                    Next
+
+                        If items.Checked = True Then mangoscore.additems()
+                        If sockets.Checked = True And vzs.Checked = True Then
+                            mangoscore.addench()
+                        ElseIf sockets.Checked = True Then
+                            mangoscore.addgems()
+                        ElseIf vzs.Checked = True Then
+                            mangoscore.addenchantments()
+                        Else
+                        End If
+                        If glyphs.Checked = True Then mangoscore.addglyphs(xpansion)
+                        If talents.Checked = True Then mangoscore.addtalents()
+                        If male.Checked = True Then mangoscore.setgender("0")
+                        If female.Checked = True Then mangoscore.setgender("1")
+                        If genderstay.Checked = True Then mangoscore.setgender(Main.char_gender.ToString)
+                        If level.Checked = True Then mangoscore.setlevel()
+                        If alternatelevellabel.Checked = True Then mangoscore.setalternatelevel(alternateleveltext.Text)
+                        If race.Checked = True Then mangoscore.setrace()
+                        If playerclass.Checked = True Then mangoscore.setclass()
+                        If goldlabel.Checked = True Then mangoscore.setgold(goldtext.Text)
+                        If erfolge.Checked = True Then mangoscore.addachievements()
+                        If skills.Checked = True Then mangoscore.addskills()
+                        If zauber.Checked = True Then mangoscore.addspells()
+                        If pvp.Checked = True Then mangoscore.addpvp()
+                        If ruf.Checked = True Then mangoscore.addreputation()
+                        If inventar.Checked = True Then mangoscore.addinventory()
+                        If gold.Checked = True Then mangoscore.addgold(Main.player_money)
+                        Process_Status.processreport.AppendText(
+                            Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
+                    End If
+
+                    If CheckBox3.Checked = True Then
+                        Dim sLines() As String = accnames.Lines
+                        For i As Integer = 0 To sLines.Length - 1
+                            If sLines(i) = "" Then
+                            Else
+
+                                mangoscore.adddetailedchar(sLines(i), Main.char_name, False)
+                                If items.Checked = True Then mangoscore.additems()
+                                If sockets.Checked = True And vzs.Checked = True Then
+                                    mangoscore.addench()
+                                ElseIf sockets.Checked = True Then
+                                    mangoscore.addgems()
+                                ElseIf vzs.Checked = True Then
+                                    mangoscore.addenchantments()
+                                Else
+                                End If
+                                If glyphs.Checked = True Then mangoscore.addglyphs(xpansion)
+                                If talents.Checked = True Then mangoscore.addtalents()
+                                If male.Checked = True Then mangoscore.setgender("0")
+                                If female.Checked = True Then mangoscore.setgender("1")
+                                If genderstay.Checked = True Then mangoscore.setgender(Main.char_gender.ToString)
+                                If level.Checked = True Then mangoscore.setlevel()
+                                If alternatelevellabel.Checked = True Then _
+                                    mangoscore.setalternatelevel(alternateleveltext.Text)
+                                If race.Checked = True Then mangoscore.setrace()
+                                If playerclass.Checked = True Then mangoscore.setclass()
+                                If goldlabel.Checked = True Then mangoscore.setgold(goldtext.Text)
+                                If erfolge.Checked = True Then mangoscore.addachievements()
+                                If skills.Checked = True Then mangoscore.addskills()
+                                If zauber.Checked = True Then mangoscore.addspells()
+                                If pvp.Checked = True Then mangoscore.addpvp()
+                                If ruf.Checked = True Then mangoscore.addreputation()
+                                If inventar.Checked = True Then mangoscore.addinventory()
+                                If gold.Checked = True Then mangoscore.addgold(Main.player_money)
+                                Process_Status.processreport.AppendText(
+                                    Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
+                            End If
+
+                        Next
+                    End If
+                End If
+            ElseIf arcemu.Checked = True Then
+                Main.outputcore = "arcemu"
+                If Main.progressmode = 0 Or Main.progressmode = 1 Then
+                    Dim xpacressource As String
+                    Dim xpacressource2 As String
+                    Select Case Main.xpac
+                        Case 3
+                            xpacressource = My.Resources.GEM_ID_wotlk
+                            xpacressource2 = My.Resources.VZ_ID_wotlk
+                        Case 4
+                            xpacressource = My.Resources.GEM_ID_cata
+                            xpacressource2 = My.Resources.VZ_ID_cata
+                        Case Else
+                            xpacressource = My.Resources.GEM_ID_wotlk
+                            xpacressource2 = My.Resources.VZ_ID_wotlk
+                    End Select
+                    arcemucore.spellgemtext = xpacressource
+                    arcemucore.spellitemtext = xpacressource2
+                    If CheckBox1.Checked = True Then
+                        arcemucore.addchars(accname.Text, newcharname.Text, False)
+                        ' arcemucore.updatechars(accname.Text, Main.char_name, False)
+                        If male.Checked = True Then
+                            arcemucore.setgender("0")
+                        ElseIf female.Checked = True Then
+                            arcemucore.setgender("1")
+                        ElseIf genderstay.Checked = True Then
+                            arcemucore.setgender(Main.char_gender.ToString)
+                    End If
+
+                        If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
+                        If talents.Checked = True Then arcemucore.addtalents()
+                        If male.Checked = True Then arcemucore.setgender("0")
+                        If female.Checked = True Then arcemucore.setgender("1")
+                        If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
+                        If level.Checked = True Then arcemucore.setlevel()
+                        If alternatelevellabel.Checked = True Then arcemucore.setalternatelevel(alternateleveltext.Text)
+                        If race.Checked = True Then arcemucore.setrace()
+                        If playerclass.Checked = True Then arcemucore.setclass()
+                        If goldlabel.Checked = True Then arcemucore.setgold(goldtext.Text)
+                        If erfolge.Checked = True Then arcemucore.addachievements()
+                        If skills.Checked = True Then arcemucore.addskills()
+                        If zauber.Checked = True Then arcemucore.addspells()
+                        If pvp.Checked = True Then arcemucore.addpvp()
+                        If ruf.Checked = True Then arcemucore.addreputation()
+                        If inventar.Checked = True Then arcemucore.addinventory()
+                        If gold.Checked = True Then arcemucore.addgold(Main.player_money)
+                        Process_Status.processreport.AppendText(
+                            Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
+                    End If
+                    If CheckBox2.Checked = True Then
+                        arcemucore.getguidfromname(charname.Text)
+
+                        If male.Checked = True Then
+                            arcemucore.setgender("0")
+                        ElseIf female.Checked = True Then
+                            arcemucore.setgender("1")
+                        ElseIf genderstay.Checked = True Then
+                            arcemucore.setgender(Main.char_gender.ToString)
+                        End If
+                        If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
+                        If talents.Checked = True Then arcemucore.addtalents()
+                        If male.Checked = True Then arcemucore.setgender("0")
+                        If female.Checked = True Then arcemucore.setgender("1")
+                        If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
+                        If level.Checked = True Then arcemucore.setlevel()
+                        If alternatelevellabel.Checked = True Then arcemucore.setalternatelevel(alternateleveltext.Text)
+                        If race.Checked = True Then arcemucore.setrace()
+                        If playerclass.Checked = True Then arcemucore.setclass()
+                        If goldlabel.Checked = True Then arcemucore.setgold(goldtext.Text)
+                        If erfolge.Checked = True Then arcemucore.addachievements()
+                        If skills.Checked = True Then arcemucore.addskills()
+                        If zauber.Checked = True Then arcemucore.addspells()
+                        If pvp.Checked = True Then arcemucore.addpvp()
+                        If ruf.Checked = True Then arcemucore.addreputation()
+                        If inventar.Checked = True Then arcemucore.addinventory()
+                        If gold.Checked = True Then arcemucore.addgold(Main.player_money)
+                        Process_Status.processreport.AppendText(
+                            Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
+                    End If
+
+                    If CheckBox3.Checked = True Then
+                        Dim sLines() As String = accnames.Lines
+                        For i As Integer = 0 To sLines.Length - 1
+                            If sLines(i) = "" Then
+                            Else
+                                arcemucore.addchars(sLines(i), Main.char_name, False)
+                                '  arcemucore.updatechars(sLines(i), Main.char_name, False)
+                                If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
+                                If talents.Checked = True Then arcemucore.addtalents()
+                                If male.Checked = True Then arcemucore.setgender("0")
+                                If female.Checked = True Then arcemucore.setgender("1")
+                                If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
+                                If level.Checked = True Then arcemucore.setlevel()
+                                If alternatelevellabel.Checked = True Then arcemucore.setalternatelevel(alternateleveltext.Text)
+                                If race.Checked = True Then arcemucore.setrace()
+                                If playerclass.Checked = True Then arcemucore.setclass()
+                                If goldlabel.Checked = True Then arcemucore.setgold(goldtext.Text)
+                                If erfolge.Checked = True Then arcemucore.addachievements()
+                                If skills.Checked = True Then arcemucore.addskills()
+                                If zauber.Checked = True Then arcemucore.addspells()
+                                If pvp.Checked = True Then arcemucore.addpvp()
+                                If ruf.Checked = True Then arcemucore.addreputation()
+                                If inventar.Checked = True Then arcemucore.addinventory()
+                                If gold.Checked = True Then arcemucore.addgold(Main.player_money)
+                                Process_Status.processreport.AppendText(
+                                    Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
+                            End If
+
+                        Next
+                    End If
+                Else
+                    Dim xpacressource As String
+                    Dim xpacressource2 As String
+                    Select Case Main.xpac
+                        Case 3
+                            xpacressource = My.Resources.GEM_ID_wotlk
+                            xpacressource2 = My.Resources.VZ_ID_wotlk
+                        Case 4
+                            xpacressource = My.Resources.GEM_ID_cata
+                            xpacressource2 = My.Resources.VZ_ID_cata
+                        Case Else
+                            xpacressource = My.Resources.GEM_ID_wotlk
+                            xpacressource2 = My.Resources.VZ_ID_wotlk
+                    End Select
+                    arcemucore.spellgemtext = xpacressource
+                    arcemucore.spellitemtext = xpacressource2
+                    If CheckBox1.Checked = True Then
+
+                        arcemucore.adddetailedchar(accname.Text, newcharname.Text, False)
+                        If items.Checked = True Then arcemucore.additems()
+                        If sockets.Checked = True And vzs.Checked = True Then
+                            arcemucore.addench()
+                        ElseIf sockets.Checked = True Then
+                            arcemucore.addgems()
+                        ElseIf vzs.Checked = True Then
+                            arcemucore.addenchantments()
+                        Else
+                        End If
+                        If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
+                        If talents.Checked = True Then arcemucore.addtalents()
+                        If male.Checked = True Then arcemucore.setgender("0")
+                        If female.Checked = True Then arcemucore.setgender("1")
+                        If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
+                        If level.Checked = True Then arcemucore.setlevel()
+                        If alternatelevellabel.Checked = True Then arcemucore.setalternatelevel(alternateleveltext.Text)
+                        If race.Checked = True Then arcemucore.setrace()
+                        If playerclass.Checked = True Then arcemucore.setclass()
+                        If goldlabel.Checked = True Then arcemucore.setgold(goldtext.Text)
+                        If erfolge.Checked = True Then arcemucore.addachievements()
+                        If skills.Checked = True Then arcemucore.addskills()
+                        If zauber.Checked = True Then arcemucore.addspells()
+                        If pvp.Checked = True Then arcemucore.addpvp()
+                        If ruf.Checked = True Then arcemucore.addreputation()
+                        If inventar.Checked = True Then arcemucore.addinventory()
+                        If gold.Checked = True Then arcemucore.addgold(Main.player_money)
+                        Process_Status.processreport.AppendText(
+                            Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
+                    End If
+                    If CheckBox2.Checked = True Then
+                        arcemucore.getguidfromname(charname.Text)
+
+
+                        If items.Checked = True Then arcemucore.additems()
+                        If sockets.Checked = True And vzs.Checked = True Then
+                            arcemucore.addench()
+                        ElseIf sockets.Checked = True Then
+                            arcemucore.addgems()
+                        ElseIf vzs.Checked = True Then
+                            arcemucore.addenchantments()
+                        Else
+                        End If
+                        If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
+                        If talents.Checked = True Then arcemucore.addtalents()
+                        If male.Checked = True Then arcemucore.setgender("0")
+                        If female.Checked = True Then arcemucore.setgender("1")
+                        If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
+                        If level.Checked = True Then arcemucore.setlevel()
+                        If alternatelevellabel.Checked = True Then arcemucore.setalternatelevel(alternateleveltext.Text)
+                        If race.Checked = True Then arcemucore.setrace()
+                        If playerclass.Checked = True Then arcemucore.setclass()
+                        If goldlabel.Checked = True Then arcemucore.setgold(goldtext.Text)
+                        If erfolge.Checked = True Then arcemucore.addachievements()
+                        If skills.Checked = True Then arcemucore.addskills()
+                        If zauber.Checked = True Then arcemucore.addspells()
+                        If pvp.Checked = True Then arcemucore.addpvp()
+                        If ruf.Checked = True Then arcemucore.addreputation()
+                        If inventar.Checked = True Then arcemucore.addinventory()
+                        If gold.Checked = True Then arcemucore.addgold(Main.player_money)
+                        Process_Status.processreport.AppendText(
+                            Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
+                    End If
+
+                    If CheckBox3.Checked = True Then
+                        Dim sLines() As String = accnames.Lines
+                        For i As Integer = 0 To sLines.Length - 1
+                            If sLines(i) = "" Then
+                            Else
+
+                                arcemucore.adddetailedchar(sLines(i), Main.char_name, False)
+                                If items.Checked = True Then arcemucore.additems()
+                                If sockets.Checked = True And vzs.Checked = True Then
+                                    arcemucore.addench()
+                                ElseIf sockets.Checked = True Then
+                                    arcemucore.addgems()
+                                ElseIf vzs.Checked = True Then
+                                    arcemucore.addenchantments()
+                                Else
+                                End If
+                                If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
+                                If talents.Checked = True Then arcemucore.addtalents()
+                                If male.Checked = True Then arcemucore.setgender("0")
+                                If female.Checked = True Then arcemucore.setgender("1")
+                                If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
+                                If level.Checked = True Then arcemucore.setlevel()
+                                If alternatelevellabel.Checked = True Then _
+                                    arcemucore.setalternatelevel(alternateleveltext.Text)
+                                If race.Checked = True Then arcemucore.setrace()
+                                If playerclass.Checked = True Then arcemucore.setclass()
+                                If goldlabel.Checked = True Then arcemucore.setgold(goldtext.Text)
+                                If erfolge.Checked = True Then arcemucore.addachievements()
+                                If skills.Checked = True Then arcemucore.addskills()
+                                If zauber.Checked = True Then arcemucore.addspells()
+                                If pvp.Checked = True Then arcemucore.addpvp()
+                                If ruf.Checked = True Then arcemucore.addreputation()
+                                If inventar.Checked = True Then arcemucore.addinventory()
+                                If gold.Checked = True Then arcemucore.addgold(Main.player_money)
+                                Process_Status.processreport.AppendText(
+                                    Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
+                            End If
+
+                        Next
+                    End If
                 End If
             Else
-                Dim xpacressource As String
-                Dim xpacressource2 As String
-                Select Case Main.xpac
-                    Case 3
-                        xpacressource = My.Resources.GEM_ID_wotlk
-                        xpacressource2 = My.Resources.VZ_ID_wotlk
-                    Case 4
-                        xpacressource = My.Resources.GEM_ID_cata
-                        xpacressource2 = My.Resources.VZ_ID_cata
-                    Case Else
-                        xpacressource = My.Resources.GEM_ID_wotlk
-                        xpacressource2 = My.Resources.VZ_ID_wotlk
-                End Select
-                arcemucore.spellgemtext = xpacressource
-                arcemucore.spellitemtext = xpacressource2
-                If CheckBox1.Checked = True Then
 
-                    arcemucore.adddetailedchar(accname.Text, newcharname.Text, False)
-                    If items.Checked = True Then arcemucore.additems()
-                    If sockets.Checked = True And vzs.Checked = True Then
-                        arcemucore.addench()
-                    ElseIf sockets.Checked = True Then
-                        arcemucore.addgems()
-                    ElseIf vzs.Checked = True Then
-                        arcemucore.addenchantments()
-                    Else :
-                    End If
-                    If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
-                    If talents.Checked = True Then arcemucore.addtalents()
-                    If male.Checked = True Then arcemucore.setgender("0")
-                    If female.Checked = True Then arcemucore.setgender("1")
-                    If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
-                    If level.Checked = True Then arcemucore.setlevel()
-                    If alternatelevellabel.Checked = True Then arcemucore.setalternatelevel(alternateleveltext.Text)
-                    If race.Checked = True Then arcemucore.setrace()
-                    If playerclass.Checked = True Then arcemucore.setclass()
-                    If goldlabel.Checked = True Then arcemucore.setgold(goldtext.Text)
-                    If erfolge.Checked = True Then arcemucore.addachievements()
-                    If skills.Checked = True Then arcemucore.addskills()
-                    If zauber.Checked = True Then arcemucore.addspells()
-                    If pvp.Checked = True Then arcemucore.addpvp()
-                    If ruf.Checked = True Then arcemucore.addreputation()
-                    If inventar.Checked = True Then arcemucore.addinventory()
-                    If gold.Checked = True Then arcemucore.addgold(Main.player_money)
-                    Process_Status.processreport.AppendText(
-                        Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
-                End If
-                If CheckBox2.Checked = True Then
-                    arcemucore.getguidfromname(charname.Text)
-
-
-                    If items.Checked = True Then arcemucore.additems()
-                    If sockets.Checked = True And vzs.Checked = True Then
-                        arcemucore.addench()
-                    ElseIf sockets.Checked = True Then
-                        arcemucore.addgems()
-                    ElseIf vzs.Checked = True Then
-                        arcemucore.addenchantments()
-                    Else :
-                    End If
-                    If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
-                    If talents.Checked = True Then arcemucore.addtalents()
-                    If male.Checked = True Then arcemucore.setgender("0")
-                    If female.Checked = True Then arcemucore.setgender("1")
-                    If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
-                    If level.Checked = True Then arcemucore.setlevel()
-                    If alternatelevellabel.Checked = True Then arcemucore.setalternatelevel(alternateleveltext.Text)
-                    If race.Checked = True Then arcemucore.setrace()
-                    If playerclass.Checked = True Then arcemucore.setclass()
-                    If goldlabel.Checked = True Then arcemucore.setgold(goldtext.Text)
-                    If erfolge.Checked = True Then arcemucore.addachievements()
-                    If skills.Checked = True Then arcemucore.addskills()
-                    If zauber.Checked = True Then arcemucore.addspells()
-                    If pvp.Checked = True Then arcemucore.addpvp()
-                    If ruf.Checked = True Then arcemucore.addreputation()
-                    If inventar.Checked = True Then arcemucore.addinventory()
-                    If gold.Checked = True Then arcemucore.addgold(Main.player_money)
-                    Process_Status.processreport.AppendText(
-                        Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
-                End If
-
-                If CheckBox3.Checked = True Then
-                    Dim sLines() As String = accnames.Lines
-                    For i As Integer = 0 To sLines.Length - 1
-                        If sLines(i) = "" Then
-                        Else
-
-                            arcemucore.adddetailedchar(sLines(i), Main.char_name, False)
-                            If items.Checked = True Then arcemucore.additems()
-                            If sockets.Checked = True And vzs.Checked = True Then
-                                arcemucore.addench()
-                            ElseIf sockets.Checked = True Then
-                                arcemucore.addgems()
-                            ElseIf vzs.Checked = True Then
-                                arcemucore.addenchantments()
-                            Else :
-                            End If
-                            If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
-                            If talents.Checked = True Then arcemucore.addtalents()
-                            If male.Checked = True Then arcemucore.setgender("0")
-                            If female.Checked = True Then arcemucore.setgender("1")
-                            If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
-                            If level.Checked = True Then arcemucore.setlevel()
-                            If alternatelevellabel.Checked = True Then _
-                                arcemucore.setalternatelevel(alternateleveltext.Text)
-                            If race.Checked = True Then arcemucore.setrace()
-                            If playerclass.Checked = True Then arcemucore.setclass()
-                            If goldlabel.Checked = True Then arcemucore.setgold(goldtext.Text)
-                            If erfolge.Checked = True Then arcemucore.addachievements()
-                            If skills.Checked = True Then arcemucore.addskills()
-                            If zauber.Checked = True Then arcemucore.addspells()
-                            If pvp.Checked = True Then arcemucore.addpvp()
-                            If ruf.Checked = True Then arcemucore.addreputation()
-                            If inventar.Checked = True Then arcemucore.addinventory()
-                            If gold.Checked = True Then arcemucore.addgold(Main.player_money)
-                            Process_Status.processreport.AppendText(
-                                Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
-                        End If
-
-                    Next
-                End If
             End If
-        Else
-
-        End If
-        trinitycore1.closesql()
-        Process_Status.Button1.Enabled = True
-        Application.DoEvents()
-        Main.Close()
-        Starter.Show()
-        Me.Close()
+            trinitycore1.closesql()
+            Process_Status.Button1.Enabled = True
+            Application.DoEvents()
+            Main.Close()
+            Starter.Show()
+            Me.Close()
     End Sub
 
     Private Sub Button2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button2.Click
@@ -1890,6 +1929,9 @@ Public Class Connect
             inventar.Checked = True
             gold.Checked = True
         Else
+            erfolge.Checked = True
+            skills.Checked = True
+            ruf.Checked = True
             items.Checked = True
             sockets.Checked = True
             vzs.Checked = True
@@ -1955,5 +1997,9 @@ Public Class Connect
     End Sub
 
     Private Sub Panel3_Paint(ByVal sender As Object, ByVal e As PaintEventArgs) Handles Panel3.Paint
+    End Sub
+
+    Private Sub erfolge_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles erfolge.CheckedChanged
+
     End Sub
 End Class

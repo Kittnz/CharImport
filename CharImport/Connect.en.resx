@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!--
-    Microsoft ResX Schema
-
+  <!-- 
+    Microsoft ResX Schema 
+    
     Version 2.0
-
-    The primary goals of this format is to allow a simple XML format
-    that is mostly human readable. The generation and parsing of the
-    various data types are done through the TypeConverter classes
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
     associated with the data types.
-
+    
     Example:
-
+    
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -26,36 +26,36 @@
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-
-    There are any number of "resheader" rows that contain simple
+                
+    There are any number of "resheader" rows that contain simple 
     name/value pairs.
-
-    Each data row contains a name, and value. The row also contains a
-    type or mimetype. Type corresponds to a .NET class that support
-    text/value conversion through the TypeConverter architecture.
-    Classes that don't support this are serialized and stored with the
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
     mimetype set.
-
-    The mimetype is used for serialized objects, and tells the
-    ResXResourceReader how to depersist the object. This is currently not
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
     extensible. For a given mimetype the value must be set accordingly:
-
-    Note - application/x-microsoft.net.object.binary.base64 is the format
-    that the ResXResourceWriter will generate, however the reader can
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
     read any of the formats listed below.
-
+    
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-
+    
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array
+    value   : The object must be serialized into a byte array 
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -165,6 +165,9 @@ Please make sure that the database is accessible!
   <data name="glyphs.Text" xml:space="preserve">
     <value>Glyphs</value>
   </data>
+  <data name="talents.Location" type="System.Drawing.Point, System.Drawing">
+    <value>164, 173</value>
+  </data>
   <data name="talents.Size" type="System.Drawing.Size, System.Drawing">
     <value>73, 19</value>
   </data>
@@ -172,7 +175,7 @@ Please make sure that the database is accessible!
     <value>Talents</value>
   </data>
   <data name="level.Location" type="System.Drawing.Point, System.Drawing">
-    <value>40, 650</value>
+    <value>260, 209</value>
   </data>
   <data name="Label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>287, 13</value>
@@ -297,9 +300,6 @@ Please make sure that the database is accessible!
   <data name="ruf.Text" xml:space="preserve">
     <value>Reputation</value>
   </data>
-  <data name="erfolge.Location" type="System.Drawing.Point, System.Drawing">
-    <value>229, 625</value>
-  </data>
   <data name="erfolge.Size" type="System.Drawing.Size, System.Drawing">
     <value>114, 19</value>
   </data>
@@ -307,13 +307,16 @@ Please make sure that the database is accessible!
     <value>Achievements</value>
   </data>
   <data name="zauber.Location" type="System.Drawing.Point, System.Drawing">
-    <value>229, 650</value>
+    <value>260, 173</value>
   </data>
   <data name="zauber.Size" type="System.Drawing.Size, System.Drawing">
     <value>66, 19</value>
   </data>
   <data name="zauber.Text" xml:space="preserve">
     <value>Spells</value>
+  </data>
+  <data name="skills.Location" type="System.Drawing.Point, System.Drawing">
+    <value>164, 209</value>
   </data>
   <data name="LinkLabel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>50, 13</value>
@@ -356,6 +359,12 @@ Please make sure that the database is accessible!
   </data>
   <data name="automatic.Text" xml:space="preserve">
     <value>Find relevant databases automatically</value>
+  </data>
+  <data name="Panel5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1399, 4</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>693, 422</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

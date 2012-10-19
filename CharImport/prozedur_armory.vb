@@ -268,13 +268,14 @@ Public Class prozedur_armory
         My.Application.DoEvents()
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Loading Secondary Glyphs..." & vbNewLine)
         getsecglyph()
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Character loaded!" & vbNewLine)
-        My.Application.DoEvents()
-        saveglyphs()
         getavs()
         getquests()
         getrep()
         getplayerbytes()
+        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Character loaded!" & vbNewLine)
+        My.Application.DoEvents()
+        saveglyphs()
+
 
         If xoverview = True Then
             addtoglyphlist("primeglyph1", Main.primeglyph1)
@@ -1784,8 +1785,9 @@ Public Class prozedur_armory
     Private Sub getrep()
         Dim factionid As String = ""
         Dim repstring As String = ""
-        Dim standing As String = ""
+        Dim standing As Integer = vbEmpty
         Dim quellcode As String = ""
+        Dim orgstanding As Integer = vbEmpty
         Try
             Dim client As New WebClient
             quellcode =
@@ -1807,22 +1809,33 @@ Public Class prozedur_armory
             Catch :
             End Try
 
-            Dim parts() As String = repstring.Split("$"c)
+            Dim parts() As String = repstring.Split("§"c)
             Dim loopcounter As Integer = 0
             Do
+                Dim exsplit As String = parts(loopcounter)
                 Dim anfangyx88 As String = """id"":"
                 Dim endeyx88 As String = ","
                 Dim quellcodeSplityx88 As String
-                quellcodeSplityx88 = Split(parts(loopcounter), anfangyx88, 5)(1)
+                quellcodeSplityx88 = Split(exsplit, anfangyx88, 5)(1)
                 factionid = Split(quellcodeSplityx88, endeyx88, 6)(0)
                 Dim anfangyx888 As String = """value"":"
                 Dim endeyx888 As String = ","
                 Dim quellcodeSplityx888 As String
                 quellcodeSplityx888 = Split(parts(loopcounter), anfangyx888, 5)(1)
-                standing = Split(quellcodeSplityx888, endeyx888, 6)(0)
+                standing = CInt(Split(quellcodeSplityx888, endeyx888, 6)(0))
+                Dim anfangyx8888 As String = """standing"":"
+                Dim endeyx8888 As String = ","
+                Dim quellcodeSplityx8888 As String
+                quellcodeSplityx8888 = Split(parts(loopcounter), anfangyx8888, 5)(1)
+                orgstanding = CInt(Split(quellcodeSplityx8888, endeyx8888, 6)(0))
                 loopcounter += 1
+
+                If orgstanding > 3 Then standing += 3000
+                If orgstanding > 4 Then standing += 6000
+                If orgstanding > 5 Then standing += 12000
+                If orgstanding > 6 Then standing += 21000
                 Main.character_reputatuion_list.Add(
-                    "<faction>" & factionid & "</faction><standing>" & standing & "</standing><flags>1</flags>")
+                    "<faction>" & factionid & "</faction><standing>" & standing.ToString & "</standing><flags>1</flags>")
             Loop Until loopcounter = excounter
 
         End If
@@ -1869,7 +1882,7 @@ Public Class prozedur_armory
                 Dim loopcounter As Integer = 0
                 Dim excounter As Integer = UBound(Split(avstring, ","))
                 Dim parts() As String = avstring.Split(","c)
-                Dim parts2() As String = timestamp.Split(","c)
+                Dim parts2() As String = TimeString.Split(","c)
                 Do
                     avid = parts(loopcounter)
                     timestamp = parts2(loopcounter)
@@ -1902,8 +1915,7 @@ Public Class prozedur_armory
             glyphstring = Split(quellcodeSplityx88, endeyx88, 6)(0)
             My.Application.DoEvents()
         Catch ex As Exception
-            Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Error: " & ex.ToString & vbNewLine)
-            Main.errorcount += 1
+
         End Try
         Try
             If glyphstring.Contains("""major""") Then
@@ -2035,8 +2047,7 @@ Public Class prozedur_armory
             End If
 
         Catch ex As Exception
-            Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Error: " & ex.ToString & vbNewLine)
-            Main.errorcount += 1
+
         End Try
     End Sub
 
@@ -2058,8 +2069,7 @@ Public Class prozedur_armory
             If Not quellcodeyx88.Contains("""glyphs"":") Then Exit Sub
             My.Application.DoEvents()
         Catch ex As Exception
-            Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Error: " & ex.ToString & vbNewLine)
-            Main.errorcount += 1
+
         End Try
         Try
             If glyphstring.Contains("""major""") Then
@@ -2191,8 +2201,7 @@ Public Class prozedur_armory
             End If
 
         Catch ex As Exception
-            Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Error: " & ex.ToString & vbNewLine)
-            Main.errorcount += 1
+
         End Try
     End Sub
 
