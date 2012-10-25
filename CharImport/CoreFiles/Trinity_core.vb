@@ -851,6 +851,29 @@ Public Class Trinity_core
         Catch ex As Exception
 
         End Try
+        Dim _
+            da2 As _
+                New MySqlDataAdapter(
+                    "SELECT quest FROM character_queststatus_rewarded WHERE guid='" & Main.char_guid.ToString & "'",
+                    Main.GLOBALconn)
+        Dim dt2 As New DataTable
+        Try
+            da2.Fill(dt2)
+
+            Dim lastcount As Integer = CInt(Val(dt2.Rows.Count.ToString))
+            Dim count As Integer = 0
+            If Not lastcount = 0 Then
+                Do
+                    Dim readedcode As String = (dt2.Rows(count).Item(0)).ToString
+                    Dim quest As String = readedcode
+                    If Not quest = "" Then Main.finished_quests = Main.finished_quests & quest & ","
+                    count += 1
+                Loop Until count = lastcount
+            End If
+
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Public Sub getskills()
@@ -1962,9 +1985,9 @@ Public Class Trinity_core
                 Now.TimeOfDay.ToString & "// Player will be asked to change charactername! : reason-nce=true" &
                 vbNewLine)
             runfunction.normalsqlcommand(
-                "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `position_x`, position_y, position_z, map, orientation, taximask `health` ) VALUES ( '" &
+                "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `position_x`, position_y, position_z, map, orientation, taximask `health` ) VALUES ( '" &
                 newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
-                "', '0', '0', '0', '1', '0', '0', '-14306', '515', '10', '0', '5', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ','1000' )")
+                "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes & "', '-14306', '515', '10', '0', '5', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ','1000' )")
 
             runfunction.normalsqlcommand("UPDATE characters SET at_login='1' WHERE guid='" & newcharguid.ToString & "'")
         Else
@@ -1972,16 +1995,16 @@ Public Class Trinity_core
                 Process_Status.processreport.AppendText(
                     Now.TimeOfDay.ToString & "// Player will be asked to change charactername!" & vbNewLine)
                 runfunction.normalsqlcommand(
-                    "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `position_x`, position_y, position_z, map, orientation, taximask, `health` ) VALUES ( '" &
-                    newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
-                    "', '0', '0', '0', '1', '0', '0', '-14306', '515', '10', '0', '5', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '1000' )")
+                   "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `position_x`, position_y, position_z, map, orientation, taximask `health` ) VALUES ( '" &
+                   newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
+                   "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes & "', '-14306', '515', '10', '0', '5', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ','1000' )")
                 runfunction.normalsqlcommand(
                     "UPDATE characters SET at_login='1' WHERE guid='" & newcharguid.ToString & "'")
             Else
                 runfunction.normalsqlcommand(
-                    "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `position_x`, position_y, position_z, map, orientation, taximask, `health` ) VALUES ( '" &
-                    newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
-                    "', '0', '0', '0', '1', '0', '0', '-14306', '515', '10', '0', '5', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '1000' )")
+                "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `position_x`, position_y, position_z, map, orientation, taximask `health` ) VALUES ( '" &
+                newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
+                "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes & "', '-14306', '515', '10', '0', '5', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ','1000' )")
                 runfunction.normalsqlcommand(
                     "UPDATE characters SET at_login='0' WHERE guid='" & newcharguid.ToString & "'")
             End If
@@ -2003,6 +2026,18 @@ Public Class Trinity_core
         runfunction.normalsqlcommand(
             "INSERT INTO character_inventory ( guid, bag, `slot`, `item` ) VALUES ( '" & Main.coreguid &
             "', '0', '23', '" & newguid & "')")
+        If Not Main.finished_quests = "" Then
+            Try
+                Dim parts() As String = Main.finished_quests.Split(","c)
+                Dim excounter As Integer = UBound(Main.finished_quests.Split(CChar(",")))
+                Dim startcounter As Integer = 0
+                Do
+                    Dim questid As String = parts(startcounter)
+                    runfunction.normalsqlcommand("INSERT IGNORE INTO character_queststatus_rewarded ( `guid`, `quest` ) VALUES ( '" & Main.coreguid & "', '" & questid & "' )")
+                    startcounter += 1
+                Loop Until startcounter = excounter
+            Catch : End Try
+            End If
 
         Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "// Created Character " & charactername & "!" & vbNewLine)
@@ -2087,6 +2122,18 @@ Public Class Trinity_core
 
             End If
 
+        End If
+        If Not Main.finished_quests = "" Then
+            Try
+                Dim parts() As String = Main.finished_quests.Split(","c)
+                Dim excounter As Integer = UBound(Main.finished_quests.Split(CChar(",")))
+                Dim startcounter As Integer = 0
+                Do
+                    Dim questid As String = parts(startcounter)
+                    runfunction.normalsqlcommand("INSERT IGNORE INTO character_queststatus_rewarded ( `guid`, `quest` ) VALUES ( '" & Main.coreguid & "', '" & questid & "' )")
+                    startcounter += 1
+                Loop Until startcounter = excounter
+            Catch : End Try
         End If
         sethome()
         addaction()

@@ -1886,6 +1886,11 @@ Public Class prozedur_armory
                 Do
                     avid = parts(loopcounter)
                     timestamp = parts2(loopcounter)
+                    If timestamp.Contains("000") Then
+                        Try
+                            timestamp = timestamp.Remove(timestamp.Length - 3, 3)
+                        Catch : End Try
+                        End If
                     loopcounter += 1
                     Main.character_achievement_list.Add("<av>" & avid & "</av><date>" & timestamp & "</date>")
                 Loop Until loopcounter = excounter
