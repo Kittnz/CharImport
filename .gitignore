@@ -38,7 +38,6 @@ Errorlog.log
 *.cache
 *.ilk
 *.log
-[Bb]in
 *.lib
 *.sbr
 [Rr]elease*/
