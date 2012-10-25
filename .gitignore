@@ -48,3 +48,13 @@ Errorlog.log
 obj/
 [Rr]elease*/
 _ReSharper*/
+CharImport/obj/x86/Debug/en/CharImport Test.resources.dll
+CharImport/obj/x86/Debug/en/CharImport Test.resources.dll
+CharImport/obj/x86/Debug/de/CharImport Test.resources.dll
+CharImport/bin/Debug/af/CharImport Test.resources.dll
+CharImport/bin/Debug/de-DE/CharImport Test.resources.dll
+CharImport/bin/Debug/de/CharImport Test.resources.dll
+CharImport/bin/Debug/en/CharImport Test.resources.dll
+CharImport/obj/x86/Debug/af/CharImport Test.resources.dll
+CharImport/obj/x86/Debug/CharImport Test.exe
+CharImport/obj/x86/Debug/CharImport Test.pdb
