@@ -3,7 +3,6 @@
 /talentclasses
 /Core_Lib
 /ciulib
-bin/
 /_ReSharper.CharImport
 _ReSharper.CharImport/
 /CharImport/xobj
@@ -40,10 +39,8 @@ Errorlog.log
 *.ilk
 *.log
 [Bb]in
-[Dd]ebug*/
 *.lib
 *.sbr
-obj/
 [Rr]elease*/
 _ReSharper*/
 CharImport/obj/x86/Debug/en/CharImport Test.resources.dll
