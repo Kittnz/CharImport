@@ -56,43 +56,43 @@ Partial Class Armory_Interface
         '
         'Button8
         '
+        resources.ApplyResources(Me.Button8, "Button8")
         Me.Button8.BackColor = System.Drawing.Color.DimGray
         Me.Button8.Cursor = System.Windows.Forms.Cursors.Hand
-        resources.ApplyResources(Me.Button8, "Button8")
         Me.Button8.Name = "Button8"
         Me.Button8.UseVisualStyleBackColor = False
         '
         'Button1
         '
+        resources.ApplyResources(Me.Button1, "Button1")
         Me.Button1.BackColor = System.Drawing.Color.DimGray
         Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
-        resources.ApplyResources(Me.Button1, "Button1")
         Me.Button1.Name = "Button1"
         Me.Button1.UseVisualStyleBackColor = False
         '
         'Button2
         '
+        resources.ApplyResources(Me.Button2, "Button2")
         Me.Button2.BackColor = System.Drawing.Color.DimGray
         Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
-        resources.ApplyResources(Me.Button2, "Button2")
         Me.Button2.Name = "Button2"
         Me.Button2.UseVisualStyleBackColor = False
         '
         'Button3
         '
+        resources.ApplyResources(Me.Button3, "Button3")
         Me.Button3.BackColor = System.Drawing.Color.DimGray
         Me.Button3.Cursor = System.Windows.Forms.Cursors.Hand
-        resources.ApplyResources(Me.Button3, "Button3")
         Me.Button3.Name = "Button3"
         Me.Button3.UseVisualStyleBackColor = False
         '
         'ListView1
         '
+        resources.ApplyResources(Me.ListView1, "ListView1")
         Me.ListView1.BackColor = System.Drawing.SystemColors.Control
         Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.lstvregion, Me.Realm, Me.Charactername, Me.hyperlink})
         Me.ListView1.FullRowSelect = True
         Me.ListView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
-        resources.ApplyResources(Me.ListView1, "ListView1")
         Me.ListView1.MultiSelect = False
         Me.ListView1.Name = "ListView1"
         Me.ListView1.UseCompatibleStateImageBehavior = False
@@ -116,6 +116,7 @@ Partial Class Armory_Interface
         '
         'GroupBox1
         '
+        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.Controls.Add(Me.charname)
         Me.GroupBox1.Controls.Add(Me.realmname)
         Me.GroupBox1.Controls.Add(Me.globalregion)
@@ -123,7 +124,6 @@ Partial Class Armory_Interface
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
-        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.ForeColor = System.Drawing.Color.RoyalBlue
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.TabStop = False
@@ -140,16 +140,16 @@ Partial Class Armory_Interface
         '
         'globalregion
         '
+        resources.ApplyResources(Me.globalregion, "globalregion")
         Me.globalregion.FormattingEnabled = True
         Me.globalregion.Items.AddRange(New Object() {resources.GetString("globalregion.Items"), resources.GetString("globalregion.Items1"), resources.GetString("globalregion.Items2"), resources.GetString("globalregion.Items3")})
-        resources.ApplyResources(Me.globalregion, "globalregion")
         Me.globalregion.Name = "globalregion"
         '
         'add_button
         '
+        resources.ApplyResources(Me.add_button, "add_button")
         Me.add_button.BackColor = System.Drawing.Color.DimGray
         Me.add_button.Cursor = System.Windows.Forms.Cursors.Hand
-        resources.ApplyResources(Me.add_button, "add_button")
         Me.add_button.ForeColor = System.Drawing.SystemColors.ControlText
         Me.add_button.Name = "add_button"
         Me.add_button.UseVisualStyleBackColor = False
@@ -174,14 +174,14 @@ Partial Class Armory_Interface
         '
         'ContextMenuStrip1
         '
+        resources.ApplyResources(Me.ContextMenuStrip1, "ContextMenuStrip1")
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        resources.ApplyResources(Me.ContextMenuStrip1, "ContextMenuStrip1")
         '
         'ToolStripMenuItem1
         '
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
         resources.ApplyResources(Me.ToolStripMenuItem1, "ToolStripMenuItem1")
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
         '
         'Armory_Interface
         '
