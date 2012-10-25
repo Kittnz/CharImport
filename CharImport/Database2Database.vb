@@ -1685,7 +1685,11 @@ Public Class Database2Database
 
         End If
         trinitycore1.closesql()
-
+        If My.Settings.language = "de" Then
+            MsgBox(localeDE.restartlogon, MsgBoxStyle.Information, localeDE.attention)
+        Else
+            MsgBox(localeEN.restartlogon, MsgBoxStyle.Information, localeEN.attention)
+        End If
         reporttext.AppendText(Now.TimeOfDay.ToString & "// Transfer is completed!" & vbNewLine)
         Process_Status.Button1.Enabled = True
         Database_Interface.Close()

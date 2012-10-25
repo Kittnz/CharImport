@@ -808,6 +808,7 @@ Public Class Armory2Database
                         If namechange1.Checked = True Then arcemucore.updatechars(Main.char_name)
                         ' If namechange1.Checked = True Then arcemucore.requestnamechange(Main.char_name)
                         If items.Checked = True Then arcemucore.additems()
+                         If items.Checked = True Then arcemucore.additems()
                         If sockets.Checked = True Then arcemucore.addgems()
                         If vzs.Checked = True Then arcemucore.addenchantments()
                         If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
@@ -831,6 +832,11 @@ Public Class Armory2Database
         End If
         trinitycore1.closesql()
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Transfer is completed!" & vbNewLine)
+        If My.Settings.language = "de" Then
+            MsgBox(localeDE.restartlogon, MsgBoxStyle.Information, localeDE.attention)
+        Else
+            MsgBox(localeEN.restartlogon, MsgBoxStyle.Information, localeEN.attention)
+        End If
         Process_Status.Button1.Enabled = True
         Starter.Show()
         Me.Close()

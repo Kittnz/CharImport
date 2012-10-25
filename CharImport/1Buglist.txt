@@ -10,15 +10,4 @@
 ****************************************************************************************
 
 
-Glyphen Interface:
- > Zurück Button überschattet Glyphenname
-
-SkyFireEmu:
- > 3 Spalten der Charakter Datenbank werden nicht erkannt
-
-Connect Interface:
- > Starter Interface wird beim Schließen nicht angezeigt (ohne Übersicht)
-
-Weiteres:
- > Bei Fehlerberichten ausgewähltes Core mitgeben
- > TBC Datenbanken inkompatibel
+- column 'available_prof_points' (arcemu.characters) default to 0

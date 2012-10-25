@@ -1806,7 +1806,7 @@ Public Class prozedur_armory
             Dim excounter As Integer = UBound(Split(repstring, ",{"))
             Try
                 repstring = repstring.Replace(",{", "§")
-            Catch :
+            Catch
             End Try
 
             Dim parts() As String = repstring.Split("§"c)

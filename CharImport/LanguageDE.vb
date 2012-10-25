@@ -92,4 +92,6 @@
     Public norealmname As String = "Der Name des Realms wurde nicht festgelegt."
     Public nocharname As String = "Der Name des Charakters wurde nicht festgelegt."
     Public charnotfound As String = "Der Charakter wurde nicht gefunden! Überprüfe deine Angaben."
+
+    Public restartlogon As String = "Bitte starte den World Server neu, um Probleme zu vermeiden!"
 End Class

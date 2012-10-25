@@ -1433,27 +1433,28 @@ Public Class Connect
                         ElseIf genderstay.Checked = True Then
                             arcemucore.setgender(Main.char_gender.ToString)
                     End If
-
-                        If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
-                        If talents.Checked = True Then arcemucore.addtalents()
-                        If male.Checked = True Then arcemucore.setgender("0")
-                        If female.Checked = True Then arcemucore.setgender("1")
-                        If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
-                        If level.Checked = True Then arcemucore.setlevel()
-                        If alternatelevellabel.Checked = True Then arcemucore.setalternatelevel(alternateleveltext.Text)
-                        If race.Checked = True Then arcemucore.setrace()
-                        If playerclass.Checked = True Then arcemucore.setclass()
-                        If goldlabel.Checked = True Then arcemucore.setgold(goldtext.Text)
-                        If erfolge.Checked = True Then arcemucore.addachievements()
-                        If skills.Checked = True Then arcemucore.addskills()
-                        If zauber.Checked = True Then arcemucore.addspells()
-                        If pvp.Checked = True Then arcemucore.addpvp()
-                        If ruf.Checked = True Then arcemucore.addreputation()
-                        If inventar.Checked = True Then arcemucore.addinventory()
-                        If gold.Checked = True Then arcemucore.addgold(Main.player_money)
-                        Process_Status.processreport.AppendText(
-                            Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
-                    End If
+                    If items.Checked = True Then arcemucore.additems()
+                    If sockets.Checked = True Then arcemucore.addgems()
+                    If vzs.Checked = True Then arcemucore.addenchantments()
+                    If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
+                If talents.Checked = True Then arcemucore.addtalents()
+                If male.Checked = True Then arcemucore.setgender("0")
+                If female.Checked = True Then arcemucore.setgender("1")
+                If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
+                If level.Checked = True Then arcemucore.setlevel()
+                If alternatelevellabel.Checked = True Then arcemucore.setalternatelevel(alternateleveltext.Text)
+                If race.Checked = True Then arcemucore.setrace()
+                If playerclass.Checked = True Then arcemucore.setclass()
+                If goldlabel.Checked = True Then arcemucore.setgold(goldtext.Text)
+                If erfolge.Checked = True Then arcemucore.addachievements()
+                If skills.Checked = True Then arcemucore.addskills()
+                If zauber.Checked = True Then arcemucore.addspells()
+                If pvp.Checked = True Then arcemucore.addpvp()
+                If ruf.Checked = True Then arcemucore.addreputation()
+                If inventar.Checked = True Then arcemucore.addinventory()
+                Process_Status.processreport.AppendText(
+                          Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
+            End If
                     If CheckBox2.Checked = True Then
                         arcemucore.getguidfromname(charname.Text)
 
@@ -1463,7 +1464,10 @@ Public Class Connect
                             arcemucore.setgender("1")
                         ElseIf genderstay.Checked = True Then
                             arcemucore.setgender(Main.char_gender.ToString)
-                        End If
+                    End If
+                   If items.Checked = True Then arcemucore.additems()
+                    If sockets.Checked = True Then arcemucore.addgems()
+                    If vzs.Checked = True Then arcemucore.addenchantments()
                         If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
                         If talents.Checked = True Then arcemucore.addtalents()
                         If male.Checked = True Then arcemucore.setgender("0")
@@ -1480,7 +1484,8 @@ Public Class Connect
                         If pvp.Checked = True Then arcemucore.addpvp()
                         If ruf.Checked = True Then arcemucore.addreputation()
                         If inventar.Checked = True Then arcemucore.addinventory()
-                        If gold.Checked = True Then arcemucore.addgold(Main.player_money)
+                    If gold.Checked = True Then arcemucore.addgold(Main.player_money)
+
                         Process_Status.processreport.AppendText(
                             Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
                     End If
@@ -1491,7 +1496,10 @@ Public Class Connect
                             If sLines(i) = "" Then
                             Else
                                 arcemucore.addchars(sLines(i), Main.char_name, False)
-                                '  arcemucore.updatechars(sLines(i), Main.char_name, False)
+                            '  arcemucore.updatechars(sLines(i), Main.char_name, False)
+                            If items.Checked = True Then arcemucore.additems()
+                            If sockets.Checked = True Then arcemucore.addgems()
+                            If vzs.Checked = True Then arcemucore.addenchantments()
                                 If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
                                 If talents.Checked = True Then arcemucore.addtalents()
                                 If male.Checked = True Then arcemucore.setgender("0")
@@ -1542,7 +1550,16 @@ Public Class Connect
                         ElseIf vzs.Checked = True Then
                             arcemucore.addenchantments()
                         Else
-                        End If
+                    End If
+                    If items.Checked = True Then arcemucore.additems()
+                    If sockets.Checked = True And vzs.Checked = True Then
+                        arcemucore.addench()
+                    ElseIf sockets.Checked = True Then
+                        arcemucore.addgems()
+                    ElseIf vzs.Checked = True Then
+                        arcemucore.addenchantments()
+                    Else
+                    End If
                         If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
                         If talents.Checked = True Then arcemucore.addtalents()
                         If male.Checked = True Then arcemucore.setgender("0")
@@ -1641,7 +1658,12 @@ Public Class Connect
             Else
 
             End If
-            trinitycore1.closesql()
+        trinitycore1.closesql()
+        If My.Settings.language = "de" Then
+            MsgBox(localeDE.restartlogon, MsgBoxStyle.Information, localeDE.attention)
+        Else
+            MsgBox(localeEN.restartlogon, MsgBoxStyle.Information, localeEN.attention)
+        End If
             Process_Status.Button1.Enabled = True
             Application.DoEvents()
             Main.Close()
