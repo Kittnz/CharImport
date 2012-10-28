@@ -134,12 +134,12 @@
   <data name="add_button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="add_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>218, 52</value>
+  <data name="charname.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 21</value>
+  </data>
+  <data name="&gt;&gt;realmname.Name" xml:space="preserve">
+    <value>realmname</value>
   </data>
   <data name="realmname.Size" type="System.Drawing.Size, System.Drawing">
     <value>117, 21</value>
@@ -150,9 +150,6 @@
   <data name="globalregion.Items2" xml:space="preserve">
     <value>KR</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Armory_Interface</value>
-  </data>
   <data name="add_button.TabIndex" type="System.Int32, mscorlib">
     <value>163</value>
   </data>
@@ -162,11 +159,11 @@
   <data name="&gt;&gt;charname.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="Label3.TabIndex" type="System.Int32, mscorlib">
-    <value>161</value>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>252, 15</value>
   </data>
-  <data name="&gt;&gt;Label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="globalregion.Items1" xml:space="preserve">
+    <value>US</value>
   </data>
   <data name="globalregion.Items" xml:space="preserve">
     <value>EU</value>
@@ -180,17 +177,11 @@
   <data name="Button2.Size" type="System.Drawing.Size, System.Drawing">
     <value>170, 48</value>
   </data>
-  <data name="Button1.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="globalregion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 23</value>
+  <data name="Charactername.Width" type="System.Int32, mscorlib">
+    <value>320</value>
   </data>
   <data name="Label3.Text" xml:space="preserve">
     <value>Realmname:</value>
-  </data>
-  <data name="&gt;&gt;realmname.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>2, 7</value>
@@ -210,9 +201,6 @@
   <data name="GroupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>159</value>
   </data>
-  <data name="Button3.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="globalregion.Text" xml:space="preserve">
     <value>Auswählen</value>
   </data>
@@ -222,8 +210,8 @@
   <data name="&gt;&gt;ListView1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="Button2.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4757,14 +4745,20 @@
   <data name="&gt;&gt;lstvregion.Name" xml:space="preserve">
     <value>lstvregion</value>
   </data>
+  <data name="add_button.Location" type="System.Drawing.Point, System.Drawing">
+    <value>218, 52</value>
+  </data>
   <data name="&gt;&gt;Label4.Name" xml:space="preserve">
     <value>Label4</value>
   </data>
   <data name="&gt;&gt;ToolStripMenuItem1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;globalregion.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;add_button.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;globalregion.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ListView1.Size" type="System.Drawing.Size, System.Drawing">
     <value>636, 154</value>
@@ -4802,6 +4796,9 @@
   <data name="Label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="Button1.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;Button8.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -4814,14 +4811,11 @@
   <data name="&gt;&gt;Button2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
   <data name="&gt;&gt;Button3.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
-    <value>Label3</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Armory_Interface</value>
   </data>
   <data name="Label1.TabIndex" type="System.Int32, mscorlib">
     <value>156</value>
@@ -4829,17 +4823,17 @@
   <data name="add_button.Text" xml:space="preserve">
     <value>Überprüfen und hinzufügen</value>
   </data>
-  <data name="&gt;&gt;ContextMenuStrip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
     <value>GroupBox1</value>
   </data>
   <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>171, 28</value>
   </data>
-  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
-    <value>159</value>
+  <data name="&gt;&gt;charname.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Button2.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="Label4.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9pt, style=Bold</value>
@@ -4859,14 +4853,11 @@
   <data name="lstvregion.Width" type="System.Int32, mscorlib">
     <value>59</value>
   </data>
-  <data name="Charactername.Width" type="System.Int32, mscorlib">
-    <value>320</value>
+  <data name="&gt;&gt;realmname.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Realm.Width" type="System.Int32, mscorlib">
     <value>231</value>
-  </data>
-  <data name="&gt;&gt;globalregion.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ContextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
     <value>126, 26</value>
@@ -4874,8 +4865,8 @@
   <data name="Button8.Location" type="System.Drawing.Point, System.Drawing">
     <value>510, 374</value>
   </data>
-  <data name="GroupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 189</value>
+  <data name="&gt;&gt;Label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;globalregion.Parent" xml:space="preserve">
     <value>GroupBox1</value>
@@ -4907,6 +4898,9 @@
   <data name="&gt;&gt;Button1.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
+  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
   <data name="&gt;&gt;hyperlink.Name" xml:space="preserve">
     <value>hyperlink</value>
   </data>
@@ -4916,14 +4910,14 @@
   <data name="&gt;&gt;Realm.Name" xml:space="preserve">
     <value>Realm</value>
   </data>
+  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
+    <value>159</value>
+  </data>
   <data name="Button1.Location" type="System.Drawing.Point, System.Drawing">
     <value>230, 312</value>
   </data>
   <data name="&gt;&gt;GroupBox1.Name" xml:space="preserve">
     <value>GroupBox1</value>
-  </data>
-  <data name="&gt;&gt;charname.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -4939,6 +4933,9 @@
   </data>
   <data name="Label2.Text" xml:space="preserve">
     <value>Region:</value>
+  </data>
+  <data name="realmname.TabIndex" type="System.Int32, mscorlib">
+    <value>161</value>
   </data>
   <data name="&gt;&gt;GroupBox1.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -4964,11 +4961,14 @@
   <data name="ListView1.TabIndex" type="System.Int32, mscorlib">
     <value>158</value>
   </data>
-  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>252, 15</value>
+  <data name="Button3.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="Button8.Text" xml:space="preserve">
     <value>Zurück</value>
+  </data>
+  <data name="&gt;&gt;add_button.Name" xml:space="preserve">
+    <value>add_button</value>
   </data>
   <data name="&gt;&gt;Button3.Name" xml:space="preserve">
     <value>Button3</value>
@@ -4991,8 +4991,8 @@
   <data name="ToolStripMenuItem1.Text" xml:space="preserve">
     <value>Entfernen</value>
   </data>
-  <data name="realmname.TabIndex" type="System.Int32, mscorlib">
-    <value>161</value>
+  <data name="GroupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 189</value>
   </data>
   <data name="Button2.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -5009,11 +5009,14 @@
   <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="Label4.TabIndex" type="System.Int32, mscorlib">
-    <value>163</value>
+  <data name="&gt;&gt;ContextMenuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Button1.Size" type="System.Drawing.Size, System.Drawing">
     <value>170, 48</value>
+  </data>
+  <data name="globalregion.TabIndex" type="System.Int32, mscorlib">
+    <value>160</value>
   </data>
   <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9pt, style=Bold</value>
@@ -5027,8 +5030,8 @@
   <data name="&gt;&gt;hyperlink.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;realmname.Name" xml:space="preserve">
-    <value>realmname</value>
+  <data name="Label4.TabIndex" type="System.Int32, mscorlib">
+    <value>163</value>
   </data>
   <data name="&gt;&gt;ListView1.Name" xml:space="preserve">
     <value>ListView1</value>
@@ -5042,17 +5045,11 @@
   <data name="Button8.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="charname.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 21</value>
-  </data>
   <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>109, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>646, 410</value>
-  </data>
-  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
-    <value>GroupBox1</value>
   </data>
   <data name="Label4.Text" xml:space="preserve">
     <value>Charaktername:</value>
@@ -5075,14 +5072,14 @@
   <data name="ListView1.Location" type="System.Drawing.Point, System.Drawing">
     <value>5, 29</value>
   </data>
+  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
+    <value>Label3</value>
+  </data>
   <data name="Button1.Text" xml:space="preserve">
     <value>Charakter-Profil(e) in Template(s) speichern</value>
   </data>
   <data name="ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>125, 22</value>
-  </data>
-  <data name="globalregion.Items1" xml:space="preserve">
-    <value>US</value>
   </data>
   <data name="Button3.Location" type="System.Drawing.Point, System.Drawing">
     <value>428, 312</value>
@@ -5090,18 +5087,21 @@
   <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9pt, style=Bold</value>
   </data>
-  <data name="globalregion.TabIndex" type="System.Int32, mscorlib">
-    <value>160</value>
+  <data name="globalregion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 23</value>
   </data>
-  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
+  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="Button3.Text" xml:space="preserve">
     <value>Charakter Übersicht
 (Nur bei einem Link)</value>
   </data>
-  <data name="&gt;&gt;add_button.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
   </data>
   <data name="GroupBox1.Text" xml:space="preserve">
     <value>Charakter hinzufügen</value>
@@ -5109,8 +5109,8 @@
   <data name="lstvregion.Text" xml:space="preserve">
     <value>Region</value>
   </data>
-  <data name="&gt;&gt;add_button.Name" xml:space="preserve">
-    <value>add_button</value>
+  <data name="Label3.TabIndex" type="System.Int32, mscorlib">
+    <value>161</value>
   </data>
   <data name="charname.TabIndex" type="System.Int32, mscorlib">
     <value>162</value>
@@ -5118,8 +5118,8 @@
   <data name="&gt;&gt;Button2.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
-    <value>GroupBox1</value>
+  <data name="&gt;&gt;globalregion.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>en</value>

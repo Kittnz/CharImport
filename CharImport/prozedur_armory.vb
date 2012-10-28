@@ -1872,7 +1872,6 @@ Public Class prozedur_armory
             Dim quellcodeSplityx88 As String
             quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
             TimeString = Split(quellcodeSplityx88, endeyx88, 6)(0) & ","
-
             My.Application.DoEvents()
         Catch ex As Exception
 

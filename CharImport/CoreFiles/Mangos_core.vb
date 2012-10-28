@@ -23,7 +23,7 @@ Public Class Mangos_core
 
     Dim characterguid As Integer
     Dim reporttext As RichTextBox = Process_Status.processreport
-    '  Dim SQLConnection As MySqlConnection = New MySqlConnection
+
     Dim quelltext As String = ""
     Dim talentpage As String = ""
     Dim sectalentpage As String = ""
@@ -31,7 +31,6 @@ Public Class Mangos_core
     Dim guid As String = ""
     Dim accguid As String = ""
     Dim lastnumber As String = ""
-
     Dim _
         finalstring As String =
             "kopf 0 hals 0 schulter 0 hemd 0 brust 0 guertel 0 beine 0 stiefel 0 handgelenke 0 haende 0 finger1 0 finger2 0 schmuck1 0 schmuck2 0 ruecken 0 haupt 0 off 0 distanz 0 wappenrock 0 "

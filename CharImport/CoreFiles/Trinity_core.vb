@@ -1985,7 +1985,7 @@ Public Class Trinity_core
                 Now.TimeOfDay.ToString & "// Player will be asked to change charactername! : reason-nce=true" &
                 vbNewLine)
             runfunction.normalsqlcommand(
-                "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `position_x`, position_y, position_z, map, orientation, taximask `health` ) VALUES ( '" &
+                "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `position_x`, position_y, position_z, map, orientation, taximask, `health` ) VALUES ( '" &
                 newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
                 "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes & "', '-14306', '515', '10', '0', '5', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ','1000' )")
 
@@ -1995,14 +1995,14 @@ Public Class Trinity_core
                 Process_Status.processreport.AppendText(
                     Now.TimeOfDay.ToString & "// Player will be asked to change charactername!" & vbNewLine)
                 runfunction.normalsqlcommand(
-                   "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `position_x`, position_y, position_z, map, orientation, taximask `health` ) VALUES ( '" &
+                   "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `position_x`, position_y, position_z, map, orientation, taximask, `health` ) VALUES ( '" &
                    newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
                    "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes & "', '-14306', '515', '10', '0', '5', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ','1000' )")
                 runfunction.normalsqlcommand(
                     "UPDATE characters SET at_login='1' WHERE guid='" & newcharguid.ToString & "'")
             Else
                 runfunction.normalsqlcommand(
-                "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `position_x`, position_y, position_z, map, orientation, taximask `health` ) VALUES ( '" &
+                "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `position_x`, position_y, position_z, map, orientation, taximask, `health` ) VALUES ( '" &
                 newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
                 "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes & "', '-14306', '515', '10', '0', '5', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ','1000' )")
                 runfunction.normalsqlcommand(
@@ -2922,73 +2922,152 @@ Public Class Trinity_core
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Adding item enchantments..." & vbNewLine)
         Application.DoEvents()
         If Not Main.kopfench = "" Then _
-            runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET enchantments='" & Main.kopfench & "' WHERE guid='" & kopfwearguid & "'")
+             runfunction.normalsqlcommand(
+                "UPDATE `item_instance` SET enchantments='" & splitenchstring(Main.kopfench, kopfwearguid, Main.kopfid.ToString) &
+                "' WHERE guid='" & kopfwearguid & "'")
         If Not Main.halsench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET enchantments='" & Main.halsench & "' WHERE guid='" & halswearguid & "'")
+                "UPDATE `item_instance` SET enchantments='" & splitenchstring(Main.halsench, halswearguid, Main.halsid.ToString) &
+                "' WHERE guid='" & halswearguid & "'")
         If Not Main.schulterench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET enchantments='" & Main.schulterench & "' WHERE guid='" & schulterwearguid &
-                "'")
+                "UPDATE `item_instance` SET enchantments='" &
+                splitenchstring(Main.schulterench, schulterwearguid, Main.schulterid.ToString) & "' WHERE guid='" &
+                schulterwearguid & "'")
         If Not Main.rueckenench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET enchantments='" & Main.rueckenench & "' WHERE guid='" & rueckenwearguid &
-                "'")
+                "UPDATE `item_instance` SET enchantments='" &
+                splitenchstring(Main.rueckenench, rueckenwearguid, Main.rueckenid.ToString) & "' WHERE guid='" &
+                rueckenwearguid & "'")
         If Not Main.brustench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET enchantments='" & Main.brustench & "' WHERE guid='" & brustwearguid & "'")
+                "UPDATE `item_instance` SET enchantments='" &
+                splitenchstring(Main.brustench, brustwearguid, Main.brustid.ToString) & "' WHERE guid='" & brustwearguid &
+                "'")
         If Not Main.hemdench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET enchantments='" & Main.hemdench & "' WHERE guid='" & hemdwearguid & "'")
+                "UPDATE `item_instance` SET enchantments='" & splitenchstring(Main.hemdench, hemdwearguid, Main.hemdid.ToString) &
+                "' WHERE guid='" & hemdwearguid & "'")
         If Not Main.wappenrockench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET enchantments='" & Main.wappenrockench & "' WHERE guid='" &
+                "UPDATE `item_instance` SET enchantments='" &
+                splitenchstring(Main.wappenrockench, wappenrockwearguid, Main.wappenrockid.ToString) & "' WHERE guid='" &
                 wappenrockwearguid & "'")
         If Not Main.handgelenkeench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET enchantments='" & Main.handgelenkeench & "' WHERE guid='" &
-                handgelenkewearguid & "'")
+                "UPDATE `item_instance` SET enchantments='" &
+                splitenchstring(Main.handgelenkeench, handgelenkewearguid, Main.handgelenkeid.ToString) &
+                "' WHERE guid='" & handgelenkewearguid & "'")
         If Not Main.haendeench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET enchantments='" & Main.haendeench & "' WHERE guid='" & haendewearguid & "'")
+                "UPDATE `item_instance` SET enchantments='" &
+                splitenchstring(Main.haendeench, haendewearguid, Main.haendeid.ToString) & "' WHERE guid='" &
+                haendewearguid & "'")
         If Not Main.hauptench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET enchantments='" & Main.hauptench & "' WHERE guid='" & hauptwearguid & "'")
+                "UPDATE `item_instance` SET enchantments='" &
+                splitenchstring(Main.hauptench, hauptwearguid, Main.hauptid.ToString) & "' WHERE guid='" & hauptwearguid &
+                "'")
         If Not Main.offench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET enchantments='" & Main.offench & "' WHERE guid='" & offwearguid & "'")
+                "UPDATE `item_instance` SET enchantments='" & splitenchstring(Main.offench, offwearguid, Main.offid.ToString) &
+                "' WHERE guid='" & offwearguid & "'")
         If Not Main.distanzench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET enchantments='" & Main.distanzench & "' WHERE guid='" & distanzwearguid &
-                "'")
+                "UPDATE `item_instance` SET enchantments='" &
+                splitenchstring(Main.distanzench, distanzwearguid, Main.distanzid.ToString) & "' WHERE guid='" &
+                distanzwearguid & "'")
         If Not Main.guertelench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET enchantments='" & Main.guertelench & "' WHERE guid='" & guertelwearguid &
-                "'")
+                "UPDATE `item_instance` SET enchantments='" &
+                splitenchstring(Main.guertelench, guertelwearguid, Main.guertelid.ToString) & "' WHERE guid='" &
+                guertelwearguid & "'")
         If Not Main.beineench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET enchantments='" & Main.beineench & "' WHERE guid='" & beinewearguid & "'")
+                "UPDATE `item_instance` SET enchantments='" &
+                splitenchstring(Main.beineench, beinewearguid, Main.beineid.ToString) & "' WHERE guid='" & beinewearguid &
+                "'")
         If Not Main.stiefelench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET enchantments='" & Main.stiefelench & "' WHERE guid='" & stiefelwearguid &
-                "'")
+                "UPDATE `item_instance` SET enchantments='" &
+                splitenchstring(Main.stiefelench, stiefelwearguid, Main.stiefelid.ToString) & "' WHERE guid='" &
+                stiefelwearguid & "'")
         If Not Main.ring1ench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET enchantments='" & Main.ring1ench & "' WHERE guid='" & ring1wearguid & "'")
+                "UPDATE `item_instance` SET enchantments='" &
+                splitenchstring(Main.ring1ench, ring1wearguid, Main.ring1id.ToString) & "' WHERE guid='" & ring1wearguid &
+                "'")
         If Not Main.ring2ench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET enchantments='" & Main.ring2ench & "' WHERE guid='" & ring2wearguid & "'")
+                "UPDATE `item_instance` SET enchantments='" &
+                splitenchstring(Main.ring2ench, ring2wearguid, Main.ring2id.ToString) & "' WHERE guid='" & ring2wearguid &
+                "'")
         If Not Main.schmuck1ench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET enchantments='" & Main.schmuck1ench & "' WHERE guid='" & schmuck1wearguid &
-                "'")
+                "UPDATE `item_instance` SET enchantments='" &
+                splitenchstring(Main.schmuck1ench, schmuck1wearguid, Main.schmuck1id.ToString) & "' WHERE guid='" &
+                schmuck1wearguid & "'")
         If Not Main.schmuck2ench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET enchantments='" & Main.schmuck2ench & "' WHERE guid='" & schmuck2wearguid &
-                "'")
+                "UPDATE `item_instance` SET enchantments='" &
+                splitenchstring(Main.schmuck2ench, schmuck2wearguid, Main.schmuck2id.ToString) & "' WHERE guid='" &
+                schmuck2wearguid & "'")
     End Sub
-
+    Private Function splitenchstring(ByVal enchstring As String, ByVal guid As Integer, ByVal entry As String) As String
+        Dim numstring As Integer = 0
+        Try
+            numstring = UBound(enchstring.Split(CChar(" ")))
+        Catch : End Try
+        Dim normalenchstring As String = "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "
+        If enchstring.Contains(";") Then
+            'AECEMU
+            Dim excounter As Integer = UBound(enchstring.Split(CChar(";")))
+            Dim startcounter As Integer = 0
+            Do
+                Dim parts() As String = enchstring.Split(";"c)
+                Dim partench As String = parts(startcounter)
+                Dim parts2() As String = partench.Split(","c)
+                If parts2(2) = "5" Then
+                    'vz
+                    Dim input As String = normalenchstring
+                    Dim parts3() As String = input.Split(" "c)
+                    parts3(0) = parts2(0)
+                    normalenchstring = String.Join(" ", parts3)
+                ElseIf parts2(2) = "1" Then
+                    'unknown
+                   ElseIf parts2(2) = "2" Then
+                    'gem1
+                    Dim input As String = normalenchstring
+                    Dim parts3() As String = input.Split(" "c)
+                    parts3(6) = parts2(0)
+                    normalenchstring = String.Join(" ", parts3)
+                ElseIf parts2(2) = "3" Then
+                    'gem2
+                    Dim input As String = normalenchstring
+                    Dim parts3() As String = input.Split(" "c)
+                    parts3(9) = parts2(0)
+                    normalenchstring = String.Join(" ", parts3)
+                ElseIf parts2(2) = "4" Then
+                    'gem3
+                    Dim input As String = normalenchstring
+                    Dim parts3() As String = input.Split(" "c)
+                    parts3(12) = parts2(0)
+                    normalenchstring = String.Join(" ", parts3)
+                End If
+                startcounter += 1
+            Loop Until startcounter = excounter
+            Dim input2 As String = normalenchstring
+            Return input2
+        Else
+            If numstring > 45 Then
+                'mangos //todo
+                Return enchstring
+            Else
+                'trinity
+                Return enchstring
+            End If
+        End If
+    End Function
     Public Sub addgems()
         runfunction.writelog("addgems_call @trinity")
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Adding character gems..." & vbNewLine)
@@ -3221,9 +3300,10 @@ Public Class Trinity_core
                 myData.Close()
 
             Else
+                myData.Close()
                 runfunction.normalsqlcommand(
                     "DELETE FROM character_glyphs WHERE guid = '" & playerguid & "' AND spec='0'")
-                myData.Close()
+
             End If
 
         Catch
@@ -3246,9 +3326,10 @@ Public Class Trinity_core
                 myData.Close()
 
             Else
+                myData.Close()
                 runfunction.normalsqlcommand(
                     "DELETE FROM character_glyphs WHERE guid = '" & playerguid & "' AND spec='1'")
-                myData.Close()
+
             End If
 
         Catch

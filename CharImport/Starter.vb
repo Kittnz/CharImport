@@ -68,9 +68,7 @@ Public Class Starter
         If My.Settings.writelog = True Then
             If My.Computer.FileSystem.FileExists(Application.StartupPath + "\Errorlog.log") Then
                 My.Computer.FileSystem.DeleteFile(Application.StartupPath + "\Errorlog.log")
-            Else
-
-            End If
+            Else : End If
         End If
         runfunction.writelog(Me.Text, False)
         runfunction.writelog(

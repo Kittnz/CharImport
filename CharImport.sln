@@ -32,4 +32,11 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		BuildVersion_DetectChanges = False
+		BuildVersion_BuildVersioningStyle = None.None.None.Increment
+		BuildVersion_StartDate = 2012/10/27
+		BuildVersion_UpdateAssemblyVersion = True
+		BuildVersion_AssemblyInfoFilename = CharImport\My Project\AssemblyInfo.vb
+	EndGlobalSection
 EndGlobal

@@ -138,6 +138,9 @@
 (max. one link)
 </value>
   </data>
+  <data name="add_button.Text" xml:space="preserve">
+    <value>Check and add</value>
+  </data>
   <data name="GroupBox1.Text" xml:space="preserve">
     <value>Post Armory Links below</value>
   </data>
