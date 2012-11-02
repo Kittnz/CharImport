@@ -856,17 +856,17 @@ Public Class Armory2Database
                 Else
                     If trinity1.Checked = True Then
                         trinitycore1.opensql()
-                        If trinitycore1.accountexist((sLines(i)).ToUpper) = False Then _
+                        If trinitycore1.accountexist((sLines(i)).ToUpper, Main.ServerStringRealmd) = False Then _
                             errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     ElseIf mangos.Checked = True Then
                         trinitycore1.opensql()
-                        If mangoscore.accountexist((sLines(i)).ToUpper) = False Then _
+                        If mangoscore.accountexist((sLines(i)).ToUpper, Main.ServerStringRealmd) = False Then _
                             errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     Else
                         trinitycore1.opensql()
-                        If arcemucore.accountexist((sLines(i)).ToUpper) = False Then _
+                        If arcemucore.accountexist((sLines(i)).ToUpper, Main.ServerStringRealmd) = False Then _
                             errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     End If

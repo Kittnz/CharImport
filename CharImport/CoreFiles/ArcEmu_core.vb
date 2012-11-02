@@ -306,17 +306,20 @@ Public Class ArcEmu_core
 
         End Try
     End Sub
+    Public Function accountexist(ByVal accountname As String, ByVal connectionstring As String) As Boolean
+        Dim quickconn As New MySqlConnection
+        quickconn.ConnectionString = connectionstring
+        Try
+            quickconn.Open()
+        Catch ex As Exception
 
-    Public Function accountexist(ByVal accountname As String) As Boolean
-
-        Dim _
-            da As _
-                New MySqlDataAdapter("SELECT `acct` FROM account WHERE `login`='" & accountname & "'",
-                                     Main.GLOBALconnRealmd)
+        End Try
+        Dim da As New MySqlDataAdapter("SELECT `acct` FROM account WHERE `login`='" & accountname & "'", quickconn)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
-
+            quickconn.Close()
+            quickconn.Dispose()
             Dim lastcount As Integer = CInt(Val(dt.Rows.Count.ToString))
             If lastcount = 0 Then
                 Return False
@@ -328,13 +331,20 @@ Public Class ArcEmu_core
         End Try
     End Function
 
-    Public Function characterexist(ByVal charname As String) As Boolean
+    Public Function characterexist(ByVal charname As String, ByVal connectionstring As String) As Boolean
+        Dim quickconn As New MySqlConnection
+        quickconn.ConnectionString = connectionstring
+        Try
+            quickconn.Open()
+        Catch ex As Exception
 
-        Dim da As New MySqlDataAdapter("SELECT guid FROM characters WHERE name='" & charname & "'", Main.GLOBALconn)
+        End Try
+        Dim da As New MySqlDataAdapter("SELECT guid FROM characters WHERE name='" & charname & "'", quickconn)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
-
+            quickconn.Close()
+            quickconn.Dispose()
             Dim lastcount As Integer = CInt(Val(dt.Rows.Count.ToString))
             If lastcount = 0 Then
                 Return False
@@ -345,6 +355,7 @@ Public Class ArcEmu_core
             Return False
         End Try
     End Function
+    
 
     Public Sub getallcharsfromaccount(ByVal accountname As String)
         Try

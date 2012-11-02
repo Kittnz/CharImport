@@ -109,16 +109,20 @@ Public Class Trinity_core
         End Try
     End Sub
 
-    Public Function accountexist(ByVal accountname As String) As Boolean
+    Public Function accountexist(ByVal accountname As String, ByVal connectionstring As String) As Boolean
+        Dim quickconn As New MySqlConnection
+        quickconn.ConnectionString = connectionstring
+        Try
+            quickconn.Open()
+        Catch ex As Exception
 
-        Dim _
-            da As _
-                New MySqlDataAdapter("SELECT `id` FROM account WHERE `username`='" & accountname & "'",
-                                     Main.GLOBALconnRealmd)
+        End Try
+        Dim da As New MySqlDataAdapter("SELECT `id` FROM account WHERE `username`='" & accountname & "'", quickconn)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
-
+            quickconn.Close()
+            quickconn.Dispose()
             Dim lastcount As Integer = CInt(Val(dt.Rows.Count.ToString))
             If lastcount = 0 Then
                 Return False
@@ -130,13 +134,20 @@ Public Class Trinity_core
         End Try
     End Function
 
-    Public Function characterexist(ByVal charname As String) As Boolean
+    Public Function characterexist(ByVal charname As String, ByVal connectionstring As String) As Boolean
+        Dim quickconn As New MySqlConnection
+        quickconn.ConnectionString = connectionstring
+        Try
+            quickconn.Open()
+        Catch ex As Exception
 
-        Dim da As New MySqlDataAdapter("SELECT guid FROM characters WHERE name='" & charname & "'", Main.GLOBALconn)
+        End Try
+        Dim da As New MySqlDataAdapter("SELECT guid FROM characters WHERE name='" & charname & "'", quickconn)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
-
+            quickconn.Close()
+            quickconn.Dispose()
             Dim lastcount As Integer = CInt(Val(dt.Rows.Count.ToString))
             If lastcount = 0 Then
                 Return False
@@ -682,6 +693,10 @@ Public Class Trinity_core
             Now.TimeOfDay.ToString & "/ Loading Character Achievements from Database..." & vbNewLine)
         Application.DoEvents()
         getavlists()
+        Process_Status.processreport.AppendText(
+           Now.TimeOfDay.ToString & "/ Loading Character Questlog from Database..." & vbNewLine)
+        Application.DoEvents()
+        getqueststatus()
         Process_Status.processreport.appendText(
             Now.TimeOfDay.ToString & "/ Loading Character Inventory from Database..." & vbNewLine)
         Application.DoEvents()
@@ -1024,8 +1039,85 @@ Public Class Trinity_core
 
         End Try
     End Sub
-
     Public Sub getinventoryitems()
+        runfunction.writelog("getinventoryitems_call @trinity")
+        Dim tmpext As Integer
+
+        Dim _
+            da As _
+                New MySqlDataAdapter("SELECT item FROM character_inventory WHERE guid='" & Main.char_guid.ToString & "'",
+                                     Main.GLOBALconn)
+        Dim dt As New DataTable
+        Try
+            da.Fill(dt)
+
+            Dim lastcount As Integer = CInt(Val(dt.Rows.Count.ToString))
+            Dim count As Integer = 0
+            If Not lastcount = 0 Then
+                Do
+                    Dim readedcode As String = (dt.Rows(count).Item(0)).ToString
+                    tmpext = CInt(Val(readedcode))
+                    Dim bagguid As String =
+                            runfunction.runcommand(
+                                "SELECT bag FROM character_inventory WHERE guid='" & Main.char_guid.ToString &
+                                "' AND item='" & tmpext.ToString & "'", "bag")
+                    If CInt(bagguid) = 0 Then
+                        If tmpext > 18 Then
+                            Dim bag As String = "0"
+                            Dim item As String = "0"
+                            Dim entryid As String
+                            Dim enchantments As String
+                            Dim itemcount As String = "1"
+                            Dim slot As String = "0"
+                            bag = bagguid
+
+
+                            item = tmpext.ToString()
+                            entryid =
+                                runfunction.runcommand("SELECT itemEntry FROM item_instance WHERE guid = '" & item & "'", "itemEntry")
+                            enchantments = runfunction.runcommand("SELECT enchantments FROM item_instance WHERE guid = '" & item & "'", "enchantments")
+                            itemcount = runfunction.runcommand("Select `count` FROM item_instance WHERE guid='" & item & "'", "count")
+                            slot = runfunction.runcommand("Select `slot` FROM character_inventory WHERE `item`='" & item & "'", "slot")
+                            Main.character_inventoryzero_list.Add(
+                                "<slot>" & slot & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid &
+                                "</bagguid><item>" & entryid & "</item><enchant>" & enchantments & "</enchant><count>" & itemcount & "</count>")
+                        End If
+                    Else
+                        Dim bag As String = "0"
+                        Dim item As String = "0"
+                        Dim entryid As String
+                        Dim enchantments As String
+                        Dim itemcount As String = "1"
+                        Dim slot As String = "0"
+
+                        bag =
+                            runfunction.runcommand("SELECT itemEntry FROM item_instance WHERE guid = '" & bagguid & "'",
+                                                   "itemEntry")
+
+
+                        item = tmpext.ToString
+                        entryid =
+                            runfunction.runcommand("SELECT itemEntry FROM item_instance WHERE guid = '" & item & "'",
+                                                   "itemEntry")
+                        enchantments =
+                            runfunction.runcommand("SELECT enchantments FROM item_instance WHERE guid = '" & item & "'",
+                                                   "enchantments")
+                        itemcount = runfunction.runcommand("Select `count` FROM item_instance WHERE guid='" & item & "'", "count")
+                        slot = runfunction.runcommand("Select `slot` FROM character_inventory WHERE `item`='" & item & "'", "slot")
+                        Main.character_inventory_list.Add(
+                            "<slot>" & slot & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid &
+                            "</bagguid><item>" & entryid & "</item><enchant>" & enchantments & "</enchant><count>" & itemcount & "</count>")
+                    End If
+
+
+                    count += 1
+                Loop Until count = lastcount
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+    Public Sub getinventoryitems_old()
         runfunction.writelog("getinventoryitems_call @trinity")
         Dim tmpext As Integer
 
@@ -2135,6 +2227,7 @@ Public Class Trinity_core
                 Loop Until startcounter = excounter
             Catch : End Try
         End If
+        setqueststatus()
         sethome()
         addaction()
         Process_Status.processreport.appendText(
@@ -2800,7 +2893,7 @@ Public Class Trinity_core
             runfunction.normalsqlcommand(
                 "INSERT INTO item_instance ( guid, itemEntry, owner_guid, count, charges, enchantments, durability ) VALUES ( '" &
                 newguid & "', '" & splitlist(inventorystring, "item") & "', '" & Main.coreguid &
-                "', '1', '0 0 0 0 0 ', '" & splitlist(inventorystring, "enchant") & "', '1000' )")
+                "', '" & splitlist(inventorystring, "count") & "', '0 0 0 0 0 ', '" & splitlist(inventorystring, "enchant") & "', '1000' )")
             runfunction.normalsqlcommand(
                 "INSERT INTO character_inventory ( guid, bag, `slot`, `item` ) VALUES ( '" & Main.coreguid & "', '" &
                 bag & "', '" & splitlist(inventorystring, "slot") & "', '" & newguid & "')")
@@ -2825,7 +2918,7 @@ Public Class Trinity_core
             runfunction.normalsqlcommand(
                 "INSERT INTO item_instance ( guid, itemEntry, owner_guid, count, charges, enchantments, durability ) VALUES ( '" &
                 newguid & "', '" & splitlist(inventorystring, "item") & "', '" & Main.coreguid &
-                "', '1', '0 0 0 0 0 ', '" & splitlist(inventorystring, "enchant") & "', '1000' )")
+                "', '" & splitlist(inventorystring, "count") & "', '0 0 0 0 0 ', '" & splitlist(inventorystring, "enchant") & "', '1000' )")
             runfunction.normalsqlcommand(
                 "INSERT INTO character_inventory ( guid, bag, `slot`, `item` ) VALUES ( '" & Main.coreguid & "', '" &
                 newbagguid & "', '" & splitlist(inventorystring, "slot") & "', '" & newguid & "')")

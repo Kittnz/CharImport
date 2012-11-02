@@ -535,17 +535,17 @@ Public Class Database_Interface
                 Else
                     If trinity1.Checked = True Then
                         trinitycore1.opensql()
-                        If trinitycore1.accountexist((sLines(i)).ToUpper) = False Then _
+                        If trinitycore1.accountexist((sLines(i)).ToUpper, Main.ServerStringRealmd) = False Then _
                             errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     ElseIf mangos.Checked = True Then
                         trinitycore1.opensql()
-                        If mangoscore.accountexist((sLines(i)).ToUpper) = False Then _
+                        If mangoscore.accountexist((sLines(i)).ToUpper, Main.ServerStringRealmd) = False Then _
                             errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     Else
                         trinitycore1.opensql()
-                        If arcemucore.accountexist((sLines(i)).ToUpper) = False Then _
+                        If arcemucore.accountexist((sLines(i)).ToUpper, Main.ServerStringRealmd) = False Then _
                             errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     End If
@@ -564,17 +564,17 @@ Public Class Database_Interface
                 Else
                     If trinity1.Checked = True Then
                         trinitycore1.opensql()
-                        If trinitycore1.characterexist((sLines(i)).ToUpper) = False Then _
+                        If trinitycore1.characterexist((sLines(i)).ToUpper, Main.ServerString) = False Then _
                             errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     ElseIf mangos.Checked = True Then
                         trinitycore1.opensql()
-                        If mangoscore.characterexist((sLines(i)).ToUpper) = False Then _
+                        If mangoscore.characterexist((sLines(i)).ToUpper, Main.ServerString) = False Then _
                             errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     Else
                         trinitycore1.opensql()
-                        If arcemucore.characterexist((sLines(i)).ToUpper) = False Then _
+                        If arcemucore.characterexist((sLines(i)).ToUpper, Main.ServerString) = False Then _
                             errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     End If
@@ -793,17 +793,17 @@ Public Class Database_Interface
                 Else
                     If trinity1.Checked = True Then
                         trinitycore1.opensql()
-                        If trinitycore1.accountexist((sLines(i)).ToUpper) = False Then _
+                        If trinitycore1.accountexist((sLines(i)).ToUpper, Main.ServerStringRealmd) = False Then _
                             errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     ElseIf mangos.Checked = True Then
                         trinitycore1.opensql()
-                        If mangoscore.accountexist((sLines(i)).ToUpper) = False Then _
+                        If mangoscore.accountexist((sLines(i)).ToUpper, Main.ServerStringRealmd) = False Then _
                             errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     Else
                         trinitycore1.opensql()
-                        If arcemucore.accountexist((sLines(i)).ToUpper) = False Then _
+                        If arcemucore.accountexist((sLines(i)).ToUpper, Main.ServerStringRealmd) = False Then _
                             errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     End If
@@ -822,17 +822,17 @@ Public Class Database_Interface
                 Else
                     If trinity1.Checked = True Then
                         trinitycore1.opensql()
-                        If trinitycore1.characterexist((sLines(i)).ToUpper) = False Then _
+                        If trinitycore1.characterexist((sLines(i)).ToUpper, Main.ServerString) = False Then _
                             errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     ElseIf mangos.Checked = True Then
                         trinitycore1.opensql()
-                        If mangoscore.characterexist((sLines(i)).ToUpper) = False Then _
+                        If mangoscore.characterexist((sLines(i)).ToUpper, Main.ServerString) = False Then _
                             errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     Else
                         trinitycore1.opensql()
-                        If arcemucore.characterexist((sLines(i)).ToUpper) = False Then _
+                        If arcemucore.characterexist((sLines(i)).ToUpper, Main.ServerString) = False Then _
                             errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     End If
@@ -886,17 +886,17 @@ Public Class Database_Interface
                 Else
                     If trinity1.Checked = True Then
                         trinitycore1.opensql()
-                        If trinitycore1.accountexist((sLines(i)).ToUpper) = False Then _
+                        If trinitycore1.accountexist((sLines(i)).ToUpper, Main.ServerStringRealmd) = False Then _
                             errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     ElseIf mangos.Checked = True Then
                         trinitycore1.opensql()
-                        If mangoscore.accountexist((sLines(i)).ToUpper) = False Then _
+                        If mangoscore.accountexist((sLines(i)).ToUpper, Main.ServerStringRealmd) = False Then _
                             errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     Else
                         trinitycore1.opensql()
-                        If arcemucore.accountexist((sLines(i)).ToUpper) = False Then _
+                        If arcemucore.accountexist((sLines(i)).ToUpper, Main.ServerStringRealmd) = False Then _
                             errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     End If
@@ -915,17 +915,17 @@ Public Class Database_Interface
                 Else
                     If trinity1.Checked = True Then
                         trinitycore1.opensql()
-                        If trinitycore1.characterexist((sLines(i)).ToUpper) = False Then _
+                        If trinitycore1.characterexist((sLines(i)).ToUpper, Main.ServerString) = False Then _
                             errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     ElseIf mangos.Checked = True Then
                         trinitycore1.opensql()
-                        If mangoscore.characterexist((sLines(i)).ToUpper) = False Then _
+                        If mangoscore.characterexist((sLines(i)).ToUpper, Main.ServerString) = False Then _
                             errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     Else
                         trinitycore1.opensql()
-                        If arcemucore.characterexist((sLines(i)).ToUpper) = False Then _
+                        If arcemucore.characterexist((sLines(i)).ToUpper, Main.ServerString) = False Then _
                             errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     End If
