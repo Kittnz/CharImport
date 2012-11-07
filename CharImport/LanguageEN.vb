@@ -95,5 +95,8 @@
         charnotfound As String = "The character has not been found! Please check the character and realm information."
 
     Public restartlogon As String = "Please restart the world server in order to clear the cache!"
+
+    Public criticalerrorduringtransmission As String = "Critical error during transmission!"
+    Public characternotcreated As String = "Character could not been created" & vbNewLine & "Transmussion canceled."
 End Class
 

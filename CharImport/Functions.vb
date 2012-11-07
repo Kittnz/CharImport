@@ -450,10 +450,10 @@ Public Class Functions
         End Try
     End Function
 
-    Public Sub normalsqlcommand(ByVal command As String, Optional ByVal showerror As Boolean = True)
+    Public Function normalsqlcommand(ByVal command As String, Optional ByVal showerror As Boolean = True, Optional ByVal returnerror As Boolean = False) As Boolean
         Try
             NewUser(command)
-
+            Return False
 
         Catch ex As Exception
             If ex.ToString.Contains("Duplicate entry ") Then
@@ -466,32 +466,40 @@ Public Class Functions
                         "| ErrMsg is:" & ex.ToString & vbNewLine)
 
             End If
-
+            If returnerror = True Then
+                Return True
+            Else
+                Return False
+            End If
         End Try
-    End Sub
+    End Function
 
-    Public Sub normalsqlcommandRealmd(ByVal command As String, Optional ByVal showerror As Boolean = True)
+    Public Function normalsqlcommandRealmd(ByVal command As String, Optional ByVal showerror As Boolean = True, Optional ByVal returnerror As Boolean = False) As Boolean
 
         Try
 
 
             NewUserRealmd(command)
-
+            Return False
 
         Catch ex As Exception
             If ex.ToString.Contains("Duplicate entry ") Then
 
             Else
                 If showerror = True Then _
-                    Process_Status.processreport.appendText(
+                    Process_Status.processreport.AppendText(
                         Now.TimeOfDay.ToString &
                         "> ERROR WHILE EXECUTING MYSQL COMMAND (MAYBE YOU CAN IGNORE THIS): command is: " & command &
                         "| ErrMsg is:" & ex.ToString & vbNewLine)
 
             End If
-
+            If returnerror = True Then
+                Return True
+            Else
+                Return False
+            End If
         End Try
-    End Sub
+    End Function
 
     Public Sub NewUser(ByRef SQLStatement As String)
 

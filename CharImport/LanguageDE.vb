@@ -94,4 +94,9 @@
     Public charnotfound As String = "Der Charakter wurde nicht gefunden! Überprüfe deine Angaben."
 
     Public restartlogon As String = "Bitte starte den World Server neu, um Probleme zu vermeiden!"
+
+    Public criticalerrorduringtransmission As String = "Kritischer Fehler während der Übertragung!"
+    Public characternotcreated As String = "Charakter konnte nicht erstellt werden." & vbNewLine & "Übertragung wurde abgebrochen."
+
+
 End Class

@@ -29,7 +29,8 @@ Public Class Trinity_core
     Dim guid As String = ""
     Dim accguid As String = ""
     Dim lastnumber As String = ""
-
+    Dim localeDE As New LanguageDE
+    Dim localeEN As New LanguageEN
     Dim _
         finalstring As String =
             "kopf 0 hals 0 schulter 0 hemd 0 brust 0 guertel 0 beine 0 stiefel 0 handgelenke 0 haende 0 finger1 0 finger2 0 schmuck1 0 schmuck2 0 ruecken 0 haupt 0 off 0 distanz 0 wappenrock 0 "
@@ -2075,9 +2076,9 @@ Public Class Trinity_core
                 Now.TimeOfDay.ToString & "// Player will be asked to change charactername! : reason-nce=true" &
                 vbNewLine)
             runfunction.normalsqlcommand(
-                "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `position_x`, position_y, position_z, map, orientation, taximask, `health` ) VALUES ( '" &
+                "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `position_x`, position_y, position_z, map, orientation, taximask, cinematic, `health` ) VALUES ( '" &
                 newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
-                "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes & "', '-14306', '515', '10', '0', '5', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ','1000' )")
+                "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes & "', '-14306', '515', '10', '0', '5', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '1', '1000' )")
 
             runfunction.normalsqlcommand("UPDATE characters SET at_login='1' WHERE guid='" & newcharguid.ToString & "'")
         Else
@@ -2085,16 +2086,16 @@ Public Class Trinity_core
                 Process_Status.processreport.AppendText(
                     Now.TimeOfDay.ToString & "// Player will be asked to change charactername!" & vbNewLine)
                 runfunction.normalsqlcommand(
-                   "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `position_x`, position_y, position_z, map, orientation, taximask, `health` ) VALUES ( '" &
+                   "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `position_x`, position_y, position_z, map, orientation, taximask, cinematic, `health` ) VALUES ( '" &
                    newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
-                   "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes & "', '-14306', '515', '10', '0', '5', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ','1000' )")
+                   "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes & "', '-14306', '515', '10', '0', '5', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '1', '1000' )")
                 runfunction.normalsqlcommand(
                     "UPDATE characters SET at_login='1' WHERE guid='" & newcharguid.ToString & "'")
             Else
                 runfunction.normalsqlcommand(
-                "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `position_x`, position_y, position_z, map, orientation, taximask, `health` ) VALUES ( '" &
+                "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `position_x`, position_y, position_z, map, orientation, taximask, cinematic, `health` ) VALUES ( '" &
                 newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
-                "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes & "', '-14306', '515', '10', '0', '5', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ','1000' )")
+                "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes & "', '-14306', '515', '10', '0', '5', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '1', '1000' )")
                 runfunction.normalsqlcommand(
                     "UPDATE characters SET at_login='0' WHERE guid='" & newcharguid.ToString & "'")
             End If
@@ -2165,51 +2166,108 @@ Public Class Trinity_core
             Process_Status.processreport.appendText(
                 Now.TimeOfDay.ToString & "// Player will be asked to change charactername! : reason-nce=true" &
                 vbNewLine)
-            runfunction.normalsqlcommand(
-                "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, knownCurrencies, watchedFaction, `health`, speccount, activespec, exploredZones, knownTitles, actionBars ) VALUES ( '" &
+            If runfunction.normalsqlcommand(
+                "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, cinematic, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, knownCurrencies, watchedFaction, `health`, speccount, activespec, exploredZones, knownTitles, actionBars ) VALUES ( '" &
                 newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
                 "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" & Main.playerBytes2.ToString &
                 "', '" & Main.playerFlags.ToString & "', '" & Main.position_x.ToString & "', '" &
-                Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 1).ToString & "', '" & Main.map.ToString &
-                "', '4,40671', '" & Main.taximask & "', '" & Main.totaltime.ToString & "', '" & Main.leveltime.ToString &
+                Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 5).ToString & "', '" & Main.map.ToString &
+                "', '4,40671', '" & Main.taximask & "', '1', '" & Main.totaltime.ToString & "', '" & Main.leveltime.ToString &
                 "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" & Main.at_login & "', '" &
                 Main.zone.ToString & "', '" & Main.chosenTitle & "', '" & Main.knownCurrencies & "', '" &
-                Main.watchedFaction & "', '1000', '" & Main.speccount.ToString & "', '" & Main.activespec.ToString &
-                "', '" & Main.exploredZones & "', '" & Main.knownTitles & "', '" & Main.actionBars & "' )")
+                Main.watchedFaction & "', '5000', '" & Main.speccount.ToString & "', '" & Main.activespec.ToString &
+                "', '" & Main.exploredZones & "', '" & Main.knownTitles & "', '" & Main.actionBars & "' )", True, True) = True Then
+                If My.Settings.language = "de" Then
+                    MsgBox(localeDE.characternotcreated, MsgBoxStyle.Critical, localeDE.criticalerrorduringtransmission)
+                Else
+                    MsgBox(localeEN.characternotcreated, MsgBoxStyle.Critical, localeEN.criticalerrorduringtransmission)
+                End If
+                Connect.Close()
+                Armory2Database.Close()
+                Database2Database.Close()
+                closesql()
+                Process_Status.processreport.AppendText(
+                          Now.TimeOfDay.ToString & "// Transmission failed!" & vbNewLine)
+                Process_Status.Button1.Enabled = True
+                Application.DoEvents()
+                Main.Close()
+                Starter.Show()
+                Exit Sub
+            Else
+
+            End If
 
             runfunction.normalsqlcommand("UPDATE characters SET at_login='1' WHERE guid='" & newcharguid.ToString & "'")
         Else
             If charexist(charactername) = True Then
-                Process_Status.processreport.appendText(
+                Process_Status.processreport.AppendText(
                     Now.TimeOfDay.ToString & "// Player will be asked to change charactername!" & vbNewLine)
-                runfunction.normalsqlcommand(
-                    "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, knownCurrencies, watchedFaction, `health`, speccount, activespec, exploredZones, knownTitles, actionBars ) VALUES ( '" &
+                If runfunction.normalsqlcommand(
+                    "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, cinematic, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, knownCurrencies, watchedFaction, `health`, speccount, activespec, exploredZones, knownTitles, actionBars ) VALUES ( '" &
                     newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
                     "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" &
                     Main.playerBytes2.ToString & "', '" & Main.playerFlags.ToString & "', '" & Main.position_x.ToString &
-                    "', '" & Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 1).ToString & "', '" &
-                    Main.map.ToString & "', '4,40671', '" & Main.taximask & "', '" & Main.totaltime.ToString & "', '" &
+                    "', '" & Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 5).ToString & "', '" &
+                    Main.map.ToString & "', '4,40671', '" & Main.taximask & "', '1', '" & Main.totaltime.ToString & "', '" &
                     Main.leveltime.ToString & "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" &
                     Main.at_login & "', '" & Main.zone.ToString & "', '" & Main.chosenTitle & "', '" &
-                    Main.knownCurrencies & "', '" & Main.watchedFaction & "', '1000', '" & Main.speccount.ToString &
+                    Main.knownCurrencies & "', '" & Main.watchedFaction & "', '5000', '" & Main.speccount.ToString &
                     "', '" & Main.activespec.ToString & "', '" & Main.exploredZones & "', '" & Main.knownTitles & "', '" &
-                    Main.actionBars & "' )")
+                    Main.actionBars & "' )", True, True) = True Then
+                    If My.Settings.language = "de" Then
+                        MsgBox(localeDE.characternotcreated, MsgBoxStyle.Critical, localeDE.criticalerrorduringtransmission)
+                    Else
+                        MsgBox(localeEN.characternotcreated, MsgBoxStyle.Critical, localeEN.criticalerrorduringtransmission)
+                    End If
+                    Connect.Close()
+                    Armory2Database.Close()
+                    Database2Database.Close()
+                    closesql()
+                    Process_Status.processreport.AppendText(
+                              Now.TimeOfDay.ToString & "// Transmission failed!" & vbNewLine)
+                    Process_Status.Button1.Enabled = True
+                    Application.DoEvents()
+                    Main.Close()
+                    Starter.Show()
+                    Exit Sub
+                Else
+
+                End If
+
                 runfunction.normalsqlcommand(
                     "UPDATE characters SET at_login='1' WHERE guid='" & newcharguid.ToString & "'")
             Else
-                runfunction.normalsqlcommand(
-                    "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, knownCurrencies, watchedFaction, `health`, speccount, activespec, exploredZones, knownTitles, actionBars ) VALUES ( '" &
+                If runfunction.normalsqlcommand(
+                    "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, cinematic, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, knownCurrencies, watchedFaction, `health`, speccount, activespec, exploredZones, knownTitles, actionBars ) VALUES ( '" &
                     newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
                     "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" &
                     Main.playerBytes2.ToString & "', '" & Main.playerFlags.ToString & "', '" & Main.position_x.ToString &
-                    "', '" & Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 1).ToString & "', '" &
-                    Main.map.ToString & "', '4,40671', '" & Main.taximask & "', '" & Main.totaltime.ToString & "', '" &
+                    "', '" & Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 5).ToString & "', '" &
+                    Main.map.ToString & "', '4,40671', '" & Main.taximask & "', '1', '" & Main.totaltime.ToString & "', '" &
                     Main.leveltime.ToString & "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" &
                     Main.at_login & "', '" & Main.zone.ToString & "', '" & Main.chosenTitle & "', '" &
-                    Main.knownCurrencies & "', '" & Main.watchedFaction & "', '1000', '" & Main.speccount.ToString &
+                    Main.knownCurrencies & "', '" & Main.watchedFaction & "', '5000', '" & Main.speccount.ToString &
                     "', '" & Main.activespec.ToString & "', '" & Main.exploredZones & "', '" & Main.knownTitles & "', '" &
-                    Main.actionBars & "' )")
+                    Main.actionBars & "' )", True, True) = True Then
+                    If My.Settings.language = "de" Then
+                        MsgBox(localeDE.characternotcreated, MsgBoxStyle.Critical, localeDE.criticalerrorduringtransmission)
+                    Else
+                        MsgBox(localeEN.characternotcreated, MsgBoxStyle.Critical, localeEN.criticalerrorduringtransmission)
+                    End If
+                    Connect.Close()
+                    Armory2Database.Close()
+                    Database2Database.Close()
+                    closesql()
+                    Process_Status.processreport.AppendText(
+                              Now.TimeOfDay.ToString & "// Transmission failed!" & vbNewLine)
+                    Process_Status.Button1.Enabled = True
+                    Application.DoEvents()
+                    Main.Close()
+                    Starter.Show()
+                    Exit Sub
+                Else
 
+                End If
             End If
 
         End If
@@ -2228,7 +2286,7 @@ Public Class Trinity_core
         setqueststatus()
         sethome()
         addaction()
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "// Created Character " & charactername & "!" & vbNewLine)
         Application.DoEvents()
     End Sub
