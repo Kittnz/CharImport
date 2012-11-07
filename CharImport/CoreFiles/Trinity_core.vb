@@ -1080,7 +1080,7 @@ Public Class Trinity_core
                             slot = runfunction.runcommand("Select `slot` FROM character_inventory WHERE `item`='" & item & "'", "slot")
                             Main.character_inventoryzero_list.Add(
                                 "<slot>" & slot & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid &
-                                "</bagguid><item>" & entryid & "</item><enchant>" & enchantments & "</enchant><count>" & itemcount & "</count>")
+                                "</bagguid><item>" & entryid & "</item><enchant>" & enchantments & "</enchant><count>" & itemcount & "</count><oldguid>" & item & "</oldguid>")
                         End If
                     Else
                         Dim bag As String = "0"
@@ -1093,8 +1093,6 @@ Public Class Trinity_core
                         bag =
                             runfunction.runcommand("SELECT itemEntry FROM item_instance WHERE guid = '" & bagguid & "'",
                                                    "itemEntry")
-
-
                         item = tmpext.ToString
                         entryid =
                             runfunction.runcommand("SELECT itemEntry FROM item_instance WHERE guid = '" & item & "'",
@@ -2878,8 +2876,6 @@ Public Class Trinity_core
         Dim bagexist As List(Of String) = New List(Of String)
         bagexist.Clear()
         For Each inventorystring As String In Main.character_inventoryzero_list
-
-
             Dim bagguid As String = splitlist(inventorystring, "bagguid")
             Dim bag As String = splitlist(inventorystring, "bag")
             Dim newguid As String =
@@ -2897,35 +2893,34 @@ Public Class Trinity_core
             runfunction.normalsqlcommand(
                 "INSERT INTO character_inventory ( guid, bag, `slot`, `item` ) VALUES ( '" & Main.coreguid & "', '" &
                 bag & "', '" & splitlist(inventorystring, "slot") & "', '" & newguid & "')")
-
-
-        Next
+            Select Case splitlist(inventorystring, "slot")
+                Case "19", "20", "21", "22", "67", "68", "69", "70", "71", "72", "73"
+                    'Item is a bag and has to be registered
+                    bagstring = bagstring & "oldguid:" & splitlist(inventorystring, "oldguid") & ";newguid:" & newguid & ";"
+                Case Else : End Select
+            Next
         For Each inventorystring As String In Main.character_inventory_list
             Dim bagguid As String = splitlist(inventorystring, "bagguid")
             Dim bag As String = splitlist(inventorystring, "bag")
-            Dim newguid As String =
-                    ((CInt(
-                        Val(
-                            runfunction.runcommand(
-                                "SELECT guid FROM item_instance WHERE guid=(SELECT MAX(guid) FROM item_instance)",
-                                "guid")))) + 1).ToString
-
-
-            Dim newbagguid As String =
-                    runfunction.runcommand(
-                        "SELECT guid FROM item_instance WHERE itemEntry='" & bag & "' AND owner_guid='" & Main.coreguid &
-                        "'", "guid")
+            Dim newguid As String =((CInt(Val(runfunction.runcommand("SELECT guid FROM item_instance WHERE guid=(SELECT MAX(guid) FROM item_instance)","guid")))) + 1).ToString
+            '   Dim newbagguid As String = runfunction.runcommand("SELECT guid FROM item_instance WHERE itemEntry='" & bag & "' AND owner_guid='" & Main.coreguid & "'", "guid") //old
+            Dim newbagguid As String = runfunction.runcommand("SELECT guid FROM item_instance WHERE itemEntry='" & bag & "' AND owner_guid='" & Main.coreguid & "'", "guid")
+            Select Case splitlist(inventorystring, "slot")
+                Case "19", "20", "21", "22", "67", "68", "69", "70", "71", "72", "73"
+                    Case Else
+                    Dim beginsplit As String = "oldguid:" & splitlist(inventorystring, "bagguid") & ";newguid:"
+                    Dim endsplit As String = ";"
+                    newbagguid = Split(bagstring, beginsplit, 5)(1)
+                    newbagguid = Split(newbagguid, endsplit, 6)(0)
+            End Select
             runfunction.normalsqlcommand(
-                "INSERT INTO item_instance ( guid, itemEntry, owner_guid, count, charges, enchantments, durability ) VALUES ( '" &
-                newguid & "', '" & splitlist(inventorystring, "item") & "', '" & Main.coreguid &
-                "', '" & splitlist(inventorystring, "count") & "', '0 0 0 0 0 ', '" & splitlist(inventorystring, "enchant") & "', '1000' )")
-            runfunction.normalsqlcommand(
-                "INSERT INTO character_inventory ( guid, bag, `slot`, `item` ) VALUES ( '" & Main.coreguid & "', '" &
-                newbagguid & "', '" & splitlist(inventorystring, "slot") & "', '" & newguid & "')")
-
-
-            ' <slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><item>" & entryid & "</item><enchant>" & enchantments & "</enchant>
-        Next
+                        "INSERT INTO item_instance ( guid, itemEntry, owner_guid, count, charges, enchantments, durability ) VALUES ( '" &
+                        newguid & "', '" & splitlist(inventorystring, "item") & "', '" & Main.coreguid &
+                        "', '" & splitlist(inventorystring, "count") & "', '0 0 0 0 0 ', '" & splitlist(inventorystring, "enchant") & "', '1000' )")
+                    runfunction.normalsqlcommand(
+                        "INSERT INTO character_inventory ( guid, bag, `slot`, `item` ) VALUES ( '" & Main.coreguid & "', '" &
+                        newbagguid & "', '" & splitlist(inventorystring, "slot") & "', '" & newguid & "')")
+            Next
     End Sub
 
     Private Function splitenchstring(ByVal enchstring As String) As String
