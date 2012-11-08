@@ -1,17 +1,13 @@
-﻿'****************************************************************************************
-'****************************************************************************************
-'***************************** CharImport- ArcEmu_core **********************************
-'****************************************************************************************
-'..................Status
-'...................Code:       90%
-'...................Design:     95%
-'...................Functions:  80%
-'****************************************************************************************
-'****************************************************************************************
-'..................Last modified: 20.04.12
-'****************************************************************************************
-'****************************************************************************************
-'..................Comments:
+﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+'*
+'* This application is free and can be distributed.
+'*
+'* ArcEmu_core contains several functions to implement the character
+'* and account information into an ArcEmu compatible database.
+'*
+'* Developed by Alcanmage/megasus
+
+
 Imports MySql.Data.MySqlClient
 
 Public Class ArcEmu_core
@@ -24,7 +20,6 @@ Public Class ArcEmu_core
     Dim characterguid As Integer
     Dim reporttext As RichTextBox = Process_Status.processreport
 
-    '  Dim SQLConnection As MySqlConnection = New MySqlConnection
     Dim quelltext As String = ""
     Dim talentpage As String = ""
     Dim sectalentpage As String = ""

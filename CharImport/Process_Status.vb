@@ -1,4 +1,12 @@
-﻿Imports System.Threading
+﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+'*
+'* This application is free and can be distributed.
+'*
+'* The form Process_Status shows the current status of the transmission
+'*
+'* Developed by Alcanmage/megasus
+
+Imports System.Threading
 Imports System.Globalization
 
 Public Class Process_Status

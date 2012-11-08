@@ -1,4 +1,13 @@
-﻿Imports MySql.Data.MySqlClient
+﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+'*
+'* This application is free and can be distributed.
+'*
+'* Core_Check_Trinity contains several methods to check if the connected
+'* database is a valid TrinityCore database and makes adjustments
+'*
+'* Developed by Alcanmage/megasus
+
+Imports MySql.Data.MySqlClient
 
 Public Class Core_Check_Trinity
     Dim reporttext As RichTextBox = Database_Check.report

@@ -1,4 +1,12 @@
-﻿Imports System.Threading
+﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+'*
+'* This application is free and can be distributed.
+'*
+'* The form Bugreport allows the user to submit a bugreport
+'*
+'* Developed by Alcanmage/megasus
+
+Imports System.Threading
 Imports System.Globalization
 Imports System.Net.Mail
 Imports System.Net

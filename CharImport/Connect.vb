@@ -1,18 +1,13 @@
-﻿'****************************************************************************************
-'****************************************************************************************
-'***************************** CharImport- Conntect *************************************
-'****************************************************************************************
-'..................Status
-'...................Code:       80%
-'...................Design:     95%
-'...................Functions:  60%
-'****************************************************************************************
-'****************************************************************************************
-'..................Last modified: 06.01.12
-'****************************************************************************************
-'****************************************************************************************
-'..................Comments:
-'
+﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+'*
+'* This application is free and can be distributed.
+'*
+'* The form Connect allows the user to open a database connection,
+'* to set the destination account/character and to select the properties
+'* that are to be transferred.
+'*
+'* Developed by Alcanmage/megasus
+
 
 Imports System.Globalization
 Imports MySql.Data.MySqlClient
@@ -952,7 +947,8 @@ Public Class Connect
             Starter.Show()
 
         Else
-
+            Starter.Show()
+            Me.Close()
         End If
     End Sub
 

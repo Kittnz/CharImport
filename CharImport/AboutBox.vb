@@ -1,4 +1,12 @@
-﻿Imports System.Threading
+﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+'*
+'* This application is free and can be distributed.
+'*
+'* This form shows information about the software
+'*
+'* Developed by Alcanmage/megasus
+
+Imports System.Threading
 Imports System.Globalization
 
 Public NotInheritable Class AboutBox

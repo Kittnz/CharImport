@@ -1,4 +1,12 @@
-﻿Imports System.Net
+﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+'*
+'* This application is free and can be distributed.
+'*
+'* The class Functions provides some basic functions which are used by core classes
+'*
+'* Developed by Alcanmage/megasus
+
+Imports System.Net
 Imports System.Text
 Imports MySql.Data.MySqlClient
 

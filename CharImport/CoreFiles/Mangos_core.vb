@@ -1,17 +1,12 @@
-﻿'****************************************************************************************
-'****************************************************************************************
-'***************************** CharImport- Mangos_core **********************************
-'****************************************************************************************
-'..................Status
-'...................Code:       90%
-'...................Design:     95%
-'...................Functions:  80%
-'****************************************************************************************
-'****************************************************************************************
-'..................Last modified: 20.04.12
-'****************************************************************************************
-'****************************************************************************************
-'..................Comments:
+﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+'*
+'* This application is free and can be distributed.
+'*
+'* Mangos_core contains several functions to implement the character
+'* and account information into an MaNGOS compatible database.
+'*
+'* Developed by Alcanmage/megasus
+
 Imports MySql.Data.MySqlClient
 
 Public Class Mangos_core
@@ -3171,6 +3166,10 @@ Public Class Mangos_core
     End Sub
 
     Private Function splitenchstring(ByVal enchstring As String, ByVal guid As Integer, ByVal entry As String) As String
+        If enchstring = "" Or enchstring = "0" Then
+            Return ""
+            Exit Function
+        End If
         Dim Anzahl As Integer = UBound(enchstring.Split(CChar(" ")))
         Dim normalenchstring As String =
                 "0 1191182336 3 0 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3753 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 "
@@ -3193,28 +3192,28 @@ Public Class Mangos_core
                 If parts2(2) = "5" Then
                     'vz
                     Dim input As String = normalenchstring
-                    Dim parts3() As String = input.Split(" "c)
+                    Dim parts3() As String = Input.Split(" "c)
 
                     parts3(22) = parts2(0)
                     normalenchstring = String.Join(" ", parts3)
                 ElseIf parts2(2) = "1" Then
                     'gem1
                     Dim input As String = normalenchstring
-                    Dim parts3() As String = input.Split(" "c)
+                    Dim parts3() As String = Input.Split(" "c)
 
                     parts3(28) = parts2(0)
                     normalenchstring = String.Join(" ", parts3)
                 ElseIf parts2(2) = "2" Then
                     'gem2
                     Dim input As String = normalenchstring
-                    Dim parts3() As String = input.Split(" "c)
+                    Dim parts3() As String = Input.Split(" "c)
 
                     parts3(31) = parts2(0)
                     normalenchstring = String.Join(" ", parts3)
                 ElseIf parts2(2) = "3" Then
                     'gem3
                     Dim input As String = normalenchstring
-                    Dim parts3() As String = input.Split(" "c)
+                    Dim parts3() As String = Input.Split(" "c)
 
                     parts3(34) = parts2(0)
                     normalenchstring = String.Join(" ", parts3)
@@ -3237,7 +3236,7 @@ Public Class Mangos_core
                     If Anzahl > 63 Then
                         'Sourcecore: WotLK/Cata
                         Dim input As String = enchstring
-                        Dim parts() As String = input.Split(" "c)
+                        Dim parts() As String = Input.Split(" "c)
                         Dim output As String
                         parts(0) = guid.ToString
                         parts(4) = entry.ToString
@@ -3246,7 +3245,7 @@ Public Class Mangos_core
                     Else
                         'Sourcecore: TBC/Vanilla
                         Dim input As String = enchstring
-                        Dim parts() As String = input.Split(" "c)
+                        Dim parts() As String = Input.Split(" "c)
                         Dim output As String
                         parts(0) = guid.ToString
                         parts(4) = entry.ToString
@@ -3261,7 +3260,7 @@ Public Class Mangos_core
                         Dim input As String = enchstring
                         input = input.Replace("0 0 0 0 0 0 0 0", "0 0 0 0 0")
                         'needs validation
-                        Dim parts() As String = input.Split(" "c)
+                        Dim parts() As String = Input.Split(" "c)
                         Dim output As String
                         parts(0) = guid.ToString
                         parts(4) = entry.ToString
@@ -3270,7 +3269,7 @@ Public Class Mangos_core
                     Else
                         'Sourcecore: TBC/Vanilla
                         Dim input As String = enchstring
-                        Dim parts() As String = input.Split(" "c)
+                        Dim parts() As String = Input.Split(" "c)
                         Dim output As String
                         parts(0) = guid.ToString
                         parts(4) = entry.ToString
@@ -3283,7 +3282,7 @@ Public Class Mangos_core
             Else
                 'trinity
                 Dim input As String = "0 " & enchstring
-                Dim parts() As String = input.Split(" "c)
+                Dim parts() As String = Input.Split(" "c)
                 Dim output As String
                 parts(0) = "<start>"
                 parts(14) = "<end>"

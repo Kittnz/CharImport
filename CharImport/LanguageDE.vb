@@ -1,7 +1,13 @@
-﻿Public Class LanguageDE
-    Public _
-        armoryinterface_txt1 As String =
-            "Bitte gib jetzt mithilfe des folgenden Fensters den Namen des neuen Templates an."
+﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+'*
+'* This application is free and can be distributed.
+'*
+'* The class LanguageDE contains german localization strings
+'*
+'* Developed by Alcanmage/megasus
+
+Public Class LanguageDE
+    Public armoryinterface_txt1 As String = "Bitte gib jetzt mithilfe des folgenden Fensters den Namen des neuen Templates an."
 
     Public armoryinterface_txt2 As String = "Neues Template"
     Public armoryinterface_txt3 As String = "Ungültiger Dateiname!"

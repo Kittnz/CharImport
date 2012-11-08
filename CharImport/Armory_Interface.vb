@@ -1,4 +1,12 @@
-﻿
+﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+'*
+'* This application is free and can be distributed.
+'*
+'* The form Armory_Interface allows the user to select multiple characters from
+'* the official World of Warcraft Armory which will later be parsed.
+'*
+'* Developed by Alcanmage/megasus
+
 Imports System.Threading
 Imports System.Globalization
 Imports System.Net

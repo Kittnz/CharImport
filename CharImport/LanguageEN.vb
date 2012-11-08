@@ -1,7 +1,13 @@
-﻿Public Class LanguageEN
-    Public _
-        armoryinterface_txt1 As String =
-            "Please enter the name of the new template file with the help of the upcoming window."
+﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+'*
+'* This application is free and can be distributed.
+'*
+'* The class LanguageEN contains english localization strings
+'*
+'* Developed by Alcanmage/megasus
+
+Public Class LanguageEN
+    Public armoryinterface_txt1 As String = "Please enter the name of the new template file with the help of the upcoming window."
 
     Public armoryinterface_txt2 As String = "New template"
     Public armoryinterface_txt3 As String = "Invalid file name!"

@@ -1,4 +1,14 @@
-﻿Imports System.Threading
+﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+'*
+'* This application is free and can be distributed.
+'*
+'* The form Database_Check will show up if certain tables or columns are missing
+'* in the database and will inform the user. It also provides the option to submit
+'* a bugreport, to continue the transmission or to cancel it.
+'*
+'* Developed by Alcanmage/megasus
+
+Imports System.Threading
 Imports System.Globalization
 Imports System.Net.Mail
 Imports System.Net

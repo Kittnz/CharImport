@@ -1,22 +1,15 @@
-﻿Imports System.Threading
+﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+'*
+'* This application is free and can be distributed.
+'*
+'* The form Filtern allows the user to filter items by patch
+'*
+'* Developed by Alcanmage/megasus
+
+Imports System.Threading
 Imports System.Globalization
 
 Public Class Filtern
-    '****************************************************************************************
-    '****************************************************************************************
-    '***************************** CharImport- Filtern **************************************
-    '****************************************************************************************
-    '..................Status
-    '...................Code:       100%
-    '...................Design:      50%
-    '...................Functions:  100%
-    '****************************************************************************************
-    '****************************************************************************************
-    '..................Last modified: 06.01.12
-    '****************************************************************************************
-    '****************************************************************************************
-    '..................Comments:
-    '
     Dim patchstring As String = ""
     Dim procarmory As New prozedur_armory
     Dim localeDE As New LanguageDE

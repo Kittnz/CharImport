@@ -1,4 +1,13 @@
-﻿Imports System.Globalization
+﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+'*
+'* This application is free and can be distributed.
+'*
+'* The form Database_Interface allows the user to open a database connection and
+'* to set the accounts/characters to be loaded.
+'*
+'* Developed by Alcanmage/megasus
+
+Imports System.Globalization
 Imports MySql.Data.MySqlClient
 Imports System.Threading
 
