@@ -171,6 +171,56 @@ Public Class Starter
         Catch ex As Exception
             runfunction.writelog("Failed to connect to FTP-Server at start: " & vbNewLine & ex.ToString)
         End Try
+        Try
+            Main.itemname_dt.Clear()
+            Main.itemname_dt = New DataTable()
+            Dim stext As String
+            If My.Settings.language = "de" Then
+                stext = My.Resources.item_name_de
+            Else
+                stext = My.Resources.item_name_en
+            End If
+
+            Dim a() As String
+            Dim strArray As String()
+            a = Split(stext, vbNewLine)
+            For i = 0 To UBound(a)
+                strArray = a(i).Split(CChar(";"))
+                If i = 0 Then
+                    For Each value As String In strArray
+                        Main.itemname_dt.Columns.Add(value.Trim())
+                    Next
+                Else
+                    Dim dr As DataRow = Main.itemname_dt.NewRow()
+                    Main.itemname_dt.Rows.Add(strArray)
+                End If
+            Next i
+        Catch : End Try
+        Try
+            Main.effectname_dt.Clear()
+            Main.effectname_dt = New DataTable()
+            Dim stext As String
+            If My.Settings.language = "de" Then
+                stext = My.Resources.enchant_name_de
+            Else
+                stext = My.Resources.enchant_name_en
+            End If
+
+            Dim a() As String
+            Dim strArray As String()
+            a = Split(stext, vbNewLine)
+            For i = 0 To UBound(a)
+                strArray = a(i).Split(CChar(";"))
+                If i = 0 Then
+                    For Each value As String In strArray
+                        Main.effectname_dt.Columns.Add(value.Trim())
+                    Next
+                Else
+                    Dim dr As DataRow = Main.effectname_dt.NewRow()
+                    Main.effectname_dt.Rows.Add(strArray)
+                End If
+            Next i
+        Catch : End Try
         Me.BringToFront()
     End Sub
 
@@ -278,6 +328,56 @@ Public Class Starter
     End Sub
 
     Private Sub Panel3_MouseClick(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Panel3.MouseClick
+        Try
+            Main.itemname_dt.Clear()
+            Main.itemname_dt = New DataTable()
+            Dim stext As String
+            If My.Settings.language = "de" Then
+                stext = My.Resources.item_name_de
+            Else
+                stext = My.Resources.item_name_en
+            End If
+
+            Dim a() As String
+            Dim strArray As String()
+            a = Split(stext, vbNewLine)
+            For i = 0 To UBound(a)
+                strArray = a(i).Split(CChar(";"))
+                If i = 0 Then
+                    For Each value As String In strArray
+                        Main.itemname_dt.Columns.Add(value.Trim())
+                    Next
+                Else
+                    Dim dr As DataRow = Main.itemname_dt.NewRow()
+                    Main.itemname_dt.Rows.Add(strArray)
+                End If
+            Next i
+        Catch : End Try
+        Try
+            Main.effectname_dt.Clear()
+            Main.effectname_dt = New DataTable()
+            Dim stext As String
+            If My.Settings.language = "de" Then
+                stext = My.Resources.enchant_name_de
+            Else
+                stext = My.Resources.enchant_name_en
+            End If
+
+            Dim a() As String
+            Dim strArray As String()
+            a = Split(stext, vbNewLine)
+            For i = 0 To UBound(a)
+                strArray = a(i).Split(CChar(";"))
+                If i = 0 Then
+                    For Each value As String In strArray
+                        Main.effectname_dt.Columns.Add(value.Trim())
+                    Next
+                Else
+                    Dim dr As DataRow = Main.effectname_dt.NewRow()
+                    Main.effectname_dt.Rows.Add(strArray)
+                End If
+            Next i
+        Catch : End Try
         My.Settings.savecontent = ""
         ' ???? 29/07 should fix: (Load char from db > load char from armory > store it > import template = first character)
         My.Settings.Save()
@@ -415,6 +515,56 @@ Public Class Starter
     End Sub
 
     Private Sub Label6_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Label6.Click
+        Try
+            Main.itemname_dt.Clear()
+            Main.itemname_dt = New DataTable()
+            Dim stext As String
+            If My.Settings.language = "de" Then
+                stext = My.Resources.item_name_de
+            Else
+                stext = My.Resources.item_name_en
+            End If
+
+            Dim a() As String
+            Dim strArray As String()
+            a = Split(stext, vbNewLine)
+            For i = 0 To UBound(a)
+                strArray = a(i).Split(CChar(";"))
+                If i = 0 Then
+                    For Each value As String In strArray
+                        Main.itemname_dt.Columns.Add(value.Trim())
+                    Next
+                Else
+                    Dim dr As DataRow = Main.itemname_dt.NewRow()
+                    Main.itemname_dt.Rows.Add(strArray)
+                End If
+            Next i
+        Catch : End Try
+        Try
+            Main.effectname_dt.Clear()
+            Main.effectname_dt = New DataTable()
+            Dim stext As String
+            If My.Settings.language = "de" Then
+                stext = My.Resources.enchant_name_de
+            Else
+                stext = My.Resources.enchant_name_en
+            End If
+
+            Dim a() As String
+            Dim strArray As String()
+            a = Split(stext, vbNewLine)
+            For i = 0 To UBound(a)
+                strArray = a(i).Split(CChar(";"))
+                If i = 0 Then
+                    For Each value As String In strArray
+                        Main.effectname_dt.Columns.Add(value.Trim())
+                    Next
+                Else
+                    Dim dr As DataRow = Main.effectname_dt.NewRow()
+                    Main.effectname_dt.Rows.Add(strArray)
+                End If
+            Next i
+        Catch : End Try
         My.Settings.savecontent = ""
         ' ???? 29/07 should fix: (Load char from db > load char from armory > store it > import template = first character)
         My.Settings.Save()
@@ -470,6 +620,56 @@ Public Class Starter
     End Sub
 
     Private Sub Label7_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Label7.Click
+        Try
+            Main.itemname_dt.Clear()
+            Main.itemname_dt = New DataTable()
+            Dim stext As String
+            If My.Settings.language = "de" Then
+                stext = My.Resources.item_name_de
+            Else
+                stext = My.Resources.item_name_en
+            End If
+
+            Dim a() As String
+            Dim strArray As String()
+            a = Split(stext, vbNewLine)
+            For i = 0 To UBound(a)
+                strArray = a(i).Split(CChar(";"))
+                If i = 0 Then
+                    For Each value As String In strArray
+                        Main.itemname_dt.Columns.Add(value.Trim())
+                    Next
+                Else
+                    Dim dr As DataRow = Main.itemname_dt.NewRow()
+                    Main.itemname_dt.Rows.Add(strArray)
+                End If
+            Next i
+        Catch : End Try
+        Try
+            Main.effectname_dt.Clear()
+            Main.effectname_dt = New DataTable()
+            Dim stext As String
+            If My.Settings.language = "de" Then
+                stext = My.Resources.enchant_name_de
+            Else
+                stext = My.Resources.enchant_name_en
+            End If
+
+            Dim a() As String
+            Dim strArray As String()
+            a = Split(stext, vbNewLine)
+            For i = 0 To UBound(a)
+                strArray = a(i).Split(CChar(";"))
+                If i = 0 Then
+                    For Each value As String In strArray
+                        Main.effectname_dt.Columns.Add(value.Trim())
+                    Next
+                Else
+                    Dim dr As DataRow = Main.effectname_dt.NewRow()
+                    Main.effectname_dt.Rows.Add(strArray)
+                End If
+            Next i
+        Catch : End Try
         My.Settings.savecontent = ""
         ' ???? 29/07 should fix: (Load char from db > load char from armory > store it > import template = first character)
         My.Settings.Save()

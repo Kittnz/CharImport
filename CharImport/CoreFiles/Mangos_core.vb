@@ -1774,11 +1774,12 @@ Public Class Mangos_core
         If Main.anzahldurchlaufe = 1 Then Main.schmuck1vz.Text = splitstringvz(Main.schmuck1ench, Main.schmuck1vzid, 23)
         Main.schmuck1vz.Visible = True
 
-        If Main.anzahldurchlaufe = 1 Then Main.schmuck2vz.Text = splitstringvz(Main.schmuck2ench, Main.schmuck2vzid, 23)
+       If Main.anzahldurchlaufe = 1 Then Main.schmuck2vz.Text = splitstringvz(Main.schmuck2ench, Main.schmuck2vzid, 23)
         Main.schmuck2vz.Visible = True
+
     End Sub
 
-    Public Function splitstringvz(ByVal input As String, ByVal obvalue As Integer, ByVal position As Integer) As String
+    Public Function splitstringvz(ByVal input As String, ByRef obvalue As Integer, ByVal position As Integer) As String
         Dim xpacressource As String
         Select Case Main.xpac
             Case 3
@@ -1793,15 +1794,16 @@ Public Class Mangos_core
                 Dim parts() As String = input.Split(" "c)
                 If Not parts(position - 1) = "0" Then
                     obvalue = CInt(parts(position - 1))
-                    Dim quellcodeyx88 As String = xpacressource
-                    Dim anfangyx88 As String = parts(position - 1) & ";"
+                    Return runfunction.geteffectnameofeffectid(CInt(parts(position - 1)))
+                    'Dim quellcodeyx88 As String = xpacressource
+                    'Dim anfangyx88 As String = parts(position - 1) & ";"
 
-                    Dim endeyx88 As String = ";xxxx"
-                    Dim quellcodeSplityx88 As String
-                    quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-                    quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
+                    'Dim endeyx88 As String = ";xxxx"
+                    'Dim quellcodeSplityx88 As String
+                    'quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
+                    'quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
 
-                    Return quellcodeSplityx88
+                    'Return quellcodeSplityx88
                 Else
 
                     Return ""
@@ -1871,7 +1873,7 @@ Public Class Mangos_core
                 CInt(Val(runfunction.runcommand("SELECT guid FROM characters WHERE name = '" & charname & "'", "guid")))
 
         Catch ex As Exception
-           
+
             Return - 1
         End Try
     End Function

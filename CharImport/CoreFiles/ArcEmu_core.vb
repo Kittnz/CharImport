@@ -1853,7 +1853,7 @@ Public Class ArcEmu_core
         Main.schmuck2vz.Visible = True
     End Sub
 
-    Public Function splitstringvz(ByVal input As String, ByVal obvalue As Integer, ByVal position As Integer) As String
+    Public Function splitstringvz(ByVal input As String, ByRef obvalue As Integer, ByVal position As Integer) As String
         Dim xpacressource As String
         Select Case Main.xpac
             Case 3
@@ -1868,64 +1868,70 @@ Public Class ArcEmu_core
                 Dim parts() As String = input.Split(";"c)
                 If parts(0).Contains("0,0") Then
                     obvalue = CInt(parts(0))
-                    Dim quellcodeyx88 As String = xpacressource
-                    Dim parts2() As String = parts(0).Split(","c)
-                    Dim anfangyx88 As String = parts2(0) & ";"
-                    Dim endeyx88 As String = ";xxxx"
-                    Dim quellcodeSplityx88 As String
-                    quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-                    quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-                    Return quellcodeSplityx88
+                    Return runfunction.geteffectnameofeffectid(CInt(parts(0)))
+                    'Dim quellcodeyx88 As String = xpacressource
+                    'Dim parts2() As String = parts(0).Split(","c)
+                    'Dim anfangyx88 As String = parts2(0) & ";"
+                    'Dim endeyx88 As String = ";xxxx"
+                    'Dim quellcodeSplityx88 As String
+                    'quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
+                    'quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
+                    'Return quellcodeSplityx88
                 ElseIf parts(1).Contains("0,0") Then
                     obvalue = CInt(parts(1))
-                    Dim quellcodeyx88 As String = xpacressource
-                    Dim parts2() As String = parts(1).Split(","c)
-                    Dim anfangyx88 As String = parts2(0) & ";"
-                    Dim endeyx88 As String = ";xxxx"
-                    Dim quellcodeSplityx88 As String
-                    quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-                    quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-                    Return quellcodeSplityx88
+                    Return runfunction.geteffectnameofeffectid(CInt(parts(1)))
+                    'Dim quellcodeyx88 As String = xpacressource
+                    'Dim parts2() As String = parts(1).Split(","c)
+                    'Dim anfangyx88 As String = parts2(0) & ";"
+                    'Dim endeyx88 As String = ";xxxx"
+                    'Dim quellcodeSplityx88 As String
+                    'quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
+                    'quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
+                    'Return quellcodeSplityx88
                 ElseIf parts(2).Contains("0,0") Then
                     obvalue = CInt(parts(2))
-                    Dim quellcodeyx88 As String = xpacressource
-                    Dim parts2() As String = parts(2).Split(","c)
-                    Dim anfangyx88 As String = parts2(0) & ";"
-                    Dim endeyx88 As String = ";xxxx"
-                    Dim quellcodeSplityx88 As String
-                    quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-                    quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-                    Return quellcodeSplityx88
+                    Return runfunction.geteffectnameofeffectid(CInt(parts(2)))
+                    'Dim quellcodeyx88 As String = xpacressource
+                    'Dim parts2() As String = parts(2).Split(","c)
+                    'Dim anfangyx88 As String = parts2(0) & ";"
+                    'Dim endeyx88 As String = ";xxxx"
+                    'Dim quellcodeSplityx88 As String
+                    'quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
+                    'quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
+                    'Return quellcodeSplityx88
                 ElseIf parts(3).Contains("0,0") Then
                     obvalue = CInt(parts(3))
-                    Dim quellcodeyx88 As String = xpacressource
-                    Dim parts2() As String = parts(3).Split(","c)
-                    Dim anfangyx88 As String = parts2(0) & ";"
-                    Dim endeyx88 As String = ";xxxx"
-                    Dim quellcodeSplityx88 As String
-                    quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-                    quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-                    Return quellcodeSplityx88
+                    Return runfunction.geteffectnameofeffectid(CInt(parts(3)))
+                    'Dim quellcodeyx88 As String = xpacressource
+                    'Dim parts2() As String = parts(3).Split(","c)
+                    'Dim anfangyx88 As String = parts2(0) & ";"
+                    'Dim endeyx88 As String = ";xxxx"
+                    'Dim quellcodeSplityx88 As String
+                    'quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
+                    'quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
+                    'Return quellcodeSplityx88
                 ElseIf parts(4).Contains("0,0") Then
                     obvalue = CInt(parts(4))
-                    Dim quellcodeyx88 As String = xpacressource
-                    Dim parts2() As String = parts(4).Split(","c)
-                    Dim anfangyx88 As String = parts2(0) & ";"
-                    Dim endeyx88 As String = ";xxxx"
-                    Dim quellcodeSplityx88 As String
-                    quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-                    quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-                    Return quellcodeSplityx88
+                    Return runfunction.geteffectnameofeffectid(CInt(parts(4)))
+                    'Dim quellcodeyx88 As String = xpacressource
+                    'Dim parts2() As String = parts(4).Split(","c)
+                    'Dim anfangyx88 As String = parts2(0) & ";"
+                    'Dim endeyx88 As String = ";xxxx"
+                    'Dim quellcodeSplityx88 As String
+                    'quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
+                    'quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
+                    'Return quellcodeSplityx88
                 ElseIf parts(5).Contains("0,0") Then
                     obvalue = CInt(parts(5))
-                    Dim quellcodeyx88 As String = xpacressource
-                    Dim parts2() As String = parts(5).Split(","c)
-                    Dim anfangyx88 As String = parts2(0) & ";"
-                    Dim endeyx88 As String = ";xxxx"
-                    Dim quellcodeSplityx88 As String
-                    quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-                    quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-                    Return quellcodeSplityx88
+                    Return runfunction.geteffectnameofeffectid(CInt(parts(5)))
+                    'Dim quellcodeyx88 As String = xpacressource
+                    'Dim parts2() As String = parts(5).Split(","c)
+                    'Dim anfangyx88 As String = parts2(0) & ";"
+                    'Dim endeyx88 As String = ";xxxx"
+                    'Dim quellcodeSplityx88 As String
+                    'quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
+                    'quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
+                    'Return quellcodeSplityx88
                 Else
 
                     Return ""

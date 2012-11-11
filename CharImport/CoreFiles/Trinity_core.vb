@@ -1857,7 +1857,7 @@ Public Class Trinity_core
         Main.schmuck2vz.Visible = True
     End Sub
 
-    Public Function splitstringvz(ByVal input As String, ByVal obvalue As Integer, ByVal position As Integer) As String
+    Public Function splitstringvz(ByVal input As String, ByRef obvalue As Integer, ByVal position As Integer) As String
         Dim xpacressource As String
         Dim xpacressource2 As String
         Select Case Main.xpac
@@ -1877,14 +1877,15 @@ Public Class Trinity_core
                 Dim parts() As String = input.Split(" "c)
                 If Not parts(position) = "0" Then
                     obvalue = CInt(parts(position))
-                    Dim quellcodeyx88 As String = xpacressource2
-                    Dim anfangyx88 As String = parts(position) & ";"
-                    Dim endeyx88 As String = ";xxxx"
-                    Dim quellcodeSplityx88 As String
-                    quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-                    quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
+                    Return runfunction.geteffectnameofeffectid(CInt(parts(position)))
+                    'Dim quellcodeyx88 As String = xpacressource2
+                    'Dim anfangyx88 As String = parts(position) & ";"
+                    'Dim endeyx88 As String = ";xxxx"
+                    'Dim quellcodeSplityx88 As String
+                    'quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
+                    'quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
 
-                    Return quellcodeSplityx88
+                    'Return quellcodeSplityx88
                 Else
                     Return ""
                 End If

@@ -224,30 +224,9 @@ Public Class Functions
         End Try
     End Function
     Public Function getnamefromitemid(ByVal itemid As String) As String
+        If itemid = "-" Or itemid = "" Or itemid = "0" Then Return "-"
         Try
-            Dim dt As New DataTable()
-            Dim stext As String
-            If My.Settings.language = "de" Then
-                stext = My.Resources.item_name_de
-            Else
-                stext = My.Resources.item_name_en
-            End If
-
-            Dim a() As String
-            Dim strArray As String()
-            a = Split(stext, vbNewLine)
-            For i = 0 To UBound(a)
-                strArray = a(i).Split(CChar(";"))
-                If i = 0 Then
-                    For Each value As String In strArray
-                        dt.Columns.Add(value.Trim())
-                    Next
-                Else
-                    Dim dr As DataRow = dt.NewRow()
-                    dt.Rows.Add(strArray)
-                End If
-            Next i
-            Dim nameresult As String = executex("itemid", itemid, dt)
+            Dim nameresult As String = executex("itemid", itemid, Main.itemname_dt)
             If nameresult = "-" Then
                 Return "Error loading itemname"
             Else
@@ -597,29 +576,7 @@ Public Class Functions
     Public Function geteffectnameofeffectid(ByVal effectid As Integer) As String
 
         Try
-            Dim dt As New DataTable()
-            Dim stext As String
-            If My.Settings.language = "de" Then
-                stext = My.Resources.enchant_name_de
-            Else
-                stext = My.Resources.enchant_name_en
-            End If
-
-            Dim a() As String
-            Dim strArray As String()
-            a = Split(stext, vbNewLine)
-            For i = 0 To UBound(a)
-                strArray = a(i).Split(CChar(";"))
-                If i = 0 Then
-                    For Each value As String In strArray
-                        dt.Columns.Add(value.Trim())
-                    Next
-                Else
-                    Dim dr As DataRow = dt.NewRow()
-                    dt.Rows.Add(strArray)
-                End If
-            Next i
-            Dim nameresult As String = executex2("effectid", effectid.ToString(), dt)
+           Dim nameresult As String = executex2("effectid", effectid.ToString(), Main.effectname_dt)
             If nameresult = "-" Then
                 Return "Error loading effectname"
             Else

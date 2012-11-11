@@ -17,6 +17,8 @@ Public Class Main
     '############################## DEKLARATION DER IDs
     Public readyforreturn As Boolean = False
     Public battlenet_region As String
+    Public effectname_dt As New DataTable
+    Public itemname_dt As New DataTable
     'eu/us...
     Public xpac As Integer
     Public realmname As String
@@ -1730,7 +1732,7 @@ Public Class Main
             End If
             Exit Sub
         End If
-        datasets += 1
+        If Not datasets = 1 Then datasets += 1
         ciu.adddataset()
         ciu.createfile(writepath)
         If My.Settings.language = "de" Then
