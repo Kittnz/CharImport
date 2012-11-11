@@ -103,6 +103,9 @@ Public Class LanguageEN
     Public restartlogon As String = "Please restart the world server in order to clear the cache!"
 
     Public criticalerrorduringtransmission As String = "Critical error during transmission!"
-    Public characternotcreated As String = "Character could not been created" & vbNewLine & "Transmussion canceled."
+    Public characternotcreated As String = "Character could not been created" & vbNewLine & "Transmission canceled."
+
+    Public errornotification As String = "Error"
+    Public templateoutdated As String = "The format of the template file is outdated and is no longer supported by this version of CharImport!"
 End Class
 

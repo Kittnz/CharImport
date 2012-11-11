@@ -15,6 +15,65 @@ CharImportTest
   Überschreibt die CurrentUICulture-Eigenschaft des aktuellen Threads für alle
   Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
 </summary>
+</member><member name="P:CharImport_Test.My.Resources.Resources.empty">
+	<summary>
+  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+</summary>
+</member><member name="P:CharImport_Test.My.Resources.Resources.enchant_name_de">
+	<summary>
+  Sucht eine lokalisierte Zeichenfolge, die effectid;effectname
+1;Felsbeißer 3
+2;Frostbrand
+3;Flammenzunge 3
+4;Flammenzunge 2
+5;Flammenzunge
+6;Felsbeißer 2
+7;Tödliches Gift
+8;Tödliches Gift II
+9;Gift (15 Schaden)
+10;Gift (20 Schaden)
+11;Gift (25 Schaden)
+12;Frostbrand 2
+13;Geschärft (+3 Schaden)
+14;Geschärft (+4 Schaden)
+15;Verstärkt (+8 Rüstung)
+16;Verstärkt (+16 Rüstung)
+17;Verstärkt (+24 Rüstung)
+18;Verstärkt (+32 Rüstung)
+19;Beschwert (+2 Schaden)
+20;Beschwert (+3 Schaden)
+21;Beschwert (+4 Schaden)
+22;Verkrüppelungsgift
+23; [Rest der Zeichenfolge wurde abgeschnitten]"; ähnelt.
+</summary>
+</member><member name="P:CharImport_Test.My.Resources.Resources.enchant_name_en">
+	<summary>
+  Sucht eine lokalisierte Zeichenfolge, die effectid;effectname
+1;Rockbiter 3
+2;Frostbrand
+3;Flametongue 3
+4;Flametongue 2
+5;Flametongue
+6;Rockbiter 2
+7;Deadly Poison
+8;Deadly Poison II
+9;Poison (15 Dmg)
+10;Poison (20 Dmg)
+11;Poison (25 Dmg)
+12;Frostbrand 2
+13;Sharpened (+3 Damage)
+14;Sharpened (+4 Damage)
+15;Reinforced (+8 Armor)
+16;Reinforced (+16 Armor)
+17;Reinforced (+24 Armor)
+18;Reinforced (+32 Armor)
+19;Weighted (+2 Damage)
+20;Weighted (+3 Damage)
+21;Weighted (+4 Damage)
+22;Crippling Poison
+23;Mind-numbing Poison II
+24; [Rest der Zeichenfolge wurde abgeschnitten]"; ähnelt.
+</summary>
 </member><member name="P:CharImport_Test.My.Resources.Resources.GEM_ID_cata">
 	<summary>
   Sucht eine lokalisierte Zeichenfolge, die long:long:
@@ -200,6 +259,63 @@ flags,long,long,long,
 &lt;entry&gt;165&lt;/entry&gt;&lt;spell&gt;54815&lt;/spell&gt;&lt;entry2&gt;165&lt;/entry2&gt;&lt;spell2&gt;54815&lt;/spell2&gt;
 &lt;entry&gt;166&lt;/entry&gt;&lt;spell&gt;54818&lt;/spell&gt;&lt;entry2&gt;166&lt;/entry2&gt;&lt;spell2&gt;54818&lt;/spell2&gt;
 &lt;entry&gt;167&lt;/entry&gt;&lt;s [Rest der Zeichenfolge wurde abgeschnitten]"; ähnelt.
+</summary>
+</member><member name="P:CharImport_Test.My.Resources.Resources.item_name_de">
+	<summary>
+  Sucht eine lokalisierte Zeichenfolge, die itemid;itemname
+25;Abgenutztes Kurzschwert
+35;Gebogener Stab
+36;Abgenutzter Streitkolben
+37;Abgenutzte Axt
+38;Rekrutenhemd
+39;Rekrutenhose
+40;Rekrutenstiefel
+42;OLDSquire's Belt
+43;Knappenstiefel
+44;Knappenhose
+45;Knappenhemd
+47;Straßenräuberschuhe
+48;Straßenräuberhose
+49;Straßenräuberhemd
+51;Neophytenstiefel
+52;Neophytenhose
+53;Neophytenhemd
+55;Lehrlingsstiefel
+56;Lehrlingsrobe
+57;Akolythenrobe
+59;Akolythenschuhe
+60;Mehrlagige Tunika
+61;Zwergische Lederhose
+79;Zwergische Stoffknieho [Rest der Zeichenfolge wurde abgeschnitten]"; ähnelt.
+</summary>
+</member><member name="P:CharImport_Test.My.Resources.Resources.item_name_en">
+	<summary>
+  Sucht eine lokalisierte Zeichenfolge, die itemid;itemname
+17;Martin Fury
+25;Worn Shortsword
+35;Bent Staff
+36;Worn Mace
+37;Worn Axe
+38;Recruit's Shirt
+39;Recruit's Pants
+40;Recruit's Boots
+43;Squire's Boots
+44;Squire's Pants
+45;Squire's Shirt
+47;Footpad's Shoes
+48;Footpad's Pants
+49;Footpad's Shirt
+51;Neophyte's Boots
+52;Neophyte's Pants
+53;Neophyte's Shirt
+55;Apprentice's Boots
+56;Apprentice's Robe
+57;Acolyte's Robe
+59;Acolyte's Shoes
+60;Layered Tunic
+61;Dwarven Leather Pants
+79;Dwarven Cloth Britches
+80;Soft Fur-Lined Shoe [Rest der Zeichenfolge wurde abgeschnitten]"; ähnelt.
 </summary>
 </member><member name="P:CharImport_Test.My.Resources.Resources.SpellItemEnchantment">
 	<summary>

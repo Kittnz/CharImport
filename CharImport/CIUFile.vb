@@ -18,24 +18,47 @@ Public Class CIUFile
     Dim readstring As String
     Dim strread As StreamReader
     Dim fileextract As String
-
+    Dim runfunction As New Functions
+    Dim localeDE As New LanguageDE
+    Dim localeEN As New LanguageEN
+    Private Const hexDigits As String = "0123456789ABCDEF"
     Public Sub createfile(ByVal xpath As String)
         writepath = xpath
-
-
         nowwrite()
-
-
-        'Lists
-
-        '    writeit("talentpage", clsConvert.ConvListObject2String(Main.talentlist), True)
-    End Sub
-
+        End Sub
+    Public Shared Function HexStringToBytes(ByVal str As String) As Byte()
+        ' Determine the number of bytes
+        Dim bytes(str.Length >> 1 - 1) As Byte
+        For i As Integer = 0 To str.Length - 1 Step 2
+            Dim highDigit As Integer = hexDigits.IndexOf(Char.ToUpperInvariant(str.Chars(i)))
+            Dim lowDigit As Integer = hexDigits.IndexOf(Char.ToUpperInvariant(str.Chars(i + 1)))
+            If highDigit = -1 OrElse lowDigit = -1 Then
+                Throw New ArgumentException("The string contains an invalid digit.", "s")
+            End If
+            bytes(i >> 1) = CByte((highDigit << 4) Or lowDigit)
+        Next i
+        Return bytes
+    End Function
     Public Sub nowread()
-        Starter.Hide()
-        Try
+       Try
             strread = New StreamReader(Main.tmplpath, Encoding.Default)
-            Dim xXquellcodeyx88 As String = strread.ReadLine
+            'Dim strreaded As String = strread.ReadLine()
+            Dim strreaded As String = ByteArrayToTextString(HexStringToBytes(strread.ReadLine()))
+            Dim b() As Byte = Encoding.Default.GetBytes(strreaded)
+            strreaded = Encoding.UTF8.GetString(b)
+            strread.Close()
+            strread.Dispose()
+            If Not strreaded.Contains("<<requires>>") Or fileoutdated(strreaded) = True Then
+                If My.Settings.language = "de" Then
+                    MsgBox(localeDE.templateoutdated, MsgBoxStyle.Critical, localeDE.errornotification)
+                    Exit Sub
+                Else
+                    MsgBox(localeEN.templateoutdated, MsgBoxStyle.Critical, localeEN.errornotification)
+                    Exit Sub
+                End If
+            End If
+            Starter.Hide()
+            Dim xXquellcodeyx88 As String = strreaded
             Dim xXanfangyx88 As String = "<<datasets>>"
             Dim xXendeyx88 As String = "<</datasets>>"
             Dim xXquellcodeSplityx88 As String
@@ -93,7 +116,23 @@ Public Class CIUFile
 
         End Try
     End Sub
-
+    Private Function fileoutdated(ByVal filestring As String) As Boolean
+        Try
+            Dim xXquellcodeyx88 As String = filestring
+            Dim xXanfangyx88 As String = "<<requires>>"
+            Dim xXendeyx88 As String = "<</requires>>"
+            Dim xXquellcodeSplityx88 As String
+            xXquellcodeSplityx88 = Split(xXquellcodeyx88, xXanfangyx88, 5)(1)
+            xXquellcodeSplityx88 = Split(xXquellcodeSplityx88, xXendeyx88, 6)(0)
+            If CInt(xXquellcodeSplityx88) < Starter.required_template_version Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            Return True
+        End Try
+    End Function
     Public Sub readtempdataset(ByVal dataset As Integer)
         Try
 
@@ -113,7 +152,12 @@ Public Class CIUFile
     Public Sub readspecial(ByVal dataset As Integer)
         Try
             strread = New StreamReader(Main.tmplpath, Encoding.Default)
-            Dim xXquellcodeyx88 As String = strread.ReadLine
+            Dim strreaded As String = ByteArrayToTextString(HexStringToBytes(strread.ReadLine()))
+            Dim b() As Byte = Encoding.Default.GetBytes(strreaded)
+            strreaded = Encoding.UTF8.GetString(b)
+            strread.Close()
+            strread.Dispose()
+            Dim xXquellcodeyx88 As String = strreaded
             Dim xXanfangyx88 As String = "<startdataset" & dataset.ToString & ">"
             Dim xXendeyx88 As String = "<enddataset" & dataset.ToString & ">"
             Dim xXquellcodeSplityx88 As String
@@ -121,7 +165,7 @@ Public Class CIUFile
             xXquellcodeSplityx88 = Split(xXquellcodeSplityx88, xXendeyx88, 6)(0)
             fileextract = xXquellcodeSplityx88
             getfile()
-        Catch ex As Exception
+            Catch ex As Exception
 
         End Try
     End Sub
@@ -573,6 +617,27 @@ Public Class CIUFile
         readit2("offname", Main.Off, False)
         readit2("distanzname", Main.Distanz, False)
 
+        'Get correct itemname
+
+        If Not Main.kopfid = 0 Then Main.Kopf.Text = runfunction.getnamefromitemid(Main.kopfid.ToString())
+        If Not Main.schulterid = 0 Then Main.Schulter.Text = runfunction.getnamefromitemid(Main.schulterid.ToString())
+        If Not Main.halsid = 0 Then Main.Hals.Text = runfunction.getnamefromitemid(Main.halsid.ToString())
+        If Not Main.rueckenid = 0 Then Main.Ruecken.Text = runfunction.getnamefromitemid(Main.rueckenid.ToString())
+        If Not Main.beineid = 0 Then Main.Beine.Text = runfunction.getnamefromitemid(Main.beineid.ToString())
+        If Not Main.wappenrockid = 0 Then Main.Wappenrock.Text = runfunction.getnamefromitemid(Main.wappenrockid.ToString())
+        If Not Main.hemdid = 0 Then Main.Hemd.Text = runfunction.getnamefromitemid(Main.hemdid.ToString())
+        If Not Main.handgelenkeid = 0 Then Main.Handgelenke.Text = runfunction.getnamefromitemid(Main.handgelenkeid.ToString())
+        If Not Main.haendeid = 0 Then Main.Haende.Text = runfunction.getnamefromitemid(Main.haendeid.ToString())
+        If Not Main.brustid = 0 Then Main.Brust.Text = runfunction.getnamefromitemid(Main.brustid.ToString())
+        If Not Main.guertelid = 0 Then Main.Guertel.Text = runfunction.getnamefromitemid(Main.guertelid.ToString())
+        If Not Main.stiefelid = 0 Then Main.Stiefel.Text = runfunction.getnamefromitemid(Main.stiefelid.ToString())
+        If Not Main.ring1id = 0 Then Main.Ring1.Text = runfunction.getnamefromitemid(Main.ring1id.ToString())
+        If Not Main.ring2id = 0 Then Main.Ring2.Text = runfunction.getnamefromitemid(Main.ring2id.ToString())
+        If Not Main.schmuck1id = 0 Then Main.Schmuck1.Text = runfunction.getnamefromitemid(Main.schmuck1id.ToString())
+        If Not Main.schmuck2id = 0 Then Main.Schmuck2.Text = runfunction.getnamefromitemid(Main.schmuck2id.ToString())
+        If Not Main.hauptid = 0 Then Main.Haupt.Text = runfunction.getnamefromitemid(Main.hauptid.ToString())
+        If Not Main.offid = 0 Then Main.Off.Text = runfunction.getnamefromitemid(Main.offid.ToString())
+        If Not Main.distanzid = 0 Then Main.Distanz.Text = runfunction.getnamefromitemid(Main.distanzid.ToString())
 
         readitINT("kopfvzid", Main.kopfvzid, False, True)
         readitINT("schultervzid", Main.schultervzid, False, True)
@@ -729,6 +794,72 @@ Public Class CIUFile
         readit2("offsocket3name", Main.offsocket3, False)
         readit2("distanzsocket3name", Main.distanzsocket3, False)
 
+        'Get correct effectnames
+
+        If Not Main.kopfvzid = 0 Then Main.kopfvz.Text = runfunction.geteffectnameofeffectid(Main.kopfvzid)
+        If Not Main.schultervzid = 0 Then Main.schultervz.Text = runfunction.geteffectnameofeffectid(Main.schultervzid)
+        If Not Main.halsvzid = 0 Then Main.halsvz.Text = runfunction.geteffectnameofeffectid(Main.halsvzid)
+        If Not Main.rueckenvzid = 0 Then Main.rueckenvz.Text = runfunction.geteffectnameofeffectid(Main.rueckenvzid)
+        If Not Main.beinevzid = 0 Then Main.beinevz.Text = runfunction.geteffectnameofeffectid(Main.beinevzid)
+        If Not Main.handgelenkevzid = 0 Then Main.handgelenkevz.Text = runfunction.geteffectnameofeffectid(Main.handgelenkevzid)
+        If Not Main.haendevzid = 0 Then Main.haendevz.Text = runfunction.geteffectnameofeffectid(Main.haendevzid)
+        If Not Main.brustvzid = 0 Then Main.brustvz.Text = runfunction.geteffectnameofeffectid(Main.brustvzid)
+        If Not Main.guertelvzid = 0 Then Main.guertelvz.Text = runfunction.geteffectnameofeffectid(Main.guertelvzid)
+        If Not Main.stiefelvzid = 0 Then Main.stiefelvz.Text = runfunction.geteffectnameofeffectid(Main.stiefelvzid)
+        If Not Main.ring1vzid = 0 Then Main.ring1vz.Text = runfunction.geteffectnameofeffectid(Main.ring1vzid)
+        If Not Main.ring2vzid = 0 Then Main.ring2vz.Text = runfunction.geteffectnameofeffectid(Main.ring2vzid)
+        If Not Main.schmuck1vzid = 0 Then Main.schmuck1vz.Text = runfunction.geteffectnameofeffectid(Main.schmuck1vzid)
+        If Not Main.schmuck2vzid = 0 Then Main.schmuck2vz.Text = runfunction.geteffectnameofeffectid(Main.schmuck2vzid)
+        If Not Main.hauptvzid = 0 Then Main.hauptvz.Text = runfunction.geteffectnameofeffectid(Main.hauptvzid)
+        If Not Main.offvzid = 0 Then Main.offvz.Text = runfunction.geteffectnameofeffectid(Main.offvzid)
+        If Not Main.distanzvzid = 0 Then Main.distanzvz.Text = runfunction.geteffectnameofeffectid(Main.distanzvzid)
+
+        If Not Main.kopfsocket1id = 0 Then Main.kopfsocket1.Text = runfunction.geteffectnameofeffectid(Main.kopfsocket1id)
+        If Not Main.schultersocket1id = 0 Then Main.schultersocket1.Text = runfunction.geteffectnameofeffectid(Main.schultersocket1id)
+        If Not Main.halssocket1id = 0 Then Main.halssocket1.Text = runfunction.geteffectnameofeffectid(Main.halssocket1id)
+        If Not Main.rueckensocket1id = 0 Then Main.rueckensocket1.Text = runfunction.geteffectnameofeffectid(Main.rueckensocket1id)
+        If Not Main.beinesocket1id = 0 Then Main.beinesocket1.Text = runfunction.geteffectnameofeffectid(Main.beinesocket1id)
+        If Not Main.handgelenkesocket1id = 0 Then Main.Handgelenkesocket1.Text = runfunction.geteffectnameofeffectid(Main.handgelenkesocket1id)
+        If Not Main.haendesocket1id = 0 Then Main.haendesocket1.Text = runfunction.geteffectnameofeffectid(Main.haendesocket1id)
+        If Not Main.brustsocket1id = 0 Then Main.brustsocket1.Text = runfunction.geteffectnameofeffectid(Main.brustsocket1id)
+        If Not Main.guertelsocket1id = 0 Then Main.guertelsocket1.Text = runfunction.geteffectnameofeffectid(Main.guertelsocket1id)
+        If Not Main.stiefelsocket1id = 0 Then Main.stiefelsocket1.Text = runfunction.geteffectnameofeffectid(Main.stiefelsocket1id)
+        If Not Main.ring1socket1id = 0 Then Main.Ring1socket1.Text = runfunction.geteffectnameofeffectid(Main.ring1socket1id)
+        If Not Main.ring2socket1id = 0 Then Main.ring2socket1.Text = runfunction.geteffectnameofeffectid(Main.ring2socket1id)
+        If Not Main.hauptsocket1id = 0 Then Main.Hauptsocket1.Text = runfunction.geteffectnameofeffectid(Main.hauptsocket1id)
+        If Not Main.offsocket1id = 0 Then Main.Offsocket1.Text = runfunction.geteffectnameofeffectid(Main.offsocket1id)
+        If Not Main.distanzsocket1id = 0 Then Main.Distanzsocket1.Text = runfunction.geteffectnameofeffectid(Main.distanzsocket1id)
+
+        If Not Main.kopfsocket2id = 0 Then Main.kopfsocket2.Text = runfunction.geteffectnameofeffectid(Main.kopfsocket2id)
+        If Not Main.schultersocket2id = 0 Then Main.schultersocket2.Text = runfunction.geteffectnameofeffectid(Main.schultersocket2id)
+        If Not Main.halssocket2id = 0 Then Main.halssocket2.Text = runfunction.geteffectnameofeffectid(Main.halssocket2id)
+        If Not Main.rueckensocket2id = 0 Then Main.rueckensocket2.Text = runfunction.geteffectnameofeffectid(Main.rueckensocket2id)
+        If Not Main.beinesocket2id = 0 Then Main.beinesocket2.Text = runfunction.geteffectnameofeffectid(Main.beinesocket2id)
+        If Not Main.handgelenkesocket2id = 0 Then Main.handgelenkesocket2.Text = runfunction.geteffectnameofeffectid(Main.handgelenkesocket2id)
+        If Not Main.haendesocket2id = 0 Then Main.haendesocket2.Text = runfunction.geteffectnameofeffectid(Main.haendesocket2id)
+        If Not Main.brustsocket2id = 0 Then Main.brustsocket2.Text = runfunction.geteffectnameofeffectid(Main.brustsocket2id)
+        If Not Main.guertelsocket2id = 0 Then Main.guertelsocket2.Text = runfunction.geteffectnameofeffectid(Main.guertelsocket2id)
+        If Not Main.stiefelsocket2id = 0 Then Main.stiefelsocket2.Text = runfunction.geteffectnameofeffectid(Main.stiefelsocket2id)
+        If Not Main.ring2socket2id = 0 Then Main.ring2socket2.Text = runfunction.geteffectnameofeffectid(Main.ring2socket2id)
+        If Not Main.ring2socket2id = 0 Then Main.ring2socket2.Text = runfunction.geteffectnameofeffectid(Main.ring2socket2id)
+        If Not Main.hauptsocket2id = 0 Then Main.Hauptsocket2.Text = runfunction.geteffectnameofeffectid(Main.hauptsocket2id)
+        If Not Main.offsocket2id = 0 Then Main.Offsocket2.Text = runfunction.geteffectnameofeffectid(Main.offsocket2id)
+        If Not Main.distanzsocket2id = 0 Then Main.Distanzsocket2.Text = runfunction.geteffectnameofeffectid(Main.distanzsocket2id)
+
+        If Not Main.kopfsocket3id = 0 Then Main.kopfsocket3.Text = runfunction.geteffectnameofeffectid(Main.kopfsocket3id)
+        If Not Main.schultersocket3id = 0 Then Main.schultersocket3.Text = runfunction.geteffectnameofeffectid(Main.schultersocket3id)
+        If Not Main.halssocket3id = 0 Then Main.halssocket3.Text = runfunction.geteffectnameofeffectid(Main.halssocket3id)
+        If Not Main.rueckensocket3id = 0 Then Main.rueckensocket3.Text = runfunction.geteffectnameofeffectid(Main.rueckensocket3id)
+        If Not Main.beinesocket3id = 0 Then Main.beinesocket3.Text = runfunction.geteffectnameofeffectid(Main.beinesocket3id)
+        If Not Main.handgelenkesocket3id = 0 Then Main.Handgelenkesocket3.Text = runfunction.geteffectnameofeffectid(Main.handgelenkesocket3id)
+        If Not Main.haendesocket3id = 0 Then Main.haendesocket3.Text = runfunction.geteffectnameofeffectid(Main.haendesocket3id)
+        If Not Main.brustsocket3id = 0 Then Main.brustsocket3.Text = runfunction.geteffectnameofeffectid(Main.brustsocket3id)
+        If Not Main.guertelsocket3id = 0 Then Main.guertelsocket3.Text = runfunction.geteffectnameofeffectid(Main.guertelsocket3id)
+        If Not Main.stiefelsocket3id = 0 Then Main.stiefelsocket3.Text = runfunction.geteffectnameofeffectid(Main.stiefelsocket3id)
+        If Not Main.hauptsocket3id = 0 Then Main.hauptsocket3.Text = runfunction.geteffectnameofeffectid(Main.hauptsocket3id)
+        If Not Main.offsocket3id = 0 Then Main.offsocket3.Text = runfunction.geteffectnameofeffectid(Main.offsocket3id)
+        If Not Main.distanzsocket3id = 0 Then Main.distanzsocket3.Text = runfunction.geteffectnameofeffectid(Main.distanzsocket3id)
+
         'Glyph Names
 
         readit("primeglyph1id", Main.primeglyph1, False)
@@ -769,6 +900,26 @@ Public Class CIUFile
         readit("secminorglyph2", Main.sectextminorglyph2, False)
         readit("secminorglyph3", Main.sectextminorglyph3, False)
 
+        'Get correct glyph name
+
+        If Not Main.primeglyph1 = "" Then Main.textprimeglyph1 = runfunction.getnamefromitemid(Main.primeglyph1)
+        If Not Main.primeglyph2 = "" Then Main.textprimeglyph2 = runfunction.getnamefromitemid(Main.primeglyph2)
+        If Not Main.primeglyph3 = "" Then Main.textprimeglyph3 = runfunction.getnamefromitemid(Main.primeglyph3)
+        If Not Main.majorglyph1 = "" Then Main.textmajorglyph1 = runfunction.getnamefromitemid(Main.majorglyph1)
+        If Not Main.majorglyph2 = "" Then Main.textmajorglyph2 = runfunction.getnamefromitemid(Main.majorglyph2)
+        If Not Main.majorglyph3 = "" Then Main.textmajorglyph3 = runfunction.getnamefromitemid(Main.majorglyph3)
+        If Not Main.minorglyph1 = "" Then Main.textminorglyph1 = runfunction.getnamefromitemid(Main.minorglyph1)
+        If Not Main.minorglyph2 = "" Then Main.textminorglyph2 = runfunction.getnamefromitemid(Main.minorglyph2)
+        If Not Main.minorglyph3 = "" Then Main.textminorglyph3 = runfunction.getnamefromitemid(Main.minorglyph3)
+        If Not Main.secprimeglyph1 = "" Then Main.sectextprimeglyph1 = runfunction.getnamefromitemid(Main.secprimeglyph1)
+        If Not Main.secprimeglyph2 = "" Then Main.sectextprimeglyph2 = runfunction.getnamefromitemid(Main.secprimeglyph2)
+        If Not Main.secprimeglyph3 = "" Then Main.sectextprimeglyph3 = runfunction.getnamefromitemid(Main.secprimeglyph3)
+        If Not Main.secmajorglyph1 = "" Then Main.sectextmajorglyph1 = runfunction.getnamefromitemid(Main.secmajorglyph1)
+        If Not Main.secmajorglyph2 = "" Then Main.sectextmajorglyph2 = runfunction.getnamefromitemid(Main.secmajorglyph2)
+        If Not Main.secmajorglyph3 = "" Then Main.sectextmajorglyph3 = runfunction.getnamefromitemid(Main.secmajorglyph3)
+        If Not Main.secminorglyph1 = "" Then Main.sectextminorglyph1 = runfunction.getnamefromitemid(Main.secminorglyph1)
+        If Not Main.secminorglyph2 = "" Then Main.sectextminorglyph2 = runfunction.getnamefromitemid(Main.secminorglyph2)
+        If Not Main.secminorglyph3 = "" Then Main.sectextminorglyph3 = runfunction.getnamefromitemid(Main.secminorglyph3)
 
         readitINT("accountid", Main.accountid, False, True)
         readitINT("char_guid", Main.char_guid, False, True)
@@ -890,7 +1041,7 @@ Public Class CIUFile
                 Dim s As String = xXquellcodeSplityx88
                 Dim b() As Byte = Encoding.Default.GetBytes(s)
                 Dim s1 As String = Encoding.UTF8.GetString(b)
-
+                If s1 = "Platz leer" Then s1 = "-"
                 nonsense = s1
 
             Catch ex As Exception
@@ -994,13 +1145,13 @@ Public Class CIUFile
             Dim s1 As String = Encoding.UTF8.GetString(b)
             If s1 = "" Then
                 nonsense.Visible = False
-            ElseIf s1 = "Platz leer" Then
+            ElseIf s1 = "-" Then
 
                 nonsense.Visible = False
             Else
                 nonsense.Visible = True
             End If
-
+            If s1 = "Platz leer" Then s1 = "-"
             nonsense.Text = s1
             Application.DoEvents()
         Else
@@ -1107,20 +1258,33 @@ Public Class CIUFile
     Private Sub nowwrite()
         Using fs As New FileStream(writepath, FileMode.OpenOrCreate, FileAccess.Write)
             Dim w As StreamWriter = New StreamWriter(fs)
-            w.WriteLine(
-                "<<datasets>>" & Main.datasets & "<</datasets>> <<importmode>>" & Main.progressmode.ToString &
-                "<</importmode>>" & My.Settings.savecontent)
-            w.WriteLine()
+            Dim sText As String = "This file was created with CharImport, which is developed by Alcanmage/megasus." & vbNewLine & "<<timestamp>>" & GetTimestamp(Date.UtcNow) & "<</timestamp>>" & vbNewLine & "<<requires>>" & Starter.required_template_version.ToString & "<</requires>>" & vbNewLine & "<<datasets>>" & Main.datasets & "<</datasets>> <<importmode>>" & Main.progressmode.ToString & "<</importmode>>" & My.Settings.savecontent
+            Dim nBytes() As Byte = System.Text.Encoding.Default.GetBytes(sText)
+            w.WriteLine(BytesToHexString(nBytes))
             w.Close()
         End Using
     End Sub
+    Public Shared Function BytesToHexString(ByVal bytes() As Byte) As String
+        Dim sb As New StringBuilder(bytes.Length * 2)
+        For Each b As Byte In bytes
+            sb.AppendFormat("{0:X2}", b)
+        Next b
+        Return sb.ToString()
+    End Function
+    Public Shared Function GetTimestamp(ByVal FromDateTime As DateTime) As Integer
+        Dim spanne As TimeSpan = FromDateTime - #1/1/1970#
+        Return CType(Math.Abs(spanne.TotalSeconds()), Integer)
+    End Function
 
+    Public Shared Function GetDateFromTimestamp(ByVal unixTimestamp As Integer) As DateTime
+        If unixTimestamp = 0 Then Return #1/1/1970#
+        Dim Span As TimeSpan = New TimeSpan(0, 0, unixTimestamp)
+        Dim startDate As DateTime = #1/1/1970#
+        Return Startdate.Add(Span)
+    End Function
     Public Function ByteArray2Image(ByVal ByAr() As Byte) As Image
         Dim img As Image
         Dim MS As New MemoryStream(ByAr)
-
-        'das TRY ist Notwending, da wenn ein ARRAY eingelesen wird, welches KEIN Bild war,
-        'eine Exception auftritt!
         Try
             img = Image.FromStream(MS)
         Catch ex As Exception

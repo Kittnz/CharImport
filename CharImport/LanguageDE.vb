@@ -104,5 +104,6 @@ Public Class LanguageDE
     Public criticalerrorduringtransmission As String = "Kritischer Fehler während der Übertragung!"
     Public characternotcreated As String = "Charakter konnte nicht erstellt werden." & vbNewLine & "Übertragung wurde abgebrochen."
 
-
+    Public errornotification As String = "Fehler"
+    Public templateoutdated As String = "Das Format der Template Datei wird von dieser Version nicht mehr unterstützt!"
 End Class

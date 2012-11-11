@@ -350,7 +350,7 @@ Public Class ArcEmu_core
             Return False
         End Try
     End Function
-    
+
 
     Public Sub getallcharsfromaccount(ByVal accountname As String)
         Try
@@ -1597,105 +1597,105 @@ Public Class ArcEmu_core
             Select Case xslot
                 Case 0
                     Main.Kopf.Text = itemname
-                    If Not itemname = "Platz leer" Then Main.Kopf.Visible = True
+                    If Not itemname = "-" Then Main.Kopf.Visible = True
                     Main.kopfid = realxentryid
                     Main.kopfname = itemname
                     If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.kopfpic)
                     getitemstats(xentryid, Main.kopfench)
                 Case 1
                     Main.Hals.Text = itemname
-                    If Not itemname = "Platz leer" Then Main.Hals.Visible = True
+                    If Not itemname = "-" Then Main.Hals.Visible = True
                     Main.halsid = realxentryid
                     Main.halsname = itemname
                     If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Halspic)
                     getitemstats(xentryid, Main.halsench)
                 Case 2
                     Main.Schulter.Text = itemname
-                    If Not itemname = "Platz leer" Then Main.Schulter.Visible = True
+                    If Not itemname = "-" Then Main.Schulter.Visible = True
                     Main.schulterid = realxentryid
                     Main.schultername = itemname
                     If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Schulterpic)
                     getitemstats(xentryid, Main.schulterench)
                 Case 3
                     Main.Hemd.Text = itemname
-                    If Not itemname = "Platz leer" Then Main.Hemd.Visible = True
+                    If Not itemname = "-" Then Main.Hemd.Visible = True
                     Main.hemdid = realxentryid
                     Main.hemdname = itemname
                     If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Hemdpic)
                     getitemstats(xentryid, Main.hemdench)
                 Case 4
                     Main.Brust.Text = itemname
-                    If Not itemname = "Platz leer" Then Main.Brust.Visible = True
+                    If Not itemname = "-" Then Main.Brust.Visible = True
                     Main.brustid = realxentryid
                     Main.brustname = itemname
                     If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Brustpic)
                     getitemstats(xentryid, Main.brustench)
                 Case 5
                     Main.Guertel.Text = itemname
-                    If Not itemname = "Platz leer" Then Main.Guertel.Visible = True
+                    If Not itemname = "-" Then Main.Guertel.Visible = True
                     Main.guertelid = realxentryid
                     Main.guertelname = itemname
                     If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Guertelpic)
                     getitemstats(xentryid, Main.guertelench)
                 Case 6
                     Main.Beine.Text = itemname
-                    If Not itemname = "Platz leer" Then Main.Beine.Visible = True
+                    If Not itemname = "-" Then Main.Beine.Visible = True
                     Main.beineid = realxentryid
                     Main.beinename = itemname
                     If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Beinepic)
                     getitemstats(xentryid, Main.beineench)
                 Case 7
                     Main.Stiefel.Text = itemname
-                    If Not itemname = "Platz leer" Then Main.Stiefel.Visible = True
+                    If Not itemname = "-" Then Main.Stiefel.Visible = True
                     Main.stiefelid = realxentryid
                     Main.stiefelname = itemname
                     If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Stiefelpic)
                     getitemstats(xentryid, Main.stiefelench)
                 Case 8
                     Main.Handgelenke.Text = itemname
-                    If Not itemname = "Platz leer" Then Main.Handgelenke.Visible = True
+                    If Not itemname = "-" Then Main.Handgelenke.Visible = True
                     Main.handgelenkeid = realxentryid
                     Main.handgelenkename = itemname
                     If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Handgelenkepic)
                     getitemstats(xentryid, Main.handgelenkeench)
                 Case 9
                     Main.Haende.Text = itemname
-                    If Not itemname = "Platz leer" Then Main.Haende.Visible = True
+                    If Not itemname = "-" Then Main.Haende.Visible = True
                     Main.haendeid = realxentryid
                     Main.haendename = itemname
                     If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Haendepic)
                     getitemstats(xentryid, Main.haendeench)
                 Case 10
                     Main.Ring1.Text = itemname
-                    If Not itemname = "Platz leer" Then Main.Ring1.Visible = True
+                    If Not itemname = "-" Then Main.Ring1.Visible = True
                     Main.ring1id = realxentryid
                     Main.ring1name = itemname
                     If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Ring1pic)
                     getitemstats(xentryid, Main.ring1ench)
                 Case 11
                     Main.Ring2.Text = itemname
-                    If Not itemname = "Platz leer" Then Main.Ring2.Visible = True
+                    If Not itemname = "-" Then Main.Ring2.Visible = True
                     Main.ring2id = realxentryid
                     Main.ring2name = itemname
                     If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Ring2pic)
                     getitemstats(xentryid, Main.ring2ench)
                 Case 12
                     Main.Schmuck1.Text = itemname
-                    If Not itemname = "Platz leer" Then Main.Schmuck1.Visible = True
+                    If Not itemname = "-" Then Main.Schmuck1.Visible = True
                     Main.schmuck1id = realxentryid
                     Main.schmuck1name = itemname
                     If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Schmuck1pic)
                     getitemstats(xentryid, Main.schmuck1ench)
                 Case 13
                     Main.Schmuck2.Text = itemname
-                    If Not itemname = "Platz leer" Then Main.Schmuck2.Visible = True
+                    If Not itemname = "-" Then Main.Schmuck2.Visible = True
                     Main.schmuck2id = realxentryid
                     Main.schmuck2name = itemname
                     If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Schmuck2pic)
                     getitemstats(xentryid, Main.schmuck2ench)
                 Case 14
                     Main.Ruecken.Text = itemname
-                    If Not itemname = "Platz leer" Then Main.Ruecken.Visible = True
+                    If Not itemname = "-" Then Main.Ruecken.Visible = True
                     Main.rueckenid = realxentryid
                     Main.rueckenname = itemname
                     If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Rueckenpic)
@@ -1703,7 +1703,7 @@ Public Class ArcEmu_core
 
                 Case 15
                     Main.Haupt.Text = itemname
-                    If Not itemname = "Platz leer" Then Main.Haupt.Visible = True
+                    If Not itemname = "-" Then Main.Haupt.Visible = True
                     Main.hauptid = realxentryid
                     Main.hauptname = itemname
                     If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Hauptpic)
@@ -1711,7 +1711,7 @@ Public Class ArcEmu_core
                     runfunction.getweapontype(realxentryid)
                 Case 16
                     Main.Off.Text = itemname
-                    If Not itemname = "Platz leer" Then Main.Off.Visible = True
+                    If Not itemname = "-" Then Main.Off.Visible = True
                     Main.offid = realxentryid
                     Main.offname = itemname
                     If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Offpic)
@@ -1719,7 +1719,7 @@ Public Class ArcEmu_core
                     runfunction.getweapontype(realxentryid)
                 Case 17
                     Main.Distanz.Text = itemname
-                    If Not itemname = "Platz leer" Then Main.Distanz.Visible = True
+                    If Not itemname = "-" Then Main.Distanz.Visible = True
                     Main.distanzid = realxentryid
                     Main.distanzname = itemname
                     If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Distanzpic)
@@ -1727,7 +1727,7 @@ Public Class ArcEmu_core
                     runfunction.getweapontype(realxentryid)
                 Case 18
                     Main.Wappenrock.Text = itemname
-                    If Not itemname = "Platz leer" Then Main.Wappenrock.Visible = True
+                    If Not itemname = "-" Then Main.Wappenrock.Visible = True
                     Main.wappenrockid = realxentryid
                     Main.wappenrockname = itemname
                     If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Wappenrockpic)
@@ -1740,120 +1740,120 @@ Public Class ArcEmu_core
 
     Public Sub handleenchantments()
         '///// Maybe bonus at position 38 will cause trouble!
-        If Main.anzahldurchlaufe = 1 Then Main.kopfvz.Text = splitstringvz(Main.kopfench, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.kopfsocket1.Text = splitstringgem(Main.kopfench, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.kopfsocket2.Text = splitstringgem(Main.kopfench, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.kopfsocket3.Text = splitstringgem(Main.kopfench, 35)
+        If Main.anzahldurchlaufe = 1 Then Main.kopfvz.Text = splitstringvz(Main.kopfench, Main.kopfvzid, 23)
+        If Main.anzahldurchlaufe = 1 Then Main.kopfsocket1.Text = splitstringgem(Main.kopfench, Main.kopfsocket1id, 29)
+        If Main.anzahldurchlaufe = 1 Then Main.kopfsocket2.Text = splitstringgem(Main.kopfench, Main.kopfsocket2id, 32)
+        If Main.anzahldurchlaufe = 1 Then Main.kopfsocket3.Text = splitstringgem(Main.kopfench, Main.kopfsocket3id, 35)
         Main.kopfvz.Visible = True
 
 
-        If Main.anzahldurchlaufe = 1 Then Main.halsvz.Text = splitstringvz(Main.halsench, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.halssocket1.Text = splitstringgem(Main.halsench, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.halssocket2.Text = splitstringgem(Main.halsench, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.halssocket3.Text = splitstringgem(Main.halsench, 35)
+        If Main.anzahldurchlaufe = 1 Then Main.halsvz.Text = splitstringvz(Main.halsench, Main.halsvzid, 23)
+        If Main.anzahldurchlaufe = 1 Then Main.halssocket1.Text = splitstringgem(Main.halsench, Main.halssocket1id, 29)
+        If Main.anzahldurchlaufe = 1 Then Main.halssocket2.Text = splitstringgem(Main.halsench, Main.halssocket2id, 32)
+        If Main.anzahldurchlaufe = 1 Then Main.halssocket3.Text = splitstringgem(Main.halsench, Main.halssocket3id, 35)
         Main.halsvz.Visible = True
 
-        If Main.anzahldurchlaufe = 1 Then Main.schultervz.Text = splitstringvz(Main.schulterench, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.schultersocket1.Text = splitstringgem(Main.schulterench, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.schultersocket2.Text = splitstringgem(Main.schulterench, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.schultersocket3.Text = splitstringgem(Main.schulterench, 35)
+        If Main.anzahldurchlaufe = 1 Then Main.schultervz.Text = splitstringvz(Main.schulterench, Main.schultervzid, 23)
+        If Main.anzahldurchlaufe = 1 Then Main.schultersocket1.Text = splitstringgem(Main.schulterench, Main.schultersocket1id, 29)
+        If Main.anzahldurchlaufe = 1 Then Main.schultersocket2.Text = splitstringgem(Main.schulterench, Main.schultersocket2id, 32)
+        If Main.anzahldurchlaufe = 1 Then Main.schultersocket3.Text = splitstringgem(Main.schulterench, Main.schultersocket3id, 35)
         Main.schultervz.Visible = True
 
-        If Main.anzahldurchlaufe = 1 Then Main.rueckenvz.Text = splitstringvz(Main.rueckenench, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.rueckensocket1.Text = splitstringgem(Main.rueckenench, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.rueckensocket2.Text = splitstringgem(Main.rueckenench, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.rueckensocket3.Text = splitstringgem(Main.rueckenench, 35)
+        If Main.anzahldurchlaufe = 1 Then Main.rueckenvz.Text = splitstringvz(Main.rueckenench, Main.rueckenvzid, 23)
+        If Main.anzahldurchlaufe = 1 Then Main.rueckensocket1.Text = splitstringgem(Main.rueckenench, Main.rueckensocket1id, 29)
+        If Main.anzahldurchlaufe = 1 Then Main.rueckensocket2.Text = splitstringgem(Main.rueckenench, Main.rueckensocket2id, 32)
+        If Main.anzahldurchlaufe = 1 Then Main.rueckensocket3.Text = splitstringgem(Main.rueckenench, Main.rueckensocket3id, 35)
         Main.rueckenvz.Visible = True
 
-        Main.brustvz.Text = splitstringvz(Main.brustench, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.brustsocket1.Text = splitstringgem(Main.brustench, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.brustsocket2.Text = splitstringgem(Main.brustench, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.brustsocket3.Text = splitstringgem(Main.brustench, 35)
+        Main.brustvz.Text = splitstringvz(Main.brustench, Main.brustvzid, 23)
+        If Main.anzahldurchlaufe = 1 Then Main.brustsocket1.Text = splitstringgem(Main.brustench, Main.brustsocket1id, 29)
+        If Main.anzahldurchlaufe = 1 Then Main.brustsocket2.Text = splitstringgem(Main.brustench, Main.brustsocket2id, 32)
+        If Main.anzahldurchlaufe = 1 Then Main.brustsocket3.Text = splitstringgem(Main.brustench, Main.brustsocket3id, 35)
         Main.brustvz.Visible = True
 
-        If Main.anzahldurchlaufe = 1 Then Main.handgelenkevz.Text = splitstringvz(Main.handgelenkeench, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.Handgelenkesocket1.Text = splitstringgem(Main.handgelenkeench, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.handgelenkesocket2.Text = splitstringgem(Main.handgelenkeench, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.Handgelenkesocket3.Text = splitstringgem(Main.handgelenkeench, 35)
+        If Main.anzahldurchlaufe = 1 Then Main.handgelenkevz.Text = splitstringvz(Main.handgelenkeench, Main.handgelenkevzid, 23)
+        If Main.anzahldurchlaufe = 1 Then Main.Handgelenkesocket1.Text = splitstringgem(Main.handgelenkeench, Main.handgelenkesocket1id, 29)
+        If Main.anzahldurchlaufe = 1 Then Main.handgelenkesocket2.Text = splitstringgem(Main.handgelenkeench, Main.handgelenkesocket2id, 32)
+        If Main.anzahldurchlaufe = 1 Then Main.Handgelenkesocket3.Text = splitstringgem(Main.handgelenkeench, Main.handgelenkesocket3id, 35)
         Main.handgelenkevz.Visible = True
 
-        If Main.anzahldurchlaufe = 1 Then Main.hauptvz.Text = splitstringvz(Main.hauptench, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.Hauptsocket1.Text = splitstringgem(Main.hauptench, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.Hauptsocket2.Text = splitstringgem(Main.hauptench, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.hauptsocket3.Text = splitstringgem(Main.hauptench, 35)
+        If Main.anzahldurchlaufe = 1 Then Main.hauptvz.Text = splitstringvz(Main.hauptench, Main.hauptvzid, 23)
+        If Main.anzahldurchlaufe = 1 Then Main.Hauptsocket1.Text = splitstringgem(Main.hauptench, Main.hauptsocket1id, 29)
+        If Main.anzahldurchlaufe = 1 Then Main.Hauptsocket2.Text = splitstringgem(Main.hauptench, Main.hauptsocket2id, 32)
+        If Main.anzahldurchlaufe = 1 Then Main.hauptsocket3.Text = splitstringgem(Main.hauptench, Main.hauptsocket3id, 35)
         Main.hauptvz.Visible = True
         Main.hauptvzlabel2.Visible = True
         Main.hauptvzlabel2.Text = Main.hauptvz.Text
 
-        If Main.anzahldurchlaufe = 1 Then Main.offvz.Text = splitstringvz(Main.offench, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.Offsocket1.Text = splitstringgem(Main.offench, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.Offsocket2.Text = splitstringgem(Main.offench, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.offsocket3.Text = splitstringgem(Main.offench, 35)
+        If Main.anzahldurchlaufe = 1 Then Main.offvz.Text = splitstringvz(Main.offench, Main.offvzid, 23)
+        If Main.anzahldurchlaufe = 1 Then Main.Offsocket1.Text = splitstringgem(Main.offench, Main.offsocket1id, 29)
+        If Main.anzahldurchlaufe = 1 Then Main.Offsocket2.Text = splitstringgem(Main.offench, Main.offsocket2id, 32)
+        If Main.anzahldurchlaufe = 1 Then Main.offsocket3.Text = splitstringgem(Main.offench, Main.offsocket3id, 35)
         Main.offvz.Visible = True
         Main.offvzlabel2.Visible = True
         Main.offvzlabel2.Text = Main.offvz.Text
 
-        If Main.anzahldurchlaufe = 1 Then Main.distanzvz.Text = splitstringvz(Main.distanzench, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.Distanzsocket1.Text = splitstringgem(Main.distanzench, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.Distanzsocket2.Text = splitstringgem(Main.distanzench, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.distanzsocket3.Text = splitstringgem(Main.distanzench, 35)
+        If Main.anzahldurchlaufe = 1 Then Main.distanzvz.Text = splitstringvz(Main.distanzench, Main.distanzvzid, 23)
+        If Main.anzahldurchlaufe = 1 Then Main.Distanzsocket1.Text = splitstringgem(Main.distanzench, Main.distanzsocket1id, 29)
+        If Main.anzahldurchlaufe = 1 Then Main.Distanzsocket2.Text = splitstringgem(Main.distanzench, Main.distanzsocket2id, 32)
+        If Main.anzahldurchlaufe = 1 Then Main.distanzsocket3.Text = splitstringgem(Main.distanzench, Main.distanzsocket3id, 35)
         Main.distanzvz.Visible = True
         Main.distanzvzlabel2.Visible = True
         Main.distanzvzlabel2.Text = Main.distanzvz.Text
 
-        If Main.anzahldurchlaufe = 1 Then Main.haendevz.Text = splitstringvz(Main.haendeench, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.haendesocket1.Text = splitstringgem(Main.haendeench, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.haendesocket2.Text = splitstringgem(Main.haendeench, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.haendesocket3.Text = splitstringgem(Main.haendeench, 35)
+        If Main.anzahldurchlaufe = 1 Then Main.haendevz.Text = splitstringvz(Main.haendeench, Main.haendevzid, 23)
+        If Main.anzahldurchlaufe = 1 Then Main.haendesocket1.Text = splitstringgem(Main.haendeench, Main.haendesocket1id, 29)
+        If Main.anzahldurchlaufe = 1 Then Main.haendesocket2.Text = splitstringgem(Main.haendeench, Main.haendesocket2id, 32)
+        If Main.anzahldurchlaufe = 1 Then Main.haendesocket3.Text = splitstringgem(Main.haendeench, Main.haendesocket3id, 35)
         Main.haendevz.Visible = True
 
-        If Main.anzahldurchlaufe = 1 Then Main.guertelvz.Text = splitstringvz(Main.guertelench, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.guertelsocket1.Text = splitstringgem(Main.guertelench, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.guertelsocket2.Text = splitstringgem(Main.guertelench, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.guertelsocket3.Text = splitstringgem(Main.guertelench, 35)
+        If Main.anzahldurchlaufe = 1 Then Main.guertelvz.Text = splitstringvz(Main.guertelench, Main.guertelvzid, 23)
+        If Main.anzahldurchlaufe = 1 Then Main.guertelsocket1.Text = splitstringgem(Main.guertelench, Main.guertelsocket1id, 29)
+        If Main.anzahldurchlaufe = 1 Then Main.guertelsocket2.Text = splitstringgem(Main.guertelench, Main.guertelsocket2id, 32)
+        If Main.anzahldurchlaufe = 1 Then Main.guertelsocket3.Text = splitstringgem(Main.guertelench, Main.guertelsocket3id, 35)
         If Main.anzahldurchlaufe = 1 Then
-            If splitstringgem(Main.guertelench, 38) = "" Then
+            If splitstringgem(Main.guertelench, Main.trashvalue, 38) = "" Then
 
             Else
-                Main.guertelschnalle = CInt(splitstringgem(Main.guertelench, 38))
+                Main.guertelschnalle = CInt(splitstringgem(Main.guertelench, Main.trashvalue, 38))
             End If
 
         End If
 
         Main.guertelvz.Visible = True
 
-        If Main.anzahldurchlaufe = 1 Then Main.beinevz.Text = splitstringvz(Main.beineench, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.beinesocket1.Text = splitstringgem(Main.beineench, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.beinesocket2.Text = splitstringgem(Main.beineench, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.beinesocket3.Text = splitstringgem(Main.beineench, 35)
+        If Main.anzahldurchlaufe = 1 Then Main.beinevz.Text = splitstringvz(Main.beineench, Main.beinevzid, 23)
+        If Main.anzahldurchlaufe = 1 Then Main.beinesocket1.Text = splitstringgem(Main.beineench, Main.beinesocket1id, 29)
+        If Main.anzahldurchlaufe = 1 Then Main.beinesocket2.Text = splitstringgem(Main.beineench, Main.beinesocket2id, 32)
+        If Main.anzahldurchlaufe = 1 Then Main.beinesocket3.Text = splitstringgem(Main.beineench, Main.beinesocket3id, 35)
         Main.beinevz.Visible = True
 
-        If Main.anzahldurchlaufe = 1 Then Main.stiefelvz.Text = splitstringvz(Main.stiefelench, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.stiefelsocket1.Text = splitstringgem(Main.stiefelench, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.stiefelsocket2.Text = splitstringgem(Main.stiefelench, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.stiefelsocket3.Text = splitstringgem(Main.stiefelench, 35)
+        If Main.anzahldurchlaufe = 1 Then Main.stiefelvz.Text = splitstringvz(Main.stiefelench, Main.stiefelvzid, 23)
+        If Main.anzahldurchlaufe = 1 Then Main.stiefelsocket1.Text = splitstringgem(Main.stiefelench, Main.stiefelsocket1id, 29)
+        If Main.anzahldurchlaufe = 1 Then Main.stiefelsocket2.Text = splitstringgem(Main.stiefelench, Main.stiefelsocket2id, 32)
+        If Main.anzahldurchlaufe = 1 Then Main.stiefelsocket3.Text = splitstringgem(Main.stiefelench, Main.stiefelsocket3id, 35)
         Main.stiefelvz.Visible = True
 
-        If Main.anzahldurchlaufe = 1 Then Main.ring1vz.Text = splitstringvz(Main.ring1ench, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.Ring1socket1.Text = splitstringgem(Main.ring1ench, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.ring1socket2.Text = splitstringgem(Main.ring1ench, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.ring1socket3.Text = splitstringgem(Main.ring1ench, 35)
+        If Main.anzahldurchlaufe = 1 Then Main.ring1vz.Text = splitstringvz(Main.ring1ench, Main.ring1vzid, 23)
+        If Main.anzahldurchlaufe = 1 Then Main.Ring1socket1.Text = splitstringgem(Main.ring1ench, Main.ring1socket1id, 29)
+        If Main.anzahldurchlaufe = 1 Then Main.ring1socket2.Text = splitstringgem(Main.ring1ench, Main.ring1socket2id, 32)
+        If Main.anzahldurchlaufe = 1 Then Main.ring1socket3.Text = splitstringgem(Main.ring1ench, Main.ring1socket3id, 35)
         Main.ring1vz.Visible = True
 
-        If Main.anzahldurchlaufe = 1 Then Main.ring2vz.Text = splitstringvz(Main.ring2ench, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.ring2socket1.Text = splitstringgem(Main.ring2ench, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.ring2socket2.Text = splitstringgem(Main.ring2ench, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.ring2socket3.Text = splitstringgem(Main.ring2ench, 35)
+        If Main.anzahldurchlaufe = 1 Then Main.ring2vz.Text = splitstringvz(Main.ring2ench, Main.ring2vzid, 23)
+        If Main.anzahldurchlaufe = 1 Then Main.ring2socket1.Text = splitstringgem(Main.ring2ench, Main.ring2socket1id, 29)
+        If Main.anzahldurchlaufe = 1 Then Main.ring2socket2.Text = splitstringgem(Main.ring2ench, Main.ring2socket2id, 32)
+        If Main.anzahldurchlaufe = 1 Then Main.ring2socket3.Text = splitstringgem(Main.ring2ench, Main.ring2socket3id, 35)
         Main.ring2vz.Visible = True
 
-        If Main.anzahldurchlaufe = 1 Then Main.schmuck1vz.Text = splitstringvz(Main.schmuck1ench, 23)
+        If Main.anzahldurchlaufe = 1 Then Main.schmuck1vz.Text = splitstringvz(Main.schmuck1ench, Main.schmuck1vzid, 23)
         Main.schmuck1vz.Visible = True
 
-        If Main.anzahldurchlaufe = 1 Then Main.schmuck2vz.Text = splitstringvz(Main.schmuck2ench, 23)
+        If Main.anzahldurchlaufe = 1 Then Main.schmuck2vz.Text = splitstringvz(Main.schmuck2ench, Main.schmuck2vzid, 23)
         Main.schmuck2vz.Visible = True
     End Sub
 
-    Public Function splitstringvz(ByVal input As String, ByVal position As Integer) As String
+    Public Function splitstringvz(ByVal input As String, ByVal obvalue As Integer, ByVal position As Integer) As String
         Dim xpacressource As String
         Select Case Main.xpac
             Case 3
@@ -1867,6 +1867,7 @@ Public Class ArcEmu_core
             If input.Contains(";") Then
                 Dim parts() As String = input.Split(";"c)
                 If parts(0).Contains("0,0") Then
+                    obvalue = CInt(parts(0))
                     Dim quellcodeyx88 As String = xpacressource
                     Dim parts2() As String = parts(0).Split(","c)
                     Dim anfangyx88 As String = parts2(0) & ";"
@@ -1876,6 +1877,7 @@ Public Class ArcEmu_core
                     quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
                     Return quellcodeSplityx88
                 ElseIf parts(1).Contains("0,0") Then
+                    obvalue = CInt(parts(1))
                     Dim quellcodeyx88 As String = xpacressource
                     Dim parts2() As String = parts(1).Split(","c)
                     Dim anfangyx88 As String = parts2(0) & ";"
@@ -1885,6 +1887,7 @@ Public Class ArcEmu_core
                     quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
                     Return quellcodeSplityx88
                 ElseIf parts(2).Contains("0,0") Then
+                    obvalue = CInt(parts(2))
                     Dim quellcodeyx88 As String = xpacressource
                     Dim parts2() As String = parts(2).Split(","c)
                     Dim anfangyx88 As String = parts2(0) & ";"
@@ -1894,6 +1897,7 @@ Public Class ArcEmu_core
                     quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
                     Return quellcodeSplityx88
                 ElseIf parts(3).Contains("0,0") Then
+                    obvalue = CInt(parts(3))
                     Dim quellcodeyx88 As String = xpacressource
                     Dim parts2() As String = parts(3).Split(","c)
                     Dim anfangyx88 As String = parts2(0) & ";"
@@ -1903,6 +1907,7 @@ Public Class ArcEmu_core
                     quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
                     Return quellcodeSplityx88
                 ElseIf parts(4).Contains("0,0") Then
+                    obvalue = CInt(parts(4))
                     Dim quellcodeyx88 As String = xpacressource
                     Dim parts2() As String = parts(4).Split(","c)
                     Dim anfangyx88 As String = parts2(0) & ";"
@@ -1912,6 +1917,7 @@ Public Class ArcEmu_core
                     quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
                     Return quellcodeSplityx88
                 ElseIf parts(5).Contains("0,0") Then
+                    obvalue = CInt(parts(5))
                     Dim quellcodeyx88 As String = xpacressource
                     Dim parts2() As String = parts(5).Split(","c)
                     Dim anfangyx88 As String = parts2(0) & ";"
@@ -1935,7 +1941,7 @@ Public Class ArcEmu_core
         End Try
     End Function
 
-    Public Function splitstringgem(ByVal input As String, ByVal position As Integer) As String
+    Public Function splitstringgem(ByVal input As String, ByVal position As Integer, ByVal obvalue As Integer) As String
         Dim xpacressource As String
         Select Case Main.xpac
             Case 3
@@ -1962,6 +1968,7 @@ Public Class ArcEmu_core
                 xvalue = "0,1"
             End If
             If parts(0).Contains(xvalue) Then
+                obvalue = CInt(parts(0))
                 Dim quellcodeyx88 As String = xpacressource
                 Dim parts2() As String = parts(0).Split(","c)
                 If xvalue = "0,6" Then
@@ -1975,6 +1982,7 @@ Public Class ArcEmu_core
                 quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
                 Return runfunction.getsocketeffectname(CInt(quellcodeSplityx88))
             ElseIf parts(1).Contains(xvalue) Then
+                obvalue = CInt(parts(1))
                 Dim quellcodeyx88 As String = xpacressource
                 Dim parts2() As String = parts(1).Split(","c)
                 If xvalue = "0,6" Then
@@ -1988,6 +1996,7 @@ Public Class ArcEmu_core
                 quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
                 Return runfunction.getsocketeffectname(CInt(quellcodeSplityx88))
             ElseIf parts(2).Contains(xvalue) Then
+                obvalue = CInt(parts(2))
                 Dim quellcodeyx88 As String = xpacressource
                 Dim parts2() As String = parts(2).Split(","c)
                 If xvalue = "0,6" Then
@@ -2001,6 +2010,7 @@ Public Class ArcEmu_core
                 quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
                 Return runfunction.getsocketeffectname(CInt(quellcodeSplityx88))
             ElseIf parts(3).Contains(xvalue) Then
+                obvalue = CInt(parts(3))
                 Dim quellcodeyx88 As String = xpacressource
                 Dim parts2() As String = parts(3).Split(","c)
                 If xvalue = "0,6" Then
@@ -2014,6 +2024,7 @@ Public Class ArcEmu_core
                 quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
                 Return runfunction.getsocketeffectname(CInt(quellcodeSplityx88))
             ElseIf parts(4).Contains(xvalue) Then
+                obvalue = CInt(parts(4))
                 Dim quellcodeyx88 As String = xpacressource
                 Dim parts2() As String = parts(4).Split(","c)
                 If xvalue = "0,6" Then
@@ -2027,6 +2038,7 @@ Public Class ArcEmu_core
                 quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
                 Return runfunction.getsocketeffectname(CInt(quellcodeSplityx88))
             ElseIf parts(5).Contains(xvalue) Then
+                obvalue = CInt(parts(5))
                 Dim quellcodeyx88 As String = xpacressource
                 Dim parts2() As String = parts(5).Split(","c)
                 If xvalue = "0,6" Then
@@ -2054,9 +2066,7 @@ Public Class ArcEmu_core
                 CInt(Val(runfunction.runcommand("SELECT guid FROM characters WHERE name = '" & charname & "'", "guid")))
 
         Catch ex As Exception
-            MsgBox("Charakter Guid konnte nicht gelesen werden! Überprüfe die Datanbankeintragungen.",
-                   MsgBoxStyle.Critical, "Fehler")
-            Return - 1
+        Return - 1
         End Try
     End Function
 

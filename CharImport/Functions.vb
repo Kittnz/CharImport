@@ -223,7 +223,60 @@ Public Class Functions
             Return ""
         End Try
     End Function
+    Public Function getnamefromitemid(ByVal itemid As String) As String
+        Try
+            Dim dt As New DataTable()
+            Dim stext As String
+            If My.Settings.language = "de" Then
+                stext = My.Resources.item_name_de
+            Else
+                stext = My.Resources.item_name_en
+            End If
 
+            Dim a() As String
+            Dim strArray As String()
+            a = Split(stext, vbNewLine)
+            For i = 0 To UBound(a)
+                strArray = a(i).Split(CChar(";"))
+                If i = 0 Then
+                    For Each value As String In strArray
+                        dt.Columns.Add(value.Trim())
+                    Next
+                Else
+                    Dim dr As DataRow = dt.NewRow()
+                    dt.Rows.Add(strArray)
+                End If
+            Next i
+            Dim nameresult As String = executex("itemid", itemid, dt)
+            If nameresult = "-" Then
+                Return "Error loading itemname"
+            Else
+                Return nameresult
+            End If
+        Catch ex As Exception
+            Return "Error loading itemname"
+        End Try
+    End Function
+    Private Function executex(ByVal field As String, ByVal isvalue As String, ByVal tempdatatable As DataTable) As String
+        Try
+            Dim foundRows() As DataRow
+            foundRows = tempdatatable.Select(field & " = '" & isvalue & "'")
+            If foundRows.Length = 0 Then
+                Return "-"
+            Else
+                Dim i As Integer
+                Dim tmpreturn As String = "-"
+                For i = 0 To foundRows.GetUpperBound(0)
+                    tmpreturn = (foundRows(i)(1)).ToString
+
+                Next i
+                Return tmpreturn
+            End If
+
+        Catch ex As Exception
+            Return "-"
+        End Try
+    End Function
     Public Function getsocketeffectname(ByVal socketid As Integer) As String
         Try
             Dim clienyx88 As New WebClient
@@ -340,13 +393,13 @@ Public Class Functions
     Public Function getnamefromid(ByVal itemid As Integer) As String
 
         Try
-            Dim clienyx88 As New WebClient
-            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://wowdb.com/items/" & itemid.ToString)
-            Dim anfangyx88 As String = "<title>"
-            Dim endeyx88 As String = " - "
-            Dim quellcodeSplityx88 As String
-            quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-            quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
+            'Dim clienyx88 As New WebClient
+            'Dim quellcodeyx88 As String = clienyx88.DownloadString("http://wowdb.com/items/" & itemid.ToString)
+            'Dim anfangyx88 As String = "<title>"
+            'Dim endeyx88 As String = " - "
+            Dim quellcodeSplityx88 As String = getnamefromitemid(itemid.ToString())
+            'quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
+            'quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
             If quellcodeSplityx88.Contains("&#x27;") Then quellcodeSplityx88 = quellcodeSplityx88.Replace("&#x27;", "'")
             If quellcodeSplityx88.Contains("Ã¼") Then quellcodeSplityx88 = quellcodeSplityx88.Replace("Ã¼", "ü")
             If quellcodeSplityx88.Contains("Ã¤") Then quellcodeSplityx88 = quellcodeSplityx88.Replace("Ã¤", "ä")
@@ -354,7 +407,7 @@ Public Class Functions
             If quellcodeSplityx88.Contains("ÃŸ") Then quellcodeSplityx88 = quellcodeSplityx88.Replace("ÃŸ", "ß")
             Return quellcodeSplityx88
         Catch ex As Exception
-            Return "Platz leer"
+            Return "-"
         End Try
     End Function
 
@@ -541,7 +594,61 @@ Public Class Functions
 
         End With
     End Sub
+    Public Function geteffectnameofeffectid(ByVal effectid As Integer) As String
 
+        Try
+            Dim dt As New DataTable()
+            Dim stext As String
+            If My.Settings.language = "de" Then
+                stext = My.Resources.enchant_name_de
+            Else
+                stext = My.Resources.enchant_name_en
+            End If
+
+            Dim a() As String
+            Dim strArray As String()
+            a = Split(stext, vbNewLine)
+            For i = 0 To UBound(a)
+                strArray = a(i).Split(CChar(";"))
+                If i = 0 Then
+                    For Each value As String In strArray
+                        dt.Columns.Add(value.Trim())
+                    Next
+                Else
+                    Dim dr As DataRow = dt.NewRow()
+                    dt.Rows.Add(strArray)
+                End If
+            Next i
+            Dim nameresult As String = executex2("effectid", effectid.ToString(), dt)
+            If nameresult = "-" Then
+                Return "Error loading effectname"
+            Else
+                Return nameresult
+            End If
+        Catch ex As Exception
+            Return "Error loading effectname"
+        End Try
+    End Function
+    Private Function executex2(ByVal field As String, ByVal isvalue As String, ByVal tempdatatable As DataTable) As String
+        Try
+            Dim foundRows() As DataRow
+            foundRows = tempdatatable.Select(field & " = '" & isvalue & "'")
+            If foundRows.Length = 0 Then
+                Return "-"
+            Else
+                Dim i As Integer
+                Dim tmpreturn As String = "-"
+                For i = 0 To foundRows.GetUpperBound(0)
+                    tmpreturn = (foundRows(i)(1)).ToString
+
+                Next i
+                Return tmpreturn
+            End If
+
+        Catch ex As Exception
+            Return "-"
+        End Try
+    End Function
     Public Function getvzeffectname2(ByVal vzid As Integer) As String
         Process_Status.processreport.appendText(
             Now.TimeOfDay.ToString & "// Getting effectname of vzid: " & vzid & vbNewLine)
@@ -754,7 +861,48 @@ Public Class Functions
             Return 0
         End Try
     End Function
+    Public Function getspellidfromitem(ByVal itemid As String) As Integer
+        Try
+            Dim clienyx88 As New WebClient
+            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://www.wowhead.com/item=" & itemid)
+            Dim anfangyx88 As String = "<a href=""/spell="
+            Dim endeyx88 As String = """"
+            Dim quellcodeSplityx88 As String
+            quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
+            quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
 
+            Return CInt(Val(quellcodeSplityx88))
+        Catch ex As Exception
+            Process_Status.processreport.AppendText(
+                Now.TimeOfDay.ToString & "// Error while loading spellid from itemid: " & itemid & " > " & ex.ToString &
+                vbNewLine)
+            My.Application.DoEvents()
+            Return 0
+        End Try
+    End Function
+    Public Function getspellnamefromid(ByVal spellid As String) As String
+        Try
+            Dim clienyx88 As New WebClient
+            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://wowdata.buffed.de/?s=" & spellid)
+            Dim anfangyx88 As String = "<h1 class=""headline1"">"
+            Dim endeyx88 As String = "</h1>"
+            Dim quellcodeSplityx88 As String
+            quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
+            quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
+
+            Dim s As String = quellcodeSplityx88
+            Dim b() As Byte = Encoding.Default.GetBytes(s)
+            Dim s1 As String = Encoding.UTF8.GetString(b)
+
+            Return s1
+        Catch ex As Exception
+            Process_Status.processreport.AppendText(
+                Now.TimeOfDay.ToString & "// Error while spell name from spellid: " & spellid & " > " & ex.ToString &
+                vbNewLine)
+            My.Application.DoEvents()
+            Return "Fehler"
+        End Try
+    End Function
     Public Function getgemeffectid(ByVal gemid As String) As Integer
         Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "// Getting effectid of gemid: " & gemid & vbNewLine)

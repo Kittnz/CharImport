@@ -65,7 +65,6 @@ C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\bin\Debug\de-DE\CharImport Test.resources.dll
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\bin\Debug\de\CharImport Test.resources.dll
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\bin\Debug\af\CharImport Test.resources.dll
-C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.AboutBox.resources
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Armory2Database.resources
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Armory_Interface.resources
@@ -81,8 +80,6 @@ C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Glyphs.resources
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Main.resources
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Resources.resources
-C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.xReport.resources
-C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.talents.resources
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.wait.resources
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Welcome.resources
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.AboutBox.en.resources
@@ -104,8 +101,6 @@ C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.wait.en.resources
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Welcome.af.resources
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Welcome.en.resources
-C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\ResGen.read.1.tlog
-C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\ResGen.write.1.tlog
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\en\CharImport Test.resources.dll
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\de-DE\CharImport Test.resources.dll
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\de\CharImport Test.resources.dll
@@ -114,3 +109,5 @@ C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport_Test\CharImport\
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport_Test\CharImport\obj\x86\Debug\CharImport Test.exe
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport_Test\CharImport\obj\x86\Debug\CharImport Test.xml
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport_Test\CharImport\obj\x86\Debug\CharImport Test.pdb
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport.vbprojResolveAssemblyReference.cache
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport.vbproj.GenerateResource.Cache

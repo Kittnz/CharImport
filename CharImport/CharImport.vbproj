@@ -382,6 +382,10 @@
     <Content Include="cilogo.ico" />
     <Content Include="1Buglist.txt" />
     <Content Include="newciti.ico" />
+    <None Include="Resources\enchant_name_de.csv" />
+    <None Include="Resources\enchant_name_en.csv" />
+    <None Include="Resources\item_name_de.csv" />
+    <None Include="Resources\item_name_en.csv" />
     <None Include="Resources\SpellItemEnchantmentCata.txt" />
     <None Include="Resources\GlyphProperties_434.txt" />
     <None Include="Resources\VZ_ID_cata2.txt" />

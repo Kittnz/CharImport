@@ -13,8 +13,8 @@ Imports System.Net
 
 Public Class Starter
     Public runfunction As New Functions
-    Public programversion As Integer = 10030
-    '0.10.03
+    Public programversion As Integer = 10030 '0.10.03
+    Public required_template_version As Integer = 2 'increasing this value will cause the outdating of older template file formats
     Public downloadlink As String = ""
     Dim localeDE As New LanguageDE
     Dim localeEN As New LanguageEN

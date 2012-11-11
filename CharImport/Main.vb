@@ -37,7 +37,7 @@ Public Class Main
     Public nowexit As Boolean = False
     Public tmplpath As String
     Public showstarter As Boolean = False
-
+    Public trashvalue As Integer
     ' Dim armoryevent As New prozedur_armory
     Dim SQLConnection As MySqlConnection = New MySqlConnection
     Public ServerStringCheck As String = ""
@@ -976,7 +976,7 @@ Public Class Main
     End Sub
 
     Private Sub kopfpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles kopfpic.MouseMove
-        If Kopf.Text.Contains("Platz leer") Then
+        If Kopf.Text.Contains("-") Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1012,7 +1012,7 @@ Public Class Main
     End Sub
 
     Private Sub Halspic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Halspic.MouseMove
-        If Hals.Text.Contains("Platz leer") Then
+        If Hals.Text.Contains("-") Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1048,7 +1048,7 @@ Public Class Main
     End Sub
 
     Private Sub Schulterpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Schulterpic.MouseMove
-        If Schulter.Text.Contains("Platz leer") Then
+        If Schulter.Text.Contains("-") Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1084,7 +1084,7 @@ Public Class Main
     End Sub
 
     Private Sub Rueckenpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Rueckenpic.MouseMove
-        If Ruecken.Text.Contains("Platz leer") Then
+        If Ruecken.Text.Contains("-") Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1120,7 +1120,7 @@ Public Class Main
     End Sub
 
     Private Sub Brustpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Brustpic.MouseMove
-        If Brust.Text.Contains("Platz leer") Then
+        If Brust.Text.Contains("-") Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1156,7 +1156,7 @@ Public Class Main
     End Sub
 
     Private Sub Hemdpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Hemdpic.MouseMove
-        If Hemd.Text.Contains("Platz leer") Then
+        If Hemd.Text.Contains("-") Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1190,7 +1190,7 @@ Public Class Main
 
     Private Sub Wappenrockpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) _
         Handles Wappenrockpic.MouseMove
-        If Wappenrock.Text.Contains("Platz leer") Then
+        If Wappenrock.Text.Contains("-") Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1225,7 +1225,7 @@ Public Class Main
 
     Private Sub Handgelenkepic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) _
         Handles Handgelenkepic.MouseMove
-        If Handgelenke.Text.Contains("Platz leer") Then
+        If Handgelenke.Text.Contains("-") Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1261,7 +1261,7 @@ Public Class Main
     End Sub
 
     Private Sub Hauptpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Hauptpic.MouseMove
-        If Haupt.Text.Contains("Platz leer") Then
+        If Haupt.Text.Contains("-") Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1297,7 +1297,7 @@ Public Class Main
     End Sub
 
     Private Sub Offpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Offpic.MouseMove
-        If Off.Text.Contains("Platz leer") Then
+        If Off.Text.Contains("-") Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1333,7 +1333,7 @@ Public Class Main
     End Sub
 
     Private Sub Distanzpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Distanzpic.MouseMove
-        If Distanz.Text.Contains("Platz leer") Then
+        If Distanz.Text.Contains("-") Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1369,7 +1369,7 @@ Public Class Main
     End Sub
 
     Private Sub Haendepic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Haendepic.MouseMove
-        If Haende.Text.Contains("Platz leer") Then
+        If Haende.Text.Contains("-") Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1405,7 +1405,7 @@ Public Class Main
     End Sub
 
     Private Sub Guertelpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Guertelpic.MouseMove
-        If Guertel.Text.Contains("Platz leer") Then
+        If Guertel.Text.Contains("-") Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1441,7 +1441,7 @@ Public Class Main
     End Sub
 
     Private Sub Beinepic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Beinepic.MouseMove
-        If Beine.Text.Contains("Platz leer") Then
+        If Beine.Text.Contains("-") Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1477,7 +1477,7 @@ Public Class Main
     End Sub
 
     Private Sub Stiefelpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Stiefelpic.MouseMove
-        If Stiefel.Text.Contains("Platz leer") Then
+        If Stiefel.Text.Contains("-") Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1513,7 +1513,7 @@ Public Class Main
     End Sub
 
     Private Sub Ring1pic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Ring1pic.MouseMove
-        If Ring1.Text.Contains("Platz leer") Then
+        If Ring1.Text.Contains("-") Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1592,7 +1592,7 @@ Public Class Main
     End Sub
 
     Private Sub Ring2pic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Ring2pic.MouseMove
-        If Ring2.Text.Contains("Platz leer") Then
+        If Ring2.Text.Contains("-") Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1628,7 +1628,7 @@ Public Class Main
     End Sub
 
     Private Sub Schmuck1pic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Schmuck1pic.MouseMove
-        If Schmuck1.Text.Contains("Platz leer") Then
+        If Schmuck1.Text.Contains("-") Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1662,7 +1662,7 @@ Public Class Main
     End Sub
 
     Private Sub Schmuck2pic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Schmuck2pic.MouseMove
-        If Schmuck2.Text.Contains("Platz leer") Then
+        If Schmuck2.Text.Contains("-") Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1730,8 +1730,8 @@ Public Class Main
             End If
             Exit Sub
         End If
-
-
+        datasets += 1
+        ciu.adddataset()
         ciu.createfile(writepath)
         If My.Settings.language = "de" Then
             MsgBox(localeDE.main_txt1)

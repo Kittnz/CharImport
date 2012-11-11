@@ -17,7 +17,7 @@ Public Class prozedur_armory
     Dim reporttext As RichTextBox = Process_Status.processreport
     Dim charnumber As Integer
     Dim xoverview As Boolean
-
+    Dim runfunction As New Functions
     Public Sub prozedur(ByVal armory_link As String, ByVal cnumber As Integer, ByVal overview As Boolean)
         Process_Status.BringToFront()
 
@@ -527,262 +527,30 @@ Public Class prozedur_armory
 
     Private Sub getimage(ByVal itemid As String, ByVal picbox As PictureBox)
         Try
-            Dim clienyx88 As New WebClient
-            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://wowdata.buffed.de/?i=" & itemid)
-            Dim anfangyx88 As String = "href=""/?i=" & itemid & """><img src="""
-            Dim endeyx88 As String = """></a></td>"
-            Dim quellcodeSplityx88 As String
-            quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-            quellcodeSplityx88 = "http://wowdata.buffed.de" & Split(quellcodeSplityx88, endeyx88, 6)(0)
-            LoadImageFromUrl(quellcodeSplityx88, picbox)
-        Catch ex As Exception
-            Process_Status.processreport.appendText(
-                Now.TimeOfDay.ToString & "// Error while loading itemimage with itemid: " & itemid & " > " & ex.ToString &
-                vbNewLine)
-            My.Application.DoEvents()
-        End Try
-    End Sub
+            runfunction.getimage(CInt(itemid), picbox)
+        Catch : End Try
+      End Sub
 
     Private Function getspellidfromitem(ByVal itemid As String) As Integer
-        Try
-            Dim clienyx88 As New WebClient
-            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://www.wowhead.com/item=" & itemid)
-            Dim anfangyx88 As String = "<a href=""/spell="
-            Dim endeyx88 As String = """"
-            Dim quellcodeSplityx88 As String
-            quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-            quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-
-            Return CInt(Val(quellcodeSplityx88))
-        Catch ex As Exception
-            Process_Status.processreport.appendText(
-                Now.TimeOfDay.ToString & "// Error while loading spellid from itemid: " & itemid & " > " & ex.ToString &
-                vbNewLine)
-            My.Application.DoEvents()
-            Return 0
-        End Try
-    End Function
-
-    Private Function getnamefromid(ByVal itemid As String) As String
-        Try
-            Dim clienyx88 As New WebClient
-            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://wowdata.buffed.de/?i=" & itemid)
-            Dim anfangyx88 As String = "<tr><td><h1 class=""headline1"">"
-            Dim endeyx88 As String = "</h1></td><td valign="
-            Dim quellcodeSplityx88 As String
-            quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-            quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-
-            Dim s As String = quellcodeSplityx88
-            Dim b() As Byte = Encoding.Default.GetBytes(s)
-            Dim s1 As String = Encoding.UTF8.GetString(b)
-
-            Return s1
-        Catch ex As Exception
-            Process_Status.processreport.appendText(
-                Now.TimeOfDay.ToString & "// Error while getting name from itemid: " & itemid & " > " & ex.ToString &
-                vbNewLine)
-            My.Application.DoEvents()
-            Return "Fehler"
-        End Try
-    End Function
-
+        Return runfunction.getspellidfromitem(itemid)
+     End Function
     Private Function getspellnamefromid(ByVal spellid As String) As String
-        Try
-            Dim clienyx88 As New WebClient
-            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://wowdata.buffed.de/?s=" & spellid)
-            Dim anfangyx88 As String = "<h1 class=""headline1"">"
-            Dim endeyx88 As String = "</h1>"
-            Dim quellcodeSplityx88 As String
-            quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-            quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-
-            Dim s As String = quellcodeSplityx88
-            Dim b() As Byte = Encoding.Default.GetBytes(s)
-            Dim s1 As String = Encoding.UTF8.GetString(b)
-
-            Return s1
-        Catch ex As Exception
-            Process_Status.processreport.appendText(
-                Now.TimeOfDay.ToString & "// Error while spell name from spellid: " & spellid & " > " & ex.ToString &
-                vbNewLine)
-            My.Application.DoEvents()
-            Return "Fehler"
-        End Try
+        Return runfunction.getspellnamefromid(spellid)
     End Function
 
     Public Function getvzeffectname(ByVal vzid As String) As String
         Try
-            Dim clienyx88 As New WebClient
-            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://de.wowhead.com/spell=" & vzid)
-            Dim anfangyx88 As String = "Enchant Item: [<span class=""q2"">"
-            Dim endeyx88 As String = "</span>"
-            Dim quellcodeSplityx88 As String
-            quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-            quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-            If quellcodeSplityx88.Contains("<a href=") Then
-                Dim quellcodeyx882 As String = quellcodeSplityx88
-                Dim anfangyx882 As String = "<a href="
-                Dim endeyx882 As String = """>"
-                Dim quellcodeSplityx882 As String
-                quellcodeSplityx882 = Split(quellcodeyx882, anfangyx882, 5)(1)
-                quellcodeSplityx882 = Split(quellcodeSplityx882, endeyx882, 6)(0)
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("<a href=" & quellcodeSplityx882 & """>", "")
-                If quellcodeSplityx88.Contains("</a>") Then quellcodeSplityx88 = quellcodeSplityx88.Replace("</a>", "")
-
-            End If
-            Dim b() As Byte = Encoding.Default.GetBytes(quellcodeSplityx88)
-            quellcodeSplityx88 = Encoding.UTF8.GetString(b)
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Tempo", "Tempowertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Trefferwert", "Trefferwertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Ausweichen", "Ausweichwertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Blockwert", "Blockwertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Parieren", "Parierwertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Abhärtungswert", "Abhärtungswertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Waffenkundewert", "Waffenkundewertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Meisterschaft", "Meisterschaftswertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("wertungung", "wertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("wertungswertung", "wertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("wertungwertung", "wertung")
-            Catch ex As Exception
-
-            End Try
-            Return quellcodeSplityx88
-        Catch ex As Exception
-            Process_Status.processreport.appendText(
-                Now.TimeOfDay.ToString & "// Error while getting effectname from vzid: " & vzid & " > " & ex.ToString &
-                vbNewLine)
-            My.Application.DoEvents()
-            Return ""
+            Return runfunction.getvzeffectname2(CInt(vzid))
+        Catch
+            Return "-"
         End Try
-    End Function
+       End Function
 
     Public Function getsocketeffectname(ByVal socketid As String) As String
         Try
-            Dim clienyx88 As New WebClient
-            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://de.wowhead.com/item=" & socketid)
-            Dim anfangyx88 As String = "<span class=""q1"">"
-            Dim endeyx88 As String = "</span>"
-            Dim quellcodeSplityx88 As String
-            quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-            quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-            If quellcodeSplityx88.Contains("<a href=") Then
-                Dim quellcodeyx882 As String = quellcodeSplityx88
-                Dim anfangyx882 As String = "<a href="
-                Dim endeyx882 As String = """>"
-                Dim quellcodeSplityx882 As String
-                quellcodeSplityx882 = Split(quellcodeyx882, anfangyx882, 5)(1)
-                quellcodeSplityx882 = Split(quellcodeSplityx882, endeyx882, 6)(0)
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("<a href=" & quellcodeSplityx882 & """>", "")
-                If quellcodeSplityx88.Contains("</a>") Then quellcodeSplityx88 = quellcodeSplityx88.Replace("</a>", "")
-
-            End If
-            Dim b() As Byte = Encoding.Default.GetBytes(quellcodeSplityx88)
-            quellcodeSplityx88 = Encoding.UTF8.GetString(b)
-
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Tempo", "Tempowertung")
-            Catch
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Trefferwert", "Trefferwertung")
-            Catch
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Ausweichen", "Ausweichwertung")
-            Catch
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Blockwert", "Blockwertung")
-            Catch
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Parieren", "Parierwertung")
-            Catch
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Abhärtungswert", "Abhärtungswertung")
-            Catch
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Waffenkundewert", "Waffenkundewertung")
-            Catch
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Meisterschaft", "Meisterschaftswertung")
-            Catch
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("wertungung", "wertung")
-            Catch
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("wertungswertung", "wertung")
-            Catch
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("wertungwertung", "wertung")
-            Catch
-
-            End Try
-            Return quellcodeSplityx88
-        Catch ex As Exception
-            Process_Status.processreport.appendText(
-                Now.TimeOfDay.ToString & "// Error while getting effectname from socket: " & socketid & " > " &
-                ex.ToString & vbNewLine)
-            My.Application.DoEvents()
-            Return ""
+            Return runfunction.getsocketeffectname2(CInt(socketid))
+        Catch
+            Return "-"
         End Try
     End Function
 
@@ -814,7 +582,7 @@ Public Class prozedur_armory
                 Main.kopfsocket2id = Nothing
                 Main.kopfsocket3id = Nothing
                 Main.kopfvzid = Nothing
-                Main.Kopf.Text = "Platz leer"
+                Main.Kopf.Text = "-"
             End If
         Catch ex As Exception
 
@@ -843,7 +611,7 @@ Public Class prozedur_armory
                 Main.halssocket2id = Nothing
                 Main.halssocket3id = Nothing
                 Main.halsvzid = Nothing
-                Main.Hals.Text = "Platz leer"
+                Main.Hals.Text = "-"
             End If
         Catch ex As Exception
 
@@ -872,7 +640,7 @@ Public Class prozedur_armory
                 Main.schultersocket2id = Nothing
                 Main.schultersocket3id = Nothing
                 Main.schultervzid = Nothing
-                Main.Schulter.Text = "Platz leer"
+                Main.Schulter.Text = "-"
             End If
         Catch ex As Exception
 
@@ -902,7 +670,7 @@ Public Class prozedur_armory
                 Main.rueckensocket2id = Nothing
                 Main.rueckensocket3id = Nothing
                 Main.rueckenvzid = Nothing
-                Main.Ruecken.Text = "Platz leer"
+                Main.Ruecken.Text = "-"
             End If
         Catch ex As Exception
 
@@ -932,7 +700,7 @@ Public Class prozedur_armory
                 Main.brustsocket2id = Nothing
                 Main.brustsocket3id = Nothing
                 Main.brustvzid = Nothing
-                Main.Brust.Text = "Platz leer"
+                Main.Brust.Text = "-"
             End If
         Catch ex As Exception
 
@@ -955,7 +723,7 @@ Public Class prozedur_armory
                 Main.Hemd.Visible = False
                 Main.hemdid = Nothing
                 Main.Hemdpic.Image = My.Resources.empty
-                Main.Hemd.Text = "Platz leer"
+                Main.Hemd.Text = "-"
             End If
         Catch ex As Exception
 
@@ -977,7 +745,7 @@ Public Class prozedur_armory
                 Main.Wappenrock.Visible = False
                 Main.wappenrockid = Nothing
                 Main.Wappenrockpic.Image = My.Resources.empty
-                Main.Wappenrock.Text = "Platz leer"
+                Main.Wappenrock.Text = "-"
             End If
         Catch ex As Exception
 
@@ -1007,7 +775,7 @@ Public Class prozedur_armory
                 Main.handgelenkesocket2id = Nothing
                 Main.handgelenkesocket3id = Nothing
                 Main.handgelenkevzid = Nothing
-                Main.Handgelenke.Text = "Platz leer"
+                Main.Handgelenke.Text = "-"
             End If
         Catch ex As Exception
 
@@ -1037,7 +805,7 @@ Public Class prozedur_armory
                 Main.hauptsocket2id = Nothing
                 Main.hauptsocket3id = Nothing
                 Main.hauptvzid = Nothing
-                Main.Haupt.Text = "Platz leer"
+                Main.Haupt.Text = "-"
                 Main.hauptvzlabel2.Visible = False
             End If
         Catch ex As Exception
@@ -1068,7 +836,7 @@ Public Class prozedur_armory
                 Main.offsocket2id = Nothing
                 Main.offsocket3id = Nothing
                 Main.offvzid = Nothing
-                Main.Off.Text = "Platz leer"
+                Main.Off.Text = "-"
                 Main.offvzlabel2.Visible = False
             End If
         Catch ex As Exception
@@ -1099,7 +867,7 @@ Public Class prozedur_armory
                 Main.distanzsocket2id = Nothing
                 Main.distanzsocket3id = Nothing
                 Main.distanzvzid = Nothing
-                Main.Distanz.Text = "Platz leer"
+                Main.Distanz.Text = "-"
                 Main.distanzvzlabel2.Visible = False
             End If
         Catch ex As Exception
@@ -1130,7 +898,7 @@ Public Class prozedur_armory
                 Main.haendesocket2id = Nothing
                 Main.haendesocket3id = Nothing
                 Main.haendevzid = Nothing
-                Main.Haende.Text = "Platz leer"
+                Main.Haende.Text = "-"
             End If
         Catch ex As Exception
 
@@ -1160,7 +928,7 @@ Public Class prozedur_armory
                 Main.guertelsocket2id = Nothing
                 Main.guertelsocket3id = Nothing
                 Main.guertelvzid = Nothing
-                Main.Guertel.Text = "Platz leer"
+                Main.Guertel.Text = "-"
             End If
         Catch ex As Exception
 
@@ -1190,7 +958,7 @@ Public Class prozedur_armory
                 Main.beinesocket2id = Nothing
                 Main.beinesocket3id = Nothing
                 Main.beinevzid = Nothing
-                Main.Beine.Text = "Platz leer"
+                Main.Beine.Text = "-"
             End If
         Catch ex As Exception
 
@@ -1220,7 +988,7 @@ Public Class prozedur_armory
                 Main.stiefelsocket2id = Nothing
                 Main.stiefelsocket3id = Nothing
                 Main.stiefelvzid = Nothing
-                Main.Stiefel.Text = "Platz leer"
+                Main.Stiefel.Text = "-"
             End If
         Catch ex As Exception
 
@@ -1250,7 +1018,7 @@ Public Class prozedur_armory
                 Main.ring1socket2id = Nothing
                 Main.ring1socket3id = Nothing
                 Main.ring1vzid = Nothing
-                Main.Ring1.Text = "Platz leer"
+                Main.Ring1.Text = "-"
             End If
         Catch ex As Exception
 
@@ -1279,7 +1047,7 @@ Public Class prozedur_armory
                 Main.ring2socket2id = Nothing
                 Main.ring2socket3id = Nothing
                 Main.ring2vzid = Nothing
-                Main.Ring2.Text = "Platz leer"
+                Main.Ring2.Text = "-"
             End If
         Catch ex As Exception
 
@@ -1306,7 +1074,7 @@ Public Class prozedur_armory
                 Main.schmuck1socket2id = Nothing
                 Main.schmuck1socket3id = Nothing
                 Main.schmuck1vzid = Nothing
-                Main.Schmuck1.Text = "Platz leer"
+                Main.Schmuck1.Text = "-"
             End If
         Catch ex As Exception
 
@@ -1333,7 +1101,7 @@ Public Class prozedur_armory
                 Main.schmuck2socket2id = Nothing
                 Main.schmuck2socket3id = Nothing
                 Main.schmuck2vzid = Nothing
-                Main.Schmuck2.Text = "Platz leer"
+                Main.Schmuck2.Text = "-"
             End If
         Catch ex As Exception
 
@@ -1729,7 +1497,7 @@ Public Class prozedur_armory
             Dim quellcodeSplityx888888 As String
             quellcodeSplityx888888 = Split(quellcode, anfangyx888888, 5)(1)
             tmpfeature = Split(quellcodeSplityx888888, endeyx888888, 6)(0)
-        Catch :
+        Catch
         End Try
         Try
 
@@ -1743,7 +1511,7 @@ Public Class prozedur_armory
             If hairColor.ToString.Length = 1 Then hairColor = 0 & hairColor
             Dim bytestring As String = ((hairColor) & (hairStyle) & (face) & (skin)).ToString
             Main.playerBytes = CInt(CLng("&H" & bytestring).ToString)
-        Catch :
+        Catch
         End Try
         Try
             Dim feature As String = Hex$(Long.Parse(tmpfeature))
@@ -1882,7 +1650,7 @@ Public Class prozedur_armory
                         Try
                             timestamp = timestamp.Remove(timestamp.Length - 3, 3)
                         Catch : End Try
-                        End If
+                    End If
                     loopcounter += 1
                     Main.character_achievement_list.Add("<av>" & avid & "</av><date>" & timestamp & "</date>")
                 Loop Until loopcounter = excounter
@@ -2678,7 +2446,7 @@ Public Class prozedur_armory
                 If quellcodeSplityx88.Contains("Ã¶") Then quellcodeSplityx88.Replace("Ã¶", "")
                 If quellcodeSplityx88.Contains("ÃŸ") Then quellcodeSplityx88.Replace("ÃŸ", "")
                 socket1 = quellcodeSplityx88
-                Dim sockettext As String = "Platz leer"
+                Dim sockettext As String = "-"
                 Process_Status.processreport.appendText(
                     Now.TimeOfDay.ToString & "// Loaded Socket1 for slot : " & slot.ToString & vbNewLine)
                 My.Application.DoEvents()
@@ -3110,7 +2878,7 @@ Public Class prozedur_armory
             quellcodeSplit88 = Split(quellcode88, anfang88, 5)(1)
             quellcodeSplit88 = Split(quellcodeSplit88, ende88, 6)(0)
             If quellcodeSplit88.Contains("<a href=""javascript:;"" class=""empty""") Then
-                Dim quellcodeSplity88 As String = "Platz leer"
+                Dim quellcodeSplity88 As String = "-"
                 Select Case slot
                     Case 1
                         Main.Kopf.Text = quellcodeSplity88
@@ -3336,43 +3104,43 @@ Public Class prozedur_armory
             My.Application.DoEvents()
             Select Case slot
                 Case 1
-                    Main.Kopf.Text = "Fehler! =)"
+                    Main.Kopf.Text = "Error"
                 Case 2
-                    Main.Hals.Text = "Fehler! =)"
+                    Main.Hals.Text = "Error"
                 Case 3
-                    Main.Schulter.Text = "Fehler! =)"
+                    Main.Schulter.Text = "Error"
                 Case 4
-                    Main.Ruecken.Text = "Fehler! =)"
+                    Main.Ruecken.Text = "Error"
                 Case 5
-                    Main.Brust.Text = "Fehler! =)"
+                    Main.Brust.Text = "Error"
                 Case 6
-                    Main.Hemd.Text = "Fehler! =)"
+                    Main.Hemd.Text = "Error"
                 Case 7
-                    Main.Wappenrock.Text = "Fehler! =)"
+                    Main.Wappenrock.Text = "Error"
                 Case 8
-                    Main.Handgelenke.Text = "Fehler! =)"
+                    Main.Handgelenke.Text = "Error"
                 Case 9
-                    Main.Haupt.Text = "Fehler! =)"
+                    Main.Haupt.Text = "Error"
                 Case 10
-                    Main.Off.Text = "Fehler! =)"
+                    Main.Off.Text = "Error"
                 Case 11
-                    Main.Distanz.Text = "Fehler! =)"
+                    Main.Distanz.Text = "Error"
                 Case 12
-                    Main.Haende.Text = "Fehler! =)"
+                    Main.Haende.Text = "Error"
                 Case 13
-                    Main.Guertel.Text = "Fehler! =)"
+                    Main.Guertel.Text = "Error"
                 Case 14
-                    Main.Beine.Text = "Fehler! =)"
+                    Main.Beine.Text = "Error"
                 Case 15
-                    Main.Stiefel.Text = "Fehler! =)"
+                    Main.Stiefel.Text = "Error"
                 Case 16
-                    Main.Ring1.Text = "Fehler! =)"
+                    Main.Ring1.Text = "Error"
                 Case 17
-                    Main.Ring2.Text = "Fehler! =)"
+                    Main.Ring2.Text = "Error"
                 Case 18
-                    Main.Schmuck1.Text = "Fehler! =)"
+                    Main.Schmuck1.Text = "Error"
                 Case 19
-                    Main.Schmuck2.Text = "Fehler! =)"
+                    Main.Schmuck2.Text = "Error"
             End Select
         End Try
     End Sub
@@ -3394,84 +3162,6 @@ Public Class prozedur_armory
     End Sub
 
     Public Sub getweapontype(ByVal itemid As Integer)
-        Try
-            Process_Status.processreport.appendText(
-                Now.TimeOfDay.ToString & "// Loading Weapontype from itemid: " & itemid & vbNewLine)
-            My.Application.DoEvents()
-            Dim clienyx88 As New WebClient
-            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://www.wowhead.com/item=" & itemid.ToString)
-            Dim anfangyx88 As String = "description"" content="""
-            Dim endeyx88 As String = "<meta"
-            Dim quellcodeSplityx88 As String
-            quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-            quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-
-            Select Case True
-                Case quellcodeSplityx88.ToLower.Contains(" crossbow ")
-                    Main.specialspells.Add("5011")
-                    Main.specialskills.Add("226")
-                Case quellcodeSplityx88.ToLower.Contains(" bow ")
-                    Main.specialspells.Add("264")
-                    Main.specialskills.Add("45")
-                Case quellcodeSplityx88.ToLower.Contains(" gun ")
-                    Main.specialspells.Add("266")
-                    Main.specialskills.Add("46")
-                Case quellcodeSplityx88.ToLower.Contains(" thrown ")
-                    Main.specialspells.Add("2764")
-                    Main.specialspells.Add("2567")
-                    Main.specialskills.Add("176")
-                Case quellcodeSplityx88.ToLower.Contains(" wands ")
-                    Main.specialspells.Add("5009")
-                    Main.specialspells.Add("5019")
-                    Main.specialskills.Add("228")
-                Case quellcodeSplityx88.ToLower.Contains(" sword ")
-                    If quellcodeSplityx88.ToLower.Contains(" one-handed ") Then
-                        Main.specialspells.Add("201")
-                        Main.specialskills.Add("43")
-                    Else
-                        Main.specialspells.Add("201")
-                        Main.specialskills.Add("43")
-                        Main.specialspells.Add("202")
-                        Main.specialskills.Add("55")
-                    End If
-                Case quellcodeSplityx88.ToLower.Contains(" dagger ")
-                    Main.specialspells.Add("1180")
-                    Main.specialskills.Add("173")
-                Case quellcodeSplityx88.ToLower.Contains(" axe ")
-                    If quellcodeSplityx88.ToLower.Contains(" one-handed ") Then
-                        Main.specialspells.Add("196")
-                        Main.specialskills.Add("44")
-                    Else
-                        Main.specialspells.Add("197")
-                        Main.specialskills.Add("44")
-                        Main.specialspells.Add("196")
-                        Main.specialskills.Add("142")
-                    End If
-                Case quellcodeSplityx88.ToLower.Contains(" mace ")
-                    If quellcodeSplityx88.ToLower.Contains(" one-handed ") Then
-                        Main.specialspells.Add("198")
-                        Main.specialskills.Add("54")
-                    Else
-                        Main.specialskills.Add("54")
-                        Main.specialspells.Add("198")
-                        Main.specialskills.Add("160")
-                        Main.specialspells.Add("199")
-                    End If
-                Case quellcodeSplityx88.ToLower.Contains(" polearm ")
-                    Main.specialspells.Add("200")
-                    Main.specialskills.Add("229")
-                Case quellcodeSplityx88.ToLower.Contains(" staff ")
-                    Main.specialspells.Add("227")
-                    Main.specialskills.Add("136")
-
-                Case Else
-
-            End Select
-        Catch ex As Exception
-            Process_Status.processreport.appendText(
-                Now.TimeOfDay.ToString & "// Error while loading Weapontype with itemid: " & itemid & " > " &
-                ex.ToString & vbNewLine)
-            My.Application.DoEvents()
-        End Try
-    End Sub
+        runfunction.getweapontype(itemid)
+      End Sub
 End Class
