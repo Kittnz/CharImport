@@ -126,9 +126,6 @@
 the program won't work with every revision of TrinityCore, ArcEmu, etc..
 However, there will be regular updates in order to support the latest revisions.</value>
   </data>
-  <data name="RichTextBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>591, 197</value>
-  </data>
   <data name="RichTextBox1.Text" xml:space="preserve">
     <value>|&lt;  BETA 0.10.3 @indev &gt;|
 
@@ -145,6 +142,7 @@ However, there will be regular updates in order to support the latest revisions.
    &gt; Gained achievements
  &gt; "MySqlException: Data truncated for column x" error should no longer occur
  &gt; Fixed an issue that could prevent item icons from loading
+ &gt; Fixed an issue that prevented that the character race and class are displayed correctly
  &gt; Users will now be informed when a character or an account can not be found
  &gt; Localization issues fixed:
   &gt; Items and spells should now be in English

@@ -622,6 +622,60 @@ Public Class Mangos_core
              runfunction.runcommand(
                  "SELECT " & Main.homebind_posz & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
                  "'", Main.homebind_posz) & "</position_z>")
+        Main.level.Text = Main.char_name & ", " & Main.char_level & ", "
+        Select Case Main.char_race
+            Case 1
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Mensch" Else Main.level.Text = Main.level.Text & "Human"
+            Case 2
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Orc" Else Main.level.Text = Main.level.Text & "Orc"
+            Case 3
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Zwerg" Else Main.level.Text = Main.level.Text & "Dwarf"
+            Case 4
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Nachtelf" Else Main.level.Text = Main.level.Text & "Night Elf"
+            Case 5
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Untot" Else Main.level.Text = Main.level.Text & "Undead"
+            Case 6
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Tauren" Else Main.level.Text = Main.level.Text & "Tauren"
+            Case 7
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Gnom" Else Main.level.Text = Main.level.Text & "Gnome"
+            Case 8
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Troll" Else Main.level.Text = Main.level.Text & "Troll"
+            Case 9
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Goblin" Else Main.level.Text = Main.level.Text & "Goblin"
+            Case 10
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Blutelf" Else Main.level.Text = Main.level.Text & "Blood Elf"
+            Case 11
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Draenei" Else Main.level.Text = Main.level.Text & "Draenei"
+            Case 22
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Worgen" Else Main.level.Text = Main.level.Text & "Worgen"
+            Case Else
+
+        End Select
+        Main.level.Text = Main.level.Text & ", "
+        Select Case Main.char_class
+            Case 1
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Krieger" Else Main.level.Text = Main.level.Text & "Warrior"
+            Case 2
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Paladin" Else Main.level.Text = Main.level.Text & "Paladin"
+            Case 3
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Jäger" Else Main.level.Text = Main.level.Text & "Hunter"
+            Case 4
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Schurke" Else Main.level.Text = Main.level.Text & "Rogue"
+            Case 5
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Priester" Else Main.level.Text = Main.level.Text & "Priest"
+            Case 6
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Todesritter" Else Main.level.Text = Main.level.Text & "Death Knight"
+            Case 7
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Schamane" Else Main.level.Text = Main.level.Text & "Shaman"
+            Case 8
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Magier" Else Main.level.Text = Main.level.Text & "Mage"
+            Case 9
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Hexenmeister" Else Main.level.Text = Main.level.Text & "Warlock"
+            Case 11
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Druide" Else Main.level.Text = Main.level.Text & "Druid"
+            Case Else
+
+        End Select
         Process_Status.processreport.appendText(
             Now.TimeOfDay.ToString & "/ Loading Character Spells from Database..." & vbNewLine)
         Application.DoEvents()
@@ -650,7 +704,10 @@ Public Class Mangos_core
             Now.TimeOfDay.ToString & "/ Loading Character Inventory from Database..." & vbNewLine)
         Application.DoEvents()
         getinventoryitems()
-
+        Process_Status.processreport.AppendText(
+          Now.TimeOfDay.ToString & "/ Loading Character Questlog from Database..." & vbNewLine)
+        Application.DoEvents()
+        getqueststatus()
         'GET ITEMS
         Process_Status.processreport.appendText(
             Now.TimeOfDay.ToString & "/ Loading Character Items from Database..." & vbNewLine)
@@ -860,9 +917,17 @@ Public Class Mangos_core
                             runfunction.runcommand(
                                 "SELECT `timer` FROM character_queststatus WHERE quest='" & quest & "' AND guid='" &
                                 Main.char_guid.ToString & "'", "timer")
-                    Main.character_queststatus.Add(
-                        "<quest>" & quest & "</quest><status>" & status & "</status><explored>" & explored &
-                        "</explored><timer>" & timer & "</timer>")
+                    Dim rewarded As String = runfunction.runcommand(
+                        "SELECT rewarded FROM character_queststatus WHERE quest='" & quest &
+                        "' AND guid='" & Main.char_guid.ToString & "'", "rewarded")
+                    If rewarded = "1" Then
+                        Main.finished_quests = Main.finished_quests & quest & ","
+                    Else
+                        Main.character_queststatus.Add(
+                                               "<quest>" & quest & "</quest><status>" & status & "</status><explored>" & explored &
+                                               "</explored><timer>" & timer & "</timer>")
+                    End If
+
 
                     count += 1
                 Loop Until count = lastcount
@@ -1028,8 +1093,83 @@ Public Class Mangos_core
 
         End Try
     End Sub
-
     Public Sub getinventoryitems()
+        runfunction.writelog("getinventoryitems_call @mangos")
+        Dim tmpext As Integer
+
+        Dim _
+            da As _
+                New MySqlDataAdapter("SELECT item FROM character_inventory WHERE guid='" & Main.char_guid.ToString & "'",
+                                     Main.GLOBALconn)
+        Dim dt As New DataTable
+        Try
+            da.Fill(dt)
+
+            Dim lastcount As Integer = CInt(Val(dt.Rows.Count.ToString))
+            Dim count As Integer = 0
+            If Not lastcount = 0 Then
+                Do
+                    Dim readedcode As String = (dt.Rows(count).Item(0)).ToString
+                    tmpext = CInt(Val(readedcode))
+                    Dim bagguid As String =
+                            runfunction.runcommand(
+                                "SELECT bag FROM character_inventory WHERE guid='" & Main.char_guid.ToString &
+                                "' AND item='" & tmpext.ToString & "'", "bag")
+                    If CInt(bagguid) = 0 Then
+                        If tmpext > 18 Then
+                            Dim bag As String = "0"
+                            Dim item As String = "0"
+                            Dim entryid As String
+                            Dim enchantments As String
+                            Dim itemcount As String = "1"
+                            Dim slot As String = "0"
+                            bag = bagguid
+
+                            item = tmpext.ToString()
+                            entryid = runfunction.runcommand("SELECT item_template FROM character_inventory WHERE guid = '" & Main.char_guid.ToString & "' AND item='" & item & "'", "item_template")
+                            enchantments = runfunction.runcommand("SELECT `data` FROM item_instance WHERE guid = '" & item & "'", "data")
+                            itemcount = splititemdata(enchantments, 14)
+                            slot = runfunction.runcommand("Select `slot` FROM character_inventory WHERE `item`='" & item & "'", "slot")
+                            Main.character_inventoryzero_list.Add(
+                                "<slot>" & slot & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid &
+                                  "</bagguid><item>" & entryid & "</item><enchant>" & enchantments & "</enchant><count>" & itemcount & "</count><oldguid>" & item & "</oldguid>")
+                        End If
+                    Else
+                        Dim bag As String = "0"
+                        Dim item As String = "0"
+                        Dim entryid As String
+                        Dim enchantments As String
+                        Dim itemcount As String = "1"
+                        Dim slot As String = "0"
+
+                        bag = runfunction.runcommand("SELECT item_template FROM character_inventory WHERE item = '" & bagguid & "'", "item_template")
+                        item = tmpext.ToString
+                        entryid = runfunction.runcommand("SELECT item_template FROM character_inventory WHERE guid = '" & Main.char_guid.ToString & "' AND item='" & tmpext.ToString & "'", "itemEntry")
+                        enchantments = runfunction.runcommand("SELECT `data` FROM item_instance WHERE guid = '" & item & "'", "data")
+                        itemcount = splititemdata(enchantments, 14)
+                        slot = runfunction.runcommand("Select `slot` FROM character_inventory WHERE `item`='" & item & "'", "slot")
+                        Main.character_inventory_list.Add(
+                            "<slot>" & slot & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid &
+                           "</bagguid><item>" & entryid & "</item><enchant>" & enchantments & "</enchant><count>" & itemcount & "</count>")
+                    End If
+                    count += 1
+                Loop Until count = lastcount
+            Else
+                runfunction.writelog("No inventory_items found!")
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+    Private Function splititemdata(ByVal datastring As String, ByVal position As Integer) As String
+        Try
+            Dim parts() As String = datastring.Split(" "c)
+            Return parts(position)
+        Catch
+            Return "1"
+        End Try
+    End Function
+    Public Sub getinventoryitems_old()
         runfunction.writelog("getinventoryitems_call @mangos")
         Dim tmpext As Integer
 
@@ -2000,7 +2140,7 @@ Public Class Mangos_core
                 "', '" & newguid &
                 " 1191182336 3 6948 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ' )")
         Else
-            'MaNGOS 2.4.3 Core: Problem with data length, to long, remove 3 positions
+            'MaNGOS 2.4.3 Core: Problem with data length, too long, remove 3 positions
             runfunction.normalsqlcommand(
                 "INSERT INTO item_instance ( guid, owner_guid, data ) VALUES ( '" & newguid & "', '" & Main.coreguid &
                 "', '" & newguid &
@@ -2094,6 +2234,7 @@ Public Class Mangos_core
         setmissingcolumns(newcharguid)
         sethome()
         addaction()
+        setqueststatus()
         Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "// Created Character " & charactername & "!" & vbNewLine)
         Application.DoEvents()
@@ -3028,9 +3169,21 @@ Public Class Mangos_core
                 "INSERT INTO character_queststatus ( guid, quest, `status`, `explored` ) VALUES ( '" & Main.coreguid &
                 "', '" & splitlist(queststring, "quest") & "', '" & splitlist(queststring, "status") & "', '" &
                 splitlist(queststring, "explored") & "')")
-
-
         Next
+        If Not Main.finished_quests = "" Then
+          Try
+                Dim parts() As String = Main.finished_quests.Split(","c)
+                Dim excounter As Integer = UBound(Main.finished_quests.Split(CChar(",")))
+                Dim startcounter As Integer = 0
+                Do
+                    Dim questid As String = parts(startcounter)
+                    runfunction.normalsqlcommand(
+               "INSERT INTO character_queststatus ( guid, quest, `status`, `rewarded` ) VALUES ( '" & Main.coreguid &
+               "', '" & questid & "', '1', '1')")
+                    startcounter += 1
+                Loop Until startcounter = excounter
+            Catch : End Try
+        End If
     End Sub
 
     Public Sub addachievements()
@@ -3115,6 +3268,7 @@ Public Class Mangos_core
         Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "// Adding Items to inventory for Character: " & Main.char_name & vbNewLine)
         Dim bagexist As List(Of String) = New List(Of String)
+        Dim bagstring As String = ""
         bagexist.Clear()
         For Each inventorystring As String In Main.character_inventoryzero_list
             Dim bagguid As String = splitlist(inventorystring, "bagguid")
@@ -3129,34 +3283,35 @@ Public Class Mangos_core
             runfunction.normalsqlcommand(
                 "INSERT INTO item_instance ( guid, owner_guid, data ) VALUES ( '" & newguid & "', '" & Main.coreguid &
                 "', '" &
-                splitenchstring(splitlist(inventorystring, "enchant"), CInt(newguid), splitlist(inventorystring, "item")) &
+                splitenchstring(splitlist(inventorystring, "enchant"), CInt(newguid), splitlist(inventorystring, "item"), splitlist(inventorystring, "count")) &
                 "' )")
             runfunction.normalsqlcommand(
                 "INSERT INTO character_inventory ( guid, bag, slot, item, item_template ) VALUES ( '" & Main.coreguid &
                 "', '" & bag & "', '" & splitlist(inventorystring, "slot") & "', '" & newguid & "', '" &
                 splitlist(inventorystring, "item") & "')")
-
-
+            Select Case splitlist(inventorystring, "slot")
+                Case "19", "20", "21", "22", "67", "68", "69", "70", "71", "72", "73"
+                    'Item is a bag and has to be registered
+                    bagstring = bagstring & "oldguid:" & splitlist(inventorystring, "oldguid") & ";newguid:" & newguid & ";"
+                Case Else : End Select
         Next
         For Each inventorystring As String In Main.character_inventory_list
             Dim bagguid As String = splitlist(inventorystring, "bagguid")
             Dim bag As String = splitlist(inventorystring, "bag")
-            Dim newguid As String =
-                    ((CInt(
-                        Val(
-                            runfunction.runcommand(
-                                "SELECT guid FROM item_instance WHERE guid=(SELECT MAX(guid) FROM item_instance)",
-                                "guid")))) + 1).ToString
-
-
-            Dim newbagguid As String =
-                    runfunction.runcommand(
-                        "SELECT item FROM character_inventory WHERE item_template='" & bag & "' AND guid='" &
-                        Main.coreguid & "'", "item")
+            Dim newguid As String = ((CInt(Val(runfunction.runcommand("SELECT guid FROM item_instance WHERE guid=(SELECT MAX(guid) FROM item_instance)","guid")))) + 1).ToString
+            Dim newbagguid As String = runfunction.runcommand("SELECT item FROM character_inventory WHERE item_template='" & bag & "' AND guid='" & Main.coreguid & "'", "item")
+            Select Case splitlist(inventorystring, "slot")
+                Case "19", "20", "21", "22", "67", "68", "69", "70", "71", "72", "73"
+                Case Else
+                    Dim beginsplit As String = "oldguid:" & splitlist(inventorystring, "bagguid") & ";newguid:"
+                    Dim endsplit As String = ";"
+                    newbagguid = Split(bagstring, beginsplit, 5)(1)
+                    newbagguid = Split(newbagguid, endsplit, 6)(0)
+            End Select
             runfunction.normalsqlcommand(
                 "INSERT INTO item_instance ( guid, owner_guid, data ) VALUES ( '" & newguid & "', '" & Main.coreguid &
                 "', '" &
-                splitenchstring(splitlist(inventorystring, "enchant"), CInt(newguid), splitlist(inventorystring, "item")) &
+                splitenchstring(splitlist(inventorystring, "enchant"), CInt(newguid), splitlist(inventorystring, "item"), splitlist(inventorystring, "count")) &
                 "' )")
             runfunction.normalsqlcommand(
                 "INSERT INTO character_inventory ( guid, bag, slot, item, item_template ) VALUES ( '" & Main.coreguid &
@@ -3168,7 +3323,7 @@ Public Class Mangos_core
         Next
     End Sub
 
-    Private Function splitenchstring(ByVal enchstring As String, ByVal guid As Integer, ByVal entry As String) As String
+    Private Function splitenchstring(ByVal enchstring As String, ByVal guid As Integer, ByVal entry As String, Optional numcount As String = "1") As String
         If enchstring = "" Or enchstring = "0" Then
             Return ""
             Exit Function
@@ -3195,28 +3350,28 @@ Public Class Mangos_core
                 If parts2(2) = "5" Then
                     'vz
                     Dim input As String = normalenchstring
-                    Dim parts3() As String = Input.Split(" "c)
+                    Dim parts3() As String = input.Split(" "c)
 
                     parts3(22) = parts2(0)
                     normalenchstring = String.Join(" ", parts3)
                 ElseIf parts2(2) = "1" Then
                     'gem1
                     Dim input As String = normalenchstring
-                    Dim parts3() As String = Input.Split(" "c)
+                    Dim parts3() As String = input.Split(" "c)
 
                     parts3(28) = parts2(0)
                     normalenchstring = String.Join(" ", parts3)
                 ElseIf parts2(2) = "2" Then
                     'gem2
                     Dim input As String = normalenchstring
-                    Dim parts3() As String = Input.Split(" "c)
+                    Dim parts3() As String = input.Split(" "c)
 
                     parts3(31) = parts2(0)
                     normalenchstring = String.Join(" ", parts3)
                 ElseIf parts2(2) = "3" Then
                     'gem3
                     Dim input As String = normalenchstring
-                    Dim parts3() As String = Input.Split(" "c)
+                    Dim parts3() As String = input.Split(" "c)
 
                     parts3(34) = parts2(0)
                     normalenchstring = String.Join(" ", parts3)
@@ -3230,6 +3385,7 @@ Public Class Mangos_core
             Dim output2 As String
             parts4(0) = guid.ToString
             parts4(4) = entry.ToString
+            parts4(14) = numcount
             output2 = String.Join(" ", parts4)
             Return output2
         Else
@@ -3239,19 +3395,21 @@ Public Class Mangos_core
                     If Anzahl > 63 Then
                         'Sourcecore: WotLK/Cata
                         Dim input As String = enchstring
-                        Dim parts() As String = Input.Split(" "c)
+                        Dim parts() As String = input.Split(" "c)
                         Dim output As String
                         parts(0) = guid.ToString
                         parts(4) = entry.ToString
+                        parts(14) = numcount
                         output = String.Join(" ", parts)
                         Return output
                     Else
                         'Sourcecore: TBC/Vanilla
                         Dim input As String = enchstring
-                        Dim parts() As String = Input.Split(" "c)
+                        Dim parts() As String = input.Split(" "c)
                         Dim output As String
                         parts(0) = guid.ToString
                         parts(4) = entry.ToString
+                        parts(14) = numcount
                         parts(40) = "0 0 0"
                         'needs validation
                         output = String.Join(" ", parts)
@@ -3263,19 +3421,21 @@ Public Class Mangos_core
                         Dim input As String = enchstring
                         input = input.Replace("0 0 0 0 0 0 0 0", "0 0 0 0 0")
                         'needs validation
-                        Dim parts() As String = Input.Split(" "c)
+                        Dim parts() As String = input.Split(" "c)
                         Dim output As String
                         parts(0) = guid.ToString
                         parts(4) = entry.ToString
+                        parts(14) = numcount
                         output = String.Join(" ", parts)
                         Return output
                     Else
                         'Sourcecore: TBC/Vanilla
                         Dim input As String = enchstring
-                        Dim parts() As String = Input.Split(" "c)
+                        Dim parts() As String = input.Split(" "c)
                         Dim output As String
                         parts(0) = guid.ToString
                         parts(4) = entry.ToString
+                        parts(14) = numcount
                         output = String.Join(" ", parts)
                         Return output
                     End If
@@ -3285,7 +3445,7 @@ Public Class Mangos_core
             Else
                 'trinity
                 Dim input As String = "0 " & enchstring
-                Dim parts() As String = Input.Split(" "c)
+                Dim parts() As String = input.Split(" "c)
                 Dim output As String
                 parts(0) = "<start>"
                 parts(14) = "<end>"
@@ -3299,11 +3459,11 @@ Public Class Mangos_core
                 xXquellcodeSplityx88 = Split(xXquellcodeSplityx88, xXendeyx88, 6)(0)
                 Dim resultString As String
                 If Main.xpac >= 3 Then
-                    resultString = guid & " 1191182336 3 " & entry & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1" &
+                    resultString = guid & " 1191182336 3 " & entry & " 1065353216 0 1 0 1 0 0 0 0 0 " & numcount & " 0 0 0 0 0 0 1" &
                                    xXquellcodeSplityx88 &
                                    "0 0 3753 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 "
                 Else
-                    resultString = guid & " 1191182336 3 " & entry & " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1" &
+                    resultString = guid & " 1191182336 3 " & entry & " 1065353216 0 1 0 1 0 0 0 0 0 " & numcount & " 0 0 0 0 0 0 1" &
                                    xXquellcodeSplityx88 & "0 0 3753 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 "
                     ' may cause error: data length
                 End If

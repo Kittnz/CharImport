@@ -193,6 +193,7 @@ Public Class prozedur_armory
             If quellcodeSplityx88 = "goblin" Then quellcodeSplityx88 = "9"
             If quellcodeSplityx88 = "blood-elf" Then quellcodeSplityx88 = "10"
             If quellcodeSplityx88 = "draenei" Then quellcodeSplityx88 = "11"
+            If quellcodeSplityx88 = "worgen" Then quellcodeSplityx88 = "22"
             Main.char_race = CInt(Val(quellcodeSplityx88))
             Main.charopt.Add("race" & charnumber.ToString & "=" & quellcodeSplityx88)
             Process_Status.processreport.appendText(
