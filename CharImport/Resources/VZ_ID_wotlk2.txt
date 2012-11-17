@@ -1,0 +1,2040 @@
+long;str;
+1;Felsbeißer 3;xxxx
+2;Frostbrand 1;xxxx
+3;Flammenzunge 3;xxxx
+4;Flammenzunge 2;xxxx
+5;Flammenzunge 1;xxxx
+6;Felsbeißer 2;xxxx
+7;Tödliches Gift;xxxx
+8;Tödliches Gift II;xxxx
+9;Gift (15 Schaden);xxxx
+10;Gift (20 Schaden);xxxx
+11;Gift (25 Schaden);xxxx
+12;Frostbrand 2;xxxx
+13;Geschärft (+3 Schaden);xxxx
+14;Geschärft (+4 Schaden);xxxx
+15;Verstärkt (+8 Rüstung);xxxx
+16;Verstärkt (+16 Rüstung);xxxx
+17;Verstärkt (+24 Rüstung);xxxx
+18;Verstärkt (+32 Rüstung);xxxx
+19;Beschwert (+2 Schaden);xxxx
+20;Beschwert (+3 Schaden);xxxx
+21;Beschwert (+4 Schaden);xxxx
+22;Verkrüppelungsgift;xxxx
+23;Gedankenbenebelndes Gift II;xxxx
+24;+5 Mana;xxxx
+25;Schattenöl;xxxx
+26;Frostöl;xxxx
+27;Zerrissen;xxxx
+28;+4 alle Widerstandsarten;xxxx
+29;Felsbeißer 1;xxxx
+30;Zielfernrohr (+1 Schaden);xxxx
+31;+4 Wildtiertötung;xxxx
+32;Zielfernrohr (+2 Schaden);xxxx
+33;Zielfernrohr (+3 Schaden);xxxx
+34;Gegengewicht (+20 Tempowertung);xxxx
+35;Gedankenbenebelndes Gift;xxxx
+36;Verzaubern: Feuer;xxxx
+37;Stahlwaffenkette;xxxx
+38;+5 Verteidigungswertung;xxxx
+39;Geschärft (+1 Schaden);xxxx
+40;Geschärft (+2 Schaden);xxxx
+41;+5 Gesundheit;xxxx
+42;Gift (sofort 20);xxxx
+43;Eisenstachel (8-12);xxxx
+44;Absorption (10);xxxx
+63;Absorption (25);xxxx
+64;+3 Willenskraft;xxxx
+65;+1 alle Widerstandsarten;xxxx
+66;+1 Ausdauer;xxxx
+67;+1 Schaden;xxxx
+68;+1 Stärke;xxxx
+69;+2 Stärke;xxxx
+70;+3 Stärke;xxxx
+71;+1 Ausdauer;xxxx
+72;+2 Ausdauer;xxxx
+73;+3 Ausdauer;xxxx
+74;+1 Beweglichkeit;xxxx
+75;+2 Beweglichkeit;xxxx
+76;+3 Beweglichkeit;xxxx
+77;+2 Schaden;xxxx
+78;+3 Schaden;xxxx
+79;+1 Intelligenz;xxxx
+80;+2 Intelligenz;xxxx
+81;+3 Intelligenz;xxxx
+82;+1 Willenskraft;xxxx
+83;+2 Willenskraft;xxxx
+84;+3 Willenskraft;xxxx
+85;+3 Rüstung;xxxx
+86;+8 Rüstung;xxxx
+87;+12 Rüstung;xxxx
+88;;xxxx
+89;+16 Rüstung;xxxx
+90;+4 Beweglichkeit;xxxx
+91;+5 Beweglichkeit;xxxx
+92;+6 Beweglichkeit;xxxx
+93;+7 Beweglichkeit;xxxx
+94;+4 Intelligenz;xxxx
+95;+5 Intelligenz;xxxx
+96;+6 Intelligenz;xxxx
+97;+7 Intelligenz;xxxx
+98;+4 Willenskraft;xxxx
+99;+5 Willenskraft;xxxx
+100;+6 Willenskraft;xxxx
+101;+7 Willenskraft;xxxx
+102;+4 Ausdauer;xxxx
+103;+5 Ausdauer;xxxx
+104;+6 Ausdauer;xxxx
+105;+7 Ausdauer;xxxx
+106;+4 Stärke;xxxx
+107;+5 Stärke;xxxx
+108;+6 Stärke;xxxx
+109;+7 Stärke;xxxx
+110;+1 Verteidigungswertung;xxxx
+111;+2 Verteidigungswertung;xxxx
+112;+3 Verteidigungswertung;xxxx
+113;+4 Verteidigungswertung;xxxx
+114;+5 Verteidigungswertung;xxxx
+115;+6 Verteidigungswertung;xxxx
+116;+7 Verteidigungswertung;xxxx
+117;+4 Schaden;xxxx
+118;+5 Schaden;xxxx
+119;+6 Schaden;xxxx
+120;+7 Schaden;xxxx
+121;+20 Rüstung;xxxx
+122;+24 Rüstung;xxxx
+123;+28 Rüstung;xxxx
+124;Totem der Flammenzunge 1;xxxx
+125;+1 Schwertfertigkeit;xxxx
+126;+2 Schwertfertigkeit;xxxx
+127;+3 Schwertfertigkeit;xxxx
+128;+4 Schwertfertigkeit;xxxx
+129;+5 Schwertfertigkeit;xxxx
+130;+6 Schwertfertigkeit;xxxx
+131;+7 Schwertfertigkeit;xxxx
+132;+1 Zweihandschwertfertigkeit;xxxx
+133;+2 Zweihandschwertfertigkeit;xxxx
+134;+3 Zweihandschwertfertigkeit;xxxx
+135;+4 Zweihandschwertfertigkeit;xxxx
+136;+5 Zweihandschwertfertigkeit;xxxx
+137;+6 Zweihandschwertfertigkeit;xxxx
+138;+7 Zweihandschwertfertigkeit;xxxx
+139;+1 Streitkolbenfertigkeit;xxxx
+140;+2 Streitkolbenfertigkeit;xxxx
+141;+3 Streitkolbenfertigkeit;xxxx
+142;+4 Streitkolbenfertigkeit;xxxx
+143;+5 Streitkolbenfertigkeit;xxxx
+144;+6 Streitkolbenfertigkeit;xxxx
+145;+7 Streitkolbenfertigkeit;xxxx
+146;+1 Zweihandstreitkolbenfertigkeit;xxxx
+147;+2 Zweihandstreitkolbenfertigkeit;xxxx
+148;+3 Zweihandstreitkolbenfertigkeit;xxxx
+149;+4 Zweihandstreitkolbenfertigkeit;xxxx
+150;+5 Zweihandstreitkolbenfertigkeit;xxxx
+151;+6 Zweihandstreitkolbenfertigkeit;xxxx
+152;+7 Zweihandstreitkolbenfertigkeit;xxxx
+153;+1 Axtfertigkeit;xxxx
+154;+2 Axtfertigkeit;xxxx
+155;+3 Axtfertigkeit;xxxx
+156;+4 Axtfertigkeit;xxxx
+157;+5 Axtfertigkeit;xxxx
+158;+6 Axtfertigkeit;xxxx
+159;+7 Axtfertigkeit;xxxx
+160;+1 Zweihandaxtfertigkeit;xxxx
+161;+2 Zweihandaxtfertigkeit;xxxx
+162;+3 Zweihandaxtfertigkeit;xxxx
+163;+4 Zweihandaxtfertigkeit;xxxx
+164;+5 Zweihandaxtfertigkeit;xxxx
+165;+6 Zweihandaxtfertigkeit;xxxx
+166;+7 Zweihandaxtfertigkeit;xxxx
+167;+1 Dolchfertigkeit;xxxx
+168;+2 Dolchfertigkeit;xxxx
+169;+3 Dolchfertigkeit;xxxx
+170;+4 Dolchfertigkeit;xxxx
+171;+5 Dolchfertigkeit;xxxx
+172;+6 Dolchfertigkeit;xxxx
+173;+7 Dolchfertigkeit;xxxx
+174;+1 Schusswaffenfertigkeit;xxxx
+175;+2 Schusswaffenfertigkeit;xxxx
+176;+3 Schusswaffenfertigkeit;xxxx
+177;+4 Schusswaffenfertigkeit;xxxx
+178;+5 Schusswaffenfertigkeit;xxxx
+179;+6 Schusswaffenfertigkeit;xxxx
+180;+7 Schusswaffenfertigkeit;xxxx
+181;+1 Bogenfertigkeit;xxxx
+182;+2 Bogenfertigkeit;xxxx
+183;+3 Bogenfertigkeit;xxxx
+184;+4 Bogenfertigkeit;xxxx
+185;+5 Bogenfertigkeit;xxxx
+186;+6 Bogenfertigkeit;xxxx
+187;+7 Bogenfertigkeit;xxxx
+188;+2 Wildtiertötung;xxxx
+189;+4 Wildtiertötung;xxxx
+190;+6 Wildtiertötung;xxxx
+191;+8 Wildtiertötung;xxxx
+192;+10 Wildtiertötung;xxxx
+193;+12 Wildtiertötung;xxxx
+194;+14 Wildtiertötung;xxxx
+195;+14 Kritische Trefferwertung;xxxx
+196;+28 Kritische Trefferwertung;xxxx
+197;+42 Kritische Trefferwertung;xxxx
+198;+56 Kritische Trefferwertung;xxxx
+199;10% bei getroffen werden: Schattenblitz (10 Schaden);xxxx
+200;10% bei getroffen werden: Schattenblitz (20 Schaden);xxxx
+201;10% bei getroffen werden: Schattenblitz (30 Schaden);xxxx
+202;10% bei getroffen werden: Schattenblitz (40 Schaden);xxxx
+203;10% bei getroffen werden: Schattenblitz (50 Schaden);xxxx
+204;10% bei getroffen werden: Schattenblitz (60 Schaden);xxxx
+205;10% bei getroffen werden: Schattenblitz (70 Schaden);xxxx
+206;+1 Zaubermacht;xxxx
+207;+2 Zaubermacht;xxxx
+208;+4 Zaubermacht;xxxx
+209;+5 Zaubermacht;xxxx
+210;+6 Zaubermacht;xxxx
+211;+7 Zaubermacht;xxxx
+212;+8 Zaubermacht;xxxx
+213;+1 Feuerzauberschaden;xxxx
+214;+3 Feuerzauberschaden;xxxx
+215;+4 Feuerzauberschaden;xxxx
+216;+6 Feuerzauberschaden;xxxx
+217;+7 Feuerzauberschaden;xxxx
+218;+9 Feuerzauberschaden;xxxx
+219;+10 Feuerzauberschaden;xxxx
+220;+1 Naturzauberschaden;xxxx
+221;+3 Naturzauberschaden;xxxx
+222;+4 Naturzauberschaden;xxxx
+223;+6 Naturzauberschaden;xxxx
+224;+7 Naturzauberschaden;xxxx
+225;+9 Naturzauberschaden;xxxx
+226;+10 Naturzauberschaden;xxxx
+227;+1 Frostzauberschaden;xxxx
+228;+3 Frostzauberschaden;xxxx
+229;+4 Frostzauberschaden;xxxx
+230;+6 Frostzauberschaden;xxxx
+231;+7 Frostzauberschaden;xxxx
+232;+9 Frostzauberschaden;xxxx
+233;+10 Frostzauberschaden;xxxx
+234;+1 Schattenzauberschaden;xxxx
+235;+3 Schattenzauberschaden;xxxx
+236;+4 Schattenzauberschaden;xxxx
+237;+6 Schattenzauberschaden;xxxx
+238;+7 Schattenzauberschaden;xxxx
+239;+9 Schattenzauberschaden;xxxx
+240;+10 Schattenzauberschaden;xxxx
+241;+2 Waffenschaden;xxxx
+242;+15 Gesundheit;xxxx
+243;+1 Willenskraft;xxxx
+244;+4 Intelligenz;xxxx
+245;+5 Rüstung;xxxx
+246;+20 Mana;xxxx
+247;+1 Beweglichkeit;xxxx
+248;+1 Stärke;xxxx
+249;+2 Wildtiertötung;xxxx
+250;+1 Waffenschaden;xxxx
+251;+1 Intelligenz;xxxx
+252;+6 Willenskraft;xxxx
+253;Absorption (50);xxxx
+254;+25 Gesundheit;xxxx
+255;+3 Willenskraft;xxxx
+256;+5 Feuerwiderstand;xxxx
+257;+10 Rüstung;xxxx
+263;Angelköder (+25 Angelfertigkeit);xxxx
+264;Angelköder (+50 Angelfertigkeit);xxxx
+265;Angelköder (+75 Angelfertigkeit);xxxx
+266;Angelköder (+100 Angelfertigkeit);xxxx
+283;Windzorn 1;xxxx
+284;Windzorn 2;xxxx
+285;Totem der Flammenzunge 2;xxxx
+286;+2 Waffenfeuerschaden;xxxx
+287;+4 Waffenfeuerschaden;xxxx
+288;+6 Waffenfeuerschaden;xxxx
+289;+8 Waffenfeuerschaden;xxxx
+290;+10 Waffenfeuerschaden;xxxx
+291;+12 Waffenfeuerschaden;xxxx
+292;+14 Waffenfeuerschaden;xxxx
+303;Feuerkugel;xxxx
+323;Sofort wirkendes Gift;xxxx
+324;Sofort wirkendes Gift II;xxxx
+325;Sofort wirkendes Gift III;xxxx
+343;+8 Beweglichkeit;xxxx
+344;+32 Rüstung;xxxx
+345;+40 Rüstung;xxxx
+346;+36 Rüstung;xxxx
+347;+44 Rüstung;xxxx
+348;+48 Rüstung;xxxx
+349;+9 Beweglichkeit;xxxx
+350;+8 Intelligenz;xxxx
+351;+8 Willenskraft;xxxx
+352;+8 Stärke;xxxx
+353;+8 Ausdauer;xxxx
+354;+9 Intelligenz;xxxx
+355;+9 Willenskraft;xxxx
+356;+9 Ausdauer;xxxx
+357;+9 Stärke;xxxx
+358;+10 Beweglichkeit;xxxx
+359;+10 Intelligenz;xxxx
+360;+10 Willenskraft;xxxx
+361;+10 Ausdauer;xxxx
+362;+10 Stärke;xxxx
+363;+11 Beweglichkeit;xxxx
+364;+11 Intelligenz;xxxx
+365;+11 Willenskraft;xxxx
+366;+11 Ausdauer;xxxx
+367;+11 Stärke;xxxx
+368;+12 Beweglichkeit;xxxx
+369;+12 Intelligenz;xxxx
+370;+12 Willenskraft;xxxx
+371;+12 Ausdauer;xxxx
+372;+12 Stärke;xxxx
+383;+52 Rüstung;xxxx
+384;+56 Rüstung;xxxx
+385;+60 Rüstung;xxxx
+386;+16 Rüstung;xxxx
+387;+17 Rüstung;xxxx
+388;+18 Rüstung;xxxx
+389;+19 Rüstung;xxxx
+403;+13 Beweglichkeit;xxxx
+404;+14 Beweglichkeit;xxxx
+405;+13 Intelligenz;xxxx
+406;+14 Intelligenz;xxxx
+407;+13 Willenskraft;xxxx
+408;+14 Willenskraft;xxxx
+409;+13 Ausdauer;xxxx
+410;+13 Stärke;xxxx
+411;+14 Ausdauer;xxxx
+412;+14 Stärke;xxxx
+423;+1 Zaubermacht;xxxx
+424;+2 Zaubermacht;xxxx
+425;Black Temple Dummy;xxxx
+426;+5 Zaubermacht;xxxx
+427;+6 Zaubermacht;xxxx
+428;+7 Zaubermacht;xxxx
+429;+8 Zaubermacht;xxxx
+430;+9 Zaubermacht;xxxx
+431;+11 Zaubermacht;xxxx
+432;+12 Zaubermacht;xxxx
+433;+11 Feuerzauberschaden;xxxx
+434;+13 Feuerzauberschaden;xxxx
+435;+14 Feuerzauberschaden;xxxx
+436;+70 Kritische Trefferwertung;xxxx
+437;+11 Frostzauberschaden;xxxx
+438;+13 Frostzauberschaden;xxxx
+439;+14 Frostzauberschaden;xxxx
+440;+9 Zaubermacht;xxxx
+441;+11 Zaubermacht;xxxx
+442;+12 Zaubermacht;xxxx
+443;+11 Naturzauberschaden;xxxx
+444;+13 Naturzauberschaden;xxxx
+445;+14 Naturzauberschaden;xxxx
+446;+11 Schattenzauberschaden;xxxx
+447;+13 Schattenzauberschaden;xxxx
+448;+14 Schattenzauberschaden;xxxx
+463;Mithrilstachel (16-20);xxxx
+464;+4% Reittiertempo;xxxx
+483;Geschärft (+6 Schaden);xxxx
+484;Beschwert (+6 Schaden);xxxx
+503;Felsbeißer 4;xxxx
+504;+80 Felsbeißer;xxxx
+523;Flammenzunge 4;xxxx
+524;Frostbrand 3;xxxx
+525;Windzorn 3;xxxx
+543;Totem der Flammenzunge 3;xxxx
+563;Totem des Windzorns 2;xxxx
+564;Totem des Windzorns 3;xxxx
+583;+1 Beweglichkeit / +1 Willenskraft;xxxx
+584;+1 Beweglichkeit / +1 Intelligenz;xxxx
+585;+1 Beweglichkeit / +1 Ausdauer;xxxx
+586;+1 Beweglichkeit / +1 Stärke;xxxx
+587;+1 Intelligenz / +1 Willenskraft;xxxx
+588;+1 Intelligenz / +1 Ausdauer;xxxx
+589;+1 Intelligenz / +1 Stärke;xxxx
+590;+1 Willenskraft / +1 Ausdauer;xxxx
+591;+1 Willenskraft / +1 Stärke;xxxx
+592;+1 Ausdauer / +1 Stärke;xxxx
+603;Verkrüppelungsgift II;xxxx
+623;Sofort wirkendes Gift IV;xxxx
+624;Sofort wirkendes Gift V;xxxx
+625;Sofort wirkendes Gift VI;xxxx
+626;Tödliches Gift III;xxxx
+627;Tödliches Gift IV;xxxx
+643;Gedankenbenebelndes Gift III;xxxx
+663;Zielfernrohr (+5 Schaden);xxxx
+664;Zielfernrohr (+7 Schaden);xxxx
+683;Felsbeißer 6;xxxx
+684;+15 Stärke;xxxx
+703;Wundgift;xxxx
+704;Wundgift II;xxxx
+705;Wundgift III;xxxx
+706;Wundgift IV;xxxx
+723;+3 Intelligenz;xxxx
+724;+3 Ausdauer;xxxx
+743;+2 Verstohlenheit;xxxx
+744;+20 Rüstung;xxxx
+763;+5 Blockwertung;xxxx
+783;+10 Rüstung;xxxx
+803;Feurige Waffe;xxxx
+804;+10 Schattenwiderstand;xxxx
+805;+4 Waffenschaden;xxxx
+823;+3 Stärke;xxxx
+843;+30 Mana;xxxx
+844;+2 Bergbau;xxxx
+845;+2 Kräuterkunde;xxxx
+846;+5 Angeln;xxxx
+847;+1 alle Werte;xxxx
+848;+30 Rüstung;xxxx
+849;+3 Beweglichkeit;xxxx
+850;+35 Gesundheit;xxxx
+851;+5 Willenskraft;xxxx
+852;+5 Ausdauer;xxxx
+853;+6 Wildtiertötung;xxxx
+854;+6 Elementartöter;xxxx
+855;+5 Feuerwiderstand;xxxx
+856;+5 Stärke;xxxx
+857;+50 Mana;xxxx
+863;+10 Blockwertung;xxxx
+864;+4 Waffenschaden;xxxx
+865;+5 Kürschnerei;xxxx
+866;+2 alle Werte;xxxx
+883;+15 Beweglichkeit;xxxx
+884;+50 Rüstung;xxxx
+903;+3 alle Widerstandsarten;xxxx
+904;+5 Beweglichkeit;xxxx
+905;+5 Intelligenz;xxxx
+906;+5 Bergbau;xxxx
+907;+7 Willenskraft;xxxx
+908;+50 Gesundheit;xxxx
+909;+5 Kräuterkunde;xxxx
+910;Verstohlenheit erhöht;xxxx
+911;Schwache Temposteigerung;xxxx
+912;Dämonentöten;xxxx
+913;+65 Mana;xxxx
+923;+5 Verteidigungswertung;xxxx
+924;+2 Verteidigungswertung;xxxx
+925;+3 Verteidigungswertung;xxxx
+926;+8 Frostwiderstand;xxxx
+927;+7 Stärke;xxxx
+928;+3 alle Werte;xxxx
+929;+7 Ausdauer;xxxx
+930;+2% Reittiertempo;xxxx
+931;+10 Tempowertung;xxxx
+943;+3 Waffenschaden;xxxx
+963;+7 Waffenschaden;xxxx
+983;+16 Beweglichkeit;xxxx
+1003;Gifthautsekret;xxxx
+1023;Rückkopplung 1;xxxx
+1043;+16 Stärke;xxxx
+1044;+17 Stärke;xxxx
+1045;+18 Stärke;xxxx
+1046;+19 Stärke;xxxx
+1047;+20 Stärke;xxxx
+1048;+21 Stärke;xxxx
+1049;+22 Stärke;xxxx
+1050;+23 Stärke;xxxx
+1051;+24 Stärke;xxxx
+1052;+25 Stärke;xxxx
+1053;+26 Stärke;xxxx
+1054;+27 Stärke;xxxx
+1055;+28 Stärke;xxxx
+1056;+29 Stärke;xxxx
+1057;+30 Stärke;xxxx
+1058;+31 Stärke;xxxx
+1059;+32 Stärke;xxxx
+1060;+33 Stärke;xxxx
+1061;+34 Stärke;xxxx
+1062;+35 Stärke;xxxx
+1063;+36 Stärke;xxxx
+1064;+37 Stärke;xxxx
+1065;+38 Stärke;xxxx
+1066;+39 Stärke;xxxx
+1067;+40 Stärke;xxxx
+1068;+15 Ausdauer;xxxx
+1069;+16 Ausdauer;xxxx
+1070;+17 Ausdauer;xxxx
+1071;+18 Ausdauer;xxxx
+1072;+19 Ausdauer;xxxx
+1073;+20 Ausdauer;xxxx
+1074;+21 Ausdauer;xxxx
+1075;+22 Ausdauer;xxxx
+1076;+23 Ausdauer;xxxx
+1077;+24 Ausdauer;xxxx
+1078;+25 Ausdauer;xxxx
+1079;+26 Ausdauer;xxxx
+1080;+27 Ausdauer;xxxx
+1081;+28 Ausdauer;xxxx
+1082;+29 Ausdauer;xxxx
+1083;+30 Ausdauer;xxxx
+1084;+31 Ausdauer;xxxx
+1085;+32 Ausdauer;xxxx
+1086;+33 Ausdauer;xxxx
+1087;+34 Ausdauer;xxxx
+1088;+35 Ausdauer;xxxx
+1089;+36 Ausdauer;xxxx
+1090;+37 Ausdauer;xxxx
+1091;+38 Ausdauer;xxxx
+1092;+39 Ausdauer;xxxx
+1093;+40 Ausdauer;xxxx
+1094;+17 Beweglichkeit;xxxx
+1095;+18 Beweglichkeit;xxxx
+1096;+19 Beweglichkeit;xxxx
+1097;+20 Beweglichkeit;xxxx
+1098;+21 Beweglichkeit;xxxx
+1099;+22 Beweglichkeit;xxxx
+1100;+23 Beweglichkeit;xxxx
+1101;+24 Beweglichkeit;xxxx
+1102;+25 Beweglichkeit;xxxx
+1103;+26 Beweglichkeit;xxxx
+1104;+27 Beweglichkeit;xxxx
+1105;+28 Beweglichkeit;xxxx
+1106;+29 Beweglichkeit;xxxx
+1107;+30 Beweglichkeit;xxxx
+1108;+31 Beweglichkeit;xxxx
+1109;+32 Beweglichkeit;xxxx
+1110;+33 Beweglichkeit;xxxx
+1111;+34 Beweglichkeit;xxxx
+1112;+35 Beweglichkeit;xxxx
+1113;+36 Beweglichkeit;xxxx
+1114;+37 Beweglichkeit;xxxx
+1115;+38 Beweglichkeit;xxxx
+1116;+39 Beweglichkeit;xxxx
+1117;+40 Beweglichkeit;xxxx
+1118;+15 Intelligenz;xxxx
+1119;+16 Intelligenz;xxxx
+1120;+17 Intelligenz;xxxx
+1121;+18 Intelligenz;xxxx
+1122;+19 Intelligenz;xxxx
+1123;+20 Intelligenz;xxxx
+1124;+21 Intelligenz;xxxx
+1125;+22 Intelligenz;xxxx
+1126;+23 Intelligenz;xxxx
+1127;+24 Intelligenz;xxxx
+1128;+25 Intelligenz;xxxx
+1129;+26 Intelligenz;xxxx
+1130;+27 Intelligenz;xxxx
+1131;+28 Intelligenz;xxxx
+1132;+29 Intelligenz;xxxx
+1133;+30 Intelligenz;xxxx
+1134;+31 Intelligenz;xxxx
+1135;+32 Intelligenz;xxxx
+1136;+33 Intelligenz;xxxx
+1137;+34 Intelligenz;xxxx
+1138;+35 Intelligenz;xxxx
+1139;+36 Intelligenz;xxxx
+1140;+37 Intelligenz;xxxx
+1141;+38 Intelligenz;xxxx
+1142;+39 Intelligenz;xxxx
+1143;+40 Intelligenz;xxxx
+1144;+15 Willenskraft;xxxx
+1145;+16 Willenskraft;xxxx
+1146;+17 Willenskraft;xxxx
+1147;+18 Willenskraft;xxxx
+1148;+19 Willenskraft;xxxx
+1149;+20 Willenskraft;xxxx
+1150;+21 Willenskraft;xxxx
+1151;+22 Willenskraft;xxxx
+1152;+23 Willenskraft;xxxx
+1153;+24 Willenskraft;xxxx
+1154;+25 Willenskraft;xxxx
+1155;+26 Willenskraft;xxxx
+1156;+27 Willenskraft;xxxx
+1157;+28 Willenskraft;xxxx
+1158;+29 Willenskraft;xxxx
+1159;+30 Willenskraft;xxxx
+1160;+31 Willenskraft;xxxx
+1161;+32 Willenskraft;xxxx
+1162;+33 Willenskraft;xxxx
+1163;+34 Willenskraft;xxxx
+1164;+36 Willenskraft;xxxx
+1165;+37 Willenskraft;xxxx
+1166;+38 Willenskraft;xxxx
+1167;+39 Willenskraft;xxxx
+1168;+40 Willenskraft;xxxx
+1183;+35 Willenskraft;xxxx
+1203;+41 Stärke;xxxx
+1204;+42 Stärke;xxxx
+1205;+43 Stärke;xxxx
+1206;+44 Stärke;xxxx
+1207;+45 Stärke;xxxx
+1208;+46 Stärke;xxxx
+1209;+41 Ausdauer;xxxx
+1210;+42 Ausdauer;xxxx
+1211;+43 Ausdauer;xxxx
+1212;+44 Ausdauer;xxxx
+1213;+45 Ausdauer;xxxx
+1214;+46 Ausdauer;xxxx
+1215;+41 Beweglichkeit;xxxx
+1216;+42 Beweglichkeit;xxxx
+1217;+43 Beweglichkeit;xxxx
+1218;+44 Beweglichkeit;xxxx
+1219;+45 Beweglichkeit;xxxx
+1220;+46 Beweglichkeit;xxxx
+1221;+41 Intelligenz;xxxx
+1222;+42 Intelligenz;xxxx
+1223;+43 Intelligenz;xxxx
+1224;+44 Intelligenz;xxxx
+1225;+45 Intelligenz;xxxx
+1226;+46 Intelligenz;xxxx
+1227;+41 Willenskraft;xxxx
+1228;+42 Willenskraft;xxxx
+1229;+43 Willenskraft;xxxx
+1230;+44 Willenskraft;xxxx
+1231;+45 Willenskraft;xxxx
+1232;+46 Willenskraft;xxxx
+1243;+1 Arkanwiderstand;xxxx
+1244;+2 Arkanwiderstand;xxxx
+1245;+3 Arkanwiderstand;xxxx
+1246;+4 Arkanwiderstand;xxxx
+1247;+5 Arkanwiderstand;xxxx
+1248;+6 Arkanwiderstand;xxxx
+1249;+7 Arkanwiderstand;xxxx
+1250;+8 Arkanwiderstand;xxxx
+1251;+9 Arkanwiderstand;xxxx
+1252;+10 Arkanwiderstand;xxxx
+1253;+11 Arkanwiderstand;xxxx
+1254;+12 Arkanwiderstand;xxxx
+1255;+13 Arkanwiderstand;xxxx
+1256;+14 Arkanwiderstand;xxxx
+1257;+15 Arkanwiderstand;xxxx
+1258;+16 Arkanwiderstand;xxxx
+1259;+17 Arkanwiderstand;xxxx
+1260;+18 Arkanwiderstand;xxxx
+1261;+19 Arkanwiderstand;xxxx
+1262;+20 Arkanwiderstand;xxxx
+1263;+21 Arkanwiderstand;xxxx
+1264;+22 Arkanwiderstand;xxxx
+1265;+23 Arkanwiderstand;xxxx
+1266;+24 Arkanwiderstand;xxxx
+1267;+25 Arkanwiderstand;xxxx
+1268;+26 Arkanwiderstand;xxxx
+1269;+27 Arkanwiderstand;xxxx
+1270;+28 Arkanwiderstand;xxxx
+1271;+29 Arkanwiderstand;xxxx
+1272;+30 Arkanwiderstand;xxxx
+1273;+31 Arkanwiderstand;xxxx
+1274;+32 Arkanwiderstand;xxxx
+1275;+33 Arkanwiderstand;xxxx
+1276;+34 Arkanwiderstand;xxxx
+1277;+35 Arkanwiderstand;xxxx
+1278;+36 Arkanwiderstand;xxxx
+1279;+37 Arkanwiderstand;xxxx
+1280;+38 Arkanwiderstand;xxxx
+1281;+39 Arkanwiderstand;xxxx
+1282;+40 Arkanwiderstand;xxxx
+1283;+41 Arkanwiderstand;xxxx
+1284;+42 Arkanwiderstand;xxxx
+1285;+43 Arkanwiderstand;xxxx
+1286;+44 Arkanwiderstand;xxxx
+1287;+45 Arkanwiderstand;xxxx
+1288;+46 Arkanwiderstand;xxxx
+1289;+1 Frostwiderstand;xxxx
+1290;+2 Frostwiderstand;xxxx
+1291;+3 Frostwiderstand;xxxx
+1292;+4 Frostwiderstand;xxxx
+1293;+5 Frostwiderstand;xxxx
+1294;+6 Frostwiderstand;xxxx
+1295;+7 Frostwiderstand;xxxx
+1296;+8 Frostwiderstand;xxxx
+1297;+9 Frostwiderstand;xxxx
+1298;+10 Frostwiderstand;xxxx
+1299;+11 Frostwiderstand;xxxx
+1300;+12 Frostwiderstand;xxxx
+1301;+13 Frostwiderstand;xxxx
+1302;+14 Frostwiderstand;xxxx
+1303;+15 Frostwiderstand;xxxx
+1304;+16 Frostwiderstand;xxxx
+1305;+17 Frostwiderstand;xxxx
+1306;+18 Frostwiderstand;xxxx
+1307;+19 Frostwiderstand;xxxx
+1308;+20 Frostwiderstand;xxxx
+1309;+21 Frostwiderstand;xxxx
+1310;+22 Frostwiderstand;xxxx
+1311;+23 Frostwiderstand;xxxx
+1312;+24 Frostwiderstand;xxxx
+1313;+25 Frostwiderstand;xxxx
+1314;+26 Frostwiderstand;xxxx
+1315;+27 Frostwiderstand;xxxx
+1316;+28 Frostwiderstand;xxxx
+1317;+29 Frostwiderstand;xxxx
+1318;+30 Frostwiderstand;xxxx
+1319;+31 Frostwiderstand;xxxx
+1320;+32 Frostwiderstand;xxxx
+1321;+33 Frostwiderstand;xxxx
+1322;+34 Frostwiderstand;xxxx
+1323;+35 Frostwiderstand;xxxx
+1324;+36 Frostwiderstand;xxxx
+1325;+37 Frostwiderstand;xxxx
+1326;+38 Frostwiderstand;xxxx
+1327;+39 Frostwiderstand;xxxx
+1328;+40 Frostwiderstand;xxxx
+1329;+41 Frostwiderstand;xxxx
+1330;+42 Frostwiderstand;xxxx
+1331;+43 Frostwiderstand;xxxx
+1332;+44 Frostwiderstand;xxxx
+1333;+45 Frostwiderstand;xxxx
+1334;+46 Frostwiderstand;xxxx
+1335;+1 Feuerwiderstand;xxxx
+1336;+2 Feuerwiderstand;xxxx
+1337;+3 Feuerwiderstand;xxxx
+1338;+4 Feuerwiderstand;xxxx
+1339;+5 Feuerwiderstand;xxxx
+1340;+6 Feuerwiderstand;xxxx
+1341;+7 Feuerwiderstand;xxxx
+1342;+8 Feuerwiderstand;xxxx
+1343;+9 Feuerwiderstand;xxxx
+1344;+10 Feuerwiderstand;xxxx
+1345;+11 Feuerwiderstand;xxxx
+1346;+12 Feuerwiderstand;xxxx
+1347;+13 Feuerwiderstand;xxxx
+1348;+14 Feuerwiderstand;xxxx
+1349;+15 Feuerwiderstand;xxxx
+1350;+16 Feuerwiderstand;xxxx
+1351;+17 Feuerwiderstand;xxxx
+1352;+18 Feuerwiderstand;xxxx
+1353;+19 Feuerwiderstand;xxxx
+1354;+20 Feuerwiderstand;xxxx
+1355;+21 Feuerwiderstand;xxxx
+1356;+22 Feuerwiderstand;xxxx
+1357;+23 Feuerwiderstand;xxxx
+1358;+24 Feuerwiderstand;xxxx
+1359;+25 Feuerwiderstand;xxxx
+1360;+26 Feuerwiderstand;xxxx
+1361;+27 Feuerwiderstand;xxxx
+1362;+28 Feuerwiderstand;xxxx
+1363;+29 Feuerwiderstand;xxxx
+1364;+30 Feuerwiderstand;xxxx
+1365;+31 Feuerwiderstand;xxxx
+1366;+32 Feuerwiderstand;xxxx
+1367;+33 Feuerwiderstand;xxxx
+1368;+34 Feuerwiderstand;xxxx
+1369;+35 Feuerwiderstand;xxxx
+1370;+36 Feuerwiderstand;xxxx
+1371;+37 Feuerwiderstand;xxxx
+1372;+38 Feuerwiderstand;xxxx
+1373;+39 Feuerwiderstand;xxxx
+1374;+40 Feuerwiderstand;xxxx
+1375;+41 Feuerwiderstand;xxxx
+1376;+42 Feuerwiderstand;xxxx
+1377;+43 Feuerwiderstand;xxxx
+1378;+44 Feuerwiderstand;xxxx
+1379;+45 Feuerwiderstand;xxxx
+1380;+46 Feuerwiderstand;xxxx
+1381;+1 Naturwiderstand;xxxx
+1382;+2 Naturwiderstand;xxxx
+1383;+3 Naturwiderstand;xxxx
+1384;+4 Naturwiderstand;xxxx
+1385;+5 Naturwiderstand;xxxx
+1386;+6 Naturwiderstand;xxxx
+1387;+7 Naturwiderstand;xxxx
+1388;+8 Naturwiderstand;xxxx
+1389;+9 Naturwiderstand;xxxx
+1390;+10 Naturwiderstand;xxxx
+1391;+11 Naturwiderstand;xxxx
+1392;+12 Naturwiderstand;xxxx
+1393;+13 Naturwiderstand;xxxx
+1394;+14 Naturwiderstand;xxxx
+1395;+15 Naturwiderstand;xxxx
+1396;+16 Naturwiderstand;xxxx
+1397;+17 Naturwiderstand;xxxx
+1398;+18 Naturwiderstand;xxxx
+1399;+19 Naturwiderstand;xxxx
+1400;+20 Naturwiderstand;xxxx
+1401;+21 Naturwiderstand;xxxx
+1402;+22 Naturwiderstand;xxxx
+1403;+23 Naturwiderstand;xxxx
+1404;+24 Naturwiderstand;xxxx
+1405;+25 Naturwiderstand;xxxx
+1406;+26 Naturwiderstand;xxxx
+1407;+27 Naturwiderstand;xxxx
+1408;+28 Naturwiderstand;xxxx
+1409;+29 Naturwiderstand;xxxx
+1410;+30 Naturwiderstand;xxxx
+1411;+31 Naturwiderstand;xxxx
+1412;+32 Naturwiderstand;xxxx
+1413;+33 Naturwiderstand;xxxx
+1414;+34 Naturwiderstand;xxxx
+1415;+35 Naturwiderstand;xxxx
+1416;+36 Naturwiderstand;xxxx
+1417;+37 Naturwiderstand;xxxx
+1418;+38 Naturwiderstand;xxxx
+1419;+39 Naturwiderstand;xxxx
+1420;+40 Naturwiderstand;xxxx
+1421;+41 Naturwiderstand;xxxx
+1422;+42 Naturwiderstand;xxxx
+1423;+43 Naturwiderstand;xxxx
+1424;+44 Naturwiderstand;xxxx
+1425;+45 Naturwiderstand;xxxx
+1426;+46 Naturwiderstand;xxxx
+1427;+1 Schattenwiderstand;xxxx
+1428;+2 Schattenwiderstand;xxxx
+1429;+3 Schattenwiderstand;xxxx
+1430;+4 Schattenwiderstand;xxxx
+1431;+5 Schattenwiderstand;xxxx
+1432;+6 Schattenwiderstand;xxxx
+1433;+7 Schattenwiderstand;xxxx
+1434;+8 Schattenwiderstand;xxxx
+1435;+9 Schattenwiderstand;xxxx
+1436;+10 Schattenwiderstand;xxxx
+1437;+11 Schattenwiderstand;xxxx
+1438;+12 Schattenwiderstand;xxxx
+1439;+13 Schattenwiderstand;xxxx
+1440;+14 Schattenwiderstand;xxxx
+1441;+15 Schattenwiderstand;xxxx
+1442;+16 Schattenwiderstand;xxxx
+1443;+17 Schattenwiderstand;xxxx
+1444;+18 Schattenwiderstand;xxxx
+1445;+19 Schattenwiderstand;xxxx
+1446;+20 Schattenwiderstand;xxxx
+1447;+21 Schattenwiderstand;xxxx
+1448;+22 Schattenwiderstand;xxxx
+1449;+23 Schattenwiderstand;xxxx
+1450;+24 Schattenwiderstand;xxxx
+1451;+25 Schattenwiderstand;xxxx
+1452;+26 Schatten widerstehen;xxxx
+1453;+27 Schattenwiderstand;xxxx
+1454;+28 Schattenwiderstand;xxxx
+1455;+29 Schattenwiderstand;xxxx
+1456;+30 Schattenwiderstand;xxxx
+1457;+31 Schattenwiderstand;xxxx
+1458;+32 Schattenwiderstand;xxxx
+1459;+33 Schattenwiderstand;xxxx
+1460;+34 Schattenwiderstand;xxxx
+1461;+35 Schattenwiderstand;xxxx
+1462;+36 Schattenwiderstand;xxxx
+1463;+37 Schattenwiderstand;xxxx
+1464;+38 Schattenwiderstand;xxxx
+1465;+39 Schattenwiderstand;xxxx
+1466;+40 Schattenwiderstand;xxxx
+1467;+41 Schattenwiderstand;xxxx
+1468;+42 Schattenwiderstand;xxxx
+1469;+43 Schattenwiderstand;xxxx
+1470;+44 Schattenwiderstand;xxxx
+1471;+45 Schattenwiderstand;xxxx
+1472;+46 Schattenwiderstand;xxxx
+1483;+150 Mana;xxxx
+1503;+100 Gesundheit;xxxx
+1504;+125 Rüstung;xxxx
+1505;+20 Feuerwiderstand;xxxx
+1506;+8 Stärke;xxxx
+1507;+8 Ausdauer;xxxx
+1508;+8 Beweglichkeit;xxxx
+1509;+8 Intelligenz;xxxx
+1510;+8 Willenskraft;xxxx
+1523;MANA/FW +85/14;xxxx
+1524;GP/FW +75/14;xxxx
+1525;RK/FW +110/14;xxxx
+1526;KRA/FW +10/14;xxxx
+1527;AUS/FW +10/14;xxxx
+1528;BEW/FW +10/14;xxxx
+1529;INT/FW +10/14;xxxx
+1530;GEI/FW +10/14;xxxx
+1531;KRA/AUS +10/10;xxxx
+1532;KRA/AUS/RK/FW +10/10/110/15;xxxx
+1543;INT/GEI/MANA/FW +10/10/100/15;xxxx
+1563;+2 Angriffskraft;xxxx
+1583;+4 Angriffskraft;xxxx
+1584;+6 Angriffskraft;xxxx
+1585;+8 Angriffskraft;xxxx
+1586;+10 Angriffskraft;xxxx
+1587;+12 Angriffskraft;xxxx
+1588;+14 Angriffskraft;xxxx
+1589;+16 Angriffskraft;xxxx
+1590;+18 Angriffskraft;xxxx
+1591;+20 Angriffskraft;xxxx
+1592;+22 Angriffskraft;xxxx
+1593;+24 Angriffskraft;xxxx
+1594;+26 Angriffskraft;xxxx
+1595;+28 Angriffskraft;xxxx
+1596;+30 Angriffskraft;xxxx
+1597;+32 Angriffskraft;xxxx
+1598;+34 Angriffskraft;xxxx
+1599;+36 Angriffskraft;xxxx
+1600;+38 Angriffskraft;xxxx
+1601;+32 Angriffskraft;xxxx
+1602;+42 Angriffskraft;xxxx
+1603;+44 Angriffskraft;xxxx
+1604;+46 Angriffskraft;xxxx
+1605;+48 Angriffskraft;xxxx
+1606;+50 Angriffskraft;xxxx
+1607;+52 Angriffskraft;xxxx
+1608;+54 Angriffskraft;xxxx
+1609;+56 Angriffskraft;xxxx
+1610;+58 Angriffskraft;xxxx
+1611;+60 Angriffskraft;xxxx
+1612;+62 Angriffskraft;xxxx
+1613;+64 Angriffskraft;xxxx
+1614;+66 Angriffskraft;xxxx
+1615;+68 Angriffskraft;xxxx
+1616;+70 Angriffskraft;xxxx
+1617;+72 Angriffskraft;xxxx
+1618;+74 Angriffskraft;xxxx
+1619;+76 Angriffskraft;xxxx
+1620;+78 Angriffskraft;xxxx
+1621;+80 Angriffskraft;xxxx
+1622;+82 Angriffskraft;xxxx
+1623;+84 Angriffskraft;xxxx
+1624;+86 Angriffskraft;xxxx
+1625;+88 Angriffskraft;xxxx
+1626;+90 Angriffskraft;xxxx
+1627;+92 Angriffskraft;xxxx
+1643;Geschärft (+8 Schaden);xxxx
+1663;Felsbeißer 5;xxxx
+1664;Felsbeißer 7;xxxx
+1665;Flammenzunge 5;xxxx
+1666;Flammenzunge 6;xxxx
+1667;Frostbrand 4;xxxx
+1668;Frostbrand 5;xxxx
+1669;Windzorn 4;xxxx
+1683;Totem der Flammenzunge 4;xxxx
+1703;Beschwert (+8 Schaden);xxxx
+1704;Thoriumstachel (20-30);xxxx
+1723;Omen der Klarsicht;xxxx
+1743;MHTest02;xxxx
+1763;Kaltblütigkeit;xxxx
+1783;Totem des Windzorns 1;xxxx
+1803;Feuerstein 1;xxxx
+1823;Feuerstein 2;xxxx
+1824;Feuerstein 3;xxxx
+1825;Feuerstein 4;xxxx
+1843;Verstärkt (+40 Rüstung);xxxx
+1863;Rückkopplung 2;xxxx
+1864;Rückkopplung 3;xxxx
+1865;Rückkopplung 4;xxxx
+1866;Rückkopplung 5;xxxx
+1883;+7 Intelligenz;xxxx
+1884;+9 Willenskraft;xxxx
+1885;+9 Stärke;xxxx
+1886;+9 Ausdauer;xxxx
+1887;+7 Beweglichkeit;xxxx
+1888;+5 alle Widerstandsarten;xxxx
+1889;+70 Rüstung;xxxx
+1890;Alle 5 Sek. 4 Gesundheit und Mana;xxxx
+1891;+4 alle Werte;xxxx
+1892;+100 Gesundheit;xxxx
+1893;+100 Mana;xxxx
+1894;Eisige Waffe;xxxx
+1895;+9 Schaden;xxxx
+1896;+9 Waffenschaden;xxxx
+1897;+5 Waffenschaden;xxxx
+1898;Lebensdiebstahl;xxxx
+1899;Unheilige Waffe;xxxx
+1900;Kreuzfahrer;xxxx
+1901;+9 Intelligenz;xxxx
+1903;+9 Willenskraft;xxxx
+1904;+9 Intelligenz;xxxx
+1923;+3 Feuerwiderstand;xxxx
+1943;+12 Verteidigungswertung;xxxx
+1944;+8 Verteidigungswertung;xxxx
+1945;+9 Verteidigungswertung;xxxx
+1946;+10 Verteidigungswertung;xxxx
+1947;+11 Verteidigungswertung;xxxx
+1948;+13 Verteidigungwertung;xxxx
+1949;+14 Verteidigungswertung;xxxx
+1950;+15 Verteidigungswertung;xxxx
+1951;+16 Verteidigungswertung;xxxx
+1952;+20 Verteidigungswertung;xxxx
+1953;+22 Verteidigungswertung;xxxx
+1954;+25 Verteidigungswertung;xxxx
+1955;+32 Verteidigungswertung;xxxx
+1956;+17 Verteidigungswertung;xxxx
+1957;+18 Verteidigungswertung;xxxx
+1958;+19 Verteidigungswertung;xxxx
+1959;+21 Verteidigungswertung;xxxx
+1960;+23 Verteidigungswertung;xxxx
+1961;+24 Verteidigungswertung;xxxx
+1962;+26 Verteidigungswertung;xxxx
+1963;+27 Verteidigungswertung;xxxx
+1964;+28 Verteidigungswertung;xxxx
+1965;+29 Verteidigungswertung;xxxx
+1966;+30 Verteidigungswertung;xxxx
+1967;+31 Verteidigungswertung;xxxx
+1968;+33 Verteidigungswertung;xxxx
+1969;+34 Verteidigungswertung;xxxx
+1970;+35 Verteidigungswertung;xxxx
+1971;+36 Verteidigungswertung;xxxx
+1972;+37 Verteidigungswertung;xxxx
+1973;+38 Verteidigungswertung;xxxx
+1983;+5 Blockwertung;xxxx
+1984;+10 Blockwertung;xxxx
+1985;+15 Blockwertung;xxxx
+1986;+20 Blockwertung;xxxx
+1987;Blocken Stufe 14;xxxx
+1988;Blocken Stufe 15;xxxx
+1989;Blocken Stufe 16;xxxx
+1990;Blocken Stufe 17;xxxx
+1991;Blocken Stufe 18;xxxx
+1992;Blocken Stufe 19;xxxx
+1993;Blocken Stufe 20;xxxx
+1994;Blocken Stufe 21;xxxx
+1995;Blocken Stufe 22;xxxx
+1996;Blocken Stufe 23;xxxx
+1997;Blocken Stufe 24;xxxx
+1998;Blocken Stufe 25;xxxx
+1999;Blocken Stufe 26;xxxx
+2000;Blocken Stufe 27;xxxx
+2001;Blocken Stufe 28;xxxx
+2002;Blocken Stufe 29;xxxx
+2003;Blocken Stufe 30;xxxx
+2004;Blocken Stufe 31;xxxx
+2005;Blocken Stufe 32;xxxx
+2006;Blocken Stufe 33;xxxx
+2007;Blocken Stufe 34;xxxx
+2008;Blocken Stufe 35;xxxx
+2009;Blocken Stufe 36;xxxx
+2010;Blocken Stufe 37;xxxx
+2011;Blocken Stufe 38;xxxx
+2012;Blocken Stufe 39;xxxx
+2013;Blocken Stufe 40;xxxx
+2014;Blocken Stufe 41;xxxx
+2015;Blocken Stufe 42;xxxx
+2016;Blocken Stufe 43;xxxx
+2017;Blocken Stufe 44;xxxx
+2018;Blocken Stufe 45;xxxx
+2019;Blocken Stufe 46;xxxx
+2020;Blocken Stufe 47;xxxx
+2021;Blocken Stufe 48;xxxx
+2022;Blocken Stufe 49;xxxx
+2023;Blocken Stufe 50;xxxx
+2024;Blocken Stufe 51;xxxx
+2025;Blocken Stufe 52;xxxx
+2026;Blocken Stufe 53;xxxx
+2027;Blocken Stufe 54;xxxx
+2028;Blocken Stufe 55;xxxx
+2029;Blocken Stufe 56;xxxx
+2030;Blocken Stufe 57;xxxx
+2031;Blocken Stufe 58;xxxx
+2032;Blocken Stufe 59;xxxx
+2033;Blocken Stufe 60;xxxx
+2034;Blocken Stufe 61;xxxx
+2035;Blocken Stufe 62;xxxx
+2036;Blocken Stufe 63;xxxx
+2037;Blocken Stufe 64;xxxx
+2038;Blocken Stufe 65;xxxx
+2039;Blocken Stufe 66;xxxx
+2040;+2 Distanzangriffskraft;xxxx
+2041;+5 Distanzangriffskraft;xxxx
+2042;+7 Distanzangriffskraft;xxxx
+2043;+10 Distanzangriffskraft;xxxx
+2044;+12 Distanzangriffskraft;xxxx
+2045;+14 Distanzangriffskraft;xxxx
+2046;+17 Distanzangriffskraft;xxxx
+2047;+19 Distanzangriffskraft;xxxx
+2048;+22 Distanzangriffskraft;xxxx
+2049;+24 Distanzangriffskraft;xxxx
+2050;+26 Distanzangriffskraft;xxxx
+2051;+29 Distanzangriffskraft;xxxx
+2052;+31 Distanzangriffskraft;xxxx
+2053;+34 Distanzangriffskraft;xxxx
+2054;+36 Distanzangriffskraft;xxxx
+2055;+38 Distanzangriffskraft;xxxx
+2056;+41 Distanzangriffskraft;xxxx
+2057;+43 Distanzangriffskraft;xxxx
+2058;+46 Distanzangriffskraft;xxxx
+2059;+48 Distanzangriffskraft;xxxx
+2060;+50 Distanzangriffskraft;xxxx
+2061;+53 Distanzangriffskraft;xxxx
+2062;+55 Distanzangriffskraft;xxxx
+2063;+58 Distanzangriffskraft;xxxx
+2064;+60 Distanzangriffskraft;xxxx
+2065;+62 Distanzangriffskraft;xxxx
+2066;+65 Distanzangriffskraft;xxxx
+2067;+67 Distanzangriffskraft;xxxx
+2068;+70 Distanzangriffskraft;xxxx
+2069;+72 Distanzangriffskraft;xxxx
+2070;+74 Distanzangriffskraft;xxxx
+2071;+77 Distanzangriffskraft;xxxx
+2072;+79 Distanzangriffskraft;xxxx
+2073;+82 Distanzangriffskraft;xxxx
+2074;+84 Distanzangriffskraft;xxxx
+2075;+86 Distanzangriffskraft;xxxx
+2076;+89 Distanzangriffskraft;xxxx
+2077;+91 Distanzangriffskraft;xxxx
+2078;+12 Ausweichwertung;xxxx
+2079;+1 Arkanzauberschaden;xxxx
+2080;+3 Arkanzauberschaden;xxxx
+2081;+4 Arkanzauberschaden;xxxx
+2082;+6 Arkanzauberschaden;xxxx
+2083;+7 Arkanzauberschaden;xxxx
+2084;+9 Arkanzauberschaden;xxxx
+2085;+10 Arkanzauberschaden;xxxx
+2086;+11 Arkanzauberschaden;xxxx
+2087;+13 Arkanzauberschaden;xxxx
+2088;+14 Arkanzauberschaden;xxxx
+2089;+16 Arkanzauberschaden;xxxx
+2090;+17 Arkanzauberschaden;xxxx
+2091;+19 Arkanzauberschaden;xxxx
+2092;+20 Arkanzauberschaden;xxxx
+2093;+21 Arkanzauberschaden;xxxx
+2094;+23 Arkanzauberschaden;xxxx
+2095;+24 Arkanzauberschaden;xxxx
+2096;+26 Arkanzauberschaden;xxxx
+2097;+27 Arkanzauberschaden;xxxx
+2098;+29 Arkanzauberschaden;xxxx
+2099;+30 Arkanzauberschaden;xxxx
+2100;+31 Arkanzauberschaden;xxxx
+2101;+33 Arkanzauberschaden;xxxx
+2102;+34 Arkanzauberschaden;xxxx
+2103;+36 Arkanzauberschaden;xxxx
+2104;+37 Arkanzauberschaden;xxxx
+2105;+39 Arkanzauberschaden;xxxx
+2106;+40 Arkanzauberschaden;xxxx
+2107;+41 Arkanzauberschaden;xxxx
+2108;+43 Arkanzauberschaden;xxxx
+2109;+44 Arkanzauberschaden;xxxx
+2110;+46 Arkanzauberschaden;xxxx
+2111;+47 Arkanzauberschaden;xxxx
+2112;+49 Arkanzauberschaden;xxxx
+2113;+50 Arkanzauberschaden;xxxx
+2114;+51 Arkanzauberschaden;xxxx
+2115;+53 Arkanzauberschaden;xxxx
+2116;+54 Arkanzauberschaden;xxxx
+2117;+1 Schattenzauberschaden;xxxx
+2118;+3 Schattenzauberschaden;xxxx
+2119;+4 Schattenzauberschaden;xxxx
+2120;+6 Schattenzauberschaden;xxxx
+2121;+7 Schattenzauberschaden;xxxx
+2122;+9 Schattenzauberschaden;xxxx
+2123;+10 Schattenzauberschaden;xxxx
+2124;+11 Schattenzauberschaden;xxxx
+2125;+13 Schattenzauberschaden;xxxx
+2126;+14 Schattenzauberschaden;xxxx
+2127;+16 Schattenzauberschaden;xxxx
+2128;+17 Schattenzauberschaden;xxxx
+2129;+19 Schattenzauberschaden;xxxx
+2130;+20 Schattenzauberschaden;xxxx
+2131;+21 Schattenzauberschaden;xxxx
+2132;+23 Schattenzauberschaden;xxxx
+2133;+24 Schattenzauberschaden;xxxx
+2134;+26 Schattenzauberschaden;xxxx
+2135;+27 Schattenzauberschaden;xxxx
+2136;+29 Schattenzauberschaden;xxxx
+2137;+30 Schattenzauberschaden;xxxx
+2138;+31 Schattenzauberschaden;xxxx
+2139;+33 Schattenzauberschaden;xxxx
+2140;+34 Schattenzauberschaden;xxxx
+2141;+36 Schattenzauberschaden;xxxx
+2142;+37 Schattenzauberschaden;xxxx
+2143;+39 Schattenzauberschaden;xxxx
+2144;+40 Schattenzauberschaden;xxxx
+2145;+41 Schattenzauberschaden;xxxx
+2146;+43 Schattenzauberschaden;xxxx
+2147;+44 Schattenzauberschaden;xxxx
+2148;+46 Schattenzauberschaden;xxxx
+2149;+47 Schattenzauberschaden;xxxx
+2150;+49 Schattenzauberschaden;xxxx
+2151;+50 Schattenzauberschaden;xxxx
+2152;+51 Schattenzauberschaden;xxxx
+2153;+53 Schattenzauberschaden;xxxx
+2154;+54 Schattenzauberschaden;xxxx
+2155;+1 Feuerzauberschaden;xxxx
+2156;+3 Feuerzauberschaden;xxxx
+2157;+4 Feuerzauberschaden;xxxx
+2158;+6 Feuerzauberschaden;xxxx
+2159;+7 Feuerzauberschaden;xxxx
+2160;+9 Feuerzauberschaden;xxxx
+2161;+10 Feuerzauberschaden;xxxx
+2162;+11 Feuerzauberschaden;xxxx
+2163;+13 Feuerzauberschaden;xxxx
+2164;+14 Feuerzauberschaden;xxxx
+2165;+16 Feuerzauberschaden;xxxx
+2166;+17 Feuerzauberschaden;xxxx
+2167;+19 Feuerzauberschaden;xxxx
+2168;+20 Feuerzauberschaden;xxxx
+2169;+21 Feuerzauberschaden;xxxx
+2170;+23 Feuerzauberschaden;xxxx
+2171;+24 Feuerzauberschaden;xxxx
+2172;+26 Feuerzauberschaden;xxxx
+2173;+27 Feuerzauberschaden;xxxx
+2174;+29 Feuerzauberschaden;xxxx
+2175;+30 Feuerzauberschaden;xxxx
+2176;+31 Feuerzauberschaden;xxxx
+2177;+33 Feuerzauberschaden;xxxx
+2178;+34 Feuerzauberschaden;xxxx
+2179;+36 Feuerzauberschaden;xxxx
+2180;+37 Feuerzauberschaden;xxxx
+2181;+39 Feuerzauberschaden;xxxx
+2182;+40 Feuerzauberschaden;xxxx
+2183;+41 Feuerzauberschaden;xxxx
+2184;+43 Feuerzauberschaden;xxxx
+2185;+44 Feuerzauberschaden;xxxx
+2186;+46 Feuerzauberschaden;xxxx
+2187;+47 Feuerzauberschaden;xxxx
+2188;+49 Feuerzauberschaden;xxxx
+2189;+50 Feuerzauberschaden;xxxx
+2190;+51 Feuerzauberschaden;xxxx
+2191;+53 Feuerzauberschaden;xxxx
+2192;+54 Feuerzauberschaden;xxxx
+2193;+1 Heiligzauberschaden;xxxx
+2194;+3 Heiligzauberschaden;xxxx
+2195;+4 Heiligzauberschaden;xxxx
+2196;+6 Heiligzauberschaden;xxxx
+2197;+7 Heiligzauberschaden;xxxx
+2198;+9 Heiligzauberschaden;xxxx
+2199;+10 Heiligzauberschaden;xxxx
+2200;+11 Heiligzauberschaden;xxxx
+2201;+13 Heiligzauberschaden;xxxx
+2202;+14 Heiligzauberschaden;xxxx
+2203;+16 Heiligzauberschaden;xxxx
+2204;+17 Heiligzauberschaden;xxxx
+2205;+19 Heiligzauberschaden;xxxx
+2206;+20 Heiligzauberschaden;xxxx
+2207;+21 Heiligzauberschaden;xxxx
+2208;+23 Heiligzauberschaden;xxxx
+2209;+24 Heiligzauberschaden;xxxx
+2210;+26 Heiligzauberschaden;xxxx
+2211;+27 Heiligzauberschaden;xxxx
+2212;+29 Heiligzauberschaden;xxxx
+2213;+30 Heiligzauberschaden;xxxx
+2214;+31 Heiligzauberschaden;xxxx
+2215;+33 Heiligzauberschaden;xxxx
+2216;+34 Heiligzauberschaden;xxxx
+2217;+36 Heiligzauberschaden;xxxx
+2218;+37 Heiligzauberschaden;xxxx
+2219;+39 Heiligzauberschaden;xxxx
+2220;+40 Heiligzauberschaden;xxxx
+2221;+41 Heiligzauberschaden;xxxx
+2222;+43 Heiligzauberschaden;xxxx
+2223;+44 Heiligzauberschaden;xxxx
+2224;+46 Heiligzauberschaden;xxxx
+2225;+47 Heiligzauberschaden;xxxx
+2226;+49 Heiligzauberschaden;xxxx
+2227;+50 Heiligzauberschaden;xxxx
+2228;+51 Heiligzauberschaden;xxxx
+2229;+53 Heiligzauberschaden;xxxx
+2230;+54 Heiligzauberschaden;xxxx
+2231;+1 Frostzauberschaden;xxxx
+2232;+3 Frostzauberschaden;xxxx
+2233;+4 Frostzauberschaden;xxxx
+2234;+6 Frostzauberschaden;xxxx
+2235;+7 Frostzauberschaden;xxxx
+2236;+9 Frostzauberschaden;xxxx
+2237;+10 Frostzauberschaden;xxxx
+2238;+11 Frostzauberschaden;xxxx
+2239;+13 Frostzauberschaden;xxxx
+2240;+14 Frostzauberschaden;xxxx
+2241;+16 Frostzauberschaden;xxxx
+2242;+17 Frostzauberschaden;xxxx
+2243;+19 Frostzauberschaden;xxxx
+2244;+20 Frostzauberschaden;xxxx
+2245;+21 Frostzauberschaden;xxxx
+2246;+23 Frostzauberschaden;xxxx
+2247;+24 Frostzauberschaden;xxxx
+2248;+26 Frostzauberschaden;xxxx
+2249;+27 Frostzauberschaden;xxxx
+2250;+29 Frostzauberschaden;xxxx
+2251;+30 Frostzauberschaden;xxxx
+2252;+31 Frostzauberschaden;xxxx
+2253;+33 Frostzauberschaden;xxxx
+2254;+34 Frostzauberschaden;xxxx
+2255;+36 Frostzauberschaden;xxxx
+2256;+37 Frostzauberschaden;xxxx
+2257;+39 Frostzauberschaden;xxxx
+2258;+40 Frostzauberschaden;xxxx
+2259;+41 Frostzauberschaden;xxxx
+2260;+43 Frostzauberschaden;xxxx
+2261;+44 Frostzauberschaden;xxxx
+2262;+46 Frostzauberschaden;xxxx
+2263;+47 Frostzauberschaden;xxxx
+2264;+49 Frostzauberschaden;xxxx
+2265;+50 Frostzauberschaden;xxxx
+2266;+51 Frostzauberschaden;xxxx
+2267;+53 Frostzauberschaden;xxxx
+2268;+54 Frostzauberschaden;xxxx
+2269;+1 Naturzauberschaden;xxxx
+2270;+3 Naturzauberschaden;xxxx
+2271;+4 Naturzauberschaden;xxxx
+2272;+6 Naturzauberschaden;xxxx
+2273;+7 Naturzauberschaden;xxxx
+2274;+9 Naturzauberschaden;xxxx
+2275;+10 Naturzauberschaden;xxxx
+2276;+11 Naturzauberschaden;xxxx
+2277;+13 Naturzauberschaden;xxxx
+2278;+14 Naturzauberschaden;xxxx
+2279;+16 Naturzauberschaden;xxxx
+2280;+17 Naturzauberschaden;xxxx
+2281;+19 Naturzauberschaden;xxxx
+2282;+20 Naturzauberschaden;xxxx
+2283;+21 Naturzauberschaden;xxxx
+2284;+23 Naturzauberschaden;xxxx
+2285;+24 Naturzauberschaden;xxxx
+2286;+26 Naturzauberschaden;xxxx
+2287;+27 Naturzauberschaden;xxxx
+2288;+29 Naturzauberschaden;xxxx
+2289;+30 Naturzauberschaden;xxxx
+2290;+31 Naturzauberschaden;xxxx
+2291;+33 Naturzauberschaden;xxxx
+2292;+34 Naturzauberschaden;xxxx
+2293;+36 Naturzauberschaden;xxxx
+2294;+37 Naturzauberschaden;xxxx
+2295;+39 Naturzauberschaden;xxxx
+2296;+40 Naturzauberschaden;xxxx
+2297;+41 Naturzauberschaden;xxxx
+2298;+43 Naturzauberschaden;xxxx
+2299;+44 Naturzauberschaden;xxxx
+2300;+46 Naturzauberschaden;xxxx
+2301;+47 Naturzauberschaden;xxxx
+2302;+49 Naturzauberschaden;xxxx
+2303;+50 Naturzauberschaden;xxxx
+2304;+51 Naturzauberschaden;xxxx
+2305;+53 Naturzauberschaden;xxxx
+2306;+54 Naturzauberschaden;xxxx
+2307;+1 Zaubermacht;xxxx
+2308;+2 Zaubermacht;xxxx
+2309;+4 Zaubermacht;xxxx
+2310;+5 Zaubermacht;xxxx
+2311;+6 Zaubermacht;xxxx
+2312;+7 Zaubermacht;xxxx
+2313;+8 Zaubermacht;xxxx
+2314;+9 Zaubermacht;xxxx
+2315;+11 Zaubermacht;xxxx
+2316;+12 Zaubermacht;xxxx
+2317;+13 Zaubermacht;xxxx
+2318;+14 Zaubermacht;xxxx
+2319;+15 Zaubermacht;xxxx
+2320;+16 Zaubermacht;xxxx
+2321;+18 Zaubermacht;xxxx
+2322;+19 Zaubermacht;xxxx
+2323;+20 Zaubermacht;xxxx
+2324;+21 Zaubermacht;xxxx
+2325;+22 Zaubermacht;xxxx
+2326;+23 Zaubermacht;xxxx
+2327;+25 Zaubermacht;xxxx
+2328;+26 Zaubermacht;xxxx
+2329;+27 Zaubermacht;xxxx
+2330;+28 Zaubermacht;xxxx
+2331;+29 Zaubermacht;xxxx
+2332;+30 Zaubermacht;xxxx
+2333;+32 Zaubermacht;xxxx
+2334;+33 Zaubermacht;xxxx
+2335;+34 Zaubermacht;xxxx
+2336;+35 Zaubermacht;xxxx
+2337;+36 Zaubermacht;xxxx
+2338;+37 Zaubermacht;xxxx
+2339;+39 Zaubermacht;xxxx
+2340;+40 Zaubermacht;xxxx
+2341;+41 Zaubermacht;xxxx
+2342;+42 Zaubermacht;xxxx
+2343;+43 Zaubermacht;xxxx
+2344;+44 Zaubermacht;xxxx
+2363;Alle 5 Sek. 1 Mana;xxxx
+2364;Alle 5 Sek. 1 Mana;xxxx
+2365;Alle 5 Sek. 1 Mana;xxxx
+2366;Alle 5 Sek. 2 Mana;xxxx
+2367;Alle 5 Sek. 2 Mana;xxxx
+2368;Alle 5 Sek. 2 Mana;xxxx
+2369;Alle 5 Sek. 3 Mana;xxxx
+2370;Alle 5 Sek. 3 Mana;xxxx
+2371;Alle 5 Sek. 4 Mana;xxxx
+2372;Alle 5 Sek. 4 Mana;xxxx
+2373;Alle 5 Sek. 4 Mana;xxxx
+2374;Alle 5 Sek. 5 Mana;xxxx
+2375;Alle 5 Sek. 5 Mana;xxxx
+2376;Alle 5 Sek. 6 Mana;xxxx
+2377;Alle 5 Sek. 6 Mana;xxxx
+2378;Alle 5 Sek. 6 Mana;xxxx
+2379;Alle 5 Sek. 7 Mana;xxxx
+2380;Alle 5 Sek. 7 Mana;xxxx
+2381;Alle 5 Sek. 10 Mana;xxxx
+2382;Alle 5 Sek. 8 Mana;xxxx
+2383;Alle 5 Sek. 8 Mana;xxxx
+2384;Alle 5 Sek. 9 Mana;xxxx
+2385;Alle 5 Sek. 9 Mana;xxxx
+2386;Alle 5 Sek. 10 Mana;xxxx
+2387;Alle 5 Sek. 10 Mana;xxxx
+2388;Alle 5 Sek. 10 Mana;xxxx
+2389;Alle 5 Sek. 11 Mana;xxxx
+2390;Alle 5 Sek. 11 Mana;xxxx
+2391;Alle 5 Sek. 12 Mana;xxxx
+2392;Alle 5 Sek. 12 Mana;xxxx
+2393;Alle 5 Sek. 12 Mana;xxxx
+2394;Alle 5 Sek. 13 Mana;xxxx
+2395;Alle 5 Sek. 13 Mana;xxxx
+2396;Alle 5 Sek. 14 Mana;xxxx
+2397;Alle 5 Sek. 14 Mana;xxxx
+2398;Alle 5 Sek. 14 Mana;xxxx
+2399;Alle 5 Sek. 15 Mana;xxxx
+2400;Alle 5 Sek. 15 Mana;xxxx
+2401;Alle 5 Sek. 1 Gesundheit;xxxx
+2402;Alle 5 Sek. 1 Gesundheit;xxxx
+2403;Alle 5 Sek. 1 Gesundheit;xxxx
+2404;Alle 5 Sek. 1 Gesundheit;xxxx
+2405;Alle 5 Sek. 1 Gesundheit;xxxx
+2406;Alle 5 Sek. 2 Gesundheit;xxxx
+2407;Alle 5 Sek. 2 Gesundheit;xxxx
+2408;Alle 5 Sek. 2 Gesundheit;xxxx
+2409;Alle 5 Sek. 2 Gesundheit;xxxx
+2410;Alle 5 Sek. 3 Gesundheit;xxxx
+2411;Alle 5 Sek. 3 Gesundheit;xxxx
+2412;Alle 5 Sek. 3 Gesundheit;xxxx
+2413;Alle 5 Sek. 3 Gesundheit;xxxx
+2414;Alle 5 Sek. 4 Gesundheit;xxxx
+2415;Alle 5 Sek. 4 Gesundheit;xxxx
+2416;Alle 5 Sek. 4 Gesundheit;xxxx
+2417;Alle 5 Sek. 4 Gesundheit;xxxx
+2418;Alle 5 Sek. 5 Gesundheit;xxxx
+2419;Alle 5 Sek. 5 Gesundheit;xxxx
+2420;Alle 5 Sek. 5 Gesundheit;xxxx
+2421;Alle 5 Sek. 5 Gesundheit;xxxx
+2422;Alle 5 Sek. 6 Gesundheit;xxxx
+2423;Alle 5 Sek. 6 Gesundheit;xxxx
+2424;Alle 5 Sek. 6 Gesundheit;xxxx
+2425;Alle 5 Sek. 6 Gesundheit;xxxx
+2426;Alle 5 Sek. 7 Gesundheit;xxxx
+2427;Alle 5 Sek. 7 Gesundheit;xxxx
+2428;Alle 5 Sek. 7 Gesundheit;xxxx
+2429;Alle 5 Sek. 7 Gesundheit;xxxx
+2430;Alle 5 Sek. 8 Gesundheit;xxxx
+2431;Alle 5 Sek. 8 Gesundheit;xxxx
+2432;Alle 5 Sek. 8 Gesundheit;xxxx
+2433;Alle 5 Sek. 8 Gesundheit;xxxx
+2434;Alle 5 Sek. 9 Gesundheit;xxxx
+2435;Alle 5 Sek. 9 Gesundheit;xxxx
+2436;Alle 5 Sek. 9 Gesundheit;xxxx
+2437;Alle 5 Sek. 9 Gesundheit;xxxx
+2438;Alle 5 Sek. 10 Gesundheit;xxxx
+2443;+7 Frostzauberschaden;xxxx
+2463;+7 Feuerwiderstand;xxxx
+2483;+5 Feuerwiderstand;xxxx
+2484;+5 Frostwiderstand;xxxx
+2485;+5 Arkanwiderstand;xxxx
+2486;+5 Naturwiderstand;xxxx
+2487;+5 Schattenwiderstand;xxxx
+2488;+5 alle Widerstandsarten;xxxx
+2503;+5 Verteidigungswertung;xxxx
+2504;+30 Zaubermacht;xxxx
+2505;+29 Zaubermacht;xxxx
+2506;+28 Kritische Nahkampftrefferwertung;xxxx
+2523;+30 Distanztrefferwertung;xxxx
+2543;+10 Tempowertung;xxxx
+2544;+8 Zaubermacht;xxxx
+2545;+12 Ausweichwertung;xxxx
+2563;+15 Stärke;xxxx
+2564;+15 Beweglichkeit;xxxx
+2565;Alle 5 Sek. 5 Mana;xxxx
+2566;+13 Zaubermacht;xxxx
+2567;+20 Willenskraft;xxxx
+2568;+22 Intelligenz;xxxx
+2583;+10 Verteidigungswertung, +10 Ausdauer und +30 Blockwert;xxxx
+2584;+10 Verteidigung, +10 Ausdauer und +12 Zaubermacht;xxxx
+2585;+28 Angriffskraft / +12 Ausweichwertung;xxxx
+2586;+24 Distanzangriffskraft / +10 Ausdauer / +10 Trefferwertung;xxxx
+2587;+13 Zaubermacht und +15 Intelligenz;xxxx
+2588;+18 Zaubermacht und +8 Trefferwertung;xxxx
+2589;+18 Zaubermacht und +10 Ausdauer;xxxx
+2590;+13 Zaubermacht, +10 Ausdauer und alle 5 Sek. 5 Mana;xxxx
+2591;+10 Intelligenz, +10 Ausdauer und +12 Zaubermacht;xxxx
+2603;+2 Angeln;xxxx
+2604;+18 Zaubermacht;xxxx
+2605;+18 Zaubermacht;xxxx
+2606;+30 Angriffskraft;xxxx
+2607;+12 Zaubermacht;xxxx
+2608;+13 Zaubermacht;xxxx
+2609;+15 Zaubermacht;xxxx
+2610;+14 Zaubermacht;xxxx
+2611;zzOLDBlank;xxxx
+2612;+18 Zaubermacht;xxxx
+2613;+2% Bedrohung;xxxx
+2614;+20 Schattenzaubermacht;xxxx
+2615;+20 Frostzaubermacht;xxxx
+2616;+20 Feuerzaubermacht;xxxx
+2617;+16 Zaubermacht;xxxx
+2618;+15 Beweglichkeit;xxxx
+2619;+15 Feuerwiderstand;xxxx
+2620;+15 Naturwiderstand;xxxx
+2621;2% verringerte Bedrohung;xxxx
+2622;+12 Ausweichwertung;xxxx
+2623;Schwaches Zauberöl;xxxx
+2624;Schwaches Manaöl;xxxx
+2625;Geringes Manaöl;xxxx
+2626;Geringes Zauberöl;xxxx
+2627;Zauberöl;xxxx
+2628;Hervorragendes Zauberöl;xxxx
+2629;Hervorragendes Manaöl;xxxx
+2630;Tödliches Gift V;xxxx
+2631;Rückkopplung 6;xxxx
+2632;Felsbeißer 8;xxxx
+2633;Felsbeißer 9;xxxx
+2634;Flammenzunge 7;xxxx
+2635;Frostbrand 6;xxxx
+2636;Windzorn 5;xxxx
+2637;Totem der Flammenzunge 5;xxxx
+2638;Totem des Windzorns 4;xxxx
+2639;Totem des Windzorns 5;xxxx
+2640;Beruhigendes Gift;xxxx
+2641;Sofort wirkendes Gift VII;xxxx
+2642;Tödliches Gift VI;xxxx
+2643;Tödliches Gift VII;xxxx
+2644;Wundgift V;xxxx
+2645;Feuerstein 5;xxxx
+2646;+25 Beweglichkeit;xxxx
+2647;+12 Stärke;xxxx
+2648;+12 Verteidigungswertung;xxxx
+2649;+12 Ausdauer;xxxx
+2650;+15 Zaubermacht;xxxx
+2651;+12 Zaubermacht;xxxx
+2652;+11 Zaubermacht;xxxx
+2653;+36 Blockwert;xxxx
+2654;+12 Intelligenz;xxxx
+2655;+15 Blockwertung;xxxx
+2656;Alle 5 Sek. 5 Gesundheit und Mana;xxxx
+2657;+12 Beweglichkeit;xxxx
+2658;+10 Trefferwertung und +10 Kritische Trefferwertung;xxxx
+2659;+150 Gesundheit;xxxx
+2660;+150 Mana;xxxx
+2661;+6 alle Werte;xxxx
+2662;+120 Rüstung;xxxx
+2663;+7 alle Widerstandsarten;xxxx
+2664;+7 alle Widerstandsarten;xxxx
+2665;+35 Willenskraft;xxxx
+2666;+30 Intelligenz;xxxx
+2667;+70 Angriffskraft;xxxx
+2668;+20 Stärke;xxxx
+2669;+40 Zaubermacht;xxxx
+2670;+35 Beweglichkeit;xxxx
+2671;+50 Arkan- und Feuerzaubermacht;xxxx
+2672;+54 Schatten- und Frostzaubermacht;xxxx
+2673;Mungo;xxxx
+2674;Zauberflut;xxxx
+2675;Meister des Kampfes;xxxx
+2676;Überragendes Manaöl;xxxx
+2677;Überragendes Manaöl;xxxx
+2678;Überragendes Zauberöl;xxxx
+2679;Alle 5 Sek. 8 Mana;xxxx
+2680;+7 alle Widerstandsarten;xxxx
+2681;+10 Naturwiderstand;xxxx
+2682;+10 Frostwiderstand;xxxx
+2683;+10 Schattenwiderstand;xxxx
+2684;+100 Angriffskraft gegen Untote;xxxx
+2685;+60 Zaubermacht gegen Untote;xxxx
+2702;+12 Beweglichkeit (2 rote Edelsteine);xxxx
+2712;Geschärft (+12 Schaden);xxxx
+2713;Geschärft (+14 Kritische Trefferwertung und +12 Schaden);xxxx
+2714;Teufelsstahlstachel (26-38);xxxx
+2715;+16 Zaubermacht und alle 5 Sek. 6 Mana;xxxx
+2716;+16 Ausdauer und +100 Rüstung;xxxx
+2717;+26 Angriffskraft und +14 Kritische Trefferwertung;xxxx
+2718;Geringe Rune des Schutzes;xxxx
+2719;Geringer Zauberschutz der Abschirmung;xxxx
+2720;Großer Zauberschutz der Abschirmung;xxxx
+2721;+15 Zaubermacht und +14 Kritische Trefferwertung;xxxx
+2722;Zielfernrohr (+10 Schaden);xxxx
+2723;Zielfernrohr (+12 Schaden);xxxx
+2724;Zielfernrohr (+28 Kritische Trefferwertung);xxxx
+2745;+25 Zaubermacht und +15 Ausdauer;xxxx
+2746;+35 Zaubermacht und +20 Ausdauer;xxxx
+2747;+25 Zaubermacht und +15 Ausdauer;xxxx
+2748;+35 Zaubermacht und +20 Ausdauer;xxxx
+2749;+12 Intelligenz;xxxx
+2750;Alle 5 Sek. 6 Mana;xxxx
+2751;+14 Kritische Trefferwertung;xxxx
+2766;+8 Intelligenz;xxxx
+2767;+8 Trefferwertung;xxxx
+2768;+16 Zaubermacht;xxxx
+2769;+11 Trefferwertung;xxxx
+2770;+7 Zaubermacht;xxxx
+2771;+8 Kritische Trefferwertung;xxxx
+2772;+14 Kritische Trefferwertung;xxxx
+2773;+16 Kritische Trefferwertung;xxxx
+2774;+11 Intelligenz;xxxx
+2775;+11 Kritische Trefferwertung;xxxx
+2776;Alle 5 Sek. 3 Mana;xxxx
+2777;+13 Willenskraft;xxxx
+2778;+13 Zauberdurchschlagskraft;xxxx
+2779;+16 Willenskraft;xxxx
+2780;+20 Zauberdurchschlagskraft;xxxx
+2781;+19 Ausdauer;xxxx
+2782;+10 Beweglichkeit;xxxx
+2783;+14 Trefferwertung;xxxx
+2784;+12 Trefferwertung;xxxx
+2785;+13 Trefferwertung;xxxx
+2786;+7 Trefferwertung;xxxx
+2787;+8 Kritische Trefferwertung;xxxx
+2788;+9 Abhärtung;xxxx
+2789;+15 Abhärtung;xxxx
+2790;Geringe Rune des Schutzes;xxxx
+2791;Große Rune des Schutzes;xxxx
+2792;+8 Ausdauer;xxxx
+2793;+8 Verteidigungswertung;xxxx
+2794;Alle 5 Sek. 4 Mana;xxxx
+2795;Bequeme Einlegesohlen;xxxx
+2796;+15 Ausweichwertung;xxxx
+2797;+9 Ausweichwertung;xxxx
+2798;+$i Intelligenz (+$n/+$f);xxxx
+2799;+$i Ausdauer (+$n/+$f);xxxx
+2800;+$i Rüstung (+$n/+$f);xxxx
+2801;+8 Abhärtung;xxxx
+2802;+$i Beweglichkeit;xxxx
+2803;+$i Ausdauer;xxxx
+2804;+$i Intelligenz;xxxx
+2805;+$i Stärke;xxxx
+2806;+$i Willenskraft;xxxx
+2807;+$i Arkanschaden;xxxx
+2808;+$i Feuerschaden;xxxx
+2809;+$i Naturschaden;xxxx
+2810;+$i Frostschaden;xxxx
+2811;+$i Schattenschaden;xxxx
+2812;+$i Heilung;xxxx
+2813;+$i Verteidigungswertung;xxxx
+2814;Alle 5 Sek. $i Gesundheit;xxxx
+2815;+$i Ausweichwertung;xxxx
+2816;Alle 5 Sek. $i Mana;xxxx
+2817;+$i Arkanwiderstand;xxxx
+2818;+$i Feuerwiderstand;xxxx
+2819;+$i Frostwiderstand;xxxx
+2820;+$i Naturwiderstand;xxxx
+2821;+$i Schattenwiderstand;xxxx
+2822;+$i Kritische Trefferwertung;xxxx
+2823;+$i Kritische Trefferwertung;xxxx
+2824;+$i Zaubermacht;xxxx
+2825;+$i Angriffskraft;xxxx
+2826;+$i Blockwertung;xxxx
+2836;Alle 5 Sek. 3 Mana;xxxx
+2837;+7 Willenskraft;xxxx
+2838;+7 Kritische Trefferwertung;xxxx
+2839;+14 Kritische Trefferwertung;xxxx
+2840;+21 Ausdauer;xxxx
+2841;+10 Ausdauer;xxxx
+2842;+8 Willenskraft;xxxx
+2843;+8 Kritische Trefferwertung;xxxx
+2844;+8 Trefferwertung;xxxx
+2845;+11 Trefferwertung;xxxx
+2846;Alle 5 Sek. 4 Mana;xxxx
+2847;Alle 5 Sek. 4 Mana;xxxx
+2848;Alle 5 Sek. 5 Mana;xxxx
+2849;+7 Ausweichwertung;xxxx
+2850;+13 Kritische Trefferwertung;xxxx
+2851;+19 Ausdauer;xxxx
+2852;Alle 5 Sek. 7 Mana;xxxx
+2853;Alle 5 Sek. 8 Mana;xxxx
+2854;Alle 5 Sek. 3 Mana;xxxx
+2855;Alle 5 Sek. 5 Mana;xxxx
+2856;+4 Abhärtungswertung;xxxx
+2857;+2 Kritische Trefferwertung;xxxx
+2858;+2 Kritische Trefferwertung;xxxx
+2859;+3 Abhärtungswertung;xxxx
+2860;+3 Trefferwertung;xxxx
+2861;+3 Verteidigungswertung;xxxx
+2862;+3 Abhärtungswertung;xxxx
+2863;+3 Intelligenz;xxxx
+2864;+4 Kritische Trefferwertung;xxxx
+2865;Alle 5 Sek. 2 Mana;xxxx
+2866;+3 Willenskraft;xxxx
+2867;+2 Abhärtungswertung;xxxx
+2868;+6 Ausdauer;xxxx
+2869;+4 Intelligenz;xxxx
+2870;+3 Parierwertung;xxxx
+2871;+4 Ausweichwertung;xxxx
+2872;+5 Zaubermacht;xxxx
+2873;+4 Trefferwertung;xxxx
+2874;+4 Kritische Trefferwertung;xxxx
+2875;+3 Kritische Trefferwertung;xxxx
+2876;+3 Ausweichwertung;xxxx
+2877;+4 Beweglichkeit;xxxx
+2878;+4 Abhärtungswertung;xxxx
+2879;+3 Stärke;xxxx
+2880;+3 Trefferwertung;xxxx
+2881;Alle 5 Sek. 1 Mana;xxxx
+2882;+6 Ausdauer;xxxx
+2883;+4 Ausdauer;xxxx
+2884;+2 Kritische Trefferwertung;xxxx
+2885;+2 Kritische Trefferwertung;xxxx
+2886;+2 Trefferwertung;xxxx
+2887;+3 Kritische Trefferwertung;xxxx
+2888;+6 Blockwert;xxxx
+2889;+5 Zaubermacht;xxxx
+2890;+4 Willenskraft;xxxx
+2892;+4 Stärke;xxxx
+2893;+3 Beweglichkeit;xxxx
+2895;+4 Ausdauer;xxxx
+2900;+4 Zaubermacht;xxxx
+2901;+2 Zaubermacht;xxxx
+2902;+2 Kritische Trefferwertung;xxxx
+2906;+$i Ausdauer und +$i Intelligenz;xxxx
+2907;+2 Parierwertung;xxxx
+2908;+4 Trefferwertung;xxxx
+2909;+2 Trefferwertung;xxxx
+2910;+3 Zaubermacht;xxxx
+2919;+7 Stärke;xxxx
+2925;+3 Ausdauer;xxxx
+2926;+2 Ausweichwertung;xxxx
+2927;+4 Stärke;xxxx
+2928;+12 Zaubermacht;xxxx
+2929;+2 Waffenschaden;xxxx
+2930;+12 Zaubermacht;xxxx
+2931;+4 alle Werte;xxxx
+2932;+4 Verteidigungswertung;xxxx
+2933;+15 Abhärtungswertung;xxxx
+2934;+10 Kritische Trefferwertung;xxxx
+2935;+15 Trefferwertung;xxxx
+2936;+8 Angriffskraft;xxxx
+2937;+20 Zaubermacht;xxxx
+2938;+20 Zauberdurchschlagskraft;xxxx
+2939;Schwaches Tempo und Beweglichkeit +6;xxxx
+2940;Schwaches Tempo und +9 Ausdauer;xxxx
+2941;+2 Trefferwertung;xxxx
+2951;+4 Kritische Trefferwertung;xxxx
+2952;+4 Kritische Trefferwertung;xxxx
+2953;+2 Zaubermacht;xxxx
+2954;Beschwert (+12 Schaden);xxxx
+2955;Beschwert (+14 Kritische Trefferwertung und +12 Schaden);xxxx
+2972;+4 Blockwertung;xxxx
+2973;+6 Angriffskraft;xxxx
+2974;+4 Zaubermacht;xxxx
+2975;+5 Blockwert;xxxx
+2976;+2 Verteidigungswertung;xxxx
+2977;+13 Ausweichwertung;xxxx
+2978;+15 Ausweichwertung und Verteidigungswertung +10;xxxx
+2979;+15 Zaubermacht;xxxx
+2980;+18 Zaubermacht und alle 5 Sek. 5 Mana;xxxx
+2981;+15 Zaubermacht;xxxx
+2982;+18 Zaubermacht und +10 Kritische Trefferwertung;xxxx
+2983;+26 Angriffskraft;xxxx
+2984;+8 Schattenwiderstand;xxxx
+2985;+8 Feuerwiderstand;xxxx
+2986;+30 Angriffskraft und +10 Kritische Trefferwertung;xxxx
+2987;+8 Frostwiderstand;xxxx
+2988;+8 Naturwiderstand;xxxx
+2989;+8 Arkanwiderstand;xxxx
+2990;+13 Verteidigungswertung;xxxx
+2991;+15 Verteidigungswertung und +10 Ausweichwertung;xxxx
+2992;+6 Manaregeneration;xxxx
+2993;+12 Zaubermacht und alle 5 Sek. 8 Mana;xxxx
+2994;+13 Kritische Trefferwertung;xxxx
+2995;+15 Kritische Trefferwertung und +12 Zaubermacht;xxxx
+2996;+13 Kritische Trefferwertung;xxxx
+2997;+15 Kritische Trefferwertung und +20 Angriffskraft;xxxx
+2998;+7 alle Widerstandsarten;xxxx
+2999;+16 Verteidigungswertung und +17 Ausweichwertung;xxxx
+3000;+18 Ausdauer, +12 Ausweichwertung und +12 Abhärtungswertung;xxxx
+3001;+19 Zaubermacht und alle 5 Sek. 9 Mana;xxxx
+3002;+22 Zaubermacht und +14 Trefferwertung;xxxx
+3003;+34 Angriffskraft und +16 Trefferwertung;xxxx
+3004;+18 Ausdauer und +20 Abhärtungswertung;xxxx
+3005;+20 Naturwiderstand;xxxx
+3006;+20 Arkanwiderstand;xxxx
+3007;+20 Feuerwiderstand;xxxx
+3008;+20 Frostwiderstand;xxxx
+3009;+20 Schattenwiderstand;xxxx
+3010;+40 Angriffskraft und +10 Kritische Trefferwertung;xxxx
+3011;+30 Ausdauer und +10 Beweglichkeit;xxxx
+3012;+50 Angriffskraft und +12 Kritische Trefferwertung;xxxx
+3013;+40 Ausdauer und +12 Beweglichkeit;xxxx
+3014;Totem des Windzorns 5 (St70 Test);xxxx
+3015;+2 Stärke;xxxx
+3016;+2 Intelligenz;xxxx
+3017;+3 Blockwertung;xxxx
+3018;Felsbeißer 9;xxxx
+3019;Felsbeißer 9;xxxx
+3020;Felsbeißer 9;xxxx
+3021;Felsbeißer 1;xxxx
+3022;Felsbeißer 1;xxxx
+3023;Felsbeißer 1;xxxx
+3024;Felsbeißer 2;xxxx
+3025;Felsbeißer 2;xxxx
+3026;Felsbeißer 2;xxxx
+3027;Felsbeißer 3;xxxx
+3028;Felsbeißer 3;xxxx
+3029;Felsbeißer 3;xxxx
+3030;Felsbeißer 4;xxxx
+3031;Felsbeißer 4;xxxx
+3032;Felsbeißer 4;xxxx
+3033;Felsbeißer 5;xxxx
+3034;Felsbeißer 5;xxxx
+3035;Felsbeißer 5;xxxx
+3036;Felsbeißer 6;xxxx
+3037;Felsbeißer 6;xxxx
+3038;Felsbeißer 6;xxxx
+3039;Felsbeißer 7;xxxx
+3040;Felsbeißer 7;xxxx
+3041;Felsbeißer 7;xxxx
+3042;Felsbeißer 8;xxxx
+3043;Felsbeißer 8;xxxx
+3044;Felsbeißer 8;xxxx
+3092;+3 Kritische Trefferwertung;xxxx
+3093;+150 Angriffskraft gegen Untote und Dämonen;xxxx
+3094;+4 Waffenkundewertung;xxxx
+3095;+8 alle Widerstandsarten;xxxx
+3096;+17 Stärke und +16 Intelligenz;xxxx
+3097;+2 Willenskraft;xxxx
+3098;+2 Zaubermacht;xxxx
+3102;Gift;xxxx
+3114;+4 Angriffskraft;xxxx
+3149;+2 Beweglichkeit;xxxx
+3150;Alle 5 Sek. 7 Mana;xxxx
+3151;+2 Zaubermacht;xxxx
+3152;+2 Kritische Trefferwertung;xxxx
+3153;+2 Zaubermacht;xxxx
+3164;+3 Ausdauer;xxxx
+3198;+5 Zaubermacht;xxxx
+3199;+170 Rüstung;xxxx
+3200;+4 Willenskraft und +5 Zaubermacht;xxxx
+3204;+3 Kritische Trefferwertung;xxxx
+3205;+3 Kritische Trefferwertung;xxxx
+3222;+20 Beweglichkeit;xxxx
+3223;Adamantitwaffenkette;xxxx
+3224;+6 Beweglichkeit;xxxx
+3225;Scharfrichter;xxxx
+3227;+10 Kritische Trefferwertung;xxxx
+3228;+34 Angriffskraft;xxxx
+3229;+12 Abhärtungswertung;xxxx
+3230;+20 Frostwiderstand;xxxx
+3231;+15 Waffenkundewertung;xxxx
+3232;+15 Ausdauer und schwache Temposteigerung;xxxx
+3233;+250 Mana;xxxx
+3234;+20 Trefferwertung;xxxx
+3235;+12 alle Widerstandsarten;xxxx
+3236;+200 Gesundheit;xxxx
+3237;+10 Waffenschaden;xxxx
+3238;Sammler;xxxx
+3239;Eisbrecher;xxxx
+3240;+23 Zaubermacht;xxxx
+3241;Lebensschutz;xxxx
+3243;+35 Zauberdurchschlagskraft;xxxx
+3244;Alle 5 Sek. 7 Gesundheit und Mana;xxxx
+3245;+20 Abhärtungswertung;xxxx
+3246;+28 Zaubermacht;xxxx
+3247;+140 Angriffskraft gegen Untote;xxxx
+3248;+18 Waffenkundewertung;xxxx
+3249;+16 Kritische Trefferwertung;xxxx
+3250;Eiswandler;xxxx
+3251;Riesentöten;xxxx
+3252;+8 alle Werte;xxxx
+3253;+2% Bedrohung und +10 Parierwertung;xxxx
+3255;+55 Zaubermacht;xxxx
+3256;+10 Beweglichkeit und erhöhte Verstohlenheit;xxxx
+3257;+54 Zaubermacht;xxxx
+3258;+18 Zaubermacht;xxxx
+3259;+22 Ausdauer;xxxx
+3260;+240 Rüstung;xxxx
+3263;+4 Kritische Trefferwertung;xxxx
+3265;Gesegnete Waffenbeschichtung;xxxx
+3266;Rechtschaffene Waffenbeschichtung;xxxx
+3267;+4 Tempowertung;xxxx
+3269;+3 Angeln;xxxx
+3273;Todeskälte;xxxx
+3279;+3 Zaubermacht;xxxx
+3288;Test Reitgertenverzauberung;xxxx
+3289;+10% Reittiertempo;xxxx
+3290;Federgetriebener Unhangexpander;xxxx
+3291;Test On Use Charges;xxxx
+3294;+225 Rüstung;xxxx
+3295;+16 Tempowertung;xxxx
+3296;+10 Willenskraft und 2% verringerte Bedrohung;xxxx
+3297;+275 Gesundheit;xxxx
+3298;Außergewöhlniches Manaöl;xxxx
+3299;Außergewöhnliches Zauberöl;xxxx
+3300;+19 Zaubermacht;xxxx
+3301;+6 Kritische Trefferwertung;xxxx
+3302;+8 Verteidigungswertung;xxxx
+3303;+8 Tempowertung;xxxx
+3304;+8 Ausweichwertung;xxxx
+3305;+12 Ausdauer;xxxx
+3306;Alle 5 Sek. 2 Mana;xxxx
+3307;+9 Ausdauer;xxxx
+3308;+4 Tempowertung;xxxx
+3309;+6 Tempowertung;xxxx
+3310;+6 Intelligenz;xxxx
+3311;+6 Willenskraft;xxxx
+3312;+8 Stärke;xxxx
+3313;+8 Beweglichkeit;xxxx
+3314;+8 Kritische Trefferwertung;xxxx
+3315;+3% Reittiertempo;xxxx
+3316;+6 Kritische Trefferwertung;xxxx
+3319;Test: Sockelverzauberung hinzufügen;xxxx
+3320;Test Fertigkeitsbedingung Verzauberkunst;xxxx
+3322;Gefrorene Runenwaffe;xxxx
+3325;+45 Ausdauer und +15 Beweglichkeit;xxxx
+3326;+55 Angriffskraft und +15 Kritische Trefferwertung;xxxx
+3327;+55 Ausdauer und +22 Beweglichkeit;xxxx
+3328;+75 Angriffskraft und +22 Kritische Trefferwertung;xxxx
+3329;+12 Ausdauer;xxxx
+3330;+18 Ausdauer;xxxx
+3331;+72 Ausdauer und +35 Beweglichkeit;xxxx
+3332;+100 Angriffskraft und +36 Kritische Trefferwertung;xxxx
+3341;Gefrorene Runenklinge 2;xxxx
+3342;Gefrorene Runenklinge 3;xxxx
+3343;Gefrorene Runenklinge 4;xxxx
+3344;Gefrorene Runenklinge 5;xxxx
+3345;Lebensgeister 1;xxxx
+3346;Lebensgeister 2;xxxx
+3347;Lebensgeister 3;xxxx
+3348;Lebensgeister 4;xxxx
+3349;Lebensgeister 5;xxxx
+3350;Lebensgeister 6;xxxx
+3351;+6 Trefferwertung;xxxx
+3352;+8 Willenskraft;xxxx
+3353;+8 Intelligenz;xxxx
+3354;+12 Ausdauer;xxxx
+3355;+6 Beweglichkeit;xxxx
+3356;+12 Angriffskraft;xxxx
+3357;+6 Stärke;xxxx
+3358;+6 Ausweichwertung;xxxx
+3359;+4 Parierwertung;xxxx
+3360;+8 Parierwertung;xxxx
+3361;+6 Blockwertung;xxxx
+3362;+6 Waffenkundewertung;xxxx
+3363;+9 Blockwert;xxxx
+3364;Runenwaffe verstärken;xxxx
+3365;Rune des Schwertberstens;xxxx
+3366;Rune des Lichbanns;xxxx
+3367;Rune des Zauberberstens;xxxx
+3368;Rune des gefallenen Kreuzfahrers;xxxx
+3369;Rune des schwarzen Gletschers;xxxx
+3370;Rune des schneidenden Eises;xxxx
+3592;+100 Zaubermacht gegen Untote;xxxx
+3593;+170 Angriffskraft gegen Untote;xxxx
+3594;Rune des Schwertbrechens;xxxx
+3595;Rune des Zauberbrechens;xxxx
+3596;+5 Zaubermacht;xxxx
+3597;Meisterlicher Feuerstein;xxxx
+3599;Elektromagnetischer Pulsgenerator;xxxx
+3600;+6 Abhärtungswertung;xxxx
+3601;Bombengürtel;xxxx
+3602;+7 Zaubermacht;xxxx
+3603;Handmontierte Pyrorakete;xxxx
+3604;Hypergeschwindigkeitsbeschleuniger;xxxx
+3605;Dehnbares Innenfutter;xxxx
+3606;+24 Kritische Trefferwertung;xxxx
+3607;+40 Distanztempowertung;xxxx
+3608;+40 Kritische Distanztrefferwertung;xxxx
+3609;Geringer Feuerstein;xxxx
+3610;Feuerstein;xxxx
+3611;Großer Feuerstein;xxxx
+3612;Erheblicher Feuerstein;xxxx
+3613;Teufelsfeuerstein;xxxx
+3614;Großartiger Feuerstein;xxxx
+3615;Zauberstein;xxxx
+3616;Großer Zauberstein;xxxx
+3617;Erheblicher Zauberstein;xxxx
+3618;Meisterlicher Zauberstein;xxxx
+3619;Dämonischer Zauberstein;xxxx
+3620;Großartiger Zauberstein;xxxx
+3630;+21 Verteidigungswertung und Chance, bei einem Treffer Gesundheit zu regenerieren;xxxx
+3676;+14 Angriffskraft und +7 Kritische Trefferwertung (ALT);xxxx
+3717;Armschienensockel;xxxx
+3718;+35 Zaubermacht und +12 Willenskraft;xxxx
+3719;+50 Zaubermacht und +20 Willenskraft;xxxx
+3720;+35 Zaubermacht und +20 Ausdauer;xxxx
+3721;+50 Zaubermacht und +30 Ausdauer;xxxx
+3722;Hell leuchtendes Garn;xxxx
+3723;Handschuhsockel;xxxx
+3726;+$i Tempowertung;xxxx
+3727;+$i Trefferwertung;xxxx
+3728;Dunkel glühendes Garn;xxxx
+3729;Gürtelsockel;xxxx
+3730;Schwertwallgarn;xxxx
+3731;Titanwaffenkette;xxxx
+3748;Titanstachel (45-67);xxxx
+3751;+6 Verteidigungswertung;xxxx
+3752;+5 Zaubermacht;xxxx
+3753;+9 Zaubermacht;xxxx
+3754;+24 Angriffskraft, +10 Ausdauer und +10 Trefferwertung;xxxx
+3755;+28 Angriffskraft und +12 Ausweichwertung;xxxx
+3756;+130 Angriffskraft;xxxx
+3757;+102 Ausdauer;xxxx
+3758;+76 Zaubermacht;xxxx
+3759;+70 Feuerwiderstand;xxxx
+3760;+70 Frostwiderstand;xxxx
+3761;+70 Schattenwiderstand;xxxx
+3762;+70 Naturwiderstand;xxxx
+3763;+70 Arkanwiderstand;xxxx
+3764;+12 Angriffskraft;xxxx
+3765;+4 Rüstungsdurchschlagwertung;xxxx
+3766;+12 Ausdauer;xxxx
+3768;Sofort wirkendes Gift VIII;xxxx
+3769;Sofort wirkendes Gift IX;xxxx
+3770;Tödliches Gift VIII;xxxx
+3771;Tödliches Gift IX;xxxx
+3772;Wundgift VI;xxxx
+3773;Wundgift VII;xxxx
+3774;Beruhigendes Gift II;xxxx
+3775;+30 Zaubermacht und +15 Kritische Trefferwertung;xxxx
+3776;+45 Angriffskraft und +15 Kritische Trefferwertung;xxxx
+3777;+20 Verteidigung und +15 Ausweichwertung;xxxx
+3778;+8 Waffenkundewertung;xxxx
+3779;Flammenzunge 8;xxxx
+3780;Flammenzunge 9;xxxx
+3781;Flammenzunge 10;xxxx
+3782;Frostbrand 7;xxxx
+3783;Frostbrand 8;xxxx
+3784;Frostbrand 9;xxxx
+3785;Windzorn 6;xxxx
+3786;Windzorn 7;xxxx
+3787;Windzorn 8;xxxx
+3788;+25 Trefferwertung und +25 Kritische Trefferwertung;xxxx
+3789;Berserker;xxxx
+3790;Schwarzmagie;xxxx
+3791;+30 Ausdauer;xxxx
+3793;+40 Angriffskraft und +15 Abhärtungswertung;xxxx
+3794;+23 Zaubermacht und +15 Abhärtungswertung;xxxx
+3795;+50 Angriffskraft und +20 Abhärtungswertung;xxxx
+3796;+29 Zaubermacht und +20 Abhärtungswertung;xxxx
+3797;+29 Zaubermacht und +20 Abhärtungswertung;xxxx
+3806;+18 Zaubermacht und +10 Kritische Trefferwertung;xxxx
+3807;+18 Zaubermacht und alle 5 Sek. 5 Mana;xxxx
+3808;+40 Angriffskraft und +15 Kritische Trefferwertung;xxxx
+3809;+24 Zaubermacht und alle 5 Sek. 8 Mana;xxxx
+3810;+24 Zaubermacht und +15 Kritische Trefferwertung;xxxx
+3811;+20 Ausweichwertung und +15 Verteidigungswertung;xxxx
+3812;+25 Frostwiderstand und +30 Ausdauer;xxxx
+3813;+25 Naturwiderstand und +30 Ausdauer;xxxx
+3814;+25 Schattenwiderstand und +30 Ausdauer;xxxx
+3815;+25 Arkanwiderstand und +30 Ausdauer;xxxx
+3816;+25 Feuerwiderstand und +30 Ausdauer;xxxx
+3817;+50 Angriffskraft und +20 Kritische Trefferwertung;xxxx
+3818;+37 Ausdauer und +20 Verteidigungswertung;xxxx
+3819;+30 Zaubermacht und alle 5 Sek. 10 Mana;xxxx
+3820;+30 Zaubermacht und +20 Kritische Trefferwertung;xxxx
+3821;+8 Abhärtungswertung;xxxx
+3822;+55 Ausdauer und +22 Beweglichkeit;xxxx
+3823;+75 Angriffskraft und +22 Kritische Trefferwertung;xxxx
+3824;+24 Angriffskraft;xxxx
+3825;+15 Tempowertung;xxxx
+3826;+12 Trefferwertung und +12 Kritische Trefferwertung;xxxx
+3827;+110 Angriffskraft;xxxx
+3828;+85 Angriffskraft;xxxx
+3829;+35 Angriffskraft;xxxx
+3830;+50 Zaubermacht;xxxx
+3831;+23 Tempowertung;xxxx
+3832;+10 alle Werte;xxxx
+3833;+65 Angriffskraft;xxxx
+3834;+63 Zaubermacht;xxxx
+3835;+120 Angriffskraft und +15 Kritische Trefferwertung;xxxx
+3836;+70 Zaubermacht und alle 5 Sek. 8 Mana;xxxx
+3837;+60 Ausweichwertung und +15 Verteidigungswertung;xxxx
+3838;+70 Zaubermacht und +15 Kritische Trefferwertung;xxxx
+3839;+40 Angriffskraft;xxxx
+3840;+23 Zaubermacht;xxxx
+3841;+23 Zaubermacht;xxxx
+3842;+30 Ausdauer und +25 Abhärtungswertung;xxxx
+3843;Zielfernrohr (+15 Schaden);xxxx
+3844;+45 Willenskraft;xxxx
+3845;+50 Angriffskraft;xxxx
+3846;+40 Zaubermacht;xxxx
+3847;Rune des Steinhautgargoyles;xxxx
+3848;Stabsockel;xxxx
+3849;Titanbeschlag;xxxx
+3850;+40 Ausdauer;xxxx
+3851;+50 Ausdauer;xxxx
+3852;+30 Ausdauer und +15 Abhärtungswertung;xxxx
+3853;+40 Abhärtungswertung und +28 Ausdauer;xxxx
+3854;+81 Zaubermacht;xxxx
+3855;+69 Zaubermacht;xxxx
+3856;+100 Beweglichkeit;xxxx
+3857;+6 Verteidigungswertung;xxxx
+3858;+5 Trefferwertung;xxxx
+3859;+27 Zaubermacht;xxxx
+3860;+885 Rüstung;xxxx
+3868;Angelköder (+100 Angelfertigkeit);xxxx
+3869;Klingenbarrikade;xxxx
+3870;Blutsauger;xxxx
+3871;+6 Parierwertung;xxxx
+3872;+50 Zaubermacht und +20 Willenskraft;xxxx
+3873;+50 Zaubermacht und +30 Ausdauer;xxxx
+3874;+130 Angriffskraft;xxxx
+3875;+30 Angriffskraft und +10 Kritische Trefferwertung;xxxx
+3876;+15 Ausweichwertung und +10 Verteidigungswertung;xxxx
+3877;+16 Angriffskraft;xxxx
+3878;Gedankenverstärkungsschüssel;xxxx
+3880;+6 Rüstungsdurchschlagwertung;xxxx
+3881;Alle 5 Sek. 17 Mana;xxxx
+3882;+8 Rüstungsdurchschlagwertung;xxxx
+3883;Rune der nerubischen Panzerung;xxxx

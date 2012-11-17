@@ -1,0 +1,3100 @@
+﻿yyyyFelsbeißer 3xxxx1qqqq0zzzz
+yyyyFrostbrandxxxx2qqqq8034zzzz
+yyyyFlammenzunge 3xxxx3qqqq15568zzzz
+yyyyFlammenzunge 2xxxx4qqqq15567zzzz
+yyyyFlammenzungexxxx5qqqq10400zzzz
+yyyyFelsbeißer 2xxxx6qqqq0zzzz
+yyyyTödliches Giftxxxx7qqqq2818zzzz
+yyyyTödliches Gift IIxxxx8qqqq2819zzzz
+yyyyGift (15 Schaden)xxxx9qqqq2820zzzz
+yyyyGift (20 Schaden)xxxx10qqqq2821zzzz
+yyyyGift (25 Schaden)xxxx11qqqq2822zzzz
+yyyyFrostbrand 2xxxx12qqqq8037zzzz
+yyyyGeschärft (+3 Schaden)xxxx13qqqq0zzzz
+yyyyGeschärft (+4 Schaden)xxxx14qqqq0zzzz
+yyyyVerstärkt (+8 Rüstung)xxxx15qqqq0zzzz
+yyyyVerstärkt (+16 Rüstung)xxxx16qqqq0zzzz
+yyyyVerstärkt (+24 Rüstung)xxxx17qqqq0zzzz
+yyyyVerstärkt (+32 Rüstung)xxxx18qqqq0zzzz
+yyyyBeschwert (+2 Schaden)xxxx19qqqq0zzzz
+yyyyBeschwert (+3 Schaden)xxxx20qqqq0zzzz
+yyyyBeschwert (+4 Schaden)xxxx21qqqq0zzzz
+yyyyVerkrüppelungsgiftxxxx22qqqq3409zzzz
+yyyyGedankenbenebelndes Gift IIxxxx23qqqq8692zzzz
+yyyy+5 Manaxxxx24qqqq0zzzz
+yyyySchattenölxxxx25qqqq14122zzzz
+yyyyFrostölxxxx26qqqq96089zzzz
+yyyyZerrissenxxxx27qqqq0zzzz
+yyyy+4 alle Widerstandsartenxxxx28qqqq7438zzzz
+yyyyFelsbeißer 1xxxx29qqqq0zzzz
+yyyyZielfernrohr (+1 Schaden)xxxx30qqqq0zzzz
+yyyy+4 Wildtiertötungxxxx31qqqq7433zzzz
+yyyyZielfernrohr (+2 Schaden)xxxx32qqqq0zzzz
+yyyyZielfernrohr (+3 Schaden)xxxx33qqqq0zzzz
+yyyyGegengewicht (+20 Tempowertung)xxxx34qqqq36zzzz
+yyyyGedankenbenebelndes Giftxxxx35qqqq5760zzzz
+yyyyVerzaubern: Feuerxxxx36qqqq6297zzzz
+yyyyStahlwaffenkettexxxx37qqqq43588zzzz
+yyyy+5 Ausweichwertungxxxx38qqqq13zzzz
+yyyyGeschärft (+1 Schaden)xxxx39qqqq26596zzzz
+yyyyGeschärft (+2 Schaden)xxxx40qqqq0zzzz
+yyyy+5 Gesundheitxxxx41qqqq1zzzz
+yyyyGift (sofort 20)xxxx42qqqq6647zzzz
+yyyyEisenstachel (8-12)xxxx43qqqq9784zzzz
+yyyyAbsorption (10)xxxx44qqqq7445zzzz
+yyyyAbsorption (25)xxxx63qqqq7446zzzz
+yyyy+3 Willenskraftxxxx64qqqq6zzzz
+yyyy+1 alle Widerstandsartenxxxx65qqqq7452zzzz
+yyyy+1 Ausdauerxxxx66qqqq7zzzz
+yyyy+1 Schadenxxxx67qqqq0zzzz
+yyyy+1 Stärkexxxx68qqqq4zzzz
+yyyy+2 Stärkexxxx69qqqq4zzzz
+yyyy+3 Stärkexxxx70qqqq4zzzz
+yyyy+1 Ausdauerxxxx71qqqq7zzzz
+yyyy+2 Ausdauerxxxx72qqqq7zzzz
+yyyy+3 Ausdauerxxxx73qqqq7zzzz
+yyyy+1 Beweglichkeitxxxx74qqqq3zzzz
+yyyy+2 Beweglichkeitxxxx75qqqq3zzzz
+yyyy+3 Beweglichkeitxxxx76qqqq3zzzz
+yyyy+2 Schadenxxxx77qqqq0zzzz
+yyyy+3 Schadenxxxx78qqqq0zzzz
+yyyy+1 Intelligenzxxxx79qqqq5zzzz
+yyyy+2 Intelligenzxxxx80qqqq5zzzz
+yyyy+3 Intelligenzxxxx81qqqq5zzzz
+yyyy+1 Willenskraftxxxx82qqqq6zzzz
+yyyy+2 Willenskraftxxxx83qqqq6zzzz
+yyyy+3 Willenskraftxxxx84qqqq6zzzz
+yyyy+3 Rüstungxxxx85qqqq0zzzz
+yyyy+8 Rüstungxxxx86qqqq0zzzz
+yyyy+12 Rüstungxxxx87qqqq0zzzz
+yyyyxxxx88qqqq0zzzz
+yyyy+16 Rüstungxxxx89qqqq0zzzz
+yyyy+4 Beweglichkeitxxxx90qqqq3zzzz
+yyyy+5 Beweglichkeitxxxx91qqqq3zzzz
+yyyy+6 Beweglichkeitxxxx92qqqq3zzzz
+yyyy+7 Beweglichkeitxxxx93qqqq3zzzz
+yyyy+4 Intelligenzxxxx94qqqq5zzzz
+yyyy+5 Intelligenzxxxx95qqqq5zzzz
+yyyy+6 Intelligenzxxxx96qqqq5zzzz
+yyyy+7 Intelligenzxxxx97qqqq5zzzz
+yyyy+4 Willenskraftxxxx98qqqq6zzzz
+yyyy+5 Willenskraftxxxx99qqqq6zzzz
+yyyy+6 Willenskraftxxxx100qqqq6zzzz
+yyyy+7 Willenskraftxxxx101qqqq6zzzz
+yyyy+4 Ausdauerxxxx102qqqq7zzzz
+yyyy+5 Ausdauerxxxx103qqqq7zzzz
+yyyy+6 Ausdauerxxxx104qqqq7zzzz
+yyyy+7 Ausdauerxxxx105qqqq7zzzz
+yyyy+4 Stärkexxxx106qqqq4zzzz
+yyyy+5 Stärkexxxx107qqqq4zzzz
+yyyy+6 Stärkexxxx108qqqq4zzzz
+yyyy+7 Stärkexxxx109qqqq4zzzz
+yyyy+1 Ausweichwertungxxxx110qqqq13zzzz
+yyyy+2 Ausweichwertungxxxx111qqqq13zzzz
+yyyy+3 Ausweichwertungxxxx112qqqq13zzzz
+yyyy+4 Ausweichwertungxxxx113qqqq13zzzz
+yyyy+5 Ausweichwertungxxxx114qqqq13zzzz
+yyyy+6 Ausweichwertungxxxx115qqqq13zzzz
+yyyy+7 Ausweichwertungxxxx116qqqq13zzzz
+yyyy+4 Schadenxxxx117qqqq0zzzz
+yyyy+5 Schadenxxxx118qqqq0zzzz
+yyyy+6 Schadenxxxx119qqqq0zzzz
+yyyy+7 Schadenxxxx120qqqq0zzzz
+yyyy+20 Rüstungxxxx121qqqq0zzzz
+yyyy+24 Rüstungxxxx122qqqq0zzzz
+yyyy+28 Rüstungxxxx123qqqq0zzzz
+yyyyTotem der Flammenzunge 1xxxx124qqqq8253zzzz
+yyyy+1 Schwertfertigkeitxxxx125qqqq7520zzzz
+yyyy+2 Schwertfertigkeitxxxx126qqqq7522zzzz
+yyyy+3 Schwertfertigkeitxxxx127qqqq7523zzzz
+yyyy+4 Schwertfertigkeitxxxx128qqqq7524zzzz
+yyyy+5 Schwertfertigkeitxxxx129qqqq7525zzzz
+yyyy+6 Schwertfertigkeitxxxx130qqqq7526zzzz
+yyyy+7 Schwertfertigkeitxxxx131qqqq7527zzzz
+yyyy+1 Zweihandschwertfertigkeitxxxx132qqqq7529zzzz
+yyyy+2 Zweihandschwertfertigkeitxxxx133qqqq7561zzzz
+yyyy+3 Zweihandschwertfertigkeitxxxx134qqqq7562zzzz
+yyyy+4 Zweihandschwertfertigkeitxxxx135qqqq7563zzzz
+yyyy+5 Zweihandschwertfertigkeitxxxx136qqqq7564zzzz
+yyyy+6 Zweihandschwertfertigkeitxxxx137qqqq7565zzzz
+yyyy+7 Zweihandschwertfertigkeitxxxx138qqqq7566zzzz
+yyyy+1 Streitkolbenfertigkeitxxxx139qqqq7532zzzz
+yyyy+2 Streitkolbenfertigkeitxxxx140qqqq7543zzzz
+yyyy+3 Streitkolbenfertigkeitxxxx141qqqq7544zzzz
+yyyy+4 Streitkolbenfertigkeitxxxx142qqqq7545zzzz
+yyyy+5 Streitkolbenfertigkeitxxxx143qqqq7546zzzz
+yyyy+6 Streitkolbenfertigkeitxxxx144qqqq7547zzzz
+yyyy+7 Streitkolbenfertigkeitxxxx145qqqq7548zzzz
+yyyy+1 Zweihandstreitkolbenfertigkeitxxxx146qqqq7533zzzz
+yyyy+2 Zweihandstreitkolbenfertigkeitxxxx147qqqq7555zzzz
+yyyy+3 Zweihandstreitkolbenfertigkeitxxxx148qqqq7556zzzz
+yyyy+4 Zweihandstreitkolbenfertigkeitxxxx149qqqq7557zzzz
+yyyy+5 Zweihandstreitkolbenfertigkeitxxxx150qqqq7558zzzz
+yyyy+6 Zweihandstreitkolbenfertigkeitxxxx151qqqq7559zzzz
+yyyy+7 Zweihandstreitkolbenfertigkeitxxxx152qqqq7560zzzz
+yyyy+1 Axtfertigkeitxxxx153qqqq7530zzzz
+yyyy+2 Axtfertigkeitxxxx154qqqq7537zzzz
+yyyy+3 Axtfertigkeitxxxx155qqqq7538zzzz
+yyyy+4 Axtfertigkeitxxxx156qqqq7539zzzz
+yyyy+5 Axtfertigkeitxxxx157qqqq7540zzzz
+yyyy+6 Axtfertigkeitxxxx158qqqq7541zzzz
+yyyy+7 Axtfertigkeitxxxx159qqqq7542zzzz
+yyyy+1 Zweihandaxtfertigkeitxxxx160qqqq7549zzzz
+yyyy+2 Zweihandaxtfertigkeitxxxx161qqqq7531zzzz
+yyyy+3 Zweihandaxtfertigkeitxxxx162qqqq7550zzzz
+yyyy+4 Zweihandaxtfertigkeitxxxx163qqqq7551zzzz
+yyyy+5 Zweihandaxtfertigkeitxxxx164qqqq7552zzzz
+yyyy+6 Zweihandaxtfertigkeitxxxx165qqqq7553zzzz
+yyyy+7 Zweihandaxtfertigkeitxxxx166qqqq7554zzzz
+yyyy+1 Dolchfertigkeitxxxx167qqqq7534zzzz
+yyyy+2 Dolchfertigkeitxxxx168qqqq7573zzzz
+yyyy+3 Dolchfertigkeitxxxx169qqqq7574zzzz
+yyyy+4 Dolchfertigkeitxxxx170qqqq7575zzzz
+yyyy+5 Dolchfertigkeitxxxx171qqqq7576zzzz
+yyyy+6 Dolchfertigkeitxxxx172qqqq7577zzzz
+yyyy+7 Dolchfertigkeitxxxx173qqqq7578zzzz
+yyyy+1 Schusswaffenfertigkeitxxxx174qqqq7536zzzz
+yyyy+2 Schusswaffenfertigkeitxxxx175qqqq7579zzzz
+yyyy+3 Schusswaffenfertigkeitxxxx176qqqq7580zzzz
+yyyy+4 Schusswaffenfertigkeitxxxx177qqqq7581zzzz
+yyyy+5 Schusswaffenfertigkeitxxxx178qqqq7582zzzz
+yyyy+6 Schusswaffenfertigkeitxxxx179qqqq7583zzzz
+yyyy+7 Schusswaffenfertigkeitxxxx180qqqq7584zzzz
+yyyy+1 Bogenfertigkeitxxxx181qqqq7535zzzz
+yyyy+2 Bogenfertigkeitxxxx182qqqq7567zzzz
+yyyy+3 Bogenfertigkeitxxxx183qqqq7568zzzz
+yyyy+4 Bogenfertigkeitxxxx184qqqq7569zzzz
+yyyy+5 Bogenfertigkeitxxxx185qqqq7570zzzz
+yyyy+6 Bogenfertigkeitxxxx186qqqq7571zzzz
+yyyy+7 Bogenfertigkeitxxxx187qqqq7572zzzz
+yyyy+2 Wildtiertötungxxxx188qqqq7590zzzz
+yyyy+4 Wildtiertötungxxxx189qqqq7591zzzz
+yyyy+6 Wildtiertötungxxxx190qqqq7592zzzz
+yyyy+8 Wildtiertötungxxxx191qqqq7593zzzz
+yyyy+10 Wildtiertötungxxxx192qqqq7594zzzz
+yyyy+12 Wildtiertötungxxxx193qqqq7595zzzz
+yyyy+14 Wildtiertötungxxxx194qqqq7596zzzz
+yyyy+14 Kritische Trefferwertungxxxx195qqqq32zzzz
+yyyy+28 Kritische Trefferwertungxxxx196qqqq32zzzz
+yyyy+42 Kritische Trefferwertungxxxx197qqqq32zzzz
+yyyy+56 Kritische Trefferwertungxxxx198qqqq32zzzz
+yyyy10% bei getroffen werden: Schattenblitz (10 Schaden)xxxx199qqqq7601zzzz
+yyyy10% bei getroffen werden: Schattenblitz (20 Schaden)xxxx200qqqq7614zzzz
+yyyy10% bei getroffen werden: Schattenblitz (30 Schaden)xxxx201qqqq7615zzzz
+yyyy10% bei getroffen werden: Schattenblitz (40 Schaden)xxxx202qqqq7616zzzz
+yyyy10% bei getroffen werden: Schattenblitz (50 Schaden)xxxx203qqqq7617zzzz
+yyyy10% bei getroffen werden: Schattenblitz (60 Schaden)xxxx204qqqq7618zzzz
+yyyy10% bei getroffen werden: Schattenblitz (70 Schaden)xxxx205qqqq7619zzzz
+yyyy+1 Zaubermachtxxxx206qqqq45zzzz
+yyyy+2 Zaubermachtxxxx207qqqq45zzzz
+yyyy+4 Zaubermachtxxxx208qqqq45zzzz
+yyyy+5 Zaubermachtxxxx209qqqq45zzzz
+yyyy+6 Zaubermachtxxxx210qqqq9396zzzz
+yyyy+7 Zaubermachtxxxx211qqqq45zzzz
+yyyy+8 Zaubermachtxxxx212qqqq45zzzz
+yyyy+1 Feuerzauberschadenxxxx213qqqq7683zzzz
+yyyy+3 Feuerzauberschadenxxxx214qqqq7684zzzz
+yyyy+4 Feuerzauberschadenxxxx215qqqq7685zzzz
+yyyy+6 Feuerzauberschadenxxxx216qqqq7686zzzz
+yyyy+7 Feuerzauberschadenxxxx217qqqq7687zzzz
+yyyy+9 Feuerzauberschadenxxxx218qqqq7688zzzz
+yyyy+10 Feuerzauberschadenxxxx219qqqq7689zzzz
+yyyy+1 Naturzauberschadenxxxx220qqqq7690zzzz
+yyyy+3 Naturzauberschadenxxxx221qqqq7691zzzz
+yyyy+4 Naturzauberschadenxxxx222qqqq7692zzzz
+yyyy+6 Naturzauberschadenxxxx223qqqq7693zzzz
+yyyy+7 Naturzauberschadenxxxx224qqqq7694zzzz
+yyyy+9 Naturzauberschadenxxxx225qqqq7695zzzz
+yyyy+10 Naturzauberschadenxxxx226qqqq7696zzzz
+yyyy+1 Frostzauberschadenxxxx227qqqq7697zzzz
+yyyy+3 Frostzauberschadenxxxx228qqqq7698zzzz
+yyyy+4 Frostzauberschadenxxxx229qqqq7699zzzz
+yyyy+6 Frostzauberschadenxxxx230qqqq7700zzzz
+yyyy+7 Frostzauberschadenxxxx231qqqq7701zzzz
+yyyy+9 Frostzauberschadenxxxx232qqqq7702zzzz
+yyyy+10 Frostzauberschadenxxxx233qqqq7703zzzz
+yyyy+1 Schattenzauberschadenxxxx234qqqq7704zzzz
+yyyy+3 Schattenzauberschadenxxxx235qqqq7705zzzz
+yyyy+4 Schattenzauberschadenxxxx236qqqq7706zzzz
+yyyy+6 Schattenzauberschadenxxxx237qqqq7707zzzz
+yyyy+7 Schattenzauberschadenxxxx238qqqq7708zzzz
+yyyy+9 Schattenzauberschadenxxxx239qqqq7710zzzz
+yyyy+10 Schattenzauberschadenxxxx240qqqq7709zzzz
+yyyy+2 Waffenschadenxxxx241qqqq0zzzz
+yyyy+15 Gesundheitxxxx242qqqq1zzzz
+yyyy+1 Willenskraftxxxx243qqqq6zzzz
+yyyy+4 Intelligenzxxxx244qqqq5zzzz
+yyyy+5 Rüstungxxxx245qqqq0zzzz
+yyyy+20 Manaxxxx246qqqq0zzzz
+yyyy+1 Beweglichkeitxxxx247qqqq3zzzz
+yyyy+1 Stärkexxxx248qqqq4zzzz
+yyyy+2 Wildtiertötungxxxx249qqqq7784zzzz
+yyyy+1 Waffenschadenxxxx250qqqq0zzzz
+yyyy+1 Intelligenzxxxx251qqqq5zzzz
+yyyy+6 Willenskraftxxxx252qqqq6zzzz
+yyyyAbsorption (50)xxxx253qqqq7849zzzz
+yyyy+25 Gesundheitxxxx254qqqq1zzzz
+yyyy+3 Willenskraftxxxx255qqqq6zzzz
+yyyy+5 Feuerwiderstandxxxx256qqqq2zzzz
+yyyy+10 Rüstungxxxx257qqqq0zzzz
+yyyyAngelköder (+25 Angelfertigkeit)xxxx263qqqq8082zzzz
+yyyyAngelköder (+50 Angelfertigkeit)xxxx264qqqq8083zzzz
+yyyyAngelköder (+75 Angelfertigkeit)xxxx265qqqq8084zzzz
+yyyyAngelköder (+100 Angelfertigkeit)xxxx266qqqq8085zzzz
+yyyyWindzornxxxx283qqqq33757zzzz
+yyyyWindzorn 2xxxx284qqqq33757zzzz
+yyyyTotem der Flammenzunge 2xxxx285qqqq8248zzzz
+yyyy+2 Waffenfeuerschadenxxxx286qqqq7711zzzz
+yyyy+4 Waffenfeuerschadenxxxx287qqqq7721zzzz
+yyyy+6 Waffenfeuerschadenxxxx288qqqq7722zzzz
+yyyy+8 Waffenfeuerschadenxxxx289qqqq7723zzzz
+yyyy+10 Waffenfeuerschadenxxxx290qqqq7724zzzz
+yyyy+12 Waffenfeuerschadenxxxx291qqqq7725zzzz
+yyyy+14 Waffenfeuerschadenxxxx292qqqq7726zzzz
+yyyyFeuerkugelxxxx303qqqq0zzzz
+yyyySofort wirkendes Giftxxxx323qqqq8680zzzz
+yyyySofort wirkendes Gift IIxxxx324qqqq8685zzzz
+yyyySofort wirkendes Gift IIIxxxx325qqqq8689zzzz
+yyyy+8 Beweglichkeitxxxx343qqqq3zzzz
+yyyy+32 Rüstungxxxx344qqqq0zzzz
+yyyy+40 Rüstungxxxx345qqqq0zzzz
+yyyy+36 Rüstungxxxx346qqqq0zzzz
+yyyy+44 Rüstungxxxx347qqqq0zzzz
+yyyy+48 Rüstungxxxx348qqqq0zzzz
+yyyy+9 Beweglichkeitxxxx349qqqq3zzzz
+yyyy+8 Intelligenzxxxx350qqqq5zzzz
+yyyy+8 Willenskraftxxxx351qqqq6zzzz
+yyyy+8 Stärkexxxx352qqqq4zzzz
+yyyy+8 Ausdauerxxxx353qqqq7zzzz
+yyyy+9 Intelligenzxxxx354qqqq5zzzz
+yyyy+9 Willenskraftxxxx355qqqq6zzzz
+yyyy+9 Ausdauerxxxx356qqqq7zzzz
+yyyy+9 Stärkexxxx357qqqq4zzzz
+yyyy+10 Beweglichkeitxxxx358qqqq3zzzz
+yyyy+10 Intelligenzxxxx359qqqq5zzzz
+yyyy+10 Willenskraftxxxx360qqqq6zzzz
+yyyy+10 Ausdauerxxxx361qqqq7zzzz
+yyyy+10 Stärkexxxx362qqqq4zzzz
+yyyy+11 Beweglichkeitxxxx363qqqq3zzzz
+yyyy+11 Intelligenzxxxx364qqqq5zzzz
+yyyy+11 Willenskraftxxxx365qqqq6zzzz
+yyyy+11 Ausdauerxxxx366qqqq7zzzz
+yyyy+11 Stärkexxxx367qqqq4zzzz
+yyyy+12 Beweglichkeitxxxx368qqqq3zzzz
+yyyy+12 Intelligenzxxxx369qqqq5zzzz
+yyyy+12 Willenskraftxxxx370qqqq6zzzz
+yyyy+12 Ausdauerxxxx371qqqq7zzzz
+yyyy+12 Stärkexxxx372qqqq4zzzz
+yyyy+52 Rüstungxxxx383qqqq0zzzz
+yyyy+56 Rüstungxxxx384qqqq0zzzz
+yyyy+60 Rüstungxxxx385qqqq0zzzz
+yyyy+16 Rüstungxxxx386qqqq0zzzz
+yyyy+17 Rüstungxxxx387qqqq0zzzz
+yyyy+18 Rüstungxxxx388qqqq0zzzz
+yyyy+19 Rüstungxxxx389qqqq0zzzz
+yyyy+13 Beweglichkeitxxxx403qqqq3zzzz
+yyyy+14 Beweglichkeitxxxx404qqqq3zzzz
+yyyy+13 Intelligenzxxxx405qqqq5zzzz
+yyyy+14 Intelligenzxxxx406qqqq5zzzz
+yyyy+13 Willenskraftxxxx407qqqq6zzzz
+yyyy+14 Willenskraftxxxx408qqqq6zzzz
+yyyy+13 Ausdauerxxxx409qqqq7zzzz
+yyyy+13 Stärkexxxx410qqqq4zzzz
+yyyy+14 Ausdauerxxxx411qqqq7zzzz
+yyyy+14 Stärkexxxx412qqqq4zzzz
+yyyy+1 Zaubermachtxxxx423qqqq45zzzz
+yyyy+2 Zaubermachtxxxx424qqqq45zzzz
+yyyyBlack Temple Dummyxxxx425qqqq9394zzzz
+yyyy+5 Zaubermachtxxxx426qqqq45zzzz
+yyyy+6 Zaubermachtxxxx427qqqq9396zzzz
+yyyy+7 Zaubermachtxxxx428qqqq45zzzz
+yyyy+8 Zaubermachtxxxx429qqqq45zzzz
+yyyy+9 Zaubermachtxxxx430qqqq45zzzz
+yyyy+11 Zaubermachtxxxx431qqqq45zzzz
+yyyy+12 Zaubermachtxxxx432qqqq45zzzz
+yyyy+11 Feuerzauberschadenxxxx433qqqq9399zzzz
+yyyy+13 Feuerzauberschadenxxxx434qqqq9400zzzz
+yyyy+14 Feuerzauberschadenxxxx435qqqq9401zzzz
+yyyy+70 Kritische Trefferwertungxxxx436qqqq32zzzz
+yyyy+11 Frostzauberschadenxxxx437qqqq9402zzzz
+yyyy+13 Frostzauberschadenxxxx438qqqq9403zzzz
+yyyy+14 Frostzauberschadenxxxx439qqqq9404zzzz
+yyyy+9 Zaubermachtxxxx440qqqq45zzzz
+yyyy+11 Zaubermachtxxxx441qqqq45zzzz
+yyyy+12 Zaubermachtxxxx442qqqq45zzzz
+yyyy+11 Naturzauberschadenxxxx443qqqq9409zzzz
+yyyy+13 Naturzauberschadenxxxx444qqqq9410zzzz
+yyyy+14 Naturzauberschadenxxxx445qqqq9411zzzz
+yyyy+11 Schattenzauberschadenxxxx446qqqq9412zzzz
+yyyy+13 Schattenzauberschadenxxxx447qqqq9413zzzz
+yyyy+14 Schattenzauberschadenxxxx448qqqq9414zzzz
+yyyyMithrilstachel (16-20)xxxx463qqqq9782zzzz
+yyyy+4% Reittiertempoxxxx464qqqq7215zzzz
+yyyyGeschärft (+6 Schaden)xxxx483qqqq0zzzz
+yyyyBeschwert (+6 Schaden)xxxx484qqqq0zzzz
+yyyyFelsbeißer 4xxxx503qqqq0zzzz
+yyyy+80 Felsbeißerxxxx504qqqq0zzzz
+yyyyFlammenzunge 4xxxx523qqqq15569zzzz
+yyyyFrostbrand 3xxxx524qqqq10458zzzz
+yyyyWindzorn 3xxxx525qqqq33757zzzz
+yyyyTotem der Flammenzunge 3xxxx543qqqq10523zzzz
+yyyyTotem des Windzorns 2xxxx563qqqq10608zzzz
+yyyyTotem des Windzorns 3xxxx564qqqq10610zzzz
+yyyy+1 Beweglichkeit / +1 Willenskraftxxxx583qqqq3zzzz
+yyyy+1 Beweglichkeit / +1 Intelligenzxxxx584qqqq3zzzz
+yyyy+1 Beweglichkeit / +1 Ausdauerxxxx585qqqq3zzzz
+yyyy+1 Beweglichkeit / +1 Stärkexxxx586qqqq3zzzz
+yyyy+1 Intelligenz / +1 Willenskraftxxxx587qqqq5zzzz
+yyyy+1 Intelligenz / +1 Ausdauerxxxx588qqqq5zzzz
+yyyy+1 Intelligenz / +1 Stärkexxxx589qqqq5zzzz
+yyyy+1 Willenskraft / +1 Ausdauerxxxx590qqqq6zzzz
+yyyy+1 Willenskraft / +1 Stärkexxxx591qqqq6zzzz
+yyyy+1 Ausdauer / +1 Stärkexxxx592qqqq7zzzz
+yyyyVerkrüppelungsgift IIxxxx603qqqq11201zzzz
+yyyySofort wirkendes Gift IVxxxx623qqqq11335zzzz
+yyyySofort wirkendes Gift Vxxxx624qqqq11336zzzz
+yyyySofort wirkendes Gift VIxxxx625qqqq11337zzzz
+yyyyTödliches Gift IIIxxxx626qqqq11353zzzz
+yyyyTödliches Gift IVxxxx627qqqq11354zzzz
+yyyyGedankenbenebelndes Gift IIIxxxx643qqqq11398zzzz
+yyyyZielfernrohr (+5 Schaden)xxxx663qqqq0zzzz
+yyyyZielfernrohr (+7 Schaden)xxxx664qqqq0zzzz
+yyyyFelsbeißer 6xxxx683qqqq0zzzz
+yyyy+15 Stärkexxxx684qqqq4zzzz
+yyyyWundgiftxxxx703qqqq13218zzzz
+yyyyWundgift IIxxxx704qqqq13222zzzz
+yyyyWundgift IIIxxxx705qqqq13223zzzz
+yyyyWundgift IVxxxx706qqqq13224zzzz
+yyyy+3 Intelligenzxxxx723qqqq5zzzz
+yyyy+3 Ausdauerxxxx724qqqq7zzzz
+yyyy+2 Verstohlenheitxxxx743qqqq13418zzzz
+yyyy+20 Rüstungxxxx744qqqq0zzzz
+yyyy+5 Blockwertungxxxx763qqqq15zzzz
+yyyy+10 Rüstungxxxx783qqqq0zzzz
+yyyyFeurige Waffexxxx803qqqq13897zzzz
+yyyy+10 Schattenwiderstandxxxx804qqqq5zzzz
+yyyy+4 Waffenschadenxxxx805qqqq0zzzz
+yyyy+3 Stärkexxxx823qqqq4zzzz
+yyyy+30 Manaxxxx843qqqq0zzzz
+yyyy+2 Bergbauxxxx844qqqq13611zzzz
+yyyy+2 Kräuterkundexxxx845qqqq13614zzzz
+yyyy+5 Angelnxxxx846qqqq71691zzzz
+yyyy+1 alle Wertexxxx847qqqq13624zzzz
+yyyy+30 Rüstungxxxx848qqqq0zzzz
+yyyy+3 Beweglichkeitxxxx849qqqq3zzzz
+yyyy+35 Gesundheitxxxx850qqqq1zzzz
+yyyy+5 Willenskraftxxxx851qqqq6zzzz
+yyyy+5 Ausdauerxxxx852qqqq7zzzz
+yyyy+6 Wildtiertötungxxxx853qqqq13650zzzz
+yyyy+6 Elementartöterxxxx854qqqq13651zzzz
+yyyy+5 Feuerwiderstandxxxx855qqqq2zzzz
+yyyy+5 Stärkexxxx856qqqq4zzzz
+yyyy+50 Manaxxxx857qqqq0zzzz
+yyyy+10 Parierwertungxxxx863qqqq14zzzz
+yyyy+4 Waffenschadenxxxx864qqqq0zzzz
+yyyy+5 Kürschnereixxxx865qqqq13697zzzz
+yyyy+2 alle Wertexxxx866qqqq13625zzzz
+yyyy+15 Beweglichkeitxxxx883qqqq3zzzz
+yyyy+50 Rüstungxxxx884qqqq0zzzz
+yyyy+3 alle Widerstandsartenxxxx903qqqq13796zzzz
+yyyy+5 Beweglichkeitxxxx904qqqq3zzzz
+yyyy+5 Intelligenzxxxx905qqqq5zzzz
+yyyy+5 Bergbauxxxx906qqqq13838zzzz
+yyyy+7 Willenskraftxxxx907qqqq6zzzz
+yyyy+50 Gesundheitxxxx908qqqq1zzzz
+yyyy+5 Kräuterkundexxxx909qqqq13839zzzz
+yyyy+8 Beweglichkeit und +8 Ausweichwertungxxxx910qqqq3zzzz
+yyyySchwache Temposteigerungxxxx911qqqq13889zzzz
+yyyyDämonentötenxxxx912qqqq13907zzzz
+yyyy+65 Manaxxxx913qqqq0zzzz
+yyyy+5 Ausweichwertungxxxx923qqqq13zzzz
+yyyy+2 Ausweichwertungxxxx924qqqq13zzzz
+yyyy+3 Ausweichwertungxxxx925qqqq13zzzz
+yyyy+8 Frostwiderstandxxxx926qqqq4zzzz
+yyyy+7 Stärkexxxx927qqqq4zzzz
+yyyy+3 alle Wertexxxx928qqqq13824zzzz
+yyyy+7 Ausdauerxxxx929qqqq7zzzz
+yyyy+2% Reittiertempoxxxx930qqqq13927zzzz
+yyyy+10 Tempowertungxxxx931qqqq36zzzz
+yyyy+3 Waffenschadenxxxx943qqqq0zzzz
+yyyy+7 Waffenschadenxxxx963qqqq0zzzz
+yyyy+16 Beweglichkeitxxxx983qqqq3zzzz
+yyyyGifthautsekretxxxx1003qqqq14795zzzz
+yyyyRückkopplung 1xxxx1023qqqq6347zzzz
+yyyy+16 Stärkexxxx1043qqqq4zzzz
+yyyy+17 Stärkexxxx1044qqqq4zzzz
+yyyy+18 Stärkexxxx1045qqqq4zzzz
+yyyy+19 Stärkexxxx1046qqqq4zzzz
+yyyy+20 Stärkexxxx1047qqqq4zzzz
+yyyy+21 Stärkexxxx1048qqqq4zzzz
+yyyy+22 Stärkexxxx1049qqqq4zzzz
+yyyy+23 Stärkexxxx1050qqqq4zzzz
+yyyy+24 Stärkexxxx1051qqqq4zzzz
+yyyy+25 Stärkexxxx1052qqqq4zzzz
+yyyy+26 Stärkexxxx1053qqqq4zzzz
+yyyy+27 Stärkexxxx1054qqqq4zzzz
+yyyy+28 Stärkexxxx1055qqqq4zzzz
+yyyy+29 Stärkexxxx1056qqqq4zzzz
+yyyy+30 Stärkexxxx1057qqqq4zzzz
+yyyy+31 Stärkexxxx1058qqqq4zzzz
+yyyy+32 Stärkexxxx1059qqqq4zzzz
+yyyy+33 Stärkexxxx1060qqqq4zzzz
+yyyy+34 Stärkexxxx1061qqqq4zzzz
+yyyy+35 Stärkexxxx1062qqqq4zzzz
+yyyy+36 Stärkexxxx1063qqqq4zzzz
+yyyy+37 Stärkexxxx1064qqqq4zzzz
+yyyy+38 Stärkexxxx1065qqqq4zzzz
+yyyy+39 Stärkexxxx1066qqqq4zzzz
+yyyy+40 Stärkexxxx1067qqqq4zzzz
+yyyy+15 Ausdauerxxxx1068qqqq7zzzz
+yyyy+16 Ausdauerxxxx1069qqqq7zzzz
+yyyy+17 Ausdauerxxxx1070qqqq7zzzz
+yyyy+18 Ausdauerxxxx1071qqqq7zzzz
+yyyy+19 Ausdauerxxxx1072qqqq7zzzz
+yyyy+20 Ausdauerxxxx1073qqqq7zzzz
+yyyy+21 Ausdauerxxxx1074qqqq7zzzz
+yyyy+22 Ausdauerxxxx1075qqqq7zzzz
+yyyy+23 Ausdauerxxxx1076qqqq7zzzz
+yyyy+24 Ausdauerxxxx1077qqqq7zzzz
+yyyy+25 Ausdauerxxxx1078qqqq7zzzz
+yyyy+26 Ausdauerxxxx1079qqqq7zzzz
+yyyy+27 Ausdauerxxxx1080qqqq7zzzz
+yyyy+28 Ausdauerxxxx1081qqqq7zzzz
+yyyy+29 Ausdauerxxxx1082qqqq7zzzz
+yyyy+30 Ausdauerxxxx1083qqqq7zzzz
+yyyy+31 Ausdauerxxxx1084qqqq7zzzz
+yyyy+32 Ausdauerxxxx1085qqqq7zzzz
+yyyy+33 Ausdauerxxxx1086qqqq7zzzz
+yyyy+34 Ausdauerxxxx1087qqqq7zzzz
+yyyy+35 Ausdauerxxxx1088qqqq7zzzz
+yyyy+36 Ausdauerxxxx1089qqqq7zzzz
+yyyy+37 Ausdauerxxxx1090qqqq7zzzz
+yyyy+38 Ausdauerxxxx1091qqqq7zzzz
+yyyy+39 Ausdauerxxxx1092qqqq7zzzz
+yyyy+40 Ausdauerxxxx1093qqqq7zzzz
+yyyy+17 Beweglichkeitxxxx1094qqqq3zzzz
+yyyy+18 Beweglichkeitxxxx1095qqqq3zzzz
+yyyy+19 Beweglichkeitxxxx1096qqqq3zzzz
+yyyy+20 Beweglichkeitxxxx1097qqqq3zzzz
+yyyy+21 Beweglichkeitxxxx1098qqqq3zzzz
+yyyy+22 Beweglichkeitxxxx1099qqqq3zzzz
+yyyy+23 Beweglichkeitxxxx1100qqqq3zzzz
+yyyy+24 Beweglichkeitxxxx1101qqqq3zzzz
+yyyy+25 Beweglichkeitxxxx1102qqqq3zzzz
+yyyy+26 Beweglichkeitxxxx1103qqqq3zzzz
+yyyy+27 Beweglichkeitxxxx1104qqqq3zzzz
+yyyy+28 Beweglichkeitxxxx1105qqqq3zzzz
+yyyy+29 Beweglichkeitxxxx1106qqqq3zzzz
+yyyy+30 Beweglichkeitxxxx1107qqqq3zzzz
+yyyy+31 Beweglichkeitxxxx1108qqqq3zzzz
+yyyy+32 Beweglichkeitxxxx1109qqqq3zzzz
+yyyy+33 Beweglichkeitxxxx1110qqqq3zzzz
+yyyy+34 Beweglichkeitxxxx1111qqqq3zzzz
+yyyy+35 Beweglichkeitxxxx1112qqqq3zzzz
+yyyy+36 Beweglichkeitxxxx1113qqqq3zzzz
+yyyy+37 Beweglichkeitxxxx1114qqqq3zzzz
+yyyy+38 Beweglichkeitxxxx1115qqqq3zzzz
+yyyy+39 Beweglichkeitxxxx1116qqqq3zzzz
+yyyy+40 Beweglichkeitxxxx1117qqqq3zzzz
+yyyy+15 Intelligenzxxxx1118qqqq5zzzz
+yyyy+16 Intelligenzxxxx1119qqqq5zzzz
+yyyy+17 Intelligenzxxxx1120qqqq5zzzz
+yyyy+18 Intelligenzxxxx1121qqqq5zzzz
+yyyy+19 Intelligenzxxxx1122qqqq5zzzz
+yyyy+20 Intelligenzxxxx1123qqqq5zzzz
+yyyy+21 Intelligenzxxxx1124qqqq5zzzz
+yyyy+22 Intelligenzxxxx1125qqqq5zzzz
+yyyy+23 Intelligenzxxxx1126qqqq5zzzz
+yyyy+24 Intelligenzxxxx1127qqqq5zzzz
+yyyy+25 Intelligenzxxxx1128qqqq5zzzz
+yyyy+26 Intelligenzxxxx1129qqqq5zzzz
+yyyy+27 Intelligenzxxxx1130qqqq5zzzz
+yyyy+28 Intelligenzxxxx1131qqqq5zzzz
+yyyy+29 Intelligenzxxxx1132qqqq5zzzz
+yyyy+30 Intelligenzxxxx1133qqqq5zzzz
+yyyy+31 Intelligenzxxxx1134qqqq5zzzz
+yyyy+32 Intelligenzxxxx1135qqqq5zzzz
+yyyy+33 Intelligenzxxxx1136qqqq5zzzz
+yyyy+34 Intelligenzxxxx1137qqqq5zzzz
+yyyy+35 Intelligenzxxxx1138qqqq5zzzz
+yyyy+36 Intelligenzxxxx1139qqqq5zzzz
+yyyy+37 Intelligenzxxxx1140qqqq5zzzz
+yyyy+38 Intelligenzxxxx1141qqqq5zzzz
+yyyy+39 Intelligenzxxxx1142qqqq5zzzz
+yyyy+40 Intelligenzxxxx1143qqqq5zzzz
+yyyy+15 Willenskraftxxxx1144qqqq6zzzz
+yyyy+16 Willenskraftxxxx1145qqqq6zzzz
+yyyy+17 Willenskraftxxxx1146qqqq6zzzz
+yyyy+18 Willenskraftxxxx1147qqqq6zzzz
+yyyy+19 Willenskraftxxxx1148qqqq6zzzz
+yyyy+20 Willenskraftxxxx1149qqqq6zzzz
+yyyy+21 Willenskraftxxxx1150qqqq6zzzz
+yyyy+22 Willenskraftxxxx1151qqqq6zzzz
+yyyy+23 Willenskraftxxxx1152qqqq6zzzz
+yyyy+24 Willenskraftxxxx1153qqqq6zzzz
+yyyy+25 Willenskraftxxxx1154qqqq6zzzz
+yyyy+26 Willenskraftxxxx1155qqqq6zzzz
+yyyy+27 Willenskraftxxxx1156qqqq6zzzz
+yyyy+28 Willenskraftxxxx1157qqqq6zzzz
+yyyy+29 Willenskraftxxxx1158qqqq6zzzz
+yyyy+30 Willenskraftxxxx1159qqqq6zzzz
+yyyy+31 Willenskraftxxxx1160qqqq6zzzz
+yyyy+32 Willenskraftxxxx1161qqqq6zzzz
+yyyy+33 Willenskraftxxxx1162qqqq6zzzz
+yyyy+34 Willenskraftxxxx1163qqqq6zzzz
+yyyy+36 Willenskraftxxxx1164qqqq6zzzz
+yyyy+37 Willenskraftxxxx1165qqqq6zzzz
+yyyy+38 Willenskraftxxxx1166qqqq6zzzz
+yyyy+39 Willenskraftxxxx1167qqqq6zzzz
+yyyy+40 Willenskraftxxxx1168qqqq6zzzz
+yyyy+35 Willenskraftxxxx1183qqqq6zzzz
+yyyy+41 Stärkexxxx1203qqqq4zzzz
+yyyy+42 Stärkexxxx1204qqqq4zzzz
+yyyy+43 Stärkexxxx1205qqqq4zzzz
+yyyy+44 Stärkexxxx1206qqqq4zzzz
+yyyy+45 Stärkexxxx1207qqqq4zzzz
+yyyy+46 Stärkexxxx1208qqqq4zzzz
+yyyy+41 Ausdauerxxxx1209qqqq7zzzz
+yyyy+42 Ausdauerxxxx1210qqqq7zzzz
+yyyy+43 Ausdauerxxxx1211qqqq7zzzz
+yyyy+44 Ausdauerxxxx1212qqqq7zzzz
+yyyy+45 Ausdauerxxxx1213qqqq7zzzz
+yyyy+46 Ausdauerxxxx1214qqqq7zzzz
+yyyy+41 Beweglichkeitxxxx1215qqqq3zzzz
+yyyy+42 Beweglichkeitxxxx1216qqqq3zzzz
+yyyy+43 Beweglichkeitxxxx1217qqqq3zzzz
+yyyy+44 Beweglichkeitxxxx1218qqqq3zzzz
+yyyy+45 Beweglichkeitxxxx1219qqqq3zzzz
+yyyy+46 Beweglichkeitxxxx1220qqqq3zzzz
+yyyy+41 Intelligenzxxxx1221qqqq5zzzz
+yyyy+42 Intelligenzxxxx1222qqqq5zzzz
+yyyy+43 Intelligenzxxxx1223qqqq5zzzz
+yyyy+44 Intelligenzxxxx1224qqqq5zzzz
+yyyy+45 Intelligenzxxxx1225qqqq5zzzz
+yyyy+46 Intelligenzxxxx1226qqqq5zzzz
+yyyy+41 Willenskraftxxxx1227qqqq6zzzz
+yyyy+42 Willenskraftxxxx1228qqqq6zzzz
+yyyy+43 Willenskraftxxxx1229qqqq6zzzz
+yyyy+44 Willenskraftxxxx1230qqqq6zzzz
+yyyy+45 Willenskraftxxxx1231qqqq6zzzz
+yyyy+46 Willenskraftxxxx1232qqqq6zzzz
+yyyy+1 Arkanwiderstandxxxx1243qqqq6zzzz
+yyyy+2 Arkanwiderstandxxxx1244qqqq6zzzz
+yyyy+3 Arkanwiderstandxxxx1245qqqq6zzzz
+yyyy+4 Arkanwiderstandxxxx1246qqqq6zzzz
+yyyy+5 Arkanwiderstandxxxx1247qqqq6zzzz
+yyyy+6 Arkanwiderstandxxxx1248qqqq6zzzz
+yyyy+7 Arkanwiderstandxxxx1249qqqq6zzzz
+yyyy+8 Arkanwiderstandxxxx1250qqqq6zzzz
+yyyy+9 Arkanwiderstandxxxx1251qqqq6zzzz
+yyyy+10 Arkanwiderstandxxxx1252qqqq6zzzz
+yyyy+11 Arkanwiderstandxxxx1253qqqq6zzzz
+yyyy+12 Arkanwiderstandxxxx1254qqqq6zzzz
+yyyy+13 Arkanwiderstandxxxx1255qqqq6zzzz
+yyyy+14 Arkanwiderstandxxxx1256qqqq6zzzz
+yyyy+15 Arkanwiderstandxxxx1257qqqq6zzzz
+yyyy+16 Arkanwiderstandxxxx1258qqqq6zzzz
+yyyy+17 Arkanwiderstandxxxx1259qqqq6zzzz
+yyyy+18 Arkanwiderstandxxxx1260qqqq6zzzz
+yyyy+19 Arkanwiderstandxxxx1261qqqq6zzzz
+yyyy+20 Arkanwiderstandxxxx1262qqqq6zzzz
+yyyy+21 Arkanwiderstandxxxx1263qqqq6zzzz
+yyyy+22 Arkanwiderstandxxxx1264qqqq6zzzz
+yyyy+23 Arkanwiderstandxxxx1265qqqq6zzzz
+yyyy+24 Arkanwiderstandxxxx1266qqqq6zzzz
+yyyy+25 Arkanwiderstandxxxx1267qqqq6zzzz
+yyyy+26 Arkanwiderstandxxxx1268qqqq6zzzz
+yyyy+27 Arkanwiderstandxxxx1269qqqq6zzzz
+yyyy+28 Arkanwiderstandxxxx1270qqqq6zzzz
+yyyy+29 Arkanwiderstandxxxx1271qqqq6zzzz
+yyyy+30 Arkanwiderstandxxxx1272qqqq6zzzz
+yyyy+31 Arkanwiderstandxxxx1273qqqq6zzzz
+yyyy+32 Arkanwiderstandxxxx1274qqqq6zzzz
+yyyy+33 Arkanwiderstandxxxx1275qqqq6zzzz
+yyyy+34 Arkanwiderstandxxxx1276qqqq6zzzz
+yyyy+35 Arkanwiderstandxxxx1277qqqq6zzzz
+yyyy+36 Arkanwiderstandxxxx1278qqqq6zzzz
+yyyy+37 Arkanwiderstandxxxx1279qqqq6zzzz
+yyyy+38 Arkanwiderstandxxxx1280qqqq6zzzz
+yyyy+39 Arkanwiderstandxxxx1281qqqq6zzzz
+yyyy+40 Arkanwiderstandxxxx1282qqqq6zzzz
+yyyy+41 Arkanwiderstandxxxx1283qqqq6zzzz
+yyyy+42 Arkanwiderstandxxxx1284qqqq6zzzz
+yyyy+43 Arkanwiderstandxxxx1285qqqq6zzzz
+yyyy+44 Arkanwiderstandxxxx1286qqqq6zzzz
+yyyy+45 Arkanwiderstandxxxx1287qqqq6zzzz
+yyyy+46 Arkanwiderstandxxxx1288qqqq6zzzz
+yyyy+1 Frostwiderstandxxxx1289qqqq4zzzz
+yyyy+2 Frostwiderstandxxxx1290qqqq4zzzz
+yyyy+3 Frostwiderstandxxxx1291qqqq4zzzz
+yyyy+4 Frostwiderstandxxxx1292qqqq4zzzz
+yyyy+5 Frostwiderstandxxxx1293qqqq4zzzz
+yyyy+6 Frostwiderstandxxxx1294qqqq4zzzz
+yyyy+7 Frostwiderstandxxxx1295qqqq4zzzz
+yyyy+8 Frostwiderstandxxxx1296qqqq4zzzz
+yyyy+9 Frostwiderstandxxxx1297qqqq4zzzz
+yyyy+10 Frostwiderstandxxxx1298qqqq4zzzz
+yyyy+11 Frostwiderstandxxxx1299qqqq4zzzz
+yyyy+12 Frostwiderstandxxxx1300qqqq4zzzz
+yyyy+13 Frostwiderstandxxxx1301qqqq4zzzz
+yyyy+14 Frostwiderstandxxxx1302qqqq4zzzz
+yyyy+15 Frostwiderstandxxxx1303qqqq4zzzz
+yyyy+16 Frostwiderstandxxxx1304qqqq4zzzz
+yyyy+17 Frostwiderstandxxxx1305qqqq4zzzz
+yyyy+18 Frostwiderstandxxxx1306qqqq4zzzz
+yyyy+19 Frostwiderstandxxxx1307qqqq4zzzz
+yyyy+20 Frostwiderstandxxxx1308qqqq4zzzz
+yyyy+21 Frostwiderstandxxxx1309qqqq4zzzz
+yyyy+22 Frostwiderstandxxxx1310qqqq4zzzz
+yyyy+23 Frostwiderstandxxxx1311qqqq4zzzz
+yyyy+24 Frostwiderstandxxxx1312qqqq4zzzz
+yyyy+25 Frostwiderstandxxxx1313qqqq4zzzz
+yyyy+26 Frostwiderstandxxxx1314qqqq4zzzz
+yyyy+27 Frostwiderstandxxxx1315qqqq4zzzz
+yyyy+28 Frostwiderstandxxxx1316qqqq4zzzz
+yyyy+29 Frostwiderstandxxxx1317qqqq4zzzz
+yyyy+30 Frostwiderstandxxxx1318qqqq4zzzz
+yyyy+31 Frostwiderstandxxxx1319qqqq4zzzz
+yyyy+32 Frostwiderstandxxxx1320qqqq4zzzz
+yyyy+33 Frostwiderstandxxxx1321qqqq4zzzz
+yyyy+34 Frostwiderstandxxxx1322qqqq4zzzz
+yyyy+35 Frostwiderstandxxxx1323qqqq4zzzz
+yyyy+36 Frostwiderstandxxxx1324qqqq4zzzz
+yyyy+37 Frostwiderstandxxxx1325qqqq4zzzz
+yyyy+38 Frostwiderstandxxxx1326qqqq4zzzz
+yyyy+39 Frostwiderstandxxxx1327qqqq4zzzz
+yyyy+40 Frostwiderstandxxxx1328qqqq4zzzz
+yyyy+41 Frostwiderstandxxxx1329qqqq4zzzz
+yyyy+42 Frostwiderstandxxxx1330qqqq4zzzz
+yyyy+43 Frostwiderstandxxxx1331qqqq4zzzz
+yyyy+44 Frostwiderstandxxxx1332qqqq4zzzz
+yyyy+45 Frostwiderstandxxxx1333qqqq4zzzz
+yyyy+46 Frostwiderstandxxxx1334qqqq4zzzz
+yyyy+1 Feuerwiderstandxxxx1335qqqq2zzzz
+yyyy+2 Feuerwiderstandxxxx1336qqqq2zzzz
+yyyy+3 Feuerwiderstandxxxx1337qqqq2zzzz
+yyyy+4 Feuerwiderstandxxxx1338qqqq2zzzz
+yyyy+5 Feuerwiderstandxxxx1339qqqq2zzzz
+yyyy+6 Feuerwiderstandxxxx1340qqqq2zzzz
+yyyy+7 Feuerwiderstandxxxx1341qqqq2zzzz
+yyyy+8 Feuerwiderstandxxxx1342qqqq2zzzz
+yyyy+9 Feuerwiderstandxxxx1343qqqq2zzzz
+yyyy+10 Feuerwiderstandxxxx1344qqqq2zzzz
+yyyy+11 Feuerwiderstandxxxx1345qqqq2zzzz
+yyyy+12 Feuerwiderstandxxxx1346qqqq2zzzz
+yyyy+13 Feuerwiderstandxxxx1347qqqq2zzzz
+yyyy+14 Feuerwiderstandxxxx1348qqqq2zzzz
+yyyy+15 Feuerwiderstandxxxx1349qqqq2zzzz
+yyyy+16 Feuerwiderstandxxxx1350qqqq2zzzz
+yyyy+17 Feuerwiderstandxxxx1351qqqq2zzzz
+yyyy+18 Feuerwiderstandxxxx1352qqqq2zzzz
+yyyy+19 Feuerwiderstandxxxx1353qqqq2zzzz
+yyyy+20 Feuerwiderstandxxxx1354qqqq2zzzz
+yyyy+21 Feuerwiderstandxxxx1355qqqq2zzzz
+yyyy+22 Feuerwiderstandxxxx1356qqqq2zzzz
+yyyy+23 Feuerwiderstandxxxx1357qqqq2zzzz
+yyyy+24 Feuerwiderstandxxxx1358qqqq2zzzz
+yyyy+25 Feuerwiderstandxxxx1359qqqq2zzzz
+yyyy+26 Feuerwiderstandxxxx1360qqqq2zzzz
+yyyy+27 Feuerwiderstandxxxx1361qqqq2zzzz
+yyyy+28 Feuerwiderstandxxxx1362qqqq2zzzz
+yyyy+29 Feuerwiderstandxxxx1363qqqq2zzzz
+yyyy+30 Feuerwiderstandxxxx1364qqqq2zzzz
+yyyy+31 Feuerwiderstandxxxx1365qqqq2zzzz
+yyyy+32 Feuerwiderstandxxxx1366qqqq2zzzz
+yyyy+33 Feuerwiderstandxxxx1367qqqq2zzzz
+yyyy+34 Feuerwiderstandxxxx1368qqqq2zzzz
+yyyy+35 Feuerwiderstandxxxx1369qqqq2zzzz
+yyyy+36 Feuerwiderstandxxxx1370qqqq2zzzz
+yyyy+37 Feuerwiderstandxxxx1371qqqq2zzzz
+yyyy+38 Feuerwiderstandxxxx1372qqqq2zzzz
+yyyy+39 Feuerwiderstandxxxx1373qqqq2zzzz
+yyyy+40 Feuerwiderstandxxxx1374qqqq2zzzz
+yyyy+41 Feuerwiderstandxxxx1375qqqq2zzzz
+yyyy+42 Feuerwiderstandxxxx1376qqqq2zzzz
+yyyy+43 Feuerwiderstandxxxx1377qqqq2zzzz
+yyyy+44 Feuerwiderstandxxxx1378qqqq2zzzz
+yyyy+45 Feuerwiderstandxxxx1379qqqq2zzzz
+yyyy+46 Feuerwiderstandxxxx1380qqqq2zzzz
+yyyy+1 Naturwiderstandxxxx1381qqqq3zzzz
+yyyy+2 Naturwiderstandxxxx1382qqqq3zzzz
+yyyy+3 Naturwiderstandxxxx1383qqqq14624zzzz
+yyyy+4 Naturwiderstandxxxx1384qqqq3zzzz
+yyyy+5 Naturwiderstandxxxx1385qqqq3zzzz
+yyyy+6 Naturwiderstandxxxx1386qqqq3zzzz
+yyyy+7 Naturwiderstandxxxx1387qqqq3zzzz
+yyyy+8 Naturwiderstandxxxx1388qqqq3zzzz
+yyyy+9 Naturwiderstandxxxx1389qqqq3zzzz
+yyyy+10 Naturwiderstandxxxx1390qqqq3zzzz
+yyyy+11 Naturwiderstandxxxx1391qqqq3zzzz
+yyyy+12 Naturwiderstandxxxx1392qqqq3zzzz
+yyyy+13 Naturwiderstandxxxx1393qqqq3zzzz
+yyyy+14 Naturwiderstandxxxx1394qqqq3zzzz
+yyyy+15 Naturwiderstandxxxx1395qqqq3zzzz
+yyyy+16 Naturwiderstandxxxx1396qqqq3zzzz
+yyyy+17 Naturwiderstandxxxx1397qqqq3zzzz
+yyyy+18 Naturwiderstandxxxx1398qqqq3zzzz
+yyyy+19 Naturwiderstandxxxx1399qqqq3zzzz
+yyyy+20 Naturwiderstandxxxx1400qqqq3zzzz
+yyyy+21 Naturwiderstandxxxx1401qqqq3zzzz
+yyyy+22 Naturwiderstandxxxx1402qqqq3zzzz
+yyyy+23 Naturwiderstandxxxx1403qqqq3zzzz
+yyyy+24 Naturwiderstandxxxx1404qqqq3zzzz
+yyyy+25 Naturwiderstandxxxx1405qqqq3zzzz
+yyyy+26 Naturwiderstandxxxx1406qqqq3zzzz
+yyyy+27 Naturwiderstandxxxx1407qqqq3zzzz
+yyyy+28 Naturwiderstandxxxx1408qqqq3zzzz
+yyyy+29 Naturwiderstandxxxx1409qqqq3zzzz
+yyyy+30 Naturwiderstandxxxx1410qqqq3zzzz
+yyyy+31 Naturwiderstandxxxx1411qqqq3zzzz
+yyyy+32 Naturwiderstandxxxx1412qqqq3zzzz
+yyyy+33 Naturwiderstandxxxx1413qqqq3zzzz
+yyyy+34 Naturwiderstandxxxx1414qqqq3zzzz
+yyyy+35 Naturwiderstandxxxx1415qqqq3zzzz
+yyyy+36 Naturwiderstandxxxx1416qqqq3zzzz
+yyyy+37 Naturwiderstandxxxx1417qqqq3zzzz
+yyyy+38 Naturwiderstandxxxx1418qqqq3zzzz
+yyyy+39 Naturwiderstandxxxx1419qqqq3zzzz
+yyyy+40 Naturwiderstandxxxx1420qqqq3zzzz
+yyyy+41 Naturwiderstandxxxx1421qqqq3zzzz
+yyyy+42 Naturwiderstandxxxx1422qqqq3zzzz
+yyyy+43 Naturwiderstandxxxx1423qqqq3zzzz
+yyyy+44 Naturwiderstandxxxx1424qqqq3zzzz
+yyyy+45 Naturwiderstandxxxx1425qqqq3zzzz
+yyyy+46 Naturwiderstandxxxx1426qqqq3zzzz
+yyyy+1 Schattenwiderstandxxxx1427qqqq5zzzz
+yyyy+2 Schattenwiderstandxxxx1428qqqq5zzzz
+yyyy+3 Schattenwiderstandxxxx1429qqqq5zzzz
+yyyy+4 Schattenwiderstandxxxx1430qqqq5zzzz
+yyyy+5 Schattenwiderstandxxxx1431qqqq5zzzz
+yyyy+6 Schattenwiderstandxxxx1432qqqq5zzzz
+yyyy+7 Schattenwiderstandxxxx1433qqqq5zzzz
+yyyy+8 Schattenwiderstandxxxx1434qqqq5zzzz
+yyyy+9 Schattenwiderstandxxxx1435qqqq5zzzz
+yyyy+10 Schattenwiderstandxxxx1436qqqq5zzzz
+yyyy+11 Schattenwiderstandxxxx1437qqqq5zzzz
+yyyy+12 Schattenwiderstandxxxx1438qqqq5zzzz
+yyyy+13 Schattenwiderstandxxxx1439qqqq5zzzz
+yyyy+14 Schattenwiderstandxxxx1440qqqq5zzzz
+yyyy+15 Schattenwiderstandxxxx1441qqqq5zzzz
+yyyy+16 Schattenwiderstandxxxx1442qqqq5zzzz
+yyyy+17 Schattenwiderstandxxxx1443qqqq5zzzz
+yyyy+18 Schattenwiderstandxxxx1444qqqq5zzzz
+yyyy+19 Schattenwiderstandxxxx1445qqqq5zzzz
+yyyy+20 Schattenwiderstandxxxx1446qqqq5zzzz
+yyyy+21 Schattenwiderstandxxxx1447qqqq5zzzz
+yyyy+22 Schattenwiderstandxxxx1448qqqq5zzzz
+yyyy+23 Schattenwiderstandxxxx1449qqqq5zzzz
+yyyy+24 Schattenwiderstandxxxx1450qqqq5zzzz
+yyyy+25 Schattenwiderstandxxxx1451qqqq5zzzz
+yyyy+26 Schatten widerstehenxxxx1452qqqq5zzzz
+yyyy+27 Schattenwiderstandxxxx1453qqqq5zzzz
+yyyy+28 Schattenwiderstandxxxx1454qqqq5zzzz
+yyyy+29 Schattenwiderstandxxxx1455qqqq5zzzz
+yyyy+30 Schattenwiderstandxxxx1456qqqq5zzzz
+yyyy+31 Schattenwiderstandxxxx1457qqqq5zzzz
+yyyy+32 Schattenwiderstandxxxx1458qqqq5zzzz
+yyyy+33 Schattenwiderstandxxxx1459qqqq5zzzz
+yyyy+34 Schattenwiderstandxxxx1460qqqq5zzzz
+yyyy+35 Schattenwiderstandxxxx1461qqqq5zzzz
+yyyy+36 Schattenwiderstandxxxx1462qqqq5zzzz
+yyyy+37 Schattenwiderstandxxxx1463qqqq5zzzz
+yyyy+38 Schattenwiderstandxxxx1464qqqq5zzzz
+yyyy+39 Schattenwiderstandxxxx1465qqqq5zzzz
+yyyy+40 Schattenwiderstandxxxx1466qqqq5zzzz
+yyyy+41 Schattenwiderstandxxxx1467qqqq5zzzz
+yyyy+42 Schattenwiderstandxxxx1468qqqq5zzzz
+yyyy+43 Schattenwiderstandxxxx1469qqqq5zzzz
+yyyy+44 Schattenwiderstandxxxx1470qqqq5zzzz
+yyyy+45 Schattenwiderstandxxxx1471qqqq5zzzz
+yyyy+46 Schattenwiderstandxxxx1472qqqq5zzzz
+yyyy+150 Manaxxxx1483qqqq0zzzz
+yyyy+100 Gesundheitxxxx1503qqqq1zzzz
+yyyy+125 Rüstungxxxx1504qqqq0zzzz
+yyyy+20 Feuerwiderstandxxxx1505qqqq2zzzz
+yyyy+8 Stärkexxxx1506qqqq4zzzz
+yyyy+8 Ausdauerxxxx1507qqqq7zzzz
+yyyy+8 Beweglichkeitxxxx1508qqqq3zzzz
+yyyy+8 Intelligenzxxxx1509qqqq5zzzz
+yyyy+8 Willenskraftxxxx1510qqqq6zzzz
+yyyyMANA/FW +85/14xxxx1523qqqq0zzzz
+yyyyGP/FW +75/14xxxx1524qqqq1zzzz
+yyyyRK/FW +110/14xxxx1525qqqq0zzzz
+yyyyKRA/FW +10/14xxxx1526qqqq15440zzzz
+yyyyAUS/FW +10/14xxxx1527qqqq15442zzzz
+yyyyBEW/FW +10/14xxxx1528qqqq15445zzzz
+yyyyINT/FW +10/14xxxx1529qqqq15447zzzz
+yyyyGEI/FW +10/14xxxx1530qqqq15456zzzz
+yyyyKRA/AUS +10/10xxxx1531qqqq4zzzz
+yyyyKRA/AUS/RK/FW +10/10/110/15xxxx1532qqqq15462zzzz
+yyyy+10/10/100/15 INT/WILL/MANA/FRxxxx1543qqqq15489zzzz
+yyyy+2 Angriffskraftxxxx1563qqqq38zzzz
+yyyy+4 Angriffskraftxxxx1583qqqq38zzzz
+yyyy+6 Angriffskraftxxxx1584qqqq38zzzz
+yyyy+8 Angriffskraftxxxx1585qqqq38zzzz
+yyyy+10 Angriffskraftxxxx1586qqqq38zzzz
+yyyy+12 Angriffskraftxxxx1587qqqq38zzzz
+yyyy+14 Angriffskraftxxxx1588qqqq38zzzz
+yyyy+16 Angriffskraftxxxx1589qqqq38zzzz
+yyyy+18 Angriffskraftxxxx1590qqqq38zzzz
+yyyy+20 Angriffskraftxxxx1591qqqq38zzzz
+yyyy+22 Angriffskraftxxxx1592qqqq38zzzz
+yyyy+24 Angriffskraftxxxx1593qqqq38zzzz
+yyyy+26 Angriffskraftxxxx1594qqqq38zzzz
+yyyy+28 Angriffskraftxxxx1595qqqq38zzzz
+yyyy+30 Angriffskraftxxxx1596qqqq38zzzz
+yyyy+32 Angriffskraftxxxx1597qqqq38zzzz
+yyyy+34 Angriffskraftxxxx1598qqqq38zzzz
+yyyy+36 Angriffskraftxxxx1599qqqq38zzzz
+yyyy+38 Angriffskraftxxxx1600qqqq38zzzz
+yyyy+32 Angriffskraftxxxx1601qqqq38zzzz
+yyyy+42 Angriffskraftxxxx1602qqqq38zzzz
+yyyy+44 Angriffskraftxxxx1603qqqq38zzzz
+yyyy+46 Angriffskraftxxxx1604qqqq38zzzz
+yyyy+48 Angriffskraftxxxx1605qqqq38zzzz
+yyyy+50 Angriffskraftxxxx1606qqqq38zzzz
+yyyy+52 Angriffskraftxxxx1607qqqq38zzzz
+yyyy+54 Angriffskraftxxxx1608qqqq38zzzz
+yyyy+56 Angriffskraftxxxx1609qqqq38zzzz
+yyyy+58 Angriffskraftxxxx1610qqqq38zzzz
+yyyy+60 Angriffskraftxxxx1611qqqq38zzzz
+yyyy+62 Angriffskraftxxxx1612qqqq38zzzz
+yyyy+64 Angriffskraftxxxx1613qqqq38zzzz
+yyyy+66 Angriffskraftxxxx1614qqqq38zzzz
+yyyy+68 Angriffskraftxxxx1615qqqq38zzzz
+yyyy+70 Angriffskraftxxxx1616qqqq38zzzz
+yyyy+72 Angriffskraftxxxx1617qqqq38zzzz
+yyyy+74 Angriffskraftxxxx1618qqqq38zzzz
+yyyy+76 Angriffskraftxxxx1619qqqq38zzzz
+yyyy+78 Angriffskraftxxxx1620qqqq38zzzz
+yyyy+80 Angriffskraftxxxx1621qqqq38zzzz
+yyyy+82 Angriffskraftxxxx1622qqqq38zzzz
+yyyy+84 Angriffskraftxxxx1623qqqq38zzzz
+yyyy+86 Angriffskraftxxxx1624qqqq38zzzz
+yyyy+88 Angriffskraftxxxx1625qqqq38zzzz
+yyyy+90 Angriffskraftxxxx1626qqqq38zzzz
+yyyy+92 Angriffskraftxxxx1627qqqq38zzzz
+yyyyGeschärft (+8 Schaden)xxxx1643qqqq0zzzz
+yyyyFelsbeißer 5xxxx1663qqqq0zzzz
+yyyyFelsbeißer 7xxxx1664qqqq0zzzz
+yyyyFlammenzunge 5xxxx1665qqqq16311zzzz
+yyyyFlammenzunge 6xxxx1666qqqq16312zzzz
+yyyyFrostbrand 4xxxx1667qqqq16352zzzz
+yyyyFrostbrand 5xxxx1668qqqq16353zzzz
+yyyyWindzorn 4xxxx1669qqqq33757zzzz
+yyyyTotem der Flammenzunge 4xxxx1683qqqq16389zzzz
+yyyyBeschwert (+8 Schaden)xxxx1703qqqq0zzzz
+yyyyThoriumstachel (20-30)xxxx1704qqqq16624zzzz
+yyyyOmen der Klarsichtxxxx1723qqqq16870zzzz
+yyyyMHTest02xxxx1743qqqq19109zzzz
+yyyyKaltblütigkeitxxxx1763qqqq0zzzz
+yyyyTotem des Windzorns 1xxxx1783qqqq8516zzzz
+yyyyFeuerstein 1xxxx1803qqqq17809zzzz
+yyyyFeuerstein 2xxxx1823qqqq17933zzzz
+yyyyFeuerstein 3xxxx1824qqqq17934zzzz
+yyyyFeuerstein 4xxxx1825qqqq17935zzzz
+yyyyVerstärkt (+40 Rüstung)xxxx1843qqqq0zzzz
+yyyyRückkopplung 2xxxx1863qqqq19267zzzz
+yyyyRückkopplung 3xxxx1864qqqq19268zzzz
+yyyyRückkopplung 4xxxx1865qqqq19269zzzz
+yyyyRückkopplung 5xxxx1866qqqq19270zzzz
+yyyy+7 Intelligenzxxxx1883qqqq5zzzz
+yyyy+9 Willenskraftxxxx1884qqqq6zzzz
+yyyy+9 Stärkexxxx1885qqqq4zzzz
+yyyy+9 Ausdauerxxxx1886qqqq7zzzz
+yyyy+7 Beweglichkeitxxxx1887qqqq3zzzz
+yyyy+5 alle Widerstandsartenxxxx1888qqqq19992zzzz
+yyyy+70 Rüstungxxxx1889qqqq0zzzz
+yyyy+10 Willenskraft und +10 Ausdauerxxxx1890qqqq6zzzz
+yyyy+4 alle Wertexxxx1891qqqq19988zzzz
+yyyy+100 Gesundheitxxxx1892qqqq19990zzzz
+yyyy+100 Manaxxxx1893qqqq0zzzz
+yyyyEisiger Hauchxxxx1894qqqq20005zzzz
+yyyy+9 Schadenxxxx1895qqqq0zzzz
+yyyy+9 Waffenschadenxxxx1896qqqq0zzzz
+yyyy+5 Waffenschadenxxxx1897qqqq0zzzz
+yyyyLebensdiebstahlxxxx1898qqqq20004zzzz
+yyyyUnheilige Waffexxxx1899qqqq20006zzzz
+yyyyKreuzfahrerxxxx1900qqqq20007zzzz
+yyyy+9 Intelligenzxxxx1901qqqq5zzzz
+yyyy+9 Willenskraftxxxx1903qqqq6zzzz
+yyyy+9 Intelligenzxxxx1904qqqq5zzzz
+yyyy+3 Feuerwiderstandxxxx1923qqqq2zzzz
+yyyy+12 Ausweichwertungxxxx1943qqqq13zzzz
+yyyy+8 Ausweichwertungxxxx1944qqqq13zzzz
+yyyy+9 Ausweichwertungxxxx1945qqqq13zzzz
+yyyy+10 Ausweichwertungxxxx1946qqqq13zzzz
+yyyy+11 Ausweichwertungxxxx1947qqqq13zzzz
+yyyy+13 Ausweichwertungxxxx1948qqqq13zzzz
+yyyy+14 Ausweichwertungxxxx1949qqqq13zzzz
+yyyy+15 Ausweichwertungxxxx1950qqqq13zzzz
+yyyy+18 Ausweichwertungxxxx1951qqqq13zzzz
+yyyy+20 Ausweichwertungxxxx1952qqqq13zzzz
+yyyy+22 Ausweichwertungxxxx1953qqqq13zzzz
+yyyy+25 Ausweichwertungxxxx1954qqqq13zzzz
+yyyy+32 Ausweichwertungxxxx1955qqqq13zzzz
+yyyy+17 Ausweichwertungxxxx1956qqqq13zzzz
+yyyy+18 Ausweichwertungxxxx1957qqqq13zzzz
+yyyy+19 Ausweichwertungxxxx1958qqqq13zzzz
+yyyy+21 Ausweichwertungxxxx1959qqqq13zzzz
+yyyy+23 Ausweichwertungxxxx1960qqqq13zzzz
+yyyy+24 Ausweichwertungxxxx1961qqqq13zzzz
+yyyy+26 Ausweichwertungxxxx1962qqqq13zzzz
+yyyy+27 Ausweichwertungxxxx1963qqqq13zzzz
+yyyy+28 Ausweichwertungxxxx1964qqqq13zzzz
+yyyy+29 Ausweichwertungxxxx1965qqqq13zzzz
+yyyy+30 Ausweichwertungxxxx1966qqqq13zzzz
+yyyy+31 Ausweichwertungxxxx1967qqqq13zzzz
+yyyy+33 Ausweichwertungxxxx1968qqqq13zzzz
+yyyy+34 Ausweichwertungxxxx1969qqqq13zzzz
+yyyy+35 Ausweichwertungxxxx1970qqqq13zzzz
+yyyy+36 Ausweichwertungxxxx1971qqqq13zzzz
+yyyy+37 Ausweichwertungxxxx1972qqqq13zzzz
+yyyy+38 Ausweichwertungxxxx1973qqqq13zzzz
+yyyy+5 Blockwertungxxxx1983qqqq15zzzz
+yyyy+10 Blockwertungxxxx1984qqqq15zzzz
+yyyy+15 Blockwertungxxxx1985qqqq15zzzz
+yyyy+20 Blockwertungxxxx1986qqqq15zzzz
+yyyyBlocken Stufe 14xxxx1987qqqq15zzzz
+yyyyBlocken Stufe 15xxxx1988qqqq15zzzz
+yyyyBlocken Stufe 16xxxx1989qqqq15zzzz
+yyyyBlocken Stufe 17xxxx1990qqqq15zzzz
+yyyyBlocken Stufe 18xxxx1991qqqq15zzzz
+yyyyBlocken Stufe 19xxxx1992qqqq15zzzz
+yyyyBlocken Stufe 20xxxx1993qqqq15zzzz
+yyyyBlocken Stufe 21xxxx1994qqqq15zzzz
+yyyyBlocken Stufe 22xxxx1995qqqq15zzzz
+yyyyBlocken Stufe 23xxxx1996qqqq15zzzz
+yyyyBlocken Stufe 24xxxx1997qqqq15zzzz
+yyyyBlocken Stufe 25xxxx1998qqqq15zzzz
+yyyyBlocken Stufe 26xxxx1999qqqq15zzzz
+yyyyBlocken Stufe 27xxxx2000qqqq15zzzz
+yyyyBlocken Stufe 28xxxx2001qqqq15zzzz
+yyyyBlocken Stufe 29xxxx2002qqqq15zzzz
+yyyyBlocken Stufe 30xxxx2003qqqq15zzzz
+yyyyBlocken Stufe 31xxxx2004qqqq15zzzz
+yyyyBlocken Stufe 32xxxx2005qqqq15zzzz
+yyyyBlocken Stufe 33xxxx2006qqqq15zzzz
+yyyyBlocken Stufe 34xxxx2007qqqq15zzzz
+yyyyBlocken Stufe 35xxxx2008qqqq15zzzz
+yyyyBlocken Stufe 36xxxx2009qqqq15zzzz
+yyyyBlocken Stufe 37xxxx2010qqqq15zzzz
+yyyyBlocken Stufe 38xxxx2011qqqq15zzzz
+yyyyBlocken Stufe 39xxxx2012qqqq15zzzz
+yyyyBlocken Stufe 40xxxx2013qqqq15zzzz
+yyyyBlocken Stufe 41xxxx2014qqqq15zzzz
+yyyyBlocken Stufe 42xxxx2015qqqq15zzzz
+yyyyBlocken Stufe 43xxxx2016qqqq15zzzz
+yyyyBlocken Stufe 44xxxx2017qqqq15zzzz
+yyyyBlocken Stufe 45xxxx2018qqqq15zzzz
+yyyyBlocken Stufe 46xxxx2019qqqq15zzzz
+yyyyBlocken Stufe 47xxxx2020qqqq15zzzz
+yyyyBlocken Stufe 48xxxx2021qqqq15zzzz
+yyyyBlocken Stufe 49xxxx2022qqqq15zzzz
+yyyyBlocken Stufe 50xxxx2023qqqq15zzzz
+yyyyBlocken Stufe 51xxxx2024qqqq15zzzz
+yyyyBlocken Stufe 52xxxx2025qqqq15zzzz
+yyyyBlocken Stufe 53xxxx2026qqqq15zzzz
+yyyyBlocken Stufe 54xxxx2027qqqq15zzzz
+yyyyBlocken Stufe 55xxxx2028qqqq15zzzz
+yyyyBlocken Stufe 56xxxx2029qqqq15zzzz
+yyyyBlocken Stufe 57xxxx2030qqqq15zzzz
+yyyyBlocken Stufe 58xxxx2031qqqq15zzzz
+yyyyBlocken Stufe 59xxxx2032qqqq15zzzz
+yyyyBlocken Stufe 60xxxx2033qqqq15zzzz
+yyyyBlocken Stufe 61xxxx2034qqqq15zzzz
+yyyyBlocken Stufe 62xxxx2035qqqq15zzzz
+yyyyBlocken Stufe 63xxxx2036qqqq15zzzz
+yyyyBlocken Stufe 64xxxx2037qqqq15zzzz
+yyyyBlocken Stufe 65xxxx2038qqqq15zzzz
+yyyyBlocken Stufe 66xxxx2039qqqq15zzzz
+yyyy+2 Distanzangriffskraftxxxx2040qqqq39zzzz
+yyyy+5 Distanzangriffskraftxxxx2041qqqq39zzzz
+yyyy+7 Distanzangriffskraftxxxx2042qqqq39zzzz
+yyyy+10 Distanzangriffskraftxxxx2043qqqq39zzzz
+yyyy+12 Distanzangriffskraftxxxx2044qqqq39zzzz
+yyyy+14 Distanzangriffskraftxxxx2045qqqq39zzzz
+yyyy+17 Distanzangriffskraftxxxx2046qqqq39zzzz
+yyyy+19 Distanzangriffskraftxxxx2047qqqq39zzzz
+yyyy+22 Distanzangriffskraftxxxx2048qqqq39zzzz
+yyyy+24 Distanzangriffskraftxxxx2049qqqq39zzzz
+yyyy+26 Distanzangriffskraftxxxx2050qqqq39zzzz
+yyyy+29 Distanzangriffskraftxxxx2051qqqq39zzzz
+yyyy+31 Distanzangriffskraftxxxx2052qqqq39zzzz
+yyyy+34 Distanzangriffskraftxxxx2053qqqq39zzzz
+yyyy+36 Distanzangriffskraftxxxx2054qqqq39zzzz
+yyyy+38 Distanzangriffskraftxxxx2055qqqq39zzzz
+yyyy+41 Distanzangriffskraftxxxx2056qqqq39zzzz
+yyyy+43 Distanzangriffskraftxxxx2057qqqq39zzzz
+yyyy+46 Distanzangriffskraftxxxx2058qqqq39zzzz
+yyyy+48 Distanzangriffskraftxxxx2059qqqq39zzzz
+yyyy+50 Distanzangriffskraftxxxx2060qqqq39zzzz
+yyyy+53 Distanzangriffskraftxxxx2061qqqq39zzzz
+yyyy+55 Distanzangriffskraftxxxx2062qqqq39zzzz
+yyyy+58 Distanzangriffskraftxxxx2063qqqq39zzzz
+yyyy+60 Distanzangriffskraftxxxx2064qqqq39zzzz
+yyyy+62 Distanzangriffskraftxxxx2065qqqq39zzzz
+yyyy+65 Distanzangriffskraftxxxx2066qqqq39zzzz
+yyyy+67 Distanzangriffskraftxxxx2067qqqq39zzzz
+yyyy+70 Distanzangriffskraftxxxx2068qqqq39zzzz
+yyyy+72 Distanzangriffskraftxxxx2069qqqq39zzzz
+yyyy+74 Distanzangriffskraftxxxx2070qqqq39zzzz
+yyyy+77 Distanzangriffskraftxxxx2071qqqq39zzzz
+yyyy+79 Distanzangriffskraftxxxx2072qqqq39zzzz
+yyyy+82 Distanzangriffskraftxxxx2073qqqq39zzzz
+yyyy+84 Distanzangriffskraftxxxx2074qqqq39zzzz
+yyyy+86 Distanzangriffskraftxxxx2075qqqq39zzzz
+yyyy+89 Distanzangriffskraftxxxx2076qqqq39zzzz
+yyyy+91 Distanzangriffskraftxxxx2077qqqq39zzzz
+yyyy+12 Ausweichwertungxxxx2078qqqq13zzzz
+yyyy+1 Arkanzauberschadenxxxx2079qqqq13590zzzz
+yyyy+3 Arkanzauberschadenxxxx2080qqqq13591zzzz
+yyyy+4 Arkanzauberschadenxxxx2081qqqq13592zzzz
+yyyy+6 Arkanzauberschadenxxxx2082qqqq13593zzzz
+yyyy+7 Arkanzauberschadenxxxx2083qqqq13594zzzz
+yyyy+9 Arkanzauberschadenxxxx2084qqqq13595zzzz
+yyyy+10 Arkanzauberschadenxxxx2085qqqq13596zzzz
+yyyy+11 Arkanzauberschadenxxxx2086qqqq13597zzzz
+yyyy+13 Arkanzauberschadenxxxx2087qqqq13598zzzz
+yyyy+14 Arkanzauberschadenxxxx2088qqqq13599zzzz
+yyyy+16 Arkanzauberschadenxxxx2089qqqq13601zzzz
+yyyy+17 Arkanzauberschadenxxxx2090qqqq13602zzzz
+yyyy+19 Arkanzauberschadenxxxx2091qqqq13603zzzz
+yyyy+20 Arkanzauberschadenxxxx2092qqqq13604zzzz
+yyyy+21 Arkanzauberschadenxxxx2093qqqq13605zzzz
+yyyy+23 Arkanzauberschadenxxxx2094qqqq17821zzzz
+yyyy+24 Arkanzauberschadenxxxx2095qqqq17822zzzz
+yyyy+26 Arkanzauberschadenxxxx2096qqqq17823zzzz
+yyyy+27 Arkanzauberschadenxxxx2097qqqq17824zzzz
+yyyy+29 Arkanzauberschadenxxxx2098qqqq17825zzzz
+yyyy+30 Arkanzauberschadenxxxx2099qqqq17826zzzz
+yyyy+31 Arkanzauberschadenxxxx2100qqqq17827zzzz
+yyyy+33 Arkanzauberschadenxxxx2101qqqq17828zzzz
+yyyy+34 Arkanzauberschadenxxxx2102qqqq17829zzzz
+yyyy+36 Arkanzauberschadenxxxx2103qqqq17830zzzz
+yyyy+37 Arkanzauberschadenxxxx2104qqqq17832zzzz
+yyyy+39 Arkanzauberschadenxxxx2105qqqq17837zzzz
+yyyy+40 Arkanzauberschadenxxxx2106qqqq17838zzzz
+yyyy+41 Arkanzauberschadenxxxx2107qqqq17839zzzz
+yyyy+43 Arkanzauberschadenxxxx2108qqqq17840zzzz
+yyyy+44 Arkanzauberschadenxxxx2109qqqq17841zzzz
+yyyy+46 Arkanzauberschadenxxxx2110qqqq17842zzzz
+yyyy+47 Arkanzauberschadenxxxx2111qqqq17844zzzz
+yyyy+49 Arkanzauberschadenxxxx2112qqqq17845zzzz
+yyyy+50 Arkanzauberschadenxxxx2113qqqq17846zzzz
+yyyy+51 Arkanzauberschadenxxxx2114qqqq17847zzzz
+yyyy+53 Arkanzauberschadenxxxx2115qqqq17848zzzz
+yyyy+54 Arkanzauberschadenxxxx2116qqqq17849zzzz
+yyyy+1 Schattenzauberschadenxxxx2117qqqq7704zzzz
+yyyy+3 Schattenzauberschadenxxxx2118qqqq7705zzzz
+yyyy+4 Schattenzauberschadenxxxx2119qqqq7706zzzz
+yyyy+6 Schattenzauberschadenxxxx2120qqqq7707zzzz
+yyyy+7 Schattenzauberschadenxxxx2121qqqq7708zzzz
+yyyy+9 Schattenzauberschadenxxxx2122qqqq7710zzzz
+yyyy+10 Schattenzauberschadenxxxx2123qqqq7709zzzz
+yyyy+11 Schattenzauberschadenxxxx2124qqqq9412zzzz
+yyyy+13 Schattenzauberschadenxxxx2125qqqq9413zzzz
+yyyy+14 Schattenzauberschadenxxxx2126qqqq9414zzzz
+yyyy+16 Schattenzauberschadenxxxx2127qqqq9324zzzz
+yyyy+17 Schattenzauberschadenxxxx2128qqqq9325zzzz
+yyyy+19 Schattenzauberschadenxxxx2129qqqq9326zzzz
+yyyy+20 Schattenzauberschadenxxxx2130qqqq9327zzzz
+yyyy+21 Schattenzauberschadenxxxx2131qqqq9328zzzz
+yyyy+23 Schattenzauberschadenxxxx2132qqqq14793zzzz
+yyyy+24 Schattenzauberschadenxxxx2133qqqq14794zzzz
+yyyy+26 Schattenzauberschadenxxxx2134qqqq18008zzzz
+yyyy+27 Schattenzauberschadenxxxx2135qqqq18009zzzz
+yyyy+29 Schattenzauberschadenxxxx2136qqqq18010zzzz
+yyyy+30 Schattenzauberschadenxxxx2137qqqq18011zzzz
+yyyy+31 Schattenzauberschadenxxxx2138qqqq18012zzzz
+yyyy+33 Schattenzauberschadenxxxx2139qqqq18013zzzz
+yyyy+34 Schattenzauberschadenxxxx2140qqqq18014zzzz
+yyyy+36 Schattenzauberschadenxxxx2141qqqq18015zzzz
+yyyy+37 Schattenzauberschadenxxxx2142qqqq18016zzzz
+yyyy+39 Schattenzauberschadenxxxx2143qqqq18017zzzz
+yyyy+40 Schattenzauberschadenxxxx2144qqqq18018zzzz
+yyyy+41 Schattenzauberschadenxxxx2145qqqq18019zzzz
+yyyy+43 Schattenzauberschadenxxxx2146qqqq18020zzzz
+yyyy+44 Schattenzauberschadenxxxx2147qqqq18021zzzz
+yyyy+46 Schattenzauberschadenxxxx2148qqqq18022zzzz
+yyyy+47 Schattenzauberschadenxxxx2149qqqq18023zzzz
+yyyy+49 Schattenzauberschadenxxxx2150qqqq18024zzzz
+yyyy+50 Schattenzauberschadenxxxx2151qqqq18025zzzz
+yyyy+51 Schattenzauberschadenxxxx2152qqqq18026zzzz
+yyyy+53 Schattenzauberschadenxxxx2153qqqq18027zzzz
+yyyy+54 Schattenzauberschadenxxxx2154qqqq18028zzzz
+yyyy+1 Feuerzauberschadenxxxx2155qqqq7683zzzz
+yyyy+3 Feuerzauberschadenxxxx2156qqqq7684zzzz
+yyyy+4 Feuerzauberschadenxxxx2157qqqq7685zzzz
+yyyy+6 Feuerzauberschadenxxxx2158qqqq7686zzzz
+yyyy+7 Feuerzauberschadenxxxx2159qqqq7687zzzz
+yyyy+9 Feuerzauberschadenxxxx2160qqqq7688zzzz
+yyyy+10 Feuerzauberschadenxxxx2161qqqq7689zzzz
+yyyy+11 Feuerzauberschadenxxxx2162qqqq9399zzzz
+yyyy+13 Feuerzauberschadenxxxx2163qqqq9400zzzz
+yyyy+14 Feuerzauberschadenxxxx2164qqqq9401zzzz
+yyyy+16 Feuerzauberschadenxxxx2165qqqq9294zzzz
+yyyy+17 Feuerzauberschadenxxxx2166qqqq9295zzzz
+yyyy+19 Feuerzauberschadenxxxx2167qqqq9296zzzz
+yyyy+20 Feuerzauberschadenxxxx2168qqqq9297zzzz
+yyyy+21 Feuerzauberschadenxxxx2169qqqq9298zzzz
+yyyy+23 Feuerzauberschadenxxxx2170qqqq17747zzzz
+yyyy+24 Feuerzauberschadenxxxx2171qqqq17866zzzz
+yyyy+26 Feuerzauberschadenxxxx2172qqqq17867zzzz
+yyyy+27 Feuerzauberschadenxxxx2173qqqq17868zzzz
+yyyy+29 Feuerzauberschadenxxxx2174qqqq13830zzzz
+yyyy+30 Feuerzauberschadenxxxx2175qqqq17869zzzz
+yyyy+31 Feuerzauberschadenxxxx2176qqqq17870zzzz
+yyyy+33 Feuerzauberschadenxxxx2177qqqq17871zzzz
+yyyy+34 Feuerzauberschadenxxxx2178qqqq17872zzzz
+yyyy+36 Feuerzauberschadenxxxx2179qqqq17873zzzz
+yyyy+37 Feuerzauberschadenxxxx2180qqqq17874zzzz
+yyyy+39 Feuerzauberschadenxxxx2181qqqq17684zzzz
+yyyy+40 Feuerzauberschadenxxxx2182qqqq17875zzzz
+yyyy+41 Feuerzauberschadenxxxx2183qqqq17876zzzz
+yyyy+43 Feuerzauberschadenxxxx2184qqqq17878zzzz
+yyyy+44 Feuerzauberschadenxxxx2185qqqq17879zzzz
+yyyy+46 Feuerzauberschadenxxxx2186qqqq17880zzzz
+yyyy+47 Feuerzauberschadenxxxx2187qqqq17881zzzz
+yyyy+49 Feuerzauberschadenxxxx2188qqqq17882zzzz
+yyyy+50 Feuerzauberschadenxxxx2189qqqq17884zzzz
+yyyy+51 Feuerzauberschadenxxxx2190qqqq17885zzzz
+yyyy+53 Feuerzauberschadenxxxx2191qqqq17886zzzz
+yyyy+54 Feuerzauberschadenxxxx2192qqqq17887zzzz
+yyyy+1 Heiligzauberschadenxxxx2193qqqq21499zzzz
+yyyy+3 Heiligzauberschadenxxxx2194qqqq21500zzzz
+yyyy+4 Heiligzauberschadenxxxx2195qqqq21501zzzz
+yyyy+6 Heiligzauberschadenxxxx2196qqqq21502zzzz
+yyyy+7 Heiligzauberschadenxxxx2197qqqq21503zzzz
+yyyy+9 Heiligzauberschadenxxxx2198qqqq21504zzzz
+yyyy+10 Heiligzauberschadenxxxx2199qqqq21505zzzz
+yyyy+11 Heiligzauberschadenxxxx2200qqqq21506zzzz
+yyyy+13 Heiligzauberschadenxxxx2201qqqq21507zzzz
+yyyy+14 Heiligzauberschadenxxxx2202qqqq21508zzzz
+yyyy+16 Heiligzauberschadenxxxx2203qqqq21509zzzz
+yyyy+17 Heiligzauberschadenxxxx2204qqqq21510zzzz
+yyyy+19 Heiligzauberschadenxxxx2205qqqq21511zzzz
+yyyy+20 Heiligzauberschadenxxxx2206qqqq21512zzzz
+yyyy+21 Heiligzauberschadenxxxx2207qqqq21513zzzz
+yyyy+23 Heiligzauberschadenxxxx2208qqqq21514zzzz
+yyyy+24 Heiligzauberschadenxxxx2209qqqq21515zzzz
+yyyy+26 Heiligzauberschadenxxxx2210qqqq21516zzzz
+yyyy+27 Heiligzauberschadenxxxx2211qqqq21517zzzz
+yyyy+29 Heiligzauberschadenxxxx2212qqqq21518zzzz
+yyyy+30 Heiligzauberschadenxxxx2213qqqq21519zzzz
+yyyy+31 Heiligzauberschadenxxxx2214qqqq21520zzzz
+yyyy+33 Heiligzauberschadenxxxx2215qqqq21521zzzz
+yyyy+34 Heiligzauberschadenxxxx2216qqqq21522zzzz
+yyyy+36 Heiligzauberschadenxxxx2217qqqq21523zzzz
+yyyy+37 Heiligzauberschadenxxxx2218qqqq21524zzzz
+yyyy+39 Heiligzauberschadenxxxx2219qqqq21525zzzz
+yyyy+40 Heiligzauberschadenxxxx2220qqqq21526zzzz
+yyyy+41 Heiligzauberschadenxxxx2221qqqq21527zzzz
+yyyy+43 Heiligzauberschadenxxxx2222qqqq21528zzzz
+yyyy+44 Heiligzauberschadenxxxx2223qqqq21529zzzz
+yyyy+46 Heiligzauberschadenxxxx2224qqqq21530zzzz
+yyyy+47 Heiligzauberschadenxxxx2225qqqq21531zzzz
+yyyy+49 Heiligzauberschadenxxxx2226qqqq21532zzzz
+yyyy+50 Heiligzauberschadenxxxx2227qqqq21533zzzz
+yyyy+51 Heiligzauberschadenxxxx2228qqqq21534zzzz
+yyyy+53 Heiligzauberschadenxxxx2229qqqq21535zzzz
+yyyy+54 Heiligzauberschadenxxxx2230qqqq21536zzzz
+yyyy+1 Frostzauberschadenxxxx2231qqqq7697zzzz
+yyyy+3 Frostzauberschadenxxxx2232qqqq7698zzzz
+yyyy+4 Frostzauberschadenxxxx2233qqqq7699zzzz
+yyyy+6 Frostzauberschadenxxxx2234qqqq7700zzzz
+yyyy+7 Frostzauberschadenxxxx2235qqqq7701zzzz
+yyyy+9 Frostzauberschadenxxxx2236qqqq7702zzzz
+yyyy+10 Frostzauberschadenxxxx2237qqqq7703zzzz
+yyyy+11 Frostzauberschadenxxxx2238qqqq9402zzzz
+yyyy+13 Frostzauberschadenxxxx2239qqqq9403zzzz
+yyyy+14 Frostzauberschadenxxxx2240qqqq9404zzzz
+yyyy+16 Frostzauberschadenxxxx2241qqqq9304zzzz
+yyyy+17 Frostzauberschadenxxxx2242qqqq9305zzzz
+yyyy+19 Frostzauberschadenxxxx2243qqqq9306zzzz
+yyyy+20 Frostzauberschadenxxxx2244qqqq9307zzzz
+yyyy+21 Frostzauberschadenxxxx2245qqqq9308zzzz
+yyyy+23 Frostzauberschadenxxxx2246qqqq17889zzzz
+yyyy+24 Frostzauberschadenxxxx2247qqqq17890zzzz
+yyyy+26 Frostzauberschadenxxxx2248qqqq17891zzzz
+yyyy+27 Frostzauberschadenxxxx2249qqqq17892zzzz
+yyyy+29 Frostzauberschadenxxxx2250qqqq13831zzzz
+yyyy+30 Frostzauberschadenxxxx2251qqqq17893zzzz
+yyyy+31 Frostzauberschadenxxxx2252qqqq17894zzzz
+yyyy+33 Frostzauberschadenxxxx2253qqqq17895zzzz
+yyyy+34 Frostzauberschadenxxxx2254qqqq17896zzzz
+yyyy+36 Frostzauberschadenxxxx2255qqqq17897zzzz
+yyyy+37 Frostzauberschadenxxxx2256qqqq17898zzzz
+yyyy+39 Frostzauberschadenxxxx2257qqqq17899zzzz
+yyyy+40 Frostzauberschadenxxxx2258qqqq17900zzzz
+yyyy+41 Frostzauberschadenxxxx2259qqqq17901zzzz
+yyyy+43 Frostzauberschadenxxxx2260qqqq17902zzzz
+yyyy+44 Frostzauberschadenxxxx2261qqqq17903zzzz
+yyyy+46 Frostzauberschadenxxxx2262qqqq17905zzzz
+yyyy+47 Frostzauberschadenxxxx2263qqqq17906zzzz
+yyyy+49 Frostzauberschadenxxxx2264qqqq17907zzzz
+yyyy+50 Frostzauberschadenxxxx2265qqqq17908zzzz
+yyyy+51 Frostzauberschadenxxxx2266qqqq17909zzzz
+yyyy+53 Frostzauberschadenxxxx2267qqqq17910zzzz
+yyyy+54 Frostzauberschadenxxxx2268qqqq17911zzzz
+yyyy+1 Naturzauberschadenxxxx2269qqqq7690zzzz
+yyyy+3 Naturzauberschadenxxxx2270qqqq7691zzzz
+yyyy+4 Naturzauberschadenxxxx2271qqqq7692zzzz
+yyyy+6 Naturzauberschadenxxxx2272qqqq7693zzzz
+yyyy+7 Naturzauberschadenxxxx2273qqqq7694zzzz
+yyyy+9 Naturzauberschadenxxxx2274qqqq7695zzzz
+yyyy+10 Naturzauberschadenxxxx2275qqqq7696zzzz
+yyyy+11 Naturzauberschadenxxxx2276qqqq9409zzzz
+yyyy+13 Naturzauberschadenxxxx2277qqqq9410zzzz
+yyyy+14 Naturzauberschadenxxxx2278qqqq9411zzzz
+yyyy+16 Naturzauberschadenxxxx2279qqqq9357zzzz
+yyyy+17 Naturzauberschadenxxxx2280qqqq9358zzzz
+yyyy+19 Naturzauberschadenxxxx2281qqqq9359zzzz
+yyyy+20 Naturzauberschadenxxxx2282qqqq9360zzzz
+yyyy+21 Naturzauberschadenxxxx2283qqqq9361zzzz
+yyyy+23 Naturzauberschadenxxxx2284qqqq17987zzzz
+yyyy+24 Naturzauberschadenxxxx2285qqqq17988zzzz
+yyyy+26 Naturzauberschadenxxxx2286qqqq17989zzzz
+yyyy+27 Naturzauberschadenxxxx2287qqqq17990zzzz
+yyyy+29 Naturzauberschadenxxxx2288qqqq17819zzzz
+yyyy+30 Naturzauberschadenxxxx2289qqqq17991zzzz
+yyyy+31 Naturzauberschadenxxxx2290qqqq17992zzzz
+yyyy+33 Naturzauberschadenxxxx2291qqqq17993zzzz
+yyyy+34 Naturzauberschadenxxxx2292qqqq16638zzzz
+yyyy+36 Naturzauberschadenxxxx2293qqqq17994zzzz
+yyyy+37 Naturzauberschadenxxxx2294qqqq17995zzzz
+yyyy+39 Naturzauberschadenxxxx2295qqqq17996zzzz
+yyyy+40 Naturzauberschadenxxxx2296qqqq17997zzzz
+yyyy+41 Naturzauberschadenxxxx2297qqqq17998zzzz
+yyyy+43 Naturzauberschadenxxxx2298qqqq17999zzzz
+yyyy+44 Naturzauberschadenxxxx2299qqqq18000zzzz
+yyyy+46 Naturzauberschadenxxxx2300qqqq18001zzzz
+yyyy+47 Naturzauberschadenxxxx2301qqqq18002zzzz
+yyyy+49 Naturzauberschadenxxxx2302qqqq18003zzzz
+yyyy+50 Naturzauberschadenxxxx2303qqqq18004zzzz
+yyyy+51 Naturzauberschadenxxxx2304qqqq18005zzzz
+yyyy+53 Naturzauberschadenxxxx2305qqqq18006zzzz
+yyyy+54 Naturzauberschadenxxxx2306qqqq18007zzzz
+yyyy+1 Zaubermachtxxxx2307qqqq45zzzz
+yyyy+2 Zaubermachtxxxx2308qqqq45zzzz
+yyyy+4 Zaubermachtxxxx2309qqqq45zzzz
+yyyy+5 Zaubermachtxxxx2310qqqq45zzzz
+yyyy+6 Zaubermachtxxxx2311qqqq9396zzzz
+yyyy+7 Zaubermachtxxxx2312qqqq45zzzz
+yyyy+8 Zaubermachtxxxx2313qqqq45zzzz
+yyyy+9 Zaubermachtxxxx2314qqqq45zzzz
+yyyy+11 Zaubermachtxxxx2315qqqq45zzzz
+yyyy+12 Zaubermachtxxxx2316qqqq45zzzz
+yyyy+13 Zaubermachtxxxx2317qqqq45zzzz
+yyyy+14 Zaubermachtxxxx2318qqqq45zzzz
+yyyy+15 Zaubermachtxxxx2319qqqq45zzzz
+yyyy+16 Zaubermachtxxxx2320qqqq45zzzz
+yyyy+18 Zaubermachtxxxx2321qqqq45zzzz
+yyyy+19 Zaubermachtxxxx2322qqqq45zzzz
+yyyy+20 Zaubermachtxxxx2323qqqq45zzzz
+yyyy+21 Zaubermachtxxxx2324qqqq45zzzz
+yyyy+22 Zaubermachtxxxx2325qqqq45zzzz
+yyyy+23 Zaubermachtxxxx2326qqqq45zzzz
+yyyy+25 Zaubermachtxxxx2327qqqq45zzzz
+yyyy+26 Zaubermachtxxxx2328qqqq45zzzz
+yyyy+27 Zaubermachtxxxx2329qqqq45zzzz
+yyyy+28 Zaubermachtxxxx2330qqqq45zzzz
+yyyy+29 Zaubermachtxxxx2331qqqq45zzzz
+yyyy+30 Zaubermachtxxxx2332qqqq45zzzz
+yyyy+32 Zaubermachtxxxx2333qqqq45zzzz
+yyyy+33 Zaubermachtxxxx2334qqqq45zzzz
+yyyy+34 Zaubermachtxxxx2335qqqq45zzzz
+yyyy+35 Zaubermachtxxxx2336qqqq45zzzz
+yyyy+36 Zaubermachtxxxx2337qqqq45zzzz
+yyyy+37 Zaubermachtxxxx2338qqqq45zzzz
+yyyy+39 Zaubermachtxxxx2339qqqq45zzzz
+yyyy+40 Zaubermachtxxxx2340qqqq45zzzz
+yyyy+41 Zaubermachtxxxx2341qqqq45zzzz
+yyyy+42 Zaubermachtxxxx2342qqqq45zzzz
+yyyy+43 Zaubermachtxxxx2343qqqq45zzzz
+yyyy+44 Zaubermachtxxxx2344qqqq45zzzz
+yyyyAlle 5 Sek. 1 Manaxxxx2363qqqq21359zzzz
+yyyyAlle 5 Sek. 1 Manaxxxx2364qqqq21621zzzz
+yyyyAlle 5 Sek. 1 Manaxxxx2365qqqq21622zzzz
+yyyyAlle 5 Sek. 2 Manaxxxx2366qqqq43zzzz
+yyyyAlle 5 Sek. 2 Manaxxxx2367qqqq43zzzz
+yyyyAlle 5 Sek. 2 Manaxxxx2368qqqq43zzzz
+yyyyAlle 5 Sek. 3 Manaxxxx2369qqqq43zzzz
+yyyyAlle 5 Sek. 3 Manaxxxx2370qqqq43zzzz
+yyyyAlle 5 Sek. 4 Manaxxxx2371qqqq43zzzz
+yyyyAlle 5 Sek. 4 Manaxxxx2372qqqq43zzzz
+yyyyAlle 5 Sek. 4 Manaxxxx2373qqqq43zzzz
+yyyyAlle 5 Sek. 5 Manaxxxx2374qqqq43zzzz
+yyyyAlle 5 Sek. 5 Manaxxxx2375qqqq43zzzz
+yyyyAlle 5 Sek. 6 Manaxxxx2376qqqq43zzzz
+yyyyAlle 5 Sek. 6 Manaxxxx2377qqqq43zzzz
+yyyyAlle 5 Sek. 6 Manaxxxx2378qqqq43zzzz
+yyyyAlle 5 Sek. 7 Manaxxxx2379qqqq43zzzz
+yyyyAlle 5 Sek. 7 Manaxxxx2380qqqq43zzzz
+yyyy+20 Willenskraftxxxx2381qqqq6zzzz
+yyyyAlle 5 Sek. 8 Manaxxxx2382qqqq43zzzz
+yyyyAlle 5 Sek. 8 Manaxxxx2383qqqq43zzzz
+yyyyAlle 5 Sek. 9 Manaxxxx2384qqqq43zzzz
+yyyyAlle 5 Sek. 9 Manaxxxx2385qqqq43zzzz
+yyyy+24 Willenskraftxxxx2386qqqq6zzzz
+yyyy+25 Willenskraftxxxx2387qqqq6zzzz
+yyyy+26 Willenskraftxxxx2388qqqq6zzzz
+yyyy+27 Willenskraftxxxx2389qqqq6zzzz
+yyyy+28 Willenskraftxxxx2390qqqq6zzzz
+yyyy+29 Willenskraftxxxx2391qqqq6zzzz
+yyyy+30 Willenskraftxxxx2392qqqq6zzzz
+yyyy+31 Willenskraftxxxx2393qqqq6zzzz
+yyyy+32 Willenskraftxxxx2394qqqq6zzzz
+yyyy+33 Willenskraftxxxx2395qqqq6zzzz
+yyyyAlle 5 Sek. 14 Manaxxxx2396qqqq43zzzz
+yyyyAlle 5 Sek. 14 Manaxxxx2397qqqq43zzzz
+yyyyAlle 5 Sek. 14 Manaxxxx2398qqqq43zzzz
+yyyyAlle 5 Sek. 15 Manaxxxx2399qqqq43zzzz
+yyyyAlle 5 Sek. 15 Manaxxxx2400qqqq43zzzz
+yyyyAlle 5 Sek. 1 Gesundheitxxxx2401qqqq21587zzzz
+yyyyAlle 5 Sek. 1 Gesundheitxxxx2402qqqq21588zzzz
+yyyyAlle 5 Sek. 1 Gesundheitxxxx2403qqqq21589zzzz
+yyyyAlle 5 Sek. 1 Gesundheitxxxx2404qqqq21590zzzz
+yyyyAlle 5 Sek. 1 Gesundheitxxxx2405qqqq21345zzzz
+yyyyAlle 5 Sek. 2 Gesundheitxxxx2406qqqq21346zzzz
+yyyyAlle 5 Sek. 2 Gesundheitxxxx2407qqqq21592zzzz
+yyyyAlle 5 Sek. 2 Gesundheitxxxx2408qqqq21593zzzz
+yyyyAlle 5 Sek. 2 Gesundheitxxxx2409qqqq21594zzzz
+yyyyAlle 5 Sek. 3 Gesundheitxxxx2410qqqq21347zzzz
+yyyyAlle 5 Sek. 3 Gesundheitxxxx2411qqqq21595zzzz
+yyyyAlle 5 Sek. 3 Gesundheitxxxx2412qqqq21596zzzz
+yyyyAlle 5 Sek. 3 Gesundheitxxxx2413qqqq21597zzzz
+yyyyAlle 5 Sek. 4 Gesundheitxxxx2414qqqq21598zzzz
+yyyyAlle 5 Sek. 4 Gesundheitxxxx2415qqqq21348zzzz
+yyyyAlle 5 Sek. 4 Gesundheitxxxx2416qqqq21599zzzz
+yyyyAlle 5 Sek. 4 Gesundheitxxxx2417qqqq21600zzzz
+yyyyAlle 5 Sek. 5 Gesundheitxxxx2418qqqq21601zzzz
+yyyyAlle 5 Sek. 5 Gesundheitxxxx2419qqqq21602zzzz
+yyyyAlle 5 Sek. 5 Gesundheitxxxx2420qqqq20885zzzz
+yyyyAlle 5 Sek. 5 Gesundheitxxxx2421qqqq21603zzzz
+yyyyAlle 5 Sek. 6 Gesundheitxxxx2422qqqq21604zzzz
+yyyyAlle 5 Sek. 6 Gesundheitxxxx2423qqqq21605zzzz
+yyyyAlle 5 Sek. 6 Gesundheitxxxx2424qqqq21606zzzz
+yyyyAlle 5 Sek. 6 Gesundheitxxxx2425qqqq21349zzzz
+yyyyAlle 5 Sek. 7 Gesundheitxxxx2426qqqq21607zzzz
+yyyyAlle 5 Sek. 7 Gesundheitxxxx2427qqqq21608zzzz
+yyyyAlle 5 Sek. 7 Gesundheitxxxx2428qqqq21609zzzz
+yyyyAlle 5 Sek. 7 Gesundheitxxxx2429qqqq21610zzzz
+yyyyAlle 5 Sek. 8 Gesundheitxxxx2430qqqq21109zzzz
+yyyyAlle 5 Sek. 8 Gesundheitxxxx2431qqqq21611zzzz
+yyyyAlle 5 Sek. 8 Gesundheitxxxx2432qqqq21612zzzz
+yyyyAlle 5 Sek. 8 Gesundheitxxxx2433qqqq21613zzzz
+yyyyAlle 5 Sek. 9 Gesundheitxxxx2434qqqq21614zzzz
+yyyyAlle 5 Sek. 9 Gesundheitxxxx2435qqqq21350zzzz
+yyyyAlle 5 Sek. 9 Gesundheitxxxx2436qqqq21615zzzz
+yyyyAlle 5 Sek. 9 Gesundheitxxxx2437qqqq21616zzzz
+yyyyAlle 5 Sek. 10 Gesundheitxxxx2438qqqq21617zzzz
+yyyy+7 Frostzauberschadenxxxx2443qqqq21930zzzz
+yyyy+7 Feuerwiderstandxxxx2463qqqq2zzzz
+yyyy+5 Feuerwiderstandxxxx2483qqqq2zzzz
+yyyy+5 Frostwiderstandxxxx2484qqqq4zzzz
+yyyy+5 Arkanwiderstandxxxx2485qqqq6zzzz
+yyyy+5 Naturwiderstandxxxx2486qqqq3zzzz
+yyyy+5 Schattenwiderstandxxxx2487qqqq5zzzz
+yyyy+5 alle Widerstandsartenxxxx2488qqqq18676zzzz
+yyyy+5 Ausweichwertungxxxx2503qqqq13zzzz
+yyyy+30 Zaubermachtxxxx2504qqqq45zzzz
+yyyy+29 Zaubermachtxxxx2505qqqq45zzzz
+yyyy+28 Kritische Nahkampftrefferwertungxxxx2506qqqq19zzzz
+yyyy+30 Distanztrefferwertungxxxx2523qqqq17zzzz
+yyyy+10 Tempowertungxxxx2543qqqq36zzzz
+yyyy+8 Zaubermachtxxxx2544qqqq45zzzz
+yyyy+12 Ausweichwertungxxxx2545qqqq13zzzz
+yyyy+15 Stärkexxxx2563qqqq4zzzz
+yyyy+15 Beweglichkeitxxxx2564qqqq3zzzz
+yyyy+9 Willenskraftxxxx2565qqqq6zzzz
+yyyy+13 Zaubermachtxxxx2566qqqq45zzzz
+yyyy+20 Willenskraftxxxx2567qqqq6zzzz
+yyyy+22 Intelligenzxxxx2568qqqq5zzzz
+yyyy+10 Ausweichwertung, +10 Ausdauer und +10 Parierwertungxxxx2583qqqq13zzzz
+yyyy+10 Ausweichwertung, +10 Ausdauer und +10 Intelligenzxxxx2584qqqq5zzzz
+yyyy+28 Angriffskraft / +12 Ausweichwertungxxxx2585qqqq38zzzz
+yyyy+24 Distanzangriffskraft / +10 Ausdauer / +10 Trefferwertungxxxx2586qqqq39zzzz
+yyyy+13 Zaubermacht und +15 Intelligenzxxxx2587qqqq45zzzz
+yyyy+18 Zaubermacht und +8 Trefferwertungxxxx2588qqqq45zzzz
+yyyy+18 Zaubermacht und +10 Ausdauerxxxx2589qqqq45zzzz
+yyyy+10 Intelligenz, +10 Ausdauer und +10 Willenskraftxxxx2590qqqq5zzzz
+yyyy+10 Intelligenz, +10 Ausdauer und +12 Zaubermachtxxxx2591qqqq45zzzz
+yyyy+2 Angelnxxxx2603qqqq24303zzzz
+yyyy+18 Zaubermachtxxxx2604qqqq45zzzz
+yyyy+18 Zaubermachtxxxx2605qqqq45zzzz
+yyyy+30 Angriffskraftxxxx2606qqqq38zzzz
+yyyy+12 Zaubermachtxxxx2607qqqq45zzzz
+yyyy+13 Zaubermachtxxxx2608qqqq45zzzz
+yyyy+15 Zaubermachtxxxx2609qqqq45zzzz
+yyyy+14 Zaubermachtxxxx2610qqqq45zzzz
+yyyyzzOLDBlankxxxx2611qqqq0zzzz
+yyyy+18 Zaubermachtxxxx2612qqqq45zzzz
+yyyy+2% Bedrohungxxxx2613qqqq25063zzzz
+yyyy+20 Schattenzaubermachtxxxx2614qqqq25064zzzz
+yyyy+20 Frostzaubermachtxxxx2615qqqq25066zzzz
+yyyy+20 Feuerzaubermachtxxxx2616qqqq25065zzzz
+yyyy+16 Zaubermachtxxxx2617qqqq45zzzz
+yyyy+15 Beweglichkeitxxxx2618qqqq3zzzz
+yyyy+15 Feuerwiderstandxxxx2619qqqq2zzzz
+yyyy+15 Naturwiderstandxxxx2620qqqq3zzzz
+yyyy2% verringerte Bedrohungxxxx2621qqqq25070zzzz
+yyyy+12 Ausweichwertungxxxx2622qqqq13zzzz
+yyyySchwaches Zauberölxxxx2623qqqq5zzzz
+yyyySchwaches Manaölxxxx2624qqqq6zzzz
+yyyyGeringes Manaölxxxx2625qqqq6zzzz
+yyyyGeringes Zauberölxxxx2626qqqq5zzzz
+yyyyZauberölxxxx2627qqqq5zzzz
+yyyyHervorragendes Zauberölxxxx2628qqqq5zzzz
+yyyyHervorragendes Manaölxxxx2629qqqq5zzzz
+yyyyTödliches Gift Vxxxx2630qqqq25349zzzz
+yyyyRückkopplung 6xxxx2631qqqq25440zzzz
+yyyyFelsbeißer 8xxxx2632qqqq0zzzz
+yyyyFelsbeißer 9xxxx2633qqqq0zzzz
+yyyyFlammenzunge 7xxxx2634qqqq16313zzzz
+yyyyFrostbrand 6xxxx2635qqqq25501zzzz
+yyyyWindzorn 5xxxx2636qqqq33757zzzz
+yyyyTotem der Flammenzunge 5xxxx2637qqqq25555zzzz
+yyyyTotem des Windzorns 4xxxx2638qqqq25583zzzz
+yyyyTotem des Windzorns 5xxxx2639qqqq25584zzzz
+yyyyBeruhigendes Giftxxxx2640qqqq26688zzzz
+yyyySofort wirkendes Gift VIIxxxx2641qqqq26890zzzz
+yyyyTödliches Gift VIxxxx2642qqqq26968zzzz
+yyyyTödliches Gift VIIxxxx2643qqqq27187zzzz
+yyyyWundgift Vxxxx2644qqqq27189zzzz
+yyyyFeuerstein 5xxxx2645qqqq27253zzzz
+yyyy+25 Beweglichkeitxxxx2646qqqq3zzzz
+yyyy+12 Stärkexxxx2647qqqq4zzzz
+yyyy+14 Ausweichwertungxxxx2648qqqq13zzzz
+yyyy+12 Ausdauerxxxx2649qqqq7zzzz
+yyyy+15 Zaubermachtxxxx2650qqqq45zzzz
+yyyy+12 Zaubermachtxxxx2651qqqq45zzzz
+yyyy+11 Zaubermachtxxxx2652qqqq45zzzz
+yyyy+12 Ausweichwertungxxxx2653qqqq13zzzz
+yyyy+12 Intelligenzxxxx2654qqqq5zzzz
+yyyy+15 Parierwertungxxxx2655qqqq14zzzz
+yyyy+10 Willenskraft und +10 Ausdauerxxxx2656qqqq7zzzz
+yyyy+12 Beweglichkeitxxxx2657qqqq3zzzz
+yyyy+10 Trefferwertung und +10 kritische Trefferwertungxxxx2658qqqq31zzzz
+yyyy+150 Gesundheitxxxx2659qqqq1zzzz
+yyyy+150 Manaxxxx2660qqqq0zzzz
+yyyy+6 alle Wertexxxx2661qqqq27959zzzz
+yyyy+120 Rüstungxxxx2662qqqq0zzzz
+yyyy+7 alle Widerstandsartenxxxx2663qqqq19992zzzz
+yyyy+7 alle Widerstandsartenxxxx2664qqqq27963zzzz
+yyyy+35 Willenskraftxxxx2665qqqq6zzzz
+yyyy+30 Intelligenzxxxx2666qqqq5zzzz
+yyyy+70 Angriffskraftxxxx2667qqqq38zzzz
+yyyy+20 Stärkexxxx2668qqqq4zzzz
+yyyy+40 Zaubermachtxxxx2669qqqq45zzzz
+yyyy+35 Beweglichkeitxxxx2670qqqq3zzzz
+yyyy+50 Arkan- und Feuerzaubermachtxxxx2671qqqq27979zzzz
+yyyy+54 Schatten- und Frostzaubermachtxxxx2672qqqq27980zzzz
+yyyyMungoxxxx2673qqqq28093zzzz
+yyyyZauberflutxxxx2674qqqq27997zzzz
+yyyyMeister des Kampfesxxxx2675qqqq28005zzzz
+yyyyÜberragendes Manaölxxxx2676qqqq43zzzz
+yyyyÜberragendes Manaölxxxx2677qqqq6zzzz
+yyyyÜberragendes Zauberölxxxx2678qqqq5zzzz
+yyyy+12 Willenskraftxxxx2679qqqq6zzzz
+yyyy+7 alle Widerstandsartenxxxx2680qqqq27963zzzz
+yyyy+10 Naturwiderstandxxxx2681qqqq3zzzz
+yyyy+10 Frostwiderstandxxxx2682qqqq4zzzz
+yyyy+10 Schattenwiderstandxxxx2683qqqq5zzzz
+yyyy+100 Angriffskraft gegen Untotexxxx2684qqqq28893zzzz
+yyyy+60 Zaubermacht gegen Untotexxxx2685qqqq28890zzzz
+yyyy+8 Stärkexxxx2686qqqq4zzzz
+yyyy+8 Beweglichkeitxxxx2687qqqq3zzzz
+yyyy+8 Ausdauerxxxx2688qqqq7zzzz
+yyyyAlle 5 Sek. 8 Manaxxxx2689qqqq43zzzz
+yyyy+6 Intelligenzxxxx2690qqqq5zzzz
+yyyy+6 Stärkexxxx2691qqqq4zzzz
+yyyy+7 Intelligenzxxxx2692qqqq5zzzz
+yyyy+6 Beweglichkeitxxxx2693qqqq3zzzz
+yyyy+6 Intelligenzxxxx2694qqqq5zzzz
+yyyy+6 Kritische Trefferwertungxxxx2695qqqq32zzzz
+yyyy+6 Ausweichwertungxxxx2696qqqq13zzzz
+yyyy+6 Trefferwertungxxxx2697qqqq31zzzz
+yyyy+9 Ausdauerxxxx2698qqqq7zzzz
+yyyy+6 Willenskraftxxxx2699qqqq6zzzz
+yyyy+8 Zauberdurchschlagxxxx2700qqqq47zzzz
+yyyy+6 Willenskraftxxxx2701qqqq6zzzz
+yyyy+12 Beweglichkeit (2 rote Edelsteine)xxxx2702qqqq0zzzz
+yyyy+4 Beweglichkeit pro verschiedenfarbigem Edelsteinxxxx2703qqqq0zzzz
+yyyy+12 Stärke wenn 4 blaue Edelsteine angelegtxxxx2704qqqq4zzzz
+yyyy+3 Tempowertung und +3 Intelligenzxxxx2705qqqq5zzzz
+yyyy+3 Ausweichwertung und +4 Ausdauerxxxx2706qqqq13zzzz
+yyyy+3 Intelligenz und +3 Willenskraftxxxx2707qqqq6zzzz
+yyyy+3 Intelligenz und +4 Ausdauerxxxx2708qqqq5zzzz
+yyyy+3 Intelligenz und +3 Willenskraftxxxx2709qqqq5zzzz
+yyyy+3 Beweglichkeit und +4 Ausdauerxxxx2710qqqq3zzzz
+yyyy+3 Stärke und +4 Ausdauerxxxx2711qqqq4zzzz
+yyyyGeschärft (+12 Schaden)xxxx2712qqqq0zzzz
+yyyyGeschärft (+14 kritische Trefferwertung und +12 Schaden)xxxx2713qqqq32zzzz
+yyyyTeufelsstahlstachel (26-38)xxxx2714qqqq29455zzzz
+yyyy+16 Zaubermacht und alle 5 Sek. 6 Manaxxxx2715qqqq45zzzz
+yyyy+16 Ausdauer und +100 Rüstungxxxx2716qqqq7zzzz
+yyyy+26 Angriffskraft und +14 kritische Trefferwertungxxxx2717qqqq38zzzz
+yyyyGeringe Rune des Schutzesxxxx2718qqqq42135zzzz
+yyyyGeringer Zauberschutz der Abschirmungxxxx2719qqqq29674zzzz
+yyyyGroßer Zauberschutz der Abschirmungxxxx2720qqqq29701zzzz
+yyyy+15 Zaubermacht und +14 kritische Trefferwertungxxxx2721qqqq45zzzz
+yyyyZielfernrohr (+10 Schaden)xxxx2722qqqq0zzzz
+yyyyZielfernrohr (+12 Schaden)xxxx2723qqqq0zzzz
+yyyyZielfernrohr (+28 kritische Trefferwertung)xxxx2724qqqq20zzzz
+yyyy+8 Stärkexxxx2725qqqq4zzzz
+yyyy+8 Beweglichkeitxxxx2726qqqq3zzzz
+yyyy+8 Intelligenzxxxx2727qqqq5zzzz
+yyyy+8 Intelligenzxxxx2728qqqq5zzzz
+yyyy+8 Beweglichkeitxxxx2729qqqq3zzzz
+yyyy+8 Ausweichwertungxxxx2730qqqq13zzzz
+yyyy+12 Ausdauerxxxx2731qqqq7zzzz
+yyyy+8 Willenskraftxxxx2732qqqq6zzzz
+yyyy+8 Willenskraftxxxx2733qqqq6zzzz
+yyyy+8 Intelligenzxxxx2734qqqq5zzzz
+yyyy+8 Kritische Trefferwertungxxxx2735qqqq32zzzz
+yyyy+8 Kritische Trefferwertungxxxx2736qqqq32zzzz
+yyyy+8 Ausweichwertungxxxx2737qqqq13zzzz
+yyyy+4 Stärke und +6 Ausdauerxxxx2738qqqq4zzzz
+yyyy+4 Beweglichkeit und +6 Ausdauerxxxx2739qqqq3zzzz
+yyyy+5 Intelligenz und +6 Ausdauerxxxx2740qqqq5zzzz
+yyyy+4 Intelligenz und +4 Willenskraftxxxx2741qqqq5zzzz
+yyyy+4 Intelligenz und +4 Tempowertungxxxx2742qqqq5zzzz
+yyyy+4 Ausweichwertung und +6 Ausdauerxxxx2743qqqq13zzzz
+yyyy+4 Intelligenz und +4 Willenskraftxxxx2744qqqq5zzzz
+yyyy+25 Zaubermacht und +15 Ausdauerxxxx2745qqqq45zzzz
+yyyy+35 Zaubermacht und +20 Ausdauerxxxx2746qqqq45zzzz
+yyyy+25 Zaubermacht und +15 Ausdauerxxxx2747qqqq45zzzz
+yyyy+35 Zaubermacht und +20 Ausdauerxxxx2748qqqq45zzzz
+yyyy+12 Intelligenzxxxx2749qqqq5zzzz
+yyyyAlle 5 Sek. 6 Manaxxxx2750qqqq43zzzz
+yyyy+14 Kritische Trefferwertungxxxx2751qqqq32zzzz
+yyyy+3 Kritische Trefferwertung und +3 Stärkexxxx2752qqqq4zzzz
+yyyy+4 Kritische Trefferwertung und +4 Stärkexxxx2753qqqq4zzzz
+yyyy+8 Parierwertungxxxx2754qqqq14zzzz
+yyyy+3 Trefferwertung und +3 Beweglichkeitxxxx2755qqqq3zzzz
+yyyy+4 Beweglichkeit und +4 Trefferwertungxxxx2756qqqq3zzzz
+yyyy+3 Kritische Trefferwertung und +4 Ausdauerxxxx2757qqqq7zzzz
+yyyy+4 Kritische Trefferwertung und +6 Ausdauerxxxx2758qqqq7zzzz
+yyyy+8 Abhärtungswertungxxxx2759qqqq35zzzz
+yyyy+3 Kritische Trefferwertung und +3 Intelligenzxxxx2760qqqq32zzzz
+yyyy+4 Intelligenz und +4 kritische Trefferwertungxxxx2761qqqq5zzzz
+yyyy+3 Kritische Trefferwertung und +4 Zauberdurchschlagxxxx2762qqqq32zzzz
+yyyy+4 Kritische Trefferwertung und +5 Zauberdurchschlagxxxx2763qqqq32zzzz
+yyyy+8 Trefferwertungxxxx2764qqqq31zzzz
+yyyy+10 Zauberdurchschlagxxxx2765qqqq47zzzz
+yyyy+8 Intelligenzxxxx2766qqqq5zzzz
+yyyy+8 Trefferwertungxxxx2767qqqq31zzzz
+yyyy+16 Zaubermachtxxxx2768qqqq45zzzz
+yyyy+11 Trefferwertungxxxx2769qqqq31zzzz
+yyyy+7 Zaubermachtxxxx2770qqqq45zzzz
+yyyy+8 Kritische Trefferwertungxxxx2771qqqq32zzzz
+yyyy+14 Kritische Trefferwertungxxxx2772qqqq32zzzz
+yyyy+16 Kritische Trefferwertungxxxx2773qqqq32zzzz
+yyyy+11 Intelligenzxxxx2774qqqq5zzzz
+yyyy+11 Kritische Trefferwertungxxxx2775qqqq32zzzz
+yyyy+8 Willenskraftxxxx2776qqqq6zzzz
+yyyy+13 Willenskraftxxxx2777qqqq6zzzz
+yyyy+16 Zauberdurchschlagxxxx2778qqqq47zzzz
+yyyy+16 Willenskraftxxxx2779qqqq6zzzz
+yyyy+20 Zauberdurchschlagxxxx2780qqqq47zzzz
+yyyy+19 Ausdauerxxxx2781qqqq7zzzz
+yyyy+10 Beweglichkeitxxxx2782qqqq3zzzz
+yyyy+14 Trefferwertungxxxx2783qqqq31zzzz
+yyyy+12 Trefferwertungxxxx2784qqqq31zzzz
+yyyy+13 Trefferwertungxxxx2785qqqq31zzzz
+yyyy+7 Trefferwertungxxxx2786qqqq31zzzz
+yyyy+8 Kritische Trefferwertungxxxx2787qqqq32zzzz
+yyyy+9 Abhärtungxxxx2788qqqq35zzzz
+yyyy+15 Abhärtungxxxx2789qqqq35zzzz
+yyyyGeringe Rune des Schutzesxxxx2790qqqq29504zzzz
+yyyyGroße Rune des Schutzesxxxx2791qqqq42136zzzz
+yyyy+8 Ausdauerxxxx2792qqqq7zzzz
+yyyy+8 Ausweichwertungxxxx2793qqqq13zzzz
+yyyy+8 Willenskraftxxxx2794qqqq6zzzz
+yyyyBequeme Einlegesohlenxxxx2795qqqq32427zzzz
+yyyy+15 Ausweichwertungxxxx2796qqqq13zzzz
+yyyy+9 Ausweichwertungxxxx2797qqqq13zzzz
+yyyy+$i Intelligenz (+$n/+$f)xxxx2798qqqq32557zzzz
+yyyy+$i Ausdauer (+$n/+$f)xxxx2799qqqq7zzzz
+yyyy+$i Rüstung (+$n/+$f)xxxx2800qqqq0zzzz
+yyyy+8 Abhärtungxxxx2801qqqq35zzzz
+yyyy+$i Beweglichkeitxxxx2802qqqq3zzzz
+yyyy+$i Ausdauerxxxx2803qqqq7zzzz
+yyyy+$i Intelligenzxxxx2804qqqq5zzzz
+yyyy+$i Stärkexxxx2805qqqq4zzzz
+yyyy+$i Willenskraftxxxx2806qqqq6zzzz
+yyyy+$i Arkanschadenxxxx2807qqqq32694zzzz
+yyyy+$i Feuerschadenxxxx2808qqqq32695zzzz
+yyyy+$i Naturschadenxxxx2809qqqq32696zzzz
+yyyy+$i Frostschadenxxxx2810qqqq32698zzzz
+yyyy+$i Schattenschadenxxxx2811qqqq32697zzzz
+yyyy+$i Heilungxxxx2812qqqq32701zzzz
+yyyy+$i Ausweichwertungxxxx2813qqqq13zzzz
+yyyyAlle 5 Sek. $i Gesundheitxxxx2814qqqq32703zzzz
+yyyy+$i Ausweichwertungxxxx2815qqqq13zzzz
+yyyyAlle 5 Sek. $i Manaxxxx2816qqqq43zzzz
+yyyy+$i Arkanwiderstandxxxx2817qqqq6zzzz
+yyyy+$i Feuerwiderstandxxxx2818qqqq2zzzz
+yyyy+$i Frostwiderstandxxxx2819qqqq4zzzz
+yyyy+$i Naturwiderstandxxxx2820qqqq3zzzz
+yyyy+$i Schattenwiderstandxxxx2821qqqq5zzzz
+yyyy+$i Kritische Trefferwertungxxxx2822qqqq32zzzz
+yyyy+$i Kritische Trefferwertungxxxx2823qqqq32zzzz
+yyyy+$i Zaubermachtxxxx2824qqqq45zzzz
+yyyy+$i Angriffskraftxxxx2825qqqq38zzzz
+yyyy+$i Blockwertungxxxx2826qqqq15zzzz
+yyyy+14 Kritische Trefferwertung und 1% Zauberreflexionxxxx2827qqqq32zzzz
+yyyyChance, Zaubertempo zu erhöhenxxxx2828qqqq32837zzzz
+yyyy+12 Kritische Trefferwertung und geringe Bewegungstempoerhöhungxxxx2829qqqq32zzzz
+yyyy+12 Kritische Trefferwertung und um 10% verringerte Dauer von Bewegungseinschränkungxxxx2830qqqq32zzzz
+yyyy+18 Ausdauer und Betäubungsdauer um 10% verringertxxxx2831qqqq7zzzz
+yyyy+12 Intelligenz und um 2% verringerte Bedrohungxxxx2832qqqq5zzzz
+yyyy+12 Ausweichwertung und Chance, bei Treffer Gesundheit wiederherzustellenxxxx2833qqqq13zzzz
+yyyy+3 Nahkampfschaden und Chance, Ziel zu betäubenxxxx2834qqqq26598zzzz
+yyyy+12 Intelligenz und Chance, beim Zauberwirken Mana wiederherzustellenxxxx2835qqqq5zzzz
+yyyyAlle 5 Sek. 3 Manaxxxx2836qqqq43zzzz
+yyyy+7 Willenskraftxxxx2837qqqq6zzzz
+yyyy+7 Kritische Trefferwertungxxxx2838qqqq32zzzz
+yyyy+14 Kritische Trefferwertungxxxx2839qqqq32zzzz
+yyyy+21 Ausdauerxxxx2840qqqq7zzzz
+yyyy+10 Ausdauerxxxx2841qqqq7zzzz
+yyyy+8 Willenskraftxxxx2842qqqq6zzzz
+yyyy+8 Kritische Trefferwertungxxxx2843qqqq32zzzz
+yyyy+8 Trefferwertungxxxx2844qqqq31zzzz
+yyyy+11 Trefferwertungxxxx2845qqqq31zzzz
+yyyyAlle 5 Sek. 4 Manaxxxx2846qqqq43zzzz
+yyyyAlle 5 Sek. 4 Manaxxxx2847qqqq43zzzz
+yyyyAlle 5 Sek. 5 Manaxxxx2848qqqq43zzzz
+yyyy+7 Ausweichwertungxxxx2849qqqq13zzzz
+yyyy+13 Kritische Trefferwertungxxxx2850qqqq32zzzz
+yyyy+19 Ausdauerxxxx2851qqqq7zzzz
+yyyyAlle 5 Sek. 7 Manaxxxx2852qqqq43zzzz
+yyyyAlle 5 Sek. 8 Manaxxxx2853qqqq43zzzz
+yyyyAlle 5 Sek. 3 Manaxxxx2854qqqq43zzzz
+yyyyAlle 5 Sek. 5 Manaxxxx2855qqqq43zzzz
+yyyy+4 Abhärtungswertungxxxx2856qqqq35zzzz
+yyyy+2 Kritische Trefferwertungxxxx2857qqqq19zzzz
+yyyy+2 Kritische Trefferwertungxxxx2858qqqq19zzzz
+yyyy+3 Abhärtungswertungxxxx2859qqqq35zzzz
+yyyy+3 Trefferwertungxxxx2860qqqq31zzzz
+yyyy+3 Ausweichwertungxxxx2861qqqq13zzzz
+yyyy+3 Abhärtungswertungxxxx2862qqqq35zzzz
+yyyy+3 Intelligenzxxxx2863qqqq5zzzz
+yyyy+4 Kritische Trefferwertungxxxx2864qqqq32zzzz
+yyyy+4 Willenskraftxxxx2865qqqq6zzzz
+yyyy+3 Willenskraftxxxx2866qqqq6zzzz
+yyyy+2 Abhärtungswertungxxxx2867qqqq35zzzz
+yyyy+6 Ausdauerxxxx2868qqqq7zzzz
+yyyy+4 Intelligenzxxxx2869qqqq5zzzz
+yyyy+3 Parierwertungxxxx2870qqqq14zzzz
+yyyy+4 Ausweichwertungxxxx2871qqqq13zzzz
+yyyy+5 Zaubermachtxxxx2872qqqq45zzzz
+yyyy+4 Trefferwertungxxxx2873qqqq31zzzz
+yyyy+4 Kritische Trefferwertungxxxx2874qqqq32zzzz
+yyyy+3 Kritische Trefferwertungxxxx2875qqqq32zzzz
+yyyy+3 Ausweichwertungxxxx2876qqqq13zzzz
+yyyy+4 Beweglichkeitxxxx2877qqqq3zzzz
+yyyy+4 Abhärtungswertungxxxx2878qqqq35zzzz
+yyyy+3 Stärkexxxx2879qqqq4zzzz
+yyyy+3 Trefferwertungxxxx2880qqqq31zzzz
+yyyy+2 Willenskraftxxxx2881qqqq6zzzz
+yyyy+6 Ausdauerxxxx2882qqqq7zzzz
+yyyy+4 Ausdauerxxxx2883qqqq7zzzz
+yyyy+2 Kritische Trefferwertungxxxx2884qqqq32zzzz
+yyyy+2 Kritische Trefferwertungxxxx2885qqqq32zzzz
+yyyy+2 Trefferwertungxxxx2886qqqq31zzzz
+yyyy+3 Kritische Trefferwertungxxxx2887qqqq32zzzz
+yyyy+6 Blockwertxxxx2888qqqq33088zzzz
+yyyy+5 Zaubermachtxxxx2889qqqq45zzzz
+yyyy+4 Willenskraftxxxx2890qqqq6zzzz
+yyyy+10 Abhärtungswertungxxxx2891qqqq35zzzz
+yyyy+4 Stärkexxxx2892qqqq4zzzz
+yyyy+3 Beweglichkeitxxxx2893qqqq3zzzz
+yyyy+7 Stärkexxxx2894qqqq4zzzz
+yyyy+4 Ausdauerxxxx2895qqqq7zzzz
+yyyy+7 Intelligenzxxxx2896qqqq5zzzz
+yyyy+3 Ausdauer, +4 kritische Trefferwertungxxxx2897qqqq7zzzz
+yyyy+3 Ausdauer, +4 kritische Trefferwertungxxxx2898qqqq7zzzz
+yyyy+3 Ausdauer, +4 kritische Trefferwertungxxxx2899qqqq7zzzz
+yyyy+4 Zaubermachtxxxx2900qqqq45zzzz
+yyyy+2 Zaubermachtxxxx2901qqqq45zzzz
+yyyy+2 Kritische Trefferwertungxxxx2902qqqq32zzzz
+yyyy+$i Ausdauer und +$i Intelligenzxxxx2906qqqq7zzzz
+yyyy+2 Parierwertungxxxx2907qqqq14zzzz
+yyyy+4 Trefferwertungxxxx2908qqqq31zzzz
+yyyy+2 Trefferwertungxxxx2909qqqq31zzzz
+yyyy+3 Zaubermachtxxxx2910qqqq45zzzz
+yyyy+10 Stärkexxxx2911qqqq4zzzz
+yyyy+10 Intelligenzxxxx2912qqqq5zzzz
+yyyy+10 Kritische Trefferwertungxxxx2913qqqq32zzzz
+yyyy+10 Kritische Trefferwertungxxxx2914qqqq32zzzz
+yyyy+5 Stärke, +5 kritische Trefferwertungxxxx2915qqqq4zzzz
+yyyy+5 Kritische Trefferwertung und +5 Intelligenzxxxx2916qqqq5zzzz
+yyyyEdelsteintestverzauberungxxxx2917qqqq0zzzz
+yyyy+3 Ausdauer, +4 kritische Trefferwertungxxxx2918qqqq7zzzz
+yyyy+7 Stärkexxxx2919qqqq4zzzz
+yyyy+3 Ausdauer und +4 kritische Trefferwertungxxxx2921qqqq7zzzz
+yyyy+7 Stärkexxxx2922qqqq4zzzz
+yyyy+3 Ausdauer und +4 kritische Trefferwertungxxxx2923qqqq7zzzz
+yyyy+7 Intelligenzxxxx2924qqqq5zzzz
+yyyy+3 Ausdauerxxxx2925qqqq7zzzz
+yyyy+2 Ausweichwertungxxxx2926qqqq13zzzz
+yyyy+4 Stärkexxxx2927qqqq4zzzz
+yyyy+12 Zaubermachtxxxx2928qqqq45zzzz
+yyyy+2 Waffenschadenxxxx2929qqqq26597zzzz
+yyyy+12 Zaubermachtxxxx2930qqqq45zzzz
+yyyy+4 alle Wertexxxx2931qqqq19988zzzz
+yyyy+4 Ausweichwertungxxxx2932qqqq13zzzz
+yyyy+15 Abhärtungswertungxxxx2933qqqq35zzzz
+yyyy+10 Kritische Trefferwertungxxxx2934qqqq32zzzz
+yyyy+15 Trefferwertungxxxx2935qqqq31zzzz
+yyyy+8 Angriffskraftxxxx2936qqqq38zzzz
+yyyy+20 Zaubermachtxxxx2937qqqq45zzzz
+yyyy+20 Zauberdurchschlagxxxx2938qqqq26283zzzz
+yyyySchwaches Tempo und Beweglichkeit +6xxxx2939qqqq13889zzzz
+yyyySchwaches Tempo und +9 Ausdauerxxxx2940qqqq13889zzzz
+yyyy+2 Trefferwertungxxxx2941qqqq31zzzz
+yyyy+6 Kritische Trefferwertungxxxx2942qqqq32zzzz
+yyyy+7 Beweglichkeitxxxx2943qqqq3zzzz
+yyyy+7 Beweglichkeitxxxx2944qqqq3zzzz
+yyyy+10 Beweglichkeitxxxx2945qqqq3zzzz
+yyyy+5 Beweglichkeit und +5 kritische Trefferwertungxxxx2946qqqq3zzzz
+yyyy+3 alle Widerstandsartenxxxx2947qqqq18674zzzz
+yyyy+4 alle Widerstandsartenxxxx2948qqqq18675zzzz
+yyyy+10 Beweglichkeitxxxx2949qqqq3zzzz
+yyyy+10 Kritische Trefferwertungxxxx2950qqqq32zzzz
+yyyy+4 Kritische Trefferwertungxxxx2951qqqq32zzzz
+yyyy+4 Kritische Trefferwertungxxxx2952qqqq32zzzz
+yyyy+2 Zaubermachtxxxx2953qqqq45zzzz
+yyyyBeschwert (+12 Schaden)xxxx2954qqqq0zzzz
+yyyyBeschwert (+14 kritische Trefferwertung und +12 Schaden)xxxx2955qqqq32zzzz
+yyyy+4 Stärkexxxx2956qqqq4zzzz
+yyyy+4 Beweglichkeitxxxx2957qqqq3zzzz
+yyyy+4 Intelligenzxxxx2958qqqq5zzzz
+yyyy+4 Intelligenzxxxx2959qqqq5zzzz
+yyyy+4 Beweglichkeitxxxx2960qqqq3zzzz
+yyyy+6 Ausdauerxxxx2961qqqq7zzzz
+yyyy+4 Willenskraftxxxx2962qqqq6zzzz
+yyyy+4 Willenskraftxxxx2963qqqq6zzzz
+yyyy+4 Intelligenzxxxx2964qqqq5zzzz
+yyyy+4 Kritische Trefferwertungxxxx2965qqqq32zzzz
+yyyy+4 Trefferwertungxxxx2966qqqq31zzzz
+yyyy+4 Kritische Trefferwertungxxxx2967qqqq32zzzz
+yyyy+4 Ausweichwertungxxxx2968qqqq13zzzz
+yyyy+10 Kritische Trefferwertung und geringe Bewegungstempoerhöhungxxxx2969qqqq32zzzz
+yyyy+10 Intelligenz und geringe Bewegungstempoerhöhungxxxx2970qqqq5zzzz
+yyyy+6 Beweglichkeitxxxx2971qqqq3zzzz
+yyyy+4 Blockwertungxxxx2972qqqq15zzzz
+yyyy+6 Angriffskraftxxxx2973qqqq38zzzz
+yyyy+4 Zaubermachtxxxx2974qqqq45zzzz
+yyyy+5 Blockwertxxxx2975qqqq34773zzzz
+yyyy+2 Ausweichwertungxxxx2976qqqq13zzzz
+yyyy+13 Ausweichwertungxxxx2977qqqq13zzzz
+yyyy+15 Ausweichwertung und +15 Ausdauerxxxx2978qqqq13zzzz
+yyyy+15 Zaubermachtxxxx2979qqqq45zzzz
+yyyy+15 Intelligenz und +10 Willenskraftxxxx2980qqqq5zzzz
+yyyy+15 Zaubermachtxxxx2981qqqq45zzzz
+yyyy+18 Zaubermacht und +10 kritische Trefferwertungxxxx2982qqqq45zzzz
+yyyy+26 Angriffskraftxxxx2983qqqq38zzzz
+yyyy+8 Schattenwiderstandxxxx2984qqqq5zzzz
+yyyy+8 Feuerwiderstandxxxx2985qqqq2zzzz
+yyyy+30 Angriffskraft und +10 kritische Trefferwertungxxxx2986qqqq38zzzz
+yyyy+8 Frostwiderstandxxxx2987qqqq4zzzz
+yyyy+8 Naturwiderstandxxxx2988qqqq3zzzz
+yyyy+8 Arkanwiderstandxxxx2989qqqq6zzzz
+yyyy+13 Ausweichwertungxxxx2990qqqq13zzzz
+yyyy+10 Ausweichwertung und +15 Parierwertungxxxx2991qqqq13zzzz
+yyyy+12 Willenskraftxxxx2992qqqq6zzzz
+yyyy+10 Intelligenz und +16 Willenskraftxxxx2993qqqq5zzzz
+yyyy+13 Kritische Trefferwertungxxxx2994qqqq32zzzz
+yyyy+15 Kritische Trefferwertung und +12 Zaubermachtxxxx2995qqqq45zzzz
+yyyy+13 Kritische Trefferwertungxxxx2996qqqq32zzzz
+yyyy+15 Kritische Trefferwertung und +20 Angriffskraftxxxx2997qqqq38zzzz
+yyyy+7 alle Widerstandsartenxxxx2998qqqq35442zzzz
+yyyy+16 Parierwertung und +17 Ausweichwertungxxxx2999qqqq13zzzz
+yyyy+18 Ausdauer, +12 Ausweichwertung und +12 Abhärtungswertungxxxx3000qqqq35zzzz
+yyyy+16 Intelligenz und +18 Willenskraftxxxx3001qqqq5zzzz
+yyyy+22 Zaubermacht und +14 Trefferwertungxxxx3002qqqq45zzzz
+yyyy+34 Angriffskraft und +16 Trefferwertungxxxx3003qqqq38zzzz
+yyyy+18 Ausdauer und +20 Abhärtungswertungxxxx3004qqqq35zzzz
+yyyy+20 Naturwiderstandxxxx3005qqqq3zzzz
+yyyy+20 Arkanwiderstandxxxx3006qqqq6zzzz
+yyyy+20 Feuerwiderstandxxxx3007qqqq2zzzz
+yyyy+20 Frostwiderstandxxxx3008qqqq4zzzz
+yyyy+20 Schattenwiderstandxxxx3009qqqq5zzzz
+yyyy+40 Angriffskraft und +10 kritische Trefferwertungxxxx3010qqqq32zzzz
+yyyy+30 Ausdauer und +10 Beweglichkeitxxxx3011qqqq7zzzz
+yyyy+50 Angriffskraft und +12 kritische Trefferwertungxxxx3012qqqq32zzzz
+yyyy+40 Ausdauer und +12 Beweglichkeitxxxx3013qqqq7zzzz
+yyyyTotem des Windzorns 5 (St70 Test)xxxx3014qqqq25584zzzz
+yyyy+2 Stärkexxxx3015qqqq4zzzz
+yyyy+2 Intelligenzxxxx3016qqqq5zzzz
+yyyy+3 Blockwertungxxxx3017qqqq15zzzz
+yyyyFelsbeißer 9xxxx3018qqqq0zzzz
+yyyyFelsbeißer 9xxxx3019qqqq0zzzz
+yyyyFelsbeißer 9xxxx3020qqqq0zzzz
+yyyyFelsbeißerxxxx3021qqqq36494zzzz
+yyyyFelsbeißer 1xxxx3022qqqq0zzzz
+yyyyFelsbeißer 1xxxx3023qqqq0zzzz
+yyyyFelsbeißer 2xxxx3024qqqq0zzzz
+yyyyFelsbeißer 2xxxx3025qqqq0zzzz
+yyyyFelsbeißer 2xxxx3026qqqq0zzzz
+yyyyFelsbeißer 3xxxx3027qqqq0zzzz
+yyyyFelsbeißer 3xxxx3028qqqq0zzzz
+yyyyFelsbeißer 3xxxx3029qqqq0zzzz
+yyyyFelsbeißer 4xxxx3030qqqq0zzzz
+yyyyFelsbeißer 4xxxx3031qqqq0zzzz
+yyyyFelsbeißer 4xxxx3032qqqq0zzzz
+yyyyFelsbeißer 5xxxx3033qqqq0zzzz
+yyyyFelsbeißer 5xxxx3034qqqq0zzzz
+yyyyFelsbeißer 5xxxx3035qqqq0zzzz
+yyyyFelsbeißer 6xxxx3036qqqq0zzzz
+yyyyFelsbeißer 6xxxx3037qqqq0zzzz
+yyyyFelsbeißer 6xxxx3038qqqq0zzzz
+yyyyFelsbeißer 7xxxx3039qqqq0zzzz
+yyyyFelsbeißer 7xxxx3040qqqq0zzzz
+yyyyFelsbeißer 7xxxx3041qqqq0zzzz
+yyyyFelsbeißer 8xxxx3042qqqq0zzzz
+yyyyFelsbeißer 8xxxx3043qqqq0zzzz
+yyyyFelsbeißer 8xxxx3044qqqq0zzzz
+yyyy+5 Stärke und +6 Ausdauerxxxx3045qqqq4zzzz
+yyyy+5 Intelligenz und +4 Tempowertungxxxx3046qqqq5zzzz
+yyyy+5 Kritische Trefferwertung und +6 Ausdauerxxxx3047qqqq32zzzz
+yyyy+5 Beweglichkeit und +6 Ausdauerxxxx3048qqqq7zzzz
+yyyy+5 Kritische Trefferwertung und +4 Willenskraftxxxx3049qqqq32zzzz
+yyyy+5 Intelligenz und +4 Tempowertungxxxx3050qqqq5zzzz
+yyyy+5 Intelligenz und +6 Ausdauerxxxx3051qqqq7zzzz
+yyyy+5 Beweglichkeit und +4 Trefferwertungxxxx3052qqqq3zzzz
+yyyy+4 Ausweichwertung und +5 Parierwertungxxxx3053qqqq14zzzz
+yyyy+5 Intelligenz und +6 Ausdauerxxxx3054qqqq7zzzz
+yyyy+5 Beweglichkeit und +4 Trefferwertungxxxx3055qqqq3zzzz
+yyyy+4 Ausweichwertung und +5 Parierwertungxxxx3056qqqq13zzzz
+yyyy+5 Stärke und +4 Trefferwertungxxxx3057qqqq4zzzz
+yyyy+5 Kritische Trefferwertung und +4 Willenskraftxxxx3058qqqq32zzzz
+yyyy+5 Kritische Trefferwertung und alle 5 Sek. 2 Manaxxxx3059qqqq32zzzz
+yyyy+5 Ausweichwertung und +6 Ausdauerxxxx3060qqqq13zzzz
+yyyy+5 Intelligenz und +4 Trefferwertungxxxx3061qqqq5zzzz
+yyyy+5 Kritische Trefferwertung und +6 Ausdauerxxxx3062qqqq32zzzz
+yyyy+5 Parierwertung und +6 Ausdauerxxxx3063qqqq7zzzz
+yyyy+5 Willenskraft und +5 Intelligenzxxxx3064qqqq6zzzz
+yyyy+8 Stärkexxxx3065qqqq4zzzz
+yyyy+5 Intelligenz und +5 Zauberdurchschlagxxxx3066qqqq5zzzz
+yyyy+5 Beweglichkeit und +6 Ausdauerxxxx3067qqqq3zzzz
+yyyy+5 Ausweichwertung und +4 Trefferwertungxxxx3068qqqq13zzzz
+yyyy+5 Intelligenz und +4 Abhärtungswertungxxxx3069qqqq5zzzz
+yyyy+5 Beweglichkeit und +4 kritische Trefferwertungxxxx3070qqqq3zzzz
+yyyy+5 Intelligenz und +6 Ausdauerxxxx3071qqqq5zzzz
+yyyy+5 Stärke und +4 kritische Trefferwertungxxxx3072qqqq4zzzz
+yyyy+5 Ausweichwertung und +4 Beweglichkeitxxxx3073qqqq3zzzz
+yyyy+5 Intelligenz und +4 Willenskraftxxxx3074qqqq5zzzz
+yyyy+4 Ausweichwertung und +5 Stärkexxxx3075qqqq4zzzz
+yyyy+5 Intelligenz und +4 kritische Trefferwertungxxxx3076qqqq5zzzz
+yyyy+5 Intelligenz und +4 Willenskraftxxxx3077qqqq5zzzz
+yyyy+5 Ausweichwertung und +6 Ausdauerxxxx3078qqqq7zzzz
+yyyy+5 Beweglichkeit und +4 Abhärtungswertungxxxx3079qqqq3zzzz
+yyyy+6 Ausdauer und +5 Abhärtungswertungxxxx3080qqqq7zzzz
+yyyy+5 Intelligenz und +4 kritische Trefferwertungxxxx3081qqqq32zzzz
+yyyy+5 Ausweichwertung und +6 Ausdauerxxxx3082qqqq13zzzz
+yyyy+5 Intelligenz und +4 Willenskraftxxxx3083qqqq6zzzz
+yyyy+5 Abhärtungswertung und +6 Ausdauerxxxx3084qqqq35zzzz
+yyyy+6 Ausdauer und +5 kritische Trefferwertungxxxx3085qqqq7zzzz
+yyyy+5 Intelligenz und +4 Willenskraftxxxx3086qqqq5zzzz
+yyyy+5 Stärke und +4 Abhärtungswertungxxxx3087qqqq4zzzz
+yyyy+5 Trefferwertung und +4 Ausweichwertungxxxx3088qqqq31zzzz
+yyyy+5 Trefferwertung und +4 Tempowertungxxxx3089qqqq31zzzz
+yyyy+5 Parierwertung und +4 Abhärtungswertungxxxx3090qqqq14zzzz
+yyyy+5 Kritische Trefferwertung und +5 Zauberdurchschlagxxxx3091qqqq47zzzz
+yyyy+3 Kritische Trefferwertungxxxx3092qqqq32zzzz
+yyyy+150 Angriffskraft gegen Untote und Dämonenxxxx3093qqqq37362zzzz
+yyyy+4 Waffenkundewertungxxxx3094qqqq37zzzz
+yyyy+8 alle Widerstandsartenxxxx3095qqqq37890zzzz
+yyyy+17 Stärke und +16 Intelligenzxxxx3096qqqq4zzzz
+yyyy+2 Willenskraftxxxx3097qqqq6zzzz
+yyyy+2 Zaubermachtxxxx3098qqqq45zzzz
+yyyy+5 Intelligenz und +6 Ausdauerxxxx3099qqqq5zzzz
+yyyy+5 Intelligenz und +6 Ausdauerxxxx3100qqqq5zzzz
+yyyy+5 Stärke und +6 Ausdauerxxxx3101qqqq4zzzz
+yyyyGiftxxxx3102qqqq38616zzzz
+yyyy+8 Stärkexxxx3103qqqq4zzzz
+yyyy+6 Trefferwertungxxxx3104qqqq31zzzz
+yyyy+8 Trefferwertungxxxx3105qqqq31zzzz
+yyyy+3 Beweglichkeit und +4 Ausdauerxxxx3106qqqq3zzzz
+yyyy+4 Beweglichkeit und +6 Ausdauerxxxx3107qqqq3zzzz
+yyyy+3 Beweglichkeit und +4 Ausdauerxxxx3108qqqq3zzzz
+yyyy+4 Beweglichkeit und +4 Trefferwertungxxxx3109qqqq3zzzz
+yyyy+3 Intelligenz und +3 Trefferwertungxxxx3110qqqq31zzzz
+yyyy+4 Intelligenz und +4 Trefferwertungxxxx3111qqqq5zzzz
+yyyy+4 Beweglichkeit und +4 kritische Trefferwertungxxxx3112qqqq3zzzz
+yyyy+3 Kritische Trefferwertung und +3 Beweglichkeitxxxx3113qqqq3zzzz
+yyyy+4 Angriffskraftxxxx3114qqqq38zzzz
+yyyy+10 Stärkexxxx3115qqqq4zzzz
+yyyy+10 Beweglichkeitxxxx3116qqqq3zzzz
+yyyy+10 Intelligenzxxxx3117qqqq5zzzz
+yyyy+10 Intelligenzxxxx3118qqqq5zzzz
+yyyy+10 Beweglichkeitxxxx3119qqqq3zzzz
+yyyy+10 Ausweichwertungxxxx3120qqqq13zzzz
+yyyy+10 Parierwertungxxxx3121qqqq14zzzz
+yyyy+15 Ausdauerxxxx3122qqqq7zzzz
+yyyy+10 Willenskraftxxxx3123qqqq6zzzz
+yyyy+10 Willenskraftxxxx3124qqqq6zzzz
+yyyy+13 Zauberdurchschlagxxxx3125qqqq47zzzz
+yyyy+10 Intelligenzxxxx3126qqqq5zzzz
+yyyy+10 Kritische Trefferwertungxxxx3127qqqq32zzzz
+yyyy+10 Trefferwertungxxxx3128qqqq31zzzz
+yyyy+10 Kritische Trefferwertungxxxx3129qqqq32zzzz
+yyyy+10 Ausweichwertungxxxx3130qqqq13zzzz
+yyyy+10 Abhärtungswertungxxxx3131qqqq35zzzz
+yyyy+10 Trefferwertungxxxx3132qqqq31zzzz
+yyyy+5 Stärke und +7 Ausdauerxxxx3133qqqq4zzzz
+yyyy+5 Beweglichkeit und +7 Ausdauerxxxx3134qqqq3zzzz
+yyyy+5 Beweglichkeit und +7 Ausdauerxxxx3135qqqq3zzzz
+yyyy+5 Beweglichkeit und +5 Trefferwertungxxxx3136qqqq3zzzz
+yyyy+5 Intelligenz und +7 Ausdauerxxxx3137qqqq5zzzz
+yyyy+5 Intelligenz und +5 Willenskraftxxxx3138qqqq5zzzz
+yyyy+5 Kritische Trefferwertung und +5 Stärkexxxx3139qqqq4zzzz
+yyyy+5 Intelligenz und +5 kritische Trefferwertungxxxx3140qqqq5zzzz
+yyyy+5 Intelligenz und +5 Tempowertungxxxx3141qqqq5zzzz
+yyyy+5 Beweglichkeit und +5 Trefferwertungxxxx3142qqqq3zzzz
+yyyy+5 Intelligenz und +5 Trefferwertungxxxx3143qqqq5zzzz
+yyyy+5 Beweglichkeit und +5 kritische Trefferwertungxxxx3144qqqq3zzzz
+yyyy+5 Ausweichwertung und +7 Ausdauerxxxx3145qqqq13zzzz
+yyyy+5 Kritische Trefferwertung und +6 Zauberdurchschlagxxxx3146qqqq32zzzz
+yyyy+5 Intelligenz und +5 Willenskraftxxxx3147qqqq5zzzz
+yyyy+5 Kritische Trefferwertung und +7 Ausdauerxxxx3148qqqq7zzzz
+yyyy+2 Beweglichkeitxxxx3149qqqq3zzzz
+yyyy+14 Willenskraftxxxx3150qqqq6zzzz
+yyyy+2 Zaubermachtxxxx3151qqqq45zzzz
+yyyy+2 Kritische Trefferwertungxxxx3152qqqq32zzzz
+yyyy+2 Zaubermachtxxxx3153qqqq45zzzz
+yyyy+12 Beweglichkeit und um 3% erhöhter kritischer Effektxxxx3154qqqq3zzzz
+yyyyChance, Nahkampf- und Distanzangriffstempo zu erhöhenxxxx3155qqqq39958zzzz
+yyyy+5 Beweglichkeit und +6 Ausdauerxxxx3156qqqq3zzzz
+yyyy+4 Intelligenz und +6 Ausdauerxxxx3157qqqq5zzzz
+yyyy+5 Intelligenz und +4 Willenskraftxxxx3158qqqq5zzzz
+yyyy+5 Beweglichkeit und +4 kritische Trefferwertungxxxx3159qqqq3zzzz
+yyyy+5 Intelligenz und +4 Tempowertungxxxx3160qqqq5zzzz
+yyyy+4 Ausdauer und +4 kritische Trefferwertungxxxx3161qqqq32zzzz
+yyyy+12 Kritische Trefferwertung und 5% Betäubungswiderstandxxxx3162qqqq32zzzz
+yyyy+12 Intelligenz und 5% Betäubungswiderstandxxxx3163qqqq5zzzz
+yyyy+3 Ausdauerxxxx3164qqqq7zzzz
+yyyy+10 Beweglichkeitxxxx3197qqqq3zzzz
+yyyy+5 Zaubermachtxxxx3198qqqq45zzzz
+yyyy+170 Rüstungxxxx3199qqqq0zzzz
+yyyy+4 Willenskraft und +5 Zaubermachtxxxx3200qqqq6zzzz
+yyyy+3 Intelligenz und +3 Willenskraftxxxx3201qqqq6zzzz
+yyyy+4 Intelligenz und +4 Willenskraftxxxx3202qqqq5zzzz
+yyyy+3 Kritische Trefferwertungxxxx3204qqqq32zzzz
+yyyy+3 Kritische Trefferwertungxxxx3205qqqq32zzzz
+yyyy+8 Beweglichkeitxxxx3206qqqq3zzzz
+yyyy+12 Stärkexxxx3207qqqq4zzzz
+yyyy+12 Beweglichkeitxxxx3208qqqq3zzzz
+yyyy+12 Beweglichkeitxxxx3209qqqq3zzzz
+yyyy+12 Intelligenzxxxx3210qqqq5zzzz
+yyyy+12 Intelligenzxxxx3211qqqq5zzzz
+yyyy+18 Ausdauerxxxx3212qqqq7zzzz
+yyyyAlle 5 Sek. 6 Manaxxxx3213qqqq43zzzz
+yyyy+12 Willenskraftxxxx3214qqqq6zzzz
+yyyy+12 Abhärtungswertungxxxx3215qqqq35zzzz
+yyyy+12 Intelligenzxxxx3216qqqq5zzzz
+yyyy+12 Kritische Trefferwertungxxxx3217qqqq32zzzz
+yyyy+12 Trefferwertungxxxx3218qqqq31zzzz
+yyyy+12 Trefferwertungxxxx3219qqqq31zzzz
+yyyy+12 Kritische Trefferwertungxxxx3220qqqq32zzzz
+yyyy+12 Ausweichwertungxxxx3221qqqq13zzzz
+yyyy+20 Beweglichkeitxxxx3222qqqq3zzzz
+yyyyAdamantitwaffenkettexxxx3223qqqq43588zzzz
+yyyy+6 Beweglichkeitxxxx3224qqqq3zzzz
+yyyyScharfrichterxxxx3225qqqq42976zzzz
+yyyy+4 Abhärtungswertung und +6 Ausdauerxxxx3226qqqq35zzzz
+yyyy+10 Kritische Trefferwertungxxxx3227qqqq32zzzz
+yyyy+34 Angriffskraftxxxx3228qqqq38zzzz
+yyyy+12 Abhärtungswertungxxxx3229qqqq35zzzz
+yyyy+20 Frostwiderstandxxxx3230qqqq4zzzz
+yyyy+15 Waffenkundewertungxxxx3231qqqq37zzzz
+yyyy+15 Ausdauer und schwache Temposteigerungxxxx3232qqqq13889zzzz
+yyyy+250 Manaxxxx3233qqqq0zzzz
+yyyy+20 Trefferwertungxxxx3234qqqq31zzzz
+yyyy+12 alle Widerstandsartenxxxx3235qqqq44491zzzz
+yyyy+200 Gesundheitxxxx3236qqqq1zzzz
+yyyy+10 Waffenschadenxxxx3237qqqq0zzzz
+yyyySammlerxxxx3238qqqq44507zzzz
+yyyyEisbrecherxxxx3239qqqq44525zzzz
+yyyy+23 Zaubermachtxxxx3240qqqq45zzzz
+yyyyLebensschutzxxxx3241qqqq44578zzzz
+yyyy+5 alle Widerstandsartenxxxx3242qqqq18676zzzz
+yyyy+35 Zauberdurchschlagxxxx3243qqqq44001zzzz
+yyyy+14 Willenskraft und +14 Ausdauerxxxx3244qqqq7zzzz
+yyyy+20 Abhärtungswertungxxxx3245qqqq35zzzz
+yyyy+28 Zaubermachtxxxx3246qqqq45zzzz
+yyyy+140 Angriffskraft gegen Untotexxxx3247qqqq44594zzzz
+yyyy+18 Waffenkundewertungxxxx3248qqqq37zzzz
+yyyy+16 Kritische Trefferwertungxxxx3249qqqq32zzzz
+yyyyEiswandlerxxxx3250qqqq44615zzzz
+yyyyRiesentötenxxxx3251qqqq44622zzzz
+yyyy+8 alle Wertexxxx3252qqqq44624zzzz
+yyyy+2% Bedrohung und +10 Parierwertungxxxx3253qqqq25063zzzz
+yyyy+4 alle Wertexxxx3254qqqq44627zzzz
+yyyy+55 Zaubermachtxxxx3255qqqq45zzzz
+yyyy+10 Beweglichkeit und +40 Rüstungxxxx3256qqqq0zzzz
+yyyy+54 Zaubermachtxxxx3257qqqq45zzzz
+yyyy+18 Zaubermachtxxxx3258qqqq45zzzz
+yyyy+22 Ausdauerxxxx3259qqqq7zzzz
+yyyy+240 Rüstungxxxx3260qqqq0zzzz
+yyyy+12 Kritische Trefferwertung und um 3% erhöhter kritischer Effektxxxx3261qqqq32zzzz
+yyyy+15 Ausdauerxxxx3262qqqq7zzzz
+yyyy+4 Kritische Trefferwertungxxxx3263qqqq32zzzz
+yyyy+150 Rüstung, -10% Tempoxxxx3264qqqq45335zzzz
+yyyyGesegnete Waffenbeschichtungxxxx3265qqqq45396zzzz
+yyyyRechtschaffene Waffenbeschichtungxxxx3266qqqq45398zzzz
+yyyy+4 Tempowertungxxxx3267qqqq36zzzz
+yyyy+15 Ausdauerxxxx3268qqqq7zzzz
+yyyy+3 Angelnxxxx3269qqqq45698zzzz
+yyyy+8 Tempowertungxxxx3270qqqq36zzzz
+yyyy+4 Intelligenz und +4 Tempowertungxxxx3271qqqq5zzzz
+yyyy+4 Tempowertung und +6 Ausdauerxxxx3272qqqq7zzzz
+yyyyTodeskältexxxx3273qqqq46579zzzz
+yyyy+12 Ausweichwertung und +1% Schildblockwertxxxx3274qqqq13zzzz
+yyyy+12 Intelligenz und +2% maximales Manaxxxx3275qqqq5zzzz
+yyyy+20 Angriffskraftxxxx3276qqqq38zzzz
+yyyy+12 Zaubermachtxxxx3277qqqq45zzzz
+yyyy+12 Zaubermachtxxxx3278qqqq45zzzz
+yyyy+3 Zaubermachtxxxx3279qqqq45zzzz
+yyyy+4 Ausweichwertung und +6 Ausdauerxxxx3280qqqq13zzzz
+yyyy+10 Beweglichkeitxxxx3281qqqq3zzzz
+yyyy+10 Intelligenzxxxx3282qqqq5zzzz
+yyyy+10 Intelligenzxxxx3283qqqq5zzzz
+yyyy+5 Abhärtungswertung und +7 Ausdauerxxxx3284qqqq7zzzz
+yyyy+5 Tempowertung und +7 Ausdauerxxxx3285qqqq7zzzz
+yyyy+5 Intelligenz und +5 Tempowertungxxxx3286qqqq5zzzz
+yyyy+10 Tempowertungxxxx3287qqqq36zzzz
+yyyyTest Reitgertenverzauberungxxxx3288qqqq0zzzz
+yyyy+10% Reittiertempoxxxx3289qqqq0zzzz
+yyyyFedergetriebener Unhangexpanderxxxx3290qqqq52641zzzz
+yyyyTest On Use Chargesxxxx3291qqqq47181zzzz
+yyyy+34 Beweglichkeitxxxx3292qqqq3zzzz
+yyyy+51 Ausdauerxxxx3293qqqq7zzzz
+yyyy+225 Rüstungxxxx3294qqqq0zzzz
+yyyy+16 Tempowertungxxxx3295qqqq36zzzz
+yyyy+10 Willenskraft und 2% verringerte Bedrohungxxxx3296qqqq25070zzzz
+yyyy+275 Gesundheitxxxx3297qqqq1zzzz
+yyyyAußergewöhlniches Manaölxxxx3298qqqq6zzzz
+yyyyAußergewöhnliches Zauberölxxxx3299qqqq45zzzz
+yyyy+19 Zaubermachtxxxx3300qqqq45zzzz
+yyyy+6 Kritische Trefferwertungxxxx3301qqqq32zzzz
+yyyy+8 Ausweichwertungxxxx3302qqqq13zzzz
+yyyy+8 Tempowertungxxxx3303qqqq36zzzz
+yyyy+8 Ausweichwertungxxxx3304qqqq13zzzz
+yyyy+12 Ausdauerxxxx3305qqqq7zzzz
+yyyyAlle 5 Sek. 2 Manaxxxx3306qqqq43zzzz
+yyyy+9 Ausdauerxxxx3307qqqq7zzzz
+yyyy+4 Tempowertungxxxx3308qqqq36zzzz
+yyyy+6 Tempowertungxxxx3309qqqq36zzzz
+yyyy+6 Intelligenzxxxx3310qqqq5zzzz
+yyyy+6 Willenskraftxxxx3311qqqq6zzzz
+yyyy+8 Stärkexxxx3312qqqq4zzzz
+yyyy+8 Beweglichkeitxxxx3313qqqq3zzzz
+yyyy+8 Kritische Trefferwertungxxxx3314qqqq32zzzz
+yyyy+3% Reittiertempoxxxx3315qqqq0zzzz
+yyyy+6 Kritische Trefferwertungxxxx3316qqqq32zzzz
+yyyy+21 Ausdauerxxxx3317qqqq7zzzz
+yyyy+5 Intelligenz und +5 Willenskraftxxxx3318qqqq5zzzz
+yyyyTest: Sockelverzauberung hinzufügenxxxx3319qqqq0zzzz
+yyyyTest Fertigkeitsbedingung Verzauberkunstxxxx3320qqqq0zzzz
+yyyy+150 Rüstungxxxx3321qqqq0zzzz
+yyyyGefrorene Runenwaffexxxx3322qqqq50401zzzz
+yyyy+10 Kritische Trefferwertungxxxx3324qqqq32zzzz
+yyyy+45 Ausdauer und +15 Beweglichkeitxxxx3325qqqq7zzzz
+yyyy+55 Angriffskraft und +15 kritische Trefferwertungxxxx3326qqqq32zzzz
+yyyy+55 Ausdauer und +22 Beweglichkeitxxxx3327qqqq7zzzz
+yyyy+75 Angriffskraft und +22 kritische Trefferwertungxxxx3328qqqq32zzzz
+yyyy+12 Ausdauerxxxx3329qqqq7zzzz
+yyyy+18 Ausdauerxxxx3330qqqq7zzzz
+yyyy+72 Ausdauer und +35 Beweglichkeitxxxx3331qqqq7zzzz
+yyyy+100 Angriffskraft und +36 kritische Trefferwertungxxxx3332qqqq32zzzz
+yyyyQA Test Leer - Violette Edelsteinverzauberungxxxx3333qqqq0zzzz
+yyyyNordendflugxxxx3334qqqq33153zzzz
+yyyy+10 Beweglichkeitxxxx3335qqqq3zzzz
+yyyy+10 Kritische Trefferwertungxxxx3336qqqq32zzzz
+yyyy+5 Beweglichkeit und +5 kritische Trefferwertungxxxx3337qqqq3zzzz
+yyyy+5 Intelligenz und +5 kritische Trefferwertungxxxx3338qqqq5zzzz
+yyyy+10 Intelligenzxxxx3339qqqq5zzzz
+yyyy+10 Kritische Trefferwertungxxxx3340qqqq32zzzz
+yyyyGefrorene Runenklinge 2xxxx3341qqqq51385zzzz
+yyyyGefrorene Runenklinge 3xxxx3342qqqq51386zzzz
+yyyyGefrorene Runenklinge 4xxxx3343qqqq51387zzzz
+yyyyGefrorene Runenklinge 5xxxx3344qqqq51388zzzz
+yyyyLebensgeisterxxxx3345qqqq52007zzzz
+yyyyLebensgeister 2xxxx3346qqqq51989zzzz
+yyyyLebensgeister 3xxxx3347qqqq52004zzzz
+yyyyLebensgeister 4xxxx3348qqqq52005zzzz
+yyyyLebensgeister 5xxxx3349qqqq52007zzzz
+yyyyLebensgeister 6xxxx3350qqqq52008zzzz
+yyyy+6 Trefferwertungxxxx3351qqqq31zzzz
+yyyy+8 Willenskraftxxxx3352qqqq6zzzz
+yyyy+8 Intelligenzxxxx3353qqqq5zzzz
+yyyy+12 Ausdauerxxxx3354qqqq7zzzz
+yyyy+6 Beweglichkeitxxxx3355qqqq3zzzz
+yyyy+12 Angriffskraftxxxx3356qqqq38zzzz
+yyyy+6 Stärkexxxx3357qqqq4zzzz
+yyyy+6 Ausweichwertungxxxx3358qqqq13zzzz
+yyyy+4 Parierwertungxxxx3359qqqq14zzzz
+yyyy+8 Parierwertungxxxx3360qqqq14zzzz
+yyyy+6 Blockwertungxxxx3361qqqq15zzzz
+yyyy+6 Waffenkundewertungxxxx3362qqqq37zzzz
+yyyy+9 Blockwertxxxx3363qqqq23515zzzz
+yyyyRunenwaffe verstärkenxxxx3364qqqq0zzzz
+yyyyRune des Schwertberstensxxxx3365qqqq53387zzzz
+yyyyRune des Lichbannsxxxx3366qqqq56903zzzz
+yyyyRune des Zauberberstensxxxx3367qqqq53362zzzz
+yyyyRune des gefallenen Kreuzfahrersxxxx3368qqqq53365zzzz
+yyyyRune des schwarzen Gletschersxxxx3369qqqq53386zzzz
+yyyyRune des schneidenden Eisesxxxx3370qqqq50401zzzz
+yyyy+12 Stärkexxxx3371qqqq4zzzz
+yyyy+12 Beweglichkeitxxxx3374qqqq3zzzz
+yyyy+12 Beweglichkeitxxxx3375qqqq3zzzz
+yyyy+12 Ausweichwertungxxxx3376qqqq13zzzz
+yyyy+12 Parierwertungxxxx3377qqqq14zzzz
+yyyy+12 Kritische Trefferwertungxxxx3378qqqq32zzzz
+yyyy+12 Waffenkundewertungxxxx3379qqqq37zzzz
+yyyy+12 Intelligenzxxxx3380qqqq5zzzz
+yyyy+12 Intelligenzxxxx3381qqqq5zzzz
+yyyy+12 Kritische Trefferwertungxxxx3382qqqq32zzzz
+yyyy+12 Trefferwertungxxxx3383qqqq31zzzz
+yyyy+12 Ausweichwertungxxxx3384qqqq13zzzz
+yyyy+12 Abhärtungswertungxxxx3385qqqq35zzzz
+yyyy+12 Tempowertungxxxx3386qqqq36zzzz
+yyyy+18 Ausdauerxxxx3387qqqq7zzzz
+yyyy+12 Willenskraftxxxx3388qqqq6zzzz
+yyyy+12 Willenskraftxxxx3389qqqq6zzzz
+yyyy+15 Zauberdurchschlagxxxx3390qqqq47zzzz
+yyyy+6 Kritische Trefferwertung und +9 Ausdauerxxxx3391qqqq32zzzz
+yyyy+6 Stärke und +9 Ausdauerxxxx3392qqqq4zzzz
+yyyy+6 Beweglichkeit und +9 Ausdauerxxxx3393qqqq3zzzz
+yyyy+6 Intelligenz und +9 Ausdauerxxxx3394qqqq5zzzz
+yyyy+6 Beweglichkeit und +9 Ausdauerxxxx3395qqqq3zzzz
+yyyy+6 Ausweichwertung und +9 Ausdauerxxxx3396qqqq13zzzz
+yyyy+6 Parierwertung und +9 Ausdauerxxxx3397qqqq14zzzz
+yyyy+6 Waffenkundewertung und +9 Ausdauerxxxx3398qqqq37zzzz
+yyyy+6 Intelligenz und +6 Willenskraftxxxx3399qqqq5zzzz
+yyyy+6 Beweglichkeit und +6 Trefferwertungxxxx3400qqqq3zzzz
+yyyy+6 Intelligenz und +6 Willenskraftxxxx3401qqqq5zzzz
+yyyy+6 Beweglichkeit und +6 Trefferwertungxxxx3402qqqq3zzzz
+yyyy+6 Intelligenz und +8 Zauberdurchschlagxxxx3403qqqq5zzzz
+yyyy+6 Intelligenz und +6 Tempowertungxxxx3404qqqq5zzzz
+yyyy+6 Stärke und +6 kritische Trefferwertungxxxx3405qqqq4zzzz
+yyyy+6 Beweglichkeit und +6 Trefferwertungxxxx3406qqqq3zzzz
+yyyy+6 Ausweichwertung und +6 Stärkexxxx3407qqqq4zzzz
+yyyy+6 Stärke und +6 Abhärtungswertungxxxx3408qqqq4zzzz
+yyyy+6 Stärke und +6 Tempowertungxxxx3409qqqq4zzzz
+yyyy+6 Beweglichkeit und +6 kritische Trefferwertungxxxx3410qqqq3zzzz
+yyyy+6 Stärke und +6 Trefferwertungxxxx3411qqqq4zzzz
+yyyy+6 Beweglichkeit und +6 Abhärtungswertungxxxx3412qqqq3zzzz
+yyyy+6 Beweglichkeit und +6 Tempowertungxxxx3413qqqq3zzzz
+yyyy+6 Intelligenz und +6 kritische Trefferwertungxxxx3414qqqq5zzzz
+yyyy+6 Intelligenz und +6 Trefferwertungxxxx3415qqqq5zzzz
+yyyy+6 Intelligenz und +6 Abhärtungswertungxxxx3416qqqq5zzzz
+yyyy+6 Intelligenz und +6 Tempowertungxxxx3417qqqq5zzzz
+yyyy+6 Ausweichwertung und +6 Parierwertungxxxx3418qqqq13zzzz
+yyyy+6 Ausweichwertung und +6 Parierwertungxxxx3419qqqq14zzzz
+yyyy+6 Waffenkundewertung und +6 Trefferwertungxxxx3420qqqq37zzzz
+yyyy+6 Ausweichwertung und +6 Waffenkundewertungxxxx3421qqqq37zzzz
+yyyy+6 Beweglichkeit und +6 kritische Trefferwertungxxxx3422qqqq3zzzz
+yyyy+6 Beweglichkeit und +6 Trefferwertungxxxx3423qqqq3zzzz
+yyyy+6 Beweglichkeit und +6 Abhärtungswertungxxxx3424qqqq3zzzz
+yyyy+6 Beweglichkeit und +6 Tempowertungxxxx3426qqqq3zzzz
+yyyy+6 Intelligenz und +9 Ausdauerxxxx3427qqqq5zzzz
+yyyy+6 Kritische Trefferwertung und +9 Ausdauerxxxx3428qqqq32zzzz
+yyyy+6 Trefferwertung und +6 Ausweichwertungxxxx3429qqqq31zzzz
+yyyy+6 Ausweichwertung und +9 Ausdauerxxxx3430qqqq13zzzz
+yyyy+6 Abhärtungswertung und +9 Ausdauerxxxx3431qqqq35zzzz
+yyyy+6 Tempowertung und +9 Ausdauerxxxx3432qqqq36zzzz
+yyyy+6 Intelligenz und +6 Willenskraftxxxx3433qqqq5zzzz
+yyyy+6 Kritische Trefferwertung und +6 Willenskraftxxxx3434qqqq32zzzz
+yyyy+6 Trefferwertung und +6 Tempowertungxxxx3435qqqq31zzzz
+yyyy+6 Abhärtungswertung und +6 Willenskraftxxxx3436qqqq35zzzz
+yyyy+6 Tempowertung und +6 Willenskraftxxxx3437qqqq36zzzz
+yyyy+6 Intelligenz und +6 Willenskraftxxxx3438qqqq5zzzz
+yyyy+6 Kritische Trefferwertung und +6 Willenskraftxxxx3439qqqq32zzzz
+yyyy+6 Trefferwertung und +6 Tempowertungxxxx3440qqqq31zzzz
+yyyy+6 Abhärtungswertung und +6 Willenskraftxxxx3441qqqq35zzzz
+yyyy+6 Tempowertung und +6 Willenskraftxxxx3442qqqq36zzzz
+yyyy+6 Kritische Trefferwertung und +8 Zauberdurchschlagxxxx3443qqqq32zzzz
+yyyy+6 Kritische Trefferwertung und +8 Zauberdurchschlagxxxx3444qqqq32zzzz
+yyyy+6 Tempowertung und +8 Zauberdurchschlagxxxx3445qqqq36zzzz
+yyyy+16 Stärkexxxx3446qqqq4zzzz
+yyyy+16 Beweglichkeitxxxx3447qqqq3zzzz
+yyyy+16 Intelligenzxxxx3448qqqq5zzzz
+yyyy+16 Beweglichkeitxxxx3449qqqq3zzzz
+yyyy+16 Ausweichwertungxxxx3450qqqq13zzzz
+yyyy+16 Parierwertungxxxx3451qqqq14zzzz
+yyyy+16 Kritische Trefferwertungxxxx3452qqqq32zzzz
+yyyy+16 Waffenkundewertungxxxx3453qqqq37zzzz
+yyyy+24 Ausdauerxxxx3454qqqq7zzzz
+yyyy+16 Willenskraftxxxx3455qqqq6zzzz
+yyyy+16 Willenskraftxxxx3456qqqq6zzzz
+yyyy+20 Zauberdurchschlagxxxx3457qqqq47zzzz
+yyyy+16 Intelligenzxxxx3458qqqq5zzzz
+yyyy+16 Kritische Trefferwertungxxxx3459qqqq32zzzz
+yyyy+16 Trefferwertungxxxx3460qqqq31zzzz
+yyyy+16 Ausweichwertungxxxx3461qqqq13zzzz
+yyyy+16 Abhärtungswertungxxxx3462qqqq35zzzz
+yyyy+16 Tempowertungxxxx3463qqqq36zzzz
+yyyy+8 Stärke und +12 Ausdauerxxxx3464qqqq4zzzz
+yyyy+8 Beweglichkeit und +12 Ausdauerxxxx3465qqqq3zzzz
+yyyy+8 Intelligenz und +12 Ausdauerxxxx3466qqqq5zzzz
+yyyy+8 Beweglichkeit und +12 Ausdauerxxxx3467qqqq3zzzz
+yyyy+8 Ausweichwertung und +12 Ausdauerxxxx3468qqqq13zzzz
+yyyy+8 Parierwertung und +12 Ausdauerxxxx3469qqqq14zzzz
+yyyy+8 Kritische Trefferwertung und +12 Ausdauerxxxx3470qqqq32zzzz
+yyyy+8 Waffenkundewertung und +12 Ausdauerxxxx3471qqqq37zzzz
+yyyy+8 Intelligenz und +8 Willenskraftxxxx3472qqqq5zzzz
+yyyy+8 Intelligenz und +8 Willenskraftxxxx3473qqqq5zzzz
+yyyy+8 Beweglichkeit und +8 Trefferwertungxxxx3474qqqq3zzzz
+yyyy+8 Beweglichkeit und +8 Trefferwertungxxxx3475qqqq3zzzz
+yyyy+8 Intelligenz und +10 Zauberdurchschlagxxxx3476qqqq5zzzz
+yyyy+8 Stärke und +8 kritische Trefferwertungxxxx3477qqqq4zzzz
+yyyy+8 Stärke und +8 Trefferwertungxxxx3478qqqq4zzzz
+yyyy+8 Stärke und +8 Ausweichwertungxxxx3479qqqq4zzzz
+yyyy+8 Stärke und +8 Abhärtungswertungxxxx3480qqqq4zzzz
+yyyy+8 Stärke und +8 Tempowertungxxxx3481qqqq4zzzz
+yyyy+8 Beweglichkeit und +8 Kritische Trefferwertungxxxx3482qqqq3zzzz
+yyyy+8 Beweglichkeit und +8 Trefferwertungxxxx3483qqqq3zzzz
+yyyy+8 Beweglichkeit und +8 Abhärtungswertungxxxx3484qqqq3zzzz
+yyyy+8 Beweglichkeit und +8 Tempowertungxxxx3485qqqq3zzzz
+yyyy+8 Intelligenz und +8 Tempowertungxxxx3486qqqq5zzzz
+yyyy+8 Intelligenz und +8 kritische Trefferwertungxxxx3487qqqq5zzzz
+yyyy+8 Intelligenz und +8 Trefferwertungxxxx3488qqqq5zzzz
+yyyy+8 Intelligenz und +8 Abhärtungswertungxxxx3489qqqq5zzzz
+yyyy+8 Intelligenz und +8 Tempowertungxxxx3490qqqq5zzzz
+yyyy+8 Beweglichkeit und +8 kritische Trefferwertungxxxx3491qqqq3zzzz
+yyyy+8 Beweglichkeit und +8 Trefferwertungxxxx3492qqqq3zzzz
+yyyy+8 Beweglichkeit und +8 Abhärtungswertungxxxx3493qqqq3zzzz
+yyyy+8 Beweglichkeit und +8 Tempowertungxxxx3494qqqq3zzzz
+yyyy+8 Ausweichwertung und +8 Parierwertungxxxx3495qqqq13zzzz
+yyyy+8 Ausweichwertung und +8 Parierwertungxxxx3496qqqq14zzzz
+yyyy+8 Waffenkundewertung und +8 Trefferwertungxxxx3497qqqq37zzzz
+yyyy+8 Ausweichwertung und +8 Waffenkundewertungxxxx3498qqqq37zzzz
+yyyy+8 Intelligenz und +12 Ausdauerxxxx3499qqqq5zzzz
+yyyy+8 Kritische Trefferwertung und +12 Ausdauerxxxx3500qqqq32zzzz
+yyyy+8 Trefferwertung und +8 Ausweichwertungxxxx3501qqqq31zzzz
+yyyy+8 Ausweichwertung und +12 Ausdauerxxxx3502qqqq13zzzz
+yyyy+8 Abhärtungswertung und +12 Ausdauerxxxx3503qqqq35zzzz
+yyyy+8 Tempowertung und +12 Ausdauerxxxx3504qqqq36zzzz
+yyyy+8 Intelligenz und +8 Willenskraftxxxx3505qqqq5zzzz
+yyyy+8 Kritische Trefferwertung und +8 Willenskraftxxxx3506qqqq32zzzz
+yyyy+8 Trefferwertung und +8 Tempowertungxxxx3507qqqq31zzzz
+yyyy+8 Abhärtungswertung und +8 Willenskraftxxxx3508qqqq35zzzz
+yyyy+8 Tempowertung und +8 Willenskraftxxxx3509qqqq36zzzz
+yyyy+8 Intelligenz und +8 Willenskraftxxxx3510qqqq5zzzz
+yyyy+8 Kritische Trefferwertung und +8 Willenskraftxxxx3511qqqq32zzzz
+yyyy+8 Trefferwertung und +8 Tempowertungxxxx3512qqqq31zzzz
+yyyy+8 Willenskraft und +8 Abhärtungswertungxxxx3513qqqq35zzzz
+yyyy+8 Tempowertung und +8 Willenskraftxxxx3514qqqq36zzzz
+yyyy+8 Kritische Trefferwertung und +10 Zauberdurchschlagxxxx3515qqqq32zzzz
+yyyy+8 Kritische Trefferwertung und +10 Zauberdurchschlagxxxx3516qqqq32zzzz
+yyyy+8 Tempowertung und +10 Zauberdurchschlagxxxx3517qqqq36zzzz
+yyyy+20 Stärkexxxx3518qqqq4zzzz
+yyyy+20 Beweglichkeitxxxx3519qqqq3zzzz
+yyyy+20 Intelligenzxxxx3520qqqq5zzzz
+yyyy+20 Beweglichkeitxxxx3521qqqq3zzzz
+yyyy+20 Ausweichwertungxxxx3522qqqq13zzzz
+yyyy+20 Parierwertungxxxx3523qqqq14zzzz
+yyyy+20 Waffenkundewertungxxxx3524qqqq37zzzz
+yyyy+20 Kritische Trefferwertungxxxx3525qqqq32zzzz
+yyyy+20 Intelligenzxxxx3526qqqq5zzzz
+yyyy+20 Kritische Trefferwertungxxxx3527qqqq32zzzz
+yyyy+20 Trefferwertungxxxx3528qqqq31zzzz
+yyyy+20 Ausweichwertungxxxx3529qqqq13zzzz
+yyyy+20 Abhärtungswertungxxxx3530qqqq35zzzz
+yyyy+20 Tempowertungxxxx3531qqqq36zzzz
+yyyy+30 Ausdauerxxxx3532qqqq7zzzz
+yyyy+20 Willenskraftxxxx3533qqqq6zzzz
+yyyy+20 Willenskraftxxxx3534qqqq6zzzz
+yyyy+25 Zauberdurchschlagxxxx3535qqqq47zzzz
+yyyy+10 Stärke und +15 Ausdauerxxxx3536qqqq4zzzz
+yyyy+10 Beweglichkeit und +15 Ausdauerxxxx3537qqqq3zzzz
+yyyy+10 Intelligenz und +15 Ausdauerxxxx3538qqqq5zzzz
+yyyy+10 Beweglichkeit und +15 Ausdauerxxxx3539qqqq3zzzz
+yyyy+10 Ausweichwertung und +15 Ausdauerxxxx3540qqqq13zzzz
+yyyy+10 Parierwertung und +15 Ausdauerxxxx3541qqqq14zzzz
+yyyy+10 Waffenkundewertung und +15 Ausdauerxxxx3542qqqq37zzzz
+yyyy+10 Kritische Trefferwertung und +15 Ausdauerxxxx3543qqqq32zzzz
+yyyy+10 Beweglichkeit und +10 Trefferwertungxxxx3544qqqq3zzzz
+yyyy+10 Intelligenz und +10 Willenskraftxxxx3545qqqq5zzzz
+yyyy+10 Intelligenz und +10 Willenskraftxxxx3546qqqq5zzzz
+yyyy+10 Beweglichkeit und +10 Trefferwertungxxxx3547qqqq3zzzz
+yyyy+10 Intelligenz und +13 Zauberdurchschlagxxxx3548qqqq5zzzz
+yyyy+10 Stärke und +10 kritische Trefferwertungxxxx3549qqqq4zzzz
+yyyy+10 Stärke und +10 Trefferwertungxxxx3550qqqq4zzzz
+yyyy+10 Stärke und +10 Ausweichwertungxxxx3551qqqq4zzzz
+yyyy+10 Stärke und +10 Abhärtungswertungxxxx3552qqqq4zzzz
+yyyy+10 Stärke und +10 Tempowertungxxxx3553qqqq4zzzz
+yyyy+10 Beweglichkeit und +10 kritische Trefferwertungxxxx3554qqqq3zzzz
+yyyy+10 Beweglichkeit und +10 Trefferwertungxxxx3555qqqq3zzzz
+yyyy+10 Beweglichkeit und +10 Abhärtungswertungxxxx3556qqqq3zzzz
+yyyy+10 Beweglichkeit und +10 Tempowertungxxxx3557qqqq3zzzz
+yyyy+10 Intelligenz und +10 Willenskraftxxxx3558qqqq5zzzz
+yyyy+10 Intelligenz und +10 kritische Trefferwertungxxxx3559qqqq5zzzz
+yyyy+10 Intelligenz und +10 Trefferwertungxxxx3560qqqq5zzzz
+yyyy+10 Intelligenz und +10 Abhärtungswertungxxxx3561qqqq5zzzz
+yyyy+10 Intelligenz und +10 Tempowertungxxxx3563qqqq5zzzz
+yyyy+10 Beweglichkeit und +10 kritische Trefferwertungxxxx3564qqqq3zzzz
+yyyy+10 Beweglichkeit und +10 Trefferwertungxxxx3565qqqq3zzzz
+yyyy+10 Beweglichkeit und +10 Abhärtungswertungxxxx3566qqqq3zzzz
+yyyy+10 Beweglichkeit und +10 Tempowertungxxxx3567qqqq3zzzz
+yyyy+10 Ausweichwertung und +10 Parierwertungxxxx3568qqqq13zzzz
+yyyy+10 Ausweichwertung und +10 Parierwertungxxxx3569qqqq14zzzz
+yyyy+10 Waffenkundewertung und +10 Trefferwertungxxxx3570qqqq37zzzz
+yyyy+10 Ausweichwertung und +10 Waffenkundewertungxxxx3571qqqq37zzzz
+yyyy+10 Intelligenz und +15 Ausdauerxxxx3572qqqq5zzzz
+yyyy+10 Kritische Trefferwertung und +15 Ausdauerxxxx3573qqqq32zzzz
+yyyy+10 Trefferwertung und +10 Ausweichwertungxxxx3574qqqq31zzzz
+yyyy+10 Ausweichwertung und +15 Ausdauerxxxx3575qqqq13zzzz
+yyyy+10 Abhärtungswertung und +15 Ausdauerxxxx3576qqqq35zzzz
+yyyy+10 Tempowertung und +15 Ausdauerxxxx3577qqqq36zzzz
+yyyy+10 Intelligenz und +10 Willenskraftxxxx3578qqqq5zzzz
+yyyy+10 Kritische Trefferwertung und +10 Willenskraftxxxx3579qqqq32zzzz
+yyyy+10 Trefferwertung und +10 Tempowertungxxxx3580qqqq31zzzz
+yyyy+10 Abhärtungswertung und +10 Willenskraftxxxx3581qqqq35zzzz
+yyyy+10 Tempowertung und +10 Willenskraftxxxx3582qqqq36zzzz
+yyyy+10 Intelligenz und +10 Willenskraftxxxx3583qqqq5zzzz
+yyyy+10 Kritische Trefferwertung und +10 Willenskraftxxxx3584qqqq32zzzz
+yyyy+10 Trefferwertung und +10 Tempowertungxxxx3585qqqq31zzzz
+yyyy+10 Abhärtungswertung und +10 Willenskraftxxxx3586qqqq35zzzz
+yyyy+10 Tempowertung und +10 Willenskraftxxxx3587qqqq36zzzz
+yyyy+10 Kritische Trefferwertung und +13 Zauberdurchschlagxxxx3588qqqq32zzzz
+yyyy+10 Kritische Trefferwertung und +13 Zauberdurchschlagxxxx3589qqqq32zzzz
+yyyy+10 Tempowertung und +13 Zauberdurchschlagxxxx3590qqqq36zzzz
+yyyyTest: +4 Intelligenz und alle 5 Sek. 2 Manaxxxx3591qqqq5zzzz
+yyyy+100 Zaubermacht gegen Untotexxxx3592qqqq54288zzzz
+yyyy+170 Angriffskraft gegen Untotexxxx3593qqqq54289zzzz
+yyyyRune des Schwertbrechensxxxx3594qqqq54448zzzz
+yyyyRune des Zauberbrechensxxxx3595qqqq54449zzzz
+yyyy+5 Zaubermachtxxxx3596qqqq45zzzz
+yyyyMeisterlicher Feuersteinxxxx3597qqqq54718zzzz
+yyyyElektromagnetischer Pulsgeneratorxxxx3599qqqq54735zzzz
+yyyy+6 Abhärtungswertungxxxx3600qqqq35zzzz
+yyyyBombengürtelxxxx3601qqqq67890zzzz
+yyyy+7 Zaubermachtxxxx3602qqqq45zzzz
+yyyyHandmontierte Pyroraketexxxx3603qqqq54757zzzz
+yyyyHypergeschwindigkeitsbeschleunigerxxxx3604qqqq54758zzzz
+yyyyDehnbares Innenfutterxxxx3605qqqq55001zzzz
+yyyy+40 Distanztempowertungxxxx3607qqqq29zzzz
+yyyy+40 Kritische Distanztrefferwertungxxxx3608qqqq20zzzz
+yyyyFeuersteinxxxx3609qqqq55146zzzz
+yyyyFeuersteinxxxx3610qqqq55147zzzz
+yyyyGroßer Feuersteinxxxx3611qqqq55148zzzz
+yyyyErheblicher Feuersteinxxxx3612qqqq55149zzzz
+yyyyTeufelsfeuersteinxxxx3613qqqq55150zzzz
+yyyyGroßartiger Feuersteinxxxx3614qqqq55151zzzz
+yyyyZaubersteinxxxx3615qqqq55172zzzz
+yyyyGroßer Zaubersteinxxxx3616qqqq55176zzzz
+yyyyErheblicher Zaubersteinxxxx3617qqqq55180zzzz
+yyyyMeisterlicher Zaubersteinxxxx3618qqqq55189zzzz
+yyyyDämonischer Zaubersteinxxxx3619qqqq55191zzzz
+yyyyGroßartiger Zaubersteinxxxx3620qqqq55195zzzz
+yyyy+21 Kritische Trefferwertung und um 3% erhöhter kritischer Effektxxxx3621qqqq32zzzz
+yyyy+25 Kritische Trefferwertung und 1% Zauberreflexionxxxx3622qqqq32zzzz
+yyyy+21 Intelligenz und +2% maximales Manaxxxx3623qqqq5zzzz
+yyyy+21 Kritische Trefferwertung und um 10% verringerte Dauer von Bewegungseinschränkungxxxx3624qqqq32zzzz
+yyyy+21 Kritische Trefferwertung und geringe Bewegungstempoerhöhungxxxx3625qqqq32zzzz
+yyyy+21 Intelligenz und um 2% verringerte Bedrohungxxxx3626qqqq5zzzz
+yyyy+21 Intelligenz und Chance, beim Zauberwirken Mana zu regenerierenxxxx3627qqqq5zzzz
+yyyy+21 Beweglichkeit und um 3% erhöhter kritischer Effektxxxx3628qqqq3zzzz
+yyyy+21 Ausweichwertung und Chance, bei einem Treffer Gesundheit zu regenerierenxxxx3630qqqq13zzzz
+yyyy+21 Ausweichwertung und +1% Schildblockwertxxxx3631qqqq13zzzz
+yyyy+21 Intelligenz und geringe Bewegungstempoerhöhungxxxx3632qqqq5zzzz
+yyyy+22 Willenskraft und um 3% erhöhter kritischer Effektxxxx3633qqqq6zzzz
+yyyy+32 Ausdauer und erlittener Zauberschaden um 2% verringertxxxx3634qqqq7zzzz
+yyyy+21 Intelligenz und um 10% verkürzte Dauer von Stilleeffektenxxxx3635qqqq5zzzz
+yyyy+21 Kritische Trefferwertung und um 10% verkürzte Dauer von Furchteffektenxxxx3636qqqq32zzzz
+yyyy+32 Ausdauer und durch Gegenstände erzielte Rüstung um 2% erhöhtxxxx3637qqqq7zzzz
+yyyy+21 Kritische Trefferwertung und um 10% verkürzte Dauer von Betäubungseffektenxxxx3638qqqq32zzzz
+yyyy+21 Intelligenz und um 10% verkürzte Dauer von Betäubungseffektenxxxx3639qqqq5zzzz
+yyyy+21 Tempowertung und heilt manchmal bei erzielten kritischen Treffernxxxx3640qqqq36zzzz
+yyyy+21 Kritische Trefferwertung und +2% Manaxxxx3641qqqq32zzzz
+yyyy+32 Ausdauer und um 10% verkürzte Dauer von Betäubungseffektenxxxx3642qqqq7zzzz
+yyyyChance, Nahkampf- und Distanzangriffstempo zu erhöhenxxxx3643qqqq55380zzzz
+yyyy+14 Beweglichkeitxxxx3644qqqq3zzzz
+yyyy+14 Ausweichwertungxxxx3646qqqq13zzzz
+yyyy+14 Waffenkundewertungxxxx3647qqqq37zzzz
+yyyy+14 Parierwertungxxxx3648qqqq14zzzz
+yyyy+14 Stärkexxxx3649qqqq4zzzz
+yyyy+14 Intelligenzxxxx3650qqqq5zzzz
+yyyy+14 Beweglichkeitxxxx3651qqqq3zzzz
+yyyy+14 Kritische Trefferwertungxxxx3652qqqq32zzzz
+yyyy+14 Willenskraftxxxx3653qqqq6zzzz
+yyyy+14 Willenskraftxxxx3654qqqq6zzzz
+yyyy+21 Ausdauerxxxx3655qqqq7zzzz
+yyyy+18 Zauberdurchschlagxxxx3656qqqq47zzzz
+yyyy+14 Kritische Trefferwertungxxxx3657qqqq32zzzz
+yyyy+14 Ausweichwertungxxxx3658qqqq13zzzz
+yyyy+14 Tempowertungxxxx3659qqqq36zzzz
+yyyy+14 Trefferwertungxxxx3660qqqq31zzzz
+yyyy+14 Intelligenzxxxx3661qqqq5zzzz
+yyyy+14 Abhärtungswertungxxxx3662qqqq35zzzz
+yyyy+7 Beweglichkeit und +7 Trefferwertungxxxx3663qqqq3zzzz
+yyyy+7 Beweglichkeit und +10 Ausdauerxxxx3664qqqq3zzzz
+yyyy+7 Kritische Trefferwertung und +10 Ausdauerxxxx3665qqqq32zzzz
+yyyy+7 Beweglichkeit und +7 Trefferwertungxxxx3666qqqq3zzzz
+yyyy+7 Beweglichkeit und +10 Ausdauerxxxx3667qqqq3zzzz
+yyyy+7 Ausweichwertung und +10 Ausdauerxxxx3668qqqq13zzzz
+yyyy+7 Waffenkundewertung und +10 Ausdauerxxxx3669qqqq37zzzz
+yyyy+7 Parierwertung und +10 Ausdauerxxxx3670qqqq14zzzz
+yyyy+7 Stärke und +10 Ausdauerxxxx3671qqqq4zzzz
+yyyy+7 Intelligenz und +7 Willenskraftxxxx3672qqqq5zzzz
+yyyy+7 Intelligenz und +7 Willenskraftxxxx3673qqqq5zzzz
+yyyy+7 Intelligenz und +9 Zauberdurchschlagxxxx3674qqqq5zzzz
+yyyy+7 Intelligenz und +10 Ausdauerxxxx3675qqqq5zzzz
+yyyy+14 Angriffskraft und +7 kritische Trefferwertung (ALT)xxxx3676qqqq38zzzz
+yyyy+7 Beweglichkeit und +7 Tempowertungxxxx3677qqqq3zzzz
+yyyy+7 Beweglichkeit und +7 Tempowertungxxxx3678qqqq3zzzz
+yyyy+7 Beweglichkeit und +7 Trefferwertungxxxx3679qqqq3zzzz
+yyyy+7 Beweglichkeit und +7 Abhärtungswertungxxxx3680qqqq3zzzz
+yyyy+7 Stärke und +7 kritische Trefferwertungxxxx3681qqqq4zzzz
+yyyy+7 Stärke und +7 Trefferwertungxxxx3682qqqq4zzzz
+yyyy+7 Ausweichwertung und +7 Stärkexxxx3683qqqq4zzzz
+yyyy+7 Stärke und +7 Abhärtungswertungxxxx3684qqqq4zzzz
+yyyy+7 Stärke und +7 Tempowertungxxxx3685qqqq4zzzz
+yyyy+7 Beweglichkeit und +7 kritische Trefferwertungxxxx3686qqqq3zzzz
+yyyy+7 Beweglichkeit und +7 Trefferwertungxxxx3687qqqq3zzzz
+yyyy+7 Beweglichkeit und +7 Abhärtungswertungxxxx3688qqqq3zzzz
+yyyy+7 Intelligenz und +7 Willenskraftxxxx3689qqqq5zzzz
+yyyy+7 Intelligenz und +7 kritische Trefferwertungxxxx3690qqqq5zzzz
+yyyy+7 Intelligenz und +7 Trefferwertungxxxx3691qqqq5zzzz
+yyyy+7 Intelligenz und +7 Abhärtungswertungxxxx3692qqqq5zzzz
+yyyy+7 Intelligenz und +7 Tempowertungxxxx3693qqqq5zzzz
+yyyy+7 Ausweichwertung und +7 Parierwertungxxxx3694qqqq13zzzz
+yyyy+7 Ausweichwertung und +7 Parierwertungxxxx3695qqqq14zzzz
+yyyy+7 Waffenkundewertung und +7 Trefferwertungxxxx3696qqqq37zzzz
+yyyy+7 Ausweichwertung und +7 Waffenkundewertungxxxx3697qqqq37zzzz
+yyyy+7 Kritische Trefferwertung und +7 Willenskraftxxxx3698qqqq32zzzz
+yyyy+7 Kritische Trefferwertung und +10 Ausdauerxxxx3699qqqq32zzzz
+yyyy+7 Ausweichwertung und +10 Ausdauerxxxx3700qqqq13zzzz
+yyyy+7 Tempowertung und +7 Willenskraftxxxx3701qqqq36zzzz
+yyyy+7 Tempowertung und +10 Ausdauerxxxx3702qqqq36zzzz
+yyyy+7 Trefferwertung und +7 Tempowertungxxxx3703qqqq31zzzz
+yyyy+7 Trefferwertung und +7 Ausweichwertungxxxx3704qqqq31zzzz
+yyyy+7 Intelligenz und +7 Willenskraftxxxx3705qqqq5zzzz
+yyyy+7 Intelligenz und +10 Ausdauerxxxx3706qqqq5zzzz
+yyyy+7 Abhärtungswertung und +7 Willenskraftxxxx3707qqqq35zzzz
+yyyy+7 Abhärtungswertung und +10 Ausdauerxxxx3708qqqq35zzzz
+yyyy+7 Kritische Trefferwertung und +9 Zauberdurchschlagxxxx3709qqqq32zzzz
+yyyy+7 Kritische Trefferwertung und +7 Willenskraftxxxx3710qqqq32zzzz
+yyyy+7 Intelligenz und +7 Willenskraftxxxx3711qqqq5zzzz
+yyyy+7 Trefferwertung und +7 Tempowertungxxxx3712qqqq31zzzz
+yyyy+7 Abhärtungswertung und +7 Willenskraftxxxx3713qqqq35zzzz
+yyyy+7 Tempowertung und +7 Willenskraftxxxx3714qqqq36zzzz
+yyyy+7 Kritische Trefferwertung und +9 Zauberdurchschlagxxxx3715qqqq32zzzz
+yyyy+7 Tempowertung und +9 Zauberdurchschlagxxxx3716qqqq36zzzz
+yyyyArmschienensockelxxxx3717qqqq0zzzz
+yyyy+35 Zaubermacht und +12 Willenskraftxxxx3718qqqq45zzzz
+yyyy+50 Zaubermacht und +20 Willenskraftxxxx3719qqqq45zzzz
+yyyy+35 Zaubermacht und +20 Ausdauerxxxx3720qqqq45zzzz
+yyyy+50 Zaubermacht und +30 Ausdauerxxxx3721qqqq45zzzz
+yyyyHell leuchtendes Garnxxxx3722qqqq55640zzzz
+yyyyHandschuhsockelxxxx3723qqqq0zzzz
+yyyy+$i Tempowertungxxxx3726qqqq36zzzz
+yyyy+$i Trefferwertungxxxx3727qqqq31zzzz
+yyyyDunkel glühendes Garnxxxx3728qqqq55768zzzz
+yyyyGürtelsockelxxxx3729qqqq0zzzz
+yyyySchwertwallgarnxxxx3730qqqq55776zzzz
+yyyyTitanwaffenkettexxxx3731qqqq43588zzzz
+yyyy+34 Stärkexxxx3732qqqq4zzzz
+yyyy+34 Beweglichkeitxxxx3733qqqq3zzzz
+yyyy+34 Intelligenzxxxx3734qqqq5zzzz
+yyyy+34 Willenskraftxxxx3735qqqq6zzzz
+yyyy+34 Willenskraftxxxx3736qqqq6zzzz
+yyyy+34 Intelligenzxxxx3737qqqq5zzzz
+yyyy+34 Kritische Trefferwertungxxxx3738qqqq32zzzz
+yyyy+34 Tempowertungxxxx3739qqqq36zzzz
+yyyy+34 Ausweichwertungxxxx3740qqqq13zzzz
+yyyy+34 Parierwertungxxxx3741qqqq14zzzz
+yyyy+34 Trefferwertungxxxx3742qqqq31zzzz
+yyyy+34 Ausweichwertungxxxx3743qqqq13zzzz
+yyyy+34 Abhärtungswertungxxxx3744qqqq35zzzz
+yyyy+34 Kritische Trefferwertungxxxx3745qqqq32zzzz
+yyyy+34 Waffenkundewertungxxxx3746qqqq37zzzz
+yyyy+43 Zauberdurchschlagxxxx3747qqqq47zzzz
+yyyyTitanstachel (45-67)xxxx3748qqqq56355zzzz
+yyyy+4 alle Wertexxxx3749qqqq56527zzzz
+yyyy+6 alle Wertexxxx3750qqqq56529zzzz
+yyyy+6 Ausweichwertungxxxx3751qqqq13zzzz
+yyyy+5 Zaubermachtxxxx3752qqqq45zzzz
+yyyy+9 Zaubermachtxxxx3753qqqq45zzzz
+yyyy+24 Angriffskraft, +10 Ausdauer und +10 Trefferwertungxxxx3754qqqq38zzzz
+yyyy+28 Angriffskraft und +12 Ausweichwertungxxxx3755qqqq38zzzz
+yyyy+130 Angriffskraftxxxx3756qqqq38zzzz
+yyyy+102 Ausdauerxxxx3757qqqq7zzzz
+yyyy+76 Zaubermachtxxxx3758qqqq45zzzz
+yyyy+70 Feuerwiderstandxxxx3759qqqq2zzzz
+yyyy+70 Frostwiderstandxxxx3760qqqq4zzzz
+yyyy+70 Schattenwiderstandxxxx3761qqqq5zzzz
+yyyy+70 Naturwiderstandxxxx3762qqqq3zzzz
+yyyy+70 Arkanwiderstandxxxx3763qqqq6zzzz
+yyyy+12 Angriffskraftxxxx3764qqqq38zzzz
+yyyy+4 Kritische Trefferwertungxxxx3765qqqq32zzzz
+yyyy+12 Ausdauerxxxx3766qqqq7zzzz
+yyyy+7 Beweglichkeit und +7 kritische Trefferwertungxxxx3767qqqq3zzzz
+yyyySofort wirkendes Gift VIIIxxxx3768qqqq57964zzzz
+yyyySofort wirkendes Gift IXxxxx3769qqqq57965zzzz
+yyyyTödliches Gift VIIIxxxx3770qqqq57969zzzz
+yyyyTödliches Gift IXxxxx3771qqqq57970zzzz
+yyyyWundgift VIxxxx3772qqqq57974zzzz
+yyyyWundgift VIIxxxx3773qqqq57975zzzz
+yyyyBeruhigendes Gift IIxxxx3774qqqq57981zzzz
+yyyy+30 Zaubermacht und +15 kritische Trefferwertungxxxx3775qqqq45zzzz
+yyyy+45 Angriffskraft und +15 kritische Trefferwertungxxxx3776qqqq38zzzz
+yyyy+20 Ausweichwertung und +22 Ausdauerxxxx3777qqqq7zzzz
+yyyy+8 Waffenkundewertungxxxx3778qqqq37zzzz
+yyyyFlammenzunge 8xxxx3779qqqq58784zzzz
+yyyyFlammenzunge 9xxxx3780qqqq58791zzzz
+yyyyFlammenzunge 10xxxx3781qqqq58792zzzz
+yyyyFrostbrand 7xxxx3782qqqq58797zzzz
+yyyyFrostbrand 8xxxx3783qqqq58798zzzz
+yyyyFrostbrand 9xxxx3784qqqq58799zzzz
+yyyyWindzorn 6xxxx3785qqqq33757zzzz
+yyyyWindzorn 7xxxx3786qqqq33757zzzz
+yyyyWindzorn 8xxxx3787qqqq33757zzzz
+yyyy+25 Trefferwertung und +25 kritische Trefferwertungxxxx3788qqqq31zzzz
+yyyyBerserkerxxxx3789qqqq59620zzzz
+yyyySchwarzmagiexxxx3790qqqq59630zzzz
+yyyy+30 Ausdauerxxxx3791qqqq7zzzz
+yyyy+20 Abhärtungswertungxxxx3792qqqq35zzzz
+yyyy+40 Angriffskraft und +15 Abhärtungswertungxxxx3793qqqq38zzzz
+yyyy+23 Zaubermacht und +15 Abhärtungswertungxxxx3794qqqq45zzzz
+yyyy+50 Angriffskraft und +20 Abhärtungswertungxxxx3795qqqq38zzzz
+yyyy+29 Zaubermacht und +20 Abhärtungswertungxxxx3796qqqq45zzzz
+yyyy+29 Zaubermacht und +20 Abhärtungswertungxxxx3797qqqq45zzzz
+yyyy+17 Kritische Trefferwertung und geringe Bewegungstempoerhöhungxxxx3798qqqq32zzzz
+yyyy+17 Intelligenz und geringe Bewegungstempoerhöhungxxxx3799qqqq5zzzz
+yyyy+17 Kritische Trefferwertung und um 10% verkürzte Dauer von Furchteffektenxxxx3800qqqq32zzzz
+yyyy+17 Kritische Trefferwertung und um 10% verringerte Dauer von Bewegungseinschränkungxxxx3801qqqq32zzzz
+yyyy+17 Intelligenz und um 10% verkürzte Dauer von Stilleeffektenxxxx3802qqqq5zzzz
+yyyy+17 Kritische Trefferwertung und um 10% verkürzte Dauer von Betäubungseffektenxxxx3803qqqq32zzzz
+yyyy+26 Ausdauer und um 10% verkürzte Dauer von Betäubungseffektenxxxx3804qqqq7zzzz
+yyyy+17 Intelligenz und um 10% verkürzte Dauer von Betäubungseffektenxxxx3805qqqq5zzzz
+yyyy+18 Zaubermacht und +10 kritische Trefferwertungxxxx3806qqqq45zzzz
+yyyy+15 Intelligenz und +10 Willenskraftxxxx3807qqqq5zzzz
+yyyy+40 Angriffskraft und +15 kritische Trefferwertungxxxx3808qqqq38zzzz
+yyyy+21 Intelligenz und +16 Willenskraftxxxx3809qqqq5zzzz
+yyyy+24 Zaubermacht und +15 kritische Trefferwertungxxxx3810qqqq45zzzz
+yyyy+20 Ausweichwertung und +22 Ausdauerxxxx3811qqqq13zzzz
+yyyy+25 Frostwiderstand und +30 Ausdauerxxxx3812qqqq4zzzz
+yyyy+25 Naturwiderstand und +30 Ausdauerxxxx3813qqqq3zzzz
+yyyy+25 Schattenwiderstand und +30 Ausdauerxxxx3814qqqq5zzzz
+yyyy+25 Arkanwiderstand und +30 Ausdauerxxxx3815qqqq6zzzz
+yyyy+25 Feuerwiderstand und +30 Ausdauerxxxx3816qqqq2zzzz
+yyyy+50 Angriffskraft und +20 kritische Trefferwertungxxxx3817qqqq38zzzz
+yyyy+20 Ausweichwertung und +37 Ausdauerxxxx3818qqqq7zzzz
+yyyy+26 Intelligenz und +20 Willenskraftxxxx3819qqqq5zzzz
+yyyy+26 Intelligenz und +20 kritische Trefferwertungxxxx3820qqqq5zzzz
+yyyy+8 Abhärtungswertungxxxx3821qqqq35zzzz
+yyyy+55 Ausdauer und +22 Beweglichkeitxxxx3822qqqq7zzzz
+yyyy+75 Angriffskraft und +22 kritische Trefferwertungxxxx3823qqqq32zzzz
+yyyy+24 Angriffskraftxxxx3824qqqq38zzzz
+yyyy+15 Tempowertungxxxx3825qqqq36zzzz
+yyyy+12 Trefferwertung und +12 kritische Trefferwertungxxxx3826qqqq31zzzz
+yyyy+110 Angriffskraftxxxx3827qqqq38zzzz
+yyyy+85 Angriffskraftxxxx3828qqqq38zzzz
+yyyy+35 Angriffskraftxxxx3829qqqq38zzzz
+yyyy+50 Zaubermachtxxxx3830qqqq45zzzz
+yyyy+23 Tempowertungxxxx3831qqqq36zzzz
+yyyy+10 alle Wertexxxx3832qqqq60694zzzz
+yyyy+65 Angriffskraftxxxx3833qqqq38zzzz
+yyyy+63 Zaubermachtxxxx3834qqqq45zzzz
+yyyy+120 Angriffskraft und +15 kritische Trefferwertungxxxx3835qqqq38zzzz
+yyyy+60 Intelligenz und +15 Willenskraftxxxx3836qqqq5zzzz
+yyyy+60 Ausweichwertung und +15 Parierwertungxxxx3837qqqq13zzzz
+yyyy+70 Zaubermacht und +15 kritische Trefferwertungxxxx3838qqqq45zzzz
+yyyy+40 Angriffskraftxxxx3839qqqq38zzzz
+yyyy+23 Zaubermachtxxxx3840qqqq45zzzz
+yyyy+23 Zaubermachtxxxx3841qqqq45zzzz
+yyyy+30 Ausdauer und +25 Abhärtungswertungxxxx3842qqqq7zzzz
+yyyyZielfernrohr (+15 Schaden)xxxx3843qqqq0zzzz
+yyyy+45 Willenskraftxxxx3844qqqq6zzzz
+yyyy+50 Angriffskraftxxxx3845qqqq38zzzz
+yyyy+40 Zaubermachtxxxx3846qqqq45zzzz
+yyyyRune des Steinhautgargoylesxxxx3847qqqq62157zzzz
+yyyyStabsockelxxxx3848qqqq0zzzz
+yyyyTitanbeschlagxxxx3849qqqq14zzzz
+yyyy+40 Ausdauerxxxx3850qqqq7zzzz
+yyyy+50 Ausdauerxxxx3851qqqq7zzzz
+yyyy+30 Ausdauer und +15 Abhärtungswertungxxxx3852qqqq7zzzz
+yyyy+40 Abhärtungswertung und +28 Ausdauerxxxx3853qqqq35zzzz
+yyyy+81 Zaubermachtxxxx3854qqqq45zzzz
+yyyy+69 Zaubermachtxxxx3855qqqq45zzzz
+yyyy+100 Beweglichkeitxxxx3856qqqq3zzzz
+yyyy+6 Ausweichwertungxxxx3857qqqq13zzzz
+yyyy+5 Trefferwertungxxxx3858qqqq31zzzz
+yyyyElastisches Arachnogewebexxxx3859qqqq55001zzzz
+yyyyVernetzte Rüstungsverstärkungxxxx3860qqqq82387zzzz
+yyyy+20 Stärkexxxx3861qqqq4zzzz
+yyyy+20 Beweglichkeitxxxx3862qqqq3zzzz
+yyyy+30 Ausdauerxxxx3863qqqq7zzzz
+yyyy+20 Willenskraftxxxx3864qqqq6zzzz
+yyyy+20 Intelligenzxxxx3865qqqq5zzzz
+yyyy+20 Intelligenzxxxx3866qqqq5zzzz
+yyyy+20 Trefferwertungxxxx3867qqqq31zzzz
+yyyyAngelköder (+100 Angelfertigkeit)xxxx3868qqqq8085zzzz
+yyyyKlingenbarrikadexxxx3869qqqq64440zzzz
+yyyyBlutsaugerxxxx3870qqqq64571zzzz
+yyyy+6 Parierwertungxxxx3871qqqq14zzzz
+yyyy+50 Zaubermacht und +20 Willenskraftxxxx3872qqqq45zzzz
+yyyy+50 Zaubermacht und +30 Ausdauerxxxx3873qqqq45zzzz
+yyyy+130 Angriffskraftxxxx3874qqqq38zzzz
+yyyy+30 Angriffskraft und +10 kritische Trefferwertungxxxx3875qqqq38zzzz
+yyyy+15 Ausweichwertung und +10 Parierwertungxxxx3876qqqq13zzzz
+yyyy+16 Angriffskraftxxxx3877qqqq38zzzz
+yyyy+10 alle Wertexxxx3879qqqq68251zzzz
+yyyy+6 Kritische Trefferwertungxxxx3880qqqq32zzzz
+yyyyAlle 5 Sek. 17 Manaxxxx3881qqqq43zzzz
+yyyy+8 Kritische Trefferwertungxxxx3882qqqq32zzzz
+yyyyRune der nerubischen Panzerungxxxx3883qqqq70163zzzz
+yyyy+24 Ausdauer und +24 Beweglichkeitxxxx3884qqqq7zzzz
+yyyy+15 Meisterschaftswertung und +15 Willenskraftxxxx3885qqqq6zzzz
+yyyy+15 Meisterschaftswertung und +15 Trefferwertungxxxx3886qqqq31zzzz
+yyyy+18 Meisterschaftswertung und +17 Willenskraftxxxx3887qqqq6zzzz
+yyyy+18 Meisterschaftswertung und +17 Trefferwertungxxxx3888qqqq31zzzz
+yyyy+30 Stärkexxxx3889qqqq4zzzz
+yyyy+30 Beweglichkeitxxxx3890qqqq3zzzz
+yyyy+30 Parierwertungxxxx3891qqqq14zzzz
+yyyy+30 Intelligenzxxxx3892qqqq5zzzz
+yyyy+30 Waffenkundewertungxxxx3893qqqq37zzzz
+yyyy+45 Ausdauerxxxx3894qqqq7zzzz
+yyyy+30 Willenskraftxxxx3895qqqq6zzzz
+yyyy+38 Zauberdurchschlagxxxx3896qqqq47zzzz
+yyyy+30 Trefferwertungxxxx3897qqqq31zzzz
+yyyy+30 Ausweichwertungxxxx3898qqqq13zzzz
+yyyy+30 Abhärtungswertungxxxx3899qqqq35zzzz
+yyyy+30 Tempowertungxxxx3900qqqq36zzzz
+yyyy+30 Meisterschaftswertungxxxx3901qqqq49zzzz
+yyyy+15 Stärke und +23 Ausdauerxxxx3902qqqq4zzzz
+yyyy+15 Parierwertung und +23 Ausdauerxxxx3903qqqq14zzzz
+yyyy+15 Beweglichkeit und +23 Ausdauerxxxx3904qqqq3zzzz
+yyyy+15 Intelligenz und +23 Ausdauerxxxx3905qqqq5zzzz
+yyyy+15 Waffenkundewertung und +23 Ausdauerxxxx3906qqqq37zzzz
+yyyy+15 Intelligenz und +15 Willenskraftxxxx3907qqqq5zzzz
+yyyy+15 Trefferwertung und +15 Stärkexxxx3908qqqq4zzzz
+yyyy+15 Trefferwertung und +15 Beweglichkeitxxxx3909qqqq3zzzz
+yyyy+15 Trefferwertung und +15 Parierwertungxxxx3910qqqq14zzzz
+yyyy+15 Trefferwertung und +15 Intelligenzxxxx3911qqqq5zzzz
+yyyy+15 Waffenkundewertung und +15 Trefferwertungxxxx3912qqqq37zzzz
+yyyy+15 Ausweichwertung und +15 Beweglichkeitxxxx3913qqqq3zzzz
+yyyy+15 Waffenkundewertung und +15 Ausweichwertungxxxx3914qqqq37zzzz
+yyyy+15 Stärke und +15 kritische Trefferwertungxxxx3915qqqq4zzzz
+yyyy+15 Kritische Trefferwertung und +15 Beweglichkeitxxxx3916qqqq3zzzz
+yyyy+15 Kritische Trefferwertung und +15 Intelligenzxxxx3917qqqq5zzzz
+yyyy+15 Tempowertung und +15 Stärkexxxx3918qqqq4zzzz
+yyyy+15 Tempowertung und +15 Beweglichkeitxxxx3919qqqq3zzzz
+yyyy+15 Tempowertung und +15 Intelligenzxxxx3920qqqq5zzzz
+yyyy+15 Meisterschaftswertung und +15 Stärkexxxx3921qqqq4zzzz
+yyyy+15 Meisterschaftswertung und +15 Beweglichkeitxxxx3922qqqq3zzzz
+yyyy+15 Meisterschaftswertung und +15 Parierwertungxxxx3923qqqq14zzzz
+yyyy+15 Meisterschaftswertung und +15 Intelligenzxxxx3924qqqq5zzzz
+yyyy+15 Meisterschaftswertung und +15 Waffenkundewertungxxxx3925qqqq37zzzz
+yyyy+15 Ausweichwertung und +23 Ausdauerxxxx3926qqqq13zzzz
+yyyy+15 Ausweichwertung und +15 Trefferwertungxxxx3927qqqq13zzzz
+yyyy+15 Kritische Trefferwertung und +23 Ausdauerxxxx3928qqqq32zzzz
+yyyy+15 Trefferwertung und +15 kritische Trefferwertungxxxx3929qqqq32zzzz
+yyyy+15 Abhärtungswertung und +23 Ausdauerxxxx3930qqqq35zzzz
+yyyy+15 Tempowertung und +23 Ausdauerxxxx3931qqqq36zzzz
+yyyy+15 Trefferwertung und +15 Tempowertungxxxx3932qqqq36zzzz
+yyyy+15 Meisterschaftswertung und +23 Ausdauerxxxx3933qqqq49zzzz
+yyyy+30 Kritische Trefferwertungxxxx3936qqqq32zzzz
+yyyy+17 Trefferwertung und +18 Stärkexxxx3937qqqq4zzzz
+yyyy+18 Intelligenz und +17 Willenskraftxxxx3938qqqq5zzzz
+yyyy+18 Waffenkundewertung und +26 Ausdauerxxxx3939qqqq37zzzz
+yyyy+18 Intelligenz und +26 Ausdauerxxxx3940qqqq5zzzz
+yyyy+18 Parierwertung und +26 Ausdauerxxxx3941qqqq14zzzz
+yyyy+18 Beweglichkeit und +23 Ausdauerxxxx3942qqqq3zzzz
+yyyy+18 Stärke und +26 Ausdauerxxxx3943qqqq4zzzz
+yyyy+35 Meisterschaftswertungxxxx3944qqqq49zzzz
+yyyy+35 Tempowertungxxxx3945qqqq36zzzz
+yyyy+35 Abhärtungswertungxxxx3946qqqq35zzzz
+yyyy+35 Kritische Trefferwertungxxxx3947qqqq32zzzz
+yyyy+35 Ausweichwertungxxxx3948qqqq13zzzz
+yyyy+35 Trefferwertungxxxx3949qqqq31zzzz
+yyyy+44 Zauberdurchschlagxxxx3950qqqq47zzzz
+yyyy+35 Willenskraftxxxx3951qqqq6zzzz
+yyyy+53 Ausdauerxxxx3952qqqq7zzzz
+yyyy+35 Waffenkundewertungxxxx3953qqqq37zzzz
+yyyy+35 Intelligenzxxxx3954qqqq5zzzz
+yyyy+35 Parierwertungxxxx3955qqqq14zzzz
+yyyy+35 Beweglichkeitxxxx3956qqqq3zzzz
+yyyy+35 Stärkexxxx3957qqqq4zzzz
+yyyy+18 Meisterschaftswertung und +26 Ausdauerxxxx3958qqqq49zzzz
+yyyy+17 Trefferwertung und +18 Tempowertungxxxx3959qqqq36zzzz
+yyyy+18 Tempowertung und +26 Ausdauerxxxx3960qqqq36zzzz
+yyyy+18 Abhärtungswertung und +26 Ausdauerxxxx3961qqqq35zzzz
+yyyy+17 Trefferwertung und +18 kritische Trefferwertungxxxx3962qqqq32zzzz
+yyyy+18 Kritische Trefferwertung und +26 Ausdauerxxxx3963qqqq32zzzz
+yyyy+17 Trefferwertung und +18 Ausweichwertungxxxx3964qqqq13zzzz
+yyyy+18 Ausweichwertung und +26 Ausdauerxxxx3965qqqq13zzzz
+yyyy+17 Meisterschaftswertung und +18 Waffenkundewertungxxxx3966qqqq37zzzz
+yyyy+17 Meisterschaftswertung und +18 Intelligenzxxxx3967qqqq5zzzz
+yyyy+18 Parierwertung und +17 Meisterschaftswertungxxxx3968qqqq14zzzz
+yyyy+17 Meisterschaftswertung und +18 Beweglichkeitxxxx3969qqqq3zzzz
+yyyy+17 Meisterschaftswertung und +18 Stärkexxxx3970qqqq4zzzz
+yyyy+17 Tempowertung und +18 Intelligenzxxxx3971qqqq5zzzz
+yyyy+17 Tempowertung und +18 Beweglichkeitxxxx3972qqqq3zzzz
+yyyy+17 Tempowertung und +18 Stärkexxxx3973qqqq4zzzz
+yyyy+17 Kritische Trefferwertung und +18 Intelligenzxxxx3974qqqq5zzzz
+yyyy+17 Kritische Trefferwertung und +18 Beweglichkeitxxxx3975qqqq3zzzz
+yyyy+17 Kritische Trefferwertung und +18 Stärkexxxx3976qqqq4zzzz
+yyyy+18 Waffenkundewertung und +17 Ausweichwertungxxxx3977qqqq37zzzz
+yyyy+18 Beweglichkeit und +17 Ausweichwertungxxxx3978qqqq3zzzz
+yyyy+18 Waffenkundewertung und +17 Trefferwertungxxxx3979qqqq37zzzz
+yyyy+17 Trefferwertung und +18 Intelligenzxxxx3980qqqq5zzzz
+yyyy+17 Trefferwertung und +18 Parierwertungxxxx3981qqqq14zzzz
+yyyy+17 Trefferwertung und +18 Beweglichkeitxxxx3982qqqq3zzzz
+yyyy+20 Waffenkundewertung und +20 Trefferwertungxxxx3983qqqq37zzzz
+yyyy+20 Parierwertung und +30 Ausdauerxxxx3984qqqq14zzzz
+yyyy+20 Trefferwertung und +20 Stärkexxxx3985qqqq4zzzz
+yyyy+20 Trefferwertung und +20 Intelligenzxxxx3986qqqq5zzzz
+yyyy+20 Trefferwertung und +20 Beweglichkeitxxxx3987qqqq3zzzz
+yyyy+20 Waffenkundewertung und +30 Ausdauerxxxx3988qqqq37zzzz
+yyyy+20 Trefferwertung und +20 Parierwertungxxxx3989qqqq14zzzz
+yyyy+20 Intelligenz und +20 Willenskraftxxxx3990qqqq5zzzz
+yyyy+20 Beweglichkeit und +30 Ausdauerxxxx3991qqqq3zzzz
+yyyy+20 Stärke und +30 Ausdauerxxxx3992qqqq4zzzz
+yyyy+20 Intelligenz und +30 Ausdauerxxxx3993qqqq5zzzz
+yyyy+40 Stärkexxxx3994qqqq4zzzz
+yyyy+40 Intelligenzxxxx3995qqqq5zzzz
+yyyy+40 Beweglichkeitxxxx3996qqqq3zzzz
+yyyy+40 Parierwertungxxxx3997qqqq14zzzz
+yyyy+40 Waffenkundewertungxxxx3998qqqq37zzzz
+yyyy+40 Meisterschaftswertungxxxx3999qqqq49zzzz
+yyyy+40 Abhärtungswertungxxxx4000qqqq35zzzz
+yyyy+40 Tempowertungxxxx4001qqqq36zzzz
+yyyy+40 Kritische Trefferwertungxxxx4002qqqq32zzzz
+yyyy+40 Ausweichwertungxxxx4003qqqq13zzzz
+yyyy+40 Trefferwertungxxxx4004qqqq31zzzz
+yyyy+60 Ausdauerxxxx4005qqqq7zzzz
+yyyy+40 Willenskraftxxxx4006qqqq6zzzz
+yyyy+50 Zauberdurchschlagxxxx4007qqqq47zzzz
+yyyy+20 Meisterschaftswertung und +20 Beweglichkeitxxxx4008qqqq3zzzz
+yyyy+20 Meisterschaftswertung und +20 Intelligenzxxxx4009qqqq5zzzz
+yyyy+20 Tempowertung und +20 Intelligenzxxxx4010qqqq5zzzz
+yyyy+20 Kritische Trefferwertung und +20 Beweglichkeitxxxx4011qqqq3zzzz
+yyyy+20 Tempowertung und +20 Beweglichkeitxxxx4012qqqq3zzzz
+yyyy+20 Tempowertung und +20 Stärkexxxx4013qqqq4zzzz
+yyyy+20 Meisterschaftswertung und +20 Parierwertungxxxx4014qqqq14zzzz
+yyyy+20 Stärke und +20 kritische Trefferwertungxxxx4015qqqq4zzzz
+yyyy+20 Meisterschaftswertung und +20 Waffenkundewertungxxxx4016qqqq37zzzz
+yyyy+20 Ausweichwertung und +20 Beweglichkeitxxxx4017qqqq3zzzz
+yyyy+20 Kritische Trefferwertung und +20 Intelligenzxxxx4018qqqq5zzzz
+yyyy+20 Meisterschaftswertung und +20 Stärkexxxx4019qqqq4zzzz
+yyyy+20 Waffenkundewertung und +20 Ausweichwertungxxxx4020qqqq37zzzz
+yyyy+20 Tempowertung und +30 Ausdauerxxxx4021qqqq36zzzz
+yyyy+20 Kritische Trefferwertung und +30 Ausdauerxxxx4022qqqq32zzzz
+yyyy+20 Trefferwertung und +20 Tempowertungxxxx4023qqqq36zzzz
+yyyy+20 Trefferwertung und +20 Ausweichwertungxxxx4024qqqq13zzzz
+yyyy+20 Trefferwertung und +20 kritische Trefferwertungxxxx4025qqqq32zzzz
+yyyy+20 Meisterschaftswertung und +30 Ausdauerxxxx4026qqqq49zzzz
+yyyy+20 Ausweichwertung und +30 Ausdauerxxxx4027qqqq13zzzz
+yyyy+20 Meisterschaftswertung und +20 Trefferwertungxxxx4028qqqq31zzzz
+yyyy+20 Abhärtungswertung und +30 Ausdauerxxxx4029qqqq35zzzz
+yyyy+20 Meisterschaftswertung und +20 Willenskraftxxxx4030qqqq6zzzz
+yyyy+67 Stärkexxxx4031qqqq4zzzz
+yyyy+67 Intelligenzxxxx4032qqqq5zzzz
+yyyy+67 Beweglichkeitxxxx4033qqqq3zzzz
+yyyy+67 Parierwertungxxxx4034qqqq14zzzz
+yyyy+67 Meisterschaftswertungxxxx4035qqqq49zzzz
+yyyy+67 Abhärtungswertungxxxx4036qqqq35zzzz
+yyyy+67 Waffenkundewertungxxxx4037qqqq37zzzz
+yyyy+67 Tempowertungxxxx4038qqqq36zzzz
+yyyy+67 Trefferwertungxxxx4039qqqq31zzzz
+yyyy+67 Kritische Trefferwertungxxxx4040qqqq32zzzz
+yyyy+101 Ausdauerxxxx4041qqqq7zzzz
+yyyy+67 Willenskraftxxxx4042qqqq6zzzz
+yyyy+84 Zauberdurchschlagxxxx4043qqqq47zzzz
+yyyy+67 Ausweichwertungxxxx4044qqqq13zzzz
+yyyy+54 Meisterschaftswertung und geringe Lauftempoerhöhungxxxx4045qqqq49zzzz
+yyyy+54 Kritische Trefferwertung und um 3% erhöhter kritischer Effektxxxx4046qqqq32zzzz
+yyyy+54 Intelligenz und um 2% verringerte Bedrohungxxxx4047qqqq5zzzz
+yyyy+81 Ausdauer und +1% Schildblockwertxxxx4048qqqq7zzzz
+yyyy+81 Ausdauer und um 2% erhöhter Rüstungswert durch Gegenständexxxx4049qqqq7zzzz
+yyyy+81 Ausdauer und um 2% verringerter Zauberschadenxxxx4050qqqq7zzzz
+yyyy+54 Intelligenz und +2% maximales Manaxxxx4051qqqq5zzzz
+yyyy+54 Willenskraft und um 3% erhöhter kritischer Effektxxxx4052qqqq6zzzz
+yyyy+54 Kritische Trefferwertung und 1% Zauberreflexionxxxx4053qqqq32zzzz
+yyyy+81 Ausdauer und um 10% verringerte Betäubungsdauerxxxx4054qqqq7zzzz
+yyyy+54 Kritische Trefferwertung und um 10% verringerte Dauer von Bewegungseinschränkungxxxx4055qqqq32zzzz
+yyyy+54 Kritische Trefferwertung und um 10% verkürzte Dauer von Furchteffektenxxxx4056qqqq32zzzz
+yyyy+54 Intelligenz und um 10% verringerte Dauer von Stilleeffektenxxxx4057qqqq5zzzz
+yyyy+$i Waffenkundewertungxxxx4058qqqq37zzzz
+yyyy+$i Meisterschaftswertungxxxx4059qqqq49zzzz
+yyyy+$i Parierwertungxxxx4060qqqq14zzzz
+yyyy+50 Meisterschaftswertungxxxx4061qqqq49zzzz
+yyyy+30 Ausdauer und geringe Bewegungstempoerhöhungxxxx4062qqqq7zzzz
+yyyy+15 alle Wertexxxx4063qqqq74190zzzz
+yyyy+70 Zauberdurchschlagxxxx4064qqqq47zzzz
+yyyy+50 Tempowertungxxxx4065qqqq36zzzz
+yyyyBesserungxxxx4066qqqq74194zzzz
+yyyyLawinexxxx4067qqqq74196zzzz
+yyyy+50 Tempowertungxxxx4068qqqq36zzzz
+yyyy+50 Tempowertungxxxx4069qqqq36zzzz
+yyyy+55 Ausdauerxxxx4070qqqq7zzzz
+yyyy+50 Kritische Trefferwertungxxxx4071qqqq32zzzz
+yyyy+30 Intelligenzxxxx4072qqqq5zzzz
+yyyy+160 Rüstungxxxx4073qqqq0zzzz
+yyyyElementartöterxxxx4074qqqq74208zzzz
+yyyy+35 Stärkexxxx4075qqqq4zzzz
+yyyy+35 Beweglichkeitxxxx4076qqqq3zzzz
+yyyy+40 Abhärtungswertungxxxx4077qqqq35zzzz
+yyyy+40 Stärkexxxx4078qqqq4zzzz
+yyyy+40 Beweglichkeitxxxx4079qqqq3zzzz
+yyyy+40 Intelligenzxxxx4080qqqq5zzzz
+yyyy+60 Ausdauerxxxx4081qqqq7zzzz
+yyyy+50 Waffenkundewertungxxxx4082qqqq37zzzz
+yyyyHurrikanxxxx4083qqqq74221zzzz
+yyyyGesang des Herzensxxxx4084qqqq95653zzzz
+yyyy+50 Meisterschaftswertungxxxx4085qqqq49zzzz
+yyyy+50 Ausweichwertungxxxx4086qqqq13zzzz
+yyyy+50 Kritische Trefferwertungxxxx4087qqqq32zzzz
+yyyy+40 Willenskraftxxxx4088qqqq6zzzz
+yyyy+50 Trefferwertungxxxx4089qqqq31zzzz
+yyyy+250 Rüstungxxxx4090qqqq0zzzz
+yyyy+40 Intelligenzxxxx4091qqqq5zzzz
+yyyy+50 Trefferwertungxxxx4092qqqq31zzzz
+yyyy+50 Willenskraftxxxx4093qqqq6zzzz
+yyyy+50 Meisterschaftswertungxxxx4094qqqq49zzzz
+yyyy+50 Waffenkundewertungxxxx4095qqqq37zzzz
+yyyy+50 Intelligenzxxxx4096qqqq5zzzz
+yyyyMachtstromxxxx4097qqqq94746zzzz
+yyyyWindwandlerxxxx4098qqqq74243zzzz
+yyyyErdrutschxxxx4099qqqq74245zzzz
+yyyy+65 Kritische Trefferwertungxxxx4100qqqq32zzzz
+yyyy+65 Kritische Trefferwertungxxxx4101qqqq32zzzz
+yyyy+20 alle Wertexxxx4102qqqq74249zzzz
+yyyy+75 Ausdauerxxxx4103qqqq7zzzz
+yyyy+35 Meisterschaftswertung und geringe Bewegungstempoerhöhungxxxx4104qqqq49zzzz
+yyyy+25 Beweglichkeit und geringe Bewegungstempoerhöhungxxxx4105qqqq3zzzz
+yyyy+50 Stärkexxxx4106qqqq4zzzz
+yyyy+65 Meisterschaftswertungxxxx4107qqqq49zzzz
+yyyy+65 Tempowertungxxxx4108qqqq36zzzz
+yyyy+55 Intelligenz und +45 Willenskraftxxxx4109qqqq5zzzz
+yyyy+95 Intelligenz und +55 Willenskraftxxxx4110qqqq5zzzz
+yyyy+55 Intelligenz und +65 Ausdauerxxxx4111qqqq5zzzz
+yyyy+95 Intelligenz und +80 Ausdauerxxxx4112qqqq5zzzz
+yyyy+95 Intelligenz und +80 Ausdauerxxxx4113qqqq5zzzz
+yyyy+95 Intelligenz und +55 Willenskraftxxxx4114qqqq5zzzz
+yyyyHell leuchtendes Garnxxxx4115qqqq75171zzzz
+yyyyDunkel glühendes Garnxxxx4116qqqq75174zzzz
+yyyySchwertwallgarnxxxx4117qqqq55776zzzz
+yyyySchwertwallgarnxxxx4118qqqq75177zzzz
+yyyy+50 Stärkexxxx4119qqqq4zzzz
+yyyy+36 Ausdauerxxxx4120qqqq7zzzz
+yyyy+44 Ausdauerxxxx4121qqqq7zzzz
+yyyy+110 Angriffskraft und +45 kritische Trefferwertungxxxx4122qqqq32zzzz
+yyyy+10 Meisterschaftswertungxxxx4123qqqq49zzzz
+yyyy+85 Ausdauer und +45 Beweglichkeitxxxx4124qqqq7zzzz
+yyyy+30 Willenskraftxxxx4125qqqq6zzzz
+yyyy+190 Angriffskraft und +55 kritische Trefferwertungxxxx4126qqqq32zzzz
+yyyy+145 Ausdauer und +55 Beweglichkeitxxxx4127qqqq7zzzz
+yyyy+30 Tempowertungxxxx4128qqqq36zzzz
+yyyy+20 Willenskraftxxxx4129qqqq6zzzz
+yyyy+20 Kritische Trefferwertungxxxx4130qqqq32zzzz
+yyyy+10 Kritische Trefferwertungxxxx4131qqqq32zzzz
+yyyy+30 Kritische Trefferwertungxxxx4132qqqq32zzzz
+yyyy+20 Beweglichkeitxxxx4133qqqq3zzzz
+yyyy+30 Ausdauerxxxx4134qqqq7zzzz
+yyyy+10 Stärkexxxx4135qqqq4zzzz
+yyyy+20 Stärkexxxx4136qqqq4zzzz
+yyyy+20 Meisterschaftswertungxxxx4137qqqq49zzzz
+yyyy+30 Meisterschaftswertungxxxx4138qqqq49zzzz
+yyyy+20 Parierwertungxxxx4139qqqq14zzzz
+yyyy+20 Tempowertungxxxx4140qqqq36zzzz
+yyyy+10 Trefferwertungxxxx4141qqqq31zzzz
+yyyy+10 Willenskraftxxxx4142qqqq6zzzz
+yyyy+10 Intelligenzxxxx4143qqqq5zzzz
+yyyy+20 Intelligenzxxxx4144qqqq5zzzz
+yyyy+30 Beweglichkeitxxxx4145qqqq3zzzz
+yyyy+10 Tempowertungxxxx4146qqqq36zzzz
+yyyy+10 Parierwertungxxxx4147qqqq14zzzz
+yyyy+30 Parierwertungxxxx4148qqqq14zzzz
+yyyy+20 Intelligenzxxxx4149qqqq5zzzz
+yyyy+30 Intelligenzxxxx4150qqqq5zzzz
+yyyy+10 Kritische Trefferwertungxxxx4151qqqq32zzzz
+yyyy+20 Kritische Trefferwertungxxxx4152qqqq32zzzz
+yyyy+30 Kritische Trefferwertungxxxx4153qqqq32zzzz
+yyyy+15 Ausdauerxxxx4154qqqq7zzzz
+yyyy+10 Ausweichwertungxxxx4155qqqq13zzzz
+yyyy+20 Ausweichwertungxxxx4156qqqq13zzzz
+yyyy+30 Ausweichwertungxxxx4157qqqq13zzzz
+yyyy+30 Stärkexxxx4158qqqq4zzzz
+yyyy+45 Ausdauerxxxx4159qqqq7zzzz
+yyyy+10 Trefferwertungxxxx4160qqqq31zzzz
+yyyy+20 Trefferwertungxxxx4161qqqq31zzzz
+yyyy+30 Trefferwertungxxxx4162qqqq31zzzz
+yyyy+10 Waffenkundewertungxxxx4163qqqq37zzzz
+yyyy+20 Waffenkundewertungxxxx4164qqqq37zzzz
+yyyy+30 Waffenkundewertungxxxx4165qqqq37zzzz
+yyyy+208 Ausweichwertungxxxx4166qqqq13zzzz
+yyyy+208 Kritische Trefferwertungxxxx4167qqqq32zzzz
+yyyy+208 Tempowertungxxxx4168qqqq36zzzz
+yyyy+208 Meisterschaftswertungxxxx4169qqqq49zzzz
+yyyy+208 Waffenkundewertungxxxx4170qqqq37zzzz
+yyyy+208 Parierwertungxxxx4171qqqq14zzzz
+yyyy+208 Trefferwertungxxxx4172qqqq31zzzz
+yyyy+208 Willenskraftxxxx4173qqqq6zzzz
+yyyyGnomisches Röntgenzielfernrohrxxxx4175qqqq95713zzzz
+yyyy+88 Distanztrefferwertungxxxx4176qqqq17zzzz
+yyyy+88 Distanztempowertungxxxx4177qqqq29zzzz
+yyyy+900 Rüstungxxxx4178qqqq0zzzz
+yyyySynapsenfedernxxxx4179qqqq82174zzzz
+yyyySchnelldrehende Abwehrplattenxxxx4180qqqq82176zzzz
+yyyyTeserschockerxxxx4181qqqq82179zzzz
+yyyyRückenmarkseinspritzungxxxx4182qqqq82184zzzz
+yyyyManaschlucker Z50xxxx4183qqqq82186zzzz
+yyyy+10 Abhärtungswertungxxxx4184qqqq35zzzz
+yyyy+20 Abhärtungswertungxxxx4185qqqq35zzzz
+yyyy+30 Abhärtungswertungxxxx4186qqqq35zzzz
+yyyyUnsichtbarkeitsfeldxxxx4187qqqq84348zzzz
+yyyyGeerdeter Plasmaschildxxxx4188qqqq82626zzzz
+yyyy+195 Ausdauerxxxx4189qqqq7zzzz
+yyyy+130 Beweglichkeitxxxx4190qqqq3zzzz
+yyyy+130 Stärkexxxx4191qqqq4zzzz
+yyyy+130 Intelligenzxxxx4192qqqq5zzzz
+yyyy+130 Beweglichkeit und +25 Meisterschaftswertungxxxx4193qqqq3zzzz
+yyyy+130 Stärke und +25 kritische Trefferwertungxxxx4194qqqq4zzzz
+yyyy+195 Ausdauer und +25 Ausweichwertungxxxx4195qqqq7zzzz
+yyyy+130 Intelligenz und +25 Tempowertungxxxx4196qqqq5zzzz
+yyyy+45 Ausdauer und +20 Ausweichwertungxxxx4197qqqq7zzzz
+yyyy+75 Ausdauer und +25 Ausweichwertungxxxx4198qqqq7zzzz
+yyyy+30 Intelligenz und +20 Tempowertungxxxx4199qqqq5zzzz
+yyyy+50 Intelligenz und +25 Tempowertungxxxx4200qqqq5zzzz
+yyyy+30 Stärke und +20 kritische Trefferwertungxxxx4201qqqq4zzzz
+yyyy+50 Stärke und +25 kritische Trefferwertungxxxx4202qqqq4zzzz
+yyyy+30 Beweglichkeit und +20 Meisterschaftswertungxxxx4203qqqq3zzzz
+yyyy+50 Beweglichkeit und +25 Meisterschaftswertungxxxx4204qqqq3zzzz
+yyyy+30 Beweglichkeit und +20 Meisterschaftswertungxxxx4205qqqq3zzzz
+yyyy+90 Ausdauer und +35 Ausweichwertungxxxx4206qqqq7zzzz
+yyyy+60 Intelligenz und +35 kritische Trefferwertungxxxx4207qqqq5zzzz
+yyyy+60 Stärke und +35 Meisterschaftswertungxxxx4208qqqq4zzzz
+yyyy+60 Beweglichkeit und +35 Tempowertungxxxx4209qqqq3zzzz
+yyyy+10 Tempowertungxxxx4211qqqq36zzzz
+yyyy+7 Stärkexxxx4212qqqq4zzzz
+yyyy+7 Stärkexxxx4213qqqq4zzzz
+yyyyPappkameradxxxx4214qqqq94548zzzz
+yyyyElementiumstachel (90-133)xxxx4215qqqq92432zzzz
+yyyyPyriumstachel (210-350)xxxx4216qqqq92436zzzz
+yyyyPyriumwaffenkettexxxx4217qqqq43588zzzz
+yyyy+100 Stärkexxxx4221qqqq4zzzz
+yyyyGedankenverstärkungsschüsselxxxx4222qqqq67799zzzz
+yyyyNitroboosterxxxx4223qqqq55004zzzz
+yyyyAngelköder (+150 Angelfertigkeit)xxxx4225qqqq95243zzzz
+yyyy+130 Beweglichkeitxxxx4227qqqq3zzzz
+yyyy+20 Intelligenz und +20 Abhärtungswertungxxxx4236qqqq5zzzz
+yyyy+20 Beweglichkeit und +20 Abhärtungswertungxxxx4237qqqq3zzzz
+yyyy+20 Stärke und +20 Abhärtungswertungxxxx4238qqqq4zzzz
+yyyy+208 Abhärtungswertungxxxx4239qqqq35zzzz
+yyyy+20 Abhärtungswertung und +25 Zauberdurchschlagxxxx4244qqqq35zzzz
+yyyy+60 Intelligenz und +35 Abhärtungswertungxxxx4245qqqq5zzzz
+yyyy+60 Beweglichkeit und +35 Abhärtungswertungxxxx4246qqqq3zzzz
+yyyy+60 Stärke und +35 Abhärtungswertungxxxx4247qqqq4zzzz
+yyyy+50 Intelligenz und +25 Abhärtungswertungxxxx4248qqqq5zzzz
+yyyy+50 Stärke und +25 Abhärtungswertungxxxx4249qqqq4zzzz
+yyyy+50 Beweglichkeit und +25 Abhärtungswertungxxxx4250qqqq3zzzz
+yyyy+54 Beweglichkeit und um 3% erhöhter kritischer Effektxxxx4251qqqq3zzzz
+yyyy+54 Stärke und um 3% erhöhter kritischer Effektxxxx4252qqqq4zzzz
+yyyy+54 Intelligenz und um 3% erhöhter kritischer Effektxxxx4253qqqq5zzzz
+yyyy+50 Stärkexxxx4256qqqq4zzzz
+yyyy+50 Intelligenzxxxx4257qqqq5zzzz
+yyyy+50 Beweglichkeitxxxx4258qqqq3zzzz
+yyyy+1 Angelnxxxx4259qqqq96285zzzz
+yyyy+30 Ausdauerxxxx4262qqqq7zzzz
+yyyy+20 Willenskraftxxxx4263qqqq6zzzz
+yyyyAngelköder (+15 Angelfertigkeit)xxxx4264qqqq7825zzzz
+yyyy+50 Intelligenzxxxx4265qqqq5zzzz
+yyyy+50 Beweglichkeitxxxx4266qqqq3zzzz
+yyyyFlintlockes Holzhackerxxxx4267qqqq99622zzzz
+yyyy+145 Ausdauer und +55 Ausweichwertungxxxx4270qqqq7zzzz
+yyyy+50 Trefferwertungxxxx4273qqqq31zzzz
+yyyy+63 Zauberdurchschlagxxxx4274qqqq47zzzz
+yyyy+50 Willenskraftxxxx4275qqqq6zzzz
+yyyy+75 Ausdauerxxxx4276qqqq7zzzz
+yyyy+25 Willenskraft und +25 kritische Trefferwertungxxxx4277qqqq6zzzz
+yyyy+25 Kritische Trefferwertung und +25 Trefferwertungxxxx4278qqqq32zzzz
+yyyy+25 Tempowertung und +25 Trefferwertungxxxx4279qqqq36zzzz
+yyyy+25 Trefferwertung und +25 Meisterschaftswertungxxxx4280qqqq49zzzz
+yyyy+32 Zauberdurchschlag und +25 Meisterschaftswertungxxxx4281qqqq49zzzz
+yyyy+25 Willenskraft und +25 Meisterschaftswertungxxxx4282qqqq49zzzz
+yyyy+25 Trefferwertung und +25 Abhärtungswertungxxxx4283qqqq31zzzz
+yyyy+32 Zauberdurchschlag und +25 Abhärtungswertungxxxx4284qqqq47zzzz
+yyyy+25 Willenskraft und +25 Abhärtungswertungxxxx4285qqqq6zzzz
+yyyy+25 Kritische Trefferwertung und +32 Zauberdurchschlagxxxx4286qqqq32zzzz
+yyyy+25 Tempowertung und +32 Zauberdurchschlagxxxx4287qqqq36zzzz
+yyyy+25 Tempowertung und +25 Willenskraftxxxx4288qqqq36zzzz
+yyyy+25 Kritische Trefferwertung und +37 Ausdauerxxxx4289qqqq32zzzz
+yyyy+25 Ausweichwertung und +37 Ausdauerxxxx4290qqqq13zzzz
+yyyy+25 Tempowertung und +37 Ausdauerxxxx4291qqqq36zzzz
+yyyy+25 Trefferwertung und +25 Ausweichwertungxxxx4292qqqq31zzzz
+yyyy+25 Meisterschaftswertung und +37 Ausdauerxxxx4293qqqq49zzzz
+yyyy+25 Abhärtungswertung und +37 Ausdauerxxxx4294qqqq35zzzz
+yyyy+25 Beweglichkeit und +25 kritische Trefferwertungxxxx4295qqqq3zzzz
+yyyy+25 Waffenkundewertung und +25 kritische Trefferwertungxxxx4296qqqq37zzzz
+yyyy+25 Intelligenz und +25 kritische Trefferwertungxxxx4297qqqq5zzzz
+yyyy+25 Stärke und +25 kritische Trefferwertungxxxx4298qqqq4zzzz
+yyyy+25 Beweglichkeit und +25 Ausweichwertungxxxx4299qqqq3zzzz
+yyyy+25 Waffenkundewertung und +25 Ausweichwertungxxxx4300qqqq37zzzz
+yyyy+25 Parierwertung und +25 Ausweichwertungxxxx4301qqqq14zzzz
+yyyy+25 Stärke und +25 Ausweichwertungxxxx4302qqqq4zzzz
+yyyy+25 Beweglichkeit und +25 Tempowertungxxxx4303qqqq3zzzz
+yyyy+25 Waffenkundewertung und +25 Tempowertungxxxx4304qqqq37zzzz
+yyyy+25 Intelligenz und +25 Tempowertungxxxx4305qqqq5zzzz
+yyyy+25 Stärke und +25 Tempowertungxxxx4306qqqq4zzzz
+yyyy+25 Beweglichkeit und +25 Meisterschaftswertungxxxx4307qqqq3zzzz
+yyyy+25 Waffenkundewertung und +25 Meisterschaftswertungxxxx4308qqqq37zzzz
+yyyy+25 Intelligenz und +25 Meisterschaftswertungxxxx4309qqqq5zzzz
+yyyy+25 Parierwertung und +25 Meisterschaftswertungxxxx4310qqqq14zzzz
+yyyy+25 Stärke und +25 Meisterschaftswertungxxxx4311qqqq4zzzz
+yyyy+25 Beweglichkeit und +25 Abhärtungswertungxxxx4312qqqq3zzzz
+yyyy+25 Waffenkundewertung und +25 Abhärtungswertungxxxx4313qqqq37zzzz
+yyyy+25 Intelligenz und +25 Abhärtungswertungxxxx4314qqqq5zzzz
+yyyy+25 Parierwertung und +25 Abhärtungswertungxxxx4315qqqq14zzzz
+yyyy+25 Stärke und +25 Abhärtungswertungxxxx4316qqqq4zzzz
+yyyy+25 Beweglichkeit und +25 Trefferwertungxxxx4317qqqq3zzzz
+yyyy+25 Waffenkundewertung und +25 Trefferwertungxxxx4318qqqq37zzzz
+yyyy+25 Intelligenz und +25 Trefferwertungxxxx4319qqqq5zzzz
+yyyy+25 Parierwertung und +25 Trefferwertungxxxx4320qqqq14zzzz
+yyyy+25 Stärke und +25 Trefferwertungxxxx4321qqqq4zzzz
+yyyy+25 Intelligenz und +32 Zauberdurchschlagxxxx4322qqqq5zzzz
+yyyy+25 Intelligenz und +25 Willenskraftxxxx4323qqqq5zzzz
+yyyy+25 Beweglichkeit und +37 Ausdauerxxxx4324qqqq3zzzz
+yyyy+25 Waffenkundewertung und +37 Ausdauerxxxx4325qqqq37zzzz
+yyyy+25 Intelligenz und +37 Ausdauerxxxx4326qqqq5zzzz
+yyyy+25 Parierwertung und +37 Ausdauerxxxx4327qqqq14zzzz
+yyyy+25 Stärke und +37 Ausdauerxxxx4328qqqq4zzzz
+yyyy+50 Beweglichkeitxxxx4329qqqq3zzzz
+yyyy+50 Waffenkundewertungxxxx4330qqqq37zzzz
+yyyy+50 Intelligenzxxxx4331qqqq5zzzz
+yyyy+50 Parierwertungxxxx4332qqqq14zzzz
+yyyy+50 Stärkexxxx4333qqqq4zzzz
+yyyy+50 Kritische Trefferwertungxxxx4334qqqq32zzzz
+yyyy+50 Ausweichwertungxxxx4335qqqq13zzzz
+yyyy+50 Tempowertungxxxx4336qqqq36zzzz
+yyyy+50 Meisterschaftswertungxxxx4337qqqq49zzzz
+yyyy+50 Abhärtungswertungxxxx4338qqqq35zzzz
+yyyy+145 Ausdauer und +55 Ausweichwertungxxxx4438qqqq7zzzz
+yyyy+145 Ausdauer und +55 Beweglichkeitxxxx4439qqqq7zzzz
+yyyy+190 Angriffskraft und +55 kritische Trefferwertungxxxx4440qqqq32zzzz
+yyyy+25 Trefferwertung und +25 Abhärtungswertungxxxx4672qqqq31zzzz
+yyyy+32 Zauberdurchschlag und +25 Meisterschaftswertungxxxx4673qqqq49zzzz
+yyyy+25 Beweglichkeit und +25 Abhärtungswertungxxxx4674qqqq3zzzz
+yyyy+25 Intelligenz und +32 Zauberdurchschlagxxxx4675qqqq5zzzz
+yyyy+50 Abhärtungswertungxxxx4676qqqq35zzzz
+yyyy+25 Kritische Trefferwertung und +32 Zauberdurchschlagxxxx4677qqqq32zzzz
+yyyy+25 Stärke und +25 Abhärtungswertungxxxx4678qqqq4zzzz
+yyyy+25 Tempowertung und +32 Zauberdurchschlagxxxx4679qqqq36zzzz
+yyyy+25 Parierwertung und +25 Abhärtungswertungxxxx4680qqqq14zzzz
+yyyy+25 Abhärtungswertung und +37 Ausdauerxxxx4681qqqq35zzzz
+yyyy+63 Zauberdurchschlagxxxx4682qqqq47zzzz
+yyyy+25 Waffenkundewertung und +25 Abhärtungswertungxxxx4683qqqq37zzzz
+yyyy+25 Willenskraft und +25 Abhärtungswertungxxxx4684qqqq6zzzz
+yyyy+32 Zauberdurchschlag und +25 Abhärtungswertungxxxx4685qqqq47zzzz
+yyyy+25 Intelligenz und +25 Abhärtungswertungxxxx4686qqqq5zzzz
+yyyy+200 Stärkexxxx4701qqqq4zzzz
+yyyy+400 Stärkexxxx4702qqqq4zzzz

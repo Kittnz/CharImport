@@ -1,0 +1,54 @@
+# Generated #
+#############
+/talentclasses
+/Core_Lib
+/ciulib
+/_ReSharper.CharImport
+_ReSharper.CharImport/
+/CharImport/xobj
+/CharImport/bin/Release
+/CharImport/bin/old
+CharImport.suo
+Thumbs.db
+Errorlog.log
+/CharImport/Resources/Thumbs.db
+/CharImport/bin/Debug/Errorlog.log
+*vshost
+*suo
+*log
+*exe
+*vsp
+*psess
+*db
+#Visual Studio Dateien ignorieren
+*.obj
+*.exe
+*.pdb
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+*.lib
+*.sbr
+[Rr]elease*/
+_ReSharper*/
+CharImport/obj/x86/Debug/en/CharImport Test.resources.dll
+CharImport/obj/x86/Debug/en/CharImport Test.resources.dll
+CharImport/obj/x86/Debug/de/CharImport Test.resources.dll
+CharImport/bin/Debug/af/CharImport Test.resources.dll
+CharImport/bin/Debug/de-DE/CharImport Test.resources.dll
+CharImport/bin/Debug/de/CharImport Test.resources.dll
+CharImport/bin/Debug/en/CharImport Test.resources.dll
+CharImport/obj/x86/Debug/af/CharImport Test.resources.dll
+CharImport/obj/x86/Debug/CharImport Test.exe
+CharImport/obj/x86/Debug/CharImport Test.pdb

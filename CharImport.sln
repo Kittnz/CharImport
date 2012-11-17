@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CharImport", "CharImport\CharImport.vbproj", "{9CDDC668-2B32-4F74-8982-B441010461FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D16EC88C-D985-4E4E-97F4-391FB5EBB13F}"
+	ProjectSection(SolutionItems) = preProject
+		Performance1.psess = Performance1.psess
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9CDDC668-2B32-4F74-8982-B441010461FA}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{9CDDC668-2B32-4F74-8982-B441010461FA}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{9CDDC668-2B32-4F74-8982-B441010461FA}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{9CDDC668-2B32-4F74-8982-B441010461FA}.Debug|x86.ActiveCfg = Debug|x86
+		{9CDDC668-2B32-4F74-8982-B441010461FA}.Debug|x86.Build.0 = Debug|x86
+		{9CDDC668-2B32-4F74-8982-B441010461FA}.Release|Any CPU.ActiveCfg = Release|x86
+		{9CDDC668-2B32-4F74-8982-B441010461FA}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{9CDDC668-2B32-4F74-8982-B441010461FA}.Release|Mixed Platforms.Build.0 = Release|x86
+		{9CDDC668-2B32-4F74-8982-B441010461FA}.Release|x86.ActiveCfg = Release|x86
+		{9CDDC668-2B32-4F74-8982-B441010461FA}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		BuildVersion_DetectChanges = False
+		BuildVersion_BuildVersioningStyle = None.None.None.Increment
+		BuildVersion_StartDate = 2012/10/27
+		BuildVersion_UpdateAssemblyVersion = True
+		BuildVersion_AssemblyInfoFilename = CharImport\My Project\AssemblyInfo.vb
+	EndGlobalSection
+EndGlobal
