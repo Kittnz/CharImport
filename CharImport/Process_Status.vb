@@ -28,6 +28,7 @@ Public Class Process_Status
         Else
             processreport.AppendText(Now.TimeOfDay.ToString & localeEN.process_status_txt1 & vbNewLine)
         End If
+
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click

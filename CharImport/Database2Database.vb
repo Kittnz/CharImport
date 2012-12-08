@@ -1701,10 +1701,12 @@ Public Class Database2Database
             MsgBox(localeEN.restartlogon, MsgBoxStyle.Information, localeEN.attention)
         End If
         reporttext.AppendText(Now.TimeOfDay.ToString & "// Transfer is completed!" & vbNewLine)
+
         Process_Status.Button1.Enabled = True
         Database_Interface.Close()
         Starter.Show()
         Me.Close()
+        Process_Status.BringToFront()
     End Sub
 
     Private Sub Button4_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button4.Click

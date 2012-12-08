@@ -847,9 +847,11 @@ Public Class Armory2Database
         Else
             MsgBox(localeEN.restartlogon, MsgBoxStyle.Information, localeEN.attention)
         End If
+
         Process_Status.Button1.Enabled = True
         Starter.Show()
         Me.Close()
+        Process_Status.BringToFront()
     End Sub
 
     Private Sub Button4_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button4.Click

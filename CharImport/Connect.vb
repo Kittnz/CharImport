@@ -1661,11 +1661,13 @@ Public Class Connect
         Else
             MsgBox(localeEN.restartlogon, MsgBoxStyle.Information, localeEN.attention)
         End If
+
             Process_Status.Button1.Enabled = True
             Application.DoEvents()
             Main.Close()
             Starter.Show()
-            Me.Close()
+        Me.Close()
+        Process_Status.BringToFront()
     End Sub
 
     Private Sub Button2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button2.Click
