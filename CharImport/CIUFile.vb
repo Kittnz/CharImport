@@ -810,9 +810,9 @@ Public Class CIUFile
         If Not Main.ring2vzid = 0 Then Main.ring2vz.Text = runfunction.geteffectnameofeffectid(Main.ring2vzid)
         If Not Main.schmuck1vzid = 0 Then Main.schmuck1vz.Text = runfunction.geteffectnameofeffectid(Main.schmuck1vzid)
         If Not Main.schmuck2vzid = 0 Then Main.schmuck2vz.Text = runfunction.geteffectnameofeffectid(Main.schmuck2vzid)
-        If Not Main.hauptvzid = 0 Then Main.hauptvz.Text = runfunction.geteffectnameofeffectid(Main.hauptvzid)
-        If Not Main.offvzid = 0 Then Main.offvz.Text = runfunction.geteffectnameofeffectid(Main.offvzid)
-        If Not Main.distanzvzid = 0 Then Main.distanzvz.Text = runfunction.geteffectnameofeffectid(Main.distanzvzid)
+        If Not Main.hauptvzid = 0 Then Main.hauptvzlabel2.Text = runfunction.geteffectnameofeffectid(Main.hauptvzid)
+        If Not Main.offvzid = 0 Then Main.offvzlabel2.Text = runfunction.geteffectnameofeffectid(Main.offvzid)
+        If Not Main.distanzvzid = 0 Then Main.distanzvzlabel2.Text = runfunction.geteffectnameofeffectid(Main.distanzvzid)
 
         If Not Main.kopfsocket1id = 0 Then Main.kopfsocket1.Text = runfunction.geteffectnameofeffectid(Main.kopfsocket1id)
         If Not Main.schultersocket1id = 0 Then Main.schultersocket1.Text = runfunction.geteffectnameofeffectid(Main.schultersocket1id)

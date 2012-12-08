@@ -116,17 +116,17 @@ Partial Class Connect
         '
         'Button2
         '
+        resources.ApplyResources(Me.Button2, "Button2")
         Me.Button2.BackColor = System.Drawing.Color.DimGray
         Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
-        resources.ApplyResources(Me.Button2, "Button2")
         Me.Button2.Name = "Button2"
         Me.Button2.UseVisualStyleBackColor = False
         '
         'Button1
         '
+        resources.ApplyResources(Me.Button1, "Button1")
         Me.Button1.BackColor = System.Drawing.Color.DimGray
         Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
-        resources.ApplyResources(Me.Button1, "Button1")
         Me.Button1.Name = "Button1"
         Me.Button1.UseVisualStyleBackColor = False
         '
@@ -187,9 +187,9 @@ Partial Class Connect
         '
         'Button3
         '
+        resources.ApplyResources(Me.Button3, "Button3")
         Me.Button3.BackColor = System.Drawing.Color.DimGray
         Me.Button3.Cursor = System.Windows.Forms.Cursors.Hand
-        resources.ApplyResources(Me.Button3, "Button3")
         Me.Button3.Name = "Button3"
         Me.Button3.UseVisualStyleBackColor = False
         '
@@ -242,10 +242,10 @@ Partial Class Connect
         '
         'Panel1
         '
+        resources.ApplyResources(Me.Panel1, "Panel1")
         Me.Panel1.BackColor = System.Drawing.Color.MidnightBlue
         Me.Panel1.Controls.Add(Me.sockets)
         Me.Panel1.Controls.Add(Me.vzs)
-        resources.ApplyResources(Me.Panel1, "Panel1")
         Me.Panel1.Name = "Panel1"
         '
         'xlabel
@@ -280,9 +280,9 @@ Partial Class Connect
         '
         'Button5
         '
+        resources.ApplyResources(Me.Button5, "Button5")
         Me.Button5.BackColor = System.Drawing.Color.DimGray
         Me.Button5.Cursor = System.Windows.Forms.Cursors.Hand
-        resources.ApplyResources(Me.Button5, "Button5")
         Me.Button5.Name = "Button5"
         Me.Button5.UseVisualStyleBackColor = False
         '
@@ -295,9 +295,9 @@ Partial Class Connect
         '
         'Button6
         '
+        resources.ApplyResources(Me.Button6, "Button6")
         Me.Button6.BackColor = System.Drawing.Color.DimGray
         Me.Button6.Cursor = System.Windows.Forms.Cursors.Hand
-        resources.ApplyResources(Me.Button6, "Button6")
         Me.Button6.Name = "Button6"
         Me.Button6.UseVisualStyleBackColor = False
         '
@@ -337,12 +337,12 @@ Partial Class Connect
         '
         'Panel2
         '
+        resources.ApplyResources(Me.Panel2, "Panel2")
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(82, Byte), Integer))
         Me.Panel2.Controls.Add(Me.tbc)
         Me.Panel2.Controls.Add(Me.cata)
         Me.Panel2.Controls.Add(Me.classic)
         Me.Panel2.Controls.Add(Me.wotlk)
-        resources.ApplyResources(Me.Panel2, "Panel2")
         Me.Panel2.Name = "Panel2"
         '
         'CheckBox1
@@ -405,10 +405,10 @@ Partial Class Connect
         '
         'GroupBox1
         '
+        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(82, Byte), Integer))
         Me.GroupBox1.Controls.Add(Me.Panel1)
         Me.GroupBox1.Controls.Add(Me.items)
-        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.TabStop = False
         '
@@ -448,12 +448,12 @@ Partial Class Connect
         '
         'GroupBox2
         '
+        resources.ApplyResources(Me.GroupBox2, "GroupBox2")
         Me.GroupBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(82, Byte), Integer))
         Me.GroupBox2.Controls.Add(Me.genderstay)
         Me.GroupBox2.Controls.Add(Me.female)
         Me.GroupBox2.Controls.Add(Me.male)
         Me.GroupBox2.ForeColor = System.Drawing.Color.RoyalBlue
-        resources.ApplyResources(Me.GroupBox2, "GroupBox2")
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.TabStop = False
         '
@@ -516,11 +516,11 @@ Partial Class Connect
         '
         'GroupBox3
         '
+        resources.ApplyResources(Me.GroupBox3, "GroupBox3")
         Me.GroupBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(82, Byte), Integer))
         Me.GroupBox3.Controls.Add(Me.mangos)
         Me.GroupBox3.Controls.Add(Me.arcemu)
         Me.GroupBox3.Controls.Add(Me.trinity1)
-        resources.ApplyResources(Me.GroupBox3, "GroupBox3")
         Me.GroupBox3.ForeColor = System.Drawing.Color.RoyalBlue
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.TabStop = False
@@ -614,9 +614,9 @@ Partial Class Connect
         '
         'Button7
         '
+        resources.ApplyResources(Me.Button7, "Button7")
         Me.Button7.BackColor = System.Drawing.Color.DimGray
         Me.Button7.Cursor = System.Windows.Forms.Cursors.Hand
-        resources.ApplyResources(Me.Button7, "Button7")
         Me.Button7.Name = "Button7"
         Me.Button7.UseVisualStyleBackColor = False
         '
@@ -634,13 +634,13 @@ Partial Class Connect
         '
         'GroupBox9
         '
+        resources.ApplyResources(Me.GroupBox9, "GroupBox9")
         Me.GroupBox9.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(82, Byte), Integer))
         Me.GroupBox9.Controls.Add(Me.Label13)
         Me.GroupBox9.Controls.Add(Me.Label16)
         Me.GroupBox9.Controls.Add(Me.characters)
         Me.GroupBox9.Controls.Add(Me.auth)
         Me.GroupBox9.ForeColor = System.Drawing.Color.CornflowerBlue
-        resources.ApplyResources(Me.GroupBox9, "GroupBox9")
         Me.GroupBox9.Name = "GroupBox9"
         Me.GroupBox9.TabStop = False
         '
@@ -683,6 +683,7 @@ Partial Class Connect
         '
         'Panel3
         '
+        resources.ApplyResources(Me.Panel3, "Panel3")
         Me.Panel3.Controls.Add(Me.GroupBox3)
         Me.Panel3.Controls.Add(Me.Button1)
         Me.Panel3.Controls.Add(Me.GroupBox9)
@@ -700,11 +701,11 @@ Partial Class Connect
         Me.Panel3.Controls.Add(Me.Button3)
         Me.Panel3.Controls.Add(Me.Label4)
         Me.Panel3.Controls.Add(Me.Label5)
-        resources.ApplyResources(Me.Panel3, "Panel3")
         Me.Panel3.Name = "Panel3"
         '
         'Panel4
         '
+        resources.ApplyResources(Me.Panel4, "Panel4")
         Me.Panel4.Controls.Add(Me.Button5)
         Me.Panel4.Controls.Add(Me.Label7)
         Me.Panel4.Controls.Add(Me.charname)
@@ -721,11 +722,11 @@ Partial Class Connect
         Me.Panel4.Controls.Add(Me.Label11)
         Me.Panel4.Controls.Add(Me.newcharname)
         Me.Panel4.Controls.Add(Me.CheckBox3)
-        resources.ApplyResources(Me.Panel4, "Panel4")
         Me.Panel4.Name = "Panel4"
         '
         'Panel5
         '
+        resources.ApplyResources(Me.Panel5, "Panel5")
         Me.Panel5.Controls.Add(Me.erfolge)
         Me.Panel5.Controls.Add(Me.level)
         Me.Panel5.Controls.Add(Me.zauber)
@@ -749,7 +750,6 @@ Partial Class Connect
         Me.Panel5.Controls.Add(Me.goldlabel)
         Me.Panel5.Controls.Add(Me.alternatelevellabel)
         Me.Panel5.Controls.Add(Me.goldtext)
-        resources.ApplyResources(Me.Panel5, "Panel5")
         Me.Panel5.Name = "Panel5"
         '
         'Connect

@@ -2006,7 +2006,7 @@ Public Class Trinity_core
     End Function
 
     Private Function getnamefromid(ByVal itemid As Integer) As String
-        Return getnamefromid(itemid)
+        Return runfunction.getnamefromid(itemid)
     End Function
 
     Public Function getcharguid(ByVal charname As String) As Integer

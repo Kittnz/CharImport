@@ -245,9 +245,6 @@ Please make sure that the database is accessible!
   <data name="male.Text" xml:space="preserve">
     <value>Male</value>
   </data>
-  <data name="GroupBox2.Text" xml:space="preserve">
-    <value>Gender</value>
-  </data>
   <data name="genderstay.Size" type="System.Drawing.Size, System.Drawing">
     <value>82, 19</value>
   </data>
@@ -259,6 +256,9 @@ Please make sure that the database is accessible!
   </data>
   <data name="female.Text" xml:space="preserve">
     <value>Female</value>
+  </data>
+  <data name="GroupBox2.Text" xml:space="preserve">
+    <value>Gender</value>
   </data>
   <data name="newcharname.Size" type="System.Drawing.Size, System.Drawing">
     <value>189, 20</value>
@@ -330,9 +330,6 @@ Please make sure that the database is accessible!
   <data name="auth.Size" type="System.Drawing.Size, System.Drawing">
     <value>126, 20</value>
   </data>
-  <data name="GroupBox9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>338, 62</value>
-  </data>
   <data name="Label13.Size" type="System.Drawing.Size, System.Drawing">
     <value>143, 13</value>
   </data>
@@ -347,6 +344,9 @@ Please make sure that the database is accessible!
   </data>
   <data name="characters.Size" type="System.Drawing.Size, System.Drawing">
     <value>126, 20</value>
+  </data>
+  <data name="GroupBox9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>338, 62</value>
   </data>
   <data name="manually.Size" type="System.Drawing.Size, System.Drawing">
     <value>181, 17</value>
@@ -364,7 +364,7 @@ Please make sure that the database is accessible!
     <value>1399, 4</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>693, 422</value>
+    <value>691, 422</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

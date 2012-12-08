@@ -22,6 +22,7 @@ Public Class Process_Status
 
     Private Sub Process_Status_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.MaximumSize = Me.Size
+        Me.AutoSize = True
         If My.Settings.language = "de" Then
             processreport.AppendText(Now.TimeOfDay.ToString & localeDE.process_status_txt1 & vbNewLine)
         Else

@@ -635,6 +635,7 @@ Public Class Connect
                 male.Checked = True
                 male.Enabled = True
                 female.Enabled = True
+                Panel5.Location = Panel3.Location
                 Main.char_name = newcharname.Text
                 ' datacharname = charname.Text
                 If arcemu.Checked = True Then
