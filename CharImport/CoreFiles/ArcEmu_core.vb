@@ -120,7 +120,7 @@ Public Class ArcEmu_core
         End Try
         guidlist = New List(Of String)
         idlist = New List(Of String)
-        If My.Settings.lastloginactive = True Or My.Settings.gmlevelactive = False Then
+        If My.Settings.lastloginactive = True Or My.Settings.gmlevelactive = True Then
             If My.Settings.lastloginactive = True Then
                 If My.Settings.gmlevelactive = True Then
                     Dim _
