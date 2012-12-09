@@ -3364,21 +3364,21 @@ Public Class Mangos_core
 
                     parts3(22) = parts2(0)
                     normalenchstring = String.Join(" ", parts3)
-                ElseIf parts2(2) = "1" Then
+                ElseIf parts2(2) = "2" Then
                     'gem1
                     Dim input As String = normalenchstring
                     Dim parts3() As String = input.Split(" "c)
 
                     parts3(28) = parts2(0)
                     normalenchstring = String.Join(" ", parts3)
-                ElseIf parts2(2) = "2" Then
+                ElseIf parts2(2) = "3" Then
                     'gem2
                     Dim input As String = normalenchstring
                     Dim parts3() As String = input.Split(" "c)
 
                     parts3(31) = parts2(0)
                     normalenchstring = String.Join(" ", parts3)
-                ElseIf parts2(2) = "3" Then
+                ElseIf parts2(2) = "4" Then
                     'gem3
                     Dim input As String = normalenchstring
                     Dim parts3() As String = input.Split(" "c)

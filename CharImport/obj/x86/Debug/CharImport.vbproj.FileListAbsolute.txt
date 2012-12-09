@@ -109,5 +109,4 @@ C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport_Test\CharImport\
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport_Test\CharImport\obj\x86\Debug\CharImport Test.exe
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport_Test\CharImport\obj\x86\Debug\CharImport Test.xml
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport_Test\CharImport\obj\x86\Debug\CharImport Test.pdb
-C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport.vbprojResolveAssemblyReference.cache
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport.vbproj.GenerateResource.Cache

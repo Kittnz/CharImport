@@ -3526,9 +3526,9 @@ Public Class ArcEmu_core
                 Dim input As String = enchstring
                 Dim parts() As String = input.Split(" "c)
                 If Not parts(22) = "0" Then arcenchstring = arcenchstring & parts(22) & ",0,5;"
-                If Not parts(28) = "0" Then arcenchstring = arcenchstring & parts(28) & ",0,1;"
-                If Not parts(31) = "0" Then arcenchstring = arcenchstring & parts(31) & ",0,2;"
-                If Not parts(34) = "0" Then arcenchstring = arcenchstring & parts(34) & ",0,3;"
+                If Not parts(28) = "0" Then arcenchstring = arcenchstring & parts(28) & ",0,2;"
+                If Not parts(31) = "0" Then arcenchstring = arcenchstring & parts(31) & ",0,3;"
+                If Not parts(34) = "0" Then arcenchstring = arcenchstring & parts(34) & ",0,4;"
                 Return arcenchstring
 
             ElseIf enchstring = "" Then
@@ -3540,9 +3540,9 @@ Public Class ArcEmu_core
                 Dim input As String = enchstring
                 Dim parts() As String = input.Split(" "c)
                 If Not parts(0) = "0" Then arcenchstring = arcenchstring & parts(0) & ",0,5;"
-                If Not parts(6) = "0" Then arcenchstring = arcenchstring & parts(6) & ",0,1;"
-                If Not parts(9) = "0" Then arcenchstring = arcenchstring & parts(9) & ",0,2;"
-                If Not parts(12) = "0" Then arcenchstring = arcenchstring & parts(12) & ",0,3;"
+                If Not parts(6) = "0" Then arcenchstring = arcenchstring & parts(6) & ",0,2;"
+                If Not parts(9) = "0" Then arcenchstring = arcenchstring & parts(9) & ",0,3;"
+                If Not parts(12) = "0" Then arcenchstring = arcenchstring & parts(12) & ",0,4;"
                 Return arcenchstring
             End If
         End If
