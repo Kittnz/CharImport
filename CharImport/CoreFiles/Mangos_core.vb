@@ -13,6 +13,7 @@ Public Class Mangos_core
     Dim runfunction As New Functions
     Dim talentid As String = ""
     Dim rank As String = ""
+    Dim rank2 As String = ""
     Dim sdatatable As New DataTable
     Dim core_check As New Core_Check_Trinity
 
@@ -801,8 +802,7 @@ Public Class Mangos_core
                             runfunction.runcommand(
                                 "SELECT current_rank FROM character_talent WHERE talent_id='" & idtalent &
                                 "' AND guid='" & Main.char_guid.ToString & "' AND spec='0'", "current_rank")
-                    Main.character_talent_list.Add(
-                        "<spell>" & checkfield2(idtalent, rurrentrank) & "</spell><spec>0</spec>")
+                    Main.character_talent_list.Add("<spell>" & checkfield2(idtalent, rurrentrank) & "</spell><spec>0</spec>")
 
                     count += 1
                 Loop Until count = lastcount
@@ -857,9 +857,9 @@ Public Class Mangos_core
     End Sub
 
     Private Function checkfield2(ByVal lID As String, ByVal rank As String) As String
-        If Not executex2("TalentId", lID, CInt(Val(rank))) = "-" Then
+        If Not executex2("TalentId", lID, CInt(Val(rank)) + 1) = "-" Then
 
-            Return executex2("TalentId", lID, CInt(Val(rank)))
+            Return executex2("TalentId", lID, CInt(Val(rank)) + 1)
         Else
             Return "0"
         End If
@@ -2798,47 +2798,47 @@ Public Class Mangos_core
 
             If Not Main.secminorglyph1 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '4', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '4', '" &
                     runfunction.getglyphid2(Main.secminorglyph1) & "' )")
             End If
             If Not Main.secminorglyph2 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '1', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '1', '" &
                     runfunction.getglyphid2(Main.secminorglyph2) & "' )")
             End If
             If Not Main.secminorglyph3 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '2', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '2', '" &
                     runfunction.getglyphid2(Main.secminorglyph3) & "' )")
             End If
             If Not Main.secmajorglyph1 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '0', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '0', '" &
                     runfunction.getglyphid2(Main.secmajorglyph1) & "' )")
             End If
             If Not Main.secmajorglyph2 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '3', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '3', '" &
                     runfunction.getglyphid2(Main.secmajorglyph2) & "' )")
             End If
             If Not Main.secmajorglyph3 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '5', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '5', '" &
                     runfunction.getglyphid2(Main.secmajorglyph3) & "' )")
             End If
             If Not Main.secprimeglyph1 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '6', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '6', '" &
                     runfunction.getglyphid2(Main.secprimeglyph1) & "' )")
             End If
             If Not Main.secprimeglyph2 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '7', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '7', '" &
                     runfunction.getglyphid2(Main.secprimeglyph2) & "' )")
             End If
             If Not Main.secprimeglyph3 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '8', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '8', '" &
                     runfunction.getglyphid2(Main.secprimeglyph3) & "' )")
             End If
         Else
@@ -2876,32 +2876,32 @@ Public Class Mangos_core
 
             If Not Main.secminorglyph1 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '4', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '4', '" &
                     runfunction.getglyphid2(Main.secminorglyph1) & "' )")
             End If
             If Not Main.secminorglyph2 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '1', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '1', '" &
                     runfunction.getglyphid2(Main.secminorglyph2) & "' )")
             End If
             If Not Main.secminorglyph3 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '2', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '2', '" &
                     runfunction.getglyphid2(Main.secminorglyph3) & "' )")
             End If
             If Not Main.secmajorglyph1 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '0', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '0', '" &
                     runfunction.getglyphid2(Main.secmajorglyph1) & "' )")
             End If
             If Not Main.secmajorglyph2 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '3', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '3', '" &
                     runfunction.getglyphid2(Main.secmajorglyph2) & "' )")
             End If
             If Not Main.secmajorglyph3 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '5', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '5', '" &
                     runfunction.getglyphid2(Main.secmajorglyph3) & "' )")
             End If
 
@@ -2968,6 +2968,8 @@ Public Class Mangos_core
     End Sub
 
     Public Sub addtalents()
+        rank = ""
+        rank2 = ""
         runfunction.writelog("addtalents_call @mangos")
         sdatatable.Clear()
         sdatatable.Dispose()
@@ -3034,36 +3036,36 @@ Public Class Mangos_core
                     If talentlist2.Contains(talentid & "rank5") Then
 
                     ElseIf talentlist2.Contains(talentid & "rank4") Then
-                        If CInt(Val(rank)) <= 4 Then
+                        If CInt(Val(rank2)) <= 4 Then
                         Else
                             runfunction.normalsqlcommand(
-                                "UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.coreguid &
+                                "UPDATE character_talent SET current_rank='" & rank2 & "' WHERE guid='" & Main.coreguid &
                                 "' AND talent_id='" & talentid & "' AND spec='1'")
-                            talentlist2 = talentlist2 & " " & talentid & "rank" & rank
+                            talentlist2 = talentlist2 & " " & talentid & "rank" & rank2
                         End If
                     ElseIf talentlist2.Contains(talentid & "rank3") Then
-                        If CInt(Val(rank)) <= 3 Then
+                        If CInt(Val(rank2)) <= 3 Then
                         Else
                             runfunction.normalsqlcommand(
-                                "UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.coreguid &
+                                "UPDATE character_talent SET current_rank='" & rank2 & "' WHERE guid='" & Main.coreguid &
                                 "' AND talent_id='" & talentid & "' AND spec='1'")
-                            talentlist2 = talentlist2 & " " & talentid & "rank" & rank
+                            talentlist2 = talentlist2 & " " & talentid & "rank" & rank2
                         End If
                     ElseIf talentlist2.Contains(talentid & "rank2") Then
-                        If CInt(Val(rank)) <= 2 Then
+                        If CInt(Val(rank2)) <= 2 Then
                         Else
                             runfunction.normalsqlcommand(
-                                "UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.coreguid &
+                                "UPDATE character_talent SET current_rank='" & rank2 & "' WHERE guid='" & Main.coreguid &
                                 "' AND talent_id='" & talentid & "' AND spec='1'")
-                            talentlist2 = talentlist2 & " " & talentid & "rank" & rank
+                            talentlist2 = talentlist2 & " " & talentid & "rank" & rank2
                         End If
                     ElseIf talentlist2.Contains(talentid & "rank1") Then
-                        If CInt(Val(rank)) <= 1 Then
+                        If CInt(Val(rank2)) <= 1 Then
                         Else
                             runfunction.normalsqlcommand(
-                                "UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.coreguid &
+                                "UPDATE character_talent SET current_rank='" & rank2 & "' WHERE guid='" & Main.coreguid &
                                 "' AND talent_id='" & talentid & "' AND spec='1'")
-                            talentlist2 = talentlist2 & " " & talentid & "rank" & rank
+                            talentlist2 = talentlist2 & " " & talentid & "rank" & rank2
                         End If
                     Else
 
@@ -3071,9 +3073,9 @@ Public Class Mangos_core
                 Else
                     runfunction.normalsqlcommand(
                         "INSERT INTO character_talent ( guid, talent_id, current_rank, spec ) VALUES ( '" &
-                        Main.coreguid & "', '" & talentid & "', '" & rank & "', '1' )")
+                        Main.coreguid & "', '" & talentid & "', '" & rank2 & "', '1' )")
 
-                    talentlist2 = talentlist2 & " " & talentid & "rank" & rank
+                    talentlist2 = talentlist2 & " " & talentid & "rank" & rank2
 
                 End If
             End If
@@ -3081,26 +3083,33 @@ Public Class Mangos_core
 
             '  ("<spell>" & spell & "</spell><spec>" & spec & "</spec>")
         Next
+        Dim kalk As String = ""
     End Sub
 
     Private Function checkfield(ByVal lID As String) As String
         If Not executex("Rang1", lID) = "-" Then
-            rank = "1"
+            rank = "0"
+            rank2 = "0"
             Return (executex("Rang1", lID))
         ElseIf Not executex("Rang2", lID) = "-" Then
-            rank = "2"
+            rank = "1"
+            rank2 = "1"
             Return (executex("Rang2", lID))
         ElseIf Not executex("Rang3", lID) = "-" Then
-            rank = "3"
+            rank = "2"
+            rank2 = "2"
             Return (executex("Rang3", lID))
         ElseIf Not executex("Rang4", lID) = "-" Then
-            rank = "4"
+            rank = "3"
+            rank2 = "3"
             Return (executex("Rang4", lID))
         ElseIf Not executex("Rang5", lID) = "-" Then
-            rank = "5"
+            rank = "4"
+            rank2 = "4"
             Return (executex("Rang5", lID))
         Else
             rank = "0"
+            rank2 = "0"
             Return "0"
         End If
     End Function
