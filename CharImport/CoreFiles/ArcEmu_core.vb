@@ -310,7 +310,7 @@ Public Class ArcEmu_core
         Catch ex As Exception
 
         End Try
-        Dim da As New MySqlDataAdapter("SELECT `acct` FROM account WHERE `login`='" & accountname & "'", quickconn)
+        Dim da As New MySqlDataAdapter("SELECT `acct` FROM accounts WHERE `login`='" & accountname & "'", quickconn)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
@@ -360,7 +360,7 @@ Public Class ArcEmu_core
 
         End Try
         Dim accid As String =
-                runfunction.runcommandRealmd("SELECT `acct` FROM account WHERE `login`='" & accountname & "'", "acct")
+                runfunction.runcommandRealmd("SELECT `acct` FROM accounts WHERE `login`='" & accountname & "'", "acct")
         guidlist = New List(Of String)
 
 
@@ -755,8 +755,12 @@ Public Class ArcEmu_core
                 New MySqlDataAdapter("SELECT spells FROM characters WHERE guid='" & Main.char_guid.ToString & "'",
                                      Main.GLOBALconn)
         Dim dt As New DataTable
+        Try
+            da.Fill(dt)
+        Catch ex As Exception
+       Exit Sub
+        End Try
 
-        da.Fill(dt)
         Try
             Dim lastcount As Integer = CInt(Val(dt.Rows.Count.ToString))
             Dim count As Integer = 0
@@ -795,11 +799,11 @@ Public Class ArcEmu_core
             Dim startcounter As Integer = 0
             Do
                 Dim parts() As String = talentstring.Split(","c)
-                Dim talentid As String = parts(startcounter)
+                Dim ctalentid As String = parts(startcounter)
                 startcounter += 1
-                Dim rurrentrank As String = parts(startcounter)
+                Dim rurrentrank As String = (CInt(parts(startcounter)) + 1).ToString()
                 startcounter += 1
-                Main.character_talent_list.Add("<spell>" & checkfield2(talentid, rurrentrank) & "</spell><spec>0</spec>")
+                Main.character_talent_list.Add("<spell>" & checkfield2(ctalentid, rurrentrank) & "</spell><spec>0</spec>")
             Loop Until startcounter = excounter
         End If
         Dim talentstring2 As String =
@@ -810,11 +814,11 @@ Public Class ArcEmu_core
             Dim startcounter As Integer = 0
             Do
                 Dim parts() As String = talentstring2.Split(","c)
-                Dim talentid As String = parts(startcounter)
+                Dim ctalentid As String = parts(startcounter)
                 startcounter += 1
-                Dim rurrentrank As String = parts(startcounter)
+                Dim rurrentrank As String = (CInt(parts(startcounter)) + 1).ToString()
                 startcounter += 1
-                Main.character_talent_list.Add("<spell>" & checkfield2(talentid, rurrentrank) & "</spell><spec>1</spec>")
+                Main.character_talent_list.Add("<spell>" & checkfield2(ctalentid, rurrentrank) & "</spell><spec>1</spec>")
             Loop Until startcounter = excounter
         End If
     End Sub
@@ -871,19 +875,19 @@ Public Class ArcEmu_core
                     Dim quest As String = readedcode
                     Dim status As String =
                             runfunction.runcommand(
-                                "SELECT completed FROM questlog WHERE quest='" & quest & "' AND player_guid='" &
+                                "SELECT completed FROM questlog WHERE quest_id='" & quest & "' AND player_guid='" &
                                 Main.char_guid.ToString & "'", "completed")
                     Dim explored As String =
                             runfunction.runcommand(
-                                "SELECT explored_area1 FROM questlog WHERE quest='" & quest & "' AND player_guid='" &
+                                "SELECT explored_area1 FROM questlog WHERE quest_id='" & quest & "' AND player_guid='" &
                                 Main.char_guid.ToString & "'", "explored_area1")
                     Dim timer As String =
                             runfunction.runcommand(
-                                "SELECT expirytimy FROM questlog WHERE quest='" & quest & "' AND player_guid='" &
+                                "SELECT expirytimy FROM questlog WHERE quest_id='" & quest & "' AND player_guid='" &
                                 Main.char_guid.ToString & "'", "expirytimy")
                     Dim slot As String =
                             runfunction.runcommand(
-                                "SELECT slot FROM questlog WHERE quest='" & quest & "' AND player_guid='" &
+                                "SELECT slot FROM questlog WHERE quest_id='" & quest & "' AND player_guid='" &
                                 Main.char_guid.ToString & "'", "slot")
                     Main.character_queststatus.Add(
                         "<quest>" & quest & "</quest><status>" & status & "</status><explored>" & explored &
@@ -1219,7 +1223,7 @@ Public Class ArcEmu_core
                                 itemcount =
                                     runfunction.runcommand("SELECT count FROM playeritems WHERE guid='" & item & "'",
                                                            "count")
-                                Main.character_inventoryzero_list.Add(
+                                Main.character_inventory_list.Add(
                                     "<slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid &
                                     "</bagguid><item>" & entryid & "</item><enchant>" & enchantments &
                                      "</enchant><count>" & itemcount & "</count><container>-1</container>" &
@@ -1296,10 +1300,11 @@ Public Class ArcEmu_core
                                 itemcount =
                                     runfunction.runcommand("SELECT count FROM playeritems WHERE guid='" & item & "'",
                                                            "count")
-                                Main.character_inventoryzero_list.Add(
+                                Main.character_inventory_list.Add(
                                     "<slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid &
                                     "</bagguid><item>" & entryid & "</item><enchant>" & enchantments &
-                                    "</enchant><count>" & itemcount & "</count><container>-1</container>")
+                                    "</enchant><count>" & itemcount & "</count><container>-1</container>" &
+                                        "<oldguid>" & item & "</oldguid>")
                             End If
                             Dim containerslot2 As String =
                                     runfunction.returnresultwithrow(
@@ -1371,11 +1376,12 @@ Public Class ArcEmu_core
                                 itemcount =
                                     runfunction.runcommand("SELECT count FROM playeritems WHERE guid='" & item & "'",
                                                            "count")
-                                Main.character_inventoryzero_list.Add(
+                                Main.character_inventory_list.Add(
                                     "<slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid2 &
                                     "</bagguid><item>" & entryid & "</item><enchant>" & enchantments &
                                     "</enchant><count>" & itemcount & "</count><container>" & containerslot2 &
-                                    "</container>")
+                                    "</container>" &
+                                        "<oldguid>" & item & "</oldguid>")
                             End If
                         End If
 
@@ -1641,7 +1647,7 @@ Public Class ArcEmu_core
     End Sub
 
     Public Sub getitems()
-        'Get Instance
+
         Dim xslot As Integer = 0
         Dim xentryid As Integer
         Dim itemname As String = ""

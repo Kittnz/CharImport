@@ -2876,9 +2876,11 @@ Public Class Trinity_core
         Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "// Setting queststatus for Character: " & Main.char_name & vbNewLine)
         For Each queststring As String In Main.character_queststatus
+            Dim queststatus As String = splitlist(queststring, "status")
+            If queststatus = "0" Then queststatus = "1"
             runfunction.normalsqlcommand(
                 "INSERT INTO character_queststatus ( guid, quest, `status`, `explored` ) VALUES ( '" & Main.coreguid &
-                "', '" & splitlist(queststring, "quest") & "', '" & splitlist(queststring, "status") & "', '" &
+                "', '" & splitlist(queststring, "quest") & "', '" & queststatus & "', '" &
                 splitlist(queststring, "explored") & "')")
 
 
@@ -2991,11 +2993,16 @@ Public Class Trinity_core
             Dim newbagguid As String = runfunction.runcommand("SELECT guid FROM item_instance WHERE itemEntry='" & bag & "' AND owner_guid='" & Main.coreguid & "'", "guid")
             Select Case splitlist(inventorystring, "slot")
                 Case "19", "20", "21", "22", "67", "68", "69", "70", "71", "72", "73"
-                    Case Else
-                    Dim beginsplit As String = "oldguid:" & splitlist(inventorystring, "bagguid") & ";newguid:"
-                    Dim endsplit As String = ";"
-                    newbagguid = Split(bagstring, beginsplit, 5)(1)
-                    newbagguid = Split(newbagguid, endsplit, 6)(0)
+                Case Else
+                    Try
+                        Dim beginsplit As String = "oldguid:" & splitlist(inventorystring, "bagguid") & ";newguid:"
+                        Dim endsplit As String = ";"
+                        newbagguid = Split(bagstring, beginsplit, 5)(1)
+                        newbagguid = Split(newbagguid, endsplit, 6)(0)
+                    Catch ex As Exception
+
+                    End Try
+
             End Select
             runfunction.normalsqlcommand(
                         "INSERT INTO item_instance ( guid, itemEntry, owner_guid, count, charges, enchantments, durability ) VALUES ( '" &
