@@ -40,6 +40,7 @@ Public Class Main
     Public tmplpath As String
     Public showstarter As Boolean = False
     Public trashvalue As Integer
+    Public arcemu_gmlevel As String = ""
     ' Dim armoryevent As New prozedur_armory
     Dim SQLConnection As MySqlConnection = New MySqlConnection
     Public ServerStringCheck As String = ""
@@ -366,14 +367,7 @@ Public Class Main
     Public secglyphpic8 As Image = My.Resources.empty
     Public secglyphpic9 As Image = My.Resources.empty
 
-    '##############################
-    '###### Deklaration der Talente ######
-
-    'mage
-
-
-    '##############################
-
+    
     Public list As New List(Of String)
 
 
@@ -458,6 +452,7 @@ Public Class Main
         knownTitles = ""
         actionBars = ""
         custom_faction = ""
+        arcemu_gmlevel = ""
         'character_achievement Table
         character_achievement_list = New List(Of String)
         'character_action Table

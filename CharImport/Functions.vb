@@ -9,6 +9,7 @@
 Imports System.Net
 Imports System.Text
 Imports MySql.Data.MySqlClient
+Imports System.Security.Cryptography
 
 Public Class Functions
     Dim reporttext As RichTextBox = Process_Status.processreport
@@ -978,4 +979,20 @@ Public Class Functions
             End If
         End If
     End Sub
+    Public Function SHA1StringHash(ByVal strString As String) As String
+        Dim SHA1 As New SHA1CryptoServiceProvider
+        Dim Data As Byte()
+        Dim Result As Byte()
+        Dim Res As String = ""
+        Dim Tmp As String = ""
+
+        Data = Encoding.ASCII.GetBytes(strString)
+        Result = SHA1.ComputeHash(Data)
+        For i As Integer = 0 To Result.Length - 1
+            Tmp = Hex(Result(i))
+            If Len(Tmp) = 1 Then Tmp = "0" & Tmp
+            Res += Tmp
+        Next
+        Return Res
+    End Function
 End Class

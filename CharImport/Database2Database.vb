@@ -1407,17 +1407,26 @@ Public Class Database2Database
                         Application.DoEvents()
                         Dim newid As String =
                                 (CInt(
-                                    Val(runcommandRealmd("SELECT id FROM account WHERE id=(SELECT MAX(id) FROM account)",
-                                                         "id"))) + 1).ToString
+                                    Val(runcommandRealmd("SELECT acct FROM accounts WHERE acct=(SELECT MAX(acct) FROM accounts)",
+                                                         "acct"))) + 1).ToString
+                        If Main.account_access_gmlevel = 4 Then
+                            If Main.arcemu_gmlevel = "" Then
+                                Main.arcemu_gmlevel = "AZ"
+                            End If
+                        ElseIf Main.account_access_gmlevel = 0 Then
+                            If Main.arcemu_gmlevel = "" Then
+                                Main.arcemu_gmlevel = "0"
+                            End If
+                        ElseIf Main.account_access_gmlevel < 4 Then
+                            If Main.arcemu_gmlevel = "" Then
+                                Main.arcemu_gmlevel = "A"
+                            End If
+                        End If
                         arcemucore.create_new_account_if_not_exist(Main.accountname,
-                                                                   "INSERT INTO account ( `id`, `username`, gmlevel,`sha_pass_hash`, `sessionkey`, `v`, `s`, `email`, `joindate`, active_realm_id, `expansion`, locale ) VALUES ( '" &
+                                                                   "INSERT INTO accounts ( `acct`, `login`, `gm`,`encrypted_password`, `email` ) VALUES ( '" &
                                                                    newid & "', '" & Main.accountname & "', '" &
-                                                                   Main.account_access_gmlevel.ToString & "', '" &
-                                                                   Main.sha_pass_hash & "', '" & Main.sessionkey &
-                                                                   "', '" & Main.account_v & "', '" & Main.account_s &
-                                                                   "', '" & Main.email & "', '" & Main.joindate & "', '" &
-                                                                   Main.account_access_RealmID & "', '" & Main.expansion &
-                                                                   "', '" & Main.locale & "' )", newid)
+                                                                   Main.arcemu_gmlevel.ToString & "', '" &
+                                                                   Main.sha_pass_hash & "', '" & Main.email & "' )", newid)
                         arcemucore.adddetailedchar(Main.accountname, Main.char_name, namechange1.Checked)
                         If items.Checked = True Then arcemucore.additems()
                         If enchantments.Checked = True Then arcemucore.addench()
@@ -1454,17 +1463,26 @@ Public Class Database2Database
 
                         Dim newid As String =
                                 (CInt(
-                                    Val(runcommandRealmd("SELECT id FROM account WHERE id=(SELECT MAX(id) FROM account)",
-                                                         "id"))) + 1).ToString
+                                    Val(runcommandRealmd("SELECT acct FROM accounts WHERE acct=(SELECT MAX(acct) FROM accounts)",
+                                                         "acct"))) + 1).ToString
+                        If Main.account_access_gmlevel = 4 Then
+                            If Main.arcemu_gmlevel = "" Then
+                                Main.arcemu_gmlevel = "AZ"
+                            End If
+                        ElseIf Main.account_access_gmlevel = 0 Then
+                            If Main.arcemu_gmlevel = "" Then
+                                Main.arcemu_gmlevel = "0"
+                            End If
+                        ElseIf Main.account_access_gmlevel < 4 Then
+                            If Main.arcemu_gmlevel = "" Then
+                                Main.arcemu_gmlevel = "A"
+                            End If
+                        End If
                         arcemucore.create_new_account_if_not_exist(Main.accountname,
-                                                                   "INSERT INTO account ( `id`, `username`, gmlevel,`sha_pass_hash`, `sessionkey`, `v`, `s`, `email`, `joindate`, active_realm_id, `expansion`, locale ) VALUES ( '" &
+                                                                   "INSERT INTO accounts ( `acct`, `login`, `gm`,`encrypted_password`, `email` ) VALUES ( '" &
                                                                    newid & "', '" & Main.accountname & "', '" &
-                                                                   Main.account_access_gmlevel.ToString & "', '" &
-                                                                   Main.sha_pass_hash & "', '" & Main.sessionkey &
-                                                                   "', '" & Main.account_v & "', '" & Main.account_s &
-                                                                   "', '" & Main.email & "', '" & Main.joindate & "', '" &
-                                                                   Main.account_access_RealmID & "', '" & Main.expansion &
-                                                                   "', '" & Main.locale & "' )", newid)
+                                                                   Main.arcemu_gmlevel.ToString & "', '" &
+                                                                   Main.sha_pass_hash & "', '" & Main.email & "' )", newid)
 
                         arcemucore.adddetailedchar(Main.accountname, Main.char_name, namechange1.Checked)
 

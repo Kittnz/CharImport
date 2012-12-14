@@ -560,7 +560,11 @@ Public Class ArcEmu_core
         Main.arcemu_pass =
             runfunction.runcommandRealmd("SELECT password FROM accounts WHERE acct='" & Main.accountid.ToString & "'",
                                          "password")
-        ' Main.sha_pass_hash = runfunction.runcommandRealmd("SELECT password FROM accounts WHERE `id`='" & Main.accountid.ToString & "'", "sha_pass_hash")
+
+        Main.sha_pass_hash = runfunction.runcommandRealmd("SELECT encrypted_password FROM accounts WHERE `acct`='" & Main.accountid.ToString & "'", "encrypted_password")
+        If Main.sha_pass_hash = "" Then
+            Main.sha_pass_hash = runfunction.SHA1StringHash((Main.accountname & ":" & Main.arcemu_pass).ToUpper)
+        End If
         Main.email =
             runfunction.runcommandRealmd("SELECT email FROM accounts WHERE acct='" & Main.accountid.ToString & "'",
                                          "email")
@@ -570,9 +574,18 @@ Public Class ArcEmu_core
                     runfunction.runcommandRealmd(
                         "SELECT forceLanguage FROM accounts WHERE acct='" & Main.accountid.ToString & "'",
                         "forceLanguage")))
-        Main.account_access_gmlevel =
-            CInt(Val(runfunction.runcommandRealmd("SELECT gm FROM accounts WHERE acct='" & Main.accountid.ToString & "'",
-                                                  "gm")))
+        Main.arcemu_gmlevel = runfunction.runcommandRealmd("SELECT gm FROM accounts WHERE acct='" & Main.accountid.ToString & "'","gm")
+        Select Case Main.arcemu_gmlevel
+            Case "AZ"
+                Main.account_access_gmlevel = 4
+            Case "A"
+                Main.account_access_gmlevel = 3
+            Case "0"
+                Main.account_access_gmlevel = 0
+            Case Else
+                Main.account_access_gmlevel = 0
+        End Select
+
         Main.account_access_RealmID = 1
         Main.custom_faction =
             runfunction.runcommand("SELECT custom_faction FROM characters WHERE guid='" & charguid & "'",
@@ -592,7 +605,7 @@ Public Class ArcEmu_core
                                     "bindpositionY") & "</position_y><position_z>" &
              runfunction.runcommand("SELECT bindpositionZ FROM characters WHERE guid='" & Main.char_guid.ToString & "'",
                                     "bindpositionZ") & "</position_z>")
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Spells from Database..." & vbNewLine)
         Application.DoEvents()
         Main.level.Text = Main.char_name & ", " & Main.char_level & ", "
@@ -650,23 +663,23 @@ Public Class ArcEmu_core
 
         End Select
         getspells()
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Talents from Database..." & vbNewLine)
         Application.DoEvents()
         gettalents()
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Skills from Database..." & vbNewLine)
         Application.DoEvents()
         getskills()
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Reputation from Database..." & vbNewLine)
         Application.DoEvents()
         getREPlists()
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Action from Database..." & vbNewLine)
         Application.DoEvents()
         getactionlist()
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Achievements from Database..." & vbNewLine)
         Application.DoEvents()
         getavlists()
@@ -674,29 +687,29 @@ Public Class ArcEmu_core
             Now.TimeOfDay.ToString & "/ Loading Character Questlog from Database..." & vbNewLine)
         Application.DoEvents()
         getqueststatus()
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Inventory from Database..." & vbNewLine)
         Application.DoEvents()
         getinventoryitems()
 
         'GET ITEMS
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Items from Database..." & vbNewLine)
         Application.DoEvents()
         getitems()
 
 
         'GET GLYPHS
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Primary Glyphs from Database..." & vbNewLine)
         Application.DoEvents()
         getglyphs()
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Secondary Glyphs from Database..." & vbNewLine)
         Application.DoEvents()
         getsecglyphs()
         handleenchantments()
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Character loaded!..." & vbNewLine)
+        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "/ Character loaded!..." & vbNewLine)
         Application.DoEvents()
 
         saveglyphs()
@@ -2253,7 +2266,7 @@ Public Class ArcEmu_core
         runfunction.normalsqlcommand(
             "INSERT INTO playeritems ( ownerguid, guid, entry, flags, containerslot, slot ) VALUES ( '" & Main.coreguid &
             "', '" & newguid & "', '6948', '1', '-1', '23' )")
-
+        addsinglespell(6603) 'auto attack
         If Main.char_race = 1 Then
             If Main.char_class = 1 Then
                 addmultipleskills("26;1;1;43;1;5;54;1;5;55;1;5;95;1;5;162;1;5;413;1;1;414;1;1;415;1;1;433;1;1;754;1;1;")
@@ -2676,6 +2689,7 @@ Public Class ArcEmu_core
             End If
 
         End If
+        addsinglespell(6603) 'auto attack
         If Not Main.custom_faction = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE characters SET custom_faction='" & Main.custom_faction & "' WHERE guid='" & newcharguid.ToString &
