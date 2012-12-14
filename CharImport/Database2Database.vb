@@ -1422,11 +1422,23 @@ Public Class Database2Database
                                 Main.arcemu_gmlevel = "A"
                             End If
                         End If
+                        Dim expflags As String = ""
+                        Select Main.expansion
+                            Case 0
+                                expflags = "0"
+                            Case 1
+                                expflags = "8"
+                            Case 2
+                                expflags = "24"
+                            Case 3
+                                expflags = "32"
+                            Case Else : End Select
+
                         arcemucore.create_new_account_if_not_exist(Main.accountname,
-                                                                   "INSERT INTO accounts ( `acct`, `login`, `gm`,`encrypted_password`, `email` ) VALUES ( '" &
+                                                                   "INSERT INTO accounts ( `acct`, `login`, `gm`,`encrypted_password`, `email`, flags ) VALUES ( '" &
                                                                    newid & "', '" & Main.accountname & "', '" &
                                                                    Main.arcemu_gmlevel.ToString & "', '" &
-                                                                   Main.sha_pass_hash & "', '" & Main.email & "' )", newid)
+                                                                   Main.sha_pass_hash & "', '" & Main.email & "', '" & expflags & "' )", newid)
                         arcemucore.adddetailedchar(Main.accountname, Main.char_name, namechange1.Checked)
                         If items.Checked = True Then arcemucore.additems()
                         If enchantments.Checked = True Then arcemucore.addench()
@@ -1478,12 +1490,23 @@ Public Class Database2Database
                                 Main.arcemu_gmlevel = "A"
                             End If
                         End If
+                        Dim expflags As String = ""
+                        Select Case Main.expansion
+                            Case 0
+                                expflags = "0"
+                            Case 1
+                                expflags = "8"
+                            Case 2
+                                expflags = "24"
+                            Case 3
+                                expflags = "32"
+                            Case Else : End Select
+
                         arcemucore.create_new_account_if_not_exist(Main.accountname,
-                                                                   "INSERT INTO accounts ( `acct`, `login`, `gm`,`encrypted_password`, `email` ) VALUES ( '" &
+                                                                   "INSERT INTO accounts ( `acct`, `login`, `gm`,`encrypted_password`, `email`, flags ) VALUES ( '" &
                                                                    newid & "', '" & Main.accountname & "', '" &
                                                                    Main.arcemu_gmlevel.ToString & "', '" &
-                                                                   Main.sha_pass_hash & "', '" & Main.email & "' )", newid)
-
+                                                                   Main.sha_pass_hash & "', '" & Main.email & "', '" & expflags & "' )", newid)
                         arcemucore.adddetailedchar(Main.accountname, Main.char_name, namechange1.Checked)
 
                         '  arcemucore.updatechars(sLines(i), Main.char_name, namechange2.Checked)

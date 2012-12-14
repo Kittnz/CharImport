@@ -257,6 +257,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Armory2Database.en.resx">
       <DependentUpon>Armory2Database.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Armory2Database.resx">
       <DependentUpon>Armory2Database.vb</DependentUpon>
@@ -284,6 +285,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Database2Database.en.resx">
       <DependentUpon>Database2Database.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Database2Database.resx">
       <DependentUpon>Database2Database.vb</DependentUpon>

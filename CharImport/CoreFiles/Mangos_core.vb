@@ -3167,9 +3167,11 @@ Public Class Mangos_core
         Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "// Setting queststatus for Character: " & Main.char_name & vbNewLine)
         For Each queststring As String In Main.character_queststatus
+            Dim queststatus As String = splitlist(queststring, "status")
+            If queststatus = "0" Then queststatus = "1"
             runfunction.normalsqlcommand(
                 "INSERT INTO character_queststatus ( guid, quest, `status`, `explored` ) VALUES ( '" & Main.coreguid &
-                "', '" & splitlist(queststring, "quest") & "', '" & splitlist(queststring, "status") & "', '" &
+                "', '" & splitlist(queststring, "quest") & "', '" & queststatus & "', '" &
                 splitlist(queststring, "explored") & "')")
         Next
         If Not Main.finished_quests = "" Then
@@ -3291,7 +3293,7 @@ Public Class Mangos_core
             runfunction.normalsqlcommand(
                 "INSERT INTO item_instance ( guid, owner_guid, data ) VALUES ( '" & newguid & "', '" & Main.coreguid &
                 "', '" &
-                splitenchstring(splitlist(inventorystring, "enchant"), CInt(newguid), splitlist(inventorystring, "item"), Main.coreguid, splitlist(inventorystring, "count"), isabag) &
+                splitenchstring(splitlist(inventorystring, "enchant"), CInt(newguid), Main.coreguid, splitlist(inventorystring, "item"), splitlist(inventorystring, "count"), isabag) &
                 "' )")
             runfunction.normalsqlcommand(
                 "INSERT INTO character_inventory ( guid, bag, slot, item, item_template ) VALUES ( '" & Main.coreguid &
@@ -3307,15 +3309,20 @@ Public Class Mangos_core
             Select Case splitlist(inventorystring, "slot")
                 Case "19", "20", "21", "22", "67", "68", "69", "70", "71", "72", "73"
                 Case Else
-                    Dim beginsplit As String = "oldguid:" & splitlist(inventorystring, "bagguid") & ";newguid:"
-                    Dim endsplit As String = ";"
-                    newbagguid = Split(bagstring, beginsplit, 5)(1)
-                    newbagguid = Split(newbagguid, endsplit, 6)(0)
+                    Try
+                        Dim beginsplit As String = "oldguid:" & splitlist(inventorystring, "bagguid") & ";newguid:"
+                        Dim endsplit As String = ";"
+                        newbagguid = Split(bagstring, beginsplit, 5)(1)
+                        newbagguid = Split(newbagguid, endsplit, 6)(0)
+                    Catch ex As Exception
+
+                    End Try
+
             End Select
             runfunction.normalsqlcommand(
                 "INSERT INTO item_instance ( guid, owner_guid, data ) VALUES ( '" & newguid & "', '" & Main.coreguid &
                 "', '" &
-                splitenchstring(splitlist(inventorystring, "enchant"), CInt(newguid), splitlist(inventorystring, "item"), Main.coreguid, splitlist(inventorystring, "count")) &
+                splitenchstring(splitlist(inventorystring, "enchant"), CInt(newguid), Main.coreguid, splitlist(inventorystring, "item"), splitlist(inventorystring, "count")) &
                 "' )")
             runfunction.normalsqlcommand(
                 "INSERT INTO character_inventory ( guid, bag, slot, item, item_template ) VALUES ( '" & Main.coreguid &
@@ -3327,7 +3334,7 @@ Public Class Mangos_core
         Next
     End Sub
 
-    Private Function splitenchstring(ByVal enchstring As String, ByVal guid As Integer, ByVal entry As String, ByVal ownerguid As String, Optional numcount As String = "1", Optional isbag As Boolean = False) As String
+    Private Function splitenchstring(ByVal enchstring As String, ByVal guid As Integer, ByVal ownerguid As String, ByVal entry As String, Optional numcount As String = "1", Optional isbag As Boolean = False) As String
 
         Dim Anzahl As Integer = UBound(enchstring.Split(CChar(" ")))
         Dim normalenchstring As String = "0 1191182336 3 0 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3753 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 "
@@ -3346,51 +3353,56 @@ Public Class Mangos_core
             'ARCEMU
             Dim excounter As Integer = UBound(enchstring.Split(CChar(";")))
             Dim startcounter As Integer = 0
-            Do
-                Dim parts() As String = enchstring.Split(";"c)
-                Dim partench As String = parts(startcounter)
-                Dim parts2() As String = partench.Split(","c)
-                If parts2(2) = "5" Then
-                    'vz
-                    Dim input As String = normalenchstring
-                    Dim parts3() As String = input.Split(" "c)
+            Try
+                Do
+                    Dim parts() As String = enchstring.Split(";"c)
+                    Dim partench As String = parts(startcounter)
+                    Dim parts2() As String = partench.Split(","c)
+                    If parts2(2) = "5" Then
+                        'vz
+                        Dim input As String = normalenchstring
+                        Dim parts3() As String = input.Split(" "c)
 
-                    parts3(22) = parts2(0)
-                    normalenchstring = String.Join(" ", parts3)
-                ElseIf parts2(2) = "2" Then
-                    'gem1
-                    Dim input As String = normalenchstring
-                    Dim parts3() As String = input.Split(" "c)
+                        parts3(22) = parts2(0)
+                        normalenchstring = String.Join(" ", parts3)
+                    ElseIf parts2(2) = "2" Then
+                        'gem1
+                        Dim input As String = normalenchstring
+                        Dim parts3() As String = input.Split(" "c)
 
-                    parts3(28) = parts2(0)
-                    normalenchstring = String.Join(" ", parts3)
-                ElseIf parts2(2) = "3" Then
-                    'gem2
-                    Dim input As String = normalenchstring
-                    Dim parts3() As String = input.Split(" "c)
+                        parts3(28) = parts2(0)
+                        normalenchstring = String.Join(" ", parts3)
+                    ElseIf parts2(2) = "3" Then
+                        'gem2
+                        Dim input As String = normalenchstring
+                        Dim parts3() As String = input.Split(" "c)
 
-                    parts3(31) = parts2(0)
-                    normalenchstring = String.Join(" ", parts3)
-                ElseIf parts2(2) = "4" Then
-                    'gem3
-                    Dim input As String = normalenchstring
-                    Dim parts3() As String = input.Split(" "c)
+                        parts3(31) = parts2(0)
+                        normalenchstring = String.Join(" ", parts3)
+                    ElseIf parts2(2) = "4" Then
+                        'gem3
+                        Dim input As String = normalenchstring
+                        Dim parts3() As String = input.Split(" "c)
 
-                    parts3(34) = parts2(0)
-                    normalenchstring = String.Join(" ", parts3)
-                End If
+                        parts3(34) = parts2(0)
+                        normalenchstring = String.Join(" ", parts3)
+                    End If
 
 
-                startcounter += 1
-            Loop Until startcounter = excounter
-            Dim input2 As String = normalenchstring
-            Dim parts4() As String = input2.Split(" "c)
-            Dim output2 As String
-            parts4(0) = guid.ToString
-            parts4(3) = entry.ToString
-            parts4(14) = numcount
-            output2 = String.Join(" ", parts4)
-            Return output2
+                    startcounter += 1
+                Loop Until startcounter = excounter
+                Dim input2 As String = normalenchstring
+                Dim parts4() As String = input2.Split(" "c)
+                Dim output2 As String
+                parts4(0) = guid.ToString
+                parts4(3) = entry.ToString
+                parts4(14) = numcount
+                output2 = String.Join(" ", parts4)
+                Return output2
+            Catch ex As Exception
+                Return ""
+            End Try
+
         Else
             If Anzahl > 45 Then
                 'mangos

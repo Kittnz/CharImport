@@ -3014,72 +3014,7 @@ Public Class Trinity_core
             Next
     End Sub
 
-    'Private Function splitenchstring(ByVal enchstring As String) As String
-    '    Dim Anzahl As Integer = UBound(enchstring.Split(CChar(" ")))
-    '    Dim normalenchstring As String = "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "
-    '    '0:vz 6:gem1 9:gem2 12:gem3
-    '    If enchstring.Contains(",") Then
-    '        'ARCEMU
-    '        Dim excounter As Integer = UBound(enchstring.Split(CChar(";")))
-    '        Dim startcounter As Integer = 0
-    '        Do
-    '            Dim parts() As String = enchstring.Split(";"c)
-    '            Dim partench As String = parts(startcounter)
-    '            Dim parts2() As String = partench.Split(","c)
-    '            If parts2(2) = "5" Then
-    '                'vz
-    '                Dim input As String = normalenchstring
-    '                Dim parts3() As String = input.Split(" "c)
 
-    '                parts3(0) = parts2(0)
-    '                normalenchstring = String.Join(" ", parts3)
-    '            ElseIf parts2(2) = "1" Then
-    '                'gem1
-    '                Dim input As String = normalenchstring
-    '                Dim parts3() As String = input.Split(" "c)
-
-    '                parts3(6) = parts2(0)
-    '                normalenchstring = String.Join(" ", parts3)
-    '            ElseIf parts2(2) = "2" Then
-    '                'gem2
-    '                Dim input As String = normalenchstring
-    '                Dim parts3() As String = input.Split(" "c)
-
-    '                parts3(9) = parts2(0)
-    '                normalenchstring = String.Join(" ", parts3)
-    '            ElseIf parts2(2) = "3" Then
-    '                'gem3
-    '                Dim input As String = normalenchstring
-    '                Dim parts3() As String = input.Split(" "c)
-
-    '                parts3(12) = parts2(0)
-    '                normalenchstring = String.Join(" ", parts3)
-    '            End If
-
-
-    '            startcounter += 1
-    '        Loop Until startcounter = excounter
-
-    '        Return normalenchstring
-    '    Else
-    '        If Anzahl > 45 Then
-    '            'mangos
-    '            Dim parts2() As String = enchstring.Split(" "c)
-    '            Dim input As String = enchstring
-    '            Dim parts() As String = normalenchstring.Split(" "c)
-    '            Dim output As String
-    '            parts(0) = parts2(22)
-    '            parts(6) = parts2(28)
-    '            parts(9) = parts2(31)
-    '            parts(12) = parts2(34)
-    '            output = String.Join(" ", parts)
-    '            Return output
-    '        Else
-    '            'trinity
-    '            Return enchstring
-    '        End If
-    '    End If
-    'End Function
 
     Private Function splitlist(ByVal tstring As String, ByVal category As String) As String
         Try

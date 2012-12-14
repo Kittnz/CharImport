@@ -568,6 +568,19 @@ Public Class ArcEmu_core
         Main.email =
             runfunction.runcommandRealmd("SELECT email FROM accounts WHERE acct='" & Main.accountid.ToString & "'",
                                          "email")
+        Dim tmpflags As String = runfunction.runcommandRealmd("SELECT flags FROM accounts WHERE acct='" & Main.accountid.ToString & "'", "flags")
+        Select Case tmpflags
+            Case "0"
+                Main.expansion = 0
+            Case "8"
+                Main.expansion = 1
+            Case "16"
+                Main.expansion = 2
+            Case "24"
+                Main.expansion = 2
+            Case "32"
+                Main.expansion = 3
+            Case Else : End Select
         Main.locale =
             CInt(
                 Val(
