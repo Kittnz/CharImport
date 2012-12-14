@@ -14,6 +14,7 @@ Public Class ArcEmu_core
     Dim runfunction As New Functions
     Dim talentid As String = ""
     Dim rank As String = ""
+    Dim rank2 As String = ""
     Dim sdatatable As New DataTable
     Dim core_check As New Core_Check_Trinity
 
@@ -2994,7 +2995,8 @@ Public Class ArcEmu_core
     End Sub
 
     Public Sub addtalents()
-
+        rank = ""
+        rank2 = ""
         sdatatable.Clear()
         sdatatable.Dispose()
         sdatatable = gettable()
@@ -3142,64 +3144,64 @@ Public Class ArcEmu_core
                         If talentlist2.Contains(talentid & "rank5") Then
 
                         ElseIf talentlist2.Contains(talentid & "rank4") Then
-                            If CInt(Val(rank)) <= 4 Then
+                            If CInt(Val(rank2)) <= 4 Then
                             Else
                                 Try
                                     finaltalentstring2 = finaltalentstring2.Replace(talentid & ",0",
-                                                                                    (CInt(Val(rank))).ToString)
+                                                                                    (CInt(Val(rank2))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
                                     finaltalentstring2 = finaltalentstring2.Replace(talentid & ",1",
-                                                                                    (CInt(Val(rank))).ToString)
+                                                                                    (CInt(Val(rank2))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
                                     finaltalentstring2 = finaltalentstring2.Replace(talentid & ",2",
-                                                                                    (CInt(Val(rank))).ToString)
+                                                                                    (CInt(Val(rank2))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
                                     finaltalentstring2 = finaltalentstring2.Replace(talentid & ",3",
-                                                                                    (CInt(Val(rank))).ToString)
+                                                                                    (CInt(Val(rank2))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
                                     finaltalentstring2 = finaltalentstring2.Replace(talentid & ",4",
-                                                                                    (CInt(Val(rank))).ToString)
+                                                                                    (CInt(Val(rank2))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 talentlist2 = talentlist2 & " " & talentid & "rank" & rank
                             End If
                         ElseIf talentlist2.Contains(talentid & "rank3") Then
-                            If CInt(Val(rank)) <= 3 Then
+                            If CInt(Val(rank2)) <= 3 Then
                             Else
                                 Try
                                     finaltalentstring2 = finaltalentstring2.Replace(talentid & ",0",
-                                                                                    (CInt(Val(rank))).ToString)
+                                                                                    (CInt(Val(rank2))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
                                     finaltalentstring2 = finaltalentstring2.Replace(talentid & ",1",
-                                                                                    (CInt(Val(rank))).ToString)
+                                                                                    (CInt(Val(rank2))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
                                     finaltalentstring2 = finaltalentstring2.Replace(talentid & ",2",
-                                                                                    (CInt(Val(rank))).ToString)
+                                                                                    (CInt(Val(rank2))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
                                     finaltalentstring2 = finaltalentstring2.Replace(talentid & ",3",
-                                                                                    (CInt(Val(rank))).ToString)
+                                                                                    (CInt(Val(rank2))).ToString)
                                 Catch ex As Exception
 
                                 End Try
@@ -3207,23 +3209,23 @@ Public Class ArcEmu_core
                                 talentlist2 = talentlist2 & " " & talentid & "rank" & rank
                             End If
                         ElseIf talentlist2.Contains(talentid & "rank2") Then
-                            If CInt(Val(rank)) <= 2 Then
+                            If CInt(Val(rank2)) <= 2 Then
                             Else
                                 Try
                                     finaltalentstring2 = finaltalentstring2.Replace(talentid & ",0",
-                                                                                    (CInt(Val(rank))).ToString)
+                                                                                    (CInt(Val(rank2))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
                                     finaltalentstring2 = finaltalentstring2.Replace(talentid & ",1",
-                                                                                    (CInt(Val(rank))).ToString)
+                                                                                    (CInt(Val(rank2))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
                                     finaltalentstring2 = finaltalentstring2.Replace(talentid & ",2",
-                                                                                    (CInt(Val(rank))).ToString)
+                                                                                    (CInt(Val(rank2))).ToString)
                                 Catch ex As Exception
 
                                 End Try
@@ -3231,17 +3233,17 @@ Public Class ArcEmu_core
                                 talentlist2 = talentlist2 & " " & talentid & "rank" & rank
                             End If
                         ElseIf talentlist2.Contains(talentid & "rank1") Then
-                            If CInt(Val(rank)) <= 1 Then
+                            If CInt(Val(rank2)) <= 1 Then
                             Else
                                 Try
                                     finaltalentstring2 = finaltalentstring2.Replace(talentid & ",0",
-                                                                                    (CInt(Val(rank))).ToString)
+                                                                                    (CInt(Val(rank2))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
                                     finaltalentstring2 = finaltalentstring2.Replace(talentid & ",1",
-                                                                                    (CInt(Val(rank))).ToString)
+                                                                                    (CInt(Val(rank2))).ToString)
                                     'rank - 1 ???
                                 Catch ex As Exception
 
@@ -3253,7 +3255,7 @@ Public Class ArcEmu_core
 
                         End If
                     Else
-                        finaltalentstring2 = finaltalentstring2 & talentid & "," & (CInt(Val(rank))).ToString & ","
+                        finaltalentstring2 = finaltalentstring2 & talentid & "," & (CInt(Val(rank2))).ToString & ","
                         'rank - 1 ???
                         talentlist2 = talentlist2 & " " & talentid & "rank" & rank
 
@@ -3272,22 +3274,28 @@ Public Class ArcEmu_core
 
     Private Function checkfield(ByVal lID As String) As String
         If Not executex("Rang1", lID) = "-" Then
-            rank = "1"
+            rank = "0"
+            rank2 = "0"
             Return (executex("Rang1", lID))
         ElseIf Not executex("Rang2", lID) = "-" Then
-            rank = "2"
+            rank = "1"
+            rank2 = "1"
             Return (executex("Rang2", lID))
         ElseIf Not executex("Rang3", lID) = "-" Then
-            rank = "3"
+            rank = "2"
+            rank2 = "2"
             Return (executex("Rang3", lID))
         ElseIf Not executex("Rang4", lID) = "-" Then
-            rank = "4"
+            rank = "3"
+            rank2 = "3"
             Return (executex("Rang4", lID))
         ElseIf Not executex("Rang5", lID) = "-" Then
-            rank = "5"
+            rank = "4"
+            rank2 = "4"
             Return (executex("Rang5", lID))
         Else
             rank = "0"
+            rank2 = "0"
             Return "0"
         End If
     End Function
