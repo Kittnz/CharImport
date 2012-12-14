@@ -656,8 +656,8 @@ Public Class Functions
             Try
                 Dim clienyx88 As New WebClient
                 Dim quellcodeyx88 As String = clienyx88.DownloadString("http://wowhead.com/item=" & glyphid & "&xml")
-                Dim anfangyx88 As String = """ti"":"
-                Dim endeyx88 As String = "}"
+                Dim anfangyx88 As String = "a href=""http://www.wowhead.com/spell="
+                Dim endeyx88 As String = """ class"
                 Dim quellcodeSplityx88 As String
                 quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
                 quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
