@@ -1973,14 +1973,7 @@ Public Class Mangos_core
             Dim parts() As String = input.Split(" "c)
             If Not parts(position - 1) = "0" Then
                 obvalue = CInt(parts(position - 1))
-                Dim quellcodeyx88 As String = xpacressource
-                Dim anfangyx88 As String = parts(position - 1) & ";"
-                Dim endeyx88 As String = ";xxxx"
-                Dim quellcodeSplityx88 As String
-                quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-                quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-
-                Return runfunction.getsocketeffectname(CInt(quellcodeSplityx88))
+               Return runfunction.geteffectnameofeffectid(CInt(parts(position - 1)))
             Else
                 Return ""
             End If
@@ -3796,7 +3789,7 @@ Public Class Mangos_core
             Dim input As String = enchantmenttext
             Dim parts() As String = input.Split(" "c)
             Dim output As String
-            parts(position + 21) = (runfunction.getvzeffectid(runfunction.getvzeffectname2(vzid))).ToString
+            parts(position + 21) = (runfunction.getvzeffectid(runfunction.getvzeffectname(vzid))).ToString
             output = String.Join(" ", parts)
             Try
                 runfunction.normalsqlcommand(

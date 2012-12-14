@@ -541,7 +541,7 @@ Public Class prozedur_armory
 
     Public Function getvzeffectname(ByVal vzid As String) As String
         Try
-            Return runfunction.getvzeffectname2(CInt(vzid))
+            Return runfunction.getvzeffectname(CInt(vzid))
         Catch
             Return "-"
         End Try
@@ -549,7 +549,7 @@ Public Class prozedur_armory
 
     Public Function getsocketeffectname(ByVal socketid As String) As String
         Try
-            Return runfunction.getsocketeffectname2(CInt(socketid))
+            Return runfunction.getsocketeffectnameofitemid(CInt(socketid))
         Catch
             Return "-"
         End Try

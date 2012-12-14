@@ -143,6 +143,7 @@ However, there will be regular updates in order to support the latest revisions.
  &gt; "MySqlException: Data truncated for column x" error should no longer occur
  &gt; Fixed an issue that could prevent item icons from loading
  &gt; Fixed an issue that prevented that the character race and class are displayed correctly
+ &gt; Fixed an issue that prevented showing the item tooltip on the 'character overview' interface when an item contains "-"
  &gt; Users will now be informed when a character or an account can not be found
  &gt; Localization issues fixed:
   &gt; Items and spells should now be in English

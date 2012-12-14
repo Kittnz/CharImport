@@ -1971,14 +1971,7 @@ Public Class Trinity_core
             Dim parts() As String = input.Split(" "c)
             If Not parts(position) = "0" Then
                 obvalue = CInt(parts(position))
-                Dim quellcodeyx88 As String = xpacressource2
-                Dim anfangyx88 As String = parts(position) & ";"
-                Dim endeyx88 As String = ";xxxx"
-                Dim quellcodeSplityx88 As String
-                quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-                quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-
-                Return runfunction.getsocketeffectname(CInt(quellcodeSplityx88))
+                Return runfunction.geteffectnameofeffectid(CInt(parts(position)))
             Else
                 Return ""
             End If
@@ -3421,7 +3414,7 @@ Public Class Trinity_core
             Dim input As String = enchantmenttext
             Dim parts() As String = input.Split(" "c)
             Dim output As String
-            parts(position - 1) = runfunction.getvzeffectid(runfunction.getvzeffectname2(CInt(vzid))).ToString
+            parts(position - 1) = runfunction.getvzeffectid(runfunction.getvzeffectname(CInt(vzid))).ToString
             output = String.Join(" ", parts)
             Try
                 runfunction.normalsqlcommand(
