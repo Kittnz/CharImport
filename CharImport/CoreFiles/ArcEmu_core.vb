@@ -1179,7 +1179,8 @@ Public Class ArcEmu_core
                                     Main.character_inventoryzero_list.Add(
                                         "<slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid &
                                         "</bagguid><item>" & entryid & "</item><enchant>" & enchantments &
-                                        "</enchant><count>" & itemcount & "</count><container>-1</container>")
+                                        "</enchant><count>" & itemcount & "</count><container>-1</container>" &
+                                        "<oldguid>" & item & "</oldguid>")
                                 End If
                             Else
                                 Dim bag As String = "0"
@@ -1208,7 +1209,8 @@ Public Class ArcEmu_core
                                 Main.character_inventoryzero_list.Add(
                                     "<slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid &
                                     "</bagguid><item>" & entryid & "</item><enchant>" & enchantments &
-                                    "</enchant><count>" & itemcount & "</count><container>-1</container>")
+                                     "</enchant><count>" & itemcount & "</count><container>-1</container>" &
+                                        "<oldguid>" & item & "</oldguid>")
                             End If
                         Else
                             Dim containerslot As String =
@@ -3467,6 +3469,7 @@ Public Class ArcEmu_core
         Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "// Adding Items to inventory for Character: " & Main.char_name & vbNewLine)
         Dim bagexist As List(Of String) = New List(Of String)
+        Dim bagstring As String = ""
         bagexist.Clear()
         For Each inventorystring As String In Main.character_inventoryzero_list
             Dim bagguid As String = splitlist(inventorystring, "bagguid")
@@ -3479,6 +3482,13 @@ Public Class ArcEmu_core
                      1).ToString
             Dim itemcount As String = splitlist(inventorystring, "count")
             Dim containerslot As String = splitlist(inventorystring, "container")
+            containerslot = "-1"                                                                                                       '// should always be -1!?
+            Dim slotcase As String = splitlist(inventorystring, "slot")
+            Select Case slotcase
+                Case "19", "20", "21", "22", "67", "68", "69", "70", "71", "72", "73"
+                    'Item is a bag and has to be registered
+                    bagstring = bagstring & "oldguid:" & splitlist(inventorystring, "oldguid") & ";slot:" & slotcase & ";"
+                Case Else : End Select
             runfunction.normalsqlcommand(
                 "INSERT INTO playeritems ( guid, ownerguid, entry, `count`, containerslot, slot, enchantments ) VALUES ( '" &
                 newguid & "', '" & Main.coreguid & "', '" & splitlist(inventorystring, "item") & "', '" & itemcount &
@@ -3503,6 +3513,16 @@ Public Class ArcEmu_core
                     runfunction.runcommand(
                         "SELECT item FROM playeritems WHERE item_template='" & bag & "' AND guid='" & Main.coreguid &
                         "'", "item")
+            If containerslot = "" Then
+                Select Case splitlist(inventorystring, "slot")
+                    Case "19", "20", "21", "22", "67", "68", "69", "70", "71", "72", "73"
+                    Case Else
+                        Dim beginsplit As String = "oldguid:" & bagguid & ";slot:"
+                        Dim endsplit As String = ";"
+                        containerslot = Split(bagstring, beginsplit, 5)(1)
+                        containerslot = Split(containerslot, endsplit, 6)(0)
+                End Select
+            End If
             runfunction.normalsqlcommand(
                 "INSERT INTO playeritems ( guid, ownerguid, entry, `count`, containerslot, slot, enchantments ) VALUES ( '" &
                 newguid & "', '" & Main.coreguid & "', '" & splitlist(inventorystring, "item") & "', '" & itemcount &
