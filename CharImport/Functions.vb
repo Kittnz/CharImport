@@ -424,6 +424,8 @@ Public Class Functions
     End Function
 
     Public Function normalsqlcommand(ByVal command As String, Optional ByVal showerror As Boolean = True, Optional ByVal returnerror As Boolean = False) As Boolean
+
+
         Try
             NewUser(command)
             Return False

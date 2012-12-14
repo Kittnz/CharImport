@@ -1536,18 +1536,9 @@ Public Class Connect
                     End Select
                     arcemucore.spellgemtext = xpacressource
                     arcemucore.spellitemtext = xpacressource2
-                    If CheckBox1.Checked = True Then
+                If CheckBox1.Checked = True Then
 
-                        arcemucore.adddetailedchar(accname.Text, newcharname.Text, False)
-                        If items.Checked = True Then arcemucore.additems()
-                        If sockets.Checked = True And vzs.Checked = True Then
-                            arcemucore.addench()
-                        ElseIf sockets.Checked = True Then
-                            arcemucore.addgems()
-                        ElseIf vzs.Checked = True Then
-                            arcemucore.addenchantments()
-                        Else
-                    End If
+                    arcemucore.adddetailedchar(accname.Text, newcharname.Text, False)
                     If items.Checked = True Then arcemucore.additems()
                     If sockets.Checked = True And vzs.Checked = True Then
                         arcemucore.addench()
@@ -1557,26 +1548,27 @@ Public Class Connect
                         arcemucore.addenchantments()
                     Else
                     End If
-                        If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
-                        If talents.Checked = True Then arcemucore.addtalents()
-                        If male.Checked = True Then arcemucore.setgender("0")
-                        If female.Checked = True Then arcemucore.setgender("1")
-                        If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
-                        If level.Checked = True Then arcemucore.setlevel()
-                        If alternatelevellabel.Checked = True Then arcemucore.setalternatelevel(alternateleveltext.Text)
-                        If race.Checked = True Then arcemucore.setrace()
-                        If playerclass.Checked = True Then arcemucore.setclass()
-                        If goldlabel.Checked = True Then arcemucore.setgold(goldtext.Text)
-                        If erfolge.Checked = True Then arcemucore.addachievements()
-                        If skills.Checked = True Then arcemucore.addskills()
-                        If zauber.Checked = True Then arcemucore.addspells()
-                        If pvp.Checked = True Then arcemucore.addpvp()
-                        If ruf.Checked = True Then arcemucore.addreputation()
-                        If inventar.Checked = True Then arcemucore.addinventory()
-                        If gold.Checked = True Then arcemucore.addgold(Main.player_money)
-                        Process_Status.processreport.AppendText(
-                            Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
-                    End If
+
+                    If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
+                    If talents.Checked = True Then arcemucore.addtalents()
+                    If male.Checked = True Then arcemucore.setgender("0")
+                    If female.Checked = True Then arcemucore.setgender("1")
+                    If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
+                    If level.Checked = True Then arcemucore.setlevel()
+                    If alternatelevellabel.Checked = True Then arcemucore.setalternatelevel(alternateleveltext.Text)
+                    If race.Checked = True Then arcemucore.setrace()
+                    If playerclass.Checked = True Then arcemucore.setclass()
+                    If goldlabel.Checked = True Then arcemucore.setgold(goldtext.Text)
+                    If erfolge.Checked = True Then arcemucore.addachievements()
+                    If skills.Checked = True Then arcemucore.addskills()
+                    If zauber.Checked = True Then arcemucore.addspells()
+                    If pvp.Checked = True Then arcemucore.addpvp()
+                    If ruf.Checked = True Then arcemucore.addreputation()
+                    If inventar.Checked = True Then arcemucore.addinventory()
+                    If gold.Checked = True Then arcemucore.addgold(Main.player_money)
+                    Process_Status.processreport.AppendText(
+                        Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
+                End If
                     If CheckBox2.Checked = True Then
                         arcemucore.getguidfromname(charname.Text)
 
