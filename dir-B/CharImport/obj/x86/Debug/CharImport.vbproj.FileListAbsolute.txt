@@ -1,0 +1,115 @@
+I:\Projects\CharImport Test\CharImport\bin\Debug\CharImport Test.exe.config
+I:\Projects\CharImport Test\CharImport\bin\Debug\CharImport Test.exe
+I:\Projects\CharImport Test\CharImport\bin\Debug\CharImport Test.pdb
+I:\Projects\CharImport Test\CharImport\bin\Debug\CharImport Test.xml
+I:\Projects\CharImport Test\CharImport\bin\Debug\en\CharImport Test.resources.dll
+I:\Projects\CharImport Test\CharImport\bin\Debug\de-DE\CharImport Test.resources.dll
+I:\Projects\CharImport Test\CharImport\bin\Debug\de\CharImport Test.resources.dll
+I:\Projects\CharImport Test\CharImport\bin\Debug\af\CharImport Test.resources.dll
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\ResolveAssemblyReference.cache
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.AboutBox.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Armory2Database.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Armory_Interface.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Bugreport.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Connect.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Database2Database.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Database_Check.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Database_Interface.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Process_Status.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Starter.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.UpdateMe.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Filtern.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Glyphs.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Main.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Resources.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.xReport.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.talents.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.wait.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Welcome.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.AboutBox.en.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Armory2Database.en.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Armory_Interface.en.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Bugreport.en.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Connect.de-DE.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Connect.en.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Database2Database.en.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Database_Check.de.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Database_Check.en.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Database_Interface.en.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Filtern.en.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Glyphs.en.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Main.en.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Process_Status.en.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Starter.en.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.UpdateMe.en.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.wait.en.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Welcome.af.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Welcome.en.resources
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\ResGen.read.1.tlog
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\ResGen.write.1.tlog
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\en\CharImport Test.resources.dll
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\de-DE\CharImport Test.resources.dll
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\de\CharImport Test.resources.dll
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\af\CharImport Test.resources.dll
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport Test.exe
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport Test.xml
+I:\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport Test.pdb
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\bin\Debug\CharImport Test.exe.config
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport Test.exe
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport Test.xml
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport Test.pdb
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\bin\Debug\CharImport Test.exe
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\bin\Debug\CharImport Test.pdb
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\bin\Debug\CharImport Test.xml
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\bin\Debug\en\CharImport Test.resources.dll
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\bin\Debug\de-DE\CharImport Test.resources.dll
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\bin\Debug\de\CharImport Test.resources.dll
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\bin\Debug\af\CharImport Test.resources.dll
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.AboutBox.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Armory2Database.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Armory_Interface.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Bugreport.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Connect.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Database2Database.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Database_Check.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Database_Interface.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Process_Status.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Starter.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.UpdateMe.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Filtern.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Glyphs.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Main.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Resources.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.wait.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Welcome.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.AboutBox.en.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Armory2Database.en.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Armory_Interface.en.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Bugreport.en.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Connect.de-DE.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Connect.en.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Database2Database.en.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Database_Check.de.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Database_Check.en.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Database_Interface.en.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Filtern.en.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Glyphs.en.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Main.en.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Process_Status.en.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Starter.en.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.UpdateMe.en.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.wait.en.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Welcome.af.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport_Test.Welcome.en.resources
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\en\CharImport Test.resources.dll
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\de-DE\CharImport Test.resources.dll
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\de\CharImport Test.resources.dll
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\af\CharImport Test.resources.dll
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport_Test\CharImport\bin\Debug\CharImport Test.exe.config
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport_Test\CharImport\obj\x86\Debug\CharImport Test.exe
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport_Test\CharImport\obj\x86\Debug\CharImport Test.xml
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport_Test\CharImport\obj\x86\Debug\CharImport Test.pdb
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport.vbprojResolveAssemblyReference.cache
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport.vbproj.GenerateResource.Cache
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport_Alpha\charimportalpha-code\CharImport\bin\Debug\CharImport Test.exe.config
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport_Alpha\charimportalpha-code\CharImport\obj\x86\Debug\CharImport Test.xml
