@@ -38,8 +38,7 @@ Public Class Core_Check_Trinity
         check_character_spell()
         If Main.xpac >= 3 Then
             check_character_talent()
-            'Wo ist die Talent Tabelle / Wo werden Talente gespeichert? (Mangos 2.4.3)
-        Else
+         Else
 
         End If
         check_item_instance()
