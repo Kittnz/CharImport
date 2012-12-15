@@ -38,9 +38,7 @@ Public Class Core_Check_Trinity
         check_character_spell()
         If Main.xpac >= 3 Then
             check_character_talent()
-         Else
-
-        End If
+        Else : End If
         check_item_instance()
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Core Check completed!" & vbNewLine)
         Application.DoEvents()
