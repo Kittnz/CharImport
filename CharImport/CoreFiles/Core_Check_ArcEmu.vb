@@ -20,26 +20,19 @@ Public Class Core_Check_ArcEmu
 
     Public Sub begincheck(ByVal startcond As Integer)
         Main.tableschema = ""
-        'Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Begin Core Check..." & vbNewLine)
-        'Application.DoEvents()
+        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Begin Core Check..." & vbNewLine)
+        Application.DoEvents()
         Main.nowgoon = False
         Main.startcond = startcond
-        'check_characters()
-        'If Main.xpac >= 3 Then
-        '    check_character_achievement()
+        check_characters()
+        If Main.xpac >= 3 Then
+            check_character_achievement()
 
-        'End If
-        'check_character_action()
-        'check_character_homebind()
-        'check_character_inventory()
-        'check_character_queststatus()
-        'check_character_reputation()
-        'check_character_skills()
-        'check_character_spell()
-        'check_character_talent()
-        'check_item_instance()
-        'Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Core Check completed!" & vbNewLine)
-        'Application.DoEvents()
+        End If
+        check_character_queststatus()
+        check_item_instance()
+        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Core Check completed!" & vbNewLine)
+        Application.DoEvents()
         If errorstring = "" Then
             Main.nowgoon = True
             If Main.startcond = 14 Then
@@ -61,6 +54,7 @@ Public Class Core_Check_ArcEmu
         Else
 
             Database_Check.Show()
+            errorstring = "Determined core: ArcEmu" & vbNewLine & errorstring
             reporttext.Text = errorstring
 
             Application.DoEvents()
@@ -71,8 +65,8 @@ Public Class Core_Check_ArcEmu
         tmpstring = ""
         If columnexist("guid", "characters") = False Then _
             tmpstring = tmpstring & "// Column guid in characters does not exist!" & vbNewLine
-        If columnexist("account", "characters") = False Then _
-            tmpstring = tmpstring & "// Column account in characters does not exist!" & vbNewLine
+        If columnexist("acct", "characters") = False Then _
+            tmpstring = tmpstring & "// Column acct in characters does not exist!" & vbNewLine
         If columnexist("name", "characters") = False Then _
             tmpstring = tmpstring & "// Column name in characters does not exist!" & vbNewLine
         If columnexist("race", "characters") = False Then _
@@ -83,226 +77,109 @@ Public Class Core_Check_ArcEmu
             tmpstring = tmpstring & "// Column gender in characters does not exist!" & vbNewLine
         If columnexist("level", "characters") = False Then _
             tmpstring = tmpstring & "// Column level in characters does not exist!" & vbNewLine
-        If columnexist("money", "characters") = False Then _
-            tmpstring = tmpstring & "// Column money in characters does not exist!" & vbNewLine
-        If columnexist("playerBytes", "characters") = False Then _
-            tmpstring = tmpstring & "// Column playerBytes in characters does not exist!" & vbNewLine
-        If columnexist("playerBytes2", "characters") = False Then _
-            tmpstring = tmpstring & "// Column playerBytes2 in characters does not exist!" & vbNewLine
-        If columnexist("playerFlags", "characters") = False Then _
-            tmpstring = tmpstring & "// Column playerFlags in characters does not exist!" & vbNewLine
-        If columnexist("position_x", "characters") = False Then _
-            tmpstring = tmpstring & "// Column position_x in characters does not exist!" & vbNewLine
-        If columnexist("position_y", "characters") = False Then _
-            tmpstring = tmpstring & "// Column position_y in characters does not exist!" & vbNewLine
-        If columnexist("position_z", "characters") = False Then _
-            tmpstring = tmpstring & "// Column position_z in characters does not exist!" & vbNewLine
-        If columnexist("map", "characters") = False Then _
-            tmpstring = tmpstring & "// Column map in characters does not exist!" & vbNewLine
+        If columnexist("gold", "characters") = False Then _
+            tmpstring = tmpstring & "// Column gold in characters does not exist!" & vbNewLine
+        If columnexist("skills", "characters") = False Then _
+            tmpstring = tmpstring & "// Column skills in characters does not exist!" & vbNewLine
+        If columnexist("bytes", "characters") = False Then _
+            tmpstring = tmpstring & "// Column bytes in characters does not exist!" & vbNewLine
+        If columnexist("player_bytes", "characters") = False Then _
+            tmpstring = tmpstring & "// Column player_bytes in characters does not exist!" & vbNewLine
+        If columnexist("positionX", "characters") = False Then _
+            tmpstring = tmpstring & "// Column positionX in characters does not exist!" & vbNewLine
+        If columnexist("positionY", "characters") = False Then _
+            tmpstring = tmpstring & "// Column positionY in characters does not exist!" & vbNewLine
+        If columnexist("positionZ", "characters") = False Then _
+            tmpstring = tmpstring & "// Column positionZ in characters does not exist!" & vbNewLine
+        If columnexist("mapId", "characters") = False Then _
+            tmpstring = tmpstring & "// Column mapId in characters does not exist!" & vbNewLine
         If columnexist("orientation", "characters") = False Then _
             tmpstring = tmpstring & "// Column orientation in characters does not exist!" & vbNewLine
         If columnexist("taximask", "characters") = False Then _
             tmpstring = tmpstring & "// Column taximask in characters does not exist!" & vbNewLine
-        If columnexist("online", "characters") = False Then _
-            tmpstring = tmpstring & "// Column online in characters does not exist!" & vbNewLine
-        If columnexist("cinematic", "characters") = False Then _
-            tmpstring = tmpstring & "// Column cinematic in characters does not exist!" & vbNewLine
-        If columnexist("totaltime", "characters") = False Then _
-            tmpstring = tmpstring & "// Column totaltime in characters does not exist!" & vbNewLine
-        If columnexist("leveltime", "characters") = False Then _
-            tmpstring = tmpstring & "// Column leveltime in characters does not exist!" & vbNewLine
-        If columnexist("extra_flags", "characters") = False Then _
-            tmpstring = tmpstring & "// Column extra_flags in characters does not exist!" & vbNewLine
-        If columnexist("stable_slots", "characters") = False Then _
-            tmpstring = tmpstring & "// Column stable_slots in characters does not exist!" & vbNewLine
-        If columnexist("at_login", "characters") = False Then _
-            tmpstring = tmpstring & "// Column at_login in characters does not exist!" & vbNewLine
-        If columnexist("zone", "characters") = False Then _
-            tmpstring = tmpstring & "// Column zone in characters does not exist!" & vbNewLine
-        If columnexist("arenaPoints", "characters") = False Then _
-            tmpstring = tmpstring & "// Column arenaPoints in characters does not exist!" & vbNewLine
-        If columnexist("totalHonorPoints", "characters") = False Then _
-            tmpstring = tmpstring & "// Column totalHonorPoints in characters does not exist!" & vbNewLine
-        If columnexist("totalKills", "characters") = False Then _
-            tmpstring = tmpstring & "// Column totalKills in characters does not exist!" & vbNewLine
-        If columnexist("chosenTitle", "characters") = False Then _
-            tmpstring = tmpstring & "// Column chosenTitle in characters does not exist!" & vbNewLine
-        If columnexist("knownCurrencies", "characters") = False Then _
-            tmpstring = tmpstring & "// Column knownCurrencies in characters does not exist!" & vbNewLine
-        If columnexist("watchedFaction", "characters") = False Then _
-            tmpstring = tmpstring & "// Column watchedFaction in characters does not exist!" & vbNewLine
-        If columnexist("specCount", "characters") = False Then _
-            tmpstring = tmpstring & "// Column specCount in characters does not exist!" & vbNewLine
-        If columnexist("activeSpec", "characters") = False Then _
-            tmpstring = tmpstring & "// Column activeSpec in characters does not exist!" & vbNewLine
-        If columnexist("exploredZones", "characters") = False Then _
-            tmpstring = tmpstring & "// Column exploredZones in characters does not exist!" & vbNewLine
-        If columnexist("equipmentCache", "characters") = False Then _
-            tmpstring = tmpstring & "// Column equipmentCache in characters does not exist!" & vbNewLine
-        If columnexist("knownTitles", "characters") = False Then _
-            tmpstring = tmpstring & "// Column knownTitles in characters does not exist!" & vbNewLine
-        If columnexist("actionBars", "characters") = False Then _
-            tmpstring = tmpstring & "// Column actionBars in characters does not exist!" & vbNewLine
-        If Not tmpstring = "" Then gettableschema("characters")
+        If columnexist("zoneId", "characters") = False Then _
+            tmpstring = tmpstring & "// Column zoneId in characters does not exist!" & vbNewLine
+         If columnexist("playedtime", "characters") = False Then _
+            tmpstring = tmpstring & "// Column playedtime in characters does not exist!" & vbNewLine
+        If columnexist("first_login", "characters") = False Then _
+            tmpstring = tmpstring & "// Column first_login in characters does not exist!" & vbNewLine
+        If columnexist("forced_rename_pending", "characters") = False Then _
+            tmpstring = tmpstring & "// Column forced_rename_pending in characters does not exist!" & vbNewLine
+        If columnexist("spells", "characters") = False Then _
+            tmpstring = tmpstring & "// Column spells in characters does not exist!" & vbNewLine
+        If columnexist("reputation", "characters") = False Then _
+            tmpstring = tmpstring & "// Column reputation in characters does not exist!" & vbNewLine
+        If columnexist("actions1", "characters") = False Then _
+            tmpstring = tmpstring & "// Column actions1 in characters does not exist!" & vbNewLine
+        If columnexist("actions2", "characters") = False Then _
+            tmpstring = tmpstring & "// Column actions2 in characters does not exist!" & vbNewLine
+        If columnexist("honorPoints", "characters") = False Then _
+            tmpstring = tmpstring & "// Column honorPoints in characters does not exist!" & vbNewLine
+        If columnexist("killsLifeTime", "characters") = False Then _
+            tmpstring = tmpstring & "// Column killsLifeTime in characters does not exist!" & vbNewLine
+        If columnexist("finished_quests", "characters") = False Then _
+            tmpstring = tmpstring & "// Column finished_quests in characters does not exist!" & vbNewLine
+        If columnexist("glyphs1", "characters") = False Then _
+            tmpstring = tmpstring & "// Column glyphs1 in characters does not exist!" & vbNewLine
+        If columnexist("talents1", "characters") = False Then _
+            tmpstring = tmpstring & "// Column talents1 in characters does not exist!" & vbNewLine
+        If columnexist("glyphs2", "characters") = False Then _
+            tmpstring = tmpstring & "// Column glyphs2 in characters does not exist!" & vbNewLine
+        If columnexist("talents2", "characters") = False Then _
+            tmpstring = tmpstring & "// Column talents2 in characters does not exist!" & vbNewLine
+        If columnexist("numspecs", "characters") = False Then _
+            tmpstring = tmpstring & "// Column numspecs in characters does not exist!" & vbNewLine
+        If columnexist("currentspec", "characters") = False Then _
+            tmpstring = tmpstring & "// Column currentspec in characters does not exist!" & vbNewLine
+         If Not tmpstring = "" Then gettableschema("characters")
         errorstring = errorstring & tmpstring
     End Sub
 
     Private Sub check_item_instance()
         tmpstring = ""
         If columnexist("guid", "playeritems") = False Then _
-            tmpstring = tmpstring & "// Column guid in item_instance does not exist!" & vbNewLine
-        If columnexist("owner_guid", "playeritems") = False Then _
-            tmpstring = tmpstring & "// Column owner_guid in item_instance does not exist!" & vbNewLine
-        If columnexist("data", "playeritems") = False Then _
-            tmpstring = tmpstring & "// Column data in item_instance does not exist!" & vbNewLine
+            tmpstring = tmpstring & "// Column guid in playeritems does not exist!" & vbNewLine
+        If columnexist("ownerguid", "playeritems") = False Then _
+            tmpstring = tmpstring & "// Column ownerguid in playeritems does not exist!" & vbNewLine
+        If columnexist("entry", "playeritems") = False Then _
+            tmpstring = tmpstring & "// Column entry in playeritems does not exist!" & vbNewLine
+        If columnexist("count", "playeritems") = False Then _
+           tmpstring = tmpstring & "// Column count in playeritems does not exist!" & vbNewLine
+        If columnexist("containerslot", "playeritems") = False Then _
+            tmpstring = tmpstring & "// Column containerslot in playeritems does not exist!" & vbNewLine
+        If columnexist("slot", "playeritems") = False Then _
+            tmpstring = tmpstring & "// Column slot in playeritems does not exist!" & vbNewLine
+        If columnexist("enchantments", "playeritems") = False Then _
+          tmpstring = tmpstring & "// Column enchantments in playeritems does not exist!" & vbNewLine
         If Not tmpstring = "" Then gettableschema("playeritems")
         errorstring = errorstring & tmpstring
     End Sub
 
-    Private Sub check_character_talent()
-        tmpstring = ""
-        If columnexist("guid", "character_talent") = False Then _
-            tmpstring = tmpstring & "// Column guid in character_talent does not exist!" & vbNewLine
-        If columnexist("talent_id", "character_talent") = False Then _
-            tmpstring = tmpstring & "// Column talent_id in character_talent does not exist!" & vbNewLine
-        If columnexist("current_rank", "character_talent") = False Then _
-            tmpstring = tmpstring & "// Column current_rank in character_talent does not exist!" & vbNewLine
-        If columnexist("spec", "character_talent") = False Then _
-            tmpstring = tmpstring & "// Column spec in character_talent does not exist!" & vbNewLine
-        If Not tmpstring = "" Then gettableschema("character_talent")
-        errorstring = errorstring & tmpstring
-    End Sub
 
-    Private Sub check_character_spell()
-        tmpstring = ""
-        If columnexist("guid", "playerspells") = False Then _
-            tmpstring = tmpstring & "// Column guid in character_spell does not exist!" & vbNewLine
-        If columnexist("spell", "playerspells") = False Then _
-            tmpstring = tmpstring & "// Column spell in character_spell does not exist!" & vbNewLine
-        If columnexist("active", "playerspells") = False Then _
-            tmpstring = tmpstring & "// Column active in character_spell does not exist!" & vbNewLine
-        If columnexist("disabled", "playerspells") = False Then _
-            tmpstring = tmpstring & "// Column disabled in character_spell does not exist!" & vbNewLine
-        If Not tmpstring = "" Then gettableschema("playerspells")
-        errorstring = errorstring & tmpstring
-    End Sub
 
-    Private Sub check_character_skills()
-        tmpstring = ""
-        If columnexist("guid", "playerskills") = False Then _
-            tmpstring = tmpstring & "// Column guid in character_skills does not exist!" & vbNewLine
-        If columnexist("skill", "playerskills") = False Then _
-            tmpstring = tmpstring & "// Column skill in character_skills does not exist!" & vbNewLine
-        If columnexist("value", "playerskills") = False Then _
-            tmpstring = tmpstring & "// Column value in character_skills does not exist!" & vbNewLine
-        If columnexist("max", "playerskills") = False Then _
-            tmpstring = tmpstring & "// Column max in character_skills does not exist!" & vbNewLine
-        If Not tmpstring = "" Then gettableschema("character_skills")
-        errorstring = errorstring & tmpstring
-    End Sub
 
-    Private Sub check_character_reputation()
-        tmpstring = ""
-        If columnexist("guid", "character_reputation") = False Then _
-            tmpstring = tmpstring & "// Column guid in character_reputation does not exist!" & vbNewLine
-        If columnexist("faction", "character_reputation") = False Then _
-            tmpstring = tmpstring & "// Column faction in character_reputation does not exist!" & vbNewLine
-        If columnexist("standing", "character_reputation") = False Then _
-            tmpstring = tmpstring & "// Column standing in character_reputation does not exist!" & vbNewLine
-        If columnexist("flags", "character_reputation") = False Then _
-            tmpstring = tmpstring & "// Column flags in character_reputation does not exist!" & vbNewLine
-        If Not tmpstring = "" Then gettableschema("character_reputation")
-        errorstring = errorstring & tmpstring
-    End Sub
+
 
     Private Sub check_character_queststatus()
         tmpstring = ""
-        If columnexist("guid", "questlog") = False Then _
-            tmpstring = tmpstring & "// Column guid in character_queststatus does not exist!" & vbNewLine
-        If columnexist("quest", "questlog") = False Then _
-            tmpstring = tmpstring & "// Column quest in character_queststatus does not exist!" & vbNewLine
-        If columnexist("status", "questlog") = False Then _
-            tmpstring = tmpstring & "// Column status in character_queststatus does not exist!" & vbNewLine
-        If columnexist("explored", "questlog") = False Then _
-            tmpstring = tmpstring & "// Column explored in character_queststatus does not exist!" & vbNewLine
-        If columnexist("timer", "questlog") = False Then _
-            tmpstring = tmpstring & "// Column timer in character_queststatus does not exist!" & vbNewLine
+        If columnexist("player_guid", "questlog") = False Then _
+            tmpstring = tmpstring & "// Column player_guid in questlog does not exist!" & vbNewLine
+        If columnexist("quest_id", "questlog") = False Then _
+            tmpstring = tmpstring & "// Column quest_id in questlog does not exist!" & vbNewLine
+        If columnexist("slot", "questlog") = False Then _
+            tmpstring = tmpstring & "// Column slot in questlog does not exist!" & vbNewLine
+        If columnexist("explored_area1", "questlog") = False Then _
+            tmpstring = tmpstring & "// Column explored_area1 in questlog does not exist!" & vbNewLine
+        If columnexist("time_left", "questlog") = False Then _
+            tmpstring = tmpstring & "// Column time_left in questlog does not exist!" & vbNewLine
+        If columnexist("completed", "questlog") = False Then _
+           tmpstring = tmpstring & "// Column completed in questlog does not exist!" & vbNewLine
         If Not tmpstring = "" Then gettableschema("questlog")
         errorstring = errorstring & tmpstring
     End Sub
 
-    Private Sub check_character_inventory()
-        tmpstring = ""
-        If columnexist("guid", "character_inventory") = False Then _
-            tmpstring = tmpstring & "// Column guid in character_inventory does not exist!" & vbNewLine
-        If columnexist("bag", "character_inventory") = False Then _
-            tmpstring = tmpstring & "// Column bag in character_inventory does not exist!" & vbNewLine
-        If columnexist("slot", "character_inventory") = False Then _
-            tmpstring = tmpstring & "// Column slot in character_inventory does not exist!" & vbNewLine
-        If columnexist("item", "character_inventory") = False Then _
-            tmpstring = tmpstring & "// Column item in character_inventory does not exist!" & vbNewLine
-        If columnexist("item_template", "character_inventory") = False Then _
-            tmpstring = tmpstring & "// Column item_template in character_inventory does not exist!" & vbNewLine
-        If Not tmpstring = "" Then gettableschema("character_inventory")
-        errorstring = errorstring & tmpstring
-    End Sub
 
-    Private Sub check_character_homebind()
-        tmpstring = ""
-        If columnexist("guid", "character_homebind") = False Then _
-            tmpstring = tmpstring & "// Column guid in character_homebind does not exist!" & vbNewLine
-        Main.homebind_map = "map"
-        If columnexist("map", "character_homebind") = False Then
-            Main.homebind_map = "mapId"
-            If columnexist("mapId", "character_homebind") = False Then
-                tmpstring = tmpstring & "// Column map/mapId in character_homebind does not exist!" & vbNewLine
-            End If
-        End If
-        Main.homebind_zone = "zone"
-        If columnexist("zone", "character_homebind") = False Then
-            Main.homebind_zone = "zoneId"
-            If columnexist("zoneId", "character_homebind") = False Then
-                tmpstring = tmpstring & "// Column zone/zoneId in character_homebind does not exist!" & vbNewLine
-            End If
-        End If
-        Main.homebind_posx = "position_x"
-        If columnexist("position_x", "character_homebind") = False Then
-            Main.homebind_posx = "posX"
-            If columnexist("posX", "character_homebind") = False Then
-                tmpstring = tmpstring & "// Column position_x/posX in character_homebind does not exist!" & vbNewLine
-            End If
-        End If
-        Main.homebind_posy = "position_y"
-        If columnexist("position_y", "character_homebind") = False Then
-            Main.homebind_posy = "posY"
-            If columnexist("posY", "character_homebind") = False Then
-                tmpstring = tmpstring & "// Column position_y/posY in character_homebind does not exist!" & vbNewLine
-            End If
-        End If
-        Main.homebind_posz = "position_z"
-        If columnexist("position_z", "character_homebind") = False Then
-            Main.homebind_posz = "posZ"
-            If columnexist("posZ", "character_homebind") = False Then
-                tmpstring = tmpstring & "// Column position_z/posZ in character_homebind does not exist!" & vbNewLine
-            End If
-        End If
-        If Not tmpstring = "" Then gettableschema("character_homebind")
-        errorstring = errorstring & tmpstring
-    End Sub
 
-    Private Sub check_character_action()
-        tmpstring = ""
-        If columnexist("guid", "character_action") = False Then _
-            tmpstring = tmpstring & "// Column guid in character_action does not exist!" & vbNewLine
-        If columnexist("spec", "character_action") = False Then _
-            tmpstring = tmpstring & "// Column spec in character_action does not exist!" & vbNewLine
-        If columnexist("button", "character_action") = False Then _
-            tmpstring = tmpstring & "// Column button in character_action does not exist!" & vbNewLine
-        If columnexist("action", "character_action") = False Then _
-            tmpstring = tmpstring & "// Column action in character_action does not exist!" & vbNewLine
-        If Not tmpstring = "" Then gettableschema("character_action")
-        errorstring = errorstring & tmpstring
-    End Sub
 
     Private Sub check_character_achievement()
         tmpstring = ""

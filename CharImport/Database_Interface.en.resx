@@ -118,17 +118,35 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="cata.Location" type="System.Drawing.Point, System.Drawing">
+    <value>472, 14</value>
+  </data>
+  <data name="wotlk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>280, 14</value>
+  </data>
+  <data name="tbc.Location" type="System.Drawing.Point, System.Drawing">
+    <value>102, 14</value>
+  </data>
+  <data name="classic.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 14</value>
+  </data>
+  <data name="GroupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 27</value>
+  </data>
+  <data name="GroupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>583, 45</value>
+  </data>
+  <data name="mangos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>516, 9</value>
+  </data>
+  <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 1</value>
+  </data>
   <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>409, 25</value>
+    <value>490, 25</value>
   </data>
   <data name="Label3.Text" xml:space="preserve">
-    <value>Select the "Core" of the source server</value>
-  </data>
-  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>430, 25</value>
-  </data>
-  <data name="Label5.Text" xml:space="preserve">
-    <value>Open a new connection to the database</value>
+    <value>Select the expansion set of the source server</value>
   </data>
   <data name="Label14.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 13</value>
@@ -203,20 +221,20 @@ Please make sure that the database is accessible!
   <data name="password.TabIndex" type="System.Int32, mscorlib">
     <value>161</value>
   </data>
-  <data name="optionspanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>613, 611</value>
+  <data name="arcemu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>517, 9</value>
   </data>
-  <data name="GroupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 56</value>
+  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 83</value>
   </data>
-  <data name="GroupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>588, 336</value>
+  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>430, 25</value>
   </data>
-  <data name="GroupBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 157</value>
+  <data name="Label5.Text" xml:space="preserve">
+    <value>Open a new connection to the database</value>
   </data>
-  <data name="GroupBox3.Text" xml:space="preserve">
-    <value>Filter options</value>
+  <data name="trinity1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>505, 9</value>
   </data>
   <data name="Label17.Location" type="System.Drawing.Point, System.Drawing">
     <value>441, 29</value>
@@ -319,6 +337,12 @@ or "80" until "80")</value>
   <data name="levelrangecheck.Text" xml:space="preserve">
     <value>Just copy characters within level range:</value>
   </data>
+  <data name="GroupBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 157</value>
+  </data>
+  <data name="GroupBox3.Text" xml:space="preserve">
+    <value>Filter options</value>
+  </data>
   <data name="CheckBox2.Size" type="System.Drawing.Size, System.Drawing">
     <value>344, 19</value>
   </data>
@@ -339,6 +363,12 @@ or "80" until "80")</value>
   </data>
   <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>140, 73</value>
+  </data>
+  <data name="GroupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 56</value>
+  </data>
+  <data name="GroupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>588, 336</value>
   </data>
   <data name="Button5.Location" type="System.Drawing.Point, System.Drawing">
     <value>474, 511</value>
@@ -403,6 +433,9 @@ Charactername3
   </data>
   <data name="CheckBox3.Text" xml:space="preserve">
     <value>Just copy folowing Characters:</value>
+  </data>
+  <data name="optionspanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>613, 611</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>600, 451</value>

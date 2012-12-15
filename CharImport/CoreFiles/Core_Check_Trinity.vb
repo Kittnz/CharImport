@@ -64,7 +64,7 @@ Public Class Core_Check_Trinity
             Else
             End If
         Else
-
+            errorstring = "Determined core: TrinityCore" & vbNewLine & errorstring
             Database_Check.Show()
             reporttext.Text = errorstring
 

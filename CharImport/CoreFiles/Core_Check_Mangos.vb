@@ -66,7 +66,7 @@ Public Class Core_Check_Mangos
             Else
             End If
         Else
-
+            errorstring = "Determined core: MaNGOS" & vbNewLine & errorstring
             Database_Check.Show()
             reporttext.Text = errorstring
 
