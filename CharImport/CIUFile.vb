@@ -795,7 +795,7 @@ Public Class CIUFile
         readit2("distanzsocket3name", Main.distanzsocket3, False)
 
         'Get correct effectnames
-
+        Dim sajdaj As String = Main.kopfvzid.ToString()
         If Not Main.kopfvzid = 0 Then Main.kopfvz.Text = runfunction.geteffectnameofeffectid(Main.kopfvzid)
         If Not Main.schultervzid = 0 Then Main.schultervz.Text = runfunction.geteffectnameofeffectid(Main.schultervzid)
         If Not Main.halsvzid = 0 Then Main.halsvz.Text = runfunction.geteffectnameofeffectid(Main.halsvzid)
