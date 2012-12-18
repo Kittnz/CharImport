@@ -28,6 +28,7 @@ Public Class Database_Check
     Private Sub Button3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button3.Click
         runfunction.writelog("Cancel Transmission call")
         Main.nowexit = True
+        Main.Close()
         Armory2Database.Close()
         Database2Database.Close()
         Database_Interface.Close()
