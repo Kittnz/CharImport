@@ -131,8 +131,6 @@ Public Class Core_Check_Trinity
             tmpstring = tmpstring & "// Column totalKills in characters does not exist!" & vbNewLine
         If columnexist("chosenTitle", "characters") = False Then _
             tmpstring = tmpstring & "// Column chosenTitle in characters does not exist!" & vbNewLine
-        If columnexist("knownCurrencies", "characters") = False Then _
-            tmpstring = tmpstring & "// Column knownCurrencies in characters does not exist!" & vbNewLine
         If columnexist("watchedFaction", "characters") = False Then _
             tmpstring = tmpstring & "// Column watchedFaction in characters does not exist!" & vbNewLine
         If columnexist("specCount", "characters") = False Then _
