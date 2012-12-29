@@ -168,8 +168,10 @@ Public Class Functions
                 If quellcodeSplityx889.Contains("</a>") Then quellcodeSplityx889 = quellcodeSplityx889.Replace("</a>", "")
 
             End If
-
-            Return quellcodeSplityx889
+            Dim s As String = quellcodeSplityx889
+            Dim b() As Byte = Encoding.Default.GetBytes(s)
+            Dim s1 As String = Encoding.UTF8.GetString(b)
+            Return s1
         Catch ex As Exception
 
             Return ""
@@ -242,7 +244,12 @@ Public Class Functions
     Public Function getsocketeffectnameofitemid(ByVal socketid As Integer) As String
         Try
             Dim clienyx88 As New WebClient
-            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://www.wowhead.com/item=" & socketid.ToString & "&xml")
+            Dim quellcodeyx88 As String
+            If My.Settings.language = "de" Then
+                quellcodeyx88 = clienyx88.DownloadString("http://de.wowhead.com/item=" & socketid.ToString & "&xml")
+            Else
+                quellcodeyx88 = clienyx88.DownloadString("http://www.wowhead.com/item=" & socketid.ToString & "&xml")
+            End If
             Dim anfangyx88 As String = "<span class=""q1"">"
             Dim endeyx88 As String = "</span>"
             Dim quellcodeSplityx88 As String
@@ -636,6 +643,9 @@ Public Class Functions
             Case Else
                 xpacressource = My.Resources.GEM_ID_wotlk
         End Select
+        If Main.armoryrun = True Then
+            xpacressource = My.Resources.GEM_ID_MOP
+        End If
         Try
             Dim zclienyx88 As New WebClient
             Dim zquellcodeyx88 As String = xpacressource

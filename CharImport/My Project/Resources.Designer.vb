@@ -214,6 +214,45 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Sucht eine lokalisierte Zeichenfolge, die 22459;2948;xxxx
+        '''22460;2947;xxxx
+        '''23094;2690;xxxx
+        '''23095;2691;xxxx
+        '''23096;2692;xxxx
+        '''23097;2693;xxxx
+        '''23098;2752;xxxx
+        '''23099;2705;xxxx
+        '''23100;2755;xxxx
+        '''23101;2760;xxxx
+        '''23103;2762;xxxx
+        '''23104;2757;xxxx
+        '''23105;2706;xxxx
+        '''23106;2707;xxxx
+        '''23108;2708;xxxx
+        '''23109;2709;xxxx
+        '''23110;2710;xxxx
+        '''23111;2711;xxxx
+        '''23113;2694;xxxx
+        '''23114;2695;xxxx
+        '''23115;2696;xxxx
+        '''23116;2697;xxxx
+        '''23118;2698;xxxx
+        '''23119;2699;xxxx
+        '''23120;2700;xxxx
+        '''23121;2701;xxxx
+        '''23233;2686;xxxx
+        '''23234;2687;xxxx
+        '''23235;2688;xxxx
+        '''23359;2689;xxxx
+        '''23 [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        '''</summary>
+        Public ReadOnly Property GEM_ID_MOP() As String
+            Get
+                Return ResourceManager.GetString("GEM_ID_MOP", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Sucht eine lokalisierte Zeichenfolge, die long;long;
         '''49110;3879;xxxx
         '''45987;3867;xxxx

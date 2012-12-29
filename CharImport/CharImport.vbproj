@@ -401,6 +401,7 @@
     <None Include="Resources\empty.jpg" />
     <None Include="Resources\GEM_ID_cata.txt" />
     <None Include="Resources\GEM_ID_cata2.txt" />
+    <None Include="Resources\GEM_ID_MOP.txt" />
     <Content Include="Resources\GlyphProperties.txt" />
     <None Include="Resources\SpellItemEnchantment.txt" />
   </ItemGroup>

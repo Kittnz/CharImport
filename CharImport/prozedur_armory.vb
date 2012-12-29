@@ -50,7 +50,7 @@ Public Class prozedur_armory
 
         End If
 
-
+        Main.armoryrun = True
         Dim anfang As String = "/character/"
         Dim ende As String = "/"
         Dim realm As String

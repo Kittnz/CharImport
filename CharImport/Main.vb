@@ -20,6 +20,7 @@ Public Class Main
     Public effectname_dt As New DataTable
     Public itemname_dt As New DataTable
     'eu/us...
+    Public armoryrun As Boolean = False
     Public xpac As Integer
     Public realmname As String
     Public characterdbname As String
@@ -378,7 +379,7 @@ Public Class Main
     Sub setallempty()
         '  My.Settings.savecontent = "" ' ???? 29/07 should fix: (Load char from db > load char from armory > store it > import template = first character)
         ' My.Settings.Save()
-
+        armoryrun = False
         realmname = ""
         emptylist = New List(Of String)
         talentlist = New List(Of String)
