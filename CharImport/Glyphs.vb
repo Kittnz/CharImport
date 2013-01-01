@@ -2,7 +2,7 @@
 Imports System.Globalization
 
 Public Class Glyphs
-'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+    'Copyright (C) 2011-2013 CharImport <http://sourceforge.net/projects/charimport/>
     '*
     '* This application is free and can be distributed.
     '*

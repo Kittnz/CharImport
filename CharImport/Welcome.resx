@@ -165,7 +165,13 @@ Dennoch wird es regelmäßige Updates geben um die aktuellsten Revisionen zu unt
     <value>0</value>
   </data>
   <data name="RichTextBox1.Text" xml:space="preserve">
-    <value>|&lt;  BETA 0.11 &gt;|
+    <value>|&lt;  BETA 0.11.4 &gt;|
+
+ &gt; Added resource check at startup
+ &gt; Users will no longer experience a message informing them about missing "knownCurrencies" column
+ &gt; Fixed item info localization
+
+|&lt;  BETA 0.11 &gt;|
 
  &gt; Verbesserte Unterstützung für TrinityCore und MaNGOS
  &gt; Vollständige Unterstützung für ArcEmu + forks
