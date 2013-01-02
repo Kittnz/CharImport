@@ -1,4 +1,4 @@
-﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+﻿'Copyright (C) 2011-2013 CharImport <http://sourceforge.net/projects/charimport/>
 '*
 '* This application is free and can be distributed.
 '*
@@ -131,8 +131,6 @@ Public Class Core_Check_Trinity
             tmpstring = tmpstring & "// Column totalKills in characters does not exist!" & vbNewLine
         If columnexist("chosenTitle", "characters") = False Then _
             tmpstring = tmpstring & "// Column chosenTitle in characters does not exist!" & vbNewLine
-        If columnexist("knownCurrencies", "characters") = False Then _
-            tmpstring = tmpstring & "// Column knownCurrencies in characters does not exist!" & vbNewLine
         If columnexist("watchedFaction", "characters") = False Then _
             tmpstring = tmpstring & "// Column watchedFaction in characters does not exist!" & vbNewLine
         If columnexist("specCount", "characters") = False Then _

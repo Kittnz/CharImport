@@ -1,4 +1,4 @@
-﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+﻿'Copyright (C) 2011-2013 CharImport <http://sourceforge.net/projects/charimport/>
 '*
 '* This application is free and can be distributed.
 '*
@@ -28,6 +28,7 @@ Public Class Database_Check
     Private Sub Button3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button3.Click
         runfunction.writelog("Cancel Transmission call")
         Main.nowexit = True
+        Main.Close()
         Armory2Database.Close()
         Database2Database.Close()
         Database_Interface.Close()

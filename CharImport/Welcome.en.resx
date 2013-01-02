@@ -127,13 +127,10 @@ the program won't work with every revision of TrinityCore, ArcEmu, etc..
 However, there will be regular updates in order to support the latest revisions.</value>
   </data>
   <data name="RichTextBox1.Text" xml:space="preserve">
-    <value>|&lt;  BETA 0.10.3 @indev &gt;|
+    <value>|&lt;  BETA 0.11 &gt;|
 
  &gt; Improved support for Trinity and MaNGOS + forks
  &gt; Full support for ArcEmu + forks added
- &gt; Full support for "classic" cores added
- &gt; Full support for "TBC" cores added
- &gt; Full support for "Cata" cores added
  &gt; Advanced filter options should now work for Trinity, ArcEmu and MaNGOS (forks)
  &gt; When loading characters from WoW Armory following additional options should be transferable now:
    &gt; Appearance of the character

@@ -1,4 +1,4 @@
-﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+﻿'Copyright (C) 2011-2013 CharImport <http://sourceforge.net/projects/charimport/>
 '*
 '* This application is free and can be distributed.
 '*
@@ -17,7 +17,7 @@ Public Class Bugreport
 
     Public Sub New()
         MyBase.New()
-
+      
         Thread.CurrentThread.CurrentUICulture = New CultureInfo(My.Settings.language)
         InitializeComponent()
     End Sub

@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!--
-    Microsoft ResX Schema
-
+  <!-- 
+    Microsoft ResX Schema 
+    
     Version 2.0
-
-    The primary goals of this format is to allow a simple XML format
-    that is mostly human readable. The generation and parsing of the
-    various data types are done through the TypeConverter classes
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
     associated with the data types.
-
+    
     Example:
-
+    
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -26,36 +26,36 @@
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-
-    There are any number of "resheader" rows that contain simple
+                
+    There are any number of "resheader" rows that contain simple 
     name/value pairs.
-
-    Each data row contains a name, and value. The row also contains a
-    type or mimetype. Type corresponds to a .NET class that support
-    text/value conversion through the TypeConverter architecture.
-    Classes that don't support this are serialized and stored with the
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
     mimetype set.
-
-    The mimetype is used for serialized objects, and tells the
-    ResXResourceReader how to depersist the object. This is currently not
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
     extensible. For a given mimetype the value must be set accordingly:
-
-    Note - application/x-microsoft.net.object.binary.base64 is the format
-    that the ResXResourceWriter will generate, however the reader can
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
     read any of the formats listed below.
-
+    
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-
+    
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array
+    value   : The object must be serialized into a byte array 
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -122,19 +122,19 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="GroupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 80</value>
+    <value>182, 80</value>
   </data>
   <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 13</value>
+    <value>173, 13</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+  <data name="PictureBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 137</value>
   </data>
   <data name="Label2.Text" xml:space="preserve">
     <value>Version 0.10 (Beta)</value>
   </data>
-  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;PictureBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>5, 25</value>
@@ -4650,8 +4650,29 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
   </data>
+  <data name="&gt;&gt;PictureBox1.Name" xml:space="preserve">
+    <value>PictureBox1</value>
+  </data>
   <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>97, 13</value>
+  </data>
+  <data name="RichTextBox1.Text" xml:space="preserve">
+    <value>Alle Rechte vorbehalten.
+Die verwendeten Bilddateien sind Eigentum von Blizzard Entertainment INC.
+
+Hyperlinks
+
+Mit Urteil vom 12. Mai 1998 hat das Landgericht Hamburg entschieden, dass man durch Verwendung eines Hyperlinks die Inhalte der gelinkten Seite gegebenenfalls mitzuverantworten hat. Dies kann - so das Landgericht - dadurch verhindert werden, dass man sich ausdrücklich von diesen Inhalten distanziert.
+Für alle Hyperlinks in diesem Programm gilt:
+Der Autor hat keinerlei Einfluss auf die Gestaltung und die Inhalte der gelinkten Seiten. Deshalb distanziert sich der Autor hiermit ausdrücklich von allen Inhalten aller gelinkten Seiten. Diese Erklärung gilt für alle in diesem Programm verwendeten Links und für alle Inhalte der Seiten, zu denen die Links, Banner oder Logos führen.
+
+Genutzte Software:
+Microsoft© Visual Basic.NET
+Adobe© Photoshop CS5
+Adobe© Indesign CS5
+
+geslauncher@web.de
+</value>
   </data>
   <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -4659,12 +4680,14 @@
   <data name="Button1.Size" type="System.Drawing.Size, System.Drawing">
     <value>102, 32</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;PictureBox1.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="PictureBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+  <data name="&gt;&gt;Button1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>554, 360</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>AboutBox</value>
@@ -9111,27 +9134,13 @@
   <data name="&gt;&gt;Label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="RichTextBox1.Text" xml:space="preserve">
-    <value>Alle Rechte vorbehalten.
-Die verwendeten Bilddateien sind Eigentum von Blizzard Entertainment INC.
-
-Hyperlinks
-
-Mit Urteil vom 12. Mai 1998 hat das Landgericht Hamburg entschieden, dass man durch Verwendung eines Hyperlinks die Inhalte der gelinkten Seite gegebenenfalls mitzuverantworten hat. Dies kann - so das Landgericht - dadurch verhindert werden, dass man sich ausdrücklich von diesen Inhalten distanziert.
-Für alle Hyperlinks in diesem Programm gilt:
-Der Autor hat keinerlei Einfluss auf die Gestaltung und die Inhalte der gelinkten Seiten. Deshalb distanziert sich der Autor hiermit ausdrücklich von allen Inhalten aller gelinkten Seiten. Diese Erklärung gilt für alle in diesem Programm verwendeten Links und für alle Inhalte der Seiten, zu denen die Links, Banner oder Logos führen.
-
-Genutzte Software:
-Microsoft© Visual Basic.NET
-Adobe© Photoshop CS5
-Adobe© Indesign CS5
-
-geslauncher@web.de
-</value>
+  <data name="Button1.Text" xml:space="preserve">
+    <value>&amp;OK</value>
   </data>
-  <data name="PictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 137</value>
+  <data name="RichTextBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>531, 176</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -9141,17 +9150,11 @@ geslauncher@web.de
   <data name="GroupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>554, 360</value>
-  </data>
-  <data name="GroupBox1.Text" xml:space="preserve">
-    <value>CharImport - Universal</value>
+  <data name="Button1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>415, 320</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
-  </data>
-  <data name="Button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>415, 320</value>
   </data>
   <data name="&gt;&gt;GroupBox1.Name" xml:space="preserve">
     <value>GroupBox1</value>
@@ -9165,47 +9168,44 @@ geslauncher@web.de
   <data name="&gt;&gt;RichTextBox1.Name" xml:space="preserve">
     <value>RichTextBox1</value>
   </data>
-  <data name="Label3.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="&gt;&gt;RichTextBox1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="PictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 1</value>
+  <data name="&gt;&gt;RichTextBox1.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="PictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
   </data>
-  <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>9, 9, 9, 9</value>
+  <data name="PictureBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
   </data>
   <data name="Button1.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
-  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;RichTextBox1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="&gt;&gt;Button1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="RichTextBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+  <data name="Button1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
-  <data name="PictureBox1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
+  <data name="GroupBox1.Text" xml:space="preserve">
+    <value>CharImport - Universal</value>
+  </data>
+  <data name="&gt;&gt;RichTextBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;PictureBox1.Name" xml:space="preserve">
-    <value>PictureBox1</value>
+  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>5, 50</value>
-  </data>
-  <data name="&gt;&gt;PictureBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
     <value>GroupBox1</value>
@@ -9213,20 +9213,20 @@ geslauncher@web.de
   <data name="GroupBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>147, 11</value>
   </data>
-  <data name="&gt;&gt;RichTextBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Label3.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
-  <data name="&gt;&gt;Button1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>9, 9, 9, 9</value>
   </data>
-  <data name="Button1.Text" xml:space="preserve">
-    <value>&amp;OK</value>
+  <data name="RichTextBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
   </data>
   <data name="&gt;&gt;Label3.Name" xml:space="preserve">
     <value>Label3</value>
   </data>
-  <data name="&gt;&gt;PictureBox1.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="PictureBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 1</value>
   </data>
   <data name="&gt;&gt;Button1.Name" xml:space="preserve">
     <value>Button1</value>
@@ -9237,11 +9237,11 @@ geslauncher@web.de
   <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
     <value>GroupBox1</value>
   </data>
-  <data name="RichTextBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>531, 176</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="RichTextBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 138</value>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
   </data>
   <data name="&gt;&gt;GroupBox1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -9250,13 +9250,13 @@ geslauncher@web.de
     <value>AboutBox</value>
   </data>
   <data name="Label3.Text" xml:space="preserve">
-    <value>© 2012 megasus, alcanmage</value>
+    <value>© 2012-2013 megasus, alcanmage</value>
   </data>
-  <data name="Button1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="RichTextBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 138</value>
   </data>
-  <data name="&gt;&gt;RichTextBox1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="PictureBox1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

@@ -1,4 +1,4 @@
-﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+﻿'Copyright (C) 2011-2013 CharImport <http://sourceforge.net/projects/charimport/>
 '*
 '* This application is free and can be distributed.
 '*
@@ -795,7 +795,7 @@ Public Class CIUFile
         readit2("distanzsocket3name", Main.distanzsocket3, False)
 
         'Get correct effectnames
-
+        Dim sajdaj As String = Main.kopfvzid.ToString()
         If Not Main.kopfvzid = 0 Then Main.kopfvz.Text = runfunction.geteffectnameofeffectid(Main.kopfvzid)
         If Not Main.schultervzid = 0 Then Main.schultervz.Text = runfunction.geteffectnameofeffectid(Main.schultervzid)
         If Not Main.halsvzid = 0 Then Main.halsvz.Text = runfunction.geteffectnameofeffectid(Main.halsvzid)

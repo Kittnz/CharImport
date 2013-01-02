@@ -1,4 +1,4 @@
-﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+﻿'Copyright (C) 2011-2013 CharImport <http://sourceforge.net/projects/charimport/>
 '*
 '* This application is free and can be distributed.
 '*
@@ -353,13 +353,13 @@ Public Class Connect
         Panel4.Location = Panel3.Location
     End Sub
     Private Function determinecore() As String
-        If columnexist("ownerguid", "playeritems") = True Then
+        If columnexist("acct", "accounts") = True Then
             'arcemu
             Return "arcemu"
-        ElseIf columnexist("item_template", "character_inventory") = True Then
+        ElseIf columnexist("realmflags", "realmlist") = True Then
             'mangos
             Return "mangos"
-        ElseIf columnexist("quest", "character_queststatus_rewarded") = True Then
+        ElseIf columnexist("online", "account") = True Then
             'trinity
             Return "trinity"
         Else
@@ -376,7 +376,7 @@ Public Class Connect
         End Try
 
         Dim myAdapter As New MySqlDataAdapter
-        SQLConnection.ConnectionString = Main.ServerString
+        SQLConnection.ConnectionString = Main.ServerStringRealmd
         Dim sqlquery = ("SELECT " & spalte & " FROM " & table)
         Dim myCommand As New MySqlCommand()
         myCommand.Connection = SQLConnection
