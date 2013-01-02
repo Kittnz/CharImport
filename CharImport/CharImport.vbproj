@@ -160,6 +160,7 @@
     <Compile Include="CoreFiles\Core_Check_ArcEmu.vb" />
     <Compile Include="CoreFiles\ArcEmu_core.vb" />
     <Compile Include="CoreFiles\Mangos_core.vb" />
+    <Compile Include="CoreFiles\Trinity_core_tbc.vb" />
     <Compile Include="Database2Database.Designer.vb">
       <DependentUpon>Database2Database.vb</DependentUpon>
     </Compile>

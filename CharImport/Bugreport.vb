@@ -17,7 +17,7 @@ Public Class Bugreport
 
     Public Sub New()
         MyBase.New()
-
+      
         Thread.CurrentThread.CurrentUICulture = New CultureInfo(My.Settings.language)
         InitializeComponent()
     End Sub
