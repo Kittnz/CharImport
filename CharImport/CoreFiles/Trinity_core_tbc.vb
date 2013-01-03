@@ -6,6 +6,7 @@
 '* and account information into an TrinityCore tbc compatible database.
 '*
 '* Developed by Alcanmage/megasus
+
 Imports MySql.Data.MySqlClient
 Public Class Trinity_core_tbc
     Inherits Trinity_core
