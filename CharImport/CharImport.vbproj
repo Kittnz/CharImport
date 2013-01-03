@@ -105,6 +105,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\mysql.data.dll</HintPath>
     </Reference>
+    <Reference Include="MySqlLib3">
+      <HintPath>..\..\..\..\..\mysqllib3\Binary\MySqlLib3.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -329,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Starter.resx">
       <DependentUpon>Starter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Template_Database.resx">
+      <DependentUpon>Template_Database.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateMe.en.resx">
       <DependentUpon>UpdateMe.vb</DependentUpon>

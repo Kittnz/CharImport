@@ -6,7 +6,77 @@ CharImportTest
 </name>
 </assembly>
 <members>
-<member name="P:CharImport_Test.My.Resources.Resources.ResourceManager">
+<member name="M:CharImport_Test.clsConvert.ArrayToString(System.String[],System.String)">
+	<summary>
+ Konvertiert ein Array in einen string
+ </summary>
+	<param name="Ar">Erwartet ein Stringarray</param>
+	<param name="Seperator">Ein Trennzeichen für die Arrays, Standard ist ", "</param>
+</member><member name="M:CharImport_Test.clsConvert.ConvListObject2String(System.Collections.Generic.List{System.String},System.String)">
+	<summary>
+ Konvertiert eine ListOfString in einen String
+ </summary>
+	<param name="lst">Die zu konvertierende Liste.</param>
+	<param name="Seperator">Ein Trennzeichen für die Arrays, Standard ist ", "</param>
+</member><member name="M:CharImport_Test.clsConvert.ConvListObject2Array(System.Collections.Generic.List{System.String})">
+	<summary>
+ Konvertiert eine ListOfString in ein Array
+ </summary>
+	<param name="lst">Die zu konvertierende Liste.</param>
+</member><member name="M:CharImport_Test.clsConvert.ConvArray2ListObject(System.String[])">
+	<summary>
+ Konvertiert ein Array in eine ListOfString
+ </summary>
+	<param name="ar">Das zu konvertierende Array.</param>
+</member><member name="M:CharImport_Test.clsConvert.ConvListObject2ListOfString(System.Windows.Forms.ListBox@)">
+	<summary>
+ Konvertiert Listbox-Einträge in eine ListOfString
+ und gibt sie zurück
+ </summary>
+	<param name="lst">Die Listbox, aus der die einträge entnommen werden sollen.</param>
+</member><member name="M:CharImport_Test.clsConvert.ConvListObject2ListOfString(System.Windows.Forms.ComboBox@)">
+	<summary>
+ Konvertiert ComboBox-Einträge in eine ListOfString
+ und gibt sie zurück
+ </summary>
+	<param name="lst">Die ComboBox, aus der die einträge entnommen werden sollen.</param>
+</member><member name="M:CharImport_Test.clsConvert.ConvListOfString2ListObject(System.Windows.Forms.ListBox@,System.Collections.Generic.List{System.String})">
+	<summary>
+ Fügt einer Listbox eine ListOfString hinzu
+ </summary>
+	<param name="lst">Die Listbox, in die geschreiben werden soll.</param>
+	<param name="strngList">Die ListOfString, die in die Listbox geschrieben werden soll.</param>
+</member><member name="M:CharImport_Test.clsConvert.ConvListOfString2ListObject(System.Windows.Forms.ListBox@,System.String[])">
+	<summary>
+ Fügt einer Listbox ein Stringarray hinzu
+ </summary>
+	<param name="lst">Die Listbox, in die geschreiben werden soll.</param>
+	<param name="strngList">Das Stringarray, das in die Listbox geschrieben werden soll.</param>
+</member><member name="M:CharImport_Test.clsConvert.ConvListOfString2ListObject(System.Windows.Forms.ToolStripComboBox@,System.Collections.Generic.List{System.String})">
+	<summary>
+ Fügt einer ToolStripComboBox eine ListOfString hinzu
+ </summary>
+	<param name="lst">Die ToolStripComboBox, in die geschreiben werden soll.</param>
+	<param name="strngList">Die ListOfString, die in die ToolStripComboBox geschrieben werden soll.</param>
+</member><member name="M:CharImport_Test.clsConvert.ConvListOfString2ListObject(System.Windows.Forms.ToolStripComboBox@,System.String[])">
+	<summary>
+ Fügt einer ToolStripComboBox ein Stringarray hinzu
+ </summary>
+	<param name="lst">Die ToolStripComboBox, in die geschreiben werden soll.</param>
+	<param name="strngList">Das Stringarray, das in die ToolStripComboBox geschrieben werden soll.</param>
+</member><member name="M:CharImport_Test.clsConvert.ConvListOfString2ListObject(System.Windows.Forms.ComboBox@,System.Collections.Generic.List{System.String})">
+	<summary>
+ Fügt einer ComboBox eine ListOfString hinzu
+ </summary>
+	<param name="lst">Die ComboBox, in die geschreiben werden soll.</param>
+	<param name="strngList">Die ListOfString, die in die Listbox geschrieben werden soll.</param>
+</member><member name="M:CharImport_Test.clsConvert.ConvListOfString2ListObject(System.Windows.Forms.ComboBox@,System.String[])">
+	<summary>
+ Fügt einer ComboBox ein Stringarray hinzu
+ </summary>
+	<param name="lst">Die ComboBox, in die geschreiben werden soll.</param>
+	<param name="strngList">Das Stringarray, das in die Listbox geschrieben werden soll.</param>
+</member><member name="P:CharImport_Test.My.Resources.Resources.ResourceManager">
 	<summary>
   Gibt die zwischengespeicherte ResourceManager-Instanz zurück, die von dieser Klasse verwendet wird.
 </summary>
@@ -470,76 +540,6 @@ Beschwert (+2 Schaden); [Rest der Zeichenfolge wurde abgeschnitten]"; ähnelt.
 	<summary>
   Eine stark typisierte Ressourcenklasse zum Suchen von lokalisierten Zeichenfolgen usw.
 </summary>
-</member><member name="M:CharImport_Test.clsConvert.ArrayToString(System.String[],System.String)">
-	<summary>
- Konvertiert ein Array in einen string
- </summary>
-	<param name="Ar">Erwartet ein Stringarray</param>
-	<param name="Seperator">Ein Trennzeichen für die Arrays, Standard ist ", "</param>
-</member><member name="M:CharImport_Test.clsConvert.ConvListObject2String(System.Collections.Generic.List{System.String},System.String)">
-	<summary>
- Konvertiert eine ListOfString in einen String
- </summary>
-	<param name="lst">Die zu konvertierende Liste.</param>
-	<param name="Seperator">Ein Trennzeichen für die Arrays, Standard ist ", "</param>
-</member><member name="M:CharImport_Test.clsConvert.ConvListObject2Array(System.Collections.Generic.List{System.String})">
-	<summary>
- Konvertiert eine ListOfString in ein Array
- </summary>
-	<param name="lst">Die zu konvertierende Liste.</param>
-</member><member name="M:CharImport_Test.clsConvert.ConvArray2ListObject(System.String[])">
-	<summary>
- Konvertiert ein Array in eine ListOfString
- </summary>
-	<param name="ar">Das zu konvertierende Array.</param>
-</member><member name="M:CharImport_Test.clsConvert.ConvListObject2ListOfString(System.Windows.Forms.ListBox@)">
-	<summary>
- Konvertiert Listbox-Einträge in eine ListOfString
- und gibt sie zurück
- </summary>
-	<param name="lst">Die Listbox, aus der die einträge entnommen werden sollen.</param>
-</member><member name="M:CharImport_Test.clsConvert.ConvListObject2ListOfString(System.Windows.Forms.ComboBox@)">
-	<summary>
- Konvertiert ComboBox-Einträge in eine ListOfString
- und gibt sie zurück
- </summary>
-	<param name="lst">Die ComboBox, aus der die einträge entnommen werden sollen.</param>
-</member><member name="M:CharImport_Test.clsConvert.ConvListOfString2ListObject(System.Windows.Forms.ListBox@,System.Collections.Generic.List{System.String})">
-	<summary>
- Fügt einer Listbox eine ListOfString hinzu
- </summary>
-	<param name="lst">Die Listbox, in die geschreiben werden soll.</param>
-	<param name="strngList">Die ListOfString, die in die Listbox geschrieben werden soll.</param>
-</member><member name="M:CharImport_Test.clsConvert.ConvListOfString2ListObject(System.Windows.Forms.ListBox@,System.String[])">
-	<summary>
- Fügt einer Listbox ein Stringarray hinzu
- </summary>
-	<param name="lst">Die Listbox, in die geschreiben werden soll.</param>
-	<param name="strngList">Das Stringarray, das in die Listbox geschrieben werden soll.</param>
-</member><member name="M:CharImport_Test.clsConvert.ConvListOfString2ListObject(System.Windows.Forms.ToolStripComboBox@,System.Collections.Generic.List{System.String})">
-	<summary>
- Fügt einer ToolStripComboBox eine ListOfString hinzu
- </summary>
-	<param name="lst">Die ToolStripComboBox, in die geschreiben werden soll.</param>
-	<param name="strngList">Die ListOfString, die in die ToolStripComboBox geschrieben werden soll.</param>
-</member><member name="M:CharImport_Test.clsConvert.ConvListOfString2ListObject(System.Windows.Forms.ToolStripComboBox@,System.String[])">
-	<summary>
- Fügt einer ToolStripComboBox ein Stringarray hinzu
- </summary>
-	<param name="lst">Die ToolStripComboBox, in die geschreiben werden soll.</param>
-	<param name="strngList">Das Stringarray, das in die ToolStripComboBox geschrieben werden soll.</param>
-</member><member name="M:CharImport_Test.clsConvert.ConvListOfString2ListObject(System.Windows.Forms.ComboBox@,System.Collections.Generic.List{System.String})">
-	<summary>
- Fügt einer ComboBox eine ListOfString hinzu
- </summary>
-	<param name="lst">Die ComboBox, in die geschreiben werden soll.</param>
-	<param name="strngList">Die ListOfString, die in die Listbox geschrieben werden soll.</param>
-</member><member name="M:CharImport_Test.clsConvert.ConvListOfString2ListObject(System.Windows.Forms.ComboBox@,System.String[])">
-	<summary>
- Fügt einer ComboBox ein Stringarray hinzu
- </summary>
-	<param name="lst">Die ComboBox, in die geschreiben werden soll.</param>
-	<param name="strngList">Das Stringarray, das in die Listbox geschrieben werden soll.</param>
 </member>
 </members>
 </doc>

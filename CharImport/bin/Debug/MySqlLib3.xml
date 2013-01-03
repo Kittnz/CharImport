@@ -1,0 +1,162 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+MySqlLib3
+</name>
+</assembly>
+<members>
+<member name="M:MySqlLib3.MySqlLib.#ctor(System.String,System.Boolean)">
+	<summary>
+ New instance of MySqlLib
+ </summary>
+	<param name="Uri">Uri to the script (e.g.: http://www.domain.com/query.php)</param>
+	<param name="DebugMode">If debug mode is true, you don't need a application key</param>
+	<remarks></remarks>
+</member><member name="M:MySqlLib3.MySqlLib.#ctor(System.String,MySqlLib3.Net.Proxy,System.Boolean)">
+	<summary>
+ New instance of MySqlLib with proxy
+ </summary>
+	<param name="Uri">Uri to the script (e.g.: http://www.domain.com/query.php)</param>
+	<param name="Proxy">Proxy instance</param>
+	<param name="DebugMode">If debug mode is true, you don't need a application key</param>
+	<remarks></remarks>
+</member><member name="M:MySqlLib3.MySqlLib.Query(System.String)">
+	<summary>
+ Execute the querystring
+ </summary>
+	<param name="Command">Querystring</param>
+	<returns>Returns a ResultCollection</returns>
+	<remarks></remarks>
+</member><member name="P:MySqlLib3.MySqlLib.Encoding">
+	<summary>
+ Get or set the encoding
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:MySqlLib3.MySqlLib.ResultCollection.ResultItem.Column(System.String)">
+	<summary>
+ Return value of column name
+ </summary>
+	<param name="ColumnName"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:MySqlLib3.MySqlLib.ResultCollection.ResultItem.Column(System.Int32)">
+	<summary>
+ Return value of column index
+ </summary>
+	<param name="Index"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:MySqlLib3.MySqlLib.ResultCollection">
+	<summary>
+ Collection of mysql results from the query
+ </summary>
+	<remarks></remarks>
+</member><member name="M:MySqlLib3.Net.Proxy.#ctor(System.String,System.Int32)">
+	<summary>
+ Create a new instance of proxy
+ </summary>
+	<param name="ProxyUri">Proxy URL (e.g.: http://www.example.com).</param>
+	<param name="ProxyPort">Proxy port (e.g.: 8080)</param>
+	<remarks></remarks>
+</member><member name="M:MySqlLib3.Net.Proxy.#ctor(System.String,System.Int32,System.String,System.String)">
+	<summary>
+ Create a new instance of proxy
+ </summary>
+	<param name="ProxyUri">Proxy URL (e.g.: http://www.example.com).</param>
+	<param name="ProxyPort">Proxy port (e.g.: 8080)</param>
+	<param name="ProxyUser">Proxy username.</param>
+	<param name="ProxyPassword">Proxy password.</param>
+	<remarks></remarks>
+</member><member name="P:MySqlLib3.Net.Proxy.Uri">
+	<summary>
+ Proxy URL (e.g.: http://www.example.com).
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MySqlLib3.Net.Proxy.Port">
+	<summary>
+ Proxy port (e.g.: 8080)
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MySqlLib3.Net.Proxy.Username">
+	<summary>
+ Proxy username.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MySqlLib3.Net.Proxy.Password">
+	<summary>
+ Proxy password.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MySqlLib3.Net.Proxy.ToWebProxy">
+	<summary>
+ Converts to WebProxy-Class.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MySqlLib3.Net.Proxy.isProxy">
+	<summary>
+ Is proxy set.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:MySqlLib3.Net.HTTPPostRequest.#ctor(System.String)">
+	<summary>
+ Create new instance and set the url.
+ </summary>
+	<param name="URL"></param>
+	<remarks></remarks>
+</member><member name="M:MySqlLib3.Net.HTTPPostRequest.Submit">
+	<summary>
+ Transfer data to the url.
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:MySqlLib3.Net.HTTPPostRequest.AddVar(System.String,System.String)">
+	<summary>
+ Add a variable with value.
+ </summary>
+	<param name="VarName">Name of variable.</param>
+	<param name="Value">Value of variable.</param>
+</member><member name="M:MySqlLib3.Net.HTTPPostRequest.GetLibVersion">
+	<summary>
+ Get the version of this libary
+ </summary>
+	<returns>Returns version like 'Major.Minor'.</returns>
+	<remarks></remarks>
+</member><member name="P:MySqlLib3.Net.HTTPPostRequest.UserAgent">
+	<summary>
+ Get oder set UserAgent string.
+ </summary>
+	<value></value>
+	<returns>Useragent string</returns>
+	<remarks></remarks>
+</member><member name="P:MySqlLib3.Net.HTTPPostRequest.Encoding">
+	<summary>
+ Get or set the encoding of post and retuned data. Default encoding is UTF8.
+ </summary>
+	<value></value>
+	<returns>Selected encoding</returns>
+	<remarks></remarks>
+</member><member name="P:MySqlLib3.Net.HTTPPostRequest.Proxy">
+	<summary>
+ Get or set a proxy.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member>
+</members>
+</doc>
