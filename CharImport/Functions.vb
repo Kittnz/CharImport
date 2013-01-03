@@ -1,4 +1,4 @@
-﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+﻿'Copyright (C) 2011-2013 CharImport <http://sourceforge.net/projects/charimport/>
 '*
 '* This application is free and can be distributed.
 '*
@@ -9,6 +9,7 @@
 Imports System.Net
 Imports System.Text
 Imports MySql.Data.MySqlClient
+Imports System.Security.Cryptography
 
 Public Class Functions
     Dim reporttext As RichTextBox = Process_Status.processreport
@@ -56,9 +57,9 @@ Public Class Functions
                     Now.TimeOfDay.ToString & "// Loading Weapontype from itemid: " & itemid & vbNewLine)
                 My.Application.DoEvents()
                 Dim clienyx88 As New WebClient
-                Dim quellcodeyx88 As String = clienyx88.DownloadString("http://www.wowhead.com/item=" & itemid.ToString)
-                Dim anfangyx88 As String = "description"" content="""
-                Dim endeyx88 As String = """ /><meta"
+                Dim quellcodeyx88 As String = clienyx88.DownloadString("http://www.wowhead.com/item=" & itemid.ToString & "&xml")
+                Dim anfangyx88 As String = "<subclass id="
+                Dim endeyx88 As String = "</subclass>"
                 Dim quellcodeSplityx88 As String
                 quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
                 quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
@@ -136,92 +137,76 @@ Public Class Functions
     End Sub
 
     Public Function getvzeffectname(ByVal vzid As Integer) As String
+
+        Dim targeturl As String = ""
+        If My.Settings.language = "de" Then
+            targeturl = "http://de.wowhead.com/spell="
+        Else
+            targeturl = "http://wowhead.com/spell="
+        End If
         Try
             Dim clienyx88 As New WebClient
-            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://de.wowhead.com/spell=" & vzid.ToString)
-            Dim anfangyx88 As String = "Enchant Item: [<span class=""q2"">"
-            Dim endeyx88 As String = "</span>"
+            Dim quellcodeyx88 As String = clienyx88.DownloadString(targeturl & vzid.ToString)
+            Dim anfangyx88 As String = ">Enchant Item:"
+            Dim endeyx88 As String = "</tr>"
             Dim quellcodeSplityx88 As String
             quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
             quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-            If quellcodeSplityx88.Contains("<a href=") Then
-                Dim quellcodeyx882 As String = quellcodeSplityx88
+            Dim anfangyx889 As String = "<span class=""q2"">"
+            Dim endeyx889 As String = "</span>"
+            Dim quellcodeSplityx889 As String
+            quellcodeSplityx889 = Split(quellcodeSplityx88, anfangyx889, 5)(1)
+            quellcodeSplityx889 = Split(quellcodeSplityx889, endeyx889, 6)(0)
+            If quellcodeSplityx889.Contains("<a href=") Then
+                Dim quellcodeyx882 As String = quellcodeSplityx889
                 Dim anfangyx882 As String = "<a href="
                 Dim endeyx882 As String = """>"
                 Dim quellcodeSplityx882 As String
                 quellcodeSplityx882 = Split(quellcodeyx882, anfangyx882, 5)(1)
                 quellcodeSplityx882 = Split(quellcodeSplityx882, endeyx882, 6)(0)
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("<a href=" & quellcodeSplityx882 & """>", "")
-                If quellcodeSplityx88.Contains("</a>") Then quellcodeSplityx88 = quellcodeSplityx88.Replace("</a>", "")
+                quellcodeSplityx889 = quellcodeSplityx889.Replace("<a href=" & quellcodeSplityx882 & """>", "")
+                If quellcodeSplityx889.Contains("</a>") Then quellcodeSplityx889 = quellcodeSplityx889.Replace("</a>", "")
 
             End If
-            Dim b() As Byte = Encoding.Default.GetBytes(quellcodeSplityx88)
-            quellcodeSplityx88 = Encoding.UTF8.GetString(b)
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Tempo", "Tempowertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Trefferwert", "Trefferwertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Ausweichen", "Ausweichwertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Blockwert", "Blockwertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Parieren", "Parierwertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Abhärtungswert", "Abhärtungswertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Waffenkundewert", "Waffenkundewertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Meisterschaft", "Meisterschaftswertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("kritischer", "kritische")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("wertungung", "wertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("wertungswertung", "wertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("wertungwertung", "wertung")
-            Catch ex As Exception
-
-            End Try
-            Return quellcodeSplityx88
+            Dim s As String = quellcodeSplityx889
+            Dim b() As Byte = Encoding.Default.GetBytes(s)
+            Dim s1 As String = Encoding.UTF8.GetString(b)
+            Return s1
         Catch ex As Exception
 
             Return ""
         End Try
+    End Function
+    Private Function addrating(ByVal quellcodeSplityx88 As String) As String
+
+        quellcodeSplityx88 = quellcodeSplityx88.Replace("Tempo", "Tempowertung")
+        quellcodeSplityx88 = quellcodeSplityx88.Replace("Trefferwert", "Trefferwertung")
+        quellcodeSplityx88 = quellcodeSplityx88.Replace("Ausweichen", "Ausweichwertung")
+        quellcodeSplityx88 = quellcodeSplityx88.Replace("Blockwert", "Blockwertung")
+        quellcodeSplityx88 = quellcodeSplityx88.Replace("Parieren", "Parierwertung")
+        quellcodeSplityx88 = quellcodeSplityx88.Replace("Abhärtungswert", "Abhärtungswertung")
+        quellcodeSplityx88 = quellcodeSplityx88.Replace("Waffenkundewert", "Waffenkundewertung")
+        quellcodeSplityx88 = quellcodeSplityx88.Replace("Meisterschaft", "Meisterschaftswertung")
+        quellcodeSplityx88 = quellcodeSplityx88.Replace("kritischer", "kritische")
+        quellcodeSplityx88 = quellcodeSplityx88.Replace("wertungung", "wertung")
+        quellcodeSplityx88 = quellcodeSplityx88.Replace("wertungswertung", "wertung")
+        quellcodeSplityx88 = quellcodeSplityx88.Replace("wertungwertung", "wertung")
+
+        quellcodeSplityx88 = quellcodeSplityx88.Replace("Haste", "Haste Rating")
+        quellcodeSplityx88 = quellcodeSplityx88.Replace("Dodge", "Dodge Rating")
+        quellcodeSplityx88 = quellcodeSplityx88.Replace("Critical Strike", "Critical Strike Rating")
+        quellcodeSplityx88 = quellcodeSplityx88.Replace("Shield Block", "Shield Block Rating")
+        quellcodeSplityx88 = quellcodeSplityx88.Replace("Parry", "Parry Rating")
+        quellcodeSplityx88 = quellcodeSplityx88.Replace("Block", "Block Rating")
+        quellcodeSplityx88 = quellcodeSplityx88.Replace("Block Rating Level", "Block Rating")
+        quellcodeSplityx88 = quellcodeSplityx88.Replace("Ranged Hit", "Ranged Hit Rating")
+        quellcodeSplityx88 = quellcodeSplityx88.Replace("Hit", "Hit Rating")
+        quellcodeSplityx88 = quellcodeSplityx88.Replace("Resilience", "Resilience Rating")
+        quellcodeSplityx88 = quellcodeSplityx88.Replace("Rating Rating Rating", "Rating")
+        quellcodeSplityx88 = quellcodeSplityx88.Replace("Rating Rating", "Rating")
+
+        Return quellcodeSplityx88
+
     End Function
     Public Function getnamefromitemid(ByVal itemid As String) As String
         If itemid = "-" Or itemid = "" Or itemid = "0" Then Return "-"
@@ -256,105 +241,60 @@ Public Class Functions
             Return "-"
         End Try
     End Function
-    Public Function getsocketeffectname(ByVal socketid As Integer) As String
+    Public Function getsocketeffectnameofitemid(ByVal socketid As Integer) As String
         Try
             Dim clienyx88 As New WebClient
-            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://de.wowhead.com/item=" & socketid.ToString)
+            Dim quellcodeyx88 As String
+            If My.Settings.language = "de" Then
+                quellcodeyx88 = clienyx88.DownloadString("http://de.wowhead.com/item=" & socketid.ToString & "&xml")
+            Else
+                quellcodeyx88 = clienyx88.DownloadString("http://www.wowhead.com/item=" & socketid.ToString & "&xml")
+            End If
             Dim anfangyx88 As String = "<span class=""q1"">"
             Dim endeyx88 As String = "</span>"
             Dim quellcodeSplityx88 As String
             quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
             quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-            If quellcodeSplityx88.Contains("<a href=") Then
-                Dim quellcodeyx882 As String = quellcodeSplityx88
-                Dim anfangyx882 As String = "<a href="
-                Dim endeyx882 As String = """>"
-                Dim quellcodeSplityx882 As String
-                quellcodeSplityx882 = Split(quellcodeyx882, anfangyx882, 5)(1)
-                quellcodeSplityx882 = Split(quellcodeSplityx882, endeyx882, 6)(0)
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("<a href=" & quellcodeSplityx882 & """>", "")
-                If quellcodeSplityx88.Contains("</a>") Then quellcodeSplityx88 = quellcodeSplityx88.Replace("</a>", "")
 
+
+            If quellcodeSplityx88.Contains("<a href") Then
+                Try
+                    Dim anfangyx888 As String = "<a href="""
+                    Dim endeyx888 As String = """>"
+                    Dim quellcodeSplityx888 As String
+                    quellcodeSplityx888 = Split(quellcodeSplityx88, anfangyx888, 5)(1)
+                    quellcodeSplityx888 = Split(quellcodeSplityx888, endeyx888, 6)(0)
+                    quellcodeSplityx88 = quellcodeSplityx88.Replace("<a href=""" & quellcodeSplityx888 & """>", "")
+                    quellcodeSplityx88 = quellcodeSplityx88.Replace("</a>", "")
+                    Return quellcodeSplityx88
+                Catch ex As Exception
+                    Return quellcodeSplityx88
+                End Try
+            Else
+                Return quellcodeSplityx88
             End If
-            Dim b() As Byte = Encoding.Default.GetBytes(quellcodeSplityx88)
-            quellcodeSplityx88 = Encoding.UTF8.GetString(b)
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Tempo", "Tempowertung")
             Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Trefferwert", "Trefferwertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Ausweichen", "Ausweichwertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Blockwert", "Blockwertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Parieren", "Parierwertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Abhärtungswert", "Abhärtungswertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Waffenkundewert", "Waffenkundewertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Meisterschaft", "Meisterschaftswertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("kritischer", "kritische")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("wertungung", "wertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("wertungswertung", "wertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("wertungwertung", "wertung")
-            Catch ex As Exception
-
-            End Try
-            Return quellcodeSplityx88
-        Catch ex As Exception
-
             Return ""
         End Try
+
     End Function
 
     Public Sub getimage(ByVal itemid As Integer, ByVal picbox As PictureBox)
+        picbox.Image = My.Resources.empty
         Try
             Dim clienyx88 As New WebClient
-            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://wowdb.com/items/" & itemid.ToString)
-            Dim anfangyx88 As String = "<img src="""
-            Dim endeyx88 As String = """ alt="""" />"
+            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://www.wowhead.com/item=" & itemid.ToString & "&xml")
+            Dim anfangyx88 As String = "<icon displayId="
+            Dim endeyx88 As String = "icon>"
             Dim quellcodeSplityx88 As String
             quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
             quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-            LoadImageFromUrl(quellcodeSplityx88, picbox)
+            Dim anfangyx888 As String = """>"
+            Dim endeyx888 As String = "</"
+            Dim quellcodeSplityx888 As String
+            quellcodeSplityx888 = Split(quellcodeSplityx88, anfangyx888, 5)(1)
+            quellcodeSplityx888 = Split(quellcodeSplityx888, endeyx888, 6)(0)
+            LoadImageFromUrl("http://wow.zamimg.com/images/wow/icons/large/" & quellcodeSplityx888.ToLower() & ".jpg", picbox)
         Catch ex As Exception
             picbox.Image = My.Resources.empty
         End Try
@@ -491,6 +431,8 @@ Public Class Functions
     End Function
 
     Public Function normalsqlcommand(ByVal command As String, Optional ByVal showerror As Boolean = True, Optional ByVal returnerror As Boolean = False) As Boolean
+
+
         Try
             NewUser(command)
             Return False
@@ -576,7 +518,7 @@ Public Class Functions
     Public Function geteffectnameofeffectid(ByVal effectid As Integer) As String
 
         Try
-           Dim nameresult As String = executex2("effectid", effectid.ToString(), Main.effectname_dt)
+            Dim nameresult As String = executex2("effectid", effectid.ToString(), Main.effectname_dt)
             If nameresult = "-" Then
                 Return "Error loading effectname"
             Else
@@ -586,7 +528,7 @@ Public Class Functions
             Return "Error loading effectname"
         End Try
     End Function
-    Private Function executex2(ByVal field As String, ByVal isvalue As String, ByVal tempdatatable As DataTable) As String
+    Private Function executex2(ByVal field As String, ByVal isvalue As String, ByVal tempdatatable As DataTable, Optional secfield As Integer = 1) As String
         Try
             Dim foundRows() As DataRow
             foundRows = tempdatatable.Select(field & " = '" & isvalue & "'")
@@ -596,7 +538,7 @@ Public Class Functions
                 Dim i As Integer
                 Dim tmpreturn As String = "-"
                 For i = 0 To foundRows.GetUpperBound(0)
-                    tmpreturn = (foundRows(i)(1)).ToString
+                    tmpreturn = (foundRows(i)(secfield)).ToString
 
                 Next i
                 Return tmpreturn
@@ -606,224 +548,54 @@ Public Class Functions
             Return "-"
         End Try
     End Function
-    Public Function getvzeffectname2(ByVal vzid As Integer) As String
-        Process_Status.processreport.appendText(
-            Now.TimeOfDay.ToString & "// Getting effectname of vzid: " & vzid & vbNewLine)
-        Try
-            Dim clienyx88 As New WebClient
-            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://de.wowhead.com/spell=" & vzid.ToString)
-            Dim anfangyx88 As String = "Enchant Item: [<span class=""q2"">"
-            Dim endeyx88 As String = "</span>"
-            Dim quellcodeSplityx88 As String
-            quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-            quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-            If quellcodeSplityx88.Contains("<a href=") Then
-                Dim quellcodeyx882 As String = quellcodeSplityx88
-                Dim anfangyx882 As String = "<a href="
-                Dim endeyx882 As String = """>"
-                Dim quellcodeSplityx882 As String
-                quellcodeSplityx882 = Split(quellcodeyx882, anfangyx882, 5)(1)
-                quellcodeSplityx882 = Split(quellcodeSplityx882, endeyx882, 6)(0)
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("<a href=" & quellcodeSplityx882 & """>", "")
-                If quellcodeSplityx88.Contains("</a>") Then quellcodeSplityx88 = quellcodeSplityx88.Replace("</a>", "")
 
-            End If
-            Dim b() As Byte = Encoding.Default.GetBytes(quellcodeSplityx88)
-            quellcodeSplityx88 = Encoding.UTF8.GetString(b)
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Tempo", "Tempowertung")
-            Catch ex As Exception
 
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Trefferwert", "Trefferwertung")
-            Catch ex As Exception
 
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Ausweichen", "Ausweichwertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Blockwert", "Blockwertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Parieren", "Parierwertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Abhärtungswert", "Abhärtungswertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Waffenkundewert", "Waffenkundewertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Meisterschaft", "Meisterschaftswertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("kritischer", "kritische")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("wertungung", "wertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("wertungswertung", "wertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("wertungwertung", "wertung")
-            Catch ex As Exception
-
-            End Try
-            Return quellcodeSplityx88
-        Catch ex As Exception
-            Process_Status.processreport.appendText(
-                Now.TimeOfDay.ToString & "> EXCEPTION WHILE GETTING EFFECTNAME FROM VZID: " & ex.ToString & vbNewLine)
-            Return "error"
-        End Try
-    End Function
-
-    Public Function getsocketeffectname2(ByVal socketid As Integer) As String
-        Process_Status.processreport.appendText(
-            Now.TimeOfDay.ToString & "// Getting effectname of socketid: " & socketid & vbNewLine)
-        Try
-            Dim clienyx88 As New WebClient
-            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://de.wowhead.com/item=" & socketid)
-            Dim anfangyx88 As String = "<span class=""q1"">"
-            Dim endeyx88 As String = "</span>"
-            Dim quellcodeSplityx88 As String
-            quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-            quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-            If quellcodeSplityx88.Contains("<a href=") Then
-                Dim quellcodeyx882 As String = quellcodeSplityx88
-                Dim anfangyx882 As String = "<a href="
-                Dim endeyx882 As String = """>"
-                Dim quellcodeSplityx882 As String
-                quellcodeSplityx882 = Split(quellcodeyx882, anfangyx882, 5)(1)
-                quellcodeSplityx882 = Split(quellcodeSplityx882, endeyx882, 6)(0)
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("<a href=" & quellcodeSplityx882 & """>", "")
-                If quellcodeSplityx88.Contains("</a>") Then quellcodeSplityx88 = quellcodeSplityx88.Replace("</a>", "")
-
-            End If
-            Dim b() As Byte = Encoding.Default.GetBytes(quellcodeSplityx88)
-            quellcodeSplityx88 = Encoding.UTF8.GetString(b)
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Tempo", "Tempowertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Trefferwert", "Trefferwertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Ausweichen", "Ausweichwertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Blockwert", "Blockwertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Parieren", "Parierwertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("kritischer", "kritische")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Abhärtungswert", "Abhärtungswertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Waffenkundewert", "Waffenkundewertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("Meisterschaft", "Meisterschaftswertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("wertungung", "wertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("wertungswertung", "wertung")
-            Catch ex As Exception
-
-            End Try
-            Try
-                quellcodeSplityx88 = quellcodeSplityx88.Replace("wertungwertung", "wertung")
-            Catch ex As Exception
-
-            End Try
-            Return quellcodeSplityx88
-        Catch ex As Exception
-            Process_Status.processreport.appendText(
-                Now.TimeOfDay.ToString & "> ERROR WHILE GETTING EFFECTNAME OF SOCKETID: " & ex.ToString & vbNewLine)
-            Return "error"
-        End Try
-    End Function
 
     Public Function getvzeffectid(ByVal effectname As String) As Integer
         Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "// Getting effectid of effectname: " & effectname & vbNewLine)
-        Select Case Main.xpac
-            Case 3
-                xpacressource = My.Resources.VZ_ID_wotlk
-            Case 4
-                xpacressource = My.Resources.VZ_ID_cata
-            Case Else
-                xpacressource = My.Resources.VZ_ID_wotlk
-        End Select
+
         Try
-            Dim zclienyx88 As New WebClient
-            Dim zquellcodeyx88 As String = xpacressource
-            Dim zanfangyx88 As String = effectname & ";"
-            Dim zendeyx88 As String = ";xxx"
-            Dim zquellcodeSplityx88 As String
-            zquellcodeSplityx88 = Split(zquellcodeyx88, zanfangyx88, 5)(1)
-            zquellcodeSplityx88 = Split(zquellcodeSplityx88, zendeyx88, 6)(0)
-
-            Return CInt(zquellcodeSplityx88)
-
+            Dim nameresult As String = executex2("effectname", addrating(effectname), Main.effectname_dt, 0)
+            If nameresult = "-" Then
+                Try
+                    Dim nameresult2 As String = executex2("effectname", effectname, Main.effectname_dt, 0)
+                    If nameresult2 = "-" Then
+                        Return 0
+                    Else
+                        Return CInt(nameresult2)
+                    End If
+                Catch ex As Exception
+                    Process_Status.processreport.AppendText(
+                        Now.TimeOfDay.ToString & "> ERROR WHILE GETTING EFFECTID OF EFFECTNAME: " & ex.ToString & vbNewLine)
+                    Return 0
+                End Try
+            Else
+                Return CInt(nameresult)
+            End If
         Catch ex As Exception
-            Process_Status.processreport.appendText(
-                Now.TimeOfDay.ToString & "> ERROR WHILE GETTING EFFECTID OF EFFECTNAME: " & ex.ToString & vbNewLine)
-            Return 0
+            Try
+                Dim nameresult As String = executex2("effectname", effectname, Main.effectname_dt, 0)
+                If nameresult = "-" Then
+                    Return 0
+                Else
+                    Return CInt(nameresult)
+                End If
+            Catch
+                Process_Status.processreport.AppendText(
+                    Now.TimeOfDay.ToString & "> ERROR WHILE GETTING EFFECTID OF EFFECTNAME: " & ex.ToString & vbNewLine)
+                Return 0
+            End Try
         End Try
+
     End Function
     Public Function getspellidfromitem(ByVal itemid As String) As Integer
         Try
             Dim clienyx88 As New WebClient
-            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://www.wowhead.com/item=" & itemid)
-            Dim anfangyx88 As String = "<a href=""/spell="
-            Dim endeyx88 As String = """"
+            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://www.wowhead.com/item=" & itemid & "&xml")
+            Dim anfangyx88 As String = "<a href=""http://www.wowhead.com/spell="
+            Dim endeyx88 As String = """ class"
             Dim quellcodeSplityx88 As String
             quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
             quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
@@ -840,9 +612,9 @@ Public Class Functions
     Public Function getspellnamefromid(ByVal spellid As String) As String
         Try
             Dim clienyx88 As New WebClient
-            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://wowdata.buffed.de/?s=" & spellid)
-            Dim anfangyx88 As String = "<h1 class=""headline1"">"
-            Dim endeyx88 As String = "</h1>"
+            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://www.wowhead.com/spell=" & spellid & "&power")
+            Dim anfangyx88 As String = "name_enus: '"
+            Dim endeyx88 As String = "',"
             Dim quellcodeSplityx88 As String
             quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
             quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
@@ -871,6 +643,9 @@ Public Class Functions
             Case Else
                 xpacressource = My.Resources.GEM_ID_wotlk
         End Select
+        If Main.armoryrun = True Then
+            xpacressource = My.Resources.GEM_ID_MOP
+        End If
         Try
             Dim zclienyx88 As New WebClient
             Dim zquellcodeyx88 As String = xpacressource
@@ -882,7 +657,7 @@ Public Class Functions
 
             Return CInt(zquellcodeSplityx88)
         Catch ex As Exception
-            Process_Status.processreport.appendText(
+            Process_Status.processreport.AppendText(
                 Now.TimeOfDay.ToString & "> ERROR WHILE GETTING EFFECTID OF GEMID: " & ex.ToString & vbNewLine)
             Return 0
         End Try
@@ -902,9 +677,9 @@ Public Class Functions
             End Select
             Try
                 Dim clienyx88 As New WebClient
-                Dim quellcodeyx88 As String = clienyx88.DownloadString("http://wowhead.com/item=" & glyphid)
-                Dim anfangyx88 As String = "<a href=""/spell="
-                Dim endeyx88 As String = """ "
+                Dim quellcodeyx88 As String = clienyx88.DownloadString("http://wowhead.com/item=" & glyphid & "&xml")
+                Dim anfangyx88 As String = "a href=""http://www.wowhead.com/spell="
+                Dim endeyx88 As String = """ class"
                 Dim quellcodeSplityx88 As String
                 quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
                 quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
@@ -978,4 +753,20 @@ Public Class Functions
             End If
         End If
     End Sub
+    Public Function SHA1StringHash(ByVal strString As String) As String
+        Dim SHA1 As New SHA1CryptoServiceProvider
+        Dim Data As Byte()
+        Dim Result As Byte()
+        Dim Res As String = ""
+        Dim Tmp As String = ""
+
+        Data = Encoding.ASCII.GetBytes(strString)
+        Result = SHA1.ComputeHash(Data)
+        For i As Integer = 0 To Result.Length - 1
+            Tmp = Hex(Result(i))
+            If Len(Tmp) = 1 Then Tmp = "0" & Tmp
+            Res += Tmp
+        Next
+        Return Res
+    End Function
 End Class

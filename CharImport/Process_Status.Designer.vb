@@ -30,8 +30,8 @@ Partial Class Process_Status
         '
         'processreport
         '
-        resources.ApplyResources(Me.processreport, "processreport")
         Me.processreport.BackColor = System.Drawing.SystemColors.ScrollBar
+        resources.ApplyResources(Me.processreport, "processreport")
         Me.processreport.Name = "processreport"
         Me.processreport.ReadOnly = True
         '
@@ -44,9 +44,9 @@ Partial Class Process_Status
         '
         'Button1
         '
-        resources.ApplyResources(Me.Button1, "Button1")
         Me.Button1.BackColor = System.Drawing.Color.DimGray
         Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
+        resources.ApplyResources(Me.Button1, "Button1")
         Me.Button1.Name = "Button1"
         Me.Button1.UseVisualStyleBackColor = False
         '
@@ -59,9 +59,7 @@ Partial Class Process_Status
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.processreport)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "Process_Status"
-        Me.TopMost = True
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

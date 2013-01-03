@@ -1,4 +1,4 @@
-﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+﻿'Copyright (C) 2011-2013 CharImport <http://sourceforge.net/projects/charimport/>
 '*
 '* This application is free and can be distributed.
 '*
@@ -169,6 +169,20 @@ Public Class Connect
                                         ";Password=" & password.Text & ";Database=character"
                     Main.characterdbname = "character"
                     Main.ServerStringCheck = Main.ServerString
+                    If determinecore() = "arcemu" Then
+                        arcemu.Checked = True
+                    ElseIf determinecore() = "mangos" Then
+                        mangos.Checked = True
+                    ElseIf determinecore() = "trinity" Then
+                        trinity1.Checked = True
+                    ElseIf determinecore() = "none" Then
+                        If My.Settings.language = "de" Then
+                            MsgBox(localeDE.couldnotdeterminecore, MsgBoxStyle.Critical, localeDE.errornotification)
+                        Else
+                            MsgBox(localeEN.couldnotdeterminecore, MsgBoxStyle.Critical, localeEN.errornotification)
+                        End If
+                        Exit Sub
+                    End If
                     If My.Settings.language = "de" Then
                         MsgBox(localeDE.armory2database_txt5)
                     Else
@@ -248,6 +262,20 @@ Public Class Connect
                 Main.ServerStringCheck = Main.ServerString
                 Main.characterdbname = "characters"
                 runfunction.writelog("Could find character db and auth db")
+                If determinecore() = "arcemu" Then
+                    arcemu.Checked = True
+                ElseIf determinecore() = "mangos" Then
+                    mangos.Checked = True
+                ElseIf determinecore() = "trinity" Then
+                    trinity1.Checked = True
+                ElseIf determinecore() = "none" Then
+                    If My.Settings.language = "de" Then
+                        MsgBox(localeDE.couldnotdeterminecore, MsgBoxStyle.Critical, localeDE.errornotification)
+                    Else
+                        MsgBox(localeEN.couldnotdeterminecore, MsgBoxStyle.Critical, localeEN.errornotification)
+                    End If
+                    Exit Sub
+                End If
                 If My.Settings.language = "de" Then
                     MsgBox(localeDE.armory2database_txt5)
                 Else
@@ -276,6 +304,20 @@ Public Class Connect
                                         ";Password=" & password.Text & ";Database=" & characters.Text
                     Main.characterdbname = characters.Text
                     Main.ServerStringCheck = Main.ServerString
+                    If determinecore() = "arcemu" Then
+                        arcemu.Checked = True
+                    ElseIf determinecore() = "mangos" Then
+                        mangos.Checked = True
+                    ElseIf determinecore() = "trinity" Then
+                        trinity1.Checked = True
+                    ElseIf determinecore() = "none" Then
+                        If My.Settings.language = "de" Then
+                            MsgBox(localeDE.couldnotdeterminecore, MsgBoxStyle.Critical, localeDE.errornotification)
+                        Else
+                            MsgBox(localeEN.couldnotdeterminecore, MsgBoxStyle.Critical, localeEN.errornotification)
+                        End If
+                        Exit Sub
+                    End If
                     If My.Settings.language = "de" Then
                         MsgBox(localeDE.armory2database_txt5)
                     Else
@@ -310,7 +352,63 @@ Public Class Connect
         End If
         Panel4.Location = Panel3.Location
     End Sub
+    Private Function determinecore() As String
+        If columnexist("acct", "accounts") = True Then
+            'arcemu
+            Return "arcemu"
+        ElseIf columnexist("realmflags", "realmlist") = True Then
+            'mangos
+            Return "mangos"
+        ElseIf columnexist("online", "account") = True Then
+            'trinity
+            Return "trinity"
+        Else
+            Return "none"
+        End If
+    End Function
+    Private Function columnexist(ByVal spalte As String, ByVal table As String) As Boolean
+        Try
+            SQLConnection.Close()
 
+            SQLConnection.Dispose()
+        Catch ex As Exception
+
+        End Try
+
+        Dim myAdapter As New MySqlDataAdapter
+        SQLConnection.ConnectionString = Main.ServerStringRealmd
+        Dim sqlquery = ("SELECT " & spalte & " FROM " & table)
+        Dim myCommand As New MySqlCommand()
+        myCommand.Connection = SQLConnection
+        myCommand.CommandText = sqlquery
+
+        'start query
+        myAdapter.SelectCommand = myCommand
+        Dim myData As MySqlDataReader
+        Try
+            SQLConnection.Close()
+            SQLConnection.Dispose()
+        Catch ex As Exception
+
+        End Try
+        Try
+            SQLConnection.Open()
+            myData = myCommand.ExecuteReader()
+            If CInt(myData.HasRows) = 0 Then
+                Return True
+            Else
+                SQLConnection.Close()
+
+                SQLConnection.Dispose()
+                Return True
+            End If
+        Catch ex As Exception
+            SQLConnection.Close()
+
+            SQLConnection.Dispose()
+            Return False
+        End Try
+    End Function
     Private Function trytoconnect(ByVal connectionstring As String) As Boolean
         Try
             SQLConnection.Close()
@@ -635,6 +733,7 @@ Public Class Connect
                 male.Checked = True
                 male.Enabled = True
                 female.Enabled = True
+                Panel5.Location = Panel3.Location
                 Main.char_name = newcharname.Text
                 ' datacharname = charname.Text
                 If arcemu.Checked = True Then
@@ -1535,18 +1634,9 @@ Public Class Connect
                     End Select
                     arcemucore.spellgemtext = xpacressource
                     arcemucore.spellitemtext = xpacressource2
-                    If CheckBox1.Checked = True Then
+                If CheckBox1.Checked = True Then
 
-                        arcemucore.adddetailedchar(accname.Text, newcharname.Text, False)
-                        If items.Checked = True Then arcemucore.additems()
-                        If sockets.Checked = True And vzs.Checked = True Then
-                            arcemucore.addench()
-                        ElseIf sockets.Checked = True Then
-                            arcemucore.addgems()
-                        ElseIf vzs.Checked = True Then
-                            arcemucore.addenchantments()
-                        Else
-                    End If
+                    arcemucore.adddetailedchar(accname.Text, newcharname.Text, False)
                     If items.Checked = True Then arcemucore.additems()
                     If sockets.Checked = True And vzs.Checked = True Then
                         arcemucore.addench()
@@ -1556,26 +1646,27 @@ Public Class Connect
                         arcemucore.addenchantments()
                     Else
                     End If
-                        If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
-                        If talents.Checked = True Then arcemucore.addtalents()
-                        If male.Checked = True Then arcemucore.setgender("0")
-                        If female.Checked = True Then arcemucore.setgender("1")
-                        If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
-                        If level.Checked = True Then arcemucore.setlevel()
-                        If alternatelevellabel.Checked = True Then arcemucore.setalternatelevel(alternateleveltext.Text)
-                        If race.Checked = True Then arcemucore.setrace()
-                        If playerclass.Checked = True Then arcemucore.setclass()
-                        If goldlabel.Checked = True Then arcemucore.setgold(goldtext.Text)
-                        If erfolge.Checked = True Then arcemucore.addachievements()
-                        If skills.Checked = True Then arcemucore.addskills()
-                        If zauber.Checked = True Then arcemucore.addspells()
-                        If pvp.Checked = True Then arcemucore.addpvp()
-                        If ruf.Checked = True Then arcemucore.addreputation()
-                        If inventar.Checked = True Then arcemucore.addinventory()
-                        If gold.Checked = True Then arcemucore.addgold(Main.player_money)
-                        Process_Status.processreport.AppendText(
-                            Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
-                    End If
+
+                    If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
+                    If talents.Checked = True Then arcemucore.addtalents()
+                    If male.Checked = True Then arcemucore.setgender("0")
+                    If female.Checked = True Then arcemucore.setgender("1")
+                    If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
+                    If level.Checked = True Then arcemucore.setlevel()
+                    If alternatelevellabel.Checked = True Then arcemucore.setalternatelevel(alternateleveltext.Text)
+                    If race.Checked = True Then arcemucore.setrace()
+                    If playerclass.Checked = True Then arcemucore.setclass()
+                    If goldlabel.Checked = True Then arcemucore.setgold(goldtext.Text)
+                    If erfolge.Checked = True Then arcemucore.addachievements()
+                    If skills.Checked = True Then arcemucore.addskills()
+                    If zauber.Checked = True Then arcemucore.addspells()
+                    If pvp.Checked = True Then arcemucore.addpvp()
+                    If ruf.Checked = True Then arcemucore.addreputation()
+                    If inventar.Checked = True Then arcemucore.addinventory()
+                    If gold.Checked = True Then arcemucore.addgold(Main.player_money)
+                    Process_Status.processreport.AppendText(
+                        Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
+                End If
                     If CheckBox2.Checked = True Then
                         arcemucore.getguidfromname(charname.Text)
 
@@ -1660,11 +1751,13 @@ Public Class Connect
         Else
             MsgBox(localeEN.restartlogon, MsgBoxStyle.Information, localeEN.attention)
         End If
+
             Process_Status.Button1.Enabled = True
             Application.DoEvents()
             Main.Close()
             Starter.Show()
-            Me.Close()
+        Me.Close()
+        Process_Status.BringToFront()
     End Sub
 
     Private Sub Button2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button2.Click

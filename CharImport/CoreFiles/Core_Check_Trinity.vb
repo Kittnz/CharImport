@@ -1,4 +1,4 @@
-﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+﻿'Copyright (C) 2011-2013 CharImport <http://sourceforge.net/projects/charimport/>
 '*
 '* This application is free and can be distributed.
 '*
@@ -38,10 +38,7 @@ Public Class Core_Check_Trinity
         check_character_spell()
         If Main.xpac >= 3 Then
             check_character_talent()
-            'Wo ist die Talent Tabelle / Wo werden Talente gespeichert? (Mangos 2.4.3)
-        Else
-
-        End If
+        Else : End If
         check_item_instance()
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Core Check completed!" & vbNewLine)
         Application.DoEvents()
@@ -64,7 +61,7 @@ Public Class Core_Check_Trinity
             Else
             End If
         Else
-
+            errorstring = "Determined core: TrinityCore" & vbNewLine & errorstring
             Database_Check.Show()
             reporttext.Text = errorstring
 
@@ -134,8 +131,6 @@ Public Class Core_Check_Trinity
             tmpstring = tmpstring & "// Column totalKills in characters does not exist!" & vbNewLine
         If columnexist("chosenTitle", "characters") = False Then _
             tmpstring = tmpstring & "// Column chosenTitle in characters does not exist!" & vbNewLine
-        If columnexist("knownCurrencies", "characters") = False Then _
-            tmpstring = tmpstring & "// Column knownCurrencies in characters does not exist!" & vbNewLine
         If columnexist("watchedFaction", "characters") = False Then _
             tmpstring = tmpstring & "// Column watchedFaction in characters does not exist!" & vbNewLine
         If columnexist("specCount", "characters") = False Then _

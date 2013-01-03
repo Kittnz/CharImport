@@ -1,4 +1,4 @@
-﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+﻿'Copyright (C) 2011-2013 CharImport <http://sourceforge.net/projects/charimport/>
 '*
 '* This application is free and can be distributed.
 '*
@@ -14,6 +14,7 @@ Public Class ArcEmu_core
     Dim runfunction As New Functions
     Dim talentid As String = ""
     Dim rank As String = ""
+    Dim rank2 As String = ""
     Dim sdatatable As New DataTable
     Dim core_check As New Core_Check_Trinity
 
@@ -120,7 +121,7 @@ Public Class ArcEmu_core
         End Try
         guidlist = New List(Of String)
         idlist = New List(Of String)
-        If My.Settings.lastloginactive = True Or My.Settings.gmlevelactive = False Then
+        If My.Settings.lastloginactive = True Or My.Settings.gmlevelactive = True Then
             If My.Settings.lastloginactive = True Then
                 If My.Settings.gmlevelactive = True Then
                     Dim _
@@ -309,7 +310,7 @@ Public Class ArcEmu_core
         Catch ex As Exception
 
         End Try
-        Dim da As New MySqlDataAdapter("SELECT `acct` FROM account WHERE `login`='" & accountname & "'", quickconn)
+        Dim da As New MySqlDataAdapter("SELECT `acct` FROM accounts WHERE `login`='" & accountname & "'", quickconn)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
@@ -359,7 +360,7 @@ Public Class ArcEmu_core
 
         End Try
         Dim accid As String =
-                runfunction.runcommandRealmd("SELECT `acct` FROM account WHERE `login`='" & accountname & "'", "acct")
+                runfunction.runcommandRealmd("SELECT `acct` FROM accounts WHERE `login`='" & accountname & "'", "acct")
         guidlist = New List(Of String)
 
 
@@ -559,19 +560,45 @@ Public Class ArcEmu_core
         Main.arcemu_pass =
             runfunction.runcommandRealmd("SELECT password FROM accounts WHERE acct='" & Main.accountid.ToString & "'",
                                          "password")
-        ' Main.sha_pass_hash = runfunction.runcommandRealmd("SELECT password FROM accounts WHERE `id`='" & Main.accountid.ToString & "'", "sha_pass_hash")
+
+        Main.sha_pass_hash = runfunction.runcommandRealmd("SELECT encrypted_password FROM accounts WHERE `acct`='" & Main.accountid.ToString & "'", "encrypted_password")
+        If Main.sha_pass_hash = "" Then
+            Main.sha_pass_hash = runfunction.SHA1StringHash((Main.accountname & ":" & Main.arcemu_pass).ToUpper)
+        End If
         Main.email =
             runfunction.runcommandRealmd("SELECT email FROM accounts WHERE acct='" & Main.accountid.ToString & "'",
                                          "email")
+        Dim tmpflags As String = runfunction.runcommandRealmd("SELECT flags FROM accounts WHERE acct='" & Main.accountid.ToString & "'", "flags")
+        Select Case tmpflags
+            Case "0"
+                Main.expansion = 0
+            Case "8"
+                Main.expansion = 1
+            Case "16"
+                Main.expansion = 2
+            Case "24"
+                Main.expansion = 2
+            Case "32"
+                Main.expansion = 3
+            Case Else : End Select
         Main.locale =
             CInt(
                 Val(
                     runfunction.runcommandRealmd(
                         "SELECT forceLanguage FROM accounts WHERE acct='" & Main.accountid.ToString & "'",
                         "forceLanguage")))
-        Main.account_access_gmlevel =
-            CInt(Val(runfunction.runcommandRealmd("SELECT gm FROM accounts WHERE acct='" & Main.accountid.ToString & "'",
-                                                  "gm")))
+        Main.arcemu_gmlevel = runfunction.runcommandRealmd("SELECT gm FROM accounts WHERE acct='" & Main.accountid.ToString & "'","gm")
+        Select Case Main.arcemu_gmlevel
+            Case "AZ"
+                Main.account_access_gmlevel = 4
+            Case "A"
+                Main.account_access_gmlevel = 3
+            Case "0"
+                Main.account_access_gmlevel = 0
+            Case Else
+                Main.account_access_gmlevel = 0
+        End Select
+
         Main.account_access_RealmID = 1
         Main.custom_faction =
             runfunction.runcommand("SELECT custom_faction FROM characters WHERE guid='" & charguid & "'",
@@ -591,7 +618,7 @@ Public Class ArcEmu_core
                                     "bindpositionY") & "</position_y><position_z>" &
              runfunction.runcommand("SELECT bindpositionZ FROM characters WHERE guid='" & Main.char_guid.ToString & "'",
                                     "bindpositionZ") & "</position_z>")
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Spells from Database..." & vbNewLine)
         Application.DoEvents()
         Main.level.Text = Main.char_name & ", " & Main.char_level & ", "
@@ -649,23 +676,23 @@ Public Class ArcEmu_core
 
         End Select
         getspells()
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Talents from Database..." & vbNewLine)
         Application.DoEvents()
         gettalents()
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Skills from Database..." & vbNewLine)
         Application.DoEvents()
         getskills()
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Reputation from Database..." & vbNewLine)
         Application.DoEvents()
         getREPlists()
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Action from Database..." & vbNewLine)
         Application.DoEvents()
         getactionlist()
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Achievements from Database..." & vbNewLine)
         Application.DoEvents()
         getavlists()
@@ -673,29 +700,29 @@ Public Class ArcEmu_core
             Now.TimeOfDay.ToString & "/ Loading Character Questlog from Database..." & vbNewLine)
         Application.DoEvents()
         getqueststatus()
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Inventory from Database..." & vbNewLine)
         Application.DoEvents()
         getinventoryitems()
 
         'GET ITEMS
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Items from Database..." & vbNewLine)
         Application.DoEvents()
         getitems()
 
 
         'GET GLYPHS
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Primary Glyphs from Database..." & vbNewLine)
         Application.DoEvents()
         getglyphs()
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Secondary Glyphs from Database..." & vbNewLine)
         Application.DoEvents()
         getsecglyphs()
         handleenchantments()
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Character loaded!..." & vbNewLine)
+        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "/ Character loaded!..." & vbNewLine)
         Application.DoEvents()
 
         saveglyphs()
@@ -741,8 +768,12 @@ Public Class ArcEmu_core
                 New MySqlDataAdapter("SELECT spells FROM characters WHERE guid='" & Main.char_guid.ToString & "'",
                                      Main.GLOBALconn)
         Dim dt As New DataTable
+        Try
+            da.Fill(dt)
+        Catch ex As Exception
+       Exit Sub
+        End Try
 
-        da.Fill(dt)
         Try
             Dim lastcount As Integer = CInt(Val(dt.Rows.Count.ToString))
             Dim count As Integer = 0
@@ -781,11 +812,11 @@ Public Class ArcEmu_core
             Dim startcounter As Integer = 0
             Do
                 Dim parts() As String = talentstring.Split(","c)
-                Dim talentid As String = parts(startcounter)
+                Dim ctalentid As String = parts(startcounter)
                 startcounter += 1
-                Dim rurrentrank As String = parts(startcounter)
+                Dim rurrentrank As String = (CInt(parts(startcounter)) + 1).ToString()
                 startcounter += 1
-                Main.character_talent_list.Add("<spell>" & checkfield2(talentid, rurrentrank) & "</spell><spec>0</spec>")
+                Main.character_talent_list.Add("<spell>" & checkfield2(ctalentid, rurrentrank) & "</spell><spec>0</spec>")
             Loop Until startcounter = excounter
         End If
         Dim talentstring2 As String =
@@ -796,11 +827,11 @@ Public Class ArcEmu_core
             Dim startcounter As Integer = 0
             Do
                 Dim parts() As String = talentstring2.Split(","c)
-                Dim talentid As String = parts(startcounter)
+                Dim ctalentid As String = parts(startcounter)
                 startcounter += 1
-                Dim rurrentrank As String = parts(startcounter)
+                Dim rurrentrank As String = (CInt(parts(startcounter)) + 1).ToString()
                 startcounter += 1
-                Main.character_talent_list.Add("<spell>" & checkfield2(talentid, rurrentrank) & "</spell><spec>1</spec>")
+                Main.character_talent_list.Add("<spell>" & checkfield2(ctalentid, rurrentrank) & "</spell><spec>1</spec>")
             Loop Until startcounter = excounter
         End If
     End Sub
@@ -857,19 +888,19 @@ Public Class ArcEmu_core
                     Dim quest As String = readedcode
                     Dim status As String =
                             runfunction.runcommand(
-                                "SELECT completed FROM questlog WHERE quest='" & quest & "' AND player_guid='" &
+                                "SELECT completed FROM questlog WHERE quest_id='" & quest & "' AND player_guid='" &
                                 Main.char_guid.ToString & "'", "completed")
                     Dim explored As String =
                             runfunction.runcommand(
-                                "SELECT explored_area1 FROM questlog WHERE quest='" & quest & "' AND player_guid='" &
+                                "SELECT explored_area1 FROM questlog WHERE quest_id='" & quest & "' AND player_guid='" &
                                 Main.char_guid.ToString & "'", "explored_area1")
                     Dim timer As String =
                             runfunction.runcommand(
-                                "SELECT expirytimy FROM questlog WHERE quest='" & quest & "' AND player_guid='" &
+                                "SELECT expirytimy FROM questlog WHERE quest_id='" & quest & "' AND player_guid='" &
                                 Main.char_guid.ToString & "'", "expirytimy")
                     Dim slot As String =
                             runfunction.runcommand(
-                                "SELECT slot FROM questlog WHERE quest='" & quest & "' AND player_guid='" &
+                                "SELECT slot FROM questlog WHERE quest_id='" & quest & "' AND player_guid='" &
                                 Main.char_guid.ToString & "'", "slot")
                     Main.character_queststatus.Add(
                         "<quest>" & quest & "</quest><status>" & status & "</status><explored>" & explored &
@@ -1178,7 +1209,8 @@ Public Class ArcEmu_core
                                     Main.character_inventoryzero_list.Add(
                                         "<slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid &
                                         "</bagguid><item>" & entryid & "</item><enchant>" & enchantments &
-                                        "</enchant><count>" & itemcount & "</count><container>-1</container>")
+                                        "</enchant><count>" & itemcount & "</count><container>-1</container>" &
+                                        "<oldguid>" & item & "</oldguid>")
                                 End If
                             Else
                                 Dim bag As String = "0"
@@ -1204,10 +1236,11 @@ Public Class ArcEmu_core
                                 itemcount =
                                     runfunction.runcommand("SELECT count FROM playeritems WHERE guid='" & item & "'",
                                                            "count")
-                                Main.character_inventoryzero_list.Add(
+                                Main.character_inventory_list.Add(
                                     "<slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid &
                                     "</bagguid><item>" & entryid & "</item><enchant>" & enchantments &
-                                    "</enchant><count>" & itemcount & "</count><container>-1</container>")
+                                     "</enchant><count>" & itemcount & "</count><container>-1</container>" &
+                                        "<oldguid>" & item & "</oldguid>")
                             End If
                         Else
                             Dim containerslot As String =
@@ -1280,10 +1313,11 @@ Public Class ArcEmu_core
                                 itemcount =
                                     runfunction.runcommand("SELECT count FROM playeritems WHERE guid='" & item & "'",
                                                            "count")
-                                Main.character_inventoryzero_list.Add(
+                                Main.character_inventory_list.Add(
                                     "<slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid &
                                     "</bagguid><item>" & entryid & "</item><enchant>" & enchantments &
-                                    "</enchant><count>" & itemcount & "</count><container>-1</container>")
+                                    "</enchant><count>" & itemcount & "</count><container>-1</container>" &
+                                        "<oldguid>" & item & "</oldguid>")
                             End If
                             Dim containerslot2 As String =
                                     runfunction.returnresultwithrow(
@@ -1355,11 +1389,12 @@ Public Class ArcEmu_core
                                 itemcount =
                                     runfunction.runcommand("SELECT count FROM playeritems WHERE guid='" & item & "'",
                                                            "count")
-                                Main.character_inventoryzero_list.Add(
+                                Main.character_inventory_list.Add(
                                     "<slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid2 &
                                     "</bagguid><item>" & entryid & "</item><enchant>" & enchantments &
                                     "</enchant><count>" & itemcount & "</count><container>" & containerslot2 &
-                                    "</container>")
+                                    "</container>" &
+                                        "<oldguid>" & item & "</oldguid>")
                             End If
                         End If
 
@@ -1625,7 +1660,7 @@ Public Class ArcEmu_core
     End Sub
 
     Public Sub getitems()
-        'Get Instance
+
         Dim xslot As Integer = 0
         Dim xentryid As Integer
         Dim itemname As String = ""
@@ -1921,71 +1956,29 @@ Public Class ArcEmu_core
             If input.Contains(";") Then
                 Dim parts() As String = input.Split(";"c)
                 If parts(0).Contains("0,0") Then
-                    obvalue = CInt(parts(0))
-                    Return runfunction.geteffectnameofeffectid(CInt(parts(0)))
-                    'Dim quellcodeyx88 As String = xpacressource
-                    'Dim parts2() As String = parts(0).Split(","c)
-                    'Dim anfangyx88 As String = parts2(0) & ";"
-                    'Dim endeyx88 As String = ";xxxx"
-                    'Dim quellcodeSplityx88 As String
-                    'quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-                    'quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-                    'Return quellcodeSplityx88
+                    Dim parts2() As String = parts(0).Split(","c)
+                    obvalue = CInt(parts2(0))
+                    Return runfunction.geteffectnameofeffectid(obvalue)
                 ElseIf parts(1).Contains("0,0") Then
-                    obvalue = CInt(parts(1))
-                    Return runfunction.geteffectnameofeffectid(CInt(parts(1)))
-                    'Dim quellcodeyx88 As String = xpacressource
-                    'Dim parts2() As String = parts(1).Split(","c)
-                    'Dim anfangyx88 As String = parts2(0) & ";"
-                    'Dim endeyx88 As String = ";xxxx"
-                    'Dim quellcodeSplityx88 As String
-                    'quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-                    'quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-                    'Return quellcodeSplityx88
+                    Dim parts2() As String = parts(1).Split(","c)
+                    obvalue = CInt(parts2(0))
+                    Return runfunction.geteffectnameofeffectid(obvalue)
                 ElseIf parts(2).Contains("0,0") Then
-                    obvalue = CInt(parts(2))
-                    Return runfunction.geteffectnameofeffectid(CInt(parts(2)))
-                    'Dim quellcodeyx88 As String = xpacressource
-                    'Dim parts2() As String = parts(2).Split(","c)
-                    'Dim anfangyx88 As String = parts2(0) & ";"
-                    'Dim endeyx88 As String = ";xxxx"
-                    'Dim quellcodeSplityx88 As String
-                    'quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-                    'quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-                    'Return quellcodeSplityx88
+                    Dim parts2() As String = parts(2).Split(","c)
+                    obvalue = CInt(parts2(0))
+                    Return runfunction.geteffectnameofeffectid(obvalue)
                 ElseIf parts(3).Contains("0,0") Then
-                    obvalue = CInt(parts(3))
-                    Return runfunction.geteffectnameofeffectid(CInt(parts(3)))
-                    'Dim quellcodeyx88 As String = xpacressource
-                    'Dim parts2() As String = parts(3).Split(","c)
-                    'Dim anfangyx88 As String = parts2(0) & ";"
-                    'Dim endeyx88 As String = ";xxxx"
-                    'Dim quellcodeSplityx88 As String
-                    'quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-                    'quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-                    'Return quellcodeSplityx88
+                    Dim parts2() As String = parts(3).Split(","c)
+                    obvalue = CInt(parts2(0))
+                    Return runfunction.geteffectnameofeffectid(obvalue)
                 ElseIf parts(4).Contains("0,0") Then
-                    obvalue = CInt(parts(4))
-                    Return runfunction.geteffectnameofeffectid(CInt(parts(4)))
-                    'Dim quellcodeyx88 As String = xpacressource
-                    'Dim parts2() As String = parts(4).Split(","c)
-                    'Dim anfangyx88 As String = parts2(0) & ";"
-                    'Dim endeyx88 As String = ";xxxx"
-                    'Dim quellcodeSplityx88 As String
-                    'quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-                    'quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-                    'Return quellcodeSplityx88
+                    Dim parts2() As String = parts(4).Split(","c)
+                    obvalue = CInt(parts2(0))
+                    Return runfunction.geteffectnameofeffectid(obvalue)
                 ElseIf parts(5).Contains("0,0") Then
-                    obvalue = CInt(parts(5))
-                    Return runfunction.geteffectnameofeffectid(CInt(parts(5)))
-                    'Dim quellcodeyx88 As String = xpacressource
-                    'Dim parts2() As String = parts(5).Split(","c)
-                    'Dim anfangyx88 As String = parts2(0) & ";"
-                    'Dim endeyx88 As String = ";xxxx"
-                    'Dim quellcodeSplityx88 As String
-                    'quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-                    'quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-                    'Return quellcodeSplityx88
+                    Dim parts2() As String = parts(5).Split(","c)
+                    obvalue = CInt(parts2(0))
+                    Return runfunction.geteffectnameofeffectid(obvalue)
                 Else
 
                     Return ""
@@ -2001,7 +1994,7 @@ Public Class ArcEmu_core
         End Try
     End Function
 
-    Public Function splitstringgem(ByVal input As String, ByVal position As Integer, ByVal obvalue As Integer) As String
+    Public Function splitstringgem(ByVal input As String, ByVal obvalue As Integer, ByVal position As Integer) As String
         Dim xpacressource As String
         Select Case Main.xpac
             Case 3
@@ -2028,89 +2021,35 @@ Public Class ArcEmu_core
                 xvalue = "0,1"
             End If
             If parts(0).Contains(xvalue) Then
-                obvalue = CInt(parts(0))
-                Dim quellcodeyx88 As String = xpacressource
                 Dim parts2() As String = parts(0).Split(","c)
-                If xvalue = "0,6" Then
-                    Return parts2(0)
-
-                End If
-                Dim anfangyx88 As String = parts2(0) & ";"
-                Dim endeyx88 As String = ";xxxx"
-                Dim quellcodeSplityx88 As String
-                quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-                quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-                Return runfunction.getsocketeffectname(CInt(quellcodeSplityx88))
+                obvalue = CInt(parts2(0))
+                If xvalue = "0,6" Then Return parts2(0)
+                Return runfunction.geteffectnameofeffectid(obvalue)
             ElseIf parts(1).Contains(xvalue) Then
-                obvalue = CInt(parts(1))
-                Dim quellcodeyx88 As String = xpacressource
                 Dim parts2() As String = parts(1).Split(","c)
-                If xvalue = "0,6" Then
-                    Return parts2(0)
-
-                End If
-                Dim anfangyx88 As String = parts2(0) & ";"
-                Dim endeyx88 As String = ";xxxx"
-                Dim quellcodeSplityx88 As String
-                quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-                quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-                Return runfunction.getsocketeffectname(CInt(quellcodeSplityx88))
+                obvalue = CInt(parts2(0))
+                If xvalue = "0,6" Then Return parts2(0)
+                Return runfunction.geteffectnameofeffectid(obvalue)
             ElseIf parts(2).Contains(xvalue) Then
-                obvalue = CInt(parts(2))
-                Dim quellcodeyx88 As String = xpacressource
                 Dim parts2() As String = parts(2).Split(","c)
-                If xvalue = "0,6" Then
-                    Return parts2(0)
-
-                End If
-                Dim anfangyx88 As String = parts2(0) & ";"
-                Dim endeyx88 As String = ";xxxx"
-                Dim quellcodeSplityx88 As String
-                quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-                quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-                Return runfunction.getsocketeffectname(CInt(quellcodeSplityx88))
+                obvalue = CInt(parts2(0))
+                If xvalue = "0,6" Then Return parts2(0)
+                Return runfunction.geteffectnameofeffectid(obvalue)
             ElseIf parts(3).Contains(xvalue) Then
-                obvalue = CInt(parts(3))
-                Dim quellcodeyx88 As String = xpacressource
                 Dim parts2() As String = parts(3).Split(","c)
-                If xvalue = "0,6" Then
-                    Return parts2(0)
-
-                End If
-                Dim anfangyx88 As String = parts2(0) & ";"
-                Dim endeyx88 As String = ";xxxx"
-                Dim quellcodeSplityx88 As String
-                quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-                quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-                Return runfunction.getsocketeffectname(CInt(quellcodeSplityx88))
+                obvalue = CInt(parts2(0))
+                If xvalue = "0,6" Then Return parts2(0)
+                Return runfunction.geteffectnameofeffectid(obvalue)
             ElseIf parts(4).Contains(xvalue) Then
-                obvalue = CInt(parts(4))
-                Dim quellcodeyx88 As String = xpacressource
                 Dim parts2() As String = parts(4).Split(","c)
-                If xvalue = "0,6" Then
-                    Return parts2(0)
-
-                End If
-                Dim anfangyx88 As String = parts2(0) & ";"
-                Dim endeyx88 As String = ";xxxx"
-                Dim quellcodeSplityx88 As String
-                quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-                quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-                Return runfunction.getsocketeffectname(CInt(quellcodeSplityx88))
+                obvalue = CInt(parts2(0))
+                If xvalue = "0,6" Then Return parts2(0)
+                Return runfunction.geteffectnameofeffectid(obvalue)
             ElseIf parts(5).Contains(xvalue) Then
-                obvalue = CInt(parts(5))
-                Dim quellcodeyx88 As String = xpacressource
                 Dim parts2() As String = parts(5).Split(","c)
-                If xvalue = "0,6" Then
-                    Return parts2(0)
-
-                End If
-                Dim anfangyx88 As String = parts2(0) & ";"
-                Dim endeyx88 As String = ";xxxx"
-                Dim quellcodeSplityx88 As String
-                quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-                quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-                Return runfunction.getsocketeffectname(CInt(quellcodeSplityx88))
+                obvalue = CInt(parts2(0))
+                If xvalue = "0,6" Then Return parts2(0)
+                Return runfunction.geteffectnameofeffectid(obvalue)
             Else
                 Return ""
             End If
@@ -2250,7 +2189,7 @@ Public Class ArcEmu_core
         runfunction.normalsqlcommand(
             "INSERT INTO playeritems ( ownerguid, guid, entry, flags, containerslot, slot ) VALUES ( '" & Main.coreguid &
             "', '" & newguid & "', '6948', '1', '-1', '23' )")
-
+        addsinglespell(6603) 'auto attack
         If Main.char_race = 1 Then
             If Main.char_class = 1 Then
                 addmultipleskills("26;1;1;43;1;5;54;1;5;55;1;5;95;1;5;162;1;5;413;1;1;414;1;1;415;1;1;433;1;1;754;1;1;")
@@ -2673,6 +2612,7 @@ Public Class ArcEmu_core
             End If
 
         End If
+        addsinglespell(6603) 'auto attack
         If Not Main.custom_faction = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE characters SET custom_faction='" & Main.custom_faction & "' WHERE guid='" & newcharguid.ToString &
@@ -2994,7 +2934,8 @@ Public Class ArcEmu_core
     End Sub
 
     Public Sub addtalents()
-
+        rank = ""
+        rank2 = ""
         sdatatable.Clear()
         sdatatable.Dispose()
         sdatatable = gettable()
@@ -3142,64 +3083,64 @@ Public Class ArcEmu_core
                         If talentlist2.Contains(talentid & "rank5") Then
 
                         ElseIf talentlist2.Contains(talentid & "rank4") Then
-                            If CInt(Val(rank)) <= 4 Then
+                            If CInt(Val(rank2)) <= 4 Then
                             Else
                                 Try
                                     finaltalentstring2 = finaltalentstring2.Replace(talentid & ",0",
-                                                                                    (CInt(Val(rank))).ToString)
+                                                                                    (CInt(Val(rank2))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
                                     finaltalentstring2 = finaltalentstring2.Replace(talentid & ",1",
-                                                                                    (CInt(Val(rank))).ToString)
+                                                                                    (CInt(Val(rank2))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
                                     finaltalentstring2 = finaltalentstring2.Replace(talentid & ",2",
-                                                                                    (CInt(Val(rank))).ToString)
+                                                                                    (CInt(Val(rank2))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
                                     finaltalentstring2 = finaltalentstring2.Replace(talentid & ",3",
-                                                                                    (CInt(Val(rank))).ToString)
+                                                                                    (CInt(Val(rank2))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
                                     finaltalentstring2 = finaltalentstring2.Replace(talentid & ",4",
-                                                                                    (CInt(Val(rank))).ToString)
+                                                                                    (CInt(Val(rank2))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 talentlist2 = talentlist2 & " " & talentid & "rank" & rank
                             End If
                         ElseIf talentlist2.Contains(talentid & "rank3") Then
-                            If CInt(Val(rank)) <= 3 Then
+                            If CInt(Val(rank2)) <= 3 Then
                             Else
                                 Try
                                     finaltalentstring2 = finaltalentstring2.Replace(talentid & ",0",
-                                                                                    (CInt(Val(rank))).ToString)
+                                                                                    (CInt(Val(rank2))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
                                     finaltalentstring2 = finaltalentstring2.Replace(talentid & ",1",
-                                                                                    (CInt(Val(rank))).ToString)
+                                                                                    (CInt(Val(rank2))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
                                     finaltalentstring2 = finaltalentstring2.Replace(talentid & ",2",
-                                                                                    (CInt(Val(rank))).ToString)
+                                                                                    (CInt(Val(rank2))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
                                     finaltalentstring2 = finaltalentstring2.Replace(talentid & ",3",
-                                                                                    (CInt(Val(rank))).ToString)
+                                                                                    (CInt(Val(rank2))).ToString)
                                 Catch ex As Exception
 
                                 End Try
@@ -3207,23 +3148,23 @@ Public Class ArcEmu_core
                                 talentlist2 = talentlist2 & " " & talentid & "rank" & rank
                             End If
                         ElseIf talentlist2.Contains(talentid & "rank2") Then
-                            If CInt(Val(rank)) <= 2 Then
+                            If CInt(Val(rank2)) <= 2 Then
                             Else
                                 Try
                                     finaltalentstring2 = finaltalentstring2.Replace(talentid & ",0",
-                                                                                    (CInt(Val(rank))).ToString)
+                                                                                    (CInt(Val(rank2))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
                                     finaltalentstring2 = finaltalentstring2.Replace(talentid & ",1",
-                                                                                    (CInt(Val(rank))).ToString)
+                                                                                    (CInt(Val(rank2))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
                                     finaltalentstring2 = finaltalentstring2.Replace(talentid & ",2",
-                                                                                    (CInt(Val(rank))).ToString)
+                                                                                    (CInt(Val(rank2))).ToString)
                                 Catch ex As Exception
 
                                 End Try
@@ -3231,17 +3172,17 @@ Public Class ArcEmu_core
                                 talentlist2 = talentlist2 & " " & talentid & "rank" & rank
                             End If
                         ElseIf talentlist2.Contains(talentid & "rank1") Then
-                            If CInt(Val(rank)) <= 1 Then
+                            If CInt(Val(rank2)) <= 1 Then
                             Else
                                 Try
                                     finaltalentstring2 = finaltalentstring2.Replace(talentid & ",0",
-                                                                                    (CInt(Val(rank))).ToString)
+                                                                                    (CInt(Val(rank2))).ToString)
                                 Catch ex As Exception
 
                                 End Try
                                 Try
                                     finaltalentstring2 = finaltalentstring2.Replace(talentid & ",1",
-                                                                                    (CInt(Val(rank))).ToString)
+                                                                                    (CInt(Val(rank2))).ToString)
                                     'rank - 1 ???
                                 Catch ex As Exception
 
@@ -3253,7 +3194,7 @@ Public Class ArcEmu_core
 
                         End If
                     Else
-                        finaltalentstring2 = finaltalentstring2 & talentid & "," & (CInt(Val(rank))).ToString & ","
+                        finaltalentstring2 = finaltalentstring2 & talentid & "," & (CInt(Val(rank2))).ToString & ","
                         'rank - 1 ???
                         talentlist2 = talentlist2 & " " & talentid & "rank" & rank
 
@@ -3272,22 +3213,28 @@ Public Class ArcEmu_core
 
     Private Function checkfield(ByVal lID As String) As String
         If Not executex("Rang1", lID) = "-" Then
-            rank = "1"
+            rank = "0"
+            rank2 = "0"
             Return (executex("Rang1", lID))
         ElseIf Not executex("Rang2", lID) = "-" Then
-            rank = "2"
+            rank = "1"
+            rank2 = "1"
             Return (executex("Rang2", lID))
         ElseIf Not executex("Rang3", lID) = "-" Then
-            rank = "3"
+            rank = "2"
+            rank2 = "2"
             Return (executex("Rang3", lID))
         ElseIf Not executex("Rang4", lID) = "-" Then
-            rank = "4"
+            rank = "3"
+            rank2 = "3"
             Return (executex("Rang4", lID))
         ElseIf Not executex("Rang5", lID) = "-" Then
-            rank = "5"
+            rank = "4"
+            rank2 = "4"
             Return (executex("Rang5", lID))
         Else
             rank = "0"
+            rank2 = "0"
             Return "0"
         End If
     End Function
@@ -3459,6 +3406,7 @@ Public Class ArcEmu_core
         Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "// Adding Items to inventory for Character: " & Main.char_name & vbNewLine)
         Dim bagexist As List(Of String) = New List(Of String)
+        Dim bagstring As String = ""
         bagexist.Clear()
         For Each inventorystring As String In Main.character_inventoryzero_list
             Dim bagguid As String = splitlist(inventorystring, "bagguid")
@@ -3471,6 +3419,13 @@ Public Class ArcEmu_core
                      1).ToString
             Dim itemcount As String = splitlist(inventorystring, "count")
             Dim containerslot As String = splitlist(inventorystring, "container")
+            containerslot = "-1"                                                                                                       '// should always be -1!?
+            Dim slotcase As String = splitlist(inventorystring, "slot")
+            Select Case slotcase
+                Case "19", "20", "21", "22", "67", "68", "69", "70", "71", "72", "73"
+                    'Item is a bag and has to be registered
+                    bagstring = bagstring & "oldguid:" & splitlist(inventorystring, "oldguid") & ";slot:" & slotcase & ";"
+                Case Else : End Select
             runfunction.normalsqlcommand(
                 "INSERT INTO playeritems ( guid, ownerguid, entry, `count`, containerslot, slot, enchantments ) VALUES ( '" &
                 newguid & "', '" & Main.coreguid & "', '" & splitlist(inventorystring, "item") & "', '" & itemcount &
@@ -3495,6 +3450,16 @@ Public Class ArcEmu_core
                     runfunction.runcommand(
                         "SELECT item FROM playeritems WHERE item_template='" & bag & "' AND guid='" & Main.coreguid &
                         "'", "item")
+            If containerslot = "" Then
+                Select Case splitlist(inventorystring, "slot")
+                    Case "19", "20", "21", "22", "67", "68", "69", "70", "71", "72", "73"
+                    Case Else
+                        Dim beginsplit As String = "oldguid:" & bagguid & ";slot:"
+                        Dim endsplit As String = ";"
+                        containerslot = Split(bagstring, beginsplit, 5)(1)
+                        containerslot = Split(containerslot, endsplit, 6)(0)
+                End Select
+            End If
             runfunction.normalsqlcommand(
                 "INSERT INTO playeritems ( guid, ownerguid, entry, `count`, containerslot, slot, enchantments ) VALUES ( '" &
                 newguid & "', '" & Main.coreguid & "', '" & splitlist(inventorystring, "item") & "', '" & itemcount &
@@ -3526,9 +3491,9 @@ Public Class ArcEmu_core
                 Dim input As String = enchstring
                 Dim parts() As String = input.Split(" "c)
                 If Not parts(22) = "0" Then arcenchstring = arcenchstring & parts(22) & ",0,5;"
-                If Not parts(28) = "0" Then arcenchstring = arcenchstring & parts(28) & ",0,1;"
-                If Not parts(31) = "0" Then arcenchstring = arcenchstring & parts(31) & ",0,2;"
-                If Not parts(34) = "0" Then arcenchstring = arcenchstring & parts(34) & ",0,3;"
+                If Not parts(28) = "0" Then arcenchstring = arcenchstring & parts(28) & ",0,2;"
+                If Not parts(31) = "0" Then arcenchstring = arcenchstring & parts(31) & ",0,3;"
+                If Not parts(34) = "0" Then arcenchstring = arcenchstring & parts(34) & ",0,4;"
                 Return arcenchstring
 
             ElseIf enchstring = "" Then
@@ -3540,9 +3505,9 @@ Public Class ArcEmu_core
                 Dim input As String = enchstring
                 Dim parts() As String = input.Split(" "c)
                 If Not parts(0) = "0" Then arcenchstring = arcenchstring & parts(0) & ",0,5;"
-                If Not parts(6) = "0" Then arcenchstring = arcenchstring & parts(6) & ",0,1;"
-                If Not parts(9) = "0" Then arcenchstring = arcenchstring & parts(9) & ",0,2;"
-                If Not parts(12) = "0" Then arcenchstring = arcenchstring & parts(12) & ",0,3;"
+                If Not parts(6) = "0" Then arcenchstring = arcenchstring & parts(6) & ",0,2;"
+                If Not parts(9) = "0" Then arcenchstring = arcenchstring & parts(9) & ",0,3;"
+                If Not parts(12) = "0" Then arcenchstring = arcenchstring & parts(12) & ",0,4;"
                 Return arcenchstring
             End If
         End If
@@ -3823,7 +3788,7 @@ Public Class ArcEmu_core
         Try
             runfunction.normalsqlcommand(
                 "UPDATE `playeritems` SET enchantments='" &
-                runfunction.getvzeffectid(runfunction.getvzeffectname2(vzid)).ToString & ",0,5' WHERE guid = '" &
+                runfunction.getvzeffectid(runfunction.getvzeffectname(vzid)).ToString & ",0,5' WHERE guid = '" &
                 itemguid.ToString & "'")
         Catch ex As Exception
 

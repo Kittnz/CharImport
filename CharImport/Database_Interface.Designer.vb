@@ -27,12 +27,10 @@ Partial Class Database_Interface
         Me.connectpanel = New System.Windows.Forms.Panel()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.cata = New System.Windows.Forms.CheckBox()
-        Me.mangos = New System.Windows.Forms.RadioButton()
         Me.wotlk = New System.Windows.Forms.CheckBox()
-        Me.arcemu = New System.Windows.Forms.RadioButton()
         Me.tbc = New System.Windows.Forms.CheckBox()
-        Me.trinity1 = New System.Windows.Forms.RadioButton()
         Me.classic = New System.Windows.Forms.CheckBox()
+        Me.mangos = New System.Windows.Forms.RadioButton()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
@@ -58,7 +56,9 @@ Partial Class Database_Interface
         Me.user = New System.Windows.Forms.TextBox()
         Me.password = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.arcemu = New System.Windows.Forms.RadioButton()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.trinity1 = New System.Windows.Forms.RadioButton()
         Me.optionspanel = New System.Windows.Forms.Panel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
@@ -98,23 +98,23 @@ Partial Class Database_Interface
         '
         'connectpanel
         '
-        resources.ApplyResources(Me.connectpanel, "connectpanel")
         Me.connectpanel.Controls.Add(Me.GroupBox2)
+        Me.connectpanel.Controls.Add(Me.mangos)
         Me.connectpanel.Controls.Add(Me.Label3)
         Me.connectpanel.Controls.Add(Me.GroupBox4)
+        Me.connectpanel.Controls.Add(Me.arcemu)
         Me.connectpanel.Controls.Add(Me.Label5)
+        Me.connectpanel.Controls.Add(Me.trinity1)
+        resources.ApplyResources(Me.connectpanel, "connectpanel")
         Me.connectpanel.Name = "connectpanel"
         '
         'GroupBox2
         '
-        resources.ApplyResources(Me.GroupBox2, "GroupBox2")
         Me.GroupBox2.Controls.Add(Me.cata)
-        Me.GroupBox2.Controls.Add(Me.mangos)
         Me.GroupBox2.Controls.Add(Me.wotlk)
-        Me.GroupBox2.Controls.Add(Me.arcemu)
         Me.GroupBox2.Controls.Add(Me.tbc)
-        Me.GroupBox2.Controls.Add(Me.trinity1)
         Me.GroupBox2.Controls.Add(Me.classic)
+        resources.ApplyResources(Me.GroupBox2, "GroupBox2")
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.TabStop = False
         '
@@ -126,13 +126,6 @@ Partial Class Database_Interface
         Me.cata.Name = "cata"
         Me.cata.UseVisualStyleBackColor = False
         '
-        'mangos
-        '
-        resources.ApplyResources(Me.mangos, "mangos")
-        Me.mangos.ForeColor = System.Drawing.Color.CornflowerBlue
-        Me.mangos.Name = "mangos"
-        Me.mangos.UseVisualStyleBackColor = True
-        '
         'wotlk
         '
         resources.ApplyResources(Me.wotlk, "wotlk")
@@ -143,13 +136,6 @@ Partial Class Database_Interface
         Me.wotlk.Name = "wotlk"
         Me.wotlk.UseVisualStyleBackColor = False
         '
-        'arcemu
-        '
-        resources.ApplyResources(Me.arcemu, "arcemu")
-        Me.arcemu.ForeColor = System.Drawing.Color.CornflowerBlue
-        Me.arcemu.Name = "arcemu"
-        Me.arcemu.UseVisualStyleBackColor = True
-        '
         'tbc
         '
         resources.ApplyResources(Me.tbc, "tbc")
@@ -157,15 +143,6 @@ Partial Class Database_Interface
         Me.tbc.ForeColor = System.Drawing.Color.CornflowerBlue
         Me.tbc.Name = "tbc"
         Me.tbc.UseVisualStyleBackColor = False
-        '
-        'trinity1
-        '
-        resources.ApplyResources(Me.trinity1, "trinity1")
-        Me.trinity1.Checked = True
-        Me.trinity1.ForeColor = System.Drawing.Color.CornflowerBlue
-        Me.trinity1.Name = "trinity1"
-        Me.trinity1.TabStop = True
-        Me.trinity1.UseVisualStyleBackColor = True
         '
         'classic
         '
@@ -175,6 +152,13 @@ Partial Class Database_Interface
         Me.classic.Name = "classic"
         Me.classic.UseVisualStyleBackColor = False
         '
+        'mangos
+        '
+        resources.ApplyResources(Me.mangos, "mangos")
+        Me.mangos.ForeColor = System.Drawing.Color.CornflowerBlue
+        Me.mangos.Name = "mangos"
+        Me.mangos.UseVisualStyleBackColor = True
+        '
         'Label3
         '
         resources.ApplyResources(Me.Label3, "Label3")
@@ -183,7 +167,6 @@ Partial Class Database_Interface
         '
         'GroupBox4
         '
-        resources.ApplyResources(Me.GroupBox4, "GroupBox4")
         Me.GroupBox4.Controls.Add(Me.GroupBox9)
         Me.GroupBox4.Controls.Add(Me.manually)
         Me.GroupBox4.Controls.Add(Me.automatic)
@@ -203,17 +186,18 @@ Partial Class Database_Interface
         Me.GroupBox4.Controls.Add(Me.user)
         Me.GroupBox4.Controls.Add(Me.password)
         Me.GroupBox4.Controls.Add(Me.Label8)
+        resources.ApplyResources(Me.GroupBox4, "GroupBox4")
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.TabStop = False
         '
         'GroupBox9
         '
-        resources.ApplyResources(Me.GroupBox9, "GroupBox9")
         Me.GroupBox9.Controls.Add(Me.Label14)
         Me.GroupBox9.Controls.Add(Me.Label15)
         Me.GroupBox9.Controls.Add(Me.characters)
         Me.GroupBox9.Controls.Add(Me.auth)
         Me.GroupBox9.ForeColor = System.Drawing.Color.CornflowerBlue
+        resources.ApplyResources(Me.GroupBox9, "GroupBox9")
         Me.GroupBox9.Name = "GroupBox9"
         Me.GroupBox9.TabStop = False
         '
@@ -273,17 +257,17 @@ Partial Class Database_Interface
         '
         'Button7
         '
-        resources.ApplyResources(Me.Button7, "Button7")
         Me.Button7.BackColor = System.Drawing.Color.DimGray
         Me.Button7.Cursor = System.Windows.Forms.Cursors.Hand
+        resources.ApplyResources(Me.Button7, "Button7")
         Me.Button7.Name = "Button7"
         Me.Button7.UseVisualStyleBackColor = False
         '
         'Button1
         '
-        resources.ApplyResources(Me.Button1, "Button1")
         Me.Button1.BackColor = System.Drawing.Color.DimGray
         Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
+        resources.ApplyResources(Me.Button1, "Button1")
         Me.Button1.Name = "Button1"
         Me.Button1.UseVisualStyleBackColor = False
         '
@@ -314,9 +298,9 @@ Partial Class Database_Interface
         '
         'Button14
         '
-        resources.ApplyResources(Me.Button14, "Button14")
         Me.Button14.BackColor = System.Drawing.Color.DimGray
         Me.Button14.Cursor = System.Windows.Forms.Cursors.Hand
+        resources.ApplyResources(Me.Button14, "Button14")
         Me.Button14.Name = "Button14"
         Me.Button14.UseVisualStyleBackColor = False
         '
@@ -327,9 +311,9 @@ Partial Class Database_Interface
         '
         'Button13
         '
-        resources.ApplyResources(Me.Button13, "Button13")
         Me.Button13.BackColor = System.Drawing.Color.DimGray
         Me.Button13.Cursor = System.Windows.Forms.Cursors.Hand
+        resources.ApplyResources(Me.Button13, "Button13")
         Me.Button13.Name = "Button13"
         Me.Button13.UseVisualStyleBackColor = False
         '
@@ -364,15 +348,30 @@ Partial Class Database_Interface
         Me.Label8.ForeColor = System.Drawing.Color.CornflowerBlue
         Me.Label8.Name = "Label8"
         '
+        'arcemu
+        '
+        resources.ApplyResources(Me.arcemu, "arcemu")
+        Me.arcemu.ForeColor = System.Drawing.Color.CornflowerBlue
+        Me.arcemu.Name = "arcemu"
+        Me.arcemu.UseVisualStyleBackColor = True
+        '
         'Label5
         '
         resources.ApplyResources(Me.Label5, "Label5")
         Me.Label5.ForeColor = System.Drawing.Color.CornflowerBlue
         Me.Label5.Name = "Label5"
         '
+        'trinity1
+        '
+        resources.ApplyResources(Me.trinity1, "trinity1")
+        Me.trinity1.Checked = True
+        Me.trinity1.ForeColor = System.Drawing.Color.CornflowerBlue
+        Me.trinity1.Name = "trinity1"
+        Me.trinity1.TabStop = True
+        Me.trinity1.UseVisualStyleBackColor = True
+        '
         'optionspanel
         '
-        resources.ApplyResources(Me.optionspanel, "optionspanel")
         Me.optionspanel.Controls.Add(Me.GroupBox1)
         Me.optionspanel.Controls.Add(Me.Button5)
         Me.optionspanel.Controls.Add(Me.Button3)
@@ -382,22 +381,22 @@ Partial Class Database_Interface
         Me.optionspanel.Controls.Add(Me.Label2)
         Me.optionspanel.Controls.Add(Me.charnames)
         Me.optionspanel.Controls.Add(Me.CheckBox3)
+        resources.ApplyResources(Me.optionspanel, "optionspanel")
         Me.optionspanel.Name = "optionspanel"
         '
         'GroupBox1
         '
-        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.Controls.Add(Me.GroupBox3)
         Me.GroupBox1.Controls.Add(Me.CheckBox2)
         Me.GroupBox1.Controls.Add(Me.CheckBox1)
         Me.GroupBox1.Controls.Add(Me.accnames)
         Me.GroupBox1.Controls.Add(Me.Label1)
+        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.TabStop = False
         '
         'GroupBox3
         '
-        resources.ApplyResources(Me.GroupBox3, "GroupBox3")
         Me.GroupBox3.Controls.Add(Me.Label17)
         Me.GroupBox3.Controls.Add(Me.levelmax)
         Me.GroupBox3.Controls.Add(Me.Label16)
@@ -410,6 +409,7 @@ Partial Class Database_Interface
         Me.GroupBox3.Controls.Add(Me.Label12)
         Me.GroupBox3.Controls.Add(Me.levelmin)
         Me.GroupBox3.Controls.Add(Me.levelrangecheck)
+        resources.ApplyResources(Me.GroupBox3, "GroupBox3")
         Me.GroupBox3.ForeColor = System.Drawing.Color.CornflowerBlue
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.TabStop = False
@@ -515,33 +515,33 @@ Partial Class Database_Interface
         '
         'Button5
         '
-        resources.ApplyResources(Me.Button5, "Button5")
         Me.Button5.BackColor = System.Drawing.Color.DimGray
         Me.Button5.Cursor = System.Windows.Forms.Cursors.Hand
+        resources.ApplyResources(Me.Button5, "Button5")
         Me.Button5.Name = "Button5"
         Me.Button5.UseVisualStyleBackColor = False
         '
         'Button3
         '
-        resources.ApplyResources(Me.Button3, "Button3")
         Me.Button3.BackColor = System.Drawing.Color.DimGray
         Me.Button3.Cursor = System.Windows.Forms.Cursors.Hand
+        resources.ApplyResources(Me.Button3, "Button3")
         Me.Button3.Name = "Button3"
         Me.Button3.UseVisualStyleBackColor = False
         '
         'Button2
         '
-        resources.ApplyResources(Me.Button2, "Button2")
         Me.Button2.BackColor = System.Drawing.Color.DimGray
         Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
+        resources.ApplyResources(Me.Button2, "Button2")
         Me.Button2.Name = "Button2"
         Me.Button2.UseVisualStyleBackColor = False
         '
         'Button4
         '
-        resources.ApplyResources(Me.Button4, "Button4")
         Me.Button4.BackColor = System.Drawing.Color.DimGray
         Me.Button4.Cursor = System.Windows.Forms.Cursors.Hand
+        resources.ApplyResources(Me.Button4, "Button4")
         Me.Button4.Name = "Button4"
         Me.Button4.UseVisualStyleBackColor = False
         '

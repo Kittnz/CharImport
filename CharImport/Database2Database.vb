@@ -1,4 +1,4 @@
-﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+﻿'Copyright (C) 2011-2013 CharImport <http://sourceforge.net/projects/charimport/>
 '*
 '* This application is free and can be distributed.
 '*
@@ -138,6 +138,20 @@ Public Class Database2Database
                                       ";Password=" & password.Text & ";Database=character"
                     Main.characterdbname = "character"
                     Main.ServerStringCheck = alternatestring
+                    If determinecore() = "arcemu" Then
+                        arcemu.Checked = True
+                    ElseIf determinecore() = "mangos" Then
+                        mangos.Checked = True
+                    ElseIf determinecore() = "trinity" Then
+                        trinity1.Checked = True
+                    ElseIf determinecore() = "none" Then
+                        If My.Settings.language = "de" Then
+                            MsgBox(localeDE.couldnotdeterminecore, MsgBoxStyle.Critical, localeDE.errornotification)
+                        Else
+                            MsgBox(localeEN.couldnotdeterminecore, MsgBoxStyle.Critical, localeEN.errornotification)
+                        End If
+                        Exit Sub
+                    End If
                     If My.Settings.language = "de" Then
                         xlabel.Text = localeDE.armory2database_txt5
                     Else
@@ -217,6 +231,20 @@ Public Class Database2Database
                 Main.ServerStringCheck = alternatestring
                 Main.characterdbname = "characters"
                 runfunction.writelog("Could find character db and auth db")
+                If determinecore() = "arcemu" Then
+                    arcemu.Checked = True
+                ElseIf determinecore() = "mangos" Then
+                    mangos.Checked = True
+                ElseIf determinecore() = "trinity" Then
+                    trinity1.Checked = True
+                ElseIf determinecore() = "none" Then
+                    If My.Settings.language = "de" Then
+                        MsgBox(localeDE.couldnotdeterminecore, MsgBoxStyle.Critical, localeDE.errornotification)
+                    Else
+                        MsgBox(localeEN.couldnotdeterminecore, MsgBoxStyle.Critical, localeEN.errornotification)
+                    End If
+                    Exit Sub
+                End If
                 If My.Settings.language = "de" Then
                     xlabel.Text = localeDE.armory2database_txt5
                 Else
@@ -245,6 +273,20 @@ Public Class Database2Database
                                       ";Password=" & password.Text & ";Database=" & characters.Text
                     Main.characterdbname = characters.Text
                     Main.ServerStringCheck = alternatestring
+                    If determinecore() = "arcemu" Then
+                        arcemu.Checked = True
+                    ElseIf determinecore() = "mangos" Then
+                        mangos.Checked = True
+                    ElseIf determinecore() = "trinity" Then
+                        trinity1.Checked = True
+                    ElseIf determinecore() = "none" Then
+                        If My.Settings.language = "de" Then
+                            MsgBox(localeDE.couldnotdeterminecore, MsgBoxStyle.Critical, localeDE.errornotification)
+                        Else
+                            MsgBox(localeEN.couldnotdeterminecore, MsgBoxStyle.Critical, localeEN.errornotification)
+                        End If
+                        Exit Sub
+                    End If
                     If My.Settings.language = "de" Then
                         xlabel.Text = localeDE.armory2database_txt5
                     Else
@@ -279,7 +321,63 @@ Public Class Database2Database
         End If
     End Sub
 
+    Private Function determinecore() As String
+        If columnexist("ownerguid", "playeritems") = True Then
+            'arcemu
+            Return "arcemu"
+        ElseIf columnexist("item_template", "character_inventory") = True Then
+            'mangos
+            Return "mangos"
+        ElseIf columnexist("quest", "character_queststatus_rewarded") = True Then
+            'trinity
+            Return "trinity"
+        Else
+            Return "none"
+        End If
+    End Function
+    Private Function columnexist(ByVal spalte As String, ByVal table As String) As Boolean
+        Try
+            SQLConnection.Close()
 
+            SQLConnection.Dispose()
+        Catch ex As Exception
+
+        End Try
+
+        Dim myAdapter As New MySqlDataAdapter
+        SQLConnection.ConnectionString = Main.ServerString
+        Dim sqlquery = ("SELECT " & spalte & " FROM " & table)
+        Dim myCommand As New MySqlCommand()
+        myCommand.Connection = SQLConnection
+        myCommand.CommandText = sqlquery
+
+        'start query
+        myAdapter.SelectCommand = myCommand
+        Dim myData As MySqlDataReader
+        Try
+            SQLConnection.Close()
+            SQLConnection.Dispose()
+        Catch ex As Exception
+
+        End Try
+        Try
+            SQLConnection.Open()
+            myData = myCommand.ExecuteReader()
+            If CInt(myData.HasRows) = 0 Then
+                Return True
+            Else
+                SQLConnection.Close()
+
+                SQLConnection.Dispose()
+                Return True
+            End If
+        Catch ex As Exception
+            SQLConnection.Close()
+
+            SQLConnection.Dispose()
+            Return False
+        End Try
+    End Function
     Private Function trytoconnect(ByVal connectionstring As String) As Boolean
         Try
             SQLConnection.Close()
@@ -1407,17 +1505,38 @@ Public Class Database2Database
                         Application.DoEvents()
                         Dim newid As String =
                                 (CInt(
-                                    Val(runcommandRealmd("SELECT id FROM account WHERE id=(SELECT MAX(id) FROM account)",
-                                                         "id"))) + 1).ToString
+                                    Val(runcommandRealmd("SELECT acct FROM accounts WHERE acct=(SELECT MAX(acct) FROM accounts)",
+                                                         "acct"))) + 1).ToString
+                        If Main.account_access_gmlevel = 4 Then
+                            If Main.arcemu_gmlevel = "" Then
+                                Main.arcemu_gmlevel = "AZ"
+                            End If
+                        ElseIf Main.account_access_gmlevel = 0 Then
+                            If Main.arcemu_gmlevel = "" Then
+                                Main.arcemu_gmlevel = "0"
+                            End If
+                        ElseIf Main.account_access_gmlevel < 4 Then
+                            If Main.arcemu_gmlevel = "" Then
+                                Main.arcemu_gmlevel = "A"
+                            End If
+                        End If
+                        Dim expflags As String = ""
+                        Select Main.expansion
+                            Case 0
+                                expflags = "0"
+                            Case 1
+                                expflags = "8"
+                            Case 2
+                                expflags = "24"
+                            Case 3
+                                expflags = "32"
+                            Case Else : End Select
+
                         arcemucore.create_new_account_if_not_exist(Main.accountname,
-                                                                   "INSERT INTO account ( `id`, `username`, gmlevel,`sha_pass_hash`, `sessionkey`, `v`, `s`, `email`, `joindate`, active_realm_id, `expansion`, locale ) VALUES ( '" &
+                                                                   "INSERT INTO accounts ( `acct`, `login`, `gm`,`encrypted_password`, `email`, flags ) VALUES ( '" &
                                                                    newid & "', '" & Main.accountname & "', '" &
-                                                                   Main.account_access_gmlevel.ToString & "', '" &
-                                                                   Main.sha_pass_hash & "', '" & Main.sessionkey &
-                                                                   "', '" & Main.account_v & "', '" & Main.account_s &
-                                                                   "', '" & Main.email & "', '" & Main.joindate & "', '" &
-                                                                   Main.account_access_RealmID & "', '" & Main.expansion &
-                                                                   "', '" & Main.locale & "' )", newid)
+                                                                   Main.arcemu_gmlevel.ToString & "', '" &
+                                                                   Main.sha_pass_hash & "', '" & Main.email & "', '" & expflags & "' )", newid)
                         arcemucore.adddetailedchar(Main.accountname, Main.char_name, namechange1.Checked)
                         If items.Checked = True Then arcemucore.additems()
                         If enchantments.Checked = True Then arcemucore.addench()
@@ -1454,18 +1573,38 @@ Public Class Database2Database
 
                         Dim newid As String =
                                 (CInt(
-                                    Val(runcommandRealmd("SELECT id FROM account WHERE id=(SELECT MAX(id) FROM account)",
-                                                         "id"))) + 1).ToString
-                        arcemucore.create_new_account_if_not_exist(Main.accountname,
-                                                                   "INSERT INTO account ( `id`, `username`, gmlevel,`sha_pass_hash`, `sessionkey`, `v`, `s`, `email`, `joindate`, active_realm_id, `expansion`, locale ) VALUES ( '" &
-                                                                   newid & "', '" & Main.accountname & "', '" &
-                                                                   Main.account_access_gmlevel.ToString & "', '" &
-                                                                   Main.sha_pass_hash & "', '" & Main.sessionkey &
-                                                                   "', '" & Main.account_v & "', '" & Main.account_s &
-                                                                   "', '" & Main.email & "', '" & Main.joindate & "', '" &
-                                                                   Main.account_access_RealmID & "', '" & Main.expansion &
-                                                                   "', '" & Main.locale & "' )", newid)
+                                    Val(runcommandRealmd("SELECT acct FROM accounts WHERE acct=(SELECT MAX(acct) FROM accounts)",
+                                                         "acct"))) + 1).ToString
+                        If Main.account_access_gmlevel = 4 Then
+                            If Main.arcemu_gmlevel = "" Then
+                                Main.arcemu_gmlevel = "AZ"
+                            End If
+                        ElseIf Main.account_access_gmlevel = 0 Then
+                            If Main.arcemu_gmlevel = "" Then
+                                Main.arcemu_gmlevel = "0"
+                            End If
+                        ElseIf Main.account_access_gmlevel < 4 Then
+                            If Main.arcemu_gmlevel = "" Then
+                                Main.arcemu_gmlevel = "A"
+                            End If
+                        End If
+                        Dim expflags As String = ""
+                        Select Case Main.expansion
+                            Case 0
+                                expflags = "0"
+                            Case 1
+                                expflags = "8"
+                            Case 2
+                                expflags = "24"
+                            Case 3
+                                expflags = "32"
+                            Case Else : End Select
 
+                        arcemucore.create_new_account_if_not_exist(Main.accountname,
+                                                                   "INSERT INTO accounts ( `acct`, `login`, `gm`,`encrypted_password`, `email`, flags ) VALUES ( '" &
+                                                                   newid & "', '" & Main.accountname & "', '" &
+                                                                   Main.arcemu_gmlevel.ToString & "', '" &
+                                                                   Main.sha_pass_hash & "', '" & Main.email & "', '" & expflags & "' )", newid)
                         arcemucore.adddetailedchar(Main.accountname, Main.char_name, namechange1.Checked)
 
                         '  arcemucore.updatechars(sLines(i), Main.char_name, namechange2.Checked)
@@ -1701,10 +1840,12 @@ Public Class Database2Database
             MsgBox(localeEN.restartlogon, MsgBoxStyle.Information, localeEN.attention)
         End If
         reporttext.AppendText(Now.TimeOfDay.ToString & "// Transfer is completed!" & vbNewLine)
+
         Process_Status.Button1.Enabled = True
         Database_Interface.Close()
         Starter.Show()
         Me.Close()
+        Process_Status.BringToFront()
     End Sub
 
     Private Sub Button4_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button4.Click

@@ -79,7 +79,6 @@ Partial Class Connect
         Me.Label11 = New System.Windows.Forms.Label()
         Me.accnames = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.mangos = New System.Windows.Forms.RadioButton()
         Me.arcemu = New System.Windows.Forms.RadioButton()
         Me.trinity1 = New System.Windows.Forms.RadioButton()
@@ -101,15 +100,17 @@ Partial Class Connect
         Me.manually = New System.Windows.Forms.RadioButton()
         Me.automatic = New System.Windows.Forms.RadioButton()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Label15 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        Me.GroupBox3.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.SuspendLayout()
@@ -514,17 +515,6 @@ Partial Class Connect
         Me.Label12.ForeColor = System.Drawing.Color.RoyalBlue
         Me.Label12.Name = "Label12"
         '
-        'GroupBox3
-        '
-        Me.GroupBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(82, Byte), Integer))
-        Me.GroupBox3.Controls.Add(Me.mangos)
-        Me.GroupBox3.Controls.Add(Me.arcemu)
-        Me.GroupBox3.Controls.Add(Me.trinity1)
-        resources.ApplyResources(Me.GroupBox3, "GroupBox3")
-        Me.GroupBox3.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.TabStop = False
-        '
         'mangos
         '
         resources.ApplyResources(Me.mangos, "mangos")
@@ -683,25 +673,41 @@ Partial Class Connect
         '
         'Panel3
         '
-        Me.Panel3.Controls.Add(Me.GroupBox3)
-        Me.Panel3.Controls.Add(Me.Button1)
-        Me.Panel3.Controls.Add(Me.GroupBox9)
-        Me.Panel3.Controls.Add(Me.Label1)
-        Me.Panel3.Controls.Add(Me.manually)
-        Me.Panel3.Controls.Add(Me.address)
-        Me.Panel3.Controls.Add(Me.automatic)
-        Me.Panel3.Controls.Add(Me.Label2)
-        Me.Panel3.Controls.Add(Me.Label14)
-        Me.Panel3.Controls.Add(Me.port)
-        Me.Panel3.Controls.Add(Me.Button7)
-        Me.Panel3.Controls.Add(Me.Label3)
-        Me.Panel3.Controls.Add(Me.user)
-        Me.Panel3.Controls.Add(Me.password)
-        Me.Panel3.Controls.Add(Me.Button3)
-        Me.Panel3.Controls.Add(Me.Label4)
-        Me.Panel3.Controls.Add(Me.Label5)
+        Me.Panel3.Controls.Add(Me.GroupBox4)
+        Me.Panel3.Controls.Add(Me.mangos)
+        Me.Panel3.Controls.Add(Me.Label15)
+        Me.Panel3.Controls.Add(Me.arcemu)
+        Me.Panel3.Controls.Add(Me.trinity1)
         resources.ApplyResources(Me.Panel3, "Panel3")
         Me.Panel3.Name = "Panel3"
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.Label1)
+        Me.GroupBox4.Controls.Add(Me.Label5)
+        Me.GroupBox4.Controls.Add(Me.Label4)
+        Me.GroupBox4.Controls.Add(Me.Button1)
+        Me.GroupBox4.Controls.Add(Me.Button3)
+        Me.GroupBox4.Controls.Add(Me.password)
+        Me.GroupBox4.Controls.Add(Me.GroupBox9)
+        Me.GroupBox4.Controls.Add(Me.user)
+        Me.GroupBox4.Controls.Add(Me.Label3)
+        Me.GroupBox4.Controls.Add(Me.manually)
+        Me.GroupBox4.Controls.Add(Me.Button7)
+        Me.GroupBox4.Controls.Add(Me.address)
+        Me.GroupBox4.Controls.Add(Me.port)
+        Me.GroupBox4.Controls.Add(Me.automatic)
+        Me.GroupBox4.Controls.Add(Me.Label14)
+        Me.GroupBox4.Controls.Add(Me.Label2)
+        resources.ApplyResources(Me.GroupBox4, "GroupBox4")
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.TabStop = False
+        '
+        'Label15
+        '
+        resources.ApplyResources(Me.Label15, "Label15")
+        Me.Label15.ForeColor = System.Drawing.Color.RoyalBlue
+        Me.Label15.Name = "Label15"
         '
         'Panel4
         '
@@ -771,12 +777,12 @@ Partial Class Connect
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
         Me.GroupBox9.ResumeLayout(False)
         Me.GroupBox9.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         Me.Panel5.ResumeLayout(False)
@@ -839,7 +845,6 @@ Partial Class Connect
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents accnames As System.Windows.Forms.TextBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
-    Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents mangos As System.Windows.Forms.RadioButton
     Friend WithEvents arcemu As System.Windows.Forms.RadioButton
     Friend WithEvents trinity1 As System.Windows.Forms.RadioButton
@@ -864,4 +869,6 @@ Partial Class Connect
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
     Friend WithEvents Panel5 As System.Windows.Forms.Panel
+    Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
 End Class

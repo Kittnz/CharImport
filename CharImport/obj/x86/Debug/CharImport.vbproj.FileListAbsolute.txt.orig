@@ -110,7 +110,9 @@ C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport_Test\CharImport\
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport_Test\CharImport\obj\x86\Debug\CharImport Test.xml
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport_Test\CharImport\obj\x86\Debug\CharImport Test.pdb
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport.vbproj.GenerateResource.Cache
-C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport.vbprojResolveAssemblyReference.cache
+<<<<<<< HEAD
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport_Alpha\charimportalpha-code\CharImport\bin\Debug\CharImport Test.exe.config
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport_Alpha\charimportalpha-code\CharImport\obj\x86\Debug\CharImport Test.xml
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport_Alpha\charimportalpha-code\CharImport\bin\Debug\CharImport Test.exe
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport_Alpha\charimportalpha-code\CharImport\bin\Debug\CharImport Test.pdb
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport_Alpha\charimportalpha-code\CharImport\bin\Debug\CharImport Test.xml
@@ -166,3 +168,6 @@ C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport_Alpha\charimport
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport_Alpha\charimportalpha-code\CharImport\obj\x86\Debug\af\CharImport Test.resources.dll
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport_Alpha\charimportalpha-code\CharImport\obj\x86\Debug\CharImport Test.exe
 C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport_Alpha\charimportalpha-code\CharImport\obj\x86\Debug\CharImport Test.pdb
+=======
+C:\Users\Ruben\Documents\Visual Studio 2010\Projects\CharImport Test\CharImport\obj\x86\Debug\CharImport.vbprojResolveAssemblyReference.cache
+>>>>>>> de1ca8d32ed20fccfaecbd3455f3f8f645bd365d

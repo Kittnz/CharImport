@@ -1,4 +1,4 @@
-﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+﻿'Copyright (C) 2011-2013 CharImport <http://sourceforge.net/projects/charimport/>
 '*
 '* This application is free and can be distributed.
 '*
@@ -795,7 +795,7 @@ Public Class CIUFile
         readit2("distanzsocket3name", Main.distanzsocket3, False)
 
         'Get correct effectnames
-
+        Dim sajdaj As String = Main.kopfvzid.ToString()
         If Not Main.kopfvzid = 0 Then Main.kopfvz.Text = runfunction.geteffectnameofeffectid(Main.kopfvzid)
         If Not Main.schultervzid = 0 Then Main.schultervz.Text = runfunction.geteffectnameofeffectid(Main.schultervzid)
         If Not Main.halsvzid = 0 Then Main.halsvz.Text = runfunction.geteffectnameofeffectid(Main.halsvzid)
@@ -810,9 +810,9 @@ Public Class CIUFile
         If Not Main.ring2vzid = 0 Then Main.ring2vz.Text = runfunction.geteffectnameofeffectid(Main.ring2vzid)
         If Not Main.schmuck1vzid = 0 Then Main.schmuck1vz.Text = runfunction.geteffectnameofeffectid(Main.schmuck1vzid)
         If Not Main.schmuck2vzid = 0 Then Main.schmuck2vz.Text = runfunction.geteffectnameofeffectid(Main.schmuck2vzid)
-        If Not Main.hauptvzid = 0 Then Main.hauptvz.Text = runfunction.geteffectnameofeffectid(Main.hauptvzid)
-        If Not Main.offvzid = 0 Then Main.offvz.Text = runfunction.geteffectnameofeffectid(Main.offvzid)
-        If Not Main.distanzvzid = 0 Then Main.distanzvz.Text = runfunction.geteffectnameofeffectid(Main.distanzvzid)
+        If Not Main.hauptvzid = 0 Then Main.hauptvzlabel2.Text = runfunction.geteffectnameofeffectid(Main.hauptvzid)
+        If Not Main.offvzid = 0 Then Main.offvzlabel2.Text = runfunction.geteffectnameofeffectid(Main.offvzid)
+        If Not Main.distanzvzid = 0 Then Main.distanzvzlabel2.Text = runfunction.geteffectnameofeffectid(Main.distanzvzid)
 
         If Not Main.kopfsocket1id = 0 Then Main.kopfsocket1.Text = runfunction.geteffectnameofeffectid(Main.kopfsocket1id)
         If Not Main.schultersocket1id = 0 Then Main.schultersocket1.Text = runfunction.geteffectnameofeffectid(Main.schultersocket1id)

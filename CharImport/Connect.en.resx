@@ -119,7 +119,7 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 26</value>
+    <value>332, 26</value>
   </data>
   <data name="Label1.Text" xml:space="preserve">
     <value>Create a connection to the database of the WoW-Server.
@@ -127,13 +127,13 @@ Please make sure that the database is accessible!
 </value>
   </data>
   <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 13</value>
+    <value>113, 13</value>
   </data>
   <data name="Label2.Text" xml:space="preserve">
     <value>Database address:</value>
   </data>
   <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 13</value>
+    <value>65, 13</value>
   </data>
   <data name="Label5.Text" xml:space="preserve">
     <value>Password:</value>
@@ -245,9 +245,6 @@ Please make sure that the database is accessible!
   <data name="male.Text" xml:space="preserve">
     <value>Male</value>
   </data>
-  <data name="GroupBox2.Text" xml:space="preserve">
-    <value>Gender</value>
-  </data>
   <data name="genderstay.Size" type="System.Drawing.Size, System.Drawing">
     <value>82, 19</value>
   </data>
@@ -259,6 +256,9 @@ Please make sure that the database is accessible!
   </data>
   <data name="female.Text" xml:space="preserve">
     <value>Female</value>
+  </data>
+  <data name="GroupBox2.Text" xml:space="preserve">
+    <value>Gender</value>
   </data>
   <data name="newcharname.Size" type="System.Drawing.Size, System.Drawing">
     <value>189, 20</value>
@@ -278,9 +278,6 @@ Please make sure that the database is accessible!
   </data>
   <data name="accnames.Size" type="System.Drawing.Size, System.Drawing">
     <value>189, 82</value>
-  </data>
-  <data name="GroupBox3.Text" xml:space="preserve">
-    <value>Select the destination core:</value>
   </data>
   <data name="gold.Size" type="System.Drawing.Size, System.Drawing">
     <value>68, 19</value>
@@ -330,17 +327,14 @@ Please make sure that the database is accessible!
   <data name="auth.Size" type="System.Drawing.Size, System.Drawing">
     <value>126, 20</value>
   </data>
-  <data name="GroupBox9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>338, 62</value>
-  </data>
   <data name="Label13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 13</value>
+    <value>168, 13</value>
   </data>
   <data name="Label13.Text" xml:space="preserve">
     <value>Realm/Auth database name:</value>
   </data>
   <data name="Label16.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 13</value>
+    <value>156, 13</value>
   </data>
   <data name="Label16.Text" xml:space="preserve">
     <value>Character database name:</value>
@@ -348,23 +342,35 @@ Please make sure that the database is accessible!
   <data name="characters.Size" type="System.Drawing.Size, System.Drawing">
     <value>126, 20</value>
   </data>
+  <data name="GroupBox9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>338, 62</value>
+  </data>
   <data name="manually.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 17</value>
+    <value>213, 17</value>
   </data>
   <data name="manually.Text" xml:space="preserve">
     <value>Set relevant databases manually:</value>
   </data>
   <data name="automatic.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 17</value>
+    <value>239, 17</value>
   </data>
   <data name="automatic.Text" xml:space="preserve">
     <value>Find relevant databases automatically</value>
+  </data>
+  <data name="GroupBox4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 33</value>
+  </data>
+  <data name="Label15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>430, 25</value>
+  </data>
+  <data name="Label15.Text" xml:space="preserve">
+    <value>Open a new connection to the database</value>
   </data>
   <data name="Panel5.Location" type="System.Drawing.Point, System.Drawing">
     <value>1399, 4</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>693, 422</value>
+    <value>691, 422</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

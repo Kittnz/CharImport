@@ -138,6 +138,9 @@
 (max. one link)
 </value>
   </data>
+  <data name="globalregion.Text" xml:space="preserve">
+    <value>Select</value>
+  </data>
   <data name="add_button.Text" xml:space="preserve">
     <value>Check and add</value>
   </data>

@@ -1,4 +1,4 @@
-﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+﻿'Copyright (C) 2011-2013 CharImport <http://sourceforge.net/projects/charimport/>
 '*
 '* This application is free and can be distributed.
 '*
@@ -50,7 +50,7 @@ Public Class prozedur_armory
 
         End If
 
-
+        Main.armoryrun = True
         Dim anfang As String = "/character/"
         Dim ende As String = "/"
         Dim realm As String
@@ -541,7 +541,7 @@ Public Class prozedur_armory
 
     Public Function getvzeffectname(ByVal vzid As String) As String
         Try
-            Return runfunction.getvzeffectname2(CInt(vzid))
+            Return runfunction.getvzeffectname(CInt(vzid))
         Catch
             Return "-"
         End Try
@@ -549,7 +549,7 @@ Public Class prozedur_armory
 
     Public Function getsocketeffectname(ByVal socketid As String) As String
         Try
-            Return runfunction.getsocketeffectname2(CInt(socketid))
+            Return runfunction.getsocketeffectnameofitemid(CInt(socketid))
         Catch
             Return "-"
         End Try
@@ -2100,33 +2100,38 @@ Public Class prozedur_armory
                             With Main.kopfvz
                                 .Visible = True
                                 If xoverview = True Then .Text = getvzeffectname(getspellidfromitem(vzid).ToString)
+                                Main.kopfvzid = runfunction.getvzeffectid(.Text)
                             End With
-                            Main.kopfvzid = getspellidfromitem(vzid)
+
 
                         Case 2
                             With Main.halsvz
                                 .Visible = True
                                 If xoverview = True Then .Text = getvzeffectname(getspellidfromitem(vzid).ToString)
+                                Main.halsvzid = runfunction.getvzeffectid(.Text)
                             End With
-                            Main.halsvzid = getspellidfromitem(vzid)
+
                         Case 3
                             With Main.schultervz
                                 .Visible = True
                                 If xoverview = True Then .Text = getvzeffectname(getspellidfromitem(vzid).ToString)
+                                Main.schultervzid = runfunction.getvzeffectid(.Text)
                             End With
-                            Main.schultervzid = getspellidfromitem(vzid)
+
                         Case 4
                             With Main.rueckenvz
                                 .Visible = True
                                 If xoverview = True Then .Text = getvzeffectname(getspellidfromitem(vzid).ToString)
+                                Main.rueckenvzid = runfunction.getvzeffectid(.Text)
                             End With
-                            Main.rueckenvzid = getspellidfromitem(vzid)
+
                         Case 5
                             With Main.brustvz
                                 .Visible = True
                                 If xoverview = True Then .Text = getvzeffectname(getspellidfromitem(vzid).ToString)
+                                Main.brustvzid = runfunction.getvzeffectid(.Text)
                             End With
-                            Main.brustvzid = getspellidfromitem(vzid)
+
                         Case 6
 
                         Case 7
@@ -2135,86 +2140,98 @@ Public Class prozedur_armory
                             With Main.handgelenkevz
                                 .Visible = True
                                 If xoverview = True Then .Text = getvzeffectname(getspellidfromitem(vzid).ToString)
+                                Main.handgelenkevzid = runfunction.getvzeffectid(.Text)
                             End With
-                            Main.handgelenkevzid = getspellidfromitem(vzid)
+
                         Case 9
                             With Main.hauptvz
                                 .Visible = True
                                 If xoverview = True Then .Text = getvzeffectname(getspellidfromitem(vzid).ToString)
-                            End With
+                                Main.hauptvzid = runfunction.getvzeffectid(.Text)
+                                End With
                             With Main.hauptvzlabel2
                                 .Visible = True
                                 If xoverview = True Then .Text = Main.hauptvz.Text
                             End With
-                            Main.hauptvzid = getspellidfromitem(vzid)
+
                         Case 10
                             With Main.offvz
                                 .Visible = False
                                 If xoverview = True Then .Text = getvzeffectname(getspellidfromitem(vzid).ToString)
+                                Main.offvzid = runfunction.getvzeffectid(.Text)
                             End With
                             With Main.offvzlabel2
                                 .Visible = True
                                 If xoverview = True Then .Text = Main.offvz.Text
                             End With
-                            Main.offvzid = getspellidfromitem(vzid)
+
                         Case 11
                             With Main.distanzvz
                                 .Visible = True
                                 If xoverview = True Then .Text = getvzeffectname(getspellidfromitem(vzid).ToString)
+                                Main.distanzvzid = runfunction.getvzeffectid(.Text)
                             End With
                             With Main.distanzvzlabel2
                                 .Visible = True
                                 .Text = Main.distanzvz.Text
                             End With
-                            Main.distanzvzid = getspellidfromitem(vzid)
+
                         Case 12
                             With Main.haendevz
                                 .Visible = True
                                 If xoverview = True Then .Text = getvzeffectname(getspellidfromitem(vzid).ToString)
+                                Main.haendevzid = runfunction.getvzeffectid(.Text)
                             End With
-                            Main.haendevzid = getspellidfromitem(vzid)
+
                         Case 13
                             With Main.guertelvz
                                 .Visible = True
                                 If xoverview = True Then .Text = getvzeffectname(getspellidfromitem(vzid).ToString)
+                                Main.guertelvzid = runfunction.getvzeffectid(.Text)
                             End With
-                            Main.guertelvzid = getspellidfromitem(vzid)
+
                         Case 14
                             With Main.beinevz
                                 .Visible = True
                                 If xoverview = True Then .Text = getvzeffectname(getspellidfromitem(vzid).ToString)
+                                Main.beinevzid = runfunction.getvzeffectid(.Text)
                             End With
-                            Main.beinevzid = getspellidfromitem(vzid)
+
                         Case 15
                             With Main.stiefelvz
                                 .Visible = True
                                 If xoverview = True Then .Text = getvzeffectname(getspellidfromitem(vzid).ToString)
+                                Main.stiefelvzid = runfunction.getvzeffectid(.Text)
                             End With
-                            Main.stiefelvzid = getspellidfromitem(vzid)
+
                         Case 16
                             With Main.ring1vz
                                 .Visible = True
                                 If xoverview = True Then .Text = getvzeffectname(getspellidfromitem(vzid).ToString)
+                                Main.ring1vzid = runfunction.getvzeffectid(.Text)
                             End With
-                            Main.ring1vzid = getspellidfromitem(vzid)
+
                         Case 17
                             With Main.ring2vz
                                 .Visible = True
                                 If xoverview = True Then .Text = getvzeffectname(getspellidfromitem(vzid).ToString)
+                                Main.ring2vzid = runfunction.getvzeffectid(.Text)
                             End With
-                            Main.ring2vzid = getspellidfromitem(vzid)
+
                         Case 18
                             With Main.schmuck1vz
                                 .Visible = True
                                 If xoverview = True Then .Text = getvzeffectname(getspellidfromitem(vzid).ToString)
+                                Main.schmuck1vzid = runfunction.getvzeffectid(.Text)
                             End With
-                            Main.schmuck1vzid = getspellidfromitem(vzid)
+
                         Case 19
                             With Main.schmuck2vz
                                 .Visible = True
                                 If xoverview = True Then .Text = getvzeffectname(getspellidfromitem(vzid).ToString)
+                                Main.schmuck2vzid = runfunction.getvzeffectid(.Text)
                             End With
-                            Main.schmuck2vzid = getspellidfromitem(vzid)
+
                     End Select
 
 
@@ -2240,32 +2257,37 @@ Public Class prozedur_armory
                             With Main.kopfvz
                                 .Visible = True
                                 If xoverview = True Then .Text = getspellnamefromid(vzid)
+                                Main.kopfvzid = runfunction.getvzeffectid(.Text)
                             End With
-                            Main.kopfvzid = CInt(vzid)
+
                         Case 2
                             With Main.halsvz
                                 .Visible = True
                                 If xoverview = True Then .Text = getspellnamefromid(vzid)
+                                Main.halsvzid = runfunction.getvzeffectid(.Text)
                             End With
-                            Main.halsvzid = CInt(vzid)
+
                         Case 3
                             With Main.schultervz
                                 .Visible = True
                                 If xoverview = True Then .Text = getspellnamefromid(vzid)
+                                Main.schultervzid = runfunction.getvzeffectid(.Text)
                             End With
-                            Main.schultervzid = CInt(vzid)
+
                         Case 4
                             With Main.rueckenvz
                                 .Visible = True
                                 If xoverview = True Then .Text = getspellnamefromid(vzid)
+                                Main.rueckenvzid = runfunction.getvzeffectid(.Text)
                             End With
-                            Main.rueckenvzid = CInt(vzid)
+
                         Case 5
                             With Main.brustvz
                                 .Visible = True
                                 If xoverview = True Then .Text = getspellnamefromid(vzid)
+                                Main.brustvzid = runfunction.getvzeffectid(.Text)
                             End With
-                            Main.brustvzid = CInt(vzid)
+
                         Case 6
 
                         Case 7
@@ -2274,88 +2296,100 @@ Public Class prozedur_armory
                             With Main.handgelenkevz
                                 .Visible = True
                                 If xoverview = True Then .Text = getspellnamefromid(vzid)
+                                Main.handgelenkevzid = runfunction.getvzeffectid(.Text)
                             End With
-                            Main.handgelenkevzid = CInt(vzid)
+
                             '[ Section changed 03/09/12 -  Reason: Label not displayed!
                         Case 9
                             With Main.hauptvz
                                 .Visible = True
                                 If xoverview = True Then .Text = getspellnamefromid(vzid)
+                                Main.hauptvzid = runfunction.getvzeffectid(.Text)
                             End With
                             With Main.hauptvzlabel2
                                 .Visible = True
                                 If xoverview = True Then .Text = Main.hauptvz.Text
                             End With
-                            Main.hauptvzid = CInt(vzid)
+
                         Case 10
                             With Main.offvz
                                 .Visible = False
                                 If xoverview = True Then .Text = getspellnamefromid(vzid)
+                                Main.offvzid = runfunction.getvzeffectid(.Text)
                             End With
                             With Main.offvzlabel2
                                 .Visible = True
                                 If xoverview = True Then .Text = Main.offvz.Text
                             End With
-                            Main.offvzid = CInt(vzid)
+
                         Case 11
                             With Main.distanzvz
                                 .Visible = True
                                 If xoverview = True Then .Text = getspellnamefromid(vzid)
+                                Main.distanzvzid = runfunction.getvzeffectid(.Text)
                             End With
                             With Main.distanzvzlabel2
                                 .Visible = True
                                 .Text = Main.distanzvz.Text
                             End With
-                            Main.distanzvzid = CInt(vzid)
+
                             'End Section ]
                         Case 12
                             With Main.haendevz
                                 .Visible = True
                                 If xoverview = True Then .Text = getspellnamefromid(vzid)
+                                Main.haendevzid = runfunction.getvzeffectid(.Text)
                             End With
-                            Main.haendevzid = CInt(vzid)
+
                         Case 13
                             With Main.guertelvz
                                 .Visible = True
                                 If xoverview = True Then .Text = getspellnamefromid(vzid)
+                                Main.guertelvzid = runfunction.getvzeffectid(.Text)
                             End With
-                            Main.guertelvzid = CInt(vzid)
+
                         Case 14
                             With Main.beinevz
                                 .Visible = True
                                 If xoverview = True Then .Text = getspellnamefromid(vzid)
+                                Main.beinevzid = runfunction.getvzeffectid(.Text)
                             End With
-                            Main.beinevzid = CInt(vzid)
+
                         Case 15
                             With Main.stiefelvz
                                 .Visible = True
                                 If xoverview = True Then .Text = getspellnamefromid(vzid)
+                                Main.stiefelvzid = runfunction.getvzeffectid(.Text)
                             End With
-                            Main.stiefelvzid = CInt(vzid)
+
                         Case 16
                             With Main.ring1vz
                                 .Visible = True
                                 If xoverview = True Then .Text = getspellnamefromid(vzid)
+                                Main.ring1vzid = runfunction.getvzeffectid(.Text)
                             End With
-                            Main.ring1vzid = CInt(vzid)
+
                         Case 17
                             With Main.ring2vz
                                 .Visible = True
                                 If xoverview = True Then .Text = getspellnamefromid(vzid)
+                                Main.ring2vzid = runfunction.getvzeffectid(.Text)
                             End With
-                            Main.ring2vzid = CInt(vzid)
+
                         Case 18
                             With Main.schmuck1vz
                                 .Visible = True
                                 If xoverview = True Then .Text = getspellnamefromid(vzid)
+                                Main.schmuck1vzid = runfunction.getvzeffectid(.Text)
                             End With
-                            Main.schmuck1vzid = CInt(vzid)
+
                         Case 19
                             With Main.schmuck2vz
                                 .Visible = True
                                 If xoverview = True Then .Text = getspellnamefromid(vzid)
+                                Main.schmuck2vzid = runfunction.getvzeffectid(.Text)
                             End With
-                            Main.schmuck2vzid = CInt(vzid)
+
                     End Select
                 Else
 
@@ -2457,31 +2491,31 @@ Public Class prozedur_armory
                             .Visible = True
                             If xoverview = True Then .Text = getsocketeffectname(socket1)
                         End With
-                        Main.kopfsocket1id = CInt(socket1)
+                        Main.kopfsocket1id = runfunction.getgemeffectid(socket1)
                     Case 2
                         With Main.halssocket1
                             .Visible = True
                             If xoverview = True Then .Text = getsocketeffectname(socket1)
                         End With
-                        Main.halssocket1id = CInt(socket1)
+                        Main.halssocket1id = runfunction.getgemeffectid(socket1)
                     Case 3
                         With Main.schultersocket1
                             .Visible = True
                             If xoverview = True Then .Text = getsocketeffectname(socket1)
                         End With
-                        Main.schultersocket1id = CInt(socket1)
+                        Main.schultersocket1id = runfunction.getgemeffectid(socket1)
                     Case 4
                         With Main.rueckensocket1
                             .Visible = True
                             If xoverview = True Then .Text = getsocketeffectname(socket1)
                         End With
-                        Main.rueckensocket1id = CInt(socket1)
+                        Main.rueckensocket1id = runfunction.getgemeffectid(socket1)
                     Case 5
                         With Main.brustsocket1
                             .Visible = True
                             If xoverview = True Then .Text = getsocketeffectname(socket1)
                         End With
-                        Main.brustsocket1id = CInt(socket1)
+                        Main.brustsocket1id = runfunction.getgemeffectid(socket1)
                     Case 6
 
                     Case 7
@@ -2491,61 +2525,61 @@ Public Class prozedur_armory
                             .Visible = True
                             If xoverview = True Then .Text = getsocketeffectname(socket1)
                         End With
-                        Main.handgelenkesocket1id = CInt(socket1)
+                        Main.handgelenkesocket1id = runfunction.getgemeffectid(socket1)
                     Case 9
                         With Main.Hauptsocket1
                             .Visible = True
                             If xoverview = True Then .Text = getsocketeffectname(socket1)
                         End With
-                        Main.hauptsocket1id = CInt(socket1)
+                        Main.hauptsocket1id = runfunction.getgemeffectid(socket1)
                     Case 10
                         With Main.Offsocket1
                             .Visible = True
                             If xoverview = True Then .Text = getsocketeffectname(socket1)
                         End With
-                        Main.offsocket1id = CInt(socket1)
+                        Main.offsocket1id = runfunction.getgemeffectid(socket1)
                     Case 11
                         With Main.Distanzsocket1
                             .Visible = True
                             If xoverview = True Then .Text = getsocketeffectname(socket1)
                         End With
-                        Main.distanzsocket1id = CInt(socket1)
+                        Main.distanzsocket1id = runfunction.getgemeffectid(socket1)
                     Case 12
                         With Main.haendesocket1
                             .Visible = True
                             If xoverview = True Then .Text = getsocketeffectname(socket1)
                         End With
-                        Main.haendesocket1id = CInt(socket1)
+                        Main.haendesocket1id = runfunction.getgemeffectid(socket1)
                     Case 13
                         With Main.guertelsocket1
                             .Visible = True
                             If xoverview = True Then .Text = getsocketeffectname(socket1)
                         End With
-                        Main.guertelsocket1id = CInt(socket1)
+                        Main.guertelsocket1id = runfunction.getgemeffectid(socket1)
                     Case 14
                         With Main.beinesocket1
                             .Visible = True
                             If xoverview = True Then .Text = getsocketeffectname(socket1)
                         End With
-                        Main.beinesocket1id = CInt(socket1)
+                        Main.beinesocket1id = runfunction.getgemeffectid(socket1)
                     Case 15
                         With Main.stiefelsocket1
                             .Visible = True
                             If xoverview = True Then .Text = getsocketeffectname(socket1)
                         End With
-                        Main.stiefelsocket1id = CInt(socket1)
+                        Main.stiefelsocket1id = runfunction.getgemeffectid(socket1)
                     Case 16
                         With Main.Ring1socket1
                             .Visible = True
                             If xoverview = True Then .Text = getsocketeffectname(socket1)
                         End With
-                        Main.ring1socket1id = CInt(socket1)
+                        Main.ring1socket1id = runfunction.getgemeffectid(socket1)
                     Case 17
                         With Main.ring2socket1
                             .Visible = True
                             If xoverview = True Then .Text = getsocketeffectname(socket1)
                         End With
-                        Main.ring2socket1id = CInt(socket1)
+                        Main.ring2socket1id = runfunction.getgemeffectid(socket1)
                     Case 18
 
                     Case 19
@@ -2591,31 +2625,31 @@ Public Class prozedur_armory
                                 .Visible = True
                                 If xoverview = True Then .Text = getsocketeffectname(socket2)
                             End With
-                            Main.kopfsocket2id = CInt(socket2)
+                            Main.kopfsocket2id = runfunction.getgemeffectid(socket2)
                         Case 2
                             With Main.halssocket2
                                 .Visible = True
                                 If xoverview = True Then .Text = getsocketeffectname(socket2)
                             End With
-                            Main.halssocket2id = CInt(socket2)
+                            Main.halssocket2id = runfunction.getgemeffectid(socket2)
                         Case 3
                             With Main.schultersocket2
                                 .Visible = True
                                 If xoverview = True Then .Text = getsocketeffectname(socket2)
                             End With
-                            Main.schultersocket2id = CInt(socket2)
+                            Main.schultersocket2id = runfunction.getgemeffectid(socket2)
                         Case 4
                             With Main.rueckensocket2
                                 .Visible = True
                                 If xoverview = True Then .Text = getsocketeffectname(socket2)
                             End With
-                            Main.rueckensocket2id = CInt(socket2)
+                            Main.rueckensocket2id = runfunction.getgemeffectid(socket2)
                         Case 5
                             With Main.brustsocket2
                                 .Visible = True
                                 If xoverview = True Then .Text = getsocketeffectname(socket2)
                             End With
-                            Main.brustsocket2id = CInt(socket2)
+                            Main.brustsocket2id = runfunction.getgemeffectid(socket2)
                         Case 6
 
                         Case 7
@@ -2625,61 +2659,61 @@ Public Class prozedur_armory
                                 .Visible = True
                                 If xoverview = True Then .Text = getsocketeffectname(socket2)
                             End With
-                            Main.handgelenkesocket2id = CInt(socket2)
+                            Main.handgelenkesocket2id = runfunction.getgemeffectid(socket2)
                         Case 9
                             With Main.Hauptsocket2
                                 .Visible = True
                                 If xoverview = True Then .Text = getsocketeffectname(socket2)
                             End With
-                            Main.hauptsocket2id = CInt(socket2)
+                            Main.hauptsocket2id = runfunction.getgemeffectid(socket2)
                         Case 10
                             With Main.Offsocket2
                                 .Visible = True
                                 If xoverview = True Then .Text = getsocketeffectname(socket2)
                             End With
-                            Main.offsocket2id = CInt(socket2)
+                            Main.offsocket2id = runfunction.getgemeffectid(socket2)
                         Case 11
                             With Main.Distanzsocket2
                                 .Visible = True
                                 If xoverview = True Then .Text = getsocketeffectname(socket2)
                             End With
-                            Main.distanzsocket2id = CInt(socket2)
+                            Main.distanzsocket2id = runfunction.getgemeffectid(socket2)
                         Case 12
                             With Main.haendesocket2
                                 .Visible = True
                                 If xoverview = True Then .Text = getsocketeffectname(socket2)
                             End With
-                            Main.haendesocket2id = CInt(socket2)
+                            Main.haendesocket2id = runfunction.getgemeffectid(socket2)
                         Case 13
                             With Main.guertelsocket2
                                 .Visible = True
                                 If xoverview = True Then .Text = getsocketeffectname(socket2)
                             End With
-                            Main.guertelsocket2id = CInt(socket2)
+                            Main.guertelsocket2id = runfunction.getgemeffectid(socket2)
                         Case 14
                             With Main.beinesocket2
                                 .Visible = True
                                 If xoverview = True Then .Text = getsocketeffectname(socket2)
                             End With
-                            Main.beinesocket2id = CInt(socket2)
+                            Main.beinesocket2id = runfunction.getgemeffectid(socket2)
                         Case 15
                             With Main.stiefelsocket2
                                 .Visible = True
                                 If xoverview = True Then .Text = getsocketeffectname(socket2)
                             End With
-                            Main.stiefelsocket2id = CInt(socket2)
+                            Main.stiefelsocket2id = runfunction.getgemeffectid(socket2)
                         Case 16
                             With Main.ring1socket2
                                 .Visible = True
                                 If xoverview = True Then .Text = getsocketeffectname(socket2)
                             End With
-                            Main.ring1socket2id = CInt(socket2)
+                            Main.ring1socket2id = runfunction.getgemeffectid(socket2)
                         Case 17
                             With Main.ring2socket2
                                 .Visible = True
                                 If xoverview = True Then .Text = getsocketeffectname(socket2)
                             End With
-                            Main.ring2socket2id = CInt(socket2)
+                            Main.ring2socket2id = runfunction.getgemeffectid(socket2)
                         Case 18
 
                         Case 19
@@ -2711,31 +2745,31 @@ Public Class prozedur_armory
                                     .Visible = True
                                     If xoverview = True Then .Text = getsocketeffectname(socket3)
                                 End With
-                                Main.kopfsocket3id = CInt(socket3)
+                                Main.kopfsocket3id = runfunction.getgemeffectid(socket3)
                             Case 2
                                 With Main.halssocket3
                                     .Visible = True
                                     If xoverview = True Then .Text = getsocketeffectname(socket3)
                                 End With
-                                Main.halssocket3id = CInt(socket3)
+                                Main.halssocket3id = runfunction.getgemeffectid(socket3)
                             Case 3
                                 With Main.schultersocket3
                                     .Visible = True
                                     If xoverview = True Then .Text = getsocketeffectname(socket3)
                                 End With
-                                Main.schultersocket3id = CInt(socket3)
+                                Main.schultersocket3id = runfunction.getgemeffectid(socket3)
                             Case 4
                                 With Main.rueckensocket3
                                     .Visible = True
                                     If xoverview = True Then .Text = getsocketeffectname(socket3)
                                 End With
-                                Main.rueckensocket3id = CInt(socket3)
+                                Main.rueckensocket3id = runfunction.getgemeffectid(socket3)
                             Case 5
                                 With Main.brustsocket3
                                     .Visible = True
                                     If xoverview = True Then .Text = getsocketeffectname(socket3)
                                 End With
-                                Main.brustsocket3id = CInt(socket3)
+                                Main.brustsocket3id = runfunction.getgemeffectid(socket3)
                             Case 6
 
                             Case 7
@@ -2745,61 +2779,61 @@ Public Class prozedur_armory
                                     .Visible = True
                                     If xoverview = True Then .Text = getsocketeffectname(socket3)
                                 End With
-                                Main.handgelenkesocket3id = CInt(socket3)
+                                Main.handgelenkesocket3id = runfunction.getgemeffectid(socket3)
                             Case 9
                                 With Main.hauptsocket3
                                     .Visible = True
                                     If xoverview = True Then .Text = getsocketeffectname(socket3)
                                 End With
-                                Main.hauptsocket3id = CInt(socket3)
+                                Main.hauptsocket3id = runfunction.getgemeffectid(socket3)
                             Case 10
                                 With Main.offsocket3
                                     .Visible = True
                                     If xoverview = True Then .Text = getsocketeffectname(socket3)
                                 End With
-                                Main.offsocket3id = CInt(socket3)
+                                Main.offsocket3id = runfunction.getgemeffectid(socket3)
                             Case 11
                                 With Main.distanzsocket3
                                     .Visible = True
                                     If xoverview = True Then .Text = getsocketeffectname(socket3)
                                 End With
-                                Main.distanzsocket3id = CInt(socket3)
+                                Main.distanzsocket3id = runfunction.getgemeffectid(socket3)
                             Case 12
                                 With Main.haendesocket3
                                     .Visible = True
                                     If xoverview = True Then .Text = getsocketeffectname(socket3)
                                 End With
-                                Main.haendesocket3id = CInt(socket3)
+                                Main.haendesocket3id = runfunction.getgemeffectid(socket3)
                             Case 13
                                 With Main.guertelsocket3
                                     .Visible = True
                                     If xoverview = True Then .Text = getsocketeffectname(socket3)
                                 End With
-                                Main.guertelsocket3id = CInt(socket3)
+                                Main.guertelsocket3id = runfunction.getgemeffectid(socket3)
                             Case 14
                                 With Main.beinesocket3
                                     .Visible = True
                                     If xoverview = True Then .Text = getsocketeffectname(socket3)
                                 End With
-                                Main.beinesocket3id = CInt(socket3)
+                                Main.beinesocket3id = runfunction.getgemeffectid(socket3)
                             Case 15
                                 With Main.stiefelsocket3
                                     .Visible = True
                                     If xoverview = True Then .Text = getsocketeffectname(socket3)
                                 End With
-                                Main.stiefelsocket3id = CInt(socket3)
+                                Main.stiefelsocket3id = runfunction.getgemeffectid(socket3)
                             Case 16
                                 With Main.ring1socket3
                                     .Visible = True
                                     If xoverview = True Then .Text = getsocketeffectname(socket3)
                                 End With
-                                Main.ring1socket3id = CInt(socket3)
+                                Main.ring1socket3id = runfunction.getgemeffectid(socket3)
                             Case 17
                                 With Main.ring2socket3
                                     .Visible = True
                                     If xoverview = True Then .Text = getsocketeffectname(socket3)
                                 End With
-                                Main.ring2socket3id = CInt(socket3)
+                                Main.ring2socket3id = runfunction.getgemeffectid(socket3)
                             Case 18
 
                             Case 19

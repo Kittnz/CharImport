@@ -1,4 +1,4 @@
-﻿Imports MySql.Data.MySqlClient
+Imports MySql.Data.MySqlClient
 Imports MySqlLib3
 Imports System.Text
 Public Class Template_Database

@@ -1,4 +1,4 @@
-﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+﻿'Copyright (C) 2011-2013 CharImport <http://sourceforge.net/projects/charimport/>
 '*
 '* This application is free and can be distributed.
 '*
@@ -14,7 +14,7 @@ Public Class Trinity_core
     Dim runfunction As New Functions
     Dim core_check As New Core_Check_Trinity
     ' Dim SQLConnection As MySqlConnection = New MySqlConnection
-    Dim characterguid As Integer
+    Public characterguid As Integer
     Dim reporttext As RichTextBox = Process_Status.processreport
     '  Dim SQLConnection As MySqlConnection = New MySqlConnection
     Dim quelltext As String = ""
@@ -199,7 +199,7 @@ Public Class Trinity_core
         End Try
         guidlist = New List(Of String)
         idlist = New List(Of String)
-        If My.Settings.lastloginactive = True Or My.Settings.gmlevelactive = False Then
+        If My.Settings.lastloginactive = True Or My.Settings.gmlevelactive = True Then
             If My.Settings.lastloginactive = True Then
                 If My.Settings.gmlevelactive = True Then
                     filteredidlist = getidswithgmlevel(My.Settings.gmlevel.ToString)
@@ -439,7 +439,7 @@ Public Class Trinity_core
         Next
     End Sub
 
-    Public Sub GetCharFromDatabase(ByVal charguid As String)
+    Public Overridable Sub GetCharFromDatabase(ByVal charguid As String)
         '****************************************************************************************
         '****************************************************************************************
         'Get Character Guid
@@ -456,7 +456,7 @@ Public Class Trinity_core
         Main.char_guid = CInt(Val(charguid))
         characterguid = CInt(Val(charguid))
 
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Race from Database..." & vbNewLine)
         Application.DoEvents()
         Try
@@ -479,7 +479,7 @@ Public Class Trinity_core
         '11	}}  Draenei
 
         'Character Class
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Class from Database..." & vbNewLine)
         Application.DoEvents()
         Try
@@ -501,7 +501,7 @@ Public Class Trinity_core
 
         'Character gender
         '0=male, 1=female
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Gender from Database..." & vbNewLine)
         Application.DoEvents()
         Try
@@ -512,7 +512,7 @@ Public Class Trinity_core
         End Try
 
         'Character level
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Level from Database..." & vbNewLine)
         Application.DoEvents()
         Try
@@ -522,7 +522,7 @@ Public Class Trinity_core
         Catch ex As Exception
 
         End Try
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Table..." & vbNewLine)
+        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "/ Loading Character Table..." & vbNewLine)
         Application.DoEvents()
 
         Main.char_name = runfunction.runcommand("SELECT name FROM characters WHERE guid='" & charguid & "'", "name")
@@ -646,9 +646,9 @@ Public Class Trinity_core
                     runfunction.runcommandRealmd(
                         "SELECT RealmID FROM account_access WHERE `id`='" & Main.accountid.ToString & "'", "RealmID")))
         Main.level.Text = Main.char_name & ", " & Main.char_level & ", " & Main.char_race & ", " & Main.char_class
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Homebind from Database..." & vbNewLine)
-        Main.character_homebind =
+       Main.character_homebind =
             ("<map>" &
              runfunction.runcommand(
                  "SELECT " & Main.homebind_map & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString & "'",
@@ -719,27 +719,27 @@ Public Class Trinity_core
             Case Else
 
         End Select
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Spells from Database..." & vbNewLine)
         Application.DoEvents()
         getspells()
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Talents from Database..." & vbNewLine)
         Application.DoEvents()
         gettalents()
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Skills from Database..." & vbNewLine)
         Application.DoEvents()
         getskills()
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Reputation from Database..." & vbNewLine)
         Application.DoEvents()
         getREPlists()
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Action from Database..." & vbNewLine)
         Application.DoEvents()
         getactionlist()
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Achievements from Database..." & vbNewLine)
         Application.DoEvents()
         getavlists()
@@ -747,29 +747,29 @@ Public Class Trinity_core
            Now.TimeOfDay.ToString & "/ Loading Character Questlog from Database..." & vbNewLine)
         Application.DoEvents()
         getqueststatus()
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Inventory from Database..." & vbNewLine)
         Application.DoEvents()
         getinventoryitems()
 
         'GET ITEMS
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Items from Database..." & vbNewLine)
         Application.DoEvents()
         getitems()
 
 
         'GET GLYPHS
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Primary Glyphs from Database..." & vbNewLine)
         Application.DoEvents()
         getglyphs()
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Secondary Glyphs from Database..." & vbNewLine)
         Application.DoEvents()
         getsecglyphs()
         handleenchantments()
-        Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Character loaded!..." & vbNewLine)
+        Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "/ Character loaded!..." & vbNewLine)
         Application.DoEvents()
 
         saveglyphs()
@@ -877,7 +877,7 @@ Public Class Trinity_core
         End Try
     End Sub
 
-    Public Sub getqueststatus()
+    Public Overridable Sub getqueststatus()
         runfunction.writelog("getqueststatus_call @trinity")
         Dim _
             da As _
@@ -1591,7 +1591,7 @@ Public Class Trinity_core
         End Try
     End Sub
 
-    Private Sub saveglyphs()
+    Public Sub saveglyphs()
         runfunction.writelog("saveglyphs_call @trinity")
         Main.textprimeglyph1 = Glyphs.prim1.Text
         Main.textprimeglyph2 = Glyphs.prim2.Text
@@ -1971,14 +1971,7 @@ Public Class Trinity_core
             Dim parts() As String = input.Split(" "c)
             If Not parts(position) = "0" Then
                 obvalue = CInt(parts(position))
-                Dim quellcodeyx88 As String = xpacressource2
-                Dim anfangyx88 As String = parts(position) & ";"
-                Dim endeyx88 As String = ";xxxx"
-                Dim quellcodeSplityx88 As String
-                quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-                quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-
-                Return runfunction.getsocketeffectname(CInt(quellcodeSplityx88))
+                Return runfunction.geteffectnameofeffectid(CInt(parts(position)))
             Else
                 Return ""
             End If
@@ -2006,7 +1999,7 @@ Public Class Trinity_core
     End Function
 
     Private Function getnamefromid(ByVal itemid As Integer) As String
-        Return getnamefromid(itemid)
+        Return runfunction.getnamefromid(itemid)
     End Function
 
     Public Function getcharguid(ByVal charname As String) As Integer
@@ -2016,7 +2009,7 @@ Public Class Trinity_core
                 CInt(Val(runfunction.runcommand("SELECT guid FROM characters WHERE name = '" & charname & "'", "guid")))
 
         Catch ex As Exception
-           Return - 1
+            Return -1
         End Try
     End Function
 
@@ -2068,9 +2061,9 @@ Public Class Trinity_core
                 runfunction.normalsqlcommandRealmd(command)
                 Dim realmid As Integer = Main.account_access_RealmID
                 If realmid = 0 Then
-                    realmid = - 1
+                    realmid = -1
                 ElseIf realmid = Nothing Then
-                    realmid = - 1
+                    realmid = -1
                 Else
 
 
@@ -2162,7 +2155,7 @@ Public Class Trinity_core
                     startcounter += 1
                 Loop Until startcounter = excounter
             Catch : End Try
-            End If
+        End If
 
         Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "// Created Character " & charactername & "!" & vbNewLine)
@@ -2190,14 +2183,14 @@ Public Class Trinity_core
                     Val(
                         runfunction.runcommand(
                             "SELECT guid FROM characters WHERE guid=(SELECT MAX(guid) FROM characters)", "guid"))) + 1
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "// Creating Character " & charactername & "!" & vbNewLine)
         guid = newcharguid.ToString
         Main.coreguid = newcharguid.ToString
         targetaccount = runfunction.runcommandRealmd("SELECT id FROM account WHERE username='" & targetaccount & "'",
                                                      "id")
         If namechangeeverytime = True Then
-            Process_Status.processreport.appendText(
+            Process_Status.processreport.AppendText(
                 Now.TimeOfDay.ToString & "// Player will be asked to change charactername! : reason-nce=true" &
                 vbNewLine)
             If runfunction.normalsqlcommand(
@@ -2855,7 +2848,7 @@ Public Class Trinity_core
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Adding gold..." & vbNewLine)
         guid = Main.coreguid
         runfunction.normalsqlcommand(
-            "UPDATE `characters` SET money='" & (CInt(Val(amount))*10000).ToString & "' WHERE guid='" & guid & "'")
+            "UPDATE `characters` SET money='" & (CInt(Val(amount)) * 10000).ToString & "' WHERE guid='" & guid & "'")
     End Sub
 
     Public Sub addgold(ByVal amount As Integer)
@@ -2883,9 +2876,11 @@ Public Class Trinity_core
         Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "// Setting queststatus for Character: " & Main.char_name & vbNewLine)
         For Each queststring As String In Main.character_queststatus
+            Dim queststatus As String = splitlist(queststring, "status")
+            If queststatus = "0" Then queststatus = "1"
             runfunction.normalsqlcommand(
                 "INSERT INTO character_queststatus ( guid, quest, `status`, `explored` ) VALUES ( '" & Main.coreguid &
-                "', '" & splitlist(queststring, "quest") & "', '" & splitlist(queststring, "status") & "', '" &
+                "', '" & splitlist(queststring, "quest") & "', '" & queststatus & "', '" &
                 splitlist(queststring, "explored") & "')")
 
 
@@ -2990,96 +2985,36 @@ Public Class Trinity_core
                     'Item is a bag and has to be registered
                     bagstring = bagstring & "oldguid:" & splitlist(inventorystring, "oldguid") & ";newguid:" & newguid & ";"
                 Case Else : End Select
-            Next
+        Next
         For Each inventorystring As String In Main.character_inventory_list
             Dim bagguid As String = splitlist(inventorystring, "bagguid")
             Dim bag As String = splitlist(inventorystring, "bag")
-            Dim newguid As String =((CInt(Val(runfunction.runcommand("SELECT guid FROM item_instance WHERE guid=(SELECT MAX(guid) FROM item_instance)","guid")))) + 1).ToString
+            Dim newguid As String = ((CInt(Val(runfunction.runcommand("SELECT guid FROM item_instance WHERE guid=(SELECT MAX(guid) FROM item_instance)", "guid")))) + 1).ToString
             Dim newbagguid As String = runfunction.runcommand("SELECT guid FROM item_instance WHERE itemEntry='" & bag & "' AND owner_guid='" & Main.coreguid & "'", "guid")
             Select Case splitlist(inventorystring, "slot")
                 Case "19", "20", "21", "22", "67", "68", "69", "70", "71", "72", "73"
-                    Case Else
-                    Dim beginsplit As String = "oldguid:" & splitlist(inventorystring, "bagguid") & ";newguid:"
-                    Dim endsplit As String = ";"
-                    newbagguid = Split(bagstring, beginsplit, 5)(1)
-                    newbagguid = Split(newbagguid, endsplit, 6)(0)
+                Case Else
+                    Try
+                        Dim beginsplit As String = "oldguid:" & splitlist(inventorystring, "bagguid") & ";newguid:"
+                        Dim endsplit As String = ";"
+                        newbagguid = Split(bagstring, beginsplit, 5)(1)
+                        newbagguid = Split(newbagguid, endsplit, 6)(0)
+                    Catch ex As Exception
+
+                    End Try
+
             End Select
             runfunction.normalsqlcommand(
                         "INSERT INTO item_instance ( guid, itemEntry, owner_guid, count, charges, enchantments, durability ) VALUES ( '" &
                         newguid & "', '" & splitlist(inventorystring, "item") & "', '" & Main.coreguid &
                         "', '" & splitlist(inventorystring, "count") & "', '0 0 0 0 0 ', '" & splitlist(inventorystring, "enchant") & "', '1000' )")
-                    runfunction.normalsqlcommand(
-                        "INSERT INTO character_inventory ( guid, bag, `slot`, `item` ) VALUES ( '" & Main.coreguid & "', '" &
-                        newbagguid & "', '" & splitlist(inventorystring, "slot") & "', '" & newguid & "')")
-            Next
+            runfunction.normalsqlcommand(
+                "INSERT INTO character_inventory ( guid, bag, `slot`, `item` ) VALUES ( '" & Main.coreguid & "', '" &
+                newbagguid & "', '" & splitlist(inventorystring, "slot") & "', '" & newguid & "')")
+        Next
     End Sub
 
-    Private Function splitenchstring(ByVal enchstring As String) As String
-        Dim Anzahl As Integer = UBound(enchstring.Split(CChar(" ")))
-        Dim normalenchstring As String = "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "
-        '0:vz 6:gem1 9:gem2 12:gem3
-        If enchstring.Contains(",") Then
-            'ARCEMU
-            Dim excounter As Integer = UBound(enchstring.Split(CChar(";")))
-            Dim startcounter As Integer = 0
-            Do
-                Dim parts() As String = enchstring.Split(";"c)
-                Dim partench As String = parts(startcounter)
-                Dim parts2() As String = partench.Split(","c)
-                If parts2(2) = "5" Then
-                    'vz
-                    Dim input As String = normalenchstring
-                    Dim parts3() As String = input.Split(" "c)
 
-                    parts3(0) = parts2(0)
-                    normalenchstring = String.Join(" ", parts3)
-                ElseIf parts2(2) = "1" Then
-                    'gem1
-                    Dim input As String = normalenchstring
-                    Dim parts3() As String = input.Split(" "c)
-
-                    parts3(6) = parts2(0)
-                    normalenchstring = String.Join(" ", parts3)
-                ElseIf parts2(2) = "2" Then
-                    'gem2
-                    Dim input As String = normalenchstring
-                    Dim parts3() As String = input.Split(" "c)
-
-                    parts3(9) = parts2(0)
-                    normalenchstring = String.Join(" ", parts3)
-                ElseIf parts2(2) = "3" Then
-                    'gem3
-                    Dim input As String = normalenchstring
-                    Dim parts3() As String = input.Split(" "c)
-
-                    parts3(12) = parts2(0)
-                    normalenchstring = String.Join(" ", parts3)
-                End If
-
-
-                startcounter += 1
-            Loop Until startcounter = excounter
-
-            Return normalenchstring
-        Else
-            If Anzahl > 45 Then
-                'mangos
-                Dim parts2() As String = enchstring.Split(" "c)
-                Dim input As String = enchstring
-                Dim parts() As String = normalenchstring.Split(" "c)
-                Dim output As String
-                parts(0) = parts2(22)
-                parts(6) = parts2(28)
-                parts(9) = parts2(31)
-                parts(12) = parts2(34)
-                output = String.Join(" ", parts)
-                Return output
-            Else
-                'trinity
-                Return enchstring
-            End If
-        End If
-    End Function
 
     Private Function splitlist(ByVal tstring As String, ByVal category As String) As String
         Try
@@ -3100,6 +3035,7 @@ Public Class Trinity_core
         runfunction.writelog("addench_call @trinity")
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Adding item enchantments..." & vbNewLine)
         Application.DoEvents()
+        Dim sdjaj As String = Main.kopfench
         If Not Main.kopfench = "" Then _
              runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET enchantments='" & splitenchstring(Main.kopfench, kopfwearguid, Main.kopfid.ToString) &
@@ -3214,7 +3150,7 @@ Public Class Trinity_core
                     normalenchstring = String.Join(" ", parts3)
                 ElseIf parts2(2) = "1" Then
                     'unknown
-                   ElseIf parts2(2) = "2" Then
+                ElseIf parts2(2) = "2" Then
                     'gem1
                     Dim input As String = normalenchstring
                     Dim parts3() As String = input.Split(" "c)
@@ -3240,7 +3176,16 @@ Public Class Trinity_core
         Else
             If numstring > 45 Then
                 'mangos //todo
-                Return enchstring
+                Dim parts2() As String = enchstring.Split(" "c)
+                Dim input As String = enchstring
+                Dim parts() As String = normalenchstring.Split(" "c)
+                Dim output As String
+                parts(0) = parts2(22)
+                parts(6) = parts2(28)
+                parts(9) = parts2(31)
+                parts(12) = parts2(34)
+                output = String.Join(" ", parts)
+                Return output
             Else
                 'trinity
                 Return enchstring
@@ -3346,7 +3291,7 @@ Public Class Trinity_core
 
     Public Sub addpvp()
         runfunction.writelog("addpvp_call @trinity")
-        Process_Status.processreport.appendText(
+        Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "// Setting character honor/kills..." & vbNewLine)
 
         runfunction.normalsqlcommand(
@@ -3411,7 +3356,7 @@ Public Class Trinity_core
             Dim input As String = enchantmenttext
             Dim parts() As String = input.Split(" "c)
             Dim output As String
-            parts(position - 1) = runfunction.getvzeffectid(runfunction.getvzeffectname2(CInt(vzid))).ToString
+            parts(position - 1) = runfunction.getvzeffectid(runfunction.getvzeffectname(CInt(vzid))).ToString
             output = String.Join(" ", parts)
             Try
                 runfunction.normalsqlcommand(

@@ -1,4 +1,4 @@
-﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+﻿'Copyright (C) 2011-2013 CharImport <http://sourceforge.net/projects/charimport/>
 '*
 '* This application is free and can be distributed.
 '*
@@ -13,6 +13,7 @@ Public Class Mangos_core
     Dim runfunction As New Functions
     Dim talentid As String = ""
     Dim rank As String = ""
+    Dim rank2 As String = ""
     Dim sdatatable As New DataTable
     Dim core_check As New Core_Check_Trinity
 
@@ -120,7 +121,7 @@ Public Class Mangos_core
         End Try
         guidlist = New List(Of String)
         idlist = New List(Of String)
-        If My.Settings.lastloginactive = True Or My.Settings.gmlevelactive = False Then
+        If My.Settings.lastloginactive = True Or My.Settings.gmlevelactive = True Then
             If My.Settings.lastloginactive = True Then
                 If My.Settings.gmlevelactive = True Then
                     Dim _
@@ -801,8 +802,7 @@ Public Class Mangos_core
                             runfunction.runcommand(
                                 "SELECT current_rank FROM character_talent WHERE talent_id='" & idtalent &
                                 "' AND guid='" & Main.char_guid.ToString & "' AND spec='0'", "current_rank")
-                    Main.character_talent_list.Add(
-                        "<spell>" & checkfield2(idtalent, rurrentrank) & "</spell><spec>0</spec>")
+                    Main.character_talent_list.Add("<spell>" & checkfield2(idtalent, rurrentrank) & "</spell><spec>0</spec>")
 
                     count += 1
                 Loop Until count = lastcount
@@ -857,9 +857,9 @@ Public Class Mangos_core
     End Sub
 
     Private Function checkfield2(ByVal lID As String, ByVal rank As String) As String
-        If Not executex2("TalentId", lID, CInt(Val(rank))) = "-" Then
+        If Not executex2("TalentId", lID, CInt(Val(rank)) + 1) = "-" Then
 
-            Return executex2("TalentId", lID, CInt(Val(rank)))
+            Return executex2("TalentId", lID, CInt(Val(rank)) + 1)
         Else
             Return "0"
         End If
@@ -1973,14 +1973,7 @@ Public Class Mangos_core
             Dim parts() As String = input.Split(" "c)
             If Not parts(position - 1) = "0" Then
                 obvalue = CInt(parts(position - 1))
-                Dim quellcodeyx88 As String = xpacressource
-                Dim anfangyx88 As String = parts(position - 1) & ";"
-                Dim endeyx88 As String = ";xxxx"
-                Dim quellcodeSplityx88 As String
-                quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-                quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-
-                Return runfunction.getsocketeffectname(CInt(quellcodeSplityx88))
+               Return runfunction.geteffectnameofeffectid(CInt(parts(position - 1)))
             Else
                 Return ""
             End If
@@ -2798,47 +2791,47 @@ Public Class Mangos_core
 
             If Not Main.secminorglyph1 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '4', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '4', '" &
                     runfunction.getglyphid2(Main.secminorglyph1) & "' )")
             End If
             If Not Main.secminorglyph2 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '1', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '1', '" &
                     runfunction.getglyphid2(Main.secminorglyph2) & "' )")
             End If
             If Not Main.secminorglyph3 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '2', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '2', '" &
                     runfunction.getglyphid2(Main.secminorglyph3) & "' )")
             End If
             If Not Main.secmajorglyph1 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '0', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '0', '" &
                     runfunction.getglyphid2(Main.secmajorglyph1) & "' )")
             End If
             If Not Main.secmajorglyph2 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '3', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '3', '" &
                     runfunction.getglyphid2(Main.secmajorglyph2) & "' )")
             End If
             If Not Main.secmajorglyph3 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '5', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '5', '" &
                     runfunction.getglyphid2(Main.secmajorglyph3) & "' )")
             End If
             If Not Main.secprimeglyph1 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '6', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '6', '" &
                     runfunction.getglyphid2(Main.secprimeglyph1) & "' )")
             End If
             If Not Main.secprimeglyph2 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '7', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '7', '" &
                     runfunction.getglyphid2(Main.secprimeglyph2) & "' )")
             End If
             If Not Main.secprimeglyph3 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '8', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '8', '" &
                     runfunction.getglyphid2(Main.secprimeglyph3) & "' )")
             End If
         Else
@@ -2876,32 +2869,32 @@ Public Class Mangos_core
 
             If Not Main.secminorglyph1 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '4', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '4', '" &
                     runfunction.getglyphid2(Main.secminorglyph1) & "' )")
             End If
             If Not Main.secminorglyph2 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '1', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '1', '" &
                     runfunction.getglyphid2(Main.secminorglyph2) & "' )")
             End If
             If Not Main.secminorglyph3 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '2', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '2', '" &
                     runfunction.getglyphid2(Main.secminorglyph3) & "' )")
             End If
             If Not Main.secmajorglyph1 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '0', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '0', '" &
                     runfunction.getglyphid2(Main.secmajorglyph1) & "' )")
             End If
             If Not Main.secmajorglyph2 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '3', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '3', '" &
                     runfunction.getglyphid2(Main.secmajorglyph2) & "' )")
             End If
             If Not Main.secmajorglyph3 = "" Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '5', '" &
+                    "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '5', '" &
                     runfunction.getglyphid2(Main.secmajorglyph3) & "' )")
             End If
 
@@ -2968,6 +2961,8 @@ Public Class Mangos_core
     End Sub
 
     Public Sub addtalents()
+        rank = ""
+        rank2 = ""
         runfunction.writelog("addtalents_call @mangos")
         sdatatable.Clear()
         sdatatable.Dispose()
@@ -3034,36 +3029,36 @@ Public Class Mangos_core
                     If talentlist2.Contains(talentid & "rank5") Then
 
                     ElseIf talentlist2.Contains(talentid & "rank4") Then
-                        If CInt(Val(rank)) <= 4 Then
+                        If CInt(Val(rank2)) <= 4 Then
                         Else
                             runfunction.normalsqlcommand(
-                                "UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.coreguid &
+                                "UPDATE character_talent SET current_rank='" & rank2 & "' WHERE guid='" & Main.coreguid &
                                 "' AND talent_id='" & talentid & "' AND spec='1'")
-                            talentlist2 = talentlist2 & " " & talentid & "rank" & rank
+                            talentlist2 = talentlist2 & " " & talentid & "rank" & rank2
                         End If
                     ElseIf talentlist2.Contains(talentid & "rank3") Then
-                        If CInt(Val(rank)) <= 3 Then
+                        If CInt(Val(rank2)) <= 3 Then
                         Else
                             runfunction.normalsqlcommand(
-                                "UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.coreguid &
+                                "UPDATE character_talent SET current_rank='" & rank2 & "' WHERE guid='" & Main.coreguid &
                                 "' AND talent_id='" & talentid & "' AND spec='1'")
-                            talentlist2 = talentlist2 & " " & talentid & "rank" & rank
+                            talentlist2 = talentlist2 & " " & talentid & "rank" & rank2
                         End If
                     ElseIf talentlist2.Contains(talentid & "rank2") Then
-                        If CInt(Val(rank)) <= 2 Then
+                        If CInt(Val(rank2)) <= 2 Then
                         Else
                             runfunction.normalsqlcommand(
-                                "UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.coreguid &
+                                "UPDATE character_talent SET current_rank='" & rank2 & "' WHERE guid='" & Main.coreguid &
                                 "' AND talent_id='" & talentid & "' AND spec='1'")
-                            talentlist2 = talentlist2 & " " & talentid & "rank" & rank
+                            talentlist2 = talentlist2 & " " & talentid & "rank" & rank2
                         End If
                     ElseIf talentlist2.Contains(talentid & "rank1") Then
-                        If CInt(Val(rank)) <= 1 Then
+                        If CInt(Val(rank2)) <= 1 Then
                         Else
                             runfunction.normalsqlcommand(
-                                "UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.coreguid &
+                                "UPDATE character_talent SET current_rank='" & rank2 & "' WHERE guid='" & Main.coreguid &
                                 "' AND talent_id='" & talentid & "' AND spec='1'")
-                            talentlist2 = talentlist2 & " " & talentid & "rank" & rank
+                            talentlist2 = talentlist2 & " " & talentid & "rank" & rank2
                         End If
                     Else
 
@@ -3071,9 +3066,9 @@ Public Class Mangos_core
                 Else
                     runfunction.normalsqlcommand(
                         "INSERT INTO character_talent ( guid, talent_id, current_rank, spec ) VALUES ( '" &
-                        Main.coreguid & "', '" & talentid & "', '" & rank & "', '1' )")
+                        Main.coreguid & "', '" & talentid & "', '" & rank2 & "', '1' )")
 
-                    talentlist2 = talentlist2 & " " & talentid & "rank" & rank
+                    talentlist2 = talentlist2 & " " & talentid & "rank" & rank2
 
                 End If
             End If
@@ -3081,26 +3076,33 @@ Public Class Mangos_core
 
             '  ("<spell>" & spell & "</spell><spec>" & spec & "</spec>")
         Next
+        Dim kalk As String = ""
     End Sub
 
     Private Function checkfield(ByVal lID As String) As String
         If Not executex("Rang1", lID) = "-" Then
-            rank = "1"
+            rank = "0"
+            rank2 = "0"
             Return (executex("Rang1", lID))
         ElseIf Not executex("Rang2", lID) = "-" Then
-            rank = "2"
+            rank = "1"
+            rank2 = "1"
             Return (executex("Rang2", lID))
         ElseIf Not executex("Rang3", lID) = "-" Then
-            rank = "3"
+            rank = "2"
+            rank2 = "2"
             Return (executex("Rang3", lID))
         ElseIf Not executex("Rang4", lID) = "-" Then
-            rank = "4"
+            rank = "3"
+            rank2 = "3"
             Return (executex("Rang4", lID))
         ElseIf Not executex("Rang5", lID) = "-" Then
-            rank = "5"
+            rank = "4"
+            rank2 = "4"
             Return (executex("Rang5", lID))
         Else
             rank = "0"
+            rank2 = "0"
             Return "0"
         End If
     End Function
@@ -3165,9 +3167,11 @@ Public Class Mangos_core
         Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "// Setting queststatus for Character: " & Main.char_name & vbNewLine)
         For Each queststring As String In Main.character_queststatus
+            Dim queststatus As String = splitlist(queststring, "status")
+            If queststatus = "0" Then queststatus = "1"
             runfunction.normalsqlcommand(
                 "INSERT INTO character_queststatus ( guid, quest, `status`, `explored` ) VALUES ( '" & Main.coreguid &
-                "', '" & splitlist(queststring, "quest") & "', '" & splitlist(queststring, "status") & "', '" &
+                "', '" & splitlist(queststring, "quest") & "', '" & queststatus & "', '" &
                 splitlist(queststring, "explored") & "')")
         Next
         If Not Main.finished_quests = "" Then
@@ -3273,27 +3277,29 @@ Public Class Mangos_core
         For Each inventorystring As String In Main.character_inventoryzero_list
             Dim bagguid As String = splitlist(inventorystring, "bagguid")
             Dim bag As String = splitlist(inventorystring, "bag")
+            Dim isabag As Boolean = False
             Dim newguid As String =
                     ((CInt(
                         Val(
                             runfunction.runcommand(
                                 "SELECT guid FROM item_instance WHERE guid=(SELECT MAX(guid) FROM item_instance)",
                                 "guid")))) + 1).ToString
-
+            Select Case splitlist(inventorystring, "slot")
+                Case "19", "20", "21", "22", "67", "68", "69", "70", "71", "72", "73"
+                    'Item is a bag and has to be registered
+                    bagstring = bagstring & "oldguid:" & splitlist(inventorystring, "oldguid") & ";newguid:" & newguid & ";"
+                    isabag = True
+                Case Else : End Select
             runfunction.normalsqlcommand(
                 "INSERT INTO item_instance ( guid, owner_guid, data ) VALUES ( '" & newguid & "', '" & Main.coreguid &
                 "', '" &
-                splitenchstring(splitlist(inventorystring, "enchant"), CInt(newguid), splitlist(inventorystring, "item"), splitlist(inventorystring, "count")) &
+                splitenchstring(splitlist(inventorystring, "enchant"), CInt(newguid), Main.coreguid, splitlist(inventorystring, "item"), splitlist(inventorystring, "count"), isabag) &
                 "' )")
             runfunction.normalsqlcommand(
                 "INSERT INTO character_inventory ( guid, bag, slot, item, item_template ) VALUES ( '" & Main.coreguid &
                 "', '" & bag & "', '" & splitlist(inventorystring, "slot") & "', '" & newguid & "', '" &
                 splitlist(inventorystring, "item") & "')")
-            Select Case splitlist(inventorystring, "slot")
-                Case "19", "20", "21", "22", "67", "68", "69", "70", "71", "72", "73"
-                    'Item is a bag and has to be registered
-                    bagstring = bagstring & "oldguid:" & splitlist(inventorystring, "oldguid") & ";newguid:" & newguid & ";"
-                Case Else : End Select
+            isabag = False
         Next
         For Each inventorystring As String In Main.character_inventory_list
             Dim bagguid As String = splitlist(inventorystring, "bagguid")
@@ -3303,15 +3309,20 @@ Public Class Mangos_core
             Select Case splitlist(inventorystring, "slot")
                 Case "19", "20", "21", "22", "67", "68", "69", "70", "71", "72", "73"
                 Case Else
-                    Dim beginsplit As String = "oldguid:" & splitlist(inventorystring, "bagguid") & ";newguid:"
-                    Dim endsplit As String = ";"
-                    newbagguid = Split(bagstring, beginsplit, 5)(1)
-                    newbagguid = Split(newbagguid, endsplit, 6)(0)
+                    Try
+                        Dim beginsplit As String = "oldguid:" & splitlist(inventorystring, "bagguid") & ";newguid:"
+                        Dim endsplit As String = ";"
+                        newbagguid = Split(bagstring, beginsplit, 5)(1)
+                        newbagguid = Split(newbagguid, endsplit, 6)(0)
+                    Catch ex As Exception
+
+                    End Try
+
             End Select
             runfunction.normalsqlcommand(
                 "INSERT INTO item_instance ( guid, owner_guid, data ) VALUES ( '" & newguid & "', '" & Main.coreguid &
                 "', '" &
-                splitenchstring(splitlist(inventorystring, "enchant"), CInt(newguid), splitlist(inventorystring, "item"), splitlist(inventorystring, "count")) &
+                splitenchstring(splitlist(inventorystring, "enchant"), CInt(newguid), Main.coreguid, splitlist(inventorystring, "item"), splitlist(inventorystring, "count")) &
                 "' )")
             runfunction.normalsqlcommand(
                 "INSERT INTO character_inventory ( guid, bag, slot, item, item_template ) VALUES ( '" & Main.coreguid &
@@ -3323,14 +3334,10 @@ Public Class Mangos_core
         Next
     End Sub
 
-    Private Function splitenchstring(ByVal enchstring As String, ByVal guid As Integer, ByVal entry As String, Optional numcount As String = "1") As String
-        If enchstring = "" Or enchstring = "0" Then
-            Return ""
-            Exit Function
-        End If
+    Private Function splitenchstring(ByVal enchstring As String, ByVal guid As Integer, ByVal ownerguid As String, ByVal entry As String, Optional numcount As String = "1", Optional isbag As Boolean = False) As String
+
         Dim Anzahl As Integer = UBound(enchstring.Split(CChar(" ")))
-        Dim normalenchstring As String =
-                "0 1191182336 3 0 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3753 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 "
+        Dim normalenchstring As String = "0 1191182336 3 0 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3753 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 "
         If Main.xpac < 3 Then
 
             normalenchstring =
@@ -3338,56 +3345,64 @@ Public Class Mangos_core
             'May cause error: data length
 
         End If
+        If isbag = True Then
+            normalenchstring = "0 1191182336 7 0 1065353216 0 7 0 7 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 36 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "
+        End If
         '0:guid 3:entry 22:vz 28:gem1 31:gem2 34 gem3
         If enchstring.Contains(",") Then
             'ARCEMU
             Dim excounter As Integer = UBound(enchstring.Split(CChar(";")))
             Dim startcounter As Integer = 0
-            Do
-                Dim parts() As String = enchstring.Split(";"c)
-                Dim partench As String = parts(startcounter)
-                Dim parts2() As String = partench.Split(","c)
-                If parts2(2) = "5" Then
-                    'vz
-                    Dim input As String = normalenchstring
-                    Dim parts3() As String = input.Split(" "c)
+            Try
+                Do
+                    Dim parts() As String = enchstring.Split(";"c)
+                    Dim partench As String = parts(startcounter)
+                    Dim parts2() As String = partench.Split(","c)
+                    If parts2(2) = "5" Then
+                        'vz
+                        Dim input As String = normalenchstring
+                        Dim parts3() As String = input.Split(" "c)
 
-                    parts3(22) = parts2(0)
-                    normalenchstring = String.Join(" ", parts3)
-                ElseIf parts2(2) = "1" Then
-                    'gem1
-                    Dim input As String = normalenchstring
-                    Dim parts3() As String = input.Split(" "c)
+                        parts3(22) = parts2(0)
+                        normalenchstring = String.Join(" ", parts3)
+                    ElseIf parts2(2) = "2" Then
+                        'gem1
+                        Dim input As String = normalenchstring
+                        Dim parts3() As String = input.Split(" "c)
 
-                    parts3(28) = parts2(0)
-                    normalenchstring = String.Join(" ", parts3)
-                ElseIf parts2(2) = "2" Then
-                    'gem2
-                    Dim input As String = normalenchstring
-                    Dim parts3() As String = input.Split(" "c)
+                        parts3(28) = parts2(0)
+                        normalenchstring = String.Join(" ", parts3)
+                    ElseIf parts2(2) = "3" Then
+                        'gem2
+                        Dim input As String = normalenchstring
+                        Dim parts3() As String = input.Split(" "c)
 
-                    parts3(31) = parts2(0)
-                    normalenchstring = String.Join(" ", parts3)
-                ElseIf parts2(2) = "3" Then
-                    'gem3
-                    Dim input As String = normalenchstring
-                    Dim parts3() As String = input.Split(" "c)
+                        parts3(31) = parts2(0)
+                        normalenchstring = String.Join(" ", parts3)
+                    ElseIf parts2(2) = "4" Then
+                        'gem3
+                        Dim input As String = normalenchstring
+                        Dim parts3() As String = input.Split(" "c)
 
-                    parts3(34) = parts2(0)
-                    normalenchstring = String.Join(" ", parts3)
-                End If
+                        parts3(34) = parts2(0)
+                        normalenchstring = String.Join(" ", parts3)
+                    End If
 
 
-                startcounter += 1
-            Loop Until startcounter = excounter
-            Dim input2 As String = normalenchstring
-            Dim parts4() As String = input2.Split(" "c)
-            Dim output2 As String
-            parts4(0) = guid.ToString
-            parts4(4) = entry.ToString
-            parts4(14) = numcount
-            output2 = String.Join(" ", parts4)
-            Return output2
+                    startcounter += 1
+                Loop Until startcounter = excounter
+                Dim input2 As String = normalenchstring
+                Dim parts4() As String = input2.Split(" "c)
+                Dim output2 As String
+                parts4(0) = guid.ToString
+                parts4(3) = entry.ToString
+                parts4(14) = numcount
+                output2 = String.Join(" ", parts4)
+                Return output2
+            Catch ex As Exception
+                Return ""
+            End Try
+
         Else
             If Anzahl > 45 Then
                 'mangos
@@ -3398,17 +3413,26 @@ Public Class Mangos_core
                         Dim parts() As String = input.Split(" "c)
                         Dim output As String
                         parts(0) = guid.ToString
-                        parts(4) = entry.ToString
+                        parts(3) = entry.ToString
                         parts(14) = numcount
                         output = String.Join(" ", parts)
                         Return output
+                    ElseIf Anzahl = 0 Then
+                        Dim input2 As String = normalenchstring
+                        Dim parts4() As String = input2.Split(" "c)
+                        Dim output2 As String
+                        parts4(0) = guid.ToString
+                        parts4(3) = entry.ToString
+                        parts4(14) = numcount
+                        output2 = String.Join(" ", parts4)
+                        Return output2
                     Else
                         'Sourcecore: TBC/Vanilla
                         Dim input As String = enchstring
                         Dim parts() As String = input.Split(" "c)
                         Dim output As String
                         parts(0) = guid.ToString
-                        parts(4) = entry.ToString
+                        parts(3) = entry.ToString
                         parts(14) = numcount
                         parts(40) = "0 0 0"
                         'needs validation
@@ -3424,25 +3448,53 @@ Public Class Mangos_core
                         Dim parts() As String = input.Split(" "c)
                         Dim output As String
                         parts(0) = guid.ToString
-                        parts(4) = entry.ToString
+                        parts(3) = entry.ToString
                         parts(14) = numcount
                         output = String.Join(" ", parts)
                         Return output
+                    ElseIf Anzahl = 0 Then
+                        Dim input2 As String = normalenchstring
+                        Dim parts4() As String = input2.Split(" "c)
+                        Dim output2 As String
+                        parts4(0) = guid.ToString
+                        parts4(3) = entry.ToString
+                        parts4(14) = numcount
+                        output2 = String.Join(" ", parts4)
+                        Return output2
                     Else
                         'Sourcecore: TBC/Vanilla
                         Dim input As String = enchstring
                         Dim parts() As String = input.Split(" "c)
                         Dim output As String
                         parts(0) = guid.ToString
-                        parts(4) = entry.ToString
+                        parts(3) = entry.ToString
                         parts(14) = numcount
                         output = String.Join(" ", parts)
                         Return output
                     End If
                 End If
 
-
+            ElseIf Anzahl = 0 Then
+                Dim input2 As String = normalenchstring
+                Dim parts4() As String = input2.Split(" "c)
+                Dim output2 As String
+                parts4(0) = guid.ToString
+                parts4(3) = entry.ToString
+                parts4(14) = numcount
+                output2 = String.Join(" ", parts4)
+                Return output2
             Else
+                If isbag = True Then
+                    Dim input2 As String = normalenchstring
+                    Dim parts4() As String = input2.Split(" "c)
+                    Dim output2 As String
+                    parts4(0) = guid.ToString
+                    parts4(3) = entry.ToString
+                    parts4(14) = numcount
+                    output2 = String.Join(" ", parts4)
+                    Return output2
+                    Exit Function
+                End If
                 'trinity
                 Dim input As String = "0 " & enchstring
                 Dim parts() As String = input.Split(" "c)
@@ -3469,6 +3521,8 @@ Public Class Mangos_core
                 End If
 
                 Return resultString
+
+
             End If
         End If
     End Function
@@ -3494,94 +3548,94 @@ Public Class Mangos_core
         Application.DoEvents()
         If Not Main.kopfench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET data='" & splitenchstring(Main.kopfench, kopfwearguid, Main.kopfid.ToString) &
+                "UPDATE `item_instance` SET data='" & splitenchstring(Main.kopfench, kopfwearguid, Main.coreguid, Main.kopfid.ToString) &
                 "' WHERE guid='" & kopfwearguid & "'")
         If Not Main.halsench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET data='" & splitenchstring(Main.halsench, halswearguid, Main.halsid.ToString) &
+                "UPDATE `item_instance` SET data='" & splitenchstring(Main.halsench, halswearguid, Main.coreguid, Main.halsid.ToString) &
                 "' WHERE guid='" & halswearguid & "'")
         If Not Main.schulterench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.schulterench, schulterwearguid, Main.schulterid.ToString) & "' WHERE guid='" &
+                splitenchstring(Main.schulterench, schulterwearguid, Main.coreguid, Main.schulterid.ToString) & "' WHERE guid='" &
                 schulterwearguid & "'")
         If Not Main.rueckenench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.rueckenench, rueckenwearguid, Main.rueckenid.ToString) & "' WHERE guid='" &
+                splitenchstring(Main.rueckenench, rueckenwearguid, Main.coreguid, Main.rueckenid.ToString) & "' WHERE guid='" &
                 rueckenwearguid & "'")
         If Not Main.brustench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.brustench, brustwearguid, Main.brustid.ToString) & "' WHERE guid='" & brustwearguid &
+                splitenchstring(Main.brustench, brustwearguid, Main.coreguid, Main.brustid.ToString) & "' WHERE guid='" & brustwearguid &
                 "'")
         If Not Main.hemdench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET data='" & splitenchstring(Main.hemdench, hemdwearguid, Main.hemdid.ToString) &
+                "UPDATE `item_instance` SET data='" & splitenchstring(Main.hemdench, hemdwearguid, Main.coreguid, Main.hemdid.ToString) &
                 "' WHERE guid='" & hemdwearguid & "'")
         If Not Main.wappenrockench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.wappenrockench, wappenrockwearguid, Main.wappenrockid.ToString) & "' WHERE guid='" &
+                splitenchstring(Main.wappenrockench, wappenrockwearguid, Main.coreguid, Main.wappenrockid.ToString) & "' WHERE guid='" &
                 wappenrockwearguid & "'")
         If Not Main.handgelenkeench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.handgelenkeench, handgelenkewearguid, Main.handgelenkeid.ToString) &
+                splitenchstring(Main.handgelenkeench, handgelenkewearguid, Main.coreguid, Main.handgelenkeid.ToString) &
                 "' WHERE guid='" & handgelenkewearguid & "'")
         If Not Main.haendeench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.haendeench, haendewearguid, Main.haendeid.ToString) & "' WHERE guid='" &
+                splitenchstring(Main.haendeench, haendewearguid, Main.coreguid, Main.haendeid.ToString) & "' WHERE guid='" &
                 haendewearguid & "'")
         If Not Main.hauptench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.hauptench, hauptwearguid, Main.hauptid.ToString) & "' WHERE guid='" & hauptwearguid &
+                splitenchstring(Main.hauptench, hauptwearguid, Main.coreguid, Main.hauptid.ToString) & "' WHERE guid='" & hauptwearguid &
                 "'")
         If Not Main.offench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET data='" & splitenchstring(Main.offench, offwearguid, Main.offid.ToString) &
+                "UPDATE `item_instance` SET data='" & splitenchstring(Main.offench, offwearguid, Main.coreguid, Main.offid.ToString) &
                 "' WHERE guid='" & offwearguid & "'")
         If Not Main.distanzench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.distanzench, distanzwearguid, Main.distanzid.ToString) & "' WHERE guid='" &
+                splitenchstring(Main.distanzench, distanzwearguid, Main.coreguid, Main.distanzid.ToString) & "' WHERE guid='" &
                 distanzwearguid & "'")
         If Not Main.guertelench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.guertelench, guertelwearguid, Main.guertelid.ToString) & "' WHERE guid='" &
+                splitenchstring(Main.guertelench, guertelwearguid, Main.coreguid, Main.guertelid.ToString) & "' WHERE guid='" &
                 guertelwearguid & "'")
         If Not Main.beineench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.beineench, beinewearguid, Main.beineid.ToString) & "' WHERE guid='" & beinewearguid &
+                splitenchstring(Main.beineench, beinewearguid, Main.coreguid, Main.beineid.ToString) & "' WHERE guid='" & beinewearguid &
                 "'")
         If Not Main.stiefelench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.stiefelench, stiefelwearguid, Main.stiefelid.ToString) & "' WHERE guid='" &
+                splitenchstring(Main.stiefelench, stiefelwearguid, Main.coreguid, Main.stiefelid.ToString) & "' WHERE guid='" &
                 stiefelwearguid & "'")
         If Not Main.ring1ench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.ring1ench, ring1wearguid, Main.ring1id.ToString) & "' WHERE guid='" & ring1wearguid &
+                splitenchstring(Main.ring1ench, ring1wearguid, Main.coreguid, Main.ring1id.ToString) & "' WHERE guid='" & ring1wearguid &
                 "'")
         If Not Main.ring2ench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.ring2ench, ring2wearguid, Main.ring2id.ToString) & "' WHERE guid='" & ring2wearguid &
+                splitenchstring(Main.ring2ench, ring2wearguid, Main.coreguid, Main.ring2id.ToString) & "' WHERE guid='" & ring2wearguid &
                 "'")
         If Not Main.schmuck1ench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.schmuck1ench, schmuck1wearguid, Main.schmuck1id.ToString) & "' WHERE guid='" &
+                splitenchstring(Main.schmuck1ench, schmuck1wearguid, Main.coreguid, Main.schmuck1id.ToString) & "' WHERE guid='" &
                 schmuck1wearguid & "'")
         If Not Main.schmuck2ench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.schmuck2ench, schmuck2wearguid, Main.schmuck2id.ToString) & "' WHERE guid='" &
+                splitenchstring(Main.schmuck2ench, schmuck2wearguid, Main.coreguid, Main.schmuck2id.ToString) & "' WHERE guid='" &
                 schmuck2wearguid & "'")
     End Sub
 
@@ -3747,7 +3801,7 @@ Public Class Mangos_core
             Dim input As String = enchantmenttext
             Dim parts() As String = input.Split(" "c)
             Dim output As String
-            parts(position + 21) = (runfunction.getvzeffectid(runfunction.getvzeffectname2(vzid))).ToString
+            parts(position + 21) = (runfunction.getvzeffectid(runfunction.getvzeffectname(vzid))).ToString
             output = String.Join(" ", parts)
             Try
                 runfunction.normalsqlcommand(

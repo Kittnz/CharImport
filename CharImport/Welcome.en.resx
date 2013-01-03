@@ -127,13 +127,10 @@ the program won't work with every revision of TrinityCore, ArcEmu, etc..
 However, there will be regular updates in order to support the latest revisions.</value>
   </data>
   <data name="RichTextBox1.Text" xml:space="preserve">
-    <value>|&lt;  BETA 0.10.3 @indev &gt;|
+    <value>|&lt;  BETA 0.11 &gt;|
 
  &gt; Improved support for Trinity and MaNGOS + forks
  &gt; Full support for ArcEmu + forks added
- &gt; Full support for "classic" cores added
- &gt; Full support for "TBC" cores added
- &gt; Full support for "Cata" cores added
  &gt; Advanced filter options should now work for Trinity, ArcEmu and MaNGOS (forks)
  &gt; When loading characters from WoW Armory following additional options should be transferable now:
    &gt; Appearance of the character
@@ -143,6 +140,7 @@ However, there will be regular updates in order to support the latest revisions.
  &gt; "MySqlException: Data truncated for column x" error should no longer occur
  &gt; Fixed an issue that could prevent item icons from loading
  &gt; Fixed an issue that prevented that the character race and class are displayed correctly
+ &gt; Fixed an issue that prevented showing the item tooltip on the 'character overview' interface when an item contains "-"
  &gt; Users will now be informed when a character or an account can not be found
  &gt; Localization issues fixed:
   &gt; Items and spells should now be in English
@@ -150,6 +148,7 @@ However, there will be regular updates in order to support the latest revisions.
  &gt; UI changes:
   &gt; The 'armory interface' has been changed and is now more user friendly
   &gt; The 'connect interface" has been changed and is now more user friendly
+  &gt; It is no longer necessary to specify the core of the destination/source server
 
 |&lt;  BETA 0.10.2b &gt;|
 

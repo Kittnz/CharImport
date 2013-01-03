@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!--
-    Microsoft ResX Schema
-
+  <!-- 
+    Microsoft ResX Schema 
+    
     Version 2.0
-
-    The primary goals of this format is to allow a simple XML format
-    that is mostly human readable. The generation and parsing of the
-    various data types are done through the TypeConverter classes
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
     associated with the data types.
-
+    
     Example:
-
+    
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -26,36 +26,36 @@
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-
-    There are any number of "resheader" rows that contain simple
+                
+    There are any number of "resheader" rows that contain simple 
     name/value pairs.
-
-    Each data row contains a name, and value. The row also contains a
-    type or mimetype. Type corresponds to a .NET class that support
-    text/value conversion through the TypeConverter architecture.
-    Classes that don't support this are serialized and stored with the
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
     mimetype set.
-
-    The mimetype is used for serialized objects, and tells the
-    ResXResourceReader how to depersist the object. This is currently not
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
     extensible. For a given mimetype the value must be set accordingly:
-
-    Note - application/x-microsoft.net.object.binary.base64 is the format
-    that the ResXResourceWriter will generate, however the reader can
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
     read any of the formats listed below.
-
+    
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-
+    
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array
+    value   : The object must be serialized into a byte array 
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
@@ -118,11 +118,23 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>405, 25</value>
+  <data name="mangos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>468, 14</value>
   </data>
-  <data name="Label3.Text" xml:space="preserve">
-    <value>Select the "core" of the source server</value>
+  <data name="trinity1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>468, 14</value>
+  </data>
+  <data name="Label12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>168, 13</value>
+  </data>
+  <data name="Label12.Text" xml:space="preserve">
+    <value>Realm/Auth database name:</value>
+  </data>
+  <data name="Label15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 13</value>
+  </data>
+  <data name="Label15.Text" xml:space="preserve">
+    <value>Character database name:</value>
   </data>
   <data name="manually.Size" type="System.Drawing.Size, System.Drawing">
     <value>213, 17</value>
@@ -190,17 +202,8 @@ Please make sure that the database is accessible!
   <data name="Label5.Text" xml:space="preserve">
     <value>Open a new connection to the database</value>
   </data>
-  <data name="Label12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 13</value>
-  </data>
-  <data name="Label12.Text" xml:space="preserve">
-    <value>Realm/Auth database name:</value>
-  </data>
-  <data name="Label15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 13</value>
-  </data>
-  <data name="Label15.Text" xml:space="preserve">
-    <value>Character database name:</value>
+  <data name="arcemu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>468, 12</value>
   </data>
   <data name="Button2.Text" xml:space="preserve">
     <value>Cancel</value>
@@ -214,9 +217,6 @@ Please make sure that the database is accessible!
   <data name="LinkLabel1.Text" xml:space="preserve">
     <value>Selet all</value>
   </data>
-  <data name="GroupBox8.Text" xml:space="preserve">
-    <value>Name-change request</value>
-  </data>
   <data name="namechange2.Size" type="System.Drawing.Size, System.Drawing">
     <value>135, 19</value>
   </data>
@@ -228,6 +228,9 @@ Please make sure that the database is accessible!
   </data>
   <data name="namechange1.Text" xml:space="preserve">
     <value>Always</value>
+  </data>
+  <data name="GroupBox8.Text" xml:space="preserve">
+    <value>Name-change request</value>
   </data>
   <data name="sockets.Size" type="System.Drawing.Size, System.Drawing">
     <value>63, 19</value>
@@ -259,9 +262,6 @@ Please make sure that the database is accessible!
   <data name="talents.Text" xml:space="preserve">
     <value>Talents</value>
   </data>
-  <data name="GroupBox3.Text" xml:space="preserve">
-    <value>Gender</value>
-  </data>
   <data name="genderstay.Size" type="System.Drawing.Size, System.Drawing">
     <value>82, 19</value>
   </data>
@@ -279,6 +279,9 @@ Please make sure that the database is accessible!
   </data>
   <data name="male.Text" xml:space="preserve">
     <value>Male</value>
+  </data>
+  <data name="GroupBox3.Text" xml:space="preserve">
+    <value>Gender</value>
   </data>
   <data name="glyphs.Size" type="System.Drawing.Size, System.Drawing">
     <value>69, 19</value>
@@ -299,7 +302,7 @@ Please make sure that the database is accessible!
     <value>Alternative level:</value>
   </data>
   <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>664, 50</value>
+    <value>657, 50</value>
   </data>
   <data name="Label4.Text" xml:space="preserve">
     <value>Please select the expansion set which the server is based on

@@ -1,4 +1,4 @@
-﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+﻿'Copyright (C) 2011-2013 CharImport <http://sourceforge.net/projects/charimport/>
 '*
 '* This application is free and can be distributed.
 '*
@@ -66,7 +66,7 @@ Public Class Core_Check_Mangos
             Else
             End If
         Else
-
+            errorstring = "Determined core: MaNGOS" & vbNewLine & errorstring
             Database_Check.Show()
             reporttext.Text = errorstring
 

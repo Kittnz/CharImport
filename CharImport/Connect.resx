@@ -154,7 +154,7 @@
     <value>Flat</value>
   </data>
   <data name="Button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 375</value>
+    <value>7, 331</value>
   </data>
   <data name="Button1.Size" type="System.Drawing.Size, System.Drawing">
     <value>138, 39</value>
@@ -172,19 +172,22 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Button1.Parent" xml:space="preserve">
-    <value>Panel3</value>
+    <value>GroupBox4</value>
   </data>
   <data name="&gt;&gt;Button1.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
   <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 60</value>
+    <value>8, 16</value>
   </data>
   <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>360, 26</value>
+    <value>430, 26</value>
   </data>
   <data name="Label1.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -200,13 +203,13 @@ Die Datenbank (bzw. der Server) muss dabei laufen!</value>
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
-    <value>Panel3</value>
+    <value>GroupBox4</value>
   </data>
   <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>0</value>
   </data>
   <data name="address.Location" type="System.Drawing.Point, System.Drawing">
-    <value>128, 96</value>
+    <value>137, 54</value>
   </data>
   <data name="address.Size" type="System.Drawing.Size, System.Drawing">
     <value>290, 20</value>
@@ -221,19 +224,22 @@ Die Datenbank (bzw. der Server) muss dabei laufen!</value>
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;address.Parent" xml:space="preserve">
-    <value>Panel3</value>
+    <value>GroupBox4</value>
   </data>
   <data name="&gt;&gt;address.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>11</value>
   </data>
   <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
   <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 99</value>
+    <value>9, 57</value>
   </data>
   <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 13</value>
+    <value>122, 13</value>
   </data>
   <data name="Label2.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -248,19 +254,22 @@ Die Datenbank (bzw. der Server) muss dabei laufen!</value>
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
-    <value>Panel3</value>
+    <value>GroupBox4</value>
   </data>
   <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>15</value>
   </data>
   <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="Label3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
   <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>424, 99</value>
+    <value>433, 57</value>
   </data>
   <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 13</value>
+    <value>34, 13</value>
   </data>
   <data name="Label3.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -275,13 +284,13 @@ Die Datenbank (bzw. der Server) muss dabei laufen!</value>
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
-    <value>Panel3</value>
+    <value>GroupBox4</value>
   </data>
   <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>8</value>
   </data>
   <data name="port.Location" type="System.Drawing.Point, System.Drawing">
-    <value>459, 96</value>
+    <value>468, 54</value>
   </data>
   <data name="port.Size" type="System.Drawing.Size, System.Drawing">
     <value>69, 20</value>
@@ -296,19 +305,22 @@ Die Datenbank (bzw. der Server) muss dabei laufen!</value>
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;port.Parent" xml:space="preserve">
-    <value>Panel3</value>
+    <value>GroupBox4</value>
   </data>
   <data name="&gt;&gt;port.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>12</value>
   </data>
   <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="Label4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
   <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 125</value>
+    <value>69, 85</value>
   </data>
   <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 13</value>
+    <value>52, 13</value>
   </data>
   <data name="Label4.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -323,13 +335,13 @@ Die Datenbank (bzw. der Server) muss dabei laufen!</value>
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
-    <value>Panel3</value>
+    <value>GroupBox4</value>
   </data>
   <data name="&gt;&gt;Label4.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>2</value>
   </data>
   <data name="user.Location" type="System.Drawing.Point, System.Drawing">
-    <value>128, 122</value>
+    <value>137, 82</value>
   </data>
   <data name="user.Size" type="System.Drawing.Size, System.Drawing">
     <value>169, 20</value>
@@ -344,19 +356,22 @@ Die Datenbank (bzw. der Server) muss dabei laufen!</value>
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;user.Parent" xml:space="preserve">
-    <value>Panel3</value>
+    <value>GroupBox4</value>
   </data>
   <data name="&gt;&gt;user.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>7</value>
   </data>
   <data name="Label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="Label5.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
   <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>69, 151</value>
+    <value>60, 113</value>
   </data>
   <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 13</value>
+    <value>62, 13</value>
   </data>
   <data name="Label5.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -371,13 +386,13 @@ Die Datenbank (bzw. der Server) muss dabei laufen!</value>
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
-    <value>Panel3</value>
+    <value>GroupBox4</value>
   </data>
   <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>1</value>
   </data>
   <data name="password.Location" type="System.Drawing.Point, System.Drawing">
-    <value>128, 148</value>
+    <value>137, 110</value>
   </data>
   <data name="password.Size" type="System.Drawing.Size, System.Drawing">
     <value>169, 20</value>
@@ -392,16 +407,16 @@ Die Datenbank (bzw. der Server) muss dabei laufen!</value>
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;password.Parent" xml:space="preserve">
-    <value>Panel3</value>
+    <value>GroupBox4</value>
   </data>
   <data name="&gt;&gt;password.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>5</value>
   </data>
   <data name="Button3.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
   <data name="Button3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>383, 378</value>
+    <value>373, 334</value>
   </data>
   <data name="Button3.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 36</value>
@@ -419,10 +434,10 @@ Die Datenbank (bzw. der Server) muss dabei laufen!</value>
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Button3.Parent" xml:space="preserve">
-    <value>Panel3</value>
+    <value>GroupBox4</value>
   </data>
   <data name="&gt;&gt;Button3.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>4</value>
   </data>
   <data name="Label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1612,77 +1627,14 @@ AccName2
   <data name="&gt;&gt;Label12.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="&gt;&gt;mangos.Name" xml:space="preserve">
-    <value>mangos</value>
-  </data>
-  <data name="&gt;&gt;mangos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;mangos.Parent" xml:space="preserve">
-    <value>GroupBox3</value>
-  </data>
-  <data name="&gt;&gt;mangos.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;arcemu.Name" xml:space="preserve">
-    <value>arcemu</value>
-  </data>
-  <data name="&gt;&gt;arcemu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;arcemu.Parent" xml:space="preserve">
-    <value>GroupBox3</value>
-  </data>
-  <data name="&gt;&gt;arcemu.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;trinity1.Name" xml:space="preserve">
-    <value>trinity1</value>
-  </data>
-  <data name="&gt;&gt;trinity1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;trinity1.Parent" xml:space="preserve">
-    <value>GroupBox3</value>
-  </data>
-  <data name="&gt;&gt;trinity1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="GroupBox3.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
-  </data>
-  <data name="GroupBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 5</value>
-  </data>
-  <data name="GroupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>661, 39</value>
-  </data>
-  <data name="GroupBox3.TabIndex" type="System.Int32, mscorlib">
-    <value>176</value>
-  </data>
-  <data name="GroupBox3.Text" xml:space="preserve">
-    <value>Wähle das Ziel-Core</value>
-  </data>
-  <data name="&gt;&gt;GroupBox3.Name" xml:space="preserve">
-    <value>GroupBox3</value>
-  </data>
-  <data name="&gt;&gt;GroupBox3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;GroupBox3.Parent" xml:space="preserve">
-    <value>Panel3</value>
-  </data>
-  <data name="&gt;&gt;GroupBox3.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="mangos.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="mangos.Location" type="System.Drawing.Point, System.Drawing">
-    <value>296, 14</value>
+    <value>536, 14</value>
   </data>
   <data name="mangos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 17</value>
+    <value>63, 17</value>
   </data>
   <data name="mangos.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -1690,6 +1642,9 @@ AccName2
   <data name="mangos.Text" xml:space="preserve">
     <value>Mangos</value>
   </data>
+  <data name="mangos.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;mangos.Name" xml:space="preserve">
     <value>mangos</value>
   </data>
@@ -1697,25 +1652,28 @@ AccName2
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;mangos.Parent" xml:space="preserve">
-    <value>GroupBox3</value>
+    <value>Panel3</value>
   </data>
   <data name="&gt;&gt;mangos.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="arcemu.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="arcemu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>540, 14</value>
+    <value>563, 14</value>
   </data>
   <data name="arcemu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 17</value>
+    <value>62, 17</value>
   </data>
   <data name="arcemu.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="arcemu.Text" xml:space="preserve">
     <value>ArcEmu</value>
+  </data>
+  <data name="arcemu.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;arcemu.Name" xml:space="preserve">
     <value>arcemu</value>
@@ -1724,25 +1682,28 @@ AccName2
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;arcemu.Parent" xml:space="preserve">
-    <value>GroupBox3</value>
+    <value>Panel3</value>
   </data>
   <data name="&gt;&gt;arcemu.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="trinity1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="trinity1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>56, 14</value>
+    <value>550, 14</value>
   </data>
   <data name="trinity1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 17</value>
+    <value>75, 17</value>
   </data>
   <data name="trinity1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="trinity1.Text" xml:space="preserve">
     <value>TrinityCore</value>
+  </data>
+  <data name="trinity1.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;trinity1.Name" xml:space="preserve">
     <value>trinity1</value>
@@ -1751,10 +1712,10 @@ AccName2
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;trinity1.Parent" xml:space="preserve">
-    <value>GroupBox3</value>
+    <value>Panel3</value>
   </data>
   <data name="&gt;&gt;trinity1.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="gold.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1997,7 +1958,7 @@ AccName2
     <value>Flat</value>
   </data>
   <data name="Button7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>533, 378</value>
+    <value>523, 334</value>
   </data>
   <data name="Button7.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 36</value>
@@ -2015,7 +1976,7 @@ AccName2
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Button7.Parent" xml:space="preserve">
-    <value>Panel3</value>
+    <value>GroupBox4</value>
   </data>
   <data name="&gt;&gt;Button7.ZOrder" xml:space="preserve">
     <value>10</value>
@@ -2023,11 +1984,14 @@ AccName2
   <data name="Label14.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="Label14.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
   <data name="Label14.Location" type="System.Drawing.Point, System.Drawing">
-    <value>534, 99</value>
+    <value>542, 55</value>
   </data>
   <data name="Label14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 13</value>
+    <value>77, 13</value>
   </data>
   <data name="Label14.TabIndex" type="System.Int32, mscorlib">
     <value>209</value>
@@ -2042,16 +2006,16 @@ AccName2
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Label14.Parent" xml:space="preserve">
-    <value>Panel3</value>
+    <value>GroupBox4</value>
   </data>
   <data name="&gt;&gt;Label14.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>14</value>
   </data>
   <data name="auth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>206, 11</value>
+    <value>204, 11</value>
   </data>
   <data name="auth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 20</value>
+    <value>156, 20</value>
   </data>
   <data name="auth.TabIndex" type="System.Int32, mscorlib">
     <value>210</value>
@@ -2108,10 +2072,10 @@ AccName2
     <value>2</value>
   </data>
   <data name="GroupBox9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 229</value>
+    <value>40, 196</value>
   </data>
   <data name="GroupBox9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>337, 62</value>
+    <value>368, 62</value>
   </data>
   <data name="GroupBox9.TabIndex" type="System.Int32, mscorlib">
     <value>215</value>
@@ -2123,22 +2087,22 @@ AccName2
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;GroupBox9.Parent" xml:space="preserve">
-    <value>Panel3</value>
+    <value>GroupBox4</value>
   </data>
   <data name="&gt;&gt;GroupBox9.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>6</value>
   </data>
   <data name="Label13.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="Label13.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt</value>
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
   </data>
   <data name="Label13.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 14</value>
   </data>
   <data name="Label13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 13</value>
+    <value>180, 13</value>
   </data>
   <data name="Label13.TabIndex" type="System.Int32, mscorlib">
     <value>204</value>
@@ -2162,13 +2126,13 @@ AccName2
     <value>True</value>
   </data>
   <data name="Label16.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt</value>
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
   </data>
   <data name="Label16.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 39</value>
   </data>
   <data name="Label16.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 13</value>
+    <value>168, 13</value>
   </data>
   <data name="Label16.TabIndex" type="System.Int32, mscorlib">
     <value>207</value>
@@ -2189,10 +2153,10 @@ AccName2
     <value>1</value>
   </data>
   <data name="characters.Location" type="System.Drawing.Point, System.Drawing">
-    <value>206, 36</value>
+    <value>204, 36</value>
   </data>
   <data name="characters.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 20</value>
+    <value>156, 20</value>
   </data>
   <data name="characters.TabIndex" type="System.Int32, mscorlib">
     <value>206</value>
@@ -2216,13 +2180,13 @@ AccName2
     <value>True</value>
   </data>
   <data name="manually.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt</value>
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
   </data>
   <data name="manually.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 206</value>
+    <value>16, 170</value>
   </data>
   <data name="manually.Size" type="System.Drawing.Size, System.Drawing">
-    <value>178, 17</value>
+    <value>208, 17</value>
   </data>
   <data name="manually.TabIndex" type="System.Int32, mscorlib">
     <value>214</value>
@@ -2237,22 +2201,22 @@ AccName2
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;manually.Parent" xml:space="preserve">
-    <value>Panel3</value>
+    <value>GroupBox4</value>
   </data>
   <data name="&gt;&gt;manually.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>9</value>
   </data>
   <data name="automatic.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="automatic.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt</value>
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
   </data>
   <data name="automatic.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 180</value>
+    <value>15, 144</value>
   </data>
   <data name="automatic.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 17</value>
+    <value>218, 17</value>
   </data>
   <data name="automatic.TabIndex" type="System.Int32, mscorlib">
     <value>213</value>
@@ -2267,10 +2231,64 @@ AccName2
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;automatic.Parent" xml:space="preserve">
-    <value>Panel3</value>
+    <value>GroupBox4</value>
   </data>
   <data name="&gt;&gt;automatic.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>13</value>
+  </data>
+  <data name="GroupBox4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 33</value>
+  </data>
+  <data name="GroupBox4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>677, 382</value>
+  </data>
+  <data name="GroupBox4.TabIndex" type="System.Int32, mscorlib">
+    <value>217</value>
+  </data>
+  <data name="&gt;&gt;GroupBox4.Name" xml:space="preserve">
+    <value>GroupBox4</value>
+  </data>
+  <data name="&gt;&gt;GroupBox4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GroupBox4.Parent" xml:space="preserve">
+    <value>Panel3</value>
+  </data>
+  <data name="&gt;&gt;GroupBox4.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="Label15.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label15.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt, style=Bold</value>
+  </data>
+  <data name="Label15.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 8</value>
+  </data>
+  <data name="Label15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>467, 25</value>
+  </data>
+  <data name="Label15.TabIndex" type="System.Int32, mscorlib">
+    <value>216</value>
+  </data>
+  <data name="Label15.Text" xml:space="preserve">
+    <value>Öffne eine neue Verbindung zur Datenbank</value>
+  </data>
+  <data name="&gt;&gt;Label15.Name" xml:space="preserve">
+    <value>Label15</value>
+  </data>
+  <data name="&gt;&gt;Label15.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label15.Parent" xml:space="preserve">
+    <value>Panel3</value>
+  </data>
+  <data name="&gt;&gt;Label15.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="Panel3.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 3</value>
@@ -2335,6 +2353,9 @@ AccName2
   <data name="&gt;&gt;Panel5.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -2345,7 +2366,7 @@ AccName2
     <value>GrowAndShrink</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>690, 423</value>
+    <value>696, 426</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

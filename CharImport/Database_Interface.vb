@@ -1,4 +1,4 @@
-﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+﻿'Copyright (C) 2011-2013 CharImport <http://sourceforge.net/projects/charimport/>
 '*
 '* This application is free and can be distributed.
 '*
@@ -164,6 +164,20 @@ Public Class Database_Interface
                                         ";Password=" & password.Text & ";Database=character"
                     Main.characterdbname = "character"
                     Main.ServerStringCheck = Main.ServerString
+                    If determinecore() = "arcemu" Then
+                        arcemu.Checked = True
+                    ElseIf determinecore() = "mangos" Then
+                        mangos.Checked = True
+                    ElseIf determinecore() = "trinity" Then
+                        trinity1.Checked = True
+                    ElseIf determinecore() = "none" Then
+                        If My.Settings.language = "de" Then
+                            MsgBox(localeDE.couldnotdeterminecore, MsgBoxStyle.Critical, localeDE.errornotification)
+                        Else
+                            MsgBox(localeEN.couldnotdeterminecore, MsgBoxStyle.Critical, localeEN.errornotification)
+                        End If
+                        Exit Sub
+                    End If
                     If My.Settings.language = "de" Then
                         xlabel.Text = localeDE.armory2database_txt5
                     Else
@@ -247,6 +261,20 @@ Public Class Database_Interface
                 Main.ServerStringCheck = Main.ServerString
                 Main.characterdbname = "characters"
                 runfunction.writelog("Could find character db and auth db")
+                If determinecore() = "arcemu" Then
+                    arcemu.Checked = True
+                ElseIf determinecore() = "mangos" Then
+                    mangos.Checked = True
+                ElseIf determinecore() = "trinity" Then
+                    trinity1.Checked = True
+                ElseIf determinecore() = "none" Then
+                    If My.Settings.language = "de" Then
+                        MsgBox(localeDE.couldnotdeterminecore, MsgBoxStyle.Critical, localeDE.errornotification)
+                    Else
+                        MsgBox(localeEN.couldnotdeterminecore, MsgBoxStyle.Critical, localeEN.errornotification)
+                    End If
+                    Exit Sub
+                End If
                 If My.Settings.language = "de" Then
                     xlabel.Text = localeDE.armory2database_txt5
                 Else
@@ -279,6 +307,20 @@ Public Class Database_Interface
                                         ";Password=" & password.Text & ";Database=" & characters.Text
                     Main.characterdbname = characters.Text
                     Main.ServerStringCheck = Main.ServerString
+                    If determinecore() = "arcemu" Then
+                        arcemu.Checked = True
+                    ElseIf determinecore() = "mangos" Then
+                        mangos.Checked = True
+                    ElseIf determinecore() = "trinity" Then
+                        trinity1.Checked = True
+                    ElseIf determinecore() = "none" Then
+                        If My.Settings.language = "de" Then
+                            MsgBox(localeDE.couldnotdeterminecore, MsgBoxStyle.Critical, localeDE.errornotification)
+                        Else
+                            MsgBox(localeEN.couldnotdeterminecore, MsgBoxStyle.Critical, localeEN.errornotification)
+                        End If
+                        Exit Sub
+                    End If
                     If My.Settings.language = "de" Then
                         xlabel.Text = localeDE.armory2database_txt5
                     Else
@@ -316,7 +358,63 @@ Public Class Database_Interface
             End If
         End If
     End Sub
+    Private Function determinecore() As String
+        If columnexist("ownerguid", "playeritems") = True Then
+            'arcemu
+            Return "arcemu"
+        ElseIf columnexist("item_template", "character_inventory") = True Then
+            'mangos
+            Return "mangos"
+        ElseIf columnexist("quest", "character_queststatus_rewarded") = True Then
+            'trinity
+            Return "trinity"
+        Else
+            Return "none"
+        End If
+    End Function
+    Private Function columnexist(ByVal spalte As String, ByVal table As String) As Boolean
+        Try
+            SQLConnection.Close()
 
+            SQLConnection.Dispose()
+        Catch ex As Exception
+
+        End Try
+
+        Dim myAdapter As New MySqlDataAdapter
+        SQLConnection.ConnectionString = Main.ServerString
+        Dim sqlquery = ("SELECT " & spalte & " FROM " & table)
+        Dim myCommand As New MySqlCommand()
+        myCommand.Connection = SQLConnection
+        myCommand.CommandText = sqlquery
+
+        'start query
+        myAdapter.SelectCommand = myCommand
+        Dim myData As MySqlDataReader
+        Try
+            SQLConnection.Close()
+            SQLConnection.Dispose()
+        Catch ex As Exception
+
+        End Try
+        Try
+            SQLConnection.Open()
+            myData = myCommand.ExecuteReader()
+            If CInt(myData.HasRows) = 0 Then
+                Return True
+            Else
+                SQLConnection.Close()
+
+                SQLConnection.Dispose()
+                Return True
+            End If
+        Catch ex As Exception
+            SQLConnection.Close()
+
+            SQLConnection.Dispose()
+            Return False
+        End Try
+    End Function
     Private Function trytoconnect(ByVal connectionstring As String) As Boolean
         Try
             SQLConnection.Close()

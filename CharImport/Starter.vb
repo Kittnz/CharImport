@@ -1,4 +1,4 @@
-﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+﻿'Copyright (C) 2011-2013 CharImport <http://sourceforge.net/projects/charimport/>
 '*
 '* This application is free and can be distributed.
 '*
@@ -13,7 +13,7 @@ Imports System.Net
 
 Public Class Starter
     Public runfunction As New Functions
-    Public programversion As Integer = 10030 '0.10.03
+    Public programversion As Integer = 11004 '0.11.04
     Public required_template_version As Integer = 2 'increasing this value will cause the outdating of older template file formats
     Public downloadlink As String = ""
     Dim localeDE As New LanguageDE
@@ -77,6 +77,17 @@ Public Class Starter
                    "Warning")
             Application.Exit()
         End If
+        If Not My.Computer.FileSystem.FileExists(Application.StartupPath & "\de\CharImport.resources.dll") Then
+            MsgBox("\de\CharImport.resources.dll is missing. Please make sure to extract the whole archive!", MsgBoxStyle.Critical,
+                   "Warning")
+            Application.Exit()
+        End If
+        If Not My.Computer.FileSystem.FileExists(Application.StartupPath & "\en\CharImport.resources.dll") Then
+            MsgBox("\en\CharImport.resources.dll is missing. Please make sure to extract the whole archive!", MsgBoxStyle.Critical,
+                   "Warning")
+            Application.Exit()
+        End If
+
         Try
             Dim clienyx88 As New WebClient
             Dim quellcodeyx88 As String

@@ -1,4 +1,4 @@
-﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+﻿'Copyright (C) 2011-2013 CharImport <http://sourceforge.net/projects/charimport/>
 '*
 '* This application is free and can be distributed.
 '*
@@ -20,6 +20,7 @@ Public Class Main
     Public effectname_dt As New DataTable
     Public itemname_dt As New DataTable
     'eu/us...
+    Public armoryrun As Boolean = False
     Public xpac As Integer
     Public realmname As String
     Public characterdbname As String
@@ -40,6 +41,7 @@ Public Class Main
     Public tmplpath As String
     Public showstarter As Boolean = False
     Public trashvalue As Integer
+    Public arcemu_gmlevel As String = ""
     ' Dim armoryevent As New prozedur_armory
     Dim SQLConnection As MySqlConnection = New MySqlConnection
     Public ServerStringCheck As String = ""
@@ -366,13 +368,6 @@ Public Class Main
     Public secglyphpic8 As Image = My.Resources.empty
     Public secglyphpic9 As Image = My.Resources.empty
 
-    '##############################
-    '###### Deklaration der Talente ######
-
-    'mage
-
-
-    '##############################
 
     Public list As New List(Of String)
 
@@ -384,7 +379,7 @@ Public Class Main
     Sub setallempty()
         '  My.Settings.savecontent = "" ' ???? 29/07 should fix: (Load char from db > load char from armory > store it > import template = first character)
         ' My.Settings.Save()
-
+        armoryrun = False
         realmname = ""
         emptylist = New List(Of String)
         talentlist = New List(Of String)
@@ -458,6 +453,7 @@ Public Class Main
         knownTitles = ""
         actionBars = ""
         custom_faction = ""
+        arcemu_gmlevel = ""
         'character_achievement Table
         character_achievement_list = New List(Of String)
         'character_action Table
@@ -978,7 +974,7 @@ Public Class Main
     End Sub
 
     Private Sub kopfpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles kopfpic.MouseMove
-        If Kopf.Text.Contains("-") Then
+        If Kopf.Text = "-" Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1014,7 +1010,7 @@ Public Class Main
     End Sub
 
     Private Sub Halspic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Halspic.MouseMove
-        If Hals.Text.Contains("-") Then
+        If Hals.Text = "-" Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1050,7 +1046,7 @@ Public Class Main
     End Sub
 
     Private Sub Schulterpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Schulterpic.MouseMove
-        If Schulter.Text.Contains("-") Then
+        If Schulter.Text = "-" Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1086,7 +1082,7 @@ Public Class Main
     End Sub
 
     Private Sub Rueckenpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Rueckenpic.MouseMove
-        If Ruecken.Text.Contains("-") Then
+        If Ruecken.Text = "-" Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1122,7 +1118,7 @@ Public Class Main
     End Sub
 
     Private Sub Brustpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Brustpic.MouseMove
-        If Brust.Text.Contains("-") Then
+        If Brust.Text = "-" Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1158,7 +1154,7 @@ Public Class Main
     End Sub
 
     Private Sub Hemdpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Hemdpic.MouseMove
-        If Hemd.Text.Contains("-") Then
+        If Hemd.Text = "-" Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1192,7 +1188,7 @@ Public Class Main
 
     Private Sub Wappenrockpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) _
         Handles Wappenrockpic.MouseMove
-        If Wappenrock.Text.Contains("-") Then
+        If Wappenrock.Text = "-" Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1227,7 +1223,7 @@ Public Class Main
 
     Private Sub Handgelenkepic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) _
         Handles Handgelenkepic.MouseMove
-        If Handgelenke.Text.Contains("-") Then
+        If Handgelenke.Text = "-" Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1263,7 +1259,7 @@ Public Class Main
     End Sub
 
     Private Sub Hauptpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Hauptpic.MouseMove
-        If Haupt.Text.Contains("-") Then
+        If Haupt.Text = "-" Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1299,7 +1295,7 @@ Public Class Main
     End Sub
 
     Private Sub Offpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Offpic.MouseMove
-        If Off.Text.Contains("-") Then
+        If Off.Text = "-" Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1335,7 +1331,7 @@ Public Class Main
     End Sub
 
     Private Sub Distanzpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Distanzpic.MouseMove
-        If Distanz.Text.Contains("-") Then
+        If Distanz.Text = "-" Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1371,7 +1367,7 @@ Public Class Main
     End Sub
 
     Private Sub Haendepic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Haendepic.MouseMove
-        If Haende.Text.Contains("-") Then
+        If Haende.Text = "-" Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1407,7 +1403,7 @@ Public Class Main
     End Sub
 
     Private Sub Guertelpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Guertelpic.MouseMove
-        If Guertel.Text.Contains("-") Then
+        If Guertel.Text = "-" Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1443,7 +1439,7 @@ Public Class Main
     End Sub
 
     Private Sub Beinepic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Beinepic.MouseMove
-        If Beine.Text.Contains("-") Then
+        If Beine.Text = "-" Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1479,7 +1475,7 @@ Public Class Main
     End Sub
 
     Private Sub Stiefelpic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Stiefelpic.MouseMove
-        If Stiefel.Text.Contains("-") Then
+        If Stiefel.Text = "-" Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1515,7 +1511,7 @@ Public Class Main
     End Sub
 
     Private Sub Ring1pic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Ring1pic.MouseMove
-        If Ring1.Text.Contains("-") Then
+        If Ring1.Text = "-" Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1594,7 +1590,7 @@ Public Class Main
     End Sub
 
     Private Sub Ring2pic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Ring2pic.MouseMove
-        If Ring2.Text.Contains("-") Then
+        If Ring2.Text = "-" Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1630,7 +1626,7 @@ Public Class Main
     End Sub
 
     Private Sub Schmuck1pic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Schmuck1pic.MouseMove
-        If Schmuck1.Text.Contains("-") Then
+        If Schmuck1.Text = "-" Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1664,7 +1660,7 @@ Public Class Main
     End Sub
 
     Private Sub Schmuck2pic_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Schmuck2pic.MouseMove
-        If Schmuck2.Text.Contains("-") Then
+        If Schmuck2.Text = "-" Then
             panelname.Text = ""
             panelvz.Text = ""
             panelgem1.Text = ""
@@ -1756,5 +1752,9 @@ Public Class Main
 
     Private Sub Button7_Click(ByVal sender As Object, ByVal e As EventArgs)
         level.Visible = True
+    End Sub
+
+    Private Sub Hals_Click(sender As System.Object, e As System.EventArgs) Handles Hals.Click
+
     End Sub
 End Class

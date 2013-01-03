@@ -1,4 +1,4 @@
-﻿'Copyright (C) 2011-2012 CharImport <http://sourceforge.net/projects/charimport/>
+﻿'Copyright (C) 2011-2013 CharImport <http://sourceforge.net/projects/charimport/>
 '*
 '* This application is free and can be distributed.
 '*
@@ -107,5 +107,8 @@ Public Class LanguageEN
 
     Public errornotification As String = "Error"
     Public templateoutdated As String = "The format of the template file is outdated and is no longer supported by this version of CharImport!"
+
+    Public couldnotdeterminecore As String = "The database could not be associated with an emulation." & vbNewLine & "Please check your specifications!"
+
 End Class
 
