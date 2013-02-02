@@ -3854,7 +3854,7 @@ Public Class Mangos_core
     Private Sub checkglyphsanddelete(ByVal playerguid As String)
 
         Try
-            runfunction.normalsqlcommand("DELETE FROM character_glyphs WHERE guid = '" & playerguid & "", False)
+            runfunction.normalsqlcommand("DELETE FROM character_glyphs WHERE guid = '" & playerguid & "'", False)
         Catch ex As Exception
 
         End Try

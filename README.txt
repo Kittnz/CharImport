@@ -19,7 +19,7 @@ your database either from the official WoW Armory or from another database.
 ##################################################################################
 //Notes and system requirements:
 
-• Tested with WoW WotLK Patch 3.3.5 Patch 4.0.6 Cataclysm
+• Tested with WoW WotLK Patch 3.3.5
 • Tested with Microsoft © Windows 7 x64 & x86, Windows XP x86
 • Integrated update system
 • Programming Language: VB.NET
@@ -30,20 +30,32 @@ your database either from the official WoW Armory or from another database.
 ##################################################################################
 //Changelog
 
-Update 0.10 (Test)
+Update 0.11 (Beta)
 
- > Users have now 3 additional filter options when loading accounts from a database
- > 20 possible crash fixes
- > Template files should now always contain the correct character information
- > Improved  support for MaNGOS 2.4.3 clients
- > New Localizationsystem
- > Redirection to Wowhead
- > Manually set realm and character database names will now be saved
- > The application should no longer crash during transfers
- > The MySQL connection should no longer be interrupted during transmissions
- > False error messages should no longer appear
- > Critical errors fixed
- > New logging System
+ > Improved support for Trinity and MaNGOS + forks
+ > Full support for ArcEmu + forks added
+ > Advanced filter options should now work for Trinity, ArcEmu and MaNGOS (forks)
+ > When loading characters from WoW Armory following additional options should be transferable now:
+   > Appearance of the character
+   > Reputation
+   > Finished quests
+   > Gained achievements
+ > "MySqlException: Data truncated for column x" error should no longer occur
+ > Fixed an issue that could prevent item icons from loading
+ > Fixed an issue that prevented that the character race and class are displayed correctly
+ > Fixed an issue that prevented showing the item tooltip on the 'character overview' interface when an item contains "-"
+ > Users will now be informed when a character or an account can not be found
+ > Localization issues fixed:
+  > Items and spells should now be in English
+  > Fixed an issue that prevented the application from displaying the correct language when loading a template file
+ > UI changes:
+  > The 'armory interface' has been changed and is now more user friendly
+  > The 'connect interface" has been changed and is now more user friendly
+  > It is no longer necessary to specify the core of the destination/source server
+
+Update 0.10.2b (Beta) 
+
+> "Eazfuscator" error message should no longer appear Update 0.10.2a (Beta) > Critical errors fixed Update 0.10.2 (Beta) > Support for 5.x Armory added > The application will no longer stuck when loading characters from the armory > The character gender will now get parsed from the armory > Fixed loading certain enchantments from armory > Enchantment labels should now always be visible when active > Some minnor changes Update 0.10 (Beta) > Users have now 3 additional filter options when loading accounts from a database > 20 possible crash fixes > Template files should now always contain the correct character information > Improved support for MaNGOS 2.4.3 clients > New Localizationsystem > Redirection to Wowhead > Manually set realm and character database names will now be saved > The application should no longer crash during transfers > The MySQL connection should no longer be interrupted during transmissions > False error messages should no longer appear > Critical errors fixed > New logging System
 
 Update 0.9.10 (Beta)
 

@@ -2577,7 +2577,7 @@ Public Class ArcEmu_core
                 "', '4,40671', '" & Main.taximask & "', '0 0 0 ', '" & Main.stable_slots & "', '" & Main.zone.ToString &
                 "', '" & Main.chosenTitle & "', '" & Main.watchedFaction & "', '1000', '" & Main.speccount.ToString &
                 "', '" & Main.activespec.ToString & "', '" & Main.exploredZones & "', '" & Main.knownTitles & "' )")
-            'PlayerBytes coloumn might not be correct! check player_bytes, bytes, bytes2
+            'PlayerBytes column might not be correct! check player_bytes, bytes, bytes2
             'playedtime format might be different: playedtime, leveltime
             runfunction.normalsqlcommand(
                 "UPDATE characters SET forced_rename_pending='1' WHERE guid='" & newcharguid.ToString & "'")
@@ -3836,13 +3836,13 @@ Public Class ArcEmu_core
     Private Sub checkglyphsanddelete(ByVal playerguid As String)
 
         Try
-            runfunction.normalsqlcommand("DELETE glyphs1 FROM characters WHERE guid = '" & playerguid & "", False)
+            runfunction.normalsqlcommand("DELETE glyphs1 FROM characters WHERE guid = '" & playerguid & "'", False)
         Catch ex As Exception
 
         End Try
 
         Try
-            runfunction.normalsqlcommand("DELETE glyphs2 FROM characters WHERE guid = '" & playerguid & "", False)
+            runfunction.normalsqlcommand("DELETE glyphs2 FROM characters WHERE guid = '" & playerguid & "'", False)
         Catch ex As Exception
 
         End Try
