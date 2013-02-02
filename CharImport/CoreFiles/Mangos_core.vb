@@ -3855,9 +3855,7 @@ Public Class Mangos_core
 
         Try
             runfunction.normalsqlcommand("DELETE FROM character_glyphs WHERE guid = '" & playerguid & "'", False)
-        Catch ex As Exception
-
-        End Try
+        Catch : End Try
     End Sub
 
 
