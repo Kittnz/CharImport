@@ -42,6 +42,7 @@ Public Class Connect
     Dim spellitemtext As String
     Dim spellgemtext As String
     Dim trinitycore1 As New Trinity_core
+    Dim trinitycoretbc As New Trinity_core_tbc
     Dim mangoscore As New Mangos_core
     Dim arcemucore As New ArcEmu_core
     Dim kopfwearguid As Integer
@@ -1076,30 +1077,112 @@ Public Class Connect
                 End Select
                 trinitycore1.spellgemtext = xpacressource
                 trinitycore1.spellitemtext = xpacressource2
-                If CheckBox1.Checked = True Then
-                    trinitycore1.addchars(accname.Text, newcharname.Text, False)
-                    ' trinitycore1.updatechars(accname.Text, Main.char_name, False)
-                    If male.Checked = True Then
-                        trinitycore1.setgender("0")
-                    ElseIf female.Checked = True Then
-                        trinitycore1.setgender("1")
-                    ElseIf genderstay.Checked = True Then
-                        trinitycore1.setgender(Main.char_gender.ToString)
+                If Main.xpac = 2 Then
+                    If CheckBox1.Checked = True Then
+                        trinitycoretbc.addchars(accname.Text, newcharname.Text, False)
+                        ' trinitycoretbc.updatechars(accname.Text, Main.char_name, False)
+                        If male.Checked = True Then
+                            trinitycoretbc.setgender("0")
+                        ElseIf female.Checked = True Then
+                            trinitycoretbc.setgender("1")
+                        ElseIf genderstay.Checked = True Then
+                            trinitycoretbc.setgender(Main.char_gender.ToString)
+                        End If
+                        If level.Checked = True Then trinitycoretbc.setlevel()
+                        If race.Checked = True Then trinitycoretbc.setrace()
+                        If playerclass.Checked = True Then trinitycoretbc.setclass()
+                        If alternatelevellabel.Checked = True Then trinitycoretbc.setalternatelevel(alternateleveltext.Text)
+                        If goldlabel.Checked = True Then trinitycoretbc.setgold(goldtext.Text)
+                        If items.Checked = True Then trinitycoretbc.additems()
+                        If glyphs.Checked = True Then trinitycoretbc.addglyphs(xpansion)
+                        If sockets.Checked = True Then trinitycoretbc.addgems()
+                        If vzs.Checked = True Then trinitycoretbc.addenchantments()
+                        If erfolge.Checked = True Then trinitycoretbc.addachievements()
+                        If skills.Checked = True Then trinitycoretbc.addskills()
+                        If ruf.Checked = True Then trinitycoretbc.addreputation()
+                        Process_Status.processreport.AppendText(
+                                 Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
                     End If
-                    If level.Checked = True Then trinitycore1.setlevel()
-                    If race.Checked = True Then trinitycore1.setrace()
-                    If playerclass.Checked = True Then trinitycore1.setclass()
-                    If alternatelevellabel.Checked = True Then trinitycore1.setalternatelevel(alternateleveltext.Text)
-                    If goldlabel.Checked = True Then trinitycore1.setgold(goldtext.Text)
-                    If items.Checked = True Then trinitycore1.additems()
-                    If glyphs.Checked = True Then trinitycore1.addglyphs(xpansion)
-                    If sockets.Checked = True Then trinitycore1.addgems()
-                    If vzs.Checked = True Then trinitycore1.addenchantments()
-                    If erfolge.Checked = True Then trinitycore1.addachievements()
-                    If skills.Checked = True Then trinitycore1.addskills()
-                    If ruf.Checked = True Then trinitycore1.addreputation()
-                   Process_Status.processreport.AppendText(
+                    If CheckBox2.Checked = True Then
+                        trinitycoretbc.getguidfromname(charname.Text)
+
+                        If male.Checked = True Then
+                            trinitycoretbc.setgender("0")
+                        ElseIf female.Checked = True Then
+                            trinitycoretbc.setgender("1")
+                        ElseIf genderstay.Checked = True Then
+                            trinitycoretbc.setgender(Main.char_gender.ToString)
+                        End If
+                        If level.Checked = True Then trinitycoretbc.setlevel()
+                        If race.Checked = True Then trinitycoretbc.setrace()
+                        If playerclass.Checked = True Then trinitycoretbc.setclass()
+                        If alternatelevellabel.Checked = True Then trinitycoretbc.setalternatelevel(alternateleveltext.Text)
+                        If goldlabel.Checked = True Then trinitycoretbc.setgold(goldtext.Text)
+                        If items.Checked = True Then trinitycoretbc.additems()
+                        If glyphs.Checked = True Then trinitycoretbc.addglyphs(xpansion)
+                        If sockets.Checked = True Then trinitycoretbc.addgems()
+                        If vzs.Checked = True Then trinitycoretbc.addenchantments()
+                        If erfolge.Checked = True Then trinitycoretbc.addachievements()
+                        If skills.Checked = True Then trinitycoretbc.addskills()
+                        If ruf.Checked = True Then trinitycoretbc.addreputation()
+                        Process_Status.processreport.AppendText(
                             Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
+                    End If
+
+                    If CheckBox3.Checked = True Then
+                        Dim sLines() As String = accnames.Lines
+                        For i As Integer = 0 To sLines.Length - 1
+                            If sLines(i) = "" Then
+                            Else
+                                trinitycoretbc.addchars(sLines(i), Main.char_name, False)
+                                '  trinitycoretbc.updatechars(sLines(i), Main.char_name, False)
+                                If items.Checked = True Then trinitycoretbc.additems()
+                                If sockets.Checked = True Then trinitycoretbc.addgems()
+                                If vzs.Checked = True Then trinitycoretbc.addenchantments()
+                                If glyphs.Checked = True Then trinitycoretbc.addglyphs(xpansion)
+                                If male.Checked = True Then trinitycoretbc.setgender("0")
+                                If female.Checked = True Then trinitycoretbc.setgender("1")
+                                If genderstay.Checked = True Then trinitycoretbc.setgender(Main.char_gender.ToString)
+                                If level.Checked = True Then trinitycoretbc.setlevel()
+                                If alternatelevellabel.Checked = True Then _
+                                    trinitycoretbc.setalternatelevel(alternateleveltext.Text)
+                                If race.Checked = True Then trinitycoretbc.setrace()
+                                If playerclass.Checked = True Then trinitycoretbc.setclass()
+                                If goldlabel.Checked = True Then trinitycoretbc.setgold(goldtext.Text)
+                                If erfolge.Checked = True Then trinitycoretbc.addachievements()
+                                If skills.Checked = True Then trinitycoretbc.addskills()
+                                If ruf.Checked = True Then trinitycoretbc.addreputation()
+                                Process_Status.processreport.AppendText(
+                                    Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
+                            End If
+
+                        Next
+                    End If
+                Else
+                    If CheckBox1.Checked = True Then
+                        trinitycore1.addchars(accname.Text, newcharname.Text, False)
+                        ' trinitycore1.updatechars(accname.Text, Main.char_name, False)
+                        If male.Checked = True Then
+                            trinitycore1.setgender("0")
+                        ElseIf female.Checked = True Then
+                            trinitycore1.setgender("1")
+                        ElseIf genderstay.Checked = True Then
+                            trinitycore1.setgender(Main.char_gender.ToString)
+                        End If
+                        If level.Checked = True Then trinitycore1.setlevel()
+                        If race.Checked = True Then trinitycore1.setrace()
+                        If playerclass.Checked = True Then trinitycore1.setclass()
+                        If alternatelevellabel.Checked = True Then trinitycore1.setalternatelevel(alternateleveltext.Text)
+                        If goldlabel.Checked = True Then trinitycore1.setgold(goldtext.Text)
+                        If items.Checked = True Then trinitycore1.additems()
+                        If glyphs.Checked = True Then trinitycore1.addglyphs(xpansion)
+                        If sockets.Checked = True Then trinitycore1.addgems()
+                        If vzs.Checked = True Then trinitycore1.addenchantments()
+                        If erfolge.Checked = True Then trinitycore1.addachievements()
+                        If skills.Checked = True Then trinitycore1.addskills()
+                        If ruf.Checked = True Then trinitycore1.addreputation()
+                        Process_Status.processreport.AppendText(
+                                 Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
                     End If
                     If CheckBox2.Checked = True Then
                         trinitycore1.getguidfromname(charname.Text)
@@ -1119,10 +1202,10 @@ Public Class Connect
                         If items.Checked = True Then trinitycore1.additems()
                         If glyphs.Checked = True Then trinitycore1.addglyphs(xpansion)
                         If sockets.Checked = True Then trinitycore1.addgems()
-                    If vzs.Checked = True Then trinitycore1.addenchantments()
-                    If erfolge.Checked = True Then trinitycore1.addachievements()
-                    If skills.Checked = True Then trinitycore1.addskills()
-                    If ruf.Checked = True Then trinitycore1.addreputation()
+                        If vzs.Checked = True Then trinitycore1.addenchantments()
+                        If erfolge.Checked = True Then trinitycore1.addachievements()
+                        If skills.Checked = True Then trinitycore1.addskills()
+                        If ruf.Checked = True Then trinitycore1.addreputation()
                         Process_Status.processreport.AppendText(
                             Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
                     End If
@@ -1146,16 +1229,18 @@ Public Class Connect
                                     trinitycore1.setalternatelevel(alternateleveltext.Text)
                                 If race.Checked = True Then trinitycore1.setrace()
                                 If playerclass.Checked = True Then trinitycore1.setclass()
-                            If goldlabel.Checked = True Then trinitycore1.setgold(goldtext.Text)
-                            If erfolge.Checked = True Then trinitycore1.addachievements()
-                            If skills.Checked = True Then trinitycore1.addskills()
-                            If ruf.Checked = True Then trinitycore1.addreputation()
+                                If goldlabel.Checked = True Then trinitycore1.setgold(goldtext.Text)
+                                If erfolge.Checked = True Then trinitycore1.addachievements()
+                                If skills.Checked = True Then trinitycore1.addskills()
+                                If ruf.Checked = True Then trinitycore1.addreputation()
                                 Process_Status.processreport.AppendText(
                                     Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
                             End If
 
                         Next
                     End If
+                End If
+              
                 Else
                     Dim xpacressource As String
                     Dim xpacressource2 As String
