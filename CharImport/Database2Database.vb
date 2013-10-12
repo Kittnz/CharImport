@@ -345,7 +345,7 @@ Public Class Database2Database
         End Try
 
         Dim myAdapter As New MySqlDataAdapter
-        SQLConnection.ConnectionString = Main.ServerString
+        SQLConnection.ConnectionString = Main.ServerStringCheck
         Dim sqlquery = ("SELECT " & spalte & " FROM " & table)
         Dim myCommand As New MySqlCommand()
         myCommand.Connection = SQLConnection
