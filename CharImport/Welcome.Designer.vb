@@ -40,16 +40,16 @@ Partial Class Welcome
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.RichTextBox1)
         resources.ApplyResources(Me.GroupBox1, "GroupBox1")
+        Me.GroupBox1.Controls.Add(Me.RichTextBox1)
         Me.GroupBox1.ForeColor = System.Drawing.Color.RoyalBlue
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.TabStop = False
         '
         'RichTextBox1
         '
-        Me.RichTextBox1.BackColor = System.Drawing.SystemColors.ScrollBar
         resources.ApplyResources(Me.RichTextBox1, "RichTextBox1")
+        Me.RichTextBox1.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.ReadOnly = True
         '
@@ -63,8 +63,8 @@ Partial Class Welcome
         '
         'PictureBox1
         '
-        Me.PictureBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(82, Byte), Integer))
         resources.ApplyResources(Me.PictureBox1, "PictureBox1")
+        Me.PictureBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(82, Byte), Integer))
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.TabStop = False
         '

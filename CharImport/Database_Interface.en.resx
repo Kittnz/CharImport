@@ -432,7 +432,7 @@ Charactername3
     <value>220, 19</value>
   </data>
   <data name="CheckBox3.Text" xml:space="preserve">
-    <value>Just copy folowing Characters:</value>
+    <value>Just copy following Characters:</value>
   </data>
   <data name="optionspanel.Size" type="System.Drawing.Size, System.Drawing">
     <value>613, 611</value>

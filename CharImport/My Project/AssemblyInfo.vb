@@ -7,11 +7,11 @@ Imports System.Runtime.InteropServices
 
 ' Die Werte der Assemblyattribute überprüfen
 
-<Assembly: AssemblyTitle("CharImport Universal Test")>
-<Assembly: AssemblyDescription("CharImport Universal Test")>
+<Assembly: AssemblyTitle("CharImport Universal")> 
+<Assembly: AssemblyDescription("CharImport Universal")> 
 <Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("CharImport Test")>
-<Assembly: AssemblyCopyright("Copyright ©  2012")>
+<Assembly: AssemblyProduct("CharImport")> 
+<Assembly: AssemblyCopyright("Copyright ©  2013")> 
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(True)>
@@ -30,4 +30,4 @@ Imports System.Runtime.InteropServices
 ' übernehmen, indem Sie "*" eingeben:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("0.11.4.702")> 
+<Assembly: AssemblyVersion("0.11.4.707")> 

@@ -53,7 +53,7 @@ Public Class Starter
     End Sub
 
     Private Sub Starter_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
-        Me.Text = "CharImport [Universal] - " & Me.ProductVersion & " (Test)"
+        Me.Text = "CharImport [Universal] - " & Me.ProductVersion & " (Beta)"
         My.Settings.writelog = True
         ' ###### Change it to false at pre-release ######
         My.Settings.savecontent = ""
