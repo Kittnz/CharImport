@@ -27,7 +27,6 @@ Public Class Functions
                 Case Else
                     xpacressource = My.Resources.GlyphProperties_335
             End Select
-            Dim zclienyx88 As New WebClient
             Dim zquellcodeyx88 As String = xpacressource
             Dim zanfangyx88 As String = "<entry>" & glyphid.ToString & "</entry><spell>"
             Dim zendeyx88 As String = "</spell>"
@@ -36,9 +35,9 @@ Public Class Functions
             zquellcodeSplityx88 = Split(zquellcodeSplityx88, zendeyx88, 6)(0)
 
             Dim clienyx88 As New WebClient
-            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://www.wowhead.com/spell=" & zquellcodeSplityx88)
-            Dim anfangyx88 As String = ",""id"":"
-            Dim endeyx88 As String = ",""level"""
+            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://www.wowdb.com/spells/" & zquellcodeSplityx88)
+            Dim anfangyx88 As String = "<a class=""listing-icon"" href=""http://www.wowdb.com/items/"
+            Dim endeyx88 As String = "-"
             Dim quellcodeSplityx88 As String
             quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
             quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
@@ -57,76 +56,68 @@ Public Class Functions
                     Now.TimeOfDay.ToString & "// Loading Weapontype from itemid: " & itemid & vbNewLine)
                 My.Application.DoEvents()
                 Dim clienyx88 As New WebClient
-                Dim quellcodeyx88 As String = clienyx88.DownloadString("http://www.wowhead.com/item=" & itemid.ToString & "&xml")
-                Dim anfangyx88 As String = "<subclass id="
-                Dim endeyx88 As String = "</subclass>"
+                Dim quellcodeyx88 As String = clienyx88.DownloadString("http://us.battle.net/api/wow/item/" & itemid.ToString)
+                Dim anfangyx88 As String = """itemSubClass"":"
+                Dim endeyx88 As String = ","""
                 Dim quellcodeSplityx88 As String
                 quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
                 quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-
-                Select Case True
-                    Case quellcodeSplityx88.ToLower.Contains(" crossbow ")
+                Dim subClass As Integer = CInt(quellcodeSplityx88)
+                Select Case subClass
+                    Case 18 'Crossbows
                         Main.specialspells.Add("5011")
                         Main.specialskills.Add("226")
-                    Case quellcodeSplityx88.ToLower.Contains(" bow ")
+                    Case 2
                         Main.specialspells.Add("264")
                         Main.specialskills.Add("45")
-                    Case quellcodeSplityx88.ToLower.Contains(" gun ")
+                    Case 3
                         Main.specialspells.Add("266")
                         Main.specialskills.Add("46")
-                    Case quellcodeSplityx88.ToLower.Contains(" thrown ")
+                    Case 16
                         Main.specialspells.Add("2764")
                         Main.specialspells.Add("2567")
                         Main.specialskills.Add("176")
-                    Case quellcodeSplityx88.ToLower.Contains(" wands ")
+                    Case 19
                         Main.specialspells.Add("5009")
                         Main.specialspells.Add("5019")
                         Main.specialskills.Add("228")
-                    Case quellcodeSplityx88.ToLower.Contains(" sword ")
-                        If quellcodeSplityx88.ToLower.Contains(" one-handed ") Then
-                            Main.specialspells.Add("201")
-                            Main.specialskills.Add("43")
-                        Else
-                            Main.specialspells.Add("201")
-                            Main.specialskills.Add("43")
-                            Main.specialspells.Add("202")
-                            Main.specialskills.Add("55")
-                        End If
-                    Case quellcodeSplityx88.ToLower.Contains(" dagger ")
+                    Case 7
+                        Main.specialspells.Add("201")
+                        Main.specialskills.Add("43")
+                    Case 8
+                        Main.specialspells.Add("201")
+                        Main.specialskills.Add("43")
+                        Main.specialspells.Add("202")
+                        Main.specialskills.Add("55")
+                    Case 15
                         Main.specialspells.Add("1180")
                         Main.specialskills.Add("173")
-                    Case quellcodeSplityx88.ToLower.Contains(" axe ")
-                        If quellcodeSplityx88.ToLower.Contains(" one-handed ") Then
-                            Main.specialspells.Add("196")
-                            Main.specialskills.Add("44")
-                        Else
-                            Main.specialspells.Add("197")
-                            Main.specialskills.Add("44")
-                            Main.specialspells.Add("196")
-                            Main.specialskills.Add("142")
-                        End If
-                    Case quellcodeSplityx88.ToLower.Contains(" mace ")
-                        If quellcodeSplityx88.ToLower.Contains(" one-handed ") Then
-                            Main.specialspells.Add("198")
-                            Main.specialskills.Add("54")
-                        Else
-                            Main.specialskills.Add("54")
-                            Main.specialspells.Add("198")
-                            Main.specialskills.Add("160")
-                            Main.specialspells.Add("199")
-                        End If
-                    Case quellcodeSplityx88.ToLower.Contains(" polearm ")
+                    Case 0
+                        Main.specialspells.Add("196")
+                        Main.specialskills.Add("44")
+                    Case 1
+                        Main.specialspells.Add("197")
+                        Main.specialskills.Add("44")
+                        Main.specialspells.Add("196")
+                        Main.specialskills.Add("142")
+
+                    Case 4
+                        Main.specialspells.Add("198")
+                        Main.specialskills.Add("54")
+                    Case 5
+                        Main.specialskills.Add("54")
+                        Main.specialspells.Add("198")
+                        Main.specialskills.Add("160")
+                        Main.specialspells.Add("199")
+                    Case 6
                         Main.specialspells.Add("200")
                         Main.specialskills.Add("229")
-                    Case quellcodeSplityx88.ToLower.Contains(" staff ")
+                    Case 10
                         Main.specialspells.Add("227")
                         Main.specialskills.Add("136")
-
-                    Case Else
-
                 End Select
             Catch ex As Exception
-                Process_Status.processreport.appendText(
+                Process_Status.processreport.AppendText(
                     Now.TimeOfDay.ToString & "// Error while loading Weapontype with itemid: " & itemid & " > " &
                     ex.ToString & vbNewLine)
                 My.Application.DoEvents()
@@ -139,21 +130,18 @@ Public Class Functions
     Public Function getvzeffectname(ByVal vzid As Integer) As String
 
         Dim targeturl As String = ""
-        If My.Settings.language = "de" Then
-            targeturl = "http://de.wowhead.com/spell="
-        Else
-            targeturl = "http://wowhead.com/spell="
-        End If
+
+        targeturl = "http://www.wowdb.com/spells/"
         Try
             Dim clienyx88 As New WebClient
             Dim quellcodeyx88 As String = clienyx88.DownloadString(targeturl & vzid.ToString)
-            Dim anfangyx88 As String = ">Enchant Item:"
-            Dim endeyx88 As String = "</tr>"
+            Dim anfangyx88 As String = "Enchant Item"
+            Dim endeyx88 As String = "</h3>"
             Dim quellcodeSplityx88 As String
             quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
             quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-            Dim anfangyx889 As String = "<span class=""q2"">"
-            Dim endeyx889 As String = "</span>"
+            Dim anfangyx889 As String = "("
+            Dim endeyx889 As String = " - "
             Dim quellcodeSplityx889 As String
             quellcodeSplityx889 = Split(quellcodeSplityx88, anfangyx889, 5)(1)
             quellcodeSplityx889 = Split(quellcodeSplityx889, endeyx889, 6)(0)
@@ -246,34 +234,16 @@ Public Class Functions
             Dim clienyx88 As New WebClient
             Dim quellcodeyx88 As String
             If My.Settings.language = "de" Then
-                quellcodeyx88 = clienyx88.DownloadString("http://de.wowhead.com/item=" & socketid.ToString & "&xml")
+                quellcodeyx88 = clienyx88.DownloadString("http://eu.battle.net/api/wow/item/" & socketid.ToString & "?locale=de_DE")
             Else
-                quellcodeyx88 = clienyx88.DownloadString("http://www.wowhead.com/item=" & socketid.ToString & "&xml")
+                quellcodeyx88 = clienyx88.DownloadString("http://eu.battle.net/api/wow/item/" & socketid.ToString)
             End If
-            Dim anfangyx88 As String = "<span class=""q1"">"
-            Dim endeyx88 As String = "</span>"
+            Dim anfangyx88 As String = "{""bonus"":{""name"":"""
+            Dim endeyx88 As String = ""","
             Dim quellcodeSplityx88 As String
             quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-            quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-
-
-            If quellcodeSplityx88.Contains("<a href") Then
-                Try
-                    Dim anfangyx888 As String = "<a href="""
-                    Dim endeyx888 As String = """>"
-                    Dim quellcodeSplityx888 As String
-                    quellcodeSplityx888 = Split(quellcodeSplityx88, anfangyx888, 5)(1)
-                    quellcodeSplityx888 = Split(quellcodeSplityx888, endeyx888, 6)(0)
-                    quellcodeSplityx88 = quellcodeSplityx88.Replace("<a href=""" & quellcodeSplityx888 & """>", "")
-                    quellcodeSplityx88 = quellcodeSplityx88.Replace("</a>", "")
-                    Return quellcodeSplityx88
-                Catch ex As Exception
-                    Return quellcodeSplityx88
-                End Try
-            Else
-                Return quellcodeSplityx88
-            End If
-            Catch ex As Exception
+            Return Split(quellcodeSplityx88, endeyx88, 6)(0)
+        Catch ex As Exception
             Return ""
         End Try
 
@@ -283,18 +253,13 @@ Public Class Functions
         picbox.Image = My.Resources.empty
         Try
             Dim clienyx88 As New WebClient
-            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://www.wowhead.com/item=" & itemid.ToString & "&xml")
-            Dim anfangyx88 As String = "<icon displayId="
-            Dim endeyx88 As String = "icon>"
+            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://eu.battle.net/api/wow/item/" & itemid.ToString)
+            Dim anfangyx88 As String = """icon"":"""
+            Dim endeyx88 As String = ""","
             Dim quellcodeSplityx88 As String
             quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
             quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-            Dim anfangyx888 As String = """>"
-            Dim endeyx888 As String = "</"
-            Dim quellcodeSplityx888 As String
-            quellcodeSplityx888 = Split(quellcodeSplityx88, anfangyx888, 5)(1)
-            quellcodeSplityx888 = Split(quellcodeSplityx888, endeyx888, 6)(0)
-            LoadImageFromUrl("http://wow.zamimg.com/images/wow/icons/large/" & quellcodeSplityx888.ToLower() & ".jpg", picbox)
+            LoadImageFromUrl("http://wow.zamimg.com/images/wow/icons/large/" & quellcodeSplityx88.ToLower() & ".jpg", picbox)
         Catch ex As Exception
             picbox.Image = My.Resources.empty
         End Try
@@ -593,9 +558,9 @@ Public Class Functions
     Public Function getspellidfromitem(ByVal itemid As String) As Integer
         Try
             Dim clienyx88 As New WebClient
-            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://www.wowhead.com/item=" & itemid & "&xml")
-            Dim anfangyx88 As String = "<a href=""http://www.wowhead.com/spell="
-            Dim endeyx88 As String = """ class"
+            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://eu.battle.net/api/wow/item/" & itemid)
+            Dim anfangyx88 As String = """itemSpells"":[{""spellId"":"
+            Dim endeyx88 As String = ","""
             Dim quellcodeSplityx88 As String
             quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
             quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
@@ -612,9 +577,9 @@ Public Class Functions
     Public Function getspellnamefromid(ByVal spellid As String) As String
         Try
             Dim clienyx88 As New WebClient
-            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://www.wowhead.com/spell=" & spellid & "&power")
-            Dim anfangyx88 As String = "name_enus: '"
-            Dim endeyx88 As String = "',"
+            Dim quellcodeyx88 As String = clienyx88.DownloadString("http://us.battle.net/api/wow/spell/" & spellid)
+            Dim anfangyx88 As String = """name"":"""
+            Dim endeyx88 As String = ""","""
             Dim quellcodeSplityx88 As String
             quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
             quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
@@ -647,7 +612,6 @@ Public Class Functions
             xpacressource = My.Resources.GEM_ID_MOP
         End If
         Try
-            Dim zclienyx88 As New WebClient
             Dim zquellcodeyx88 As String = xpacressource
             Dim zanfangyx88 As String = gemid & ";"
             Dim zendeyx88 As String = ";xxxx"
@@ -676,18 +640,12 @@ Public Class Functions
                     xpacressource = My.Resources.GlyphProperties_335
             End Select
             Try
-                Dim clienyx88 As New WebClient
-                Dim quellcodeyx88 As String = clienyx88.DownloadString("http://wowhead.com/item=" & glyphid & "&xml")
-                Dim anfangyx88 As String = "a href=""http://www.wowhead.com/spell="
-                Dim endeyx88 As String = """ class"
-                Dim quellcodeSplityx88 As String
-                quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
-                quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
+                Dim spellId As Integer = getspellidfromitem(glyphid)
                 Process_Status.processreport.AppendText(
-                    Now.TimeOfDay.ToString & "/// SpellId of glyph is: " & quellcodeSplityx88 & "!?" & vbNewLine)
+                    Now.TimeOfDay.ToString & "/// SpellId of glyph is: " & spellId.ToString() & "!?" & vbNewLine)
                 Dim zclienyx88 As New WebClient
                 Dim zquellcodeyx88 As String = xpacressource
-                Dim zanfangyx88 As String = "<spell>" & quellcodeSplityx88 & "</spell><entry2>"
+                Dim zanfangyx88 As String = "<spell>" & spellId.ToString() & "</spell><entry2>"
                 Dim zendeyx88 As String = "</entry2><spell2>"
                 Dim zquellcodeSplityx88 As String
                 zquellcodeSplityx88 = Split(zquellcodeyx88, zanfangyx88, 5)(1)

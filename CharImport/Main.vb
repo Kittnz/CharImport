@@ -753,8 +753,8 @@ Public Class Main
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Starter.Hide()
 
-        Me.Size = New Size(1119, 642)
-        Me.MaximumSize = New Size(1119, 642)
+        Me.Size = New Size(1129, 642)
+        Me.MaximumSize = New Size(1129, 642)
         Select Case progressmode
             Case 1
                 Panel21.Location = New Point(- 6, - 1)

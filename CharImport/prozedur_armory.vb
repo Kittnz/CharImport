@@ -102,18 +102,23 @@ Public Class prozedur_armory
 
         Try
 
-            Dim clienyx88 As New WebClient
+
             Dim quellcodeyx88 As String = Main.quelltext
-            Dim anfangyx88 As String = "<meta property=""og:title"" content="""
-            Dim endeyx88 As String = " @ "
+            Dim anfangyx88 As String = "<div class=""name""><a href="
+            Dim endeyx88 As String = "</div>"
             Dim quellcodeSplityx88 As String
             quellcodeSplityx88 = Split(quellcodeyx88, anfangyx88, 5)(1)
             quellcodeSplityx88 = Split(quellcodeSplityx88, endeyx88, 6)(0)
-            Main.char_name = quellcodeSplityx88
-            Main.level.Text = quellcodeSplityx88 & ", "
-            Main.charopt.Add("name" & charnumber.ToString & "=" & quellcodeSplityx88)
+            Dim anfangyx88y As String = "rel=""np"">"
+            Dim endeyx88y As String = "</a>"
+            Dim quellcodeSplityx88y As String
+            quellcodeSplityx88y = Split(quellcodeSplityx88, anfangyx88y, 5)(1)
+            quellcodeSplityx88y = Split(quellcodeSplityx88y, endeyx88y, 6)(0)
+            Main.char_name = quellcodeSplityx88y
+            Main.level.Text = quellcodeSplityx88y & ", "
+            Main.charopt.Add("name" & charnumber.ToString & "=" & quellcodeSplityx88y)
             Process_Status.processreport.AppendText(
-                Now.TimeOfDay.ToString & "// Got Character Name: " & quellcodeSplityx88 & vbNewLine)
+                Now.TimeOfDay.ToString & "// Got Character Name: " & quellcodeSplityx88y & vbNewLine)
             My.Application.DoEvents()
         Catch ex As Exception
             Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Error: " & ex.ToString & vbNewLine)

@@ -11,7 +11,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("CharImport Universal")> 
 <Assembly: AssemblyCompany("")>
 <Assembly: AssemblyProduct("CharImport")> 
-<Assembly: AssemblyCopyright("Copyright ©  2013")> 
+<Assembly: AssemblyCopyright("Copyright ©  2014")> 
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(True)>
@@ -30,4 +30,4 @@ Imports System.Runtime.InteropServices
 ' übernehmen, indem Sie "*" eingeben:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("0.11.4.707")> 
+<Assembly: AssemblyVersion("0.11.5.722")> 

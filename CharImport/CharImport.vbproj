@@ -250,6 +250,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AboutBox.de.resx">
+      <DependentUpon>AboutBox.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AboutBox.en.resx">
       <DependentUpon>AboutBox.vb</DependentUpon>
     </EmbeddedResource>
@@ -356,6 +359,9 @@
       <DependentUpon>wait.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Welcome.af.resx">
+      <DependentUpon>Welcome.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Welcome.de.resx">
       <DependentUpon>Welcome.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Welcome.en.resx">
