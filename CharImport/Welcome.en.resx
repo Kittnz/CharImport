@@ -127,7 +127,11 @@ the program won't work with every revision of TrinityCore, ArcEmu, etc..
 However, there will be regular updates in order to support the latest revisions.</value>
   </data>
   <data name="RichTextBox1.Text" xml:space="preserve">
-    <value>|&lt;  BETA 0.11.5 &gt;|
+    <value>|&lt;  BETA 0.11.5a &gt;|
+
+ &gt; Users will no longer experience a message informing them about missing "knownCurrencies" column
+
+|&lt;  BETA 0.11.5 &gt;|
 
  &gt; Fixed critical issues when loading armory characters
  &gt; Now using WoWDB instead of WoWHead for item/spell data

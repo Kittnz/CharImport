@@ -118,7 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="RichTextBox1.Text" xml:space="preserve">
-    <value>|&lt;  BETA 0.11.5 &gt;|
+    <value>|&lt;  BETA 0.11.5a &gt;|
+
+ &gt; Benutzer sollten nicht mehr über eine fehlende "knownCurrencies" Spalte informiert werden
+
+|&lt;  BETA 0.11.5 &gt;|
 
  &gt; Einige kritische Fehler beim Laden von Armory-Charakteren wurden behoben
  &gt; Fehler beim Laden von Zauber/Gegenstands-Daten wurden behoben
