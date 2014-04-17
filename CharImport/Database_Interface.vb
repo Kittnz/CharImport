@@ -1350,7 +1350,7 @@ Public Class Database_Interface
 
     Private Sub tbc_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles tbc.CheckedChanged
         If tbc.Checked = True Then
-            runfunction.writelog("Classic checked")
+            runfunction.writelog("tbc checked")
             Main.xpac = 2
             Glyphs.Enabled = False
             classic.Checked = False
@@ -1361,7 +1361,7 @@ Public Class Database_Interface
 
     Private Sub classic_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles classic.CheckedChanged
         If classic.Checked = True Then
-            runfunction.writelog("Classic checked")
+            runfunction.writelog("classic checked")
             Main.xpac = 1
             Glyphs.Enabled = False
             tbc.Checked = False
@@ -1372,7 +1372,7 @@ Public Class Database_Interface
 
     Private Sub wotlk_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles wotlk.CheckedChanged
         If wotlk.Checked = True Then
-            runfunction.writelog("Classic checked")
+            runfunction.writelog("wotlk checked")
             Main.xpac = 3
             Glyphs.Enabled = True
             tbc.Checked = False
@@ -1383,7 +1383,7 @@ Public Class Database_Interface
 
     Private Sub cata_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles cata.CheckedChanged
         If cata.Checked = True Then
-            runfunction.writelog("Classic checked")
+            runfunction.writelog("cata checked")
             Main.xpac = 4
             Glyphs.Enabled = True
             tbc.Checked = False

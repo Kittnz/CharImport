@@ -166,3 +166,5 @@ C:\Users\Ruben\Documents\Visual Studio 2012\Projects\CharImport\CharImport\obj\x
 C:\Users\Ruben\Documents\Visual Studio 2012\Projects\CharImport\CharImport\obj\x86\Debug\CharImport.pdb
 C:\Users\Ruben\Documents\Visual Studio 2012\Projects\CharImport\CharImport\obj\x86\Debug\CharImport.AboutBox.de.resources
 C:\Users\Ruben\Documents\Visual Studio 2012\Projects\CharImport\CharImport\obj\x86\Debug\CharImport.Welcome.de.resources
+C:\Users\iwmedien\Documents\Visual Studio 2012\Projects\CharImport\CharImport\bin\Debug\CharImport.exe.config
+C:\Users\iwmedien\Documents\Visual Studio 2012\Projects\CharImport\CharImport\obj\x86\Debug\CharImport.xml

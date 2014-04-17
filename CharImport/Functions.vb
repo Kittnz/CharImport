@@ -336,7 +336,7 @@ Public Class Functions
 
         Catch ex As Exception
 
-            Return 0
+            Return -1
         End Try
     End Function
 

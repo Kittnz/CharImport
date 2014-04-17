@@ -6,9 +6,7 @@
 '* and account information into an TrinityCore compatible database.
 '*
 '* Developed by Alcanmage/megasus
-
 Imports MySql.Data.MySqlClient
-Imports System.Net
 
 Public Class Trinity_core
     Dim runfunction As New Functions
@@ -26,6 +24,7 @@ Public Class Trinity_core
     Dim lastnumber As String = ""
     Dim localeDE As New LanguageDE
     Dim localeEN As New LanguageEN
+
     Dim _
         finalstring As String =
             "kopf 0 hals 0 schulter 0 hemd 0 brust 0 guertel 0 beine 0 stiefel 0 handgelenke 0 haende 0 finger1 0 finger2 0 schmuck1 0 schmuck2 0 ruecken 0 haupt 0 off 0 distanz 0 wappenrock 0 "
@@ -649,73 +648,95 @@ Public Class Trinity_core
         Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Homebind from Database..." & vbNewLine)
         Main.character_homebind =
-             ("<map>" &
-              runfunction.runcommand(
-                  "SELECT " & Main.homebind_map & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString & "'",
-                  Main.homebind_map) & "</map><zone>" &
-              runfunction.runcommand(
-                  "SELECT " & Main.homebind_zone & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
-                  "'", Main.homebind_zone) & "</zone><position_x>" &
-              runfunction.runcommand(
-                  "SELECT " & Main.homebind_posx & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
-                  "'", Main.homebind_posx) & "</position_x><position_y>" &
-              runfunction.runcommand(
-                  "SELECT " & Main.homebind_posy & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
-                  "'", Main.homebind_posy) & "</position_y><position_z>" &
-              runfunction.runcommand(
-                  "SELECT " & Main.homebind_posz & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
-                  "'", Main.homebind_posz) & "</position_z>")
+            ("<map>" &
+             runfunction.runcommand(
+                 "SELECT " & Main.homebind_map & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString & "'",
+                 Main.homebind_map) & "</map><zone>" &
+             runfunction.runcommand(
+                 "SELECT " & Main.homebind_zone & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
+                 "'", Main.homebind_zone) & "</zone><position_x>" &
+             runfunction.runcommand(
+                 "SELECT " & Main.homebind_posx & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
+                 "'", Main.homebind_posx) & "</position_x><position_y>" &
+             runfunction.runcommand(
+                 "SELECT " & Main.homebind_posy & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
+                 "'", Main.homebind_posy) & "</position_y><position_z>" &
+             runfunction.runcommand(
+                 "SELECT " & Main.homebind_posz & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
+                 "'", Main.homebind_posz) & "</position_z>")
         Main.level.Text = Main.char_name & ", " & Main.char_level & ", "
         Select Case Main.char_race
             Case 1
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Mensch" Else Main.level.Text = Main.level.Text & "Human"
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Mensch" Else _
+                    Main.level.Text = Main.level.Text & "Human"
             Case 2
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Orc" Else Main.level.Text = Main.level.Text & "Orc"
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Orc" Else _
+                    Main.level.Text = Main.level.Text & "Orc"
             Case 3
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Zwerg" Else Main.level.Text = Main.level.Text & "Dwarf"
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Zwerg" Else _
+                    Main.level.Text = Main.level.Text & "Dwarf"
             Case 4
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Nachtelf" Else Main.level.Text = Main.level.Text & "Night Elf"
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Nachtelf" Else _
+                    Main.level.Text = Main.level.Text & "Night Elf"
             Case 5
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Untot" Else Main.level.Text = Main.level.Text & "Undead"
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Untot" Else _
+                    Main.level.Text = Main.level.Text & "Undead"
             Case 6
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Tauren" Else Main.level.Text = Main.level.Text & "Tauren"
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Tauren" Else _
+                    Main.level.Text = Main.level.Text & "Tauren"
             Case 7
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Gnom" Else Main.level.Text = Main.level.Text & "Gnome"
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Gnom" Else _
+                    Main.level.Text = Main.level.Text & "Gnome"
             Case 8
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Troll" Else Main.level.Text = Main.level.Text & "Troll"
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Troll" Else _
+                    Main.level.Text = Main.level.Text & "Troll"
             Case 9
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Goblin" Else Main.level.Text = Main.level.Text & "Goblin"
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Goblin" Else _
+                    Main.level.Text = Main.level.Text & "Goblin"
             Case 10
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Blutelf" Else Main.level.Text = Main.level.Text & "Blood Elf"
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Blutelf" Else _
+                    Main.level.Text = Main.level.Text & "Blood Elf"
             Case 11
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Draenei" Else Main.level.Text = Main.level.Text & "Draenei"
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Draenei" Else _
+                    Main.level.Text = Main.level.Text & "Draenei"
             Case 22
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Worgen" Else Main.level.Text = Main.level.Text & "Worgen"
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Worgen" Else _
+                    Main.level.Text = Main.level.Text & "Worgen"
             Case Else
 
         End Select
         Main.level.Text = Main.level.Text & ", "
         Select Case Main.char_class
             Case 1
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Krieger" Else Main.level.Text = Main.level.Text & "Warrior"
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Krieger" Else _
+                    Main.level.Text = Main.level.Text & "Warrior"
             Case 2
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Paladin" Else Main.level.Text = Main.level.Text & "Paladin"
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Paladin" Else _
+                    Main.level.Text = Main.level.Text & "Paladin"
             Case 3
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Jäger" Else Main.level.Text = Main.level.Text & "Hunter"
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Jäger" Else _
+                    Main.level.Text = Main.level.Text & "Hunter"
             Case 4
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Schurke" Else Main.level.Text = Main.level.Text & "Rogue"
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Schurke" Else _
+                    Main.level.Text = Main.level.Text & "Rogue"
             Case 5
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Priester" Else Main.level.Text = Main.level.Text & "Priest"
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Priester" Else _
+                    Main.level.Text = Main.level.Text & "Priest"
             Case 6
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Todesritter" Else Main.level.Text = Main.level.Text & "Death Knight"
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Todesritter" Else _
+                    Main.level.Text = Main.level.Text & "Death Knight"
             Case 7
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Schamane" Else Main.level.Text = Main.level.Text & "Shaman"
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Schamane" Else _
+                    Main.level.Text = Main.level.Text & "Shaman"
             Case 8
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Magier" Else Main.level.Text = Main.level.Text & "Mage"
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Magier" Else _
+                    Main.level.Text = Main.level.Text & "Mage"
             Case 9
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Hexenmeister" Else Main.level.Text = Main.level.Text & "Warlock"
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Hexenmeister" Else _
+                    Main.level.Text = Main.level.Text & "Warlock"
             Case 11
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Druide" Else Main.level.Text = Main.level.Text & "Druid"
+                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Druide" Else _
+                    Main.level.Text = Main.level.Text & "Druid"
             Case Else
 
         End Select
@@ -744,7 +765,7 @@ Public Class Trinity_core
         Application.DoEvents()
         getavlists()
         Process_Status.processreport.AppendText(
-           Now.TimeOfDay.ToString & "/ Loading Character Questlog from Database..." & vbNewLine)
+            Now.TimeOfDay.ToString & "/ Loading Character Questlog from Database..." & vbNewLine)
         Application.DoEvents()
         getqueststatus()
         Process_Status.processreport.AppendText(
@@ -1089,6 +1110,7 @@ Public Class Trinity_core
 
         End Try
     End Sub
+
     Public Sub getinventoryitems()
         runfunction.writelog("getinventoryitems_call @trinity")
         Dim tmpext As Integer
@@ -1124,13 +1146,21 @@ Public Class Trinity_core
 
                             item = tmpext.ToString()
                             entryid =
-                                runfunction.runcommand("SELECT itemEntry FROM item_instance WHERE guid = '" & item & "'", "itemEntry")
-                            enchantments = runfunction.runcommand("SELECT enchantments FROM item_instance WHERE guid = '" & item & "'", "enchantments")
-                            itemcount = runfunction.runcommand("Select `count` FROM item_instance WHERE guid='" & item & "'", "count")
-                            slot = runfunction.runcommand("Select `slot` FROM character_inventory WHERE `item`='" & item & "'", "slot")
+                                runfunction.runcommand("SELECT itemEntry FROM item_instance WHERE guid = '" & item & "'",
+                                                       "itemEntry")
+                            enchantments =
+                                runfunction.runcommand(
+                                    "SELECT enchantments FROM item_instance WHERE guid = '" & item & "'", "enchantments")
+                            itemcount =
+                                runfunction.runcommand("Select `count` FROM item_instance WHERE guid='" & item & "'",
+                                                       "count")
+                            slot =
+                                runfunction.runcommand(
+                                    "Select `slot` FROM character_inventory WHERE `item`='" & item & "'", "slot")
                             Main.character_inventoryzero_list.Add(
                                 "<slot>" & slot & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid &
-                                "</bagguid><item>" & entryid & "</item><enchant>" & enchantments & "</enchant><count>" & itemcount & "</count><oldguid>" & item & "</oldguid>")
+                                "</bagguid><item>" & entryid & "</item><enchant>" & enchantments & "</enchant><count>" &
+                                itemcount & "</count><oldguid>" & item & "</oldguid>")
                         End If
                     Else
                         Dim bag As String = "0"
@@ -1150,11 +1180,15 @@ Public Class Trinity_core
                         enchantments =
                             runfunction.runcommand("SELECT enchantments FROM item_instance WHERE guid = '" & item & "'",
                                                    "enchantments")
-                        itemcount = runfunction.runcommand("Select `count` FROM item_instance WHERE guid='" & item & "'", "count")
-                        slot = runfunction.runcommand("Select `slot` FROM character_inventory WHERE `item`='" & item & "'", "slot")
+                        itemcount = runfunction.runcommand("Select `count` FROM item_instance WHERE guid='" & item & "'",
+                                                           "count")
+                        slot =
+                            runfunction.runcommand("Select `slot` FROM character_inventory WHERE `item`='" & item & "'",
+                                                   "slot")
                         Main.character_inventory_list.Add(
                             "<slot>" & slot & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid &
-                            "</bagguid><item>" & entryid & "</item><enchant>" & enchantments & "</enchant><count>" & itemcount & "</count>")
+                            "</bagguid><item>" & entryid & "</item><enchant>" & enchantments & "</enchant><count>" &
+                            itemcount & "</count>")
                     End If
 
 
@@ -1165,6 +1199,7 @@ Public Class Trinity_core
 
         End Try
     End Sub
+
     Public Sub getinventoryitems_old()
         runfunction.writelog("getinventoryitems_call @trinity")
         Dim tmpext As Integer
@@ -1821,33 +1856,49 @@ Public Class Trinity_core
         Main.halsvz.Visible = True
 
         If Main.anzahldurchlaufe = 1 Then Main.schultervz.Text = splitstringvz(Main.schulterench, Main.schultervzid, 0)
-        If Main.anzahldurchlaufe = 1 Then Main.schultersocket1.Text = splitstringgem(Main.schulterench, Main.schultersocket1id, 6)
-        If Main.anzahldurchlaufe = 1 Then Main.schultersocket2.Text = splitstringgem(Main.schulterench, Main.schultersocket2id, 9)
-        If Main.anzahldurchlaufe = 1 Then Main.schultersocket3.Text = splitstringgem(Main.schulterench, Main.schultersocket3id, 12)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.schultersocket1.Text = splitstringgem(Main.schulterench, Main.schultersocket1id, 6)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.schultersocket2.Text = splitstringgem(Main.schulterench, Main.schultersocket2id, 9)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.schultersocket3.Text = splitstringgem(Main.schulterench, Main.schultersocket3id, 12)
         Main.schultervz.Visible = True
 
         If Main.anzahldurchlaufe = 1 Then Main.rueckenvz.Text = splitstringvz(Main.rueckenench, Main.rueckenvzid, 0)
-        If Main.anzahldurchlaufe = 1 Then Main.rueckensocket1.Text = splitstringgem(Main.rueckenench, Main.rueckensocket1id, 6)
-        If Main.anzahldurchlaufe = 1 Then Main.rueckensocket2.Text = splitstringgem(Main.rueckenench, Main.rueckensocket2id, 9)
-        If Main.anzahldurchlaufe = 1 Then Main.rueckensocket3.Text = splitstringgem(Main.rueckenench, Main.rueckensocket3id, 12)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.rueckensocket1.Text = splitstringgem(Main.rueckenench, Main.rueckensocket1id, 6)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.rueckensocket2.Text = splitstringgem(Main.rueckenench, Main.rueckensocket2id, 9)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.rueckensocket3.Text = splitstringgem(Main.rueckenench, Main.rueckensocket3id, 12)
         Main.rueckenvz.Visible = True
 
         Main.brustvz.Text = splitstringvz(Main.brustench, Main.brustvzid, 0)
-        If Main.anzahldurchlaufe = 1 Then Main.brustsocket1.Text = splitstringgem(Main.brustench, Main.brustsocket1id, 6)
-        If Main.anzahldurchlaufe = 1 Then Main.brustsocket2.Text = splitstringgem(Main.brustench, Main.brustsocket2id, 9)
-        If Main.anzahldurchlaufe = 1 Then Main.brustsocket3.Text = splitstringgem(Main.brustench, Main.brustsocket3id, 12)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.brustsocket1.Text = splitstringgem(Main.brustench, Main.brustsocket1id, 6)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.brustsocket2.Text = splitstringgem(Main.brustench, Main.brustsocket2id, 9)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.brustsocket3.Text = splitstringgem(Main.brustench, Main.brustsocket3id, 12)
         Main.brustvz.Visible = True
 
-        If Main.anzahldurchlaufe = 1 Then Main.handgelenkevz.Text = splitstringvz(Main.handgelenkeench, Main.handgelenkevzid, 0)
-        If Main.anzahldurchlaufe = 1 Then Main.Handgelenkesocket1.Text = splitstringgem(Main.handgelenkeench, Main.handgelenkesocket1id, 6)
-        If Main.anzahldurchlaufe = 1 Then Main.handgelenkesocket2.Text = splitstringgem(Main.handgelenkeench, Main.handgelenkesocket2id, 9)
-        If Main.anzahldurchlaufe = 1 Then Main.Handgelenkesocket3.Text = splitstringgem(Main.handgelenkeench, Main.handgelenkesocket3id, 12)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.handgelenkevz.Text = splitstringvz(Main.handgelenkeench, Main.handgelenkevzid, 0)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.Handgelenkesocket1.Text = splitstringgem(Main.handgelenkeench, Main.handgelenkesocket1id, 6)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.handgelenkesocket2.Text = splitstringgem(Main.handgelenkeench, Main.handgelenkesocket2id, 9)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.Handgelenkesocket3.Text = splitstringgem(Main.handgelenkeench, Main.handgelenkesocket3id, 12)
         Main.handgelenkevz.Visible = True
 
         If Main.anzahldurchlaufe = 1 Then Main.hauptvz.Text = splitstringvz(Main.hauptench, Main.hauptvzid, 0)
-        If Main.anzahldurchlaufe = 1 Then Main.Hauptsocket1.Text = splitstringgem(Main.hauptench, Main.hauptsocket1id, 6)
-        If Main.anzahldurchlaufe = 1 Then Main.Hauptsocket2.Text = splitstringgem(Main.hauptench, Main.hauptsocket2id, 9)
-        If Main.anzahldurchlaufe = 1 Then Main.hauptsocket3.Text = splitstringgem(Main.hauptench, Main.hauptsocket3id, 12)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.Hauptsocket1.Text = splitstringgem(Main.hauptench, Main.hauptsocket1id, 6)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.Hauptsocket2.Text = splitstringgem(Main.hauptench, Main.hauptsocket2id, 9)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.hauptsocket3.Text = splitstringgem(Main.hauptench, Main.hauptsocket3id, 12)
         Main.hauptvz.Visible = True
         Main.hauptvzlabel2.Visible = True
         Main.hauptvzlabel2.Text = Main.hauptvz.Text
@@ -1861,47 +1912,68 @@ Public Class Trinity_core
         Main.offvzlabel2.Text = Main.offvz.Text
 
         If Main.anzahldurchlaufe = 1 Then Main.distanzvz.Text = splitstringvz(Main.distanzench, Main.distanzvzid, 0)
-        If Main.anzahldurchlaufe = 1 Then Main.Distanzsocket1.Text = splitstringgem(Main.distanzench, Main.distanzsocket1id, 6)
-        If Main.anzahldurchlaufe = 1 Then Main.Distanzsocket2.Text = splitstringgem(Main.distanzench, Main.distanzsocket2id, 9)
-        If Main.anzahldurchlaufe = 1 Then Main.distanzsocket3.Text = splitstringgem(Main.distanzench, Main.distanzsocket3id, 12)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.Distanzsocket1.Text = splitstringgem(Main.distanzench, Main.distanzsocket1id, 6)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.Distanzsocket2.Text = splitstringgem(Main.distanzench, Main.distanzsocket2id, 9)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.distanzsocket3.Text = splitstringgem(Main.distanzench, Main.distanzsocket3id, 12)
         Main.distanzvz.Visible = True
         Main.distanzvzlabel2.Visible = True
         Main.distanzvzlabel2.Text = Main.distanzvz.Text
 
         If Main.anzahldurchlaufe = 1 Then Main.haendevz.Text = splitstringvz(Main.haendeench, Main.haendevzid, 0)
-        If Main.anzahldurchlaufe = 1 Then Main.haendesocket1.Text = splitstringgem(Main.haendeench, Main.haendesocket1id, 6)
-        If Main.anzahldurchlaufe = 1 Then Main.haendesocket2.Text = splitstringgem(Main.haendeench, Main.haendesocket2id, 9)
-        If Main.anzahldurchlaufe = 1 Then Main.haendesocket3.Text = splitstringgem(Main.haendeench, Main.haendesocket3id, 12)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.haendesocket1.Text = splitstringgem(Main.haendeench, Main.haendesocket1id, 6)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.haendesocket2.Text = splitstringgem(Main.haendeench, Main.haendesocket2id, 9)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.haendesocket3.Text = splitstringgem(Main.haendeench, Main.haendesocket3id, 12)
         Main.haendevz.Visible = True
 
         If Main.anzahldurchlaufe = 1 Then Main.guertelvz.Text = splitstringvz(Main.guertelench, Main.guertelvzid, 0)
-        If Main.anzahldurchlaufe = 1 Then Main.guertelsocket1.Text = splitstringgem(Main.guertelench, Main.guertelsocket1id, 6)
-        If Main.anzahldurchlaufe = 1 Then Main.guertelsocket2.Text = splitstringgem(Main.guertelench, Main.guertelsocket2id, 9)
-        If Main.anzahldurchlaufe = 1 Then Main.guertelsocket3.Text = splitstringgem(Main.guertelench, Main.guertelsocket3id, 12)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.guertelsocket1.Text = splitstringgem(Main.guertelench, Main.guertelsocket1id, 6)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.guertelsocket2.Text = splitstringgem(Main.guertelench, Main.guertelsocket2id, 9)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.guertelsocket3.Text = splitstringgem(Main.guertelench, Main.guertelsocket3id, 12)
         Main.guertelvz.Visible = True
 
         If Main.anzahldurchlaufe = 1 Then Main.beinevz.Text = splitstringvz(Main.beineench, Main.beinevzid, 0)
-        If Main.anzahldurchlaufe = 1 Then Main.beinesocket1.Text = splitstringgem(Main.beineench, Main.beinesocket1id, 6)
-        If Main.anzahldurchlaufe = 1 Then Main.beinesocket2.Text = splitstringgem(Main.beineench, Main.beinesocket2id, 9)
-        If Main.anzahldurchlaufe = 1 Then Main.beinesocket3.Text = splitstringgem(Main.beineench, Main.beinesocket3id, 12)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.beinesocket1.Text = splitstringgem(Main.beineench, Main.beinesocket1id, 6)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.beinesocket2.Text = splitstringgem(Main.beineench, Main.beinesocket2id, 9)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.beinesocket3.Text = splitstringgem(Main.beineench, Main.beinesocket3id, 12)
         Main.beinevz.Visible = True
 
         If Main.anzahldurchlaufe = 1 Then Main.stiefelvz.Text = splitstringvz(Main.stiefelench, Main.stiefelvzid, 0)
-        If Main.anzahldurchlaufe = 1 Then Main.stiefelsocket1.Text = splitstringgem(Main.stiefelench, Main.stiefelsocket1id, 6)
-        If Main.anzahldurchlaufe = 1 Then Main.stiefelsocket2.Text = splitstringgem(Main.stiefelench, Main.stiefelsocket2id, 9)
-        If Main.anzahldurchlaufe = 1 Then Main.stiefelsocket3.Text = splitstringgem(Main.stiefelench, Main.stiefelsocket3id, 12)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.stiefelsocket1.Text = splitstringgem(Main.stiefelench, Main.stiefelsocket1id, 6)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.stiefelsocket2.Text = splitstringgem(Main.stiefelench, Main.stiefelsocket2id, 9)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.stiefelsocket3.Text = splitstringgem(Main.stiefelench, Main.stiefelsocket3id, 12)
         Main.stiefelvz.Visible = True
 
         If Main.anzahldurchlaufe = 1 Then Main.ring1vz.Text = splitstringvz(Main.ring1ench, Main.ring1vzid, 0)
-        If Main.anzahldurchlaufe = 1 Then Main.Ring1socket1.Text = splitstringgem(Main.ring1ench, Main.ring1socket1id, 6)
-        If Main.anzahldurchlaufe = 1 Then Main.ring1socket2.Text = splitstringgem(Main.ring1ench, Main.ring1socket2id, 9)
-        If Main.anzahldurchlaufe = 1 Then Main.ring1socket3.Text = splitstringgem(Main.ring1ench, Main.ring1socket3id, 12)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.Ring1socket1.Text = splitstringgem(Main.ring1ench, Main.ring1socket1id, 6)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.ring1socket2.Text = splitstringgem(Main.ring1ench, Main.ring1socket2id, 9)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.ring1socket3.Text = splitstringgem(Main.ring1ench, Main.ring1socket3id, 12)
         Main.ring1vz.Visible = True
 
         If Main.anzahldurchlaufe = 1 Then Main.ring2vz.Text = splitstringvz(Main.ring2ench, Main.ring2vzid, 0)
-        If Main.anzahldurchlaufe = 1 Then Main.ring2socket1.Text = splitstringgem(Main.ring2ench, Main.ring2socket1id, 6)
-        If Main.anzahldurchlaufe = 1 Then Main.ring2socket2.Text = splitstringgem(Main.ring2ench, Main.ring2socket2id, 9)
-        If Main.anzahldurchlaufe = 1 Then Main.ring2socket3.Text = splitstringgem(Main.ring2ench, Main.ring2socket3id, 12)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.ring2socket1.Text = splitstringgem(Main.ring2ench, Main.ring2socket1id, 6)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.ring2socket2.Text = splitstringgem(Main.ring2ench, Main.ring2socket2id, 9)
+        If Main.anzahldurchlaufe = 1 Then _
+            Main.ring2socket3.Text = splitstringgem(Main.ring2ench, Main.ring2socket3id, 12)
         Main.ring2vz.Visible = True
 
         If Main.anzahldurchlaufe = 1 Then Main.schmuck1vz.Text = splitstringvz(Main.schmuck1ench, Main.schmuck1vzid, 0)
@@ -2009,7 +2081,7 @@ Public Class Trinity_core
                 CInt(Val(runfunction.runcommand("SELECT guid FROM characters WHERE name = '" & charname & "'", "guid")))
 
         Catch ex As Exception
-            Return -1
+            Return - 1
         End Try
     End Function
 
@@ -2061,9 +2133,9 @@ Public Class Trinity_core
                 runfunction.normalsqlcommandRealmd(command)
                 Dim realmid As Integer = Main.account_access_RealmID
                 If realmid = 0 Then
-                    realmid = -1
+                    realmid = - 1
                 ElseIf realmid = Nothing Then
-                    realmid = -1
+                    realmid = - 1
                 Else
 
 
@@ -2105,7 +2177,8 @@ Public Class Trinity_core
             runfunction.normalsqlcommand(
                 "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `position_x`, position_y, position_z, map, orientation, taximask, cinematic, `health` ) VALUES ( '" &
                 newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
-                "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes & "', '-14306', '515', '10', '0', '5', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '1', '1000' )")
+                "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes &
+                "', '-14306', '515', '10', '0', '5', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '1', '1000' )")
 
             runfunction.normalsqlcommand("UPDATE characters SET at_login='1' WHERE guid='" & newcharguid.ToString & "'")
         Else
@@ -2113,16 +2186,18 @@ Public Class Trinity_core
                 Process_Status.processreport.AppendText(
                     Now.TimeOfDay.ToString & "// Player will be asked to change charactername!" & vbNewLine)
                 runfunction.normalsqlcommand(
-                   "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `position_x`, position_y, position_z, map, orientation, taximask, cinematic, `health` ) VALUES ( '" &
-                   newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
-                   "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes & "', '-14306', '515', '10', '0', '5', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '1', '1000' )")
+                    "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `position_x`, position_y, position_z, map, orientation, taximask, cinematic, `health` ) VALUES ( '" &
+                    newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
+                    "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes &
+                    "', '-14306', '515', '10', '0', '5', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '1', '1000' )")
                 runfunction.normalsqlcommand(
                     "UPDATE characters SET at_login='1' WHERE guid='" & newcharguid.ToString & "'")
             Else
                 runfunction.normalsqlcommand(
-                "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `position_x`, position_y, position_z, map, orientation, taximask, cinematic, `health` ) VALUES ( '" &
-                newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
-                "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes & "', '-14306', '515', '10', '0', '5', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '1', '1000' )")
+                    "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `position_x`, position_y, position_z, map, orientation, taximask, cinematic, `health` ) VALUES ( '" &
+                    newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
+                    "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes &
+                    "', '-14306', '515', '10', '0', '5', '0 0 0 0 0 0 0 0 0 0 0 0 0 0 ', '1', '1000' )")
                 runfunction.normalsqlcommand(
                     "UPDATE characters SET at_login='0' WHERE guid='" & newcharguid.ToString & "'")
             End If
@@ -2151,10 +2226,13 @@ Public Class Trinity_core
                 Dim startcounter As Integer = 0
                 Do
                     Dim questid As String = parts(startcounter)
-                    runfunction.normalsqlcommand("INSERT IGNORE INTO character_queststatus_rewarded ( `guid`, `quest` ) VALUES ( '" & Main.coreguid & "', '" & questid & "' )")
+                    runfunction.normalsqlcommand(
+                        "INSERT IGNORE INTO character_queststatus_rewarded ( `guid`, `quest` ) VALUES ( '" &
+                        Main.coreguid & "', '" & questid & "' )")
                     startcounter += 1
                 Loop Until startcounter = excounter
-            Catch : End Try
+            Catch :
+            End Try
         End If
 
         Process_Status.processreport.AppendText(
@@ -2193,105 +2271,233 @@ Public Class Trinity_core
             Process_Status.processreport.AppendText(
                 Now.TimeOfDay.ToString & "// Player will be asked to change charactername! : reason-nce=true" &
                 vbNewLine)
-            If runfunction.normalsqlcommand(
-                "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, cinematic, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, watchedFaction, `health`, speccount, activespec, exploredZones, knownTitles, actionBars ) VALUES ( '" &
-                newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
-                "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" & Main.playerBytes2.ToString &
-                "', '" & Main.playerFlags.ToString & "', '" & Main.position_x.ToString & "', '" &
-                Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 5).ToString & "', '" & Main.map.ToString &
-                "', '4,40671', '" & Main.taximask & "', '1', '" & Main.totaltime.ToString & "', '" & Main.leveltime.ToString &
-                "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" & Main.at_login & "', '" &
-                Main.zone.ToString & "', '" & Main.chosenTitle & "', '" &
-                Main.watchedFaction & "', '5000', '" & Main.speccount.ToString & "', '" & Main.activespec.ToString &
-                "', '" & Main.exploredZones & "', '" & Main.knownTitles & "', '" & Main.actionBars & "' )", True, True) = True Then
-                If My.Settings.language = "de" Then
-                    MsgBox(localeDE.characternotcreated, MsgBoxStyle.Critical, localeDE.criticalerrorduringtransmission)
-                Else
-                    MsgBox(localeEN.characternotcreated, MsgBoxStyle.Critical, localeEN.criticalerrorduringtransmission)
+            If runfunction.returncountresults("SELECT `knownCurrencies` FROM characters", "knownCurrencies") >= 0 Then
+                If runfunction.normalsqlcommand(
+                    "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, cinematic, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, knownCurrencies, watchedFaction, `health`, speccount, activespec, exploredZones, knownTitles, actionBars ) VALUES ( '" &
+                    newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
+                    "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" &
+                    Main.playerBytes2.ToString &
+                    "', '" & Main.playerFlags.ToString & "', '" & Main.position_x.ToString & "', '" &
+                    Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 5).ToString & "', '" &
+                    Main.map.ToString &
+                    "', '4,40671', '" & Main.taximask & "', '1', '" & Main.totaltime.ToString & "', '" &
+                    Main.leveltime.ToString &
+                    "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" & Main.at_login & "', '" &
+                    Main.zone.ToString & "', '" & Main.chosenTitle & "', '" & Main.knownCurrencies & "', '" &
+                    Main.watchedFaction & "', '5000', '" & Main.speccount.ToString & "', '" & Main.activespec.ToString &
+                    "', '" & Main.exploredZones & "', '" & Main.knownTitles & "', '" & Main.actionBars & "' )", True,
+                    True) = True Then
+                    If My.Settings.language = "de" Then
+                        MsgBox(localeDE.characternotcreated, MsgBoxStyle.Critical,
+                               localeDE.criticalerrorduringtransmission)
+                    Else
+                        MsgBox(localeEN.characternotcreated, MsgBoxStyle.Critical,
+                               localeEN.criticalerrorduringtransmission)
+                    End If
+                    Connect.Close()
+                    Armory2Database.Close()
+                    Database2Database.Close()
+                    closesql()
+                    Process_Status.processreport.AppendText(
+                        Now.TimeOfDay.ToString & "// Transmission failed!" & vbNewLine)
+                    Process_Status.Button1.Enabled = True
+                    Application.DoEvents()
+                    Main.Close()
+                    Starter.Show()
+                    Exit Sub
                 End If
-                Connect.Close()
-                Armory2Database.Close()
-                Database2Database.Close()
-                closesql()
-                Process_Status.processreport.AppendText(
-                          Now.TimeOfDay.ToString & "// Transmission failed!" & vbNewLine)
-                Process_Status.Button1.Enabled = True
-                Application.DoEvents()
-                Main.Close()
-                Starter.Show()
-                Exit Sub
             Else
-
+                If runfunction.normalsqlcommand(
+                    "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, cinematic, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, watchedFaction, `health`, speccount, activespec, exploredZones, knownTitles, actionBars ) VALUES ( '" &
+                    newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
+                    "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" &
+                    Main.playerBytes2.ToString &
+                    "', '" & Main.playerFlags.ToString & "', '" & Main.position_x.ToString & "', '" &
+                    Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 5).ToString & "', '" &
+                    Main.map.ToString &
+                    "', '4,40671', '" & Main.taximask & "', '1', '" & Main.totaltime.ToString & "', '" &
+                    Main.leveltime.ToString &
+                    "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" & Main.at_login & "', '" &
+                    Main.zone.ToString & "', '" & Main.chosenTitle & "', '" &
+                    Main.watchedFaction & "', '5000', '" & Main.speccount.ToString & "', '" & Main.activespec.ToString &
+                    "', '" & Main.exploredZones & "', '" & Main.knownTitles & "', '" & Main.actionBars & "' )", True,
+                    True) = True Then
+                    If My.Settings.language = "de" Then
+                        MsgBox(localeDE.characternotcreated, MsgBoxStyle.Critical,
+                               localeDE.criticalerrorduringtransmission)
+                    Else
+                        MsgBox(localeEN.characternotcreated, MsgBoxStyle.Critical,
+                               localeEN.criticalerrorduringtransmission)
+                    End If
+                    Connect.Close()
+                    Armory2Database.Close()
+                    Database2Database.Close()
+                    closesql()
+                    Process_Status.processreport.AppendText(
+                        Now.TimeOfDay.ToString & "// Transmission failed!" & vbNewLine)
+                    Process_Status.Button1.Enabled = True
+                    Application.DoEvents()
+                    Main.Close()
+                    Starter.Show()
+                    Exit Sub
+                End If
             End If
+
 
             runfunction.normalsqlcommand("UPDATE characters SET at_login='1' WHERE guid='" & newcharguid.ToString & "'")
         Else
             If charexist(charactername) = True Then
                 Process_Status.processreport.AppendText(
                     Now.TimeOfDay.ToString & "// Player will be asked to change charactername!" & vbNewLine)
-                If runfunction.normalsqlcommand(
-                    "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, cinematic, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, watchedFaction, `health`, speccount, activespec, exploredZones, knownTitles, actionBars ) VALUES ( '" &
-                    newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
-                    "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" &
-                    Main.playerBytes2.ToString & "', '" & Main.playerFlags.ToString & "', '" & Main.position_x.ToString &
-                    "', '" & Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 5).ToString & "', '" &
-                    Main.map.ToString & "', '4,40671', '" & Main.taximask & "', '1', '" & Main.totaltime.ToString & "', '" &
-                    Main.leveltime.ToString & "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" & Main.watchedFaction & "', '5000', '" & Main.speccount.ToString &
-                    "', '" & Main.activespec.ToString & "', '" & Main.exploredZones & "', '" & Main.knownTitles & "', '" &
-                    Main.actionBars & "' )", True, True) = True Then
-                    If My.Settings.language = "de" Then
-                        MsgBox(localeDE.characternotcreated, MsgBoxStyle.Critical, localeDE.criticalerrorduringtransmission)
+                If runfunction.returncountresults("SELECT `knownCurrencies` FROM characters", "knownCurrencies") >= 0 _
+                    Then
+                    If runfunction.normalsqlcommand(
+                        "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, cinematic, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, knownCurrencies, watchedFaction, `health`, speccount, activespec, exploredZones, knownTitles, actionBars ) VALUES ( '" &
+                        newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
+                        "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" &
+                        Main.playerBytes2.ToString & "', '" & Main.playerFlags.ToString & "', '" &
+                        Main.position_x.ToString &
+                        "', '" & Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 5).ToString & "', '" &
+                        Main.map.ToString & "', '4,40671', '" & Main.taximask & "', '1', '" & Main.totaltime.ToString &
+                        "', '" &
+                        Main.leveltime.ToString & "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" &
+                        Main.at_login & "', '" & Main.zone.ToString & "', '" & Main.chosenTitle & "', '" &
+                        Main.knownCurrencies & "', '" & Main.watchedFaction & "', '5000', '" & Main.speccount.ToString &
+                        "', '" & Main.activespec.ToString & "', '" & Main.exploredZones & "', '" & Main.knownTitles &
+                        "', '" &
+                        Main.actionBars & "' )", True, True) = True Then
+                        If My.Settings.language = "de" Then
+                            MsgBox(localeDE.characternotcreated, MsgBoxStyle.Critical,
+                                   localeDE.criticalerrorduringtransmission)
+                        Else
+                            MsgBox(localeEN.characternotcreated, MsgBoxStyle.Critical,
+                                   localeEN.criticalerrorduringtransmission)
+                        End If
+                        Connect.Close()
+                        Armory2Database.Close()
+                        Database2Database.Close()
+                        closesql()
+                        Process_Status.processreport.AppendText(
+                            Now.TimeOfDay.ToString & "// Transmission failed!" & vbNewLine)
+                        Process_Status.Button1.Enabled = True
+                        Application.DoEvents()
+                        Main.Close()
+                        Starter.Show()
+                        Exit Sub
                     Else
-                        MsgBox(localeEN.characternotcreated, MsgBoxStyle.Critical, localeEN.criticalerrorduringtransmission)
+                        If runfunction.normalsqlcommand(
+                            "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, cinematic, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, watchedFaction, `health`, speccount, activespec, exploredZones, knownTitles, actionBars ) VALUES ( '" &
+                            newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
+                            "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" &
+                            Main.playerBytes2.ToString & "', '" & Main.playerFlags.ToString & "', '" &
+                            Main.position_x.ToString &
+                            "', '" & Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 5).ToString & "', '" &
+                            Main.map.ToString & "', '4,40671', '" & Main.taximask & "', '1', '" &
+                            Main.totaltime.ToString & "', '" &
+                            Main.leveltime.ToString & "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" &
+                            Main.at_login & "', '" & Main.zone.ToString & "', '" & Main.chosenTitle & "', '" &
+                            Main.watchedFaction & "', '5000', '" & Main.speccount.ToString &
+                            "', '" & Main.activespec.ToString & "', '" & Main.exploredZones & "', '" & Main.knownTitles &
+                            "', '" &
+                            Main.actionBars & "' )", True, True) = True Then
+                            If My.Settings.language = "de" Then
+                                MsgBox(localeDE.characternotcreated, MsgBoxStyle.Critical,
+                                       localeDE.criticalerrorduringtransmission)
+                            Else
+                                MsgBox(localeEN.characternotcreated, MsgBoxStyle.Critical,
+                                       localeEN.criticalerrorduringtransmission)
+                            End If
+                            Connect.Close()
+                            Armory2Database.Close()
+                            Database2Database.Close()
+                            closesql()
+                            Process_Status.processreport.AppendText(
+                                Now.TimeOfDay.ToString & "// Transmission failed!" & vbNewLine)
+                            Process_Status.Button1.Enabled = True
+                            Application.DoEvents()
+                            Main.Close()
+                            Starter.Show()
+                            Exit Sub
+                        End If
                     End If
-                    Connect.Close()
-                    Armory2Database.Close()
-                    Database2Database.Close()
-                    closesql()
-                    Process_Status.processreport.AppendText(
-                              Now.TimeOfDay.ToString & "// Transmission failed!" & vbNewLine)
-                    Process_Status.Button1.Enabled = True
-                    Application.DoEvents()
-                    Main.Close()
-                    Starter.Show()
-                    Exit Sub
-                Else
-
                 End If
 
                 runfunction.normalsqlcommand(
                     "UPDATE characters SET at_login='1' WHERE guid='" & newcharguid.ToString & "'")
             Else
-                If runfunction.normalsqlcommand(
-                    "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, cinematic, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, watchedFaction, `health`, speccount, activespec, exploredZones, knownTitles, actionBars ) VALUES ( '" &
-                    newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
-                    "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" &
-                    Main.playerBytes2.ToString & "', '" & Main.playerFlags.ToString & "', '" & Main.position_x.ToString &
-                    "', '" & Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 5).ToString & "', '" &
-                    Main.map.ToString & "', '4,40671', '" & Main.taximask & "', '1', '" & Main.totaltime.ToString & "', '" &
-                    Main.leveltime.ToString & "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" &
-                    Main.at_login & "', '" & Main.zone.ToString & "', '" & Main.chosenTitle & "', '" & Main.watchedFaction & "', '5000', '" & Main.speccount.ToString &
-                    "', '" & Main.activespec.ToString & "', '" & Main.exploredZones & "', '" & Main.knownTitles & "', '" &
-                    Main.actionBars & "' )", True, True) = True Then
-                    If My.Settings.language = "de" Then
-                        MsgBox(localeDE.characternotcreated, MsgBoxStyle.Critical, localeDE.criticalerrorduringtransmission)
-                    Else
-                        MsgBox(localeEN.characternotcreated, MsgBoxStyle.Critical, localeEN.criticalerrorduringtransmission)
+                If runfunction.returncountresults("SELECT `knownCurrencies` FROM characters", "knownCurrencies") >= 0 _
+                    Then
+                    If runfunction.normalsqlcommand(
+                        "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, cinematic, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, knownCurrencies, watchedFaction, `health`, speccount, activespec, exploredZones, knownTitles, actionBars ) VALUES ( '" &
+                        newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
+                        "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" &
+                        Main.playerBytes2.ToString & "', '" & Main.playerFlags.ToString & "', '" &
+                        Main.position_x.ToString &
+                        "', '" & Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 5).ToString & "', '" &
+                        Main.map.ToString & "', '4,40671', '" & Main.taximask & "', '1', '" & Main.totaltime.ToString &
+                        "', '" &
+                        Main.leveltime.ToString & "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" &
+                        Main.at_login & "', '" & Main.zone.ToString & "', '" & Main.chosenTitle & "', '" &
+                        Main.knownCurrencies & "', '" & Main.watchedFaction & "', '5000', '" & Main.speccount.ToString &
+                        "', '" & Main.activespec.ToString & "', '" & Main.exploredZones & "', '" & Main.knownTitles &
+                        "', '" &
+                        Main.actionBars & "' )", True, True) = True Then
+                        If My.Settings.language = "de" Then
+                            MsgBox(localeDE.characternotcreated, MsgBoxStyle.Critical,
+                                   localeDE.criticalerrorduringtransmission)
+                        Else
+                            MsgBox(localeEN.characternotcreated, MsgBoxStyle.Critical,
+                                   localeEN.criticalerrorduringtransmission)
+                        End If
+                        Connect.Close()
+                        Armory2Database.Close()
+                        Database2Database.Close()
+                        closesql()
+                        Process_Status.processreport.AppendText(
+                            Now.TimeOfDay.ToString & "// Transmission failed!" & vbNewLine)
+                        Process_Status.Button1.Enabled = True
+                        Application.DoEvents()
+                        Main.Close()
+                        Starter.Show()
+                        Exit Sub
                     End If
-                    Connect.Close()
-                    Armory2Database.Close()
-                    Database2Database.Close()
-                    closesql()
-                    Process_Status.processreport.AppendText(
-                              Now.TimeOfDay.ToString & "// Transmission failed!" & vbNewLine)
-                    Process_Status.Button1.Enabled = True
-                    Application.DoEvents()
-                    Main.Close()
-                    Starter.Show()
-                    Exit Sub
                 Else
-
+                    If runfunction.normalsqlcommand(
+                        "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, cinematic, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, watchedFaction, `health`, speccount, activespec, exploredZones, knownTitles, actionBars ) VALUES ( '" &
+                        newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
+                        "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" &
+                        Main.playerBytes2.ToString & "', '" & Main.playerFlags.ToString & "', '" &
+                        Main.position_x.ToString &
+                        "', '" & Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 5).ToString & "', '" &
+                        Main.map.ToString & "', '4,40671', '" & Main.taximask & "', '1', '" & Main.totaltime.ToString &
+                        "', '" &
+                        Main.leveltime.ToString & "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" &
+                        Main.at_login & "', '" & Main.zone.ToString & "', '" & Main.chosenTitle & "', '" &
+                        Main.watchedFaction & "', '5000', '" & Main.speccount.ToString &
+                        "', '" & Main.activespec.ToString & "', '" & Main.exploredZones & "', '" & Main.knownTitles &
+                        "', '" &
+                        Main.actionBars & "' )", True, True) = True Then
+                        If My.Settings.language = "de" Then
+                            MsgBox(localeDE.characternotcreated, MsgBoxStyle.Critical,
+                                   localeDE.criticalerrorduringtransmission)
+                        Else
+                            MsgBox(localeEN.characternotcreated, MsgBoxStyle.Critical,
+                                   localeEN.criticalerrorduringtransmission)
+                        End If
+                        Connect.Close()
+                        Armory2Database.Close()
+                        Database2Database.Close()
+                        closesql()
+                        Process_Status.processreport.AppendText(
+                            Now.TimeOfDay.ToString & "// Transmission failed!" & vbNewLine)
+                        Process_Status.Button1.Enabled = True
+                        Application.DoEvents()
+                        Main.Close()
+                        Starter.Show()
+                        Exit Sub
+                    End If
                 End If
+
             End If
 
         End If
@@ -2302,10 +2508,13 @@ Public Class Trinity_core
                 Dim startcounter As Integer = 0
                 Do
                     Dim questid As String = parts(startcounter)
-                    runfunction.normalsqlcommand("INSERT IGNORE INTO character_queststatus_rewarded ( `guid`, `quest` ) VALUES ( '" & Main.coreguid & "', '" & questid & "' )")
+                    runfunction.normalsqlcommand(
+                        "INSERT IGNORE INTO character_queststatus_rewarded ( `guid`, `quest` ) VALUES ( '" &
+                        Main.coreguid & "', '" & questid & "' )")
                     startcounter += 1
                 Loop Until startcounter = excounter
-            Catch : End Try
+            Catch :
+            End Try
         End If
         setqueststatus()
         sethome()
@@ -2845,7 +3054,7 @@ Public Class Trinity_core
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Adding gold..." & vbNewLine)
         guid = Main.coreguid
         runfunction.normalsqlcommand(
-            "UPDATE `characters` SET money='" & (CInt(Val(amount)) * 10000).ToString & "' WHERE guid='" & guid & "'")
+            "UPDATE `characters` SET money='" & (CInt(Val(amount))*10000).ToString & "' WHERE guid='" & guid & "'")
     End Sub
 
     Public Sub addgold(ByVal amount As Integer)
@@ -2973,21 +3182,32 @@ Public Class Trinity_core
             runfunction.normalsqlcommand(
                 "INSERT INTO item_instance ( guid, itemEntry, owner_guid, count, charges, enchantments, durability ) VALUES ( '" &
                 newguid & "', '" & splitlist(inventorystring, "item") & "', '" & Main.coreguid &
-                "', '" & splitlist(inventorystring, "count") & "', '0 0 0 0 0 ', '" & splitlist(inventorystring, "enchant") & "', '1000' )")
+                "', '" & splitlist(inventorystring, "count") & "', '0 0 0 0 0 ', '" &
+                splitlist(inventorystring, "enchant") & "', '1000' )")
             runfunction.normalsqlcommand(
                 "INSERT INTO character_inventory ( guid, bag, `slot`, `item` ) VALUES ( '" & Main.coreguid & "', '" &
                 bag & "', '" & splitlist(inventorystring, "slot") & "', '" & newguid & "')")
             Select Case splitlist(inventorystring, "slot")
                 Case "19", "20", "21", "22", "67", "68", "69", "70", "71", "72", "73"
                     'Item is a bag and has to be registered
-                    bagstring = bagstring & "oldguid:" & splitlist(inventorystring, "oldguid") & ";newguid:" & newguid & ";"
-                Case Else : End Select
+                    bagstring = bagstring & "oldguid:" & splitlist(inventorystring, "oldguid") & ";newguid:" & newguid &
+                                ";"
+                Case Else :
+            End Select
         Next
         For Each inventorystring As String In Main.character_inventory_list
             Dim bagguid As String = splitlist(inventorystring, "bagguid")
             Dim bag As String = splitlist(inventorystring, "bag")
-            Dim newguid As String = ((CInt(Val(runfunction.runcommand("SELECT guid FROM item_instance WHERE guid=(SELECT MAX(guid) FROM item_instance)", "guid")))) + 1).ToString
-            Dim newbagguid As String = runfunction.runcommand("SELECT guid FROM item_instance WHERE itemEntry='" & bag & "' AND owner_guid='" & Main.coreguid & "'", "guid")
+            Dim newguid As String =
+                    ((CInt(
+                        Val(
+                            runfunction.runcommand(
+                                "SELECT guid FROM item_instance WHERE guid=(SELECT MAX(guid) FROM item_instance)",
+                                "guid")))) + 1).ToString
+            Dim newbagguid As String =
+                    runfunction.runcommand(
+                        "SELECT guid FROM item_instance WHERE itemEntry='" & bag & "' AND owner_guid='" & Main.coreguid &
+                        "'", "guid")
             Select Case splitlist(inventorystring, "slot")
                 Case "19", "20", "21", "22", "67", "68", "69", "70", "71", "72", "73"
                 Case Else
@@ -3002,15 +3222,15 @@ Public Class Trinity_core
 
             End Select
             runfunction.normalsqlcommand(
-                        "INSERT INTO item_instance ( guid, itemEntry, owner_guid, count, charges, enchantments, durability ) VALUES ( '" &
-                        newguid & "', '" & splitlist(inventorystring, "item") & "', '" & Main.coreguid &
-                        "', '" & splitlist(inventorystring, "count") & "', '0 0 0 0 0 ', '" & splitlist(inventorystring, "enchant") & "', '1000' )")
+                "INSERT INTO item_instance ( guid, itemEntry, owner_guid, count, charges, enchantments, durability ) VALUES ( '" &
+                newguid & "', '" & splitlist(inventorystring, "item") & "', '" & Main.coreguid &
+                "', '" & splitlist(inventorystring, "count") & "', '0 0 0 0 0 ', '" &
+                splitlist(inventorystring, "enchant") & "', '1000' )")
             runfunction.normalsqlcommand(
                 "INSERT INTO character_inventory ( guid, bag, `slot`, `item` ) VALUES ( '" & Main.coreguid & "', '" &
                 newbagguid & "', '" & splitlist(inventorystring, "slot") & "', '" & newguid & "')")
         Next
     End Sub
-
 
 
     Private Function splitlist(ByVal tstring As String, ByVal category As String) As String
@@ -3034,12 +3254,14 @@ Public Class Trinity_core
         Application.DoEvents()
         Dim sdjaj As String = Main.kopfench
         If Not Main.kopfench = "" Then _
-             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET enchantments='" & splitenchstring(Main.kopfench, kopfwearguid, Main.kopfid.ToString) &
+            runfunction.normalsqlcommand(
+                "UPDATE `item_instance` SET enchantments='" &
+                splitenchstring(Main.kopfench, kopfwearguid, Main.kopfid.ToString) &
                 "' WHERE guid='" & kopfwearguid & "'")
         If Not Main.halsench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET enchantments='" & splitenchstring(Main.halsench, halswearguid, Main.halsid.ToString) &
+                "UPDATE `item_instance` SET enchantments='" &
+                splitenchstring(Main.halsench, halswearguid, Main.halsid.ToString) &
                 "' WHERE guid='" & halswearguid & "'")
         If Not Main.schulterench = "" Then _
             runfunction.normalsqlcommand(
@@ -3058,7 +3280,8 @@ Public Class Trinity_core
                 "'")
         If Not Main.hemdench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET enchantments='" & splitenchstring(Main.hemdench, hemdwearguid, Main.hemdid.ToString) &
+                "UPDATE `item_instance` SET enchantments='" &
+                splitenchstring(Main.hemdench, hemdwearguid, Main.hemdid.ToString) &
                 "' WHERE guid='" & hemdwearguid & "'")
         If Not Main.wappenrockench = "" Then _
             runfunction.normalsqlcommand(
@@ -3082,7 +3305,8 @@ Public Class Trinity_core
                 "'")
         If Not Main.offench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET enchantments='" & splitenchstring(Main.offench, offwearguid, Main.offid.ToString) &
+                "UPDATE `item_instance` SET enchantments='" &
+                splitenchstring(Main.offench, offwearguid, Main.offid.ToString) &
                 "' WHERE guid='" & offwearguid & "'")
         If Not Main.distanzench = "" Then _
             runfunction.normalsqlcommand(
@@ -3125,11 +3349,13 @@ Public Class Trinity_core
                 splitenchstring(Main.schmuck2ench, schmuck2wearguid, Main.schmuck2id.ToString) & "' WHERE guid='" &
                 schmuck2wearguid & "'")
     End Sub
+
     Private Function splitenchstring(ByVal enchstring As String, ByVal guid As Integer, ByVal entry As String) As String
         Dim numstring As Integer = 0
         Try
             numstring = UBound(enchstring.Split(CChar(" ")))
-        Catch : End Try
+        Catch :
+        End Try
         Dim normalenchstring As String = "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "
         If enchstring.Contains(";") Then
             'AECEMU
@@ -3189,6 +3415,7 @@ Public Class Trinity_core
             End If
         End If
     End Function
+
     Public Sub addgems()
         runfunction.writelog("addgems_call @trinity")
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Adding character gems..." & vbNewLine)
