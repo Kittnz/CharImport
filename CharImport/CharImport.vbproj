@@ -8,9 +8,9 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{9CDDC668-2B32-4F74-8982-B441010461FA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>CharImport_Test.My.MyApplication</StartupObject>
-    <RootNamespace>CharImport_Test</RootNamespace>
-    <AssemblyName>CharImport Test</AssemblyName>
+    <StartupObject>CharImport.My.MyApplication</StartupObject>
+    <RootNamespace>CharImport</RootNamespace>
+    <AssemblyName>CharImport</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
@@ -38,7 +38,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>CharImport Test.xml</DocumentationFile>
+    <DocumentationFile>CharImport.xml</DocumentationFile>
     <NoWarn>
     </NoWarn>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
@@ -52,7 +52,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>CharImport Test.xml</DocumentationFile>
+    <DocumentationFile>CharImport.xml</DocumentationFile>
     <NoWarn>
     </NoWarn>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
@@ -250,6 +250,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AboutBox.de.resx">
+      <DependentUpon>AboutBox.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AboutBox.en.resx">
       <DependentUpon>AboutBox.vb</DependentUpon>
     </EmbeddedResource>
@@ -302,6 +305,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Database_Interface.en.resx">
       <DependentUpon>Database_Interface.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Database_Interface.resx">
       <DependentUpon>Database_Interface.vb</DependentUpon>
@@ -355,6 +359,9 @@
       <DependentUpon>wait.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Welcome.af.resx">
+      <DependentUpon>Welcome.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Welcome.de.resx">
       <DependentUpon>Welcome.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Welcome.en.resx">

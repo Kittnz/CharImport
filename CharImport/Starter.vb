@@ -13,7 +13,7 @@ Imports System.Net
 
 Public Class Starter
     Public runfunction As New Functions
-    Public programversion As Integer = 11004 '0.11.04
+    Public programversion As Integer = 11006 '0.11.05a
     Public required_template_version As Integer = 2 'increasing this value will cause the outdating of older template file formats
     Public downloadlink As String = ""
     Dim localeDE As New LanguageDE
@@ -53,7 +53,7 @@ Public Class Starter
     End Sub
 
     Private Sub Starter_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
-        Me.Text = "CharImport [Universal] - " & Me.ProductVersion & " (Test)"
+        Me.Text = "CharImport [Universal] - " & Me.ProductVersion & " (Beta)"
         My.Settings.writelog = True
         ' ###### Change it to false at pre-release ######
         My.Settings.savecontent = ""

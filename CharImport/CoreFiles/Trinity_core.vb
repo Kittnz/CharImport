@@ -648,23 +648,23 @@ Public Class Trinity_core
         Main.level.Text = Main.char_name & ", " & Main.char_level & ", " & Main.char_race & ", " & Main.char_class
         Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "/ Loading Character Homebind from Database..." & vbNewLine)
-       Main.character_homebind =
-            ("<map>" &
-             runfunction.runcommand(
-                 "SELECT " & Main.homebind_map & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString & "'",
-                 Main.homebind_map) & "</map><zone>" &
-             runfunction.runcommand(
-                 "SELECT " & Main.homebind_zone & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
-                 "'", Main.homebind_zone) & "</zone><position_x>" &
-             runfunction.runcommand(
-                 "SELECT " & Main.homebind_posx & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
-                 "'", Main.homebind_posx) & "</position_x><position_y>" &
-             runfunction.runcommand(
-                 "SELECT " & Main.homebind_posy & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
-                 "'", Main.homebind_posy) & "</position_y><position_z>" &
-             runfunction.runcommand(
-                 "SELECT " & Main.homebind_posz & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
-                 "'", Main.homebind_posz) & "</position_z>")
+        Main.character_homebind =
+             ("<map>" &
+              runfunction.runcommand(
+                  "SELECT " & Main.homebind_map & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString & "'",
+                  Main.homebind_map) & "</map><zone>" &
+              runfunction.runcommand(
+                  "SELECT " & Main.homebind_zone & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
+                  "'", Main.homebind_zone) & "</zone><position_x>" &
+              runfunction.runcommand(
+                  "SELECT " & Main.homebind_posx & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
+                  "'", Main.homebind_posx) & "</position_x><position_y>" &
+              runfunction.runcommand(
+                  "SELECT " & Main.homebind_posy & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
+                  "'", Main.homebind_posy) & "</position_y><position_z>" &
+              runfunction.runcommand(
+                  "SELECT " & Main.homebind_posz & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
+                  "'", Main.homebind_posz) & "</position_z>")
         Main.level.Text = Main.char_name & ", " & Main.char_level & ", "
         Select Case Main.char_race
             Case 1
@@ -2194,14 +2194,14 @@ Public Class Trinity_core
                 Now.TimeOfDay.ToString & "// Player will be asked to change charactername! : reason-nce=true" &
                 vbNewLine)
             If runfunction.normalsqlcommand(
-                "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, cinematic, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, knownCurrencies, watchedFaction, `health`, speccount, activespec, exploredZones, knownTitles, actionBars ) VALUES ( '" &
+                "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, cinematic, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, watchedFaction, `health`, speccount, activespec, exploredZones, knownTitles, actionBars ) VALUES ( '" &
                 newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
                 "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" & Main.playerBytes2.ToString &
                 "', '" & Main.playerFlags.ToString & "', '" & Main.position_x.ToString & "', '" &
                 Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 5).ToString & "', '" & Main.map.ToString &
                 "', '4,40671', '" & Main.taximask & "', '1', '" & Main.totaltime.ToString & "', '" & Main.leveltime.ToString &
                 "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" & Main.at_login & "', '" &
-                Main.zone.ToString & "', '" & Main.chosenTitle & "', '" & Main.knownCurrencies & "', '" &
+                Main.zone.ToString & "', '" & Main.chosenTitle & "', '" &
                 Main.watchedFaction & "', '5000', '" & Main.speccount.ToString & "', '" & Main.activespec.ToString &
                 "', '" & Main.exploredZones & "', '" & Main.knownTitles & "', '" & Main.actionBars & "' )", True, True) = True Then
                 If My.Settings.language = "de" Then
@@ -2230,15 +2230,13 @@ Public Class Trinity_core
                 Process_Status.processreport.AppendText(
                     Now.TimeOfDay.ToString & "// Player will be asked to change charactername!" & vbNewLine)
                 If runfunction.normalsqlcommand(
-                    "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, cinematic, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, knownCurrencies, watchedFaction, `health`, speccount, activespec, exploredZones, knownTitles, actionBars ) VALUES ( '" &
+                    "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, cinematic, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, watchedFaction, `health`, speccount, activespec, exploredZones, knownTitles, actionBars ) VALUES ( '" &
                     newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
                     "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" &
                     Main.playerBytes2.ToString & "', '" & Main.playerFlags.ToString & "', '" & Main.position_x.ToString &
                     "', '" & Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 5).ToString & "', '" &
                     Main.map.ToString & "', '4,40671', '" & Main.taximask & "', '1', '" & Main.totaltime.ToString & "', '" &
-                    Main.leveltime.ToString & "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" &
-                    Main.at_login & "', '" & Main.zone.ToString & "', '" & Main.chosenTitle & "', '" &
-                    Main.knownCurrencies & "', '" & Main.watchedFaction & "', '5000', '" & Main.speccount.ToString &
+                    Main.leveltime.ToString & "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" & Main.watchedFaction & "', '5000', '" & Main.speccount.ToString &
                     "', '" & Main.activespec.ToString & "', '" & Main.exploredZones & "', '" & Main.knownTitles & "', '" &
                     Main.actionBars & "' )", True, True) = True Then
                     If My.Settings.language = "de" Then
@@ -2265,15 +2263,14 @@ Public Class Trinity_core
                     "UPDATE characters SET at_login='1' WHERE guid='" & newcharguid.ToString & "'")
             Else
                 If runfunction.normalsqlcommand(
-                    "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, cinematic, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, knownCurrencies, watchedFaction, `health`, speccount, activespec, exploredZones, knownTitles, actionBars ) VALUES ( '" &
+                    "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, cinematic, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, watchedFaction, `health`, speccount, activespec, exploredZones, knownTitles, actionBars ) VALUES ( '" &
                     newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
                     "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" &
                     Main.playerBytes2.ToString & "', '" & Main.playerFlags.ToString & "', '" & Main.position_x.ToString &
                     "', '" & Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 5).ToString & "', '" &
                     Main.map.ToString & "', '4,40671', '" & Main.taximask & "', '1', '" & Main.totaltime.ToString & "', '" &
                     Main.leveltime.ToString & "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" &
-                    Main.at_login & "', '" & Main.zone.ToString & "', '" & Main.chosenTitle & "', '" &
-                    Main.knownCurrencies & "', '" & Main.watchedFaction & "', '5000', '" & Main.speccount.ToString &
+                    Main.at_login & "', '" & Main.zone.ToString & "', '" & Main.chosenTitle & "', '" & Main.watchedFaction & "', '5000', '" & Main.speccount.ToString &
                     "', '" & Main.activespec.ToString & "', '" & Main.exploredZones & "', '" & Main.knownTitles & "', '" &
                     Main.actionBars & "' )", True, True) = True Then
                     If My.Settings.language = "de" Then

@@ -15,7 +15,7 @@ Public Class Welcome
     End Sub
 
     Private Sub Welcome_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
-        Me.Text = "CharImport [Universal] - " & Me.ProductVersion & " (Test)"
+        Me.Text = "CharImport [Universal] - " & Me.ProductVersion & " (Beta)"
         Me.MaximumSize = Me.Size
 
         Me.BringToFront()
