@@ -2081,7 +2081,7 @@ Public Class Trinity_core
                 CInt(Val(runfunction.runcommand("SELECT guid FROM characters WHERE name = '" & charname & "'", "guid")))
 
         Catch ex As Exception
-            Return - 1
+            Return -1
         End Try
     End Function
 
@@ -2133,9 +2133,9 @@ Public Class Trinity_core
                 runfunction.normalsqlcommandRealmd(command)
                 Dim realmid As Integer = Main.account_access_RealmID
                 If realmid = 0 Then
-                    realmid = - 1
+                    realmid = -1
                 ElseIf realmid = Nothing Then
-                    realmid = - 1
+                    realmid = -1
                 Else
 
 
@@ -2231,7 +2231,7 @@ Public Class Trinity_core
                         Main.coreguid & "', '" & questid & "' )")
                     startcounter += 1
                 Loop Until startcounter = excounter
-            Catch :
+            Catch
             End Try
         End If
 
@@ -2280,7 +2280,7 @@ Public Class Trinity_core
                     "', '" & Main.playerFlags.ToString & "', '" & Main.position_x.ToString & "', '" &
                     Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 5).ToString & "', '" &
                     Main.map.ToString &
-                    "', '4,40671', '" & Main.taximask & "', '1', '" & Main.totaltime.ToString & "', '" &
+                    "', '4.40671', '" & Main.taximask & "', '1', '" & Main.totaltime.ToString & "', '" &
                     Main.leveltime.ToString &
                     "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" & Main.at_login & "', '" &
                     Main.zone.ToString & "', '" & Main.chosenTitle & "', '" & Main.knownCurrencies & "', '" &
@@ -2315,7 +2315,7 @@ Public Class Trinity_core
                     "', '" & Main.playerFlags.ToString & "', '" & Main.position_x.ToString & "', '" &
                     Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 5).ToString & "', '" &
                     Main.map.ToString &
-                    "', '4,40671', '" & Main.taximask & "', '1', '" & Main.totaltime.ToString & "', '" &
+                    "', '4.40671', '" & Main.taximask & "', '1', '" & Main.totaltime.ToString & "', '" &
                     Main.leveltime.ToString &
                     "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" & Main.at_login & "', '" &
                     Main.zone.ToString & "', '" & Main.chosenTitle & "', '" &
@@ -2358,7 +2358,7 @@ Public Class Trinity_core
                         Main.playerBytes2.ToString & "', '" & Main.playerFlags.ToString & "', '" &
                         Main.position_x.ToString &
                         "', '" & Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 5).ToString & "', '" &
-                        Main.map.ToString & "', '4,40671', '" & Main.taximask & "', '1', '" & Main.totaltime.ToString &
+                        Main.map.ToString & "', '4.40671', '" & Main.taximask & "', '1', '" & Main.totaltime.ToString &
                         "', '" &
                         Main.leveltime.ToString & "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" &
                         Main.at_login & "', '" & Main.zone.ToString & "', '" & Main.chosenTitle & "', '" &
@@ -2392,7 +2392,7 @@ Public Class Trinity_core
                             Main.playerBytes2.ToString & "', '" & Main.playerFlags.ToString & "', '" &
                             Main.position_x.ToString &
                             "', '" & Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 5).ToString & "', '" &
-                            Main.map.ToString & "', '4,40671', '" & Main.taximask & "', '1', '" &
+                            Main.map.ToString & "', '4.40671', '" & Main.taximask & "', '1', '" &
                             Main.totaltime.ToString & "', '" &
                             Main.leveltime.ToString & "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" &
                             Main.at_login & "', '" & Main.zone.ToString & "', '" & Main.chosenTitle & "', '" &
@@ -2434,7 +2434,7 @@ Public Class Trinity_core
                         Main.playerBytes2.ToString & "', '" & Main.playerFlags.ToString & "', '" &
                         Main.position_x.ToString &
                         "', '" & Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 5).ToString & "', '" &
-                        Main.map.ToString & "', '4,40671', '" & Main.taximask & "', '1', '" & Main.totaltime.ToString &
+                        Main.map.ToString & "', '4.40671', '" & Main.taximask & "', '1', '" & Main.totaltime.ToString &
                         "', '" &
                         Main.leveltime.ToString & "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" &
                         Main.at_login & "', '" & Main.zone.ToString & "', '" & Main.chosenTitle & "', '" &
@@ -2469,7 +2469,7 @@ Public Class Trinity_core
                         Main.playerBytes2.ToString & "', '" & Main.playerFlags.ToString & "', '" &
                         Main.position_x.ToString &
                         "', '" & Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 5).ToString & "', '" &
-                        Main.map.ToString & "', '4,40671', '" & Main.taximask & "', '1', '" & Main.totaltime.ToString &
+                        Main.map.ToString & "', '4.40671', '" & Main.taximask & "', '1', '" & Main.totaltime.ToString &
                         "', '" &
                         Main.leveltime.ToString & "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" &
                         Main.at_login & "', '" & Main.zone.ToString & "', '" & Main.chosenTitle & "', '" &
@@ -2513,7 +2513,7 @@ Public Class Trinity_core
                         Main.coreguid & "', '" & questid & "' )")
                     startcounter += 1
                 Loop Until startcounter = excounter
-            Catch :
+            Catch
             End Try
         End If
         setqueststatus()
@@ -3054,7 +3054,7 @@ Public Class Trinity_core
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Adding gold..." & vbNewLine)
         guid = Main.coreguid
         runfunction.normalsqlcommand(
-            "UPDATE `characters` SET money='" & (CInt(Val(amount))*10000).ToString & "' WHERE guid='" & guid & "'")
+            "UPDATE `characters` SET money='" & (CInt(Val(amount)) * 10000).ToString & "' WHERE guid='" & guid & "'")
     End Sub
 
     Public Sub addgold(ByVal amount As Integer)
@@ -3192,7 +3192,7 @@ Public Class Trinity_core
                     'Item is a bag and has to be registered
                     bagstring = bagstring & "oldguid:" & splitlist(inventorystring, "oldguid") & ";newguid:" & newguid &
                                 ";"
-                Case Else :
+                Case Else
             End Select
         Next
         For Each inventorystring As String In Main.character_inventory_list
@@ -3354,7 +3354,7 @@ Public Class Trinity_core
         Dim numstring As Integer = 0
         Try
             numstring = UBound(enchstring.Split(CChar(" ")))
-        Catch :
+        Catch
         End Try
         Dim normalenchstring As String = "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "
         If enchstring.Contains(";") Then
