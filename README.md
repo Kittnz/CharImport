@@ -2,13 +2,10 @@
 
 *CharImport* is no longer in development; However, project *[NamCore Studio](https://github.com/megasus/Namcore-Studio)* will feature similar functionality.
 
-##  ===============================================================
-##  |                                                             |
+
 ##  |                    CharImport Universal                     |
-##  |                                                             |
+
 ##  |               Developed by megasus/Alcanmage                |
-##  |                                                             |
-##  ===============================================================
 
 About the Software:
 
