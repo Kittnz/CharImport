@@ -18,7 +18,7 @@ Public NotInheritable Class AboutBox
     End Sub
 
     Private Sub AboutBox_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Label2.Text = "Version " & Me.ProductVersion & " (Test)"
+        Label2.Text = "Version " & Me.ProductVersion & " (Beta)"
 
         Me.MaximumSize = Me.Size
     End Sub

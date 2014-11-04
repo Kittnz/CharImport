@@ -42,7 +42,7 @@ Public Class Armory2Database
         My.Settings.realmd = auth.Text
         My.Settings.characters = characters.Text
         My.Settings.Save()
-        Main.ServerStringInfo = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
+        Main.MainInstance.ServerStringInfo = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
                                 password.Text & ";Database=information_schema"
 
         If automatic.Checked = True Then
@@ -102,37 +102,37 @@ Public Class Armory2Database
                                             End If
                                             Exit Sub
                                         Else
-                                            Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
+                                            Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
                                                                       ";User id=" & user.Text & ";Password=" &
                                                                       password.Text & ";Database=" & auth.Text
                                         End If
                                     Else
-                                        Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
+                                        Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
                                                                   ";User id=" & user.Text & ";Password=" & password.Text &
                                                                   ";Database=op_realm"
                                     End If
                                 Else
-                                    Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
+                                    Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
                                                               ";User id=" & user.Text & ";Password=" & password.Text &
                                                               ";Database=logon"
                                 End If
                             Else
-                                Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                                Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
                                                           user.Text & ";Password=" & password.Text & ";Database=auth"
                             End If
                         Else
-                            Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                            Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
                                                       user.Text & ";Password=" & password.Text & ";Database=realm"
                         End If
                     Else
-                        Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                        Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
                                                   user.Text & ";Password=" & password.Text & ";Database=realmd"
                     End If
                    runfunction.writelog("Could find character db and auth db")
-                    Main.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                    Main.MainInstance.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
                                         ";Password=" & password.Text & ";Database=character"
-                    Main.characterdbname = "character"
-                    Main.ServerStringCheck = Main.ServerString
+                    Main.MainInstance.characterdbname = "character"
+                    Main.MainInstance.ServerStringCheck = Main.MainInstance.ServerString
                     If determinecore() = "arcemu" Then
                         arcemu.Checked = True
                     ElseIf determinecore() = "mangos" Then
@@ -194,35 +194,35 @@ Public Class Armory2Database
                                         runfunction.writelog("Could find character db but not auth db")
                                         Exit Sub
                                     Else
-                                        Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
+                                        Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
                                                                   ";User id=" & user.Text & ";Password=" & password.Text &
                                                                   ";Database=" & auth.Text
                                     End If
                                 Else
-                                    Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
+                                    Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
                                                               ";User id=" & user.Text & ";Password=" & password.Text &
                                                               ";Database=op_realm"
                                 End If
                             Else
-                                Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                                Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
                                                           user.Text & ";Password=" & password.Text & ";Database=logon"
                             End If
                         Else
-                            Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                            Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
                                                       user.Text & ";Password=" & password.Text & ";Database=auth"
                         End If
                     Else
-                        Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                        Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
                                                   user.Text & ";Password=" & password.Text & ";Database=realm"
                     End If
                 Else
-                    Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                    Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
                                               ";Password=" & password.Text & ";Database=realmd"
                 End If
-                Main.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                Main.MainInstance.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
                                     ";Password=" & password.Text & ";Database=characters"
-                Main.ServerStringCheck = Main.ServerString
-                Main.characterdbname = "characters"
+                Main.MainInstance.ServerStringCheck = Main.MainInstance.ServerString
+                Main.MainInstance.characterdbname = "characters"
                 If determinecore() = "arcemu" Then
                     arcemu.Checked = True
                 ElseIf determinecore() = "mangos" Then
@@ -259,12 +259,12 @@ Public Class Armory2Database
                         "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
                         password.Text & ";Database=" & auth.Text) = True Then
                     runfunction.writelog("Could find auth db")
-                    Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                    Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
                                               ";Password=" & password.Text & ";Database=" & auth.Text
-                    Main.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                    Main.MainInstance.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
                                         ";Password=" & password.Text & ";Database=" & characters.Text
-                    Main.characterdbname = characters.Text
-                    Main.ServerStringCheck = Main.ServerString
+                    Main.MainInstance.characterdbname = characters.Text
+                    Main.MainInstance.ServerStringCheck = Main.MainInstance.ServerString
                     If determinecore() = "arcemu" Then
                         arcemu.Checked = True
                     ElseIf determinecore() = "mangos" Then
@@ -336,7 +336,7 @@ Public Class Armory2Database
         End Try
 
         Dim myAdapter As New MySqlDataAdapter
-        SQLConnection.ConnectionString = Main.ServerStringCheck
+        SQLConnection.ConnectionString = Main.MainInstance.ServerStringCheck
         Dim sqlquery = ("SELECT " & spalte & " FROM " & table)
         Dim myCommand As New MySqlCommand()
         myCommand.Connection = SQLConnection
@@ -491,7 +491,7 @@ Public Class Armory2Database
     Private Sub tbc_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles tbc.CheckedChanged
         If tbc.Checked = True Then
             runfunction.writelog("TBC checked")
-            Main.xpac = 2
+            Main.MainInstance.xpac = 2
             glyphs.Enabled = False
             classic.Checked = False
             wotlk.Checked = False
@@ -502,7 +502,7 @@ Public Class Armory2Database
     Private Sub classic_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles classic.CheckedChanged
         If classic.Checked = True Then
             runfunction.writelog("Classic checked")
-            Main.xpac = 1
+            Main.MainInstance.xpac = 1
             glyphs.Enabled = False
             tbc.Checked = False
             wotlk.Checked = False
@@ -513,7 +513,7 @@ Public Class Armory2Database
     Private Sub wotlk_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles wotlk.CheckedChanged
         If wotlk.Checked = True Then
             runfunction.writelog("Wotlk checked")
-            Main.xpac = 3
+            Main.MainInstance.xpac = 3
             glyphs.Enabled = True
             tbc.Checked = False
             classic.Checked = False
@@ -524,7 +524,7 @@ Public Class Armory2Database
     Private Sub cata_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles cata.CheckedChanged
         If cata.Checked = True Then
             runfunction.writelog("Cata checked")
-            Main.xpac = 4
+            Main.MainInstance.xpac = 4
             glyphs.Enabled = True
             tbc.Checked = False
             wotlk.Checked = False
@@ -534,12 +534,12 @@ Public Class Armory2Database
 
     Public Sub button4click()
         trinitycore1.opensql()
-        If Main.ausgangsformat = 1 Then
+        If Main.MainInstance.ausgangsformat = 1 Then
 
             If trinity1.Checked = True Then
                 Dim xpacressource As String
                 Dim xpacressource2 As String
-                Select Case Main.xpac
+                Select Case Main.MainInstance.xpac
                     Case 3
                         xpacressource = My.Resources.GEM_ID_wotlk
                         xpacressource2 = My.Resources.VZ_ID_wotlk
@@ -552,9 +552,9 @@ Public Class Armory2Database
                 End Select
                 trinitycore1.spellgemtext = xpacressource
                 trinitycore1.spellitemtext = xpacressource2
-                Main.outputcore = "trinity1"
+                Main.MainInstance.outputcore = "trinity1"
 
-                For Each link As String In Main.linklist
+                For Each link As String In Main.MainInstance.linklist
                     xnumber += 1
 
                     armoryproc.prozedur(link, xnumber, False)
@@ -564,15 +564,15 @@ Public Class Armory2Database
 
                             If sLines(i) = "" Then
                             Else
-                                trinitycore1.addchars(sLines(i), Main.char_name, namechange1.Checked)
-                                ' trinitycore1.updatechars(sLines(i), Main.char_name, namechange2.Checked)
+                                trinitycore1.addchars(sLines(i), Main.MainInstance.char_name, namechange1.Checked)
+                                ' trinitycore1.updatechars(sLines(i), Main.MainInstance.char_name, namechange2.Checked)
                                 If items.Checked = True Then trinitycore1.additems()
                                 If sockets.Checked = True Then trinitycore1.addgems()
                                 If vzs.Checked = True Then trinitycore1.addenchantments()
                                 If glyphs.Checked = True Then trinitycore1.addglyphs(xpansion)
                                 If male.Checked = True Then trinitycore1.setgender("0")
                                 If female.Checked = True Then trinitycore1.setgender("1")
-                                If genderstay.Checked = True Then trinitycore1.setgender(Main.char_gender.ToString)
+                                If genderstay.Checked = True Then trinitycore1.setgender(Main.MainInstance.char_gender.ToString)
                                 If level.Checked = True Then trinitycore1.setlevel()
                                 If alternatelevellabel.Checked = True Then _
                                     trinitycore1.setalternatelevel(alternateleveltext.Text)
@@ -587,8 +587,8 @@ Public Class Armory2Database
 
                     End If
                     If CheckBox1.Checked = True Then
-                        trinitycore1.getguidfromname(Main.char_name)
-                        If namechange1.Checked = True Then trinitycore1.updatechars(Main.char_name)
+                        trinitycore1.getguidfromname(Main.MainInstance.char_name)
+                        If namechange1.Checked = True Then trinitycore1.updatechars(Main.MainInstance.char_name)
 
                         If items.Checked = True Then trinitycore1.additems()
                         If sockets.Checked = True Then trinitycore1.addgems()
@@ -596,7 +596,7 @@ Public Class Armory2Database
                         If glyphs.Checked = True Then trinitycore1.addglyphs(xpansion)
                         If male.Checked = True Then trinitycore1.setgender("0")
                         If female.Checked = True Then trinitycore1.setgender("1")
-                        If genderstay.Checked = True Then trinitycore1.setgender(Main.char_gender.ToString)
+                        If genderstay.Checked = True Then trinitycore1.setgender(Main.MainInstance.char_gender.ToString)
                         If level.Checked = True Then trinitycore1.setlevel()
                         If alternatelevellabel.Checked = True Then _
                             trinitycore1.setalternatelevel(alternateleveltext.Text)
@@ -611,10 +611,10 @@ Public Class Armory2Database
 
 
             ElseIf mangos.Checked = True Then
-                Main.outputcore = "mangos"
+                Main.MainInstance.outputcore = "mangos"
                 Dim xpacressource As String
                 Dim xpacressource2 As String
-                Select Case Main.xpac
+                Select Case Main.MainInstance.xpac
                     Case 3
                         xpacressource = My.Resources.GEM_ID_wotlk
                         xpacressource2 = My.Resources.VZ_ID_wotlk
@@ -629,7 +629,7 @@ Public Class Armory2Database
                 mangoscore.spellitemtext = xpacressource2
 
 
-                For Each link As String In Main.linklist
+                For Each link As String In Main.MainInstance.linklist
                     xnumber += 1
 
                     armoryproc.prozedur(link, xnumber, False)
@@ -639,15 +639,15 @@ Public Class Armory2Database
 
                             If sLines(i) = "" Then
                             Else
-                                mangoscore.addchars(sLines(i), Main.char_name, namechange1.Checked)
-                                ' mangoscore.updatechars(sLines(i), Main.char_name, namechange2.Checked)
+                                mangoscore.addchars(sLines(i), Main.MainInstance.char_name, namechange1.Checked)
+                                ' mangoscore.updatechars(sLines(i), Main.MainInstance.char_name, namechange2.Checked)
                                 If items.Checked = True Then mangoscore.additems()
                                 If sockets.Checked = True Then mangoscore.addgems()
                                 If vzs.Checked = True Then mangoscore.addenchantments()
                                 If glyphs.Checked = True Then mangoscore.addglyphs(xpansion)
                                 If male.Checked = True Then mangoscore.setgender("0")
                                 If female.Checked = True Then mangoscore.setgender("1")
-                                If genderstay.Checked = True Then mangoscore.setgender(Main.char_gender.ToString)
+                                If genderstay.Checked = True Then mangoscore.setgender(Main.MainInstance.char_gender.ToString)
                                 If level.Checked = True Then mangoscore.setlevel()
                                 If alternatelevellabel.Checked = True Then _
                                     mangoscore.setalternatelevel(alternateleveltext.Text)
@@ -662,8 +662,8 @@ Public Class Armory2Database
 
                     End If
                     If CheckBox1.Checked = True Then
-                        mangoscore.getguidfromname(Main.char_name)
-                        If namechange1.Checked = True Then mangoscore.updatechars(Main.char_name)
+                        mangoscore.getguidfromname(Main.MainInstance.char_name)
+                        If namechange1.Checked = True Then mangoscore.updatechars(Main.MainInstance.char_name)
 
                         If items.Checked = True Then mangoscore.additems()
                         If sockets.Checked = True Then mangoscore.addgems()
@@ -671,7 +671,7 @@ Public Class Armory2Database
                         If glyphs.Checked = True Then mangoscore.addglyphs(xpansion)
                         If male.Checked = True Then mangoscore.setgender("0")
                         If female.Checked = True Then mangoscore.setgender("1")
-                        If genderstay.Checked = True Then mangoscore.setgender(Main.char_gender.ToString)
+                        If genderstay.Checked = True Then mangoscore.setgender(Main.MainInstance.char_gender.ToString)
                         If level.Checked = True Then mangoscore.setlevel()
                         If alternatelevellabel.Checked = True Then mangoscore.setalternatelevel(alternateleveltext.Text)
                         If race.Checked = True Then mangoscore.setrace()
@@ -683,10 +683,10 @@ Public Class Armory2Database
 
                 Next
             ElseIf arcemu.Checked = True Then
-                Main.outputcore = "arcemu"
+                Main.MainInstance.outputcore = "arcemu"
                 Dim xpacressource As String
                 Dim xpacressource2 As String
-                Select Case Main.xpac
+                Select Case Main.MainInstance.xpac
                     Case 3
                         xpacressource = My.Resources.GEM_ID_wotlk
                         xpacressource2 = My.Resources.VZ_ID_wotlk
@@ -701,7 +701,7 @@ Public Class Armory2Database
                 arcemucore.spellitemtext = xpacressource2
 
 
-                For Each link As String In Main.linklist
+                For Each link As String In Main.MainInstance.linklist
                     xnumber += 1
 
                     armoryproc.prozedur(link, xnumber, False)
@@ -711,15 +711,15 @@ Public Class Armory2Database
 
                             If sLines(i) = "" Then
                             Else
-                                arcemucore.addchars(sLines(i), Main.char_name, namechange1.Checked)
-                                ' arcemucore.updatechars(sLines(i), Main.char_name, namechange2.Checked)
+                                arcemucore.addchars(sLines(i), Main.MainInstance.char_name, namechange1.Checked)
+                                ' arcemucore.updatechars(sLines(i), Main.MainInstance.char_name, namechange2.Checked)
                                 If items.Checked = True Then arcemucore.additems()
                                 If sockets.Checked = True Then arcemucore.addgems()
                                 If vzs.Checked = True Then arcemucore.addenchantments()
                                 If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
                                 If male.Checked = True Then arcemucore.setgender("0")
                                 If female.Checked = True Then arcemucore.setgender("1")
-                                If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
+                                If genderstay.Checked = True Then arcemucore.setgender(Main.MainInstance.char_gender.ToString)
                                 If level.Checked = True Then arcemucore.setlevel()
                                 If alternatelevellabel.Checked = True Then _
                                     arcemucore.setalternatelevel(alternateleveltext.Text)
@@ -734,8 +734,8 @@ Public Class Armory2Database
 
                     End If
                     If CheckBox1.Checked = True Then
-                        arcemucore.getguidfromname(Main.char_name)
-                        If namechange1.Checked = True Then arcemucore.updatechars(Main.char_name)
+                        arcemucore.getguidfromname(Main.MainInstance.char_name)
+                        If namechange1.Checked = True Then arcemucore.updatechars(Main.MainInstance.char_name)
 
                         If items.Checked = True Then arcemucore.additems()
                         If sockets.Checked = True Then arcemucore.addgems()
@@ -743,7 +743,7 @@ Public Class Armory2Database
                         If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
                         If male.Checked = True Then arcemucore.setgender("0")
                         If female.Checked = True Then arcemucore.setgender("1")
-                        If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
+                        If genderstay.Checked = True Then arcemucore.setgender(Main.MainInstance.char_gender.ToString)
                         If level.Checked = True Then arcemucore.setlevel()
                         If alternatelevellabel.Checked = True Then arcemucore.setalternatelevel(alternateleveltext.Text)
                         If race.Checked = True Then arcemucore.setrace()
@@ -761,27 +761,27 @@ Public Class Armory2Database
 
         Else
             If trinity1.Checked = True Then
-                Main.outputcore = "trinity1"
+                Main.MainInstance.outputcore = "trinity1"
 
                 Do
                     Dim ciu As New CIUFile
-                    ciu.readspecial(Main.cuisets)
-                    Main.cuisets -= 1
+                    ciu.readspecial(Main.MainInstance.cuisets)
+                    Main.MainInstance.cuisets -= 1
                     If CheckBox3.Checked = True Then
                         Dim sLines() As String = accnames.Lines
                         For i As Integer = 0 To sLines.Length - 1
 
                             If sLines(i) = "" Then
                             Else
-                                trinitycore1.addchars(sLines(i), Main.char_name, namechange1.Checked)
-                                '  trinitycore1.updatechars(sLines(i), Main.char_name, namechange2.Checked)
+                                trinitycore1.addchars(sLines(i), Main.MainInstance.char_name, namechange1.Checked)
+                                '  trinitycore1.updatechars(sLines(i), Main.MainInstance.char_name, namechange2.Checked)
                                 If items.Checked = True Then trinitycore1.additems()
                                 If sockets.Checked = True Then trinitycore1.addgems()
                                 If vzs.Checked = True Then trinitycore1.addenchantments()
                                 If glyphs.Checked = True Then trinitycore1.addglyphs(xpansion)
                                 If male.Checked = True Then trinitycore1.setgender("0")
                                 If female.Checked = True Then trinitycore1.setgender("1")
-                                If genderstay.Checked = True Then trinitycore1.setgender(Main.char_gender.ToString)
+                                If genderstay.Checked = True Then trinitycore1.setgender(Main.MainInstance.char_gender.ToString)
                                 If level.Checked = True Then trinitycore1.setlevel()
                                 If alternatelevellabel.Checked = True Then _
                                     trinitycore1.setalternatelevel(alternateleveltext.Text)
@@ -796,16 +796,16 @@ Public Class Armory2Database
 
                     End If
                     If CheckBox1.Checked = True Then
-                        trinitycore1.getguidfromname(Main.char_name)
-                        If namechange1.Checked = True Then trinitycore1.updatechars(Main.char_name)
-                        ' If namechange1.Checked = True Then trinitycore1.requestnamechange(Main.char_name)
+                        trinitycore1.getguidfromname(Main.MainInstance.char_name)
+                        If namechange1.Checked = True Then trinitycore1.updatechars(Main.MainInstance.char_name)
+                        ' If namechange1.Checked = True Then trinitycore1.requestnamechange(Main.MainInstance.char_name)
                         If items.Checked = True Then trinitycore1.additems()
                         If sockets.Checked = True Then trinitycore1.addgems()
                         If vzs.Checked = True Then trinitycore1.addenchantments()
                         If glyphs.Checked = True Then trinitycore1.addglyphs(xpansion)
                         If male.Checked = True Then trinitycore1.setgender("0")
                         If female.Checked = True Then trinitycore1.setgender("1")
-                        If genderstay.Checked = True Then trinitycore1.setgender(Main.char_gender.ToString)
+                        If genderstay.Checked = True Then trinitycore1.setgender(Main.MainInstance.char_gender.ToString)
                         If level.Checked = True Then trinitycore1.setlevel()
                         If alternatelevellabel.Checked = True Then _
                             trinitycore1.setalternatelevel(alternateleveltext.Text)
@@ -816,32 +816,32 @@ Public Class Armory2Database
                             Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
                     End If
 
-                Loop Until Main.cuisets = 0
+                Loop Until Main.MainInstance.cuisets = 0
 
 
             ElseIf mangos.Checked = True Then
-                Main.outputcore = "mangos"
+                Main.MainInstance.outputcore = "mangos"
 
 
                 Do
                     Dim ciu As New CIUFile
-                    ciu.readspecial(Main.cuisets)
-                    Main.cuisets -= 1
+                    ciu.readspecial(Main.MainInstance.cuisets)
+                    Main.MainInstance.cuisets -= 1
                     If CheckBox3.Checked = True Then
                         Dim sLines() As String = accnames.Lines
                         For i As Integer = 0 To sLines.Length - 1
 
                             If sLines(i) = "" Then
                             Else
-                                mangoscore.addchars(sLines(i), Main.char_name, namechange1.Checked)
-                                '  mangoscore.updatechars(sLines(i), Main.char_name, namechange2.Checked)
+                                mangoscore.addchars(sLines(i), Main.MainInstance.char_name, namechange1.Checked)
+                                '  mangoscore.updatechars(sLines(i), Main.MainInstance.char_name, namechange2.Checked)
                                 If items.Checked = True Then mangoscore.additems()
                                 If sockets.Checked = True Then mangoscore.addgems()
                                 If vzs.Checked = True Then mangoscore.addenchantments()
                                 If glyphs.Checked = True Then mangoscore.addglyphs(xpansion)
                                 If male.Checked = True Then mangoscore.setgender("0")
                                 If female.Checked = True Then mangoscore.setgender("1")
-                                If genderstay.Checked = True Then mangoscore.setgender(Main.char_gender.ToString)
+                                If genderstay.Checked = True Then mangoscore.setgender(Main.MainInstance.char_gender.ToString)
                                 If level.Checked = True Then mangoscore.setlevel()
                                 If alternatelevellabel.Checked = True Then _
                                     mangoscore.setalternatelevel(alternateleveltext.Text)
@@ -856,16 +856,16 @@ Public Class Armory2Database
 
                     End If
                     If CheckBox1.Checked = True Then
-                        mangoscore.getguidfromname(Main.char_name)
-                        If namechange1.Checked = True Then mangoscore.updatechars(Main.char_name)
-                        ' If namechange1.Checked = True Then mangoscore.requestnamechange(Main.char_name)
+                        mangoscore.getguidfromname(Main.MainInstance.char_name)
+                        If namechange1.Checked = True Then mangoscore.updatechars(Main.MainInstance.char_name)
+                        ' If namechange1.Checked = True Then mangoscore.requestnamechange(Main.MainInstance.char_name)
                         If items.Checked = True Then mangoscore.additems()
                         If sockets.Checked = True Then mangoscore.addgems()
                         If vzs.Checked = True Then mangoscore.addenchantments()
                         If glyphs.Checked = True Then mangoscore.addglyphs(xpansion)
                         If male.Checked = True Then mangoscore.setgender("0")
                         If female.Checked = True Then mangoscore.setgender("1")
-                        If genderstay.Checked = True Then mangoscore.setgender(Main.char_gender.ToString)
+                        If genderstay.Checked = True Then mangoscore.setgender(Main.MainInstance.char_gender.ToString)
                         If level.Checked = True Then mangoscore.setlevel()
                         If alternatelevellabel.Checked = True Then mangoscore.setalternatelevel(alternateleveltext.Text)
                         If race.Checked = True Then mangoscore.setrace()
@@ -875,28 +875,28 @@ Public Class Armory2Database
                             Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
                     End If
 
-                Loop Until Main.cuisets = 0
+                Loop Until Main.MainInstance.cuisets = 0
             ElseIf arcemu.Checked = True Then
-                Main.outputcore = "arcemu"
+                Main.MainInstance.outputcore = "arcemu"
                 Do
                     Dim ciu As New CIUFile
-                    ciu.readspecial(Main.cuisets)
-                    Main.cuisets -= 1
+                    ciu.readspecial(Main.MainInstance.cuisets)
+                    Main.MainInstance.cuisets -= 1
                     If CheckBox3.Checked = True Then
                         Dim sLines() As String = accnames.Lines
                         For i As Integer = 0 To sLines.Length - 1
 
                             If sLines(i) = "" Then
                             Else
-                                arcemucore.addchars(sLines(i), Main.char_name, namechange1.Checked)
-                                '  arcemucore.updatechars(sLines(i), Main.char_name, namechange2.Checked)
+                                arcemucore.addchars(sLines(i), Main.MainInstance.char_name, namechange1.Checked)
+                                '  arcemucore.updatechars(sLines(i), Main.MainInstance.char_name, namechange2.Checked)
                                 If items.Checked = True Then arcemucore.additems()
                                 If sockets.Checked = True Then arcemucore.addgems()
                                 If vzs.Checked = True Then arcemucore.addenchantments()
                                 If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
                                 If male.Checked = True Then arcemucore.setgender("0")
                                 If female.Checked = True Then arcemucore.setgender("1")
-                                If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
+                                If genderstay.Checked = True Then arcemucore.setgender(Main.MainInstance.char_gender.ToString)
                                 If level.Checked = True Then arcemucore.setlevel()
                                 If alternatelevellabel.Checked = True Then _
                                     arcemucore.setalternatelevel(alternateleveltext.Text)
@@ -911,9 +911,9 @@ Public Class Armory2Database
 
                     End If
                     If CheckBox1.Checked = True Then
-                        arcemucore.getguidfromname(Main.char_name)
-                        If namechange1.Checked = True Then arcemucore.updatechars(Main.char_name)
-                        ' If namechange1.Checked = True Then arcemucore.requestnamechange(Main.char_name)
+                        arcemucore.getguidfromname(Main.MainInstance.char_name)
+                        If namechange1.Checked = True Then arcemucore.updatechars(Main.MainInstance.char_name)
+                        ' If namechange1.Checked = True Then arcemucore.requestnamechange(Main.MainInstance.char_name)
                         If items.Checked = True Then arcemucore.additems()
                          If items.Checked = True Then arcemucore.additems()
                         If sockets.Checked = True Then arcemucore.addgems()
@@ -921,7 +921,7 @@ Public Class Armory2Database
                         If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
                         If male.Checked = True Then arcemucore.setgender("0")
                         If female.Checked = True Then arcemucore.setgender("1")
-                        If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
+                        If genderstay.Checked = True Then arcemucore.setgender(Main.MainInstance.char_gender.ToString)
                         If level.Checked = True Then arcemucore.setlevel()
                         If alternatelevellabel.Checked = True Then arcemucore.setalternatelevel(alternateleveltext.Text)
                         If race.Checked = True Then arcemucore.setrace()
@@ -931,7 +931,7 @@ Public Class Armory2Database
                             Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
                     End If
 
-                Loop Until Main.cuisets = 0
+                Loop Until Main.MainInstance.cuisets = 0
 
             Else
 
@@ -965,17 +965,17 @@ Public Class Armory2Database
                 Else
                     If trinity1.Checked = True Then
                         trinitycore1.opensql()
-                        If trinitycore1.accountexist((sLines(i)).ToUpper, Main.ServerStringRealmd) = False Then _
+                        If trinitycore1.accountexist((sLines(i)).ToUpper, Main.MainInstance.ServerStringRealmd) = False Then _
                             errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     ElseIf mangos.Checked = True Then
                         trinitycore1.opensql()
-                        If mangoscore.accountexist((sLines(i)).ToUpper, Main.ServerStringRealmd) = False Then _
+                        If mangoscore.accountexist((sLines(i)).ToUpper, Main.MainInstance.ServerStringRealmd) = False Then _
                             errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     Else
                         trinitycore1.opensql()
-                        If arcemucore.accountexist((sLines(i)).ToUpper, Main.ServerStringRealmd) = False Then _
+                        If arcemucore.accountexist((sLines(i)).ToUpper, Main.MainInstance.ServerStringRealmd) = False Then _
                             errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     End If

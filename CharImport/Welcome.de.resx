@@ -118,7 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="RichTextBox1.Text" xml:space="preserve">
-    <value>|&lt;  BETA 0.11.5a &gt;|
+    <value>|&lt;  BETA 0.11.6 &gt;|
+
+ &gt; Kritische Fehler behoben
+ &gt; Ignoriere Groß-/Klein-Schreibung bei Charakternamen
+ &gt; Dezimalzahlfehler behoben
+
+|&lt;  BETA 0.11.5a &gt;|
 
  &gt; Benutzer sollten nicht mehr über eine fehlende "knownCurrencies" Spalte informiert werden
 

@@ -110,5 +110,7 @@ Public Class LanguageEN
 
     Public couldnotdeterminecore As String = "The database could not be associated with an emulation." & vbNewLine & "Please check your specifications!"
 
+    Public nameTemplatePrompt As String = "Please enter a filename for the new template."
+
 End Class
 

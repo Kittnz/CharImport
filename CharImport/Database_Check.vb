@@ -27,8 +27,8 @@ Public Class Database_Check
 
     Private Sub Button3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button3.Click
         runfunction.writelog("Cancel Transmission call")
-        Main.nowexit = True
-        Main.Close()
+        Main.MainInstance.nowexit = True
+        Main.MainInstance.Close()
         Armory2Database.Close()
         Database2Database.Close()
         Database_Interface.Close()
@@ -39,23 +39,23 @@ Public Class Database_Check
     End Sub
 
     Private Sub Button2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button2.Click
-        runfunction.writelog("Continue Transmission call with startcondition: " & Main.startcond.ToString)
+        runfunction.writelog("Continue Transmission call with startcondition: " & Main.MainInstance.startcond.ToString)
         Me.Hide()
-        Main.nowgoon = True
+        Main.MainInstance.nowgoon = True
 
-        If Main.startcond = 14 Then
+        If Main.MainInstance.startcond = 14 Then
             Armory2Database.button4click()
-        ElseIf Main.startcond = 23 Then
+        ElseIf Main.MainInstance.startcond = 23 Then
             Database_Interface.button3click()
-        ElseIf Main.startcond = 24 Then
+        ElseIf Main.MainInstance.startcond = 24 Then
             Database_Interface.button4click()
-        ElseIf Main.startcond = 34 Then
+        ElseIf Main.MainInstance.startcond = 34 Then
             Database2Database.button4click()
-        ElseIf Main.startcond = 42 Then
+        ElseIf Main.MainInstance.startcond = 42 Then
             Connect.button2click()
-        ElseIf Main.startcond = 22 Then
+        ElseIf Main.MainInstance.startcond = 22 Then
 
-            Main.ausgangsformat = 1
+            Main.MainInstance.ausgangsformat = 1
             Database2Database.Show()
         Else
         End If
@@ -77,7 +77,7 @@ Public Class Database_Check
             mail.To.Add("geslauncher@web.de")
             mail.Subject = "Bugreport - CharImport"
             mail.Body = "Fehlerbericht in Version " & Me.ProductVersion & " Tabellen-Überprüfungs-Bericht: " & vbNewLine &
-                        report.Text & vbNewLine & "////////////" & vbNewLine & Main.tableschema & vbNewLine & vbNewLine &
+                        report.Text & vbNewLine & "////////////" & vbNewLine & Main.MainInstance.tableschema & vbNewLine & vbNewLine &
                         " / System: " & Environment.OSVersion.ToString
             smtpserver.Send(mail)
         Catch ex As Exception
@@ -93,6 +93,6 @@ Public Class Database_Check
     Private Sub Database_Check_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         runfunction.writelog("Database_Check_Load call")
         Me.UseWaitCursor = False
-        runfunction.writelog("DB Report: " & report.Text & vbNewLine & "Table_Schema: " & vbNewLine & Main.tableschema)
+        runfunction.writelog("DB Report: " & report.Text & vbNewLine & "Table_Schema: " & vbNewLine & Main.MainInstance.tableschema)
     End Sub
 End Class

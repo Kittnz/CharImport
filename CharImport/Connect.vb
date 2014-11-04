@@ -79,7 +79,7 @@ Public Class Connect
         My.Settings.realmd = auth.Text
         My.Settings.characters = characters.Text
         My.Settings.Save()
-        Main.ServerStringInfo = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
+        Main.MainInstance.ServerStringInfo = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
                                 password.Text & ";Database=information_schema"
 
         If automatic.Checked = True Then
@@ -139,37 +139,37 @@ Public Class Connect
                                             End If
                                             Exit Sub
                                         Else
-                                            Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
+                                            Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
                                                                       ";User id=" & user.Text & ";Password=" &
                                                                       password.Text & ";Database=" & auth.Text
                                         End If
                                     Else
-                                        Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
+                                        Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
                                                                   ";User id=" & user.Text & ";Password=" & password.Text &
                                                                   ";Database=op_realm"
                                     End If
                                 Else
-                                    Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
+                                    Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
                                                               ";User id=" & user.Text & ";Password=" & password.Text &
                                                               ";Database=logon"
                                 End If
                             Else
-                                Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                                Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
                                                           user.Text & ";Password=" & password.Text & ";Database=auth"
                             End If
                         Else
-                            Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                            Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
                                                       user.Text & ";Password=" & password.Text & ";Database=realm"
                         End If
                     Else
-                        Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                        Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
                                                   user.Text & ";Password=" & password.Text & ";Database=realmd"
                     End If
                     runfunction.writelog("Could find character db and auth db")
-                    Main.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                    Main.MainInstance.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
                                         ";Password=" & password.Text & ";Database=character"
-                    Main.characterdbname = "character"
-                    Main.ServerStringCheck = Main.ServerString
+                    Main.MainInstance.characterdbname = "character"
+                    Main.MainInstance.ServerStringCheck = Main.MainInstance.ServerString
                     If determinecore() = "arcemu" Then
                         arcemu.Checked = True
                     ElseIf determinecore() = "mangos" Then
@@ -233,35 +233,35 @@ Public Class Connect
                                         runfunction.writelog("Could find character db but not auth db")
                                         Exit Sub
                                     Else
-                                        Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
+                                        Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
                                                                   ";User id=" & user.Text & ";Password=" & password.Text &
                                                                   ";Database=" & auth.Text
                                     End If
                                 Else
-                                    Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
+                                    Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
                                                               ";User id=" & user.Text & ";Password=" & password.Text &
                                                               ";Database=op_realm"
                                 End If
                             Else
-                                Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                                Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
                                                           user.Text & ";Password=" & password.Text & ";Database=logon"
                             End If
                         Else
-                            Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                            Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
                                                       user.Text & ";Password=" & password.Text & ";Database=auth"
                         End If
                     Else
-                        Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                        Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
                                                   user.Text & ";Password=" & password.Text & ";Database=realm"
                     End If
                 Else
-                    Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                    Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
                                               ";Password=" & password.Text & ";Database=realmd"
                 End If
-                Main.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                Main.MainInstance.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
                                     ";Password=" & password.Text & ";Database=characters"
-                Main.ServerStringCheck = Main.ServerString
-                Main.characterdbname = "characters"
+                Main.MainInstance.ServerStringCheck = Main.MainInstance.ServerString
+                Main.MainInstance.characterdbname = "characters"
                 runfunction.writelog("Could find character db and auth db")
                 If determinecore() = "arcemu" Then
                     arcemu.Checked = True
@@ -299,12 +299,12 @@ Public Class Connect
                         "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
                         password.Text & ";Database=" & auth.Text) = True Then
                     runfunction.writelog("Could find auth db")
-                    Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                    Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
                                               ";Password=" & password.Text & ";Database=" & auth.Text
-                    Main.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                    Main.MainInstance.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
                                         ";Password=" & password.Text & ";Database=" & characters.Text
-                    Main.characterdbname = characters.Text
-                    Main.ServerStringCheck = Main.ServerString
+                    Main.MainInstance.characterdbname = characters.Text
+                    Main.MainInstance.ServerStringCheck = Main.MainInstance.ServerString
                     If determinecore() = "arcemu" Then
                         arcemu.Checked = True
                     ElseIf determinecore() = "mangos" Then
@@ -377,7 +377,7 @@ Public Class Connect
         End Try
 
         Dim myAdapter As New MySqlDataAdapter
-        SQLConnection.ConnectionString = Main.ServerStringRealmd
+        SQLConnection.ConnectionString = Main.MainInstance.ServerStringRealmd
         Dim sqlquery = ("SELECT " & spalte & " FROM " & table)
         Dim myCommand As New MySqlCommand()
         myCommand.Connection = SQLConnection
@@ -449,7 +449,7 @@ Public Class Connect
     End Function
 
     Private Function runcommandRealmd(ByVal command As String, ByVal spalte As String) As String
-        Dim conn As New MySqlConnection(Main.ServerStringRealmd)
+        Dim conn As New MySqlConnection(Main.MainInstance.ServerStringRealmd)
         Dim da As New MySqlDataAdapter(command, conn)
         Dim dt As New DataTable
         Try
@@ -509,7 +509,7 @@ Public Class Connect
             Case Else
                 trinity1.Checked = True
         End Select
-        If Main.progressmode = 0 Then
+        If Main.MainInstance.progressmode = 0 Then
             spellitemtext = My.Resources.SpellItemEnchantmentCata
             '   erfolge.Enabled = False
             talents.Enabled = False
@@ -520,7 +520,7 @@ Public Class Connect
             '  ruf.Enabled = False
             inventar.Enabled = False
             gold.Enabled = False
-        ElseIf Main.progressmode = 1 Then
+        ElseIf Main.MainInstance.progressmode = 1 Then
             spellitemtext = My.Resources.SpellItemEnchantmentCata
             '  erfolge.Enabled = False
             talents.Enabled = False
@@ -612,20 +612,20 @@ Public Class Connect
         Button2.Enabled = True
         If arcemu.Checked = True Then
             guid = runcommand("SELECT guid FROM characters WHERE name = '" & charname.Text & "'", "guid",
-                              Main.ServerString)
-            ' lastnumber = runcommand("SELECT guid FROM item_instance WHERE guid=(SELECT MAX(guid) FROM item_instance)", "guid", Main.ServerString)
+                              Main.MainInstance.ServerString)
+            ' lastnumber = runcommand("SELECT guid FROM item_instance WHERE guid=(SELECT MAX(guid) FROM item_instance)", "guid", Main.MainInstance.ServerString)
             newcharguid =
                 CInt(Val(runcommand("SELECT guid FROM characters WHERE guid=(SELECT MAX(guid) FROM characters)", "guid",
-                                    Main.ServerString))) + 1
+                                    Main.MainInstance.ServerString))) + 1
 
         Else
             guid = runcommand("SELECT guid FROM characters WHERE name = '" & charname.Text & "'", "guid",
-                              Main.ServerString)
+                              Main.MainInstance.ServerString)
             lastnumber = runcommand("SELECT guid FROM item_instance WHERE guid=(SELECT MAX(guid) FROM item_instance)",
-                                    "guid", Main.ServerString)
+                                    "guid", Main.MainInstance.ServerString)
             newcharguid =
                 CInt(Val(runcommand("SELECT guid FROM characters WHERE guid=(SELECT MAX(guid) FROM characters)", "guid",
-                                    Main.ServerString))) + 1
+                                    Main.MainInstance.ServerString))) + 1
 
         End If
     End Sub
@@ -709,11 +709,11 @@ Public Class Connect
     End Function
 
     Private Sub checkbox1check()
-        If checkrow("SELECT * FROM characters WHERE name = '" & newcharname.Text & "'", Main.ServerString) = False Then
+        If checkrow("SELECT * FROM characters WHERE name = '" & newcharname.Text & "'", Main.MainInstance.ServerString) = False Then
             'Charakter darf nicht existieren
             If _
                 checkrow("SELECT * FROM account WHERE username = '" & accname.Text.ToUpper & "'",
-                         Main.ServerStringRealmd) = True Then
+                         Main.MainInstance.ServerStringRealmd) = True Then
                 If My.Settings.language = "de" Then
                     newcharerrorlabel.Text = localeDE.connect_txt15
                 Else
@@ -735,17 +735,17 @@ Public Class Connect
                 male.Enabled = True
                 female.Enabled = True
                 Panel5.Location = Panel3.Location
-                Main.char_name = newcharname.Text
+                Main.MainInstance.char_name = newcharname.Text
                 ' datacharname = charname.Text
                 If arcemu.Checked = True Then
                     accguid = runcommand2("SELECT acct FROM accounts WHERE login='" & accname.Text.ToUpper & "'", "acct",
-                                          Main.ServerStringRealmd)
+                                          Main.MainInstance.ServerStringRealmd)
                 Else
                     accguid = runcommand2("SELECT `id` FROM `account` WHERE username='" & accname.Text.ToUpper & "'",
-                                          "id", Main.ServerStringRealmd)
+                                          "id", Main.MainInstance.ServerStringRealmd)
                 End If
             ElseIf _
-                checkrow("SELECT * FROM accounts WHERE login = '" & accname.Text.ToUpper & "'", Main.ServerStringRealmd) =
+                checkrow("SELECT * FROM accounts WHERE login = '" & accname.Text.ToUpper & "'", Main.MainInstance.ServerStringRealmd) =
                 True Then
                 If My.Settings.language = "de" Then
                     newcharerrorlabel.Text = localeDE.connect_txt15
@@ -767,14 +767,14 @@ Public Class Connect
                 male.Enabled = True
                 female.Enabled = True
                 Panel5.Location = Panel3.Location
-                Main.char_name = newcharname.Text
+                Main.MainInstance.char_name = newcharname.Text
                 '  datacharname = charname.Text
                 If arcemu.Checked = True Then
                     accguid = runcommand2("SELECT acct FROM accounts WHERE login='" & accname.Text.ToUpper & "'", "acct",
-                                          Main.ServerStringRealmd)
+                                          Main.MainInstance.ServerStringRealmd)
                 Else
                     accguid = runcommand2("SELECT `id` FROM `account` WHERE username='" & accname.Text.ToUpper & "'",
-                                          "id", Main.ServerStringRealmd)
+                                          "id", Main.MainInstance.ServerStringRealmd)
                 End If
             Else
                 If My.Settings.language = "de" Then
@@ -793,7 +793,7 @@ Public Class Connect
     End Sub
 
     Private Sub checkbox2check()
-        If checkrow("SELECT * FROM characters WHERE name = '" & charname.Text & "'", Main.ServerString) = True Then
+        If checkrow("SELECT * FROM characters WHERE name = '" & charname.Text & "'", Main.MainInstance.ServerString) = True Then
             If My.Settings.language = "de" Then
                 charerrorlabel.Text = localeDE.connect_txt20
             Else
@@ -830,7 +830,7 @@ Public Class Connect
             Else
                 If _
                     checkrow("SELECT * FROM account WHERE username = '" & sLines(i).ToUpper & "'",
-                             Main.ServerStringRealmd) = True Then
+                             Main.MainInstance.ServerStringRealmd) = True Then
                     If My.Settings.language = "de" Then
                         newcharerrorlabel.Text = localeDE.connect_txt23
                     Else
@@ -853,7 +853,7 @@ Public Class Connect
 
                     '   datacharname = charname.Text
                 ElseIf _
-                    checkrow("SELECT * FROM accounts WHERE login = '" & sLines(i).ToUpper & "'", Main.ServerStringRealmd) =
+                    checkrow("SELECT * FROM accounts WHERE login = '" & sLines(i).ToUpper & "'", Main.MainInstance.ServerStringRealmd) =
                     True Then
                     If My.Settings.language = "de" Then
                         newcharerrorlabel.Text = localeDE.connect_txt23
@@ -1011,7 +1011,7 @@ Public Class Connect
             End If
             Exit Sub
         End If
-        If Not Main.progressmode = 0 Or Not Main.progressmode = 1 Then
+        If Not Main.MainInstance.progressmode = 0 Or Not Main.MainInstance.progressmode = 1 Then
             genderstay.Checked = True
         Else
             genderstay.Checked = False
@@ -1042,8 +1042,8 @@ Public Class Connect
 
     Private Sub Button6_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button6.Click
         runfunction.writelog("Connect_closing call")
-        If Main.showstarter = True Then
-            Main.showstarter = False
+        If Main.MainInstance.showstarter = True Then
+            Main.MainInstance.showstarter = False
             Starter.Show()
 
         Else
@@ -1053,18 +1053,18 @@ Public Class Connect
     End Sub
 
     Public Sub button2click()
-        For Each link As String In Main.linklist
+        For Each link As String In Main.MainInstance.linklist
 
             armoryproc.prozedur(link, 1, False)
         Next
         trinitycore1.opensql()
         If trinity1.Checked = True Then
 
-            Main.outputcore = "trinity1"
-            If Main.progressmode = 0 Or Main.progressmode = 1 Then
+            Main.MainInstance.outputcore = "trinity1"
+            If Main.MainInstance.progressmode = 0 Or Main.MainInstance.progressmode = 1 Then
                 Dim xpacressource As String
                 Dim xpacressource2 As String
-                Select Case Main.xpac
+                Select Case Main.MainInstance.xpac
                     Case 3
                         xpacressource = My.Resources.GEM_ID_wotlk
                         xpacressource2 = My.Resources.VZ_ID_wotlk
@@ -1077,16 +1077,16 @@ Public Class Connect
                 End Select
                 trinitycore1.spellgemtext = xpacressource
                 trinitycore1.spellitemtext = xpacressource2
-                If Main.xpac = 2 Then
+                If Main.MainInstance.xpac = 2 Then
                     If CheckBox1.Checked = True Then
                         trinitycoretbc.addchars(accname.Text, newcharname.Text, False)
-                        ' trinitycoretbc.updatechars(accname.Text, Main.char_name, False)
+                        ' trinitycoretbc.updatechars(accname.Text, Main.MainInstance.char_name, False)
                         If male.Checked = True Then
                             trinitycoretbc.setgender("0")
                         ElseIf female.Checked = True Then
                             trinitycoretbc.setgender("1")
                         ElseIf genderstay.Checked = True Then
-                            trinitycoretbc.setgender(Main.char_gender.ToString)
+                            trinitycoretbc.setgender(Main.MainInstance.char_gender.ToString)
                         End If
                         If level.Checked = True Then trinitycoretbc.setlevel()
                         If race.Checked = True Then trinitycoretbc.setrace()
@@ -1111,7 +1111,7 @@ Public Class Connect
                         ElseIf female.Checked = True Then
                             trinitycoretbc.setgender("1")
                         ElseIf genderstay.Checked = True Then
-                            trinitycoretbc.setgender(Main.char_gender.ToString)
+                            trinitycoretbc.setgender(Main.MainInstance.char_gender.ToString)
                         End If
                         If level.Checked = True Then trinitycoretbc.setlevel()
                         If race.Checked = True Then trinitycoretbc.setrace()
@@ -1134,15 +1134,15 @@ Public Class Connect
                         For i As Integer = 0 To sLines.Length - 1
                             If sLines(i) = "" Then
                             Else
-                                trinitycoretbc.addchars(sLines(i), Main.char_name, False)
-                                '  trinitycoretbc.updatechars(sLines(i), Main.char_name, False)
+                                trinitycoretbc.addchars(sLines(i), Main.MainInstance.char_name, False)
+                                '  trinitycoretbc.updatechars(sLines(i), Main.MainInstance.char_name, False)
                                 If items.Checked = True Then trinitycoretbc.additems()
                                 If sockets.Checked = True Then trinitycoretbc.addgems()
                                 If vzs.Checked = True Then trinitycoretbc.addenchantments()
                                 If glyphs.Checked = True Then trinitycoretbc.addglyphs(xpansion)
                                 If male.Checked = True Then trinitycoretbc.setgender("0")
                                 If female.Checked = True Then trinitycoretbc.setgender("1")
-                                If genderstay.Checked = True Then trinitycoretbc.setgender(Main.char_gender.ToString)
+                                If genderstay.Checked = True Then trinitycoretbc.setgender(Main.MainInstance.char_gender.ToString)
                                 If level.Checked = True Then trinitycoretbc.setlevel()
                                 If alternatelevellabel.Checked = True Then _
                                     trinitycoretbc.setalternatelevel(alternateleveltext.Text)
@@ -1161,13 +1161,13 @@ Public Class Connect
                 Else
                     If CheckBox1.Checked = True Then
                         trinitycore1.addchars(accname.Text, newcharname.Text, False)
-                        ' trinitycore1.updatechars(accname.Text, Main.char_name, False)
+                        ' trinitycore1.updatechars(accname.Text, Main.MainInstance.char_name, False)
                         If male.Checked = True Then
                             trinitycore1.setgender("0")
                         ElseIf female.Checked = True Then
                             trinitycore1.setgender("1")
                         ElseIf genderstay.Checked = True Then
-                            trinitycore1.setgender(Main.char_gender.ToString)
+                            trinitycore1.setgender(Main.MainInstance.char_gender.ToString)
                         End If
                         If level.Checked = True Then trinitycore1.setlevel()
                         If race.Checked = True Then trinitycore1.setrace()
@@ -1192,7 +1192,7 @@ Public Class Connect
                         ElseIf female.Checked = True Then
                             trinitycore1.setgender("1")
                         ElseIf genderstay.Checked = True Then
-                            trinitycore1.setgender(Main.char_gender.ToString)
+                            trinitycore1.setgender(Main.MainInstance.char_gender.ToString)
                         End If
                         If level.Checked = True Then trinitycore1.setlevel()
                         If race.Checked = True Then trinitycore1.setrace()
@@ -1215,15 +1215,15 @@ Public Class Connect
                         For i As Integer = 0 To sLines.Length - 1
                             If sLines(i) = "" Then
                             Else
-                                trinitycore1.addchars(sLines(i), Main.char_name, False)
-                                '  trinitycore1.updatechars(sLines(i), Main.char_name, False)
+                                trinitycore1.addchars(sLines(i), Main.MainInstance.char_name, False)
+                                '  trinitycore1.updatechars(sLines(i), Main.MainInstance.char_name, False)
                                 If items.Checked = True Then trinitycore1.additems()
                                 If sockets.Checked = True Then trinitycore1.addgems()
                                 If vzs.Checked = True Then trinitycore1.addenchantments()
                                 If glyphs.Checked = True Then trinitycore1.addglyphs(xpansion)
                                 If male.Checked = True Then trinitycore1.setgender("0")
                                 If female.Checked = True Then trinitycore1.setgender("1")
-                                If genderstay.Checked = True Then trinitycore1.setgender(Main.char_gender.ToString)
+                                If genderstay.Checked = True Then trinitycore1.setgender(Main.MainInstance.char_gender.ToString)
                                 If level.Checked = True Then trinitycore1.setlevel()
                                 If alternatelevellabel.Checked = True Then _
                                     trinitycore1.setalternatelevel(alternateleveltext.Text)
@@ -1244,7 +1244,7 @@ Public Class Connect
                 Else
                     Dim xpacressource As String
                     Dim xpacressource2 As String
-                    Select Case Main.xpac
+                    Select Case Main.MainInstance.xpac
                         Case 3
                             xpacressource = My.Resources.GEM_ID_wotlk
                             xpacressource2 = My.Resources.VZ_ID_wotlk
@@ -1273,7 +1273,7 @@ Public Class Connect
                         If talents.Checked = True Then trinitycore1.addtalents()
                         If male.Checked = True Then trinitycore1.setgender("0")
                         If female.Checked = True Then trinitycore1.setgender("1")
-                        If genderstay.Checked = True Then trinitycore1.setgender(Main.char_gender.ToString)
+                        If genderstay.Checked = True Then trinitycore1.setgender(Main.MainInstance.char_gender.ToString)
                         If level.Checked = True Then trinitycore1.setlevel()
                         If alternatelevellabel.Checked = True Then trinitycore1.setalternatelevel(alternateleveltext.Text)
                         If race.Checked = True Then trinitycore1.setrace()
@@ -1285,7 +1285,7 @@ Public Class Connect
                         If pvp.Checked = True Then trinitycore1.addpvp()
                         If ruf.Checked = True Then trinitycore1.addreputation()
                         If inventar.Checked = True Then trinitycore1.addinventory()
-                        If gold.Checked = True Then trinitycore1.addgold(Main.player_money)
+                        If gold.Checked = True Then trinitycore1.addgold(Main.MainInstance.player_money)
                         Process_Status.processreport.AppendText(
                             Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
                     End If
@@ -1306,7 +1306,7 @@ Public Class Connect
                         If talents.Checked = True Then trinitycore1.addtalents()
                         If male.Checked = True Then trinitycore1.setgender("0")
                         If female.Checked = True Then trinitycore1.setgender("1")
-                        If genderstay.Checked = True Then trinitycore1.setgender(Main.char_gender.ToString)
+                        If genderstay.Checked = True Then trinitycore1.setgender(Main.MainInstance.char_gender.ToString)
                         If level.Checked = True Then trinitycore1.setlevel()
                         If alternatelevellabel.Checked = True Then trinitycore1.setalternatelevel(alternateleveltext.Text)
                         If race.Checked = True Then trinitycore1.setrace()
@@ -1318,7 +1318,7 @@ Public Class Connect
                         If pvp.Checked = True Then trinitycore1.addpvp()
                         If ruf.Checked = True Then trinitycore1.addreputation()
                         If inventar.Checked = True Then trinitycore1.addinventory()
-                        If gold.Checked = True Then trinitycore1.addgold(Main.player_money)
+                        If gold.Checked = True Then trinitycore1.addgold(Main.MainInstance.player_money)
                         Process_Status.processreport.AppendText(
                             Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
                     End If
@@ -1329,7 +1329,7 @@ Public Class Connect
                             If sLines(i) = "" Then
                             Else
 
-                                trinitycore1.adddetailedchar(sLines(i), Main.char_name, False)
+                                trinitycore1.adddetailedchar(sLines(i), Main.MainInstance.char_name, False)
                                 If items.Checked = True Then trinitycore1.additems()
                                 If sockets.Checked = True And vzs.Checked = True Then
                                     trinitycore1.addench()
@@ -1343,7 +1343,7 @@ Public Class Connect
                                 If talents.Checked = True Then trinitycore1.addtalents()
                                 If male.Checked = True Then trinitycore1.setgender("0")
                                 If female.Checked = True Then trinitycore1.setgender("1")
-                                If genderstay.Checked = True Then trinitycore1.setgender(Main.char_gender.ToString)
+                                If genderstay.Checked = True Then trinitycore1.setgender(Main.MainInstance.char_gender.ToString)
                                 If level.Checked = True Then trinitycore1.setlevel()
                                 If alternatelevellabel.Checked = True Then _
                                     trinitycore1.setalternatelevel(alternateleveltext.Text)
@@ -1356,7 +1356,7 @@ Public Class Connect
                                 If pvp.Checked = True Then trinitycore1.addpvp()
                                 If ruf.Checked = True Then trinitycore1.addreputation()
                                 If inventar.Checked = True Then trinitycore1.addinventory()
-                                If gold.Checked = True Then trinitycore1.addgold(Main.player_money)
+                                If gold.Checked = True Then trinitycore1.addgold(Main.MainInstance.player_money)
                                 Process_Status.processreport.AppendText(
                                     Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
                             End If
@@ -1366,11 +1366,11 @@ Public Class Connect
                 End If
 
             ElseIf mangos.Checked = True Then
-                Main.outputcore = "mangos"
-                If Main.progressmode = 0 Or Main.progressmode = 1 Then
+                Main.MainInstance.outputcore = "mangos"
+                If Main.MainInstance.progressmode = 0 Or Main.MainInstance.progressmode = 1 Then
                     Dim xpacressource As String
                     Dim xpacressource2 As String
-                    Select Case Main.xpac
+                    Select Case Main.MainInstance.xpac
                         Case 3
                             xpacressource = My.Resources.GEM_ID_wotlk
                             xpacressource2 = My.Resources.VZ_ID_wotlk
@@ -1385,13 +1385,13 @@ Public Class Connect
                     mangoscore.spellitemtext = xpacressource2
                     If CheckBox1.Checked = True Then
                         mangoscore.addchars(accname.Text, newcharname.Text, False)
-                        ' mangoscore.updatechars(accname.Text, Main.char_name, False)
+                        ' mangoscore.updatechars(accname.Text, Main.MainInstance.char_name, False)
                         If male.Checked = True Then
                             mangoscore.setgender("0")
                         ElseIf female.Checked = True Then
                             mangoscore.setgender("1")
                         ElseIf genderstay.Checked = True Then
-                            mangoscore.setgender(Main.char_gender.ToString)
+                            mangoscore.setgender(Main.MainInstance.char_gender.ToString)
                         End If
                         If level.Checked = True Then mangoscore.setlevel()
                         If race.Checked = True Then mangoscore.setrace()
@@ -1415,7 +1415,7 @@ Public Class Connect
                         ElseIf female.Checked = True Then
                             mangoscore.setgender("1")
                         ElseIf genderstay.Checked = True Then
-                            mangoscore.setgender(Main.char_gender.ToString)
+                            mangoscore.setgender(Main.MainInstance.char_gender.ToString)
                         End If
                         If level.Checked = True Then mangoscore.setlevel()
                         If race.Checked = True Then mangoscore.setrace()
@@ -1438,15 +1438,15 @@ Public Class Connect
                         For i As Integer = 0 To sLines.Length - 1
                             If sLines(i) = "" Then
                             Else
-                                mangoscore.addchars(sLines(i), Main.char_name, False)
-                                '  mangoscore.updatechars(sLines(i), Main.char_name, False)
+                                mangoscore.addchars(sLines(i), Main.MainInstance.char_name, False)
+                                '  mangoscore.updatechars(sLines(i), Main.MainInstance.char_name, False)
                                 If items.Checked = True Then mangoscore.additems()
                                 If sockets.Checked = True Then mangoscore.addgems()
                                 If vzs.Checked = True Then mangoscore.addenchantments()
                                 If glyphs.Checked = True Then mangoscore.addglyphs(xpansion)
                                 If male.Checked = True Then mangoscore.setgender("0")
                                 If female.Checked = True Then mangoscore.setgender("1")
-                                If genderstay.Checked = True Then mangoscore.setgender(Main.char_gender.ToString)
+                                If genderstay.Checked = True Then mangoscore.setgender(Main.MainInstance.char_gender.ToString)
                                 If level.Checked = True Then mangoscore.setlevel()
                                 If alternatelevellabel.Checked = True Then _
                                     mangoscore.setalternatelevel(alternateleveltext.Text)
@@ -1465,7 +1465,7 @@ Public Class Connect
                 Else
                     Dim xpacressource As String
                     Dim xpacressource2 As String
-                    Select Case Main.xpac
+                    Select Case Main.MainInstance.xpac
                         Case 3
                             xpacressource = My.Resources.GEM_ID_wotlk
                             xpacressource2 = My.Resources.VZ_ID_wotlk
@@ -1494,7 +1494,7 @@ Public Class Connect
                         If talents.Checked = True Then mangoscore.addtalents()
                         If male.Checked = True Then mangoscore.setgender("0")
                         If female.Checked = True Then mangoscore.setgender("1")
-                        If genderstay.Checked = True Then mangoscore.setgender(Main.char_gender.ToString)
+                        If genderstay.Checked = True Then mangoscore.setgender(Main.MainInstance.char_gender.ToString)
                         If level.Checked = True Then mangoscore.setlevel()
                         If alternatelevellabel.Checked = True Then mangoscore.setalternatelevel(alternateleveltext.Text)
                         If race.Checked = True Then mangoscore.setrace()
@@ -1506,7 +1506,7 @@ Public Class Connect
                         If pvp.Checked = True Then mangoscore.addpvp()
                         If ruf.Checked = True Then mangoscore.addreputation()
                         If inventar.Checked = True Then mangoscore.addinventory()
-                        If gold.Checked = True Then mangoscore.addgold(Main.player_money)
+                        If gold.Checked = True Then mangoscore.addgold(Main.MainInstance.player_money)
                         Process_Status.processreport.AppendText(
                             Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
                     End If
@@ -1527,7 +1527,7 @@ Public Class Connect
                         If talents.Checked = True Then mangoscore.addtalents()
                         If male.Checked = True Then mangoscore.setgender("0")
                         If female.Checked = True Then mangoscore.setgender("1")
-                        If genderstay.Checked = True Then mangoscore.setgender(Main.char_gender.ToString)
+                        If genderstay.Checked = True Then mangoscore.setgender(Main.MainInstance.char_gender.ToString)
                         If level.Checked = True Then mangoscore.setlevel()
                         If alternatelevellabel.Checked = True Then mangoscore.setalternatelevel(alternateleveltext.Text)
                         If race.Checked = True Then mangoscore.setrace()
@@ -1539,7 +1539,7 @@ Public Class Connect
                         If pvp.Checked = True Then mangoscore.addpvp()
                         If ruf.Checked = True Then mangoscore.addreputation()
                         If inventar.Checked = True Then mangoscore.addinventory()
-                        If gold.Checked = True Then mangoscore.addgold(Main.player_money)
+                        If gold.Checked = True Then mangoscore.addgold(Main.MainInstance.player_money)
                         Process_Status.processreport.AppendText(
                             Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
                     End If
@@ -1550,7 +1550,7 @@ Public Class Connect
                             If sLines(i) = "" Then
                             Else
 
-                                mangoscore.adddetailedchar(sLines(i), Main.char_name, False)
+                                mangoscore.adddetailedchar(sLines(i), Main.MainInstance.char_name, False)
                                 If items.Checked = True Then mangoscore.additems()
                                 If sockets.Checked = True And vzs.Checked = True Then
                                     mangoscore.addench()
@@ -1564,7 +1564,7 @@ Public Class Connect
                                 If talents.Checked = True Then mangoscore.addtalents()
                                 If male.Checked = True Then mangoscore.setgender("0")
                                 If female.Checked = True Then mangoscore.setgender("1")
-                                If genderstay.Checked = True Then mangoscore.setgender(Main.char_gender.ToString)
+                                If genderstay.Checked = True Then mangoscore.setgender(Main.MainInstance.char_gender.ToString)
                                 If level.Checked = True Then mangoscore.setlevel()
                                 If alternatelevellabel.Checked = True Then _
                                     mangoscore.setalternatelevel(alternateleveltext.Text)
@@ -1577,7 +1577,7 @@ Public Class Connect
                                 If pvp.Checked = True Then mangoscore.addpvp()
                                 If ruf.Checked = True Then mangoscore.addreputation()
                                 If inventar.Checked = True Then mangoscore.addinventory()
-                                If gold.Checked = True Then mangoscore.addgold(Main.player_money)
+                                If gold.Checked = True Then mangoscore.addgold(Main.MainInstance.player_money)
                                 Process_Status.processreport.AppendText(
                                     Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
                             End If
@@ -1586,11 +1586,11 @@ Public Class Connect
                     End If
                 End If
             ElseIf arcemu.Checked = True Then
-                Main.outputcore = "arcemu"
-                If Main.progressmode = 0 Or Main.progressmode = 1 Then
+                Main.MainInstance.outputcore = "arcemu"
+                If Main.MainInstance.progressmode = 0 Or Main.MainInstance.progressmode = 1 Then
                     Dim xpacressource As String
                     Dim xpacressource2 As String
-                    Select Case Main.xpac
+                    Select Case Main.MainInstance.xpac
                         Case 3
                             xpacressource = My.Resources.GEM_ID_wotlk
                             xpacressource2 = My.Resources.VZ_ID_wotlk
@@ -1605,13 +1605,13 @@ Public Class Connect
                     arcemucore.spellitemtext = xpacressource2
                     If CheckBox1.Checked = True Then
                         arcemucore.addchars(accname.Text, newcharname.Text, False)
-                        ' arcemucore.updatechars(accname.Text, Main.char_name, False)
+                        ' arcemucore.updatechars(accname.Text, Main.MainInstance.char_name, False)
                         If male.Checked = True Then
                             arcemucore.setgender("0")
                         ElseIf female.Checked = True Then
                             arcemucore.setgender("1")
                         ElseIf genderstay.Checked = True Then
-                            arcemucore.setgender(Main.char_gender.ToString)
+                            arcemucore.setgender(Main.MainInstance.char_gender.ToString)
                     End If
                     If items.Checked = True Then arcemucore.additems()
                     If sockets.Checked = True Then arcemucore.addgems()
@@ -1620,7 +1620,7 @@ Public Class Connect
                 If talents.Checked = True Then arcemucore.addtalents()
                 If male.Checked = True Then arcemucore.setgender("0")
                 If female.Checked = True Then arcemucore.setgender("1")
-                If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
+                If genderstay.Checked = True Then arcemucore.setgender(Main.MainInstance.char_gender.ToString)
                 If level.Checked = True Then arcemucore.setlevel()
                 If alternatelevellabel.Checked = True Then arcemucore.setalternatelevel(alternateleveltext.Text)
                 If race.Checked = True Then arcemucore.setrace()
@@ -1643,7 +1643,7 @@ Public Class Connect
                         ElseIf female.Checked = True Then
                             arcemucore.setgender("1")
                         ElseIf genderstay.Checked = True Then
-                            arcemucore.setgender(Main.char_gender.ToString)
+                            arcemucore.setgender(Main.MainInstance.char_gender.ToString)
                     End If
                    If items.Checked = True Then arcemucore.additems()
                     If sockets.Checked = True Then arcemucore.addgems()
@@ -1652,7 +1652,7 @@ Public Class Connect
                         If talents.Checked = True Then arcemucore.addtalents()
                         If male.Checked = True Then arcemucore.setgender("0")
                         If female.Checked = True Then arcemucore.setgender("1")
-                        If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
+                        If genderstay.Checked = True Then arcemucore.setgender(Main.MainInstance.char_gender.ToString)
                         If level.Checked = True Then arcemucore.setlevel()
                         If alternatelevellabel.Checked = True Then arcemucore.setalternatelevel(alternateleveltext.Text)
                         If race.Checked = True Then arcemucore.setrace()
@@ -1664,7 +1664,7 @@ Public Class Connect
                         If pvp.Checked = True Then arcemucore.addpvp()
                         If ruf.Checked = True Then arcemucore.addreputation()
                         If inventar.Checked = True Then arcemucore.addinventory()
-                    If gold.Checked = True Then arcemucore.addgold(Main.player_money)
+                    If gold.Checked = True Then arcemucore.addgold(Main.MainInstance.player_money)
 
                         Process_Status.processreport.AppendText(
                             Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
@@ -1675,8 +1675,8 @@ Public Class Connect
                         For i As Integer = 0 To sLines.Length - 1
                             If sLines(i) = "" Then
                             Else
-                                arcemucore.addchars(sLines(i), Main.char_name, False)
-                            '  arcemucore.updatechars(sLines(i), Main.char_name, False)
+                                arcemucore.addchars(sLines(i), Main.MainInstance.char_name, False)
+                            '  arcemucore.updatechars(sLines(i), Main.MainInstance.char_name, False)
                             If items.Checked = True Then arcemucore.additems()
                             If sockets.Checked = True Then arcemucore.addgems()
                             If vzs.Checked = True Then arcemucore.addenchantments()
@@ -1684,7 +1684,7 @@ Public Class Connect
                                 If talents.Checked = True Then arcemucore.addtalents()
                                 If male.Checked = True Then arcemucore.setgender("0")
                                 If female.Checked = True Then arcemucore.setgender("1")
-                                If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
+                                If genderstay.Checked = True Then arcemucore.setgender(Main.MainInstance.char_gender.ToString)
                                 If level.Checked = True Then arcemucore.setlevel()
                                 If alternatelevellabel.Checked = True Then arcemucore.setalternatelevel(alternateleveltext.Text)
                                 If race.Checked = True Then arcemucore.setrace()
@@ -1696,7 +1696,7 @@ Public Class Connect
                                 If pvp.Checked = True Then arcemucore.addpvp()
                                 If ruf.Checked = True Then arcemucore.addreputation()
                                 If inventar.Checked = True Then arcemucore.addinventory()
-                                If gold.Checked = True Then arcemucore.addgold(Main.player_money)
+                                If gold.Checked = True Then arcemucore.addgold(Main.MainInstance.player_money)
                                 Process_Status.processreport.AppendText(
                                     Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
                             End If
@@ -1706,7 +1706,7 @@ Public Class Connect
                 Else
                     Dim xpacressource As String
                     Dim xpacressource2 As String
-                    Select Case Main.xpac
+                    Select Case Main.MainInstance.xpac
                         Case 3
                             xpacressource = My.Resources.GEM_ID_wotlk
                             xpacressource2 = My.Resources.VZ_ID_wotlk
@@ -1736,7 +1736,7 @@ Public Class Connect
                     If talents.Checked = True Then arcemucore.addtalents()
                     If male.Checked = True Then arcemucore.setgender("0")
                     If female.Checked = True Then arcemucore.setgender("1")
-                    If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
+                    If genderstay.Checked = True Then arcemucore.setgender(Main.MainInstance.char_gender.ToString)
                     If level.Checked = True Then arcemucore.setlevel()
                     If alternatelevellabel.Checked = True Then arcemucore.setalternatelevel(alternateleveltext.Text)
                     If race.Checked = True Then arcemucore.setrace()
@@ -1748,7 +1748,7 @@ Public Class Connect
                     If pvp.Checked = True Then arcemucore.addpvp()
                     If ruf.Checked = True Then arcemucore.addreputation()
                     If inventar.Checked = True Then arcemucore.addinventory()
-                    If gold.Checked = True Then arcemucore.addgold(Main.player_money)
+                    If gold.Checked = True Then arcemucore.addgold(Main.MainInstance.player_money)
                     Process_Status.processreport.AppendText(
                         Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
                 End If
@@ -1769,7 +1769,7 @@ Public Class Connect
                         If talents.Checked = True Then arcemucore.addtalents()
                         If male.Checked = True Then arcemucore.setgender("0")
                         If female.Checked = True Then arcemucore.setgender("1")
-                        If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
+                        If genderstay.Checked = True Then arcemucore.setgender(Main.MainInstance.char_gender.ToString)
                         If level.Checked = True Then arcemucore.setlevel()
                         If alternatelevellabel.Checked = True Then arcemucore.setalternatelevel(alternateleveltext.Text)
                         If race.Checked = True Then arcemucore.setrace()
@@ -1781,7 +1781,7 @@ Public Class Connect
                         If pvp.Checked = True Then arcemucore.addpvp()
                         If ruf.Checked = True Then arcemucore.addreputation()
                         If inventar.Checked = True Then arcemucore.addinventory()
-                        If gold.Checked = True Then arcemucore.addgold(Main.player_money)
+                        If gold.Checked = True Then arcemucore.addgold(Main.MainInstance.player_money)
                         Process_Status.processreport.AppendText(
                             Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
                     End If
@@ -1792,7 +1792,7 @@ Public Class Connect
                             If sLines(i) = "" Then
                             Else
 
-                                arcemucore.adddetailedchar(sLines(i), Main.char_name, False)
+                                arcemucore.adddetailedchar(sLines(i), Main.MainInstance.char_name, False)
                                 If items.Checked = True Then arcemucore.additems()
                                 If sockets.Checked = True And vzs.Checked = True Then
                                     arcemucore.addench()
@@ -1806,7 +1806,7 @@ Public Class Connect
                                 If talents.Checked = True Then arcemucore.addtalents()
                                 If male.Checked = True Then arcemucore.setgender("0")
                                 If female.Checked = True Then arcemucore.setgender("1")
-                                If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
+                                If genderstay.Checked = True Then arcemucore.setgender(Main.MainInstance.char_gender.ToString)
                                 If level.Checked = True Then arcemucore.setlevel()
                                 If alternatelevellabel.Checked = True Then _
                                     arcemucore.setalternatelevel(alternateleveltext.Text)
@@ -1819,7 +1819,7 @@ Public Class Connect
                                 If pvp.Checked = True Then arcemucore.addpvp()
                                 If ruf.Checked = True Then arcemucore.addreputation()
                                 If inventar.Checked = True Then arcemucore.addinventory()
-                                If gold.Checked = True Then arcemucore.addgold(Main.player_money)
+                                If gold.Checked = True Then arcemucore.addgold(Main.MainInstance.player_money)
                                 Process_Status.processreport.AppendText(
                                     Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
                             End If
@@ -1839,7 +1839,7 @@ Public Class Connect
 
             Process_Status.Button1.Enabled = True
             Application.DoEvents()
-            Main.Close()
+            Main.MainInstance.Close()
             Starter.Show()
         Me.Close()
         Process_Status.BringToFront()
@@ -1879,23 +1879,23 @@ Public Class Connect
         Button2.Enabled = True
         If arcemu.Checked = True Then
             guid = runcommand("SELECT guid FROM characters WHERE name = '" & charname.Text & "'", "guid",
-                              Main.ServerString)
-            ' lastnumber = runcommand("SELECT guid FROM item_instance WHERE guid=(SELECT MAX(guid) FROM item_instance)", "guid", Main.ServerString)
+                              Main.MainInstance.ServerString)
+            ' lastnumber = runcommand("SELECT guid FROM item_instance WHERE guid=(SELECT MAX(guid) FROM item_instance)", "guid", Main.MainInstance.ServerString)
             newcharguid =
                 CInt(Val(runcommand("SELECT guid FROM characters WHERE guid=(SELECT MAX(guid) FROM characters)", "guid",
-                                    Main.ServerString))) + 1
+                                    Main.MainInstance.ServerString))) + 1
 
         Else
             guid = runcommand("SELECT guid FROM characters WHERE name = '" & charname.Text & "'", "guid",
-                              Main.ServerString)
+                              Main.MainInstance.ServerString)
             lastnumber = runcommand("SELECT guid FROM item_instance WHERE guid=(SELECT MAX(guid) FROM item_instance)",
-                                    "guid", Main.ServerString)
+                                    "guid", Main.MainInstance.ServerString)
             newcharguid =
                 CInt(Val(runcommand("SELECT guid FROM characters WHERE guid=(SELECT MAX(guid) FROM characters)", "guid",
-                                    Main.ServerString))) + 1
+                                    Main.MainInstance.ServerString))) + 1
 
         End If
-        Main.ServerStringCheck = Main.ServerString
+        Main.MainInstance.ServerStringCheck = Main.MainInstance.ServerString
         Me.UseWaitCursor = True
         Process_Status.Close()
         Process_Status.Dispose()
@@ -1903,16 +1903,16 @@ Public Class Connect
         Application.DoEvents()
 
         If wotlk.Checked = True Then
-            Main.xpac = 3
+            Main.MainInstance.xpac = 3
             xpansion = "wotlk"
         ElseIf cata.Checked = True Then
-            Main.xpac = 4
+            Main.MainInstance.xpac = 4
             xpansion = "cata"
         ElseIf classic.Checked = True Then
-            Main.xpac = 1
+            Main.MainInstance.xpac = 1
             xpansion = "classic"
         ElseIf tbc.Checked = True Then
-            Main.xpac = 2
+            Main.MainInstance.xpac = 2
             xpansion = "tbc"
         End If
         runfunction.writelog("Start corecheck request")
@@ -2055,8 +2055,8 @@ Public Class Connect
         If wotlk.Checked = True Then
             runfunction.writelog("wotlk checked")
             glyphs.Enabled = True
-            If Main.progressmode = 0 Then
-            ElseIf Main.progressmode = 1 Then
+            If Main.MainInstance.progressmode = 0 Then
+            ElseIf Main.MainInstance.progressmode = 1 Then
             Else
                 erfolge.Enabled = True
             End If
@@ -2067,8 +2067,8 @@ Public Class Connect
         If cata.Checked = True Then
             runfunction.writelog("cata checked")
             glyphs.Enabled = True
-            If Main.progressmode = 0 Then
-            ElseIf Main.progressmode = 1 Then
+            If Main.MainInstance.progressmode = 0 Then
+            ElseIf Main.MainInstance.progressmode = 1 Then
             Else
                 erfolge.Enabled = True
             End If
@@ -2108,7 +2108,7 @@ Public Class Connect
 
     Private Sub LinkLabel1_LinkClicked(ByVal sender As Object, ByVal e As LinkLabelLinkClickedEventArgs) _
         Handles LinkLabel1.LinkClicked
-        If Main.progressmode = 2 Or Main.progressmode = 3 Then
+        If Main.MainInstance.progressmode = 2 Or Main.MainInstance.progressmode = 3 Then
             items.Checked = True
             sockets.Checked = True
             vzs.Checked = True

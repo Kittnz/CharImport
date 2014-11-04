@@ -13,19 +13,19 @@ Public Class Core_Check_Mangos
     Dim reporttext As RichTextBox = Database_Check.report
     Dim reporttext2 As RichTextBox = Process_Status.processreport
 
-    Dim ServerString2 As String = Main.ServerStringCheck
+    Dim ServerString2 As String = Main.MainInstance.ServerStringCheck
     Dim SQLConnection As MySqlConnection = New MySqlConnection
     Dim errorstring As String = ""
     Dim tmpstring As String = ""
 
     Public Sub begincheck(ByVal startcond As Integer)
-        Main.tableschema = ""
+        Main.MainInstance.tableschema = ""
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Begin Core Check..." & vbNewLine)
         Application.DoEvents()
-        Main.nowgoon = False
-        Main.startcond = startcond
+        Main.MainInstance.nowgoon = False
+        Main.MainInstance.startcond = startcond
         check_characters()
-        If Main.xpac >= 3 Then
+        If Main.MainInstance.xpac >= 3 Then
             check_character_achievement()
 
         End If
@@ -37,7 +37,7 @@ Public Class Core_Check_Mangos
         check_character_reputation()
         check_character_skills()
         check_character_spell()
-        If Main.xpac >= 3 Then
+        If Main.MainInstance.xpac >= 3 Then
             check_character_talent()
             'Wo ist die Talent Tabelle / Wo werden Talente gespeichert? (Mangos 2.4.3)
         Else
@@ -48,20 +48,20 @@ Public Class Core_Check_Mangos
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Core Check completed!" & vbNewLine)
         Application.DoEvents()
         If errorstring = "" Then
-            Main.nowgoon = True
-            If Main.startcond = 14 Then
+            Main.MainInstance.nowgoon = True
+            If Main.MainInstance.startcond = 14 Then
                 Armory2Database.button4click()
-            ElseIf Main.startcond = 23 Then
+            ElseIf Main.MainInstance.startcond = 23 Then
                 Database_Interface.button3click()
-            ElseIf Main.startcond = 24 Then
+            ElseIf Main.MainInstance.startcond = 24 Then
                 Database_Interface.button4click()
-            ElseIf Main.startcond = 34 Then
+            ElseIf Main.MainInstance.startcond = 34 Then
                 Database2Database.button4click()
-            ElseIf Main.startcond = 42 Then
+            ElseIf Main.MainInstance.startcond = 42 Then
                 Connect.button2click()
-            ElseIf Main.startcond = 22 Then
+            ElseIf Main.MainInstance.startcond = 22 Then
 
-                Main.ausgangsformat = 1
+                Main.MainInstance.ausgangsformat = 1
                 Database2Database.Show()
             Else
             End If
@@ -126,7 +126,7 @@ Public Class Core_Check_Mangos
             tmpstring = tmpstring & "// Column at_login in characters does not exist!" & vbNewLine
         If columnexist("zone", "characters") = False Then _
             tmpstring = tmpstring & "// Column zone in characters does not exist!" & vbNewLine
-        If Main.xpac < 4 Then
+        If Main.MainInstance.xpac < 4 Then
             If columnexist("arenaPoints", "characters") = False Then _
                 tmpstring = tmpstring & "// Column arenaPoints in characters does not exist!" & vbNewLine
             If columnexist("totalHonorPoints", "characters") = False Then _
@@ -258,37 +258,37 @@ Public Class Core_Check_Mangos
         tmpstring = ""
         If columnexist("guid", "character_homebind") = False Then _
             tmpstring = tmpstring & "// Column guid in character_homebind does not exist!" & vbNewLine
-        Main.homebind_map = "map"
+        Main.MainInstance.homebind_map = "map"
         If columnexist("map", "character_homebind") = False Then
-            Main.homebind_map = "mapId"
+            Main.MainInstance.homebind_map = "mapId"
             If columnexist("mapId", "character_homebind") = False Then
                 tmpstring = tmpstring & "// Column map/mapId in character_homebind does not exist!" & vbNewLine
             End If
         End If
-        Main.homebind_zone = "zone"
+        Main.MainInstance.homebind_zone = "zone"
         If columnexist("zone", "character_homebind") = False Then
-            Main.homebind_zone = "zoneId"
+            Main.MainInstance.homebind_zone = "zoneId"
             If columnexist("zoneId", "character_homebind") = False Then
                 tmpstring = tmpstring & "// Column zone/zoneId in character_homebind does not exist!" & vbNewLine
             End If
         End If
-        Main.homebind_posx = "position_x"
+        Main.MainInstance.homebind_posx = "position_x"
         If columnexist("position_x", "character_homebind") = False Then
-            Main.homebind_posx = "posX"
+            Main.MainInstance.homebind_posx = "posX"
             If columnexist("posX", "character_homebind") = False Then
                 tmpstring = tmpstring & "// Column position_x/posX in character_homebind does not exist!" & vbNewLine
             End If
         End If
-        Main.homebind_posy = "position_y"
+        Main.MainInstance.homebind_posy = "position_y"
         If columnexist("position_y", "character_homebind") = False Then
-            Main.homebind_posy = "posY"
+            Main.MainInstance.homebind_posy = "posY"
             If columnexist("posY", "character_homebind") = False Then
                 tmpstring = tmpstring & "// Column position_y/posY in character_homebind does not exist!" & vbNewLine
             End If
         End If
-        Main.homebind_posz = "position_z"
+        Main.MainInstance.homebind_posz = "position_z"
         If columnexist("position_z", "character_homebind") = False Then
-            Main.homebind_posz = "posZ"
+            Main.MainInstance.homebind_posz = "posZ"
             If columnexist("posZ", "character_homebind") = False Then
                 tmpstring = tmpstring & "// Column position_z/posZ in character_homebind does not exist!" & vbNewLine
             End If
@@ -330,7 +330,7 @@ Public Class Core_Check_Mangos
         Catch ex As Exception
 
         End Try
-        ServerString2 = Main.ServerStringCheck
+        ServerString2 = Main.MainInstance.ServerStringCheck
         Dim myAdapter As New MySqlDataAdapter
         SQLConnection.ConnectionString = ServerString2
         Dim sqlquery = ("SELECT " & spalte & " FROM " & table)
@@ -367,13 +367,13 @@ Public Class Core_Check_Mangos
     End Function
 
     Private Sub gettableschema(ByVal table As String)
-        Main.tableschema = Main.tableschema & "######## " & table & " ########" & vbNewLine
-        Dim conn As New MySqlConnection(Main.ServerStringInfo)
+        Main.MainInstance.tableschema = Main.MainInstance.tableschema & "######## " & table & " ########" & vbNewLine
+        Dim conn As New MySqlConnection(Main.MainInstance.ServerStringInfo)
         Dim _
             da As _
                 New MySqlDataAdapter(
                     "SELECT COLUMN_NAME FROM COLUMNS WHERE TABLE_NAME='" & table & "' AND TABLE_SCHEMA='" &
-                    Main.characterdbname & "'", conn)
+                    Main.MainInstance.characterdbname & "'", conn)
         Dim dt As New DataTable
         Try
             conn.Open()
@@ -394,7 +394,7 @@ Public Class Core_Check_Mangos
                 Do
                     Dim readedcode As String = (dt.Rows(count).Item(0)).ToString
                     Dim column As String = readedcode
-                    Main.tableschema = Main.tableschema & column & vbNewLine
+                    Main.MainInstance.tableschema = Main.MainInstance.tableschema & column & vbNewLine
                     count += 1
                 Loop Until count = lastcount
             End If

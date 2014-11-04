@@ -108,4 +108,6 @@ Public Class LanguageDE
     Public templateoutdated As String = "Das Format der Template Datei wird von dieser Version nicht mehr unterstützt!"
 
     Public couldnotdeterminecore As String = "Die Datenbank konnte keiner Emulation zugeordnet werden." & vbNewLine & "Bitte überprüfe deine Angaben!"
+
+    Public nameTemplatePrompt As String = "Bitte gib jetzt mithilfe des folgenden Fensters den Namen des neuen Templates an."
 End Class

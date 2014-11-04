@@ -11,6 +11,7 @@ Imports MySql.Data.MySqlClient
 Imports System.Threading
 
 Public Class Main
+    Public Shared MainInstance As Main
     Dim localeDE As New LanguageDE
     Dim localeEN As New LanguageEN
     'Mid(text, 1, 18) Gibt den Text von "text" zwischen Zeichen 1 bis 18 aus
@@ -89,13 +90,13 @@ Public Class Main
     Public playerBytes As Integer
     Public playerBytes2 As Integer
     Public playerFlags As Integer
-    Public position_x As String
-    Public position_y As String
-    Public position_z As String
+    Public position_x As Double
+    Public position_y As Double
+    Public position_z As Double
     Public map As Integer
     Public instance_id As Integer
     Public instance_mode_mask As String
-    Public orientation As String
+    Public orientation As Double
     Public taximask As String
     Public cinematic As Integer
     Public totaltime As Integer
@@ -425,13 +426,13 @@ Public Class Main
         playerBytes = vbEmpty
         playerBytes2 = vbEmpty
         playerFlags = vbEmpty
-        position_x = ""
-        position_y = ""
-        position_z = ""
+        position_x = vbEmpty
+        position_y = vbEmpty
+        position_z = vbEmpty
         map = vbEmpty
         instance_id = vbEmpty
         instance_mode_mask = ""
-        orientation = ""
+        orientation = vbEmpty
         taximask = ""
         cinematic = vbEmpty
         totaltime = vbEmpty
@@ -757,13 +758,13 @@ Public Class Main
         Me.MaximumSize = New Size(1129, 642)
         Select Case progressmode
             Case 1
-                Panel21.Location = New Point(- 6, - 1)
+                Panel21.Location = New Point(-6, -1)
                 Panel21.Size = New Size(1124, 741)
             Case 2
-                Panel21.Location = New Point(- 6, - 1)
+                Panel21.Location = New Point(-6, -1)
                 Panel21.Size = New Size(1124, 741)
             Case 3
-                Panel21.Location = New Point(- 6, - 1)
+                Panel21.Location = New Point(-6, -1)
                 Panel21.Size = New Size(1124, 741)
             Case Else
 

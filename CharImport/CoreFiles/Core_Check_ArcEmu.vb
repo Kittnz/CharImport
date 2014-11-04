@@ -13,19 +13,19 @@ Public Class Core_Check_ArcEmu
     Dim reporttext As RichTextBox = Database_Check.report
     Dim reporttext2 As RichTextBox = Process_Status.processreport
 
-    Dim ServerString2 As String = Main.ServerStringCheck
+    Dim ServerString2 As String = Main.MainInstance.ServerStringCheck
     Dim SQLConnection As MySqlConnection = New MySqlConnection
     Dim errorstring As String = ""
     Dim tmpstring As String = ""
 
     Public Sub begincheck(ByVal startcond As Integer)
-        Main.tableschema = ""
+        Main.MainInstance.tableschema = ""
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Begin Core Check..." & vbNewLine)
         Application.DoEvents()
-        Main.nowgoon = False
-        Main.startcond = startcond
+        Main.MainInstance.nowgoon = False
+        Main.MainInstance.startcond = startcond
         check_characters()
-        If Main.xpac >= 3 Then
+        If Main.MainInstance.xpac >= 3 Then
             check_character_achievement()
 
         End If
@@ -34,20 +34,20 @@ Public Class Core_Check_ArcEmu
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Core Check completed!" & vbNewLine)
         Application.DoEvents()
         If errorstring = "" Then
-            Main.nowgoon = True
-            If Main.startcond = 14 Then
+            Main.MainInstance.nowgoon = True
+            If Main.MainInstance.startcond = 14 Then
                 Armory2Database.button4click()
-            ElseIf Main.startcond = 23 Then
+            ElseIf Main.MainInstance.startcond = 23 Then
                 Database_Interface.button3click()
-            ElseIf Main.startcond = 24 Then
+            ElseIf Main.MainInstance.startcond = 24 Then
                 Database_Interface.button4click()
-            ElseIf Main.startcond = 34 Then
+            ElseIf Main.MainInstance.startcond = 34 Then
                 Database2Database.button4click()
-            ElseIf Main.startcond = 42 Then
+            ElseIf Main.MainInstance.startcond = 42 Then
                 Connect.button2click()
-            ElseIf Main.startcond = 22 Then
+            ElseIf Main.MainInstance.startcond = 22 Then
 
-                Main.ausgangsformat = 1
+                Main.MainInstance.ausgangsformat = 1
                 Database2Database.Show()
             Else
             End If
@@ -201,7 +201,7 @@ Public Class Core_Check_ArcEmu
         Catch ex As Exception
 
         End Try
-        ServerString2 = Main.ServerStringCheck
+        ServerString2 = Main.MainInstance.ServerStringCheck
         Dim myAdapter As New MySqlDataAdapter
         SQLConnection.ConnectionString = ServerString2
         Dim sqlquery = ("SELECT " & spalte & " FROM " & table)
@@ -238,13 +238,13 @@ Public Class Core_Check_ArcEmu
     End Function
 
     Private Sub gettableschema(ByVal table As String)
-        Main.tableschema = Main.tableschema & "######## " & table & " ########" & vbNewLine
-        Dim conn As New MySqlConnection(Main.ServerStringInfo)
+        Main.MainInstance.tableschema = Main.MainInstance.tableschema & "######## " & table & " ########" & vbNewLine
+        Dim conn As New MySqlConnection(Main.MainInstance.ServerStringInfo)
         Dim _
             da As _
                 New MySqlDataAdapter(
                     "SELECT COLUMN_NAME FROM COLUMNS WHERE TABLE_NAME='" & table & "' AND TABLE_SCHEMA='" &
-                    Main.characterdbname & "'", conn)
+                    Main.MainInstance.characterdbname & "'", conn)
         Dim dt As New DataTable
         Try
             conn.Open()
@@ -265,7 +265,7 @@ Public Class Core_Check_ArcEmu
                 Do
                     Dim readedcode As String = (dt.Rows(count).Item(0)).ToString
                     Dim column As String = readedcode
-                    Main.tableschema = Main.tableschema & column & vbNewLine
+                    Main.MainInstance.tableschema = Main.MainInstance.tableschema & column & vbNewLine
                     count += 1
                 Loop Until count = lastcount
             End If

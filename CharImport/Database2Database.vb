@@ -47,7 +47,7 @@ Public Class Database2Database
         My.Settings.realmd = auth.Text
         My.Settings.characters = characters.Text
         My.Settings.Save()
-        Main.ServerStringInfo = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
+        Main.MainInstance.ServerStringInfo = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
                                 password.Text & ";Database=information_schema"
 
         If automatic.Checked = True Then
@@ -136,8 +136,8 @@ Public Class Database2Database
                     runfunction.writelog("Could find character db and auth db")
                     alternatestring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
                                       ";Password=" & password.Text & ";Database=character"
-                    Main.characterdbname = "character"
-                    Main.ServerStringCheck = alternatestring
+                    Main.MainInstance.characterdbname = "character"
+                    Main.MainInstance.ServerStringCheck = alternatestring
                     If determinecore() = "arcemu" Then
                         arcemu.Checked = True
                     ElseIf determinecore() = "mangos" Then
@@ -228,8 +228,8 @@ Public Class Database2Database
                 End If
                 alternatestring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
                                   ";Password=" & password.Text & ";Database=characters"
-                Main.ServerStringCheck = alternatestring
-                Main.characterdbname = "characters"
+                Main.MainInstance.ServerStringCheck = alternatestring
+                Main.MainInstance.characterdbname = "characters"
                 runfunction.writelog("Could find character db and auth db")
                 If determinecore() = "arcemu" Then
                     arcemu.Checked = True
@@ -271,8 +271,8 @@ Public Class Database2Database
                                             ";Password=" & password.Text & ";Database=" & auth.Text
                     alternatestring = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
                                       ";Password=" & password.Text & ";Database=" & characters.Text
-                    Main.characterdbname = characters.Text
-                    Main.ServerStringCheck = alternatestring
+                    Main.MainInstance.characterdbname = characters.Text
+                    Main.MainInstance.ServerStringCheck = alternatestring
                     If determinecore() = "arcemu" Then
                         arcemu.Checked = True
                     ElseIf determinecore() = "mangos" Then
@@ -345,7 +345,7 @@ Public Class Database2Database
         End Try
 
         Dim myAdapter As New MySqlDataAdapter
-        SQLConnection.ConnectionString = Main.ServerStringCheck
+        SQLConnection.ConnectionString = Main.MainInstance.ServerStringCheck
         Dim sqlquery = ("SELECT " & spalte & " FROM " & table)
         Dim myCommand As New MySqlCommand()
         myCommand.Connection = SQLConnection
@@ -471,7 +471,7 @@ Public Class Database2Database
     Private Sub tbc_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles tbc.CheckedChanged
         If tbc.Checked = True Then
             runfunction.writelog("tbc checked")
-            Main.xpac = 2
+            Main.MainInstance.xpac = 2
             glyphs.Enabled = False
             classic.Checked = False
             wotlk.Checked = False
@@ -482,7 +482,7 @@ Public Class Database2Database
     Private Sub classic_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles classic.CheckedChanged
         If classic.Checked = True Then
             runfunction.writelog("classic checked")
-            Main.xpac = 1
+            Main.MainInstance.xpac = 1
             glyphs.Enabled = False
             tbc.Checked = False
             wotlk.Checked = False
@@ -493,7 +493,7 @@ Public Class Database2Database
     Private Sub wotlk_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles wotlk.CheckedChanged
         If wotlk.Checked = True Then
             runfunction.writelog("wotlk checked")
-            Main.xpac = 3
+            Main.MainInstance.xpac = 3
             glyphs.Enabled = True
             tbc.Checked = False
             classic.Checked = False
@@ -504,7 +504,7 @@ Public Class Database2Database
     Private Sub cata_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles cata.CheckedChanged
         If cata.Checked = True Then
             runfunction.writelog("cata checked")
-            Main.xpac = 4
+            Main.MainInstance.xpac = 4
             glyphs.Enabled = True
             tbc.Checked = False
             wotlk.Checked = False
@@ -518,7 +518,7 @@ Public Class Database2Database
 
             Dim xpacressource As String
             Dim xpacressource2 As String
-            Select Case Main.xpac
+            Select Case Main.MainInstance.xpac
                 Case 3
                     xpacressource = My.Resources.GEM_ID_wotlk
                     xpacressource2 = My.Resources.VZ_ID_wotlk
@@ -531,10 +531,10 @@ Public Class Database2Database
             End Select
             trinitycore1.spellgemtext = xpacressource
             trinitycore1.spellitemtext = xpacressource2
-            Main.outputcore = "trinity1"
+            Main.MainInstance.outputcore = "trinity1"
 
             If CheckBox2.Checked = True Then
-                If Main.ausgangsformat = 1 Then
+                If Main.MainInstance.ausgangsformat = 1 Then
 
                     If Database_Interface.CheckBox1.Checked = True Then
                         If Database_Interface.trinity1.Checked = True Then
@@ -644,8 +644,8 @@ Public Class Database2Database
 
                     End If
                     trinitycore1.closesql()
-                    Main.ServerString = alternatestring
-                    Main.ServerStringRealmd = alternaterealmdstring
+                    Main.MainInstance.ServerString = alternatestring
+                    Main.MainInstance.ServerStringRealmd = alternaterealmdstring
                     trinitycore1.opensql()
                     Do
                         counter += 1
@@ -656,22 +656,22 @@ Public Class Database2Database
                                 (CInt(
                                     Val(runcommandRealmd("SELECT id FROM account WHERE id=(SELECT MAX(id) FROM account)",
                                                          "id"))) + 1).ToString
-                        trinitycore1.create_new_account_if_not_exist(Main.accountname,
+                        trinitycore1.create_new_account_if_not_exist(Main.MainInstance.accountname,
                                                                      "INSERT INTO account ( `id`, `username`, `sha_pass_hash`, `sessionkey`, `v`, `s`, `email`, `joindate`, `expansion`, locale ) VALUES ( '" &
-                                                                     newid & "', '" & Main.accountname & "', '" &
-                                                                     Main.sha_pass_hash & "', '" & Main.sessionkey &
-                                                                     "', '" & Main.account_v & "', '" & Main.account_s &
-                                                                     "', '" & Main.email & "', '" & Main.joindate &
-                                                                     "', '" & Main.expansion & "', '" & Main.locale &
+                                                                     newid & "', '" & Main.MainInstance.accountname & "', '" &
+                                                                     Main.MainInstance.sha_pass_hash & "', '" & Main.MainInstance.sessionkey &
+                                                                     "', '" & Main.MainInstance.account_v & "', '" & Main.MainInstance.account_s &
+                                                                     "', '" & Main.MainInstance.email & "', '" & Main.MainInstance.joindate &
+                                                                     "', '" & Main.MainInstance.expansion & "', '" & Main.MainInstance.locale &
                                                                      "' )", newid)
-                        trinitycore1.adddetailedchar(Main.accountname, Main.char_name, namechange1.Checked)
+                        trinitycore1.adddetailedchar(Main.MainInstance.accountname, Main.MainInstance.char_name, namechange1.Checked)
                         If items.Checked = True Then trinitycore1.additems()
                         If enchantments.Checked = True Then trinitycore1.addench()
                         If glyphs.Checked = True Then trinitycore1.addglyphs(xpansion)
                         If talents.Checked = True Then trinitycore1.addtalents()
                         If male.Checked = True Then trinitycore1.setgender("0")
                         If female.Checked = True Then trinitycore1.setgender("1")
-                        If genderstay.Checked = True Then trinitycore1.setgender(Main.char_gender.ToString)
+                        If genderstay.Checked = True Then trinitycore1.setgender(Main.MainInstance.char_gender.ToString)
                         If level.Checked = True Then trinitycore1.setlevel()
                         If alternatelevellabel.Checked = True Then _
                             trinitycore1.setalternatelevel(alternateleveltext.Text)
@@ -684,44 +684,44 @@ Public Class Database2Database
                         If pvp.Checked = True Then trinitycore1.addpvp()
                         If ruf.Checked = True Then trinitycore1.addreputation()
                         If inventar.Checked = True Then trinitycore1.addinventory()
-                        If gold.Checked = True Then trinitycore1.addgold(Main.player_money)
+                        If gold.Checked = True Then trinitycore1.addgold(Main.MainInstance.player_money)
                         reporttext.AppendText(Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
-                    Loop Until counter = Main.anzahldurchlaufe
+                    Loop Until counter = Main.MainInstance.anzahldurchlaufe
 
                 Else
                     trinitycore1.closesql()
-                    Main.ServerString = alternatestring
-                    Main.ServerStringRealmd = alternaterealmdstring
+                    Main.MainInstance.ServerString = alternatestring
+                    Main.MainInstance.ServerStringRealmd = alternaterealmdstring
                     trinitycore1.opensql()
                     Do
                         Dim ciu As New CIUFile
-                        ciu.readspecial(Main.cuisets)
-                        Main.cuisets -= 1
+                        ciu.readspecial(Main.MainInstance.cuisets)
+                        Main.MainInstance.cuisets -= 1
 
 
                         Dim newid As String =
                                 (CInt(
                                     Val(runcommandRealmd("SELECT id FROM account WHERE id=(SELECT MAX(id) FROM account)",
                                                          "id"))) + 1).ToString
-                        trinitycore1.create_new_account_if_not_exist(Main.accountname,
+                        trinitycore1.create_new_account_if_not_exist(Main.MainInstance.accountname,
                                                                      "INSERT INTO account ( `id`, `username`, `sha_pass_hash`, `sessionkey`, `v`, `s`, `email`, `joindate`, `expansion`, locale ) VALUES ( '" &
-                                                                     newid & "', '" & Main.accountname & "', '" &
-                                                                     Main.sha_pass_hash & "', '" & Main.sessionkey &
-                                                                     "', '" & Main.account_v & "', '" & Main.account_s &
-                                                                     "', '" & Main.email & "', '" & Main.joindate &
-                                                                     "', '" & Main.expansion & "', '" & Main.locale &
+                                                                     newid & "', '" & Main.MainInstance.accountname & "', '" &
+                                                                     Main.MainInstance.sha_pass_hash & "', '" & Main.MainInstance.sessionkey &
+                                                                     "', '" & Main.MainInstance.account_v & "', '" & Main.MainInstance.account_s &
+                                                                     "', '" & Main.MainInstance.email & "', '" & Main.MainInstance.joindate &
+                                                                     "', '" & Main.MainInstance.expansion & "', '" & Main.MainInstance.locale &
                                                                      "' )", newid)
 
-                        trinitycore1.adddetailedchar(Main.accountname, Main.char_name, namechange1.Checked)
+                        trinitycore1.adddetailedchar(Main.MainInstance.accountname, Main.MainInstance.char_name, namechange1.Checked)
 
-                        '  trinitycore1.updatechars(sLines(i), Main.char_name, namechange2.Checked)
+                        '  trinitycore1.updatechars(sLines(i), Main.MainInstance.char_name, namechange2.Checked)
                         If items.Checked = True Then trinitycore1.additems()
                         If enchantments.Checked = True Then trinitycore1.addench()
                         If glyphs.Checked = True Then trinitycore1.addglyphs(xpansion)
                         If talents.Checked = True Then trinitycore1.addtalents()
                         If male.Checked = True Then trinitycore1.setgender("0")
                         If female.Checked = True Then trinitycore1.setgender("1")
-                        If genderstay.Checked = True Then trinitycore1.setgender(Main.char_gender.ToString)
+                        If genderstay.Checked = True Then trinitycore1.setgender(Main.MainInstance.char_gender.ToString)
                         If level.Checked = True Then trinitycore1.setlevel()
                         If alternatelevellabel.Checked = True Then _
                             trinitycore1.setalternatelevel(alternateleveltext.Text)
@@ -734,15 +734,15 @@ Public Class Database2Database
                         If pvp.Checked = True Then trinitycore1.addpvp()
                         If ruf.Checked = True Then trinitycore1.addreputation()
                         If inventar.Checked = True Then trinitycore1.addinventory()
-                        If gold.Checked = True Then trinitycore1.addgold(Main.player_money)
+                        If gold.Checked = True Then trinitycore1.addgold(Main.MainInstance.player_money)
                         reporttext.AppendText(Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
 
 
-                    Loop Until Main.cuisets = 0
+                    Loop Until Main.MainInstance.cuisets = 0
                 End If
             End If
             If CheckBox3.Checked = True Then
-                If Main.ausgangsformat = 1 Then
+                If Main.MainInstance.ausgangsformat = 1 Then
                     If Database_Interface.CheckBox1.Checked = True Then
                         If Database_Interface.trinity1.Checked = True Then
                             trinitycore1.getallchars()
@@ -853,8 +853,8 @@ Public Class Database2Database
 
                     End If
                     trinitycore1.closesql()
-                    Main.ServerString = alternatestring
-                    Main.ServerStringRealmd = alternaterealmdstring
+                    Main.MainInstance.ServerString = alternatestring
+                    Main.MainInstance.ServerStringRealmd = alternaterealmdstring
                     trinitycore1.opensql()
                     Dim sLines() As String = accnames.Lines
                     For i As Integer = 0 To sLines.Length - 1
@@ -866,14 +866,14 @@ Public Class Database2Database
                                 cui.readtempdataset(counter)
 
                                 Application.DoEvents()
-                                trinitycore1.adddetailedchar(sLines(i), Main.char_name, namechange1.Checked)
+                                trinitycore1.adddetailedchar(sLines(i), Main.MainInstance.char_name, namechange1.Checked)
                                 If items.Checked = True Then trinitycore1.additems()
                                 If enchantments.Checked = True Then trinitycore1.addench()
                                 If glyphs.Checked = True Then trinitycore1.addglyphs(xpansion)
                                 If talents.Checked = True Then trinitycore1.addtalents()
                                 If male.Checked = True Then trinitycore1.setgender("0")
                                 If female.Checked = True Then trinitycore1.setgender("1")
-                                If genderstay.Checked = True Then trinitycore1.setgender(Main.char_gender.ToString)
+                                If genderstay.Checked = True Then trinitycore1.setgender(Main.MainInstance.char_gender.ToString)
                                 If level.Checked = True Then trinitycore1.setlevel()
                                 If alternatelevellabel.Checked = True Then _
                                     trinitycore1.setalternatelevel(alternateleveltext.Text)
@@ -886,16 +886,16 @@ Public Class Database2Database
                                 If pvp.Checked = True Then trinitycore1.addpvp()
                                 If ruf.Checked = True Then trinitycore1.addreputation()
                                 If inventar.Checked = True Then trinitycore1.addinventory()
-                                If gold.Checked = True Then trinitycore1.addgold(Main.player_money)
+                                If gold.Checked = True Then trinitycore1.addgold(Main.MainInstance.player_money)
                                 reporttext.AppendText(Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
-                            Loop Until counter = Main.anzahldurchlaufe
+                            Loop Until counter = Main.MainInstance.anzahldurchlaufe
                         End If
 
                     Next
                 Else
                     trinitycore1.closesql()
-                    Main.ServerString = alternatestring
-                    Main.ServerStringRealmd = alternaterealmdstring
+                    Main.MainInstance.ServerString = alternatestring
+                    Main.MainInstance.ServerStringRealmd = alternaterealmdstring
                     trinitycore1.opensql()
                     Dim sLines() As String = accnames.Lines
                     For i As Integer = 0 To sLines.Length - 1
@@ -904,20 +904,20 @@ Public Class Database2Database
                         Else
                             Do
                                 Dim ciu As New CIUFile
-                                ciu.readspecial(Main.cuisets)
-                                Main.cuisets -= 1
+                                ciu.readspecial(Main.MainInstance.cuisets)
+                                Main.MainInstance.cuisets -= 1
 
 
-                                trinitycore1.adddetailedchar(sLines(i), Main.char_name, namechange1.Checked)
+                                trinitycore1.adddetailedchar(sLines(i), Main.MainInstance.char_name, namechange1.Checked)
 
-                                '  trinitycore1.updatechars(sLines(i), Main.char_name, namechange2.Checked)
+                                '  trinitycore1.updatechars(sLines(i), Main.MainInstance.char_name, namechange2.Checked)
                                 If items.Checked = True Then trinitycore1.additems()
                                 If enchantments.Checked = True Then trinitycore1.addench()
                                 If glyphs.Checked = True Then trinitycore1.addglyphs(xpansion)
                                 If talents.Checked = True Then trinitycore1.addtalents()
                                 If male.Checked = True Then trinitycore1.setgender("0")
                                 If female.Checked = True Then trinitycore1.setgender("1")
-                                If genderstay.Checked = True Then trinitycore1.setgender(Main.char_gender.ToString)
+                                If genderstay.Checked = True Then trinitycore1.setgender(Main.MainInstance.char_gender.ToString)
                                 If level.Checked = True Then trinitycore1.setlevel()
                                 If alternatelevellabel.Checked = True Then _
                                     trinitycore1.setalternatelevel(alternateleveltext.Text)
@@ -930,11 +930,11 @@ Public Class Database2Database
                                 If pvp.Checked = True Then trinitycore1.addpvp()
                                 If ruf.Checked = True Then trinitycore1.addreputation()
                                 If inventar.Checked = True Then trinitycore1.addinventory()
-                                If gold.Checked = True Then trinitycore1.addgold(Main.player_money)
+                                If gold.Checked = True Then trinitycore1.addgold(Main.MainInstance.player_money)
                                 reporttext.AppendText(Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
 
 
-                            Loop Until Main.cuisets = 0
+                            Loop Until Main.MainInstance.cuisets = 0
                         End If
                     Next
                 End If
@@ -942,10 +942,10 @@ Public Class Database2Database
 
 
         ElseIf mangos.Checked = True Then
-            Main.outputcore = "mangos"
+            Main.MainInstance.outputcore = "mangos"
             Dim xpacressource As String
             Dim xpacressource2 As String
-            Select Case Main.xpac
+            Select Case Main.MainInstance.xpac
                 Case 3
                     xpacressource = My.Resources.GEM_ID_wotlk
                     xpacressource2 = My.Resources.VZ_ID_wotlk
@@ -961,7 +961,7 @@ Public Class Database2Database
 
 
             If CheckBox2.Checked = True Then
-                If Main.ausgangsformat = 1 Then
+                If Main.MainInstance.ausgangsformat = 1 Then
 
                     If Database_Interface.CheckBox1.Checked = True Then
                         If Database_Interface.trinity1.Checked = True Then
@@ -1071,8 +1071,8 @@ Public Class Database2Database
 
                     End If
                     trinitycore1.closesql()
-                    Main.ServerString = alternatestring
-                    Main.ServerStringRealmd = alternaterealmdstring
+                    Main.MainInstance.ServerString = alternatestring
+                    Main.MainInstance.ServerStringRealmd = alternaterealmdstring
                     trinitycore1.opensql()
                     Do
                         counter += 1
@@ -1083,23 +1083,23 @@ Public Class Database2Database
                                 (CInt(
                                     Val(runcommandRealmd("SELECT id FROM account WHERE id=(SELECT MAX(id) FROM account)",
                                                          "id"))) + 1).ToString
-                        mangoscore.create_new_account_if_not_exist(Main.accountname,
+                        mangoscore.create_new_account_if_not_exist(Main.MainInstance.accountname,
                                                                    "INSERT INTO account ( `id`, `username`, gmlevel,`sha_pass_hash`, `sessionkey`, `v`, `s`, `email`, `joindate`, active_realm_id, `expansion`, locale ) VALUES ( '" &
-                                                                   newid & "', '" & Main.accountname & "', '" &
-                                                                   Main.account_access_gmlevel.ToString & "', '" &
-                                                                   Main.sha_pass_hash & "', '" & Main.sessionkey &
-                                                                   "', '" & Main.account_v & "', '" & Main.account_s &
-                                                                   "', '" & Main.email & "', '" & Main.joindate & "', '" &
-                                                                   Main.account_access_RealmID & "', '" & Main.expansion &
-                                                                   "', '" & Main.locale & "' )", newid)
-                        mangoscore.adddetailedchar(Main.accountname, Main.char_name, namechange1.Checked)
+                                                                   newid & "', '" & Main.MainInstance.accountname & "', '" &
+                                                                   Main.MainInstance.account_access_gmlevel.ToString & "', '" &
+                                                                   Main.MainInstance.sha_pass_hash & "', '" & Main.MainInstance.sessionkey &
+                                                                   "', '" & Main.MainInstance.account_v & "', '" & Main.MainInstance.account_s &
+                                                                   "', '" & Main.MainInstance.email & "', '" & Main.MainInstance.joindate & "', '" &
+                                                                   Main.MainInstance.account_access_RealmID & "', '" & Main.MainInstance.expansion &
+                                                                   "', '" & Main.MainInstance.locale & "' )", newid)
+                        mangoscore.adddetailedchar(Main.MainInstance.accountname, Main.MainInstance.char_name, namechange1.Checked)
                         If items.Checked = True Then mangoscore.additems()
                         If enchantments.Checked = True Then mangoscore.addench()
                         If glyphs.Checked = True Then mangoscore.addglyphs(xpansion)
                         If talents.Checked = True Then mangoscore.addtalents()
                         If male.Checked = True Then mangoscore.setgender("0")
                         If female.Checked = True Then mangoscore.setgender("1")
-                        If genderstay.Checked = True Then mangoscore.setgender(Main.char_gender.ToString)
+                        If genderstay.Checked = True Then mangoscore.setgender(Main.MainInstance.char_gender.ToString)
                         If level.Checked = True Then mangoscore.setlevel()
                         If alternatelevellabel.Checked = True Then mangoscore.setalternatelevel(alternateleveltext.Text)
                         If race.Checked = True Then mangoscore.setrace()
@@ -1111,45 +1111,45 @@ Public Class Database2Database
                         If pvp.Checked = True Then mangoscore.addpvp()
                         If ruf.Checked = True Then mangoscore.addreputation()
                         If inventar.Checked = True Then mangoscore.addinventory()
-                        If gold.Checked = True Then mangoscore.addgold(Main.player_money)
+                        If gold.Checked = True Then mangoscore.addgold(Main.MainInstance.player_money)
                         reporttext.AppendText(Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
-                    Loop Until counter = Main.anzahldurchlaufe
+                    Loop Until counter = Main.MainInstance.anzahldurchlaufe
 
                 Else
                     trinitycore1.closesql()
-                    Main.ServerString = alternatestring
-                    Main.ServerStringRealmd = alternaterealmdstring
+                    Main.MainInstance.ServerString = alternatestring
+                    Main.MainInstance.ServerStringRealmd = alternaterealmdstring
                     trinitycore1.opensql()
                     Do
                         Dim ciu As New CIUFile
-                        ciu.readspecial(Main.cuisets)
-                        Main.cuisets -= 1
+                        ciu.readspecial(Main.MainInstance.cuisets)
+                        Main.MainInstance.cuisets -= 1
 
 
                         Dim newid As String =
                                 (CInt(
                                     Val(runcommandRealmd("SELECT id FROM account WHERE id=(SELECT MAX(id) FROM account)",
                                                          "id"))) + 1).ToString
-                        mangoscore.create_new_account_if_not_exist(Main.accountname,
+                        mangoscore.create_new_account_if_not_exist(Main.MainInstance.accountname,
                                                                    "INSERT INTO account ( `id`, `username`, gmlevel,`sha_pass_hash`, `sessionkey`, `v`, `s`, `email`, `joindate`, active_realm_id, `expansion`, locale ) VALUES ( '" &
-                                                                   newid & "', '" & Main.accountname & "', '" &
-                                                                   Main.account_access_gmlevel.ToString & "', '" &
-                                                                   Main.sha_pass_hash & "', '" & Main.sessionkey &
-                                                                   "', '" & Main.account_v & "', '" & Main.account_s &
-                                                                   "', '" & Main.email & "', '" & Main.joindate & "', '" &
-                                                                   Main.account_access_RealmID & "', '" & Main.expansion &
-                                                                   "', '" & Main.locale & "' )", newid)
+                                                                   newid & "', '" & Main.MainInstance.accountname & "', '" &
+                                                                   Main.MainInstance.account_access_gmlevel.ToString & "', '" &
+                                                                   Main.MainInstance.sha_pass_hash & "', '" & Main.MainInstance.sessionkey &
+                                                                   "', '" & Main.MainInstance.account_v & "', '" & Main.MainInstance.account_s &
+                                                                   "', '" & Main.MainInstance.email & "', '" & Main.MainInstance.joindate & "', '" &
+                                                                   Main.MainInstance.account_access_RealmID & "', '" & Main.MainInstance.expansion &
+                                                                   "', '" & Main.MainInstance.locale & "' )", newid)
 
-                        mangoscore.adddetailedchar(Main.accountname, Main.char_name, namechange1.Checked)
+                        mangoscore.adddetailedchar(Main.MainInstance.accountname, Main.MainInstance.char_name, namechange1.Checked)
 
-                        '  mangoscore.updatechars(sLines(i), Main.char_name, namechange2.Checked)
+                        '  mangoscore.updatechars(sLines(i), Main.MainInstance.char_name, namechange2.Checked)
                         If items.Checked = True Then mangoscore.additems()
                         If enchantments.Checked = True Then mangoscore.addench()
                         If glyphs.Checked = True Then mangoscore.addglyphs(xpansion)
                         If talents.Checked = True Then mangoscore.addtalents()
                         If male.Checked = True Then mangoscore.setgender("0")
                         If female.Checked = True Then mangoscore.setgender("1")
-                        If genderstay.Checked = True Then mangoscore.setgender(Main.char_gender.ToString)
+                        If genderstay.Checked = True Then mangoscore.setgender(Main.MainInstance.char_gender.ToString)
                         If level.Checked = True Then mangoscore.setlevel()
                         If alternatelevellabel.Checked = True Then mangoscore.setalternatelevel(alternateleveltext.Text)
                         If race.Checked = True Then mangoscore.setrace()
@@ -1161,15 +1161,15 @@ Public Class Database2Database
                         If pvp.Checked = True Then mangoscore.addpvp()
                         If ruf.Checked = True Then mangoscore.addreputation()
                         If inventar.Checked = True Then mangoscore.addinventory()
-                        If gold.Checked = True Then mangoscore.addgold(Main.player_money)
+                        If gold.Checked = True Then mangoscore.addgold(Main.MainInstance.player_money)
                         reporttext.AppendText(Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
 
 
-                    Loop Until Main.cuisets = 0
+                    Loop Until Main.MainInstance.cuisets = 0
                 End If
             End If
             If CheckBox3.Checked = True Then
-                If Main.ausgangsformat = 1 Then
+                If Main.MainInstance.ausgangsformat = 1 Then
                     If Database_Interface.CheckBox1.Checked = True Then
                         If Database_Interface.trinity1.Checked = True Then
                             trinitycore1.getallchars()
@@ -1279,8 +1279,8 @@ Public Class Database2Database
 
                     End If
                     trinitycore1.closesql()
-                    Main.ServerString = alternatestring
-                    Main.ServerStringRealmd = alternaterealmdstring
+                    Main.MainInstance.ServerString = alternatestring
+                    Main.MainInstance.ServerStringRealmd = alternaterealmdstring
                     trinitycore1.opensql()
                     Dim sLines() As String = accnames.Lines
                     For i As Integer = 0 To sLines.Length - 1
@@ -1292,14 +1292,14 @@ Public Class Database2Database
                                 cui.readtempdataset(counter)
 
                                 Application.DoEvents()
-                                mangoscore.adddetailedchar(sLines(i), Main.char_name, namechange1.Checked)
+                                mangoscore.adddetailedchar(sLines(i), Main.MainInstance.char_name, namechange1.Checked)
                                 If items.Checked = True Then mangoscore.additems()
                                 If enchantments.Checked = True Then mangoscore.addench()
                                 If glyphs.Checked = True Then mangoscore.addglyphs(xpansion)
                                 If talents.Checked = True Then mangoscore.addtalents()
                                 If male.Checked = True Then mangoscore.setgender("0")
                                 If female.Checked = True Then mangoscore.setgender("1")
-                                If genderstay.Checked = True Then mangoscore.setgender(Main.char_gender.ToString)
+                                If genderstay.Checked = True Then mangoscore.setgender(Main.MainInstance.char_gender.ToString)
                                 If level.Checked = True Then mangoscore.setlevel()
                                 If alternatelevellabel.Checked = True Then _
                                     mangoscore.setalternatelevel(alternateleveltext.Text)
@@ -1312,16 +1312,16 @@ Public Class Database2Database
                                 If pvp.Checked = True Then mangoscore.addpvp()
                                 If ruf.Checked = True Then mangoscore.addreputation()
                                 If inventar.Checked = True Then mangoscore.addinventory()
-                                If gold.Checked = True Then mangoscore.addgold(Main.player_money)
+                                If gold.Checked = True Then mangoscore.addgold(Main.MainInstance.player_money)
                                 reporttext.AppendText(Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
-                            Loop Until counter = Main.anzahldurchlaufe
+                            Loop Until counter = Main.MainInstance.anzahldurchlaufe
                         End If
 
                     Next
                 Else
                     trinitycore1.closesql()
-                    Main.ServerString = alternatestring
-                    Main.ServerStringRealmd = alternaterealmdstring
+                    Main.MainInstance.ServerString = alternatestring
+                    Main.MainInstance.ServerStringRealmd = alternaterealmdstring
                     trinitycore1.opensql()
                     Dim sLines() As String = accnames.Lines
                     For i As Integer = 0 To sLines.Length - 1
@@ -1330,20 +1330,20 @@ Public Class Database2Database
                         Else
                             Do
                                 Dim ciu As New CIUFile
-                                ciu.readspecial(Main.cuisets)
-                                Main.cuisets -= 1
+                                ciu.readspecial(Main.MainInstance.cuisets)
+                                Main.MainInstance.cuisets -= 1
 
 
-                                mangoscore.adddetailedchar(sLines(i), Main.char_name, namechange1.Checked)
+                                mangoscore.adddetailedchar(sLines(i), Main.MainInstance.char_name, namechange1.Checked)
 
-                                '  mangoscore.updatechars(sLines(i), Main.char_name, namechange2.Checked)
+                                '  mangoscore.updatechars(sLines(i), Main.MainInstance.char_name, namechange2.Checked)
                                 If items.Checked = True Then mangoscore.additems()
                                 If enchantments.Checked = True Then mangoscore.addench()
                                 If glyphs.Checked = True Then mangoscore.addglyphs(xpansion)
                                 If talents.Checked = True Then mangoscore.addtalents()
                                 If male.Checked = True Then mangoscore.setgender("0")
                                 If female.Checked = True Then mangoscore.setgender("1")
-                                If genderstay.Checked = True Then mangoscore.setgender(Main.char_gender.ToString)
+                                If genderstay.Checked = True Then mangoscore.setgender(Main.MainInstance.char_gender.ToString)
                                 If level.Checked = True Then mangoscore.setlevel()
                                 If alternatelevellabel.Checked = True Then _
                                     mangoscore.setalternatelevel(alternateleveltext.Text)
@@ -1356,20 +1356,20 @@ Public Class Database2Database
                                 If pvp.Checked = True Then mangoscore.addpvp()
                                 If ruf.Checked = True Then mangoscore.addreputation()
                                 If inventar.Checked = True Then mangoscore.addinventory()
-                                If gold.Checked = True Then mangoscore.addgold(Main.player_money)
+                                If gold.Checked = True Then mangoscore.addgold(Main.MainInstance.player_money)
                                 reporttext.AppendText(Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
 
 
-                            Loop Until Main.cuisets = 0
+                            Loop Until Main.MainInstance.cuisets = 0
                         End If
                     Next
                 End If
             End If
         ElseIf arcemu.Checked = True Then
-            Main.outputcore = "arcemu"
+            Main.MainInstance.outputcore = "arcemu"
             Dim xpacressource As String
             Dim xpacressource2 As String
-            Select Case Main.xpac
+            Select Case Main.MainInstance.xpac
                 Case 3
                     xpacressource = My.Resources.GEM_ID_wotlk
                     xpacressource2 = My.Resources.VZ_ID_wotlk
@@ -1385,7 +1385,7 @@ Public Class Database2Database
 
 
             If CheckBox2.Checked = True Then
-                If Main.ausgangsformat = 1 Then
+                If Main.MainInstance.ausgangsformat = 1 Then
 
                     If Database_Interface.CheckBox1.Checked = True Then
                         If Database_Interface.trinity1.Checked = True Then
@@ -1495,8 +1495,8 @@ Public Class Database2Database
 
                     End If
                     trinitycore1.closesql()
-                    Main.ServerString = alternatestring
-                    Main.ServerStringRealmd = alternaterealmdstring
+                    Main.MainInstance.ServerString = alternatestring
+                    Main.MainInstance.ServerStringRealmd = alternaterealmdstring
                     trinitycore1.opensql()
                     Do
                         counter += 1
@@ -1507,21 +1507,21 @@ Public Class Database2Database
                                 (CInt(
                                     Val(runcommandRealmd("SELECT acct FROM accounts WHERE acct=(SELECT MAX(acct) FROM accounts)",
                                                          "acct"))) + 1).ToString
-                        If Main.account_access_gmlevel = 4 Then
-                            If Main.arcemu_gmlevel = "" Then
-                                Main.arcemu_gmlevel = "AZ"
+                        If Main.MainInstance.account_access_gmlevel = 4 Then
+                            If Main.MainInstance.arcemu_gmlevel = "" Then
+                                Main.MainInstance.arcemu_gmlevel = "AZ"
                             End If
-                        ElseIf Main.account_access_gmlevel = 0 Then
-                            If Main.arcemu_gmlevel = "" Then
-                                Main.arcemu_gmlevel = "0"
+                        ElseIf Main.MainInstance.account_access_gmlevel = 0 Then
+                            If Main.MainInstance.arcemu_gmlevel = "" Then
+                                Main.MainInstance.arcemu_gmlevel = "0"
                             End If
-                        ElseIf Main.account_access_gmlevel < 4 Then
-                            If Main.arcemu_gmlevel = "" Then
-                                Main.arcemu_gmlevel = "A"
+                        ElseIf Main.MainInstance.account_access_gmlevel < 4 Then
+                            If Main.MainInstance.arcemu_gmlevel = "" Then
+                                Main.MainInstance.arcemu_gmlevel = "A"
                             End If
                         End If
                         Dim expflags As String = ""
-                        Select Main.expansion
+                        Select Main.MainInstance.expansion
                             Case 0
                                 expflags = "0"
                             Case 1
@@ -1532,19 +1532,19 @@ Public Class Database2Database
                                 expflags = "32"
                             Case Else : End Select
 
-                        arcemucore.create_new_account_if_not_exist(Main.accountname,
+                        arcemucore.create_new_account_if_not_exist(Main.MainInstance.accountname,
                                                                    "INSERT INTO accounts ( `acct`, `login`, `gm`,`encrypted_password`, `email`, flags ) VALUES ( '" &
-                                                                   newid & "', '" & Main.accountname & "', '" &
-                                                                   Main.arcemu_gmlevel.ToString & "', '" &
-                                                                   Main.sha_pass_hash & "', '" & Main.email & "', '" & expflags & "' )", newid)
-                        arcemucore.adddetailedchar(Main.accountname, Main.char_name, namechange1.Checked)
+                                                                   newid & "', '" & Main.MainInstance.accountname & "', '" &
+                                                                   Main.MainInstance.arcemu_gmlevel.ToString & "', '" &
+                                                                   Main.MainInstance.sha_pass_hash & "', '" & Main.MainInstance.email & "', '" & expflags & "' )", newid)
+                        arcemucore.adddetailedchar(Main.MainInstance.accountname, Main.MainInstance.char_name, namechange1.Checked)
                         If items.Checked = True Then arcemucore.additems()
                         If enchantments.Checked = True Then arcemucore.addench()
                         If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
                         If talents.Checked = True Then arcemucore.addtalents()
                         If male.Checked = True Then arcemucore.setgender("0")
                         If female.Checked = True Then arcemucore.setgender("1")
-                        If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
+                        If genderstay.Checked = True Then arcemucore.setgender(Main.MainInstance.char_gender.ToString)
                         If level.Checked = True Then arcemucore.setlevel()
                         If alternatelevellabel.Checked = True Then arcemucore.setalternatelevel(alternateleveltext.Text)
                         If race.Checked = True Then arcemucore.setrace()
@@ -1556,40 +1556,40 @@ Public Class Database2Database
                         If pvp.Checked = True Then arcemucore.addpvp()
                         If ruf.Checked = True Then arcemucore.addreputation()
                         If inventar.Checked = True Then arcemucore.addinventory()
-                        If gold.Checked = True Then arcemucore.addgold(Main.player_money)
+                        If gold.Checked = True Then arcemucore.addgold(Main.MainInstance.player_money)
                         reporttext.AppendText(Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
-                    Loop Until counter = Main.anzahldurchlaufe
+                    Loop Until counter = Main.MainInstance.anzahldurchlaufe
 
                 Else
                     trinitycore1.closesql()
-                    Main.ServerString = alternatestring
-                    Main.ServerStringRealmd = alternaterealmdstring
+                    Main.MainInstance.ServerString = alternatestring
+                    Main.MainInstance.ServerStringRealmd = alternaterealmdstring
                     trinitycore1.opensql()
                     Do
                         Dim ciu As New CIUFile
-                        ciu.readspecial(Main.cuisets)
-                        Main.cuisets -= 1
+                        ciu.readspecial(Main.MainInstance.cuisets)
+                        Main.MainInstance.cuisets -= 1
 
 
                         Dim newid As String =
                                 (CInt(
                                     Val(runcommandRealmd("SELECT acct FROM accounts WHERE acct=(SELECT MAX(acct) FROM accounts)",
                                                          "acct"))) + 1).ToString
-                        If Main.account_access_gmlevel = 4 Then
-                            If Main.arcemu_gmlevel = "" Then
-                                Main.arcemu_gmlevel = "AZ"
+                        If Main.MainInstance.account_access_gmlevel = 4 Then
+                            If Main.MainInstance.arcemu_gmlevel = "" Then
+                                Main.MainInstance.arcemu_gmlevel = "AZ"
                             End If
-                        ElseIf Main.account_access_gmlevel = 0 Then
-                            If Main.arcemu_gmlevel = "" Then
-                                Main.arcemu_gmlevel = "0"
+                        ElseIf Main.MainInstance.account_access_gmlevel = 0 Then
+                            If Main.MainInstance.arcemu_gmlevel = "" Then
+                                Main.MainInstance.arcemu_gmlevel = "0"
                             End If
-                        ElseIf Main.account_access_gmlevel < 4 Then
-                            If Main.arcemu_gmlevel = "" Then
-                                Main.arcemu_gmlevel = "A"
+                        ElseIf Main.MainInstance.account_access_gmlevel < 4 Then
+                            If Main.MainInstance.arcemu_gmlevel = "" Then
+                                Main.MainInstance.arcemu_gmlevel = "A"
                             End If
                         End If
                         Dim expflags As String = ""
-                        Select Case Main.expansion
+                        Select Case Main.MainInstance.expansion
                             Case 0
                                 expflags = "0"
                             Case 1
@@ -1600,21 +1600,21 @@ Public Class Database2Database
                                 expflags = "32"
                             Case Else : End Select
 
-                        arcemucore.create_new_account_if_not_exist(Main.accountname,
+                        arcemucore.create_new_account_if_not_exist(Main.MainInstance.accountname,
                                                                    "INSERT INTO accounts ( `acct`, `login`, `gm`,`encrypted_password`, `email`, flags ) VALUES ( '" &
-                                                                   newid & "', '" & Main.accountname & "', '" &
-                                                                   Main.arcemu_gmlevel.ToString & "', '" &
-                                                                   Main.sha_pass_hash & "', '" & Main.email & "', '" & expflags & "' )", newid)
-                        arcemucore.adddetailedchar(Main.accountname, Main.char_name, namechange1.Checked)
+                                                                   newid & "', '" & Main.MainInstance.accountname & "', '" &
+                                                                   Main.MainInstance.arcemu_gmlevel.ToString & "', '" &
+                                                                   Main.MainInstance.sha_pass_hash & "', '" & Main.MainInstance.email & "', '" & expflags & "' )", newid)
+                        arcemucore.adddetailedchar(Main.MainInstance.accountname, Main.MainInstance.char_name, namechange1.Checked)
 
-                        '  arcemucore.updatechars(sLines(i), Main.char_name, namechange2.Checked)
+                        '  arcemucore.updatechars(sLines(i), Main.MainInstance.char_name, namechange2.Checked)
                         If items.Checked = True Then arcemucore.additems()
                         If enchantments.Checked = True Then arcemucore.addench()
                         If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
                         If talents.Checked = True Then arcemucore.addtalents()
                         If male.Checked = True Then arcemucore.setgender("0")
                         If female.Checked = True Then arcemucore.setgender("1")
-                        If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
+                        If genderstay.Checked = True Then arcemucore.setgender(Main.MainInstance.char_gender.ToString)
                         If level.Checked = True Then arcemucore.setlevel()
                         If alternatelevellabel.Checked = True Then arcemucore.setalternatelevel(alternateleveltext.Text)
                         If race.Checked = True Then arcemucore.setrace()
@@ -1626,15 +1626,15 @@ Public Class Database2Database
                         If pvp.Checked = True Then arcemucore.addpvp()
                         If ruf.Checked = True Then arcemucore.addreputation()
                         If inventar.Checked = True Then arcemucore.addinventory()
-                        If gold.Checked = True Then arcemucore.addgold(Main.player_money)
+                        If gold.Checked = True Then arcemucore.addgold(Main.MainInstance.player_money)
                         reporttext.AppendText(Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
 
 
-                    Loop Until Main.cuisets = 0
+                    Loop Until Main.MainInstance.cuisets = 0
                 End If
             End If
             If CheckBox3.Checked = True Then
-                If Main.ausgangsformat = 1 Then
+                If Main.MainInstance.ausgangsformat = 1 Then
                     If Database_Interface.CheckBox1.Checked = True Then
                         If Database_Interface.trinity1.Checked = True Then
                             trinitycore1.getallchars()
@@ -1744,8 +1744,8 @@ Public Class Database2Database
 
                     End If
                     trinitycore1.closesql()
-                    Main.ServerString = alternatestring
-                    Main.ServerStringRealmd = alternaterealmdstring
+                    Main.MainInstance.ServerString = alternatestring
+                    Main.MainInstance.ServerStringRealmd = alternaterealmdstring
                     trinitycore1.opensql()
                     Dim sLines() As String = accnames.Lines
                     For i As Integer = 0 To sLines.Length - 1
@@ -1757,14 +1757,14 @@ Public Class Database2Database
                                 cui.readtempdataset(counter)
 
                                 Application.DoEvents()
-                                arcemucore.adddetailedchar(sLines(i), Main.char_name, namechange1.Checked)
+                                arcemucore.adddetailedchar(sLines(i), Main.MainInstance.char_name, namechange1.Checked)
                                 If items.Checked = True Then arcemucore.additems()
                                 If enchantments.Checked = True Then arcemucore.addench()
                                 If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
                                 If talents.Checked = True Then arcemucore.addtalents()
                                 If male.Checked = True Then arcemucore.setgender("0")
                                 If female.Checked = True Then arcemucore.setgender("1")
-                                If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
+                                If genderstay.Checked = True Then arcemucore.setgender(Main.MainInstance.char_gender.ToString)
                                 If level.Checked = True Then arcemucore.setlevel()
                                 If alternatelevellabel.Checked = True Then _
                                     arcemucore.setalternatelevel(alternateleveltext.Text)
@@ -1777,16 +1777,16 @@ Public Class Database2Database
                                 If pvp.Checked = True Then arcemucore.addpvp()
                                 If ruf.Checked = True Then arcemucore.addreputation()
                                 If inventar.Checked = True Then arcemucore.addinventory()
-                                If gold.Checked = True Then arcemucore.addgold(Main.player_money)
+                                If gold.Checked = True Then arcemucore.addgold(Main.MainInstance.player_money)
                                 reporttext.AppendText(Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
-                            Loop Until counter = Main.anzahldurchlaufe
+                            Loop Until counter = Main.MainInstance.anzahldurchlaufe
                         End If
 
                     Next
                 Else
                     trinitycore1.closesql()
-                    Main.ServerString = alternatestring
-                    Main.ServerStringRealmd = alternaterealmdstring
+                    Main.MainInstance.ServerString = alternatestring
+                    Main.MainInstance.ServerStringRealmd = alternaterealmdstring
                     trinitycore1.opensql()
                     Dim sLines() As String = accnames.Lines
                     For i As Integer = 0 To sLines.Length - 1
@@ -1795,20 +1795,20 @@ Public Class Database2Database
                         Else
                             Do
                                 Dim ciu As New CIUFile
-                                ciu.readspecial(Main.cuisets)
-                                Main.cuisets -= 1
+                                ciu.readspecial(Main.MainInstance.cuisets)
+                                Main.MainInstance.cuisets -= 1
 
 
-                                arcemucore.adddetailedchar(sLines(i), Main.char_name, namechange1.Checked)
+                                arcemucore.adddetailedchar(sLines(i), Main.MainInstance.char_name, namechange1.Checked)
 
-                                '  arcemucore.updatechars(sLines(i), Main.char_name, namechange2.Checked)
+                                '  arcemucore.updatechars(sLines(i), Main.MainInstance.char_name, namechange2.Checked)
                                 If items.Checked = True Then arcemucore.additems()
                                 If enchantments.Checked = True Then arcemucore.addench()
                                 If glyphs.Checked = True Then arcemucore.addglyphs(xpansion)
                                 If talents.Checked = True Then arcemucore.addtalents()
                                 If male.Checked = True Then arcemucore.setgender("0")
                                 If female.Checked = True Then arcemucore.setgender("1")
-                                If genderstay.Checked = True Then arcemucore.setgender(Main.char_gender.ToString)
+                                If genderstay.Checked = True Then arcemucore.setgender(Main.MainInstance.char_gender.ToString)
                                 If level.Checked = True Then arcemucore.setlevel()
                                 If alternatelevellabel.Checked = True Then _
                                     arcemucore.setalternatelevel(alternateleveltext.Text)
@@ -1821,11 +1821,11 @@ Public Class Database2Database
                                 If pvp.Checked = True Then arcemucore.addpvp()
                                 If ruf.Checked = True Then arcemucore.addreputation()
                                 If inventar.Checked = True Then arcemucore.addinventory()
-                                If gold.Checked = True Then arcemucore.addgold(Main.player_money)
+                                If gold.Checked = True Then arcemucore.addgold(Main.MainInstance.player_money)
                                 reporttext.AppendText(Now.TimeOfDay.ToString & "// Character is completed!" & vbNewLine)
 
 
-                            Loop Until Main.cuisets = 0
+                            Loop Until Main.MainInstance.cuisets = 0
                         End If
                     Next
                 End If
@@ -1903,7 +1903,7 @@ Public Class Database2Database
             xpansion = "wotlk"
         End If
 
-        ' Main.ServerStringCheck = alternatestring
+        ' Main.MainInstance.ServerStringCheck = alternatestring
 
 
         If trinity1.Checked = True Then
@@ -1927,7 +1927,7 @@ Public Class Database2Database
     End Sub
 
     Private Function runcommandRealmd(ByVal command As String, ByVal spalte As String) As String
-        Dim conn As New MySqlConnection(Main.ServerStringRealmd)
+        Dim conn As New MySqlConnection(Main.MainInstance.ServerStringRealmd)
         Dim da As New MySqlDataAdapter(command, conn)
         Dim dt As New DataTable
         Try

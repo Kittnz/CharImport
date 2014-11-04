@@ -34,13 +34,17 @@ Public Class Database_Interface
         InitializeComponent()
     End Sub
 
+    Private Sub Database_Interface_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        Starter.Show()
+    End Sub
+
     Private Sub Database_Interface_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.MaximumSize = Me.Size
         auth.Text = My.Settings.realmd
         characters.Text = My.Settings.characters
         runfunction.writelog("Database_Interface_Load call")
-        Main.anzahldurchlaufe = 0
-        Main.datasets = vbEmpty
+        Main.MainInstance.anzahldurchlaufe = 0
+        Main.MainInstance.datasets = vbEmpty
         Select Case My.Settings.favcore
             Case 1
                 trinity1.Checked = True
@@ -73,7 +77,7 @@ Public Class Database_Interface
         My.Settings.realmd = auth.Text
         My.Settings.characters = characters.Text
         My.Settings.Save()
-        Main.ServerStringInfo = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
+        Main.MainInstance.ServerStringInfo = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
                                 password.Text & ";Database=information_schema"
 
         If automatic.Checked = True Then
@@ -133,37 +137,37 @@ Public Class Database_Interface
                                             End If
                                             Exit Sub
                                         Else
-                                            Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
+                                            Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
                                                                       ";User id=" & user.Text & ";Password=" &
                                                                       password.Text & ";Database=" & auth.Text
                                         End If
                                     Else
-                                        Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
+                                        Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
                                                                   ";User id=" & user.Text & ";Password=" & password.Text &
                                                                   ";Database=op_realm"
                                     End If
                                 Else
-                                    Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
+                                    Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
                                                               ";User id=" & user.Text & ";Password=" & password.Text &
                                                               ";Database=logon"
                                 End If
                             Else
-                                Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                                Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
                                                           user.Text & ";Password=" & password.Text & ";Database=auth"
                             End If
                         Else
-                            Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                            Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
                                                       user.Text & ";Password=" & password.Text & ";Database=realm"
                         End If
                     Else
-                        Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                        Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
                                                   user.Text & ";Password=" & password.Text & ";Database=realmd"
                     End If
                     runfunction.writelog("Could find character db and auth db")
-                    Main.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                    Main.MainInstance.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
                                         ";Password=" & password.Text & ";Database=character"
-                    Main.characterdbname = "character"
-                    Main.ServerStringCheck = Main.ServerString
+                    Main.MainInstance.characterdbname = "character"
+                    Main.MainInstance.ServerStringCheck = Main.MainInstance.ServerString
                     If determinecore() = "arcemu" Then
                         arcemu.Checked = True
                     ElseIf determinecore() = "mangos" Then
@@ -231,35 +235,35 @@ Public Class Database_Interface
                                         runfunction.writelog("Could find character db but not auth db")
                                         Exit Sub
                                     Else
-                                        Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
+                                        Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
                                                                   ";User id=" & user.Text & ";Password=" & password.Text &
                                                                   ";Database=" & auth.Text
                                     End If
                                 Else
-                                    Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
+                                    Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text &
                                                               ";User id=" & user.Text & ";Password=" & password.Text &
                                                               ";Database=op_realm"
                                 End If
                             Else
-                                Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                                Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
                                                           user.Text & ";Password=" & password.Text & ";Database=logon"
                             End If
                         Else
-                            Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                            Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
                                                       user.Text & ";Password=" & password.Text & ";Database=auth"
                         End If
                     Else
-                        Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
+                        Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" &
                                                   user.Text & ";Password=" & password.Text & ";Database=realm"
                     End If
                 Else
-                    Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                    Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
                                               ";Password=" & password.Text & ";Database=realmd"
                 End If
-                Main.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                Main.MainInstance.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
                                     ";Password=" & password.Text & ";Database=characters"
-                Main.ServerStringCheck = Main.ServerString
-                Main.characterdbname = "characters"
+                Main.MainInstance.ServerStringCheck = Main.MainInstance.ServerString
+                Main.MainInstance.characterdbname = "characters"
                 runfunction.writelog("Could find character db and auth db")
                 If determinecore() = "arcemu" Then
                     arcemu.Checked = True
@@ -301,12 +305,12 @@ Public Class Database_Interface
                         "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" &
                         password.Text & ";Database=" & auth.Text) = True Then
                     runfunction.writelog("Could find auth db")
-                    Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                    Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
                                               ";Password=" & password.Text & ";Database=" & auth.Text
-                    Main.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
+                    Main.MainInstance.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text &
                                         ";Password=" & password.Text & ";Database=" & characters.Text
-                    Main.characterdbname = characters.Text
-                    Main.ServerStringCheck = Main.ServerString
+                    Main.MainInstance.characterdbname = characters.Text
+                    Main.MainInstance.ServerStringCheck = Main.MainInstance.ServerString
                     If determinecore() = "arcemu" Then
                         arcemu.Checked = True
                     ElseIf determinecore() = "mangos" Then
@@ -382,7 +386,7 @@ Public Class Database_Interface
         End Try
 
         Dim myAdapter As New MySqlDataAdapter
-        SQLConnection.ConnectionString = Main.ServerString
+        SQLConnection.ConnectionString = Main.MainInstance.ServerString
         Dim sqlquery = ("SELECT " & spalte & " FROM " & table)
         Dim myCommand As New MySqlCommand()
         myCommand.Connection = SQLConnection
@@ -642,17 +646,17 @@ Public Class Database_Interface
                 Else
                     If trinity1.Checked = True Then
                         trinitycore1.opensql()
-                        If trinitycore1.accountexist((sLines(i)).ToUpper, Main.ServerStringRealmd) = False Then _
+                        If trinitycore1.accountexist((sLines(i)).ToUpper, Main.MainInstance.ServerStringRealmd) = False Then _
                             errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     ElseIf mangos.Checked = True Then
                         trinitycore1.opensql()
-                        If mangoscore.accountexist((sLines(i)).ToUpper, Main.ServerStringRealmd) = False Then _
+                        If mangoscore.accountexist((sLines(i)).ToUpper, Main.MainInstance.ServerStringRealmd) = False Then _
                             errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     Else
                         trinitycore1.opensql()
-                        If arcemucore.accountexist((sLines(i)).ToUpper, Main.ServerStringRealmd) = False Then _
+                        If arcemucore.accountexist((sLines(i)).ToUpper, Main.MainInstance.ServerStringRealmd) = False Then _
                             errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     End If
@@ -671,17 +675,17 @@ Public Class Database_Interface
                 Else
                     If trinity1.Checked = True Then
                         trinitycore1.opensql()
-                        If trinitycore1.characterexist((sLines(i)).ToUpper, Main.ServerString) = False Then _
+                        If trinitycore1.characterexist((sLines(i)).ToUpper, Main.MainInstance.ServerString) = False Then _
                             errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     ElseIf mangos.Checked = True Then
                         trinitycore1.opensql()
-                        If mangoscore.characterexist((sLines(i)).ToUpper, Main.ServerString) = False Then _
+                        If mangoscore.characterexist((sLines(i)).ToUpper, Main.MainInstance.ServerString) = False Then _
                             errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     Else
                         trinitycore1.opensql()
-                        If arcemucore.characterexist((sLines(i)).ToUpper, Main.ServerString) = False Then _
+                        If arcemucore.characterexist((sLines(i)).ToUpper, Main.MainInstance.ServerString) = False Then _
                             errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     End If
@@ -798,7 +802,11 @@ Public Class Database_Interface
         runfunction.writelog("""Save character profiles in template"" request")
         My.Settings.savecontent = ""
         My.Settings.Save()
-        MsgBox("Bitte gib jetzt mithilfe des folgenden Fensters den Namen des neuen Templates an.")
+        If My.Settings.language = "de" Then
+            MsgBox(localeDE.nameTemplatePrompt, MsgBoxStyle.Critical, localeDE.attention)
+        Else
+            MsgBox(localeEN.nameTemplatePrompt, MsgBoxStyle.Critical, localeEN.attention)
+        End If
         Dim locOFD As New SaveFileDialog()
 
         With locOFD
@@ -828,9 +836,9 @@ Public Class Database_Interface
             MsgBox("Ungültiger Dateiname!", MsgBoxStyle.Critical, "Fehler")
             Exit Sub
         End If
-        Main.overview = False
-        Main.importmode = 3
-        Main.progressmode = 3
+        Main.MainInstance.overview = False
+        Main.MainInstance.importmode = 3
+        Main.MainInstance.progressmode = 3
         Process_Status.Show()
         Process_Status.UseWaitCursor = True
         runfunction.writelog("Corecheck request")
@@ -875,14 +883,14 @@ Public Class Database_Interface
         Next
 
 
-        Main.Panel21.Location = New Point(9999, 9999)
+        Main.MainInstance.Panel21.Location = New Point(9999, 9999)
         Process_Status.UseWaitCursor = False
         Application.DoEvents()
         Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "// Finished!" & vbNewLine)
 
         Process_Status.Button1.Enabled = True
         Starter.Hide()
-        Main.UseWaitCursor = False
+        Main.MainInstance.UseWaitCursor = False
         trinitycore1.closesql()
         Me.Close()
     End Sub
@@ -900,17 +908,17 @@ Public Class Database_Interface
                 Else
                     If trinity1.Checked = True Then
                         trinitycore1.opensql()
-                        If trinitycore1.accountexist((sLines(i)).ToUpper, Main.ServerStringRealmd) = False Then _
+                        If trinitycore1.accountexist((sLines(i)).ToUpper, Main.MainInstance.ServerStringRealmd) = False Then _
                             errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     ElseIf mangos.Checked = True Then
                         trinitycore1.opensql()
-                        If mangoscore.accountexist((sLines(i)).ToUpper, Main.ServerStringRealmd) = False Then _
+                        If mangoscore.accountexist((sLines(i)).ToUpper, Main.MainInstance.ServerStringRealmd) = False Then _
                             errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     Else
                         trinitycore1.opensql()
-                        If arcemucore.accountexist((sLines(i)).ToUpper, Main.ServerStringRealmd) = False Then _
+                        If arcemucore.accountexist((sLines(i)).ToUpper, Main.MainInstance.ServerStringRealmd) = False Then _
                             errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     End If
@@ -929,17 +937,17 @@ Public Class Database_Interface
                 Else
                     If trinity1.Checked = True Then
                         trinitycore1.opensql()
-                        If trinitycore1.characterexist((sLines(i)).ToUpper, Main.ServerString) = False Then _
+                        If trinitycore1.characterexist((sLines(i)).ToUpper, Main.MainInstance.ServerString) = False Then _
                             errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     ElseIf mangos.Checked = True Then
                         trinitycore1.opensql()
-                        If mangoscore.characterexist((sLines(i)).ToUpper, Main.ServerString) = False Then _
+                        If mangoscore.characterexist((sLines(i)).ToUpper, Main.MainInstance.ServerString) = False Then _
                             errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     Else
                         trinitycore1.opensql()
-                        If arcemucore.characterexist((sLines(i)).ToUpper, Main.ServerString) = False Then _
+                        If arcemucore.characterexist((sLines(i)).ToUpper, Main.MainInstance.ServerString) = False Then _
                             errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     End If
@@ -955,18 +963,18 @@ Public Class Database_Interface
             Exit Sub
         End If
         runfunction.writelog("""character overview"" request")
-        Main.setvisible(False)
-        Main.setallempty()
-        'Main.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=characters"
-        'Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=realmd"
-        'Main.ServerStringInfo = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=information_schema"
-        Main.ServerStringCheck = Main.ServerString
-        Main.Show()
+        Main.MainInstance.setvisible(False)
+        Main.MainInstance.setallempty()
+        'Main.MainInstance.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=characters"
+        'Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=realmd"
+        'Main.MainInstance.ServerStringInfo = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=information_schema"
+        Main.MainInstance.ServerStringCheck = Main.MainInstance.ServerString
+        Main.MainInstance.Show()
         Application.DoEvents()
 
-        Main.overview = True
-        Main.importmode = 3
-        Main.progressmode = 3
+        Main.MainInstance.overview = True
+        Main.MainInstance.importmode = 3
+        Main.MainInstance.progressmode = 3
         Process_Status.Show()
         Process_Status.UseWaitCursor = True
         If trinity1.Checked = True Then
@@ -993,17 +1001,17 @@ Public Class Database_Interface
                 Else
                     If trinity1.Checked = True Then
                         trinitycore1.opensql()
-                        If trinitycore1.accountexist((sLines(i)).ToUpper, Main.ServerStringRealmd) = False Then _
+                        If trinitycore1.accountexist((sLines(i)).ToUpper, Main.MainInstance.ServerStringRealmd) = False Then _
                             errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     ElseIf mangos.Checked = True Then
                         trinitycore1.opensql()
-                        If mangoscore.accountexist((sLines(i)).ToUpper, Main.ServerStringRealmd) = False Then _
+                        If mangoscore.accountexist((sLines(i)).ToUpper, Main.MainInstance.ServerStringRealmd) = False Then _
                             errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     Else
                         trinitycore1.opensql()
-                        If arcemucore.accountexist((sLines(i)).ToUpper, Main.ServerStringRealmd) = False Then _
+                        If arcemucore.accountexist((sLines(i)).ToUpper, Main.MainInstance.ServerStringRealmd) = False Then _
                             errortext = errortext & "Account " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     End If
@@ -1022,17 +1030,17 @@ Public Class Database_Interface
                 Else
                     If trinity1.Checked = True Then
                         trinitycore1.opensql()
-                        If trinitycore1.characterexist((sLines(i)).ToUpper, Main.ServerString) = False Then _
+                        If trinitycore1.characterexist((sLines(i)).ToUpper, Main.MainInstance.ServerString) = False Then _
                             errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     ElseIf mangos.Checked = True Then
                         trinitycore1.opensql()
-                        If mangoscore.characterexist((sLines(i)).ToUpper, Main.ServerString) = False Then _
+                        If mangoscore.characterexist((sLines(i)).ToUpper, Main.MainInstance.ServerString) = False Then _
                             errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     Else
                         trinitycore1.opensql()
-                        If arcemucore.characterexist((sLines(i)).ToUpper, Main.ServerString) = False Then _
+                        If arcemucore.characterexist((sLines(i)).ToUpper, Main.MainInstance.ServerString) = False Then _
                             errortext = errortext & "Character " & sLines(i) & " could not be found!" & vbNewLine
                         trinitycore1.closesql()
                     End If
@@ -1146,7 +1154,7 @@ Public Class Database_Interface
             My.Settings.gmlevelactive = True
             My.Settings.Save()
         End If
-        Main.ServerStringCheck = Main.ServerString
+        Main.MainInstance.ServerStringCheck = Main.MainInstance.ServerString
         runfunction.writelog("""Copy characters directly into database"" request")
         Me.Hide()
         runfunction.writelog("Corecheck request")
@@ -1270,17 +1278,17 @@ Public Class Database_Interface
             My.Settings.favcore = 2
         ElseIf arcemu.Checked = True Then
             My.Settings.favcore = 3
-        Else :
+        Else
         End If
         My.Settings.Save()
     End Sub
 
     Private Sub CoreCheck_LinkClicked(ByVal sender As Object, ByVal e As LinkLabelLinkClickedEventArgs) _
         Handles CoreCheck.LinkClicked
-        'Main.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=characters"
-        'Main.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=auth"
-        'Main.ServerStringInfo = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=information_schema"
-        Main.ServerStringCheck = Main.ServerString
+        'Main.MainInstance.ServerString = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=characters"
+        'Main.MainInstance.ServerStringRealmd = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=auth"
+        'Main.MainInstance.ServerStringInfo = "server=" & address.Text & ";Port=" & port.Text & ";User id=" & user.Text & ";Password=" & password.Text & ";Database=information_schema"
+        Main.MainInstance.ServerStringCheck = Main.MainInstance.ServerString
         If trinity1.Checked = True Then
             trinitycorecheck.begincheck(1)
         ElseIf mangos.Checked = True Then
@@ -1351,7 +1359,7 @@ Public Class Database_Interface
     Private Sub tbc_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles tbc.CheckedChanged
         If tbc.Checked = True Then
             runfunction.writelog("tbc checked")
-            Main.xpac = 2
+            Main.MainInstance.xpac = 2
             Glyphs.Enabled = False
             classic.Checked = False
             wotlk.Checked = False
@@ -1362,7 +1370,7 @@ Public Class Database_Interface
     Private Sub classic_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles classic.CheckedChanged
         If classic.Checked = True Then
             runfunction.writelog("classic checked")
-            Main.xpac = 1
+            Main.MainInstance.xpac = 1
             Glyphs.Enabled = False
             tbc.Checked = False
             wotlk.Checked = False
@@ -1373,7 +1381,7 @@ Public Class Database_Interface
     Private Sub wotlk_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles wotlk.CheckedChanged
         If wotlk.Checked = True Then
             runfunction.writelog("wotlk checked")
-            Main.xpac = 3
+            Main.MainInstance.xpac = 3
             Glyphs.Enabled = True
             tbc.Checked = False
             classic.Checked = False
@@ -1384,7 +1392,7 @@ Public Class Database_Interface
     Private Sub cata_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles cata.CheckedChanged
         If cata.Checked = True Then
             runfunction.writelog("cata checked")
-            Main.xpac = 4
+            Main.MainInstance.xpac = 4
             Glyphs.Enabled = True
             tbc.Checked = False
             wotlk.Checked = False

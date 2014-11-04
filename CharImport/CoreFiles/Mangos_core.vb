@@ -60,32 +60,32 @@ Public Class Mangos_core
     Public Sub opensql()
         runfunction.writelog("Open SQL connection @mangos")
         Try
-            Main.GLOBALconn.Close()
-            Main.GLOBALconn.Dispose()
+            Main.MainInstance.GLOBALconn.Close()
+            Main.MainInstance.GLOBALconn.Dispose()
         Catch ex As Exception
 
         End Try
         Try
-            Main.GLOBALconnRealmd.Close()
-            Main.GLOBALconnRealmd.Dispose()
+            Main.MainInstance.GLOBALconnRealmd.Close()
+            Main.MainInstance.GLOBALconnRealmd.Dispose()
         Catch ex As Exception
 
         End Try
-        Main.GLOBALconn.ConnectionString = Main.ServerString
-        Main.GLOBALconnRealmd.ConnectionString = Main.ServerStringRealmd
+        Main.MainInstance.GLOBALconn.ConnectionString = Main.MainInstance.ServerString
+        Main.MainInstance.GLOBALconnRealmd.ConnectionString = Main.MainInstance.ServerStringRealmd
         Try
-            Main.GLOBALconn.Open()
+            Main.MainInstance.GLOBALconn.Open()
         Catch ex As Exception
             runfunction.writelog("Failed to open SQL connection @mangos // errmsg: " & ex.ToString)
-            Main.GLOBALconn.Close()
-            Main.GLOBALconn.Dispose()
+            Main.MainInstance.GLOBALconn.Close()
+            Main.MainInstance.GLOBALconn.Dispose()
         End Try
         Try
-            Main.GLOBALconnRealmd.Open()
+            Main.MainInstance.GLOBALconnRealmd.Open()
         Catch ex As Exception
             runfunction.writelog("Failed to open SQL connection Realmd @mangos // errmsg: " & ex.ToString)
-            Main.GLOBALconnRealmd.Close()
-            Main.GLOBALconnRealmd.Dispose()
+            Main.MainInstance.GLOBALconnRealmd.Close()
+            Main.MainInstance.GLOBALconnRealmd.Dispose()
         End Try
     End Sub
 
@@ -93,14 +93,14 @@ Public Class Mangos_core
         runfunction.writelog("Close SQL connection @mangos")
 
         Try
-            Main.GLOBALconn.Close()
-            Main.GLOBALconn.Dispose()
+            Main.MainInstance.GLOBALconn.Close()
+            Main.MainInstance.GLOBALconn.Dispose()
         Catch ex As Exception
 
         End Try
         Try
-            Main.GLOBALconnRealmd.Close()
-            Main.GLOBALconnRealmd.Dispose()
+            Main.MainInstance.GLOBALconnRealmd.Close()
+            Main.MainInstance.GLOBALconnRealmd.Dispose()
         Catch ex As Exception
 
         End Try
@@ -129,7 +129,7 @@ Public Class Mangos_core
                             New MySqlDataAdapter(
                                 "SELECT `username` FROM `account` WHERE last_login>='" & My.Settings.lastlogindate1 &
                                 "' AND last_login<='" & My.Settings.lastlogindate2 & "' AND gmlevel='" &
-                                My.Settings.gmlevel.ToString & "'", Main.GLOBALconnRealmd)
+                                My.Settings.gmlevel.ToString & "'", Main.MainInstance.GLOBALconnRealmd)
                     Dim dt As New DataTable
                     Try
                         da.Fill(dt)
@@ -151,7 +151,7 @@ Public Class Mangos_core
                         da As _
                             New MySqlDataAdapter(
                                 "SELECT `username` FROM `account` WHERE last_login>='" & My.Settings.lastlogindate1 &
-                                "' AND last_login<='" & My.Settings.lastlogindate2 & "'", Main.GLOBALconnRealmd)
+                                "' AND last_login<='" & My.Settings.lastlogindate2 & "'", Main.MainInstance.GLOBALconnRealmd)
                     Dim dt As New DataTable
                     Try
                         da.Fill(dt)
@@ -176,7 +176,7 @@ Public Class Mangos_core
                         da As _
                             New MySqlDataAdapter(
                                 "SELECT `username` FROM `account` WHERE gmlevel='" & My.Settings.gmlevel.ToString & "'",
-                                Main.GLOBALconnRealmd)
+                                Main.MainInstance.GLOBALconnRealmd)
                     Dim dt As New DataTable
                     Try
                         da.Fill(dt)
@@ -205,7 +205,7 @@ Public Class Mangos_core
                     da As _
                         New MySqlDataAdapter(
                             "SELECT guid FROM characters WHERE level>='" & My.Settings.levelrangemin.ToString &
-                            "' AND level<='" & My.Settings.levelrangemax & "'", Main.GLOBALconn)
+                            "' AND level<='" & My.Settings.levelrangemax & "'", Main.MainInstance.GLOBALconn)
                 Dim dt As New DataTable
                 Try
                     da.Fill(dt)
@@ -223,7 +223,7 @@ Public Class Mangos_core
 
                 End Try
             Else
-                Dim da As New MySqlDataAdapter("SELECT guid FROM characters", Main.GLOBALconn)
+                Dim da As New MySqlDataAdapter("SELECT guid FROM characters", Main.MainInstance.GLOBALconn)
                 Dim dt As New DataTable
                 Try
                     da.Fill(dt)
@@ -302,10 +302,10 @@ Public Class Mangos_core
 
         runfunction.writelog("getthischars_call @mangos for charname: " & charname)
 
-        Dim da As New MySqlDataAdapter("SELECT guid FROM characters WHERE name='" & charname & "'", Main.GLOBALconn)
+        Dim da As New MySqlDataAdapter("SELECT guid FROM characters WHERE name='" & charname & "'", Main.MainInstance.GLOBALconn)
         Dim dt As New DataTable
         runfunction.writelog(
-            "connection: " & Main.GLOBALconn.ConnectionString & " // connectionstate: " & Main.GLOBALconn.State.ToString)
+            "connection: " & Main.MainInstance.GLOBALconn.ConnectionString & " // connectionstate: " & Main.MainInstance.GLOBALconn.State.ToString)
         Try
             da.Fill(dt)
 
@@ -345,7 +345,7 @@ Public Class Mangos_core
                     New MySqlDataAdapter(
                         "SELECT guid FROM characters WHERE `account`='" & accid & "' AND level>='" &
                         My.Settings.levelrangemin.ToString & "' AND level<='" & My.Settings.levelrangemax & "'",
-                        Main.GLOBALconn)
+                        Main.MainInstance.GLOBALconn)
             Dim dt As New DataTable
             Try
                 da.Fill(dt)
@@ -367,7 +367,7 @@ Public Class Mangos_core
         Else
             Dim _
                 da As _
-                    New MySqlDataAdapter("SELECT guid FROM characters WHERE `account`='" & accid & "'", Main.GLOBALconn)
+                    New MySqlDataAdapter("SELECT guid FROM characters WHERE `account`='" & accid & "'", Main.MainInstance.GLOBALconn)
             Dim dt As New DataTable
             Try
                 da.Fill(dt)
@@ -409,16 +409,16 @@ Public Class Mangos_core
 
         'Character Race
         runfunction.writelog("GetCharFromDatabase_call @mangos for charguid: " & charguid)
-        Main.setallempty()
-        Main.anzahldurchlaufe += 1
-        Main.char_guid = CInt(Val(charguid))
+        Main.MainInstance.setallempty()
+        Main.MainInstance.anzahldurchlaufe += 1
+        Main.MainInstance.char_guid = CInt(Val(charguid))
         characterguid = CInt(Val(charguid))
 
         Process_Status.processreport.appendText(
             Now.TimeOfDay.ToString & "/ Loading Character Race from Database..." & vbNewLine)
         Application.DoEvents()
         Try
-            Main.char_race = CInt(Val(runfunction.runcommand("SELECT race FROM characters WHERE guid='" & charguid & "'",
+            Main.MainInstance.char_race = CInt(Val(runfunction.runcommand("SELECT race FROM characters WHERE guid='" & charguid & "'",
                                                              "race")))
         Catch ex As Exception
 
@@ -441,7 +441,7 @@ Public Class Mangos_core
             Now.TimeOfDay.ToString & "/ Loading Character Class from Database..." & vbNewLine)
         Application.DoEvents()
         Try
-            Main.char_class =
+            Main.MainInstance.char_class =
                 CInt(Val(runfunction.runcommand("SELECT class FROM characters WHERE guid='" & charguid & "'", "class")))
         Catch ex As Exception
 
@@ -463,7 +463,7 @@ Public Class Mangos_core
             Now.TimeOfDay.ToString & "/ Loading Character Gender from Database..." & vbNewLine)
         Application.DoEvents()
         Try
-            Main.char_gender =
+            Main.MainInstance.char_gender =
                 CInt(Val(runfunction.runcommand("SELECT gender FROM characters WHERE guid='" & charguid & "'", "gender")))
         Catch ex As Exception
 
@@ -474,7 +474,7 @@ Public Class Mangos_core
             Now.TimeOfDay.ToString & "/ Loading Character Level from Database..." & vbNewLine)
         Application.DoEvents()
         Try
-            Main.char_level =
+            Main.MainInstance.char_level =
                 CInt(Val(runfunction.runcommand("SELECT level FROM characters WHERE guid='" & charguid & "'", "level")))
 
         Catch ex As Exception
@@ -483,197 +483,197 @@ Public Class Mangos_core
         Process_Status.processreport.appendText(Now.TimeOfDay.ToString & "/ Loading Character Table..." & vbNewLine)
         Application.DoEvents()
 
-        Main.char_name = runfunction.runcommand("SELECT name FROM characters WHERE guid='" & charguid & "'", "name")
+        Main.MainInstance.char_name = runfunction.runcommand("SELECT name FROM characters WHERE guid='" & charguid & "'", "name")
 
-        Main.accountid = CInt(Val(runfunction.runcommand("SELECT account FROM characters WHERE guid='" & charguid & "'",
+        Main.MainInstance.accountid = CInt(Val(runfunction.runcommand("SELECT account FROM characters WHERE guid='" & charguid & "'",
                                                          "account")))
-        Main.char_xp = CInt(Val(runfunction.runcommand("SELECT xp FROM characters WHERE guid='" & charguid & "'", "xp")))
-        Main.player_money = CInt(Val(runfunction.runcommand("SELECT money FROM characters WHERE guid='" & charguid & "'",
+        Main.MainInstance.char_xp = CInt(Val(runfunction.runcommand("SELECT xp FROM characters WHERE guid='" & charguid & "'", "xp")))
+        Main.MainInstance.player_money = CInt(Val(runfunction.runcommand("SELECT money FROM characters WHERE guid='" & charguid & "'",
                                                             "money")))
-        Main.playerBytes =
+        Main.MainInstance.playerBytes =
             CInt(Val(runfunction.runcommand("SELECT playerBytes FROM characters WHERE guid='" & charguid & "'",
                                             "playerBytes")))
-        Main.playerBytes2 =
+        Main.MainInstance.playerBytes2 =
             CInt(Val(runfunction.runcommand("SELECT playerBytes2 FROM characters WHERE guid='" & charguid & "'",
                                             "playerBytes2")))
-        Main.playerFlags =
+        Main.MainInstance.playerFlags =
             CInt(Val(runfunction.runcommand("SELECT playerFlags FROM characters WHERE guid='" & charguid & "'",
                                             "playerFlags")))
-        Main.position_x = runfunction.runcommand("SELECT position_x FROM characters WHERE guid='" & charguid & "'",
-                                                 "position_x")
-        Main.position_y = runfunction.runcommand("SELECT position_y FROM characters WHERE guid='" & charguid & "'",
-                                                 "position_y")
-        Main.position_z = runfunction.runcommand("SELECT position_z FROM characters WHERE guid='" & charguid & "'",
-                                                 "position_z")
-        Main.map = CInt(Val(runfunction.runcommand("SELECT map FROM characters WHERE guid='" & charguid & "'", "map")))
-        Main.instance_id =
+        Main.MainInstance.position_x = CDbl((runfunction.runcommand("SELECT position_x FROM characters WHERE guid='" & charguid & "'",
+                                                       "position_x")))
+        Main.MainInstance.position_y = CDbl((runfunction.runcommand("SELECT position_y FROM characters WHERE guid='" & charguid & "'",
+                                                       "position_y")))
+        Main.MainInstance.position_z = CDbl((runfunction.runcommand("SELECT position_z FROM characters WHERE guid='" & charguid & "'",
+                                                       "position_z")))
+        Main.MainInstance.map = CInt(Val(runfunction.runcommand("SELECT map FROM characters WHERE guid='" & charguid & "'", "map")))
+        Main.MainInstance.instance_id =
             CInt(Val(runfunction.runcommand("SELECT instance_id FROM characters WHERE guid='" & charguid & "'",
                                             "instance_id")))
-        Main.instance_mode_mask =
+        Main.MainInstance.instance_mode_mask =
             runfunction.runcommand("SELECT instance_mode_mask FROM characters WHERE guid='" & charguid & "'",
                                    "instance_mode_mask")
-        Main.orientation = runfunction.runcommand("SELECT orientation FROM characters WHERE guid='" & charguid & "'",
-                                                  "orientation")
-        Main.taximask = runfunction.runcommand("SELECT taximask FROM characters WHERE guid='" & charguid & "'",
+        Main.MainInstance.orientation = CDbl((runfunction.runcommand("SELECT orientation FROM characters WHERE guid='" & charguid & "'",
+                                                        "orientation")))
+        Main.MainInstance.taximask = runfunction.runcommand("SELECT taximask FROM characters WHERE guid='" & charguid & "'",
                                                "taximask")
-        Main.cinematic =
+        Main.MainInstance.cinematic =
             CInt(Val(runfunction.runcommand("SELECT cinematic FROM characters WHERE guid='" & charguid & "'",
                                             "cinematic")))
-        Main.totaltime =
+        Main.MainInstance.totaltime =
             CInt(Val(runfunction.runcommand("SELECT totaltime FROM characters WHERE guid='" & charguid & "'",
                                             "totaltime")))
-        Main.leveltime =
+        Main.MainInstance.leveltime =
             CInt(Val(runfunction.runcommand("SELECT leveltime FROM characters WHERE guid='" & charguid & "'",
                                             "leveltime")))
-        Main.extra_flags = runfunction.runcommand("SELECT extra_flags FROM characters WHERE guid='" & charguid & "'",
+        Main.MainInstance.extra_flags = runfunction.runcommand("SELECT extra_flags FROM characters WHERE guid='" & charguid & "'",
                                                   "extra_flags")
-        Main.stable_slots = runfunction.runcommand("SELECT stable_slots FROM characters WHERE guid='" & charguid & "'",
+        Main.MainInstance.stable_slots = runfunction.runcommand("SELECT stable_slots FROM characters WHERE guid='" & charguid & "'",
                                                    "stable_slots")
-        Main.at_login = runfunction.runcommand("SELECT at_login FROM characters WHERE guid='" & charguid & "'",
+        Main.MainInstance.at_login = runfunction.runcommand("SELECT at_login FROM characters WHERE guid='" & charguid & "'",
                                                "at_login")
-        Main.zone = CInt(Val(runfunction.runcommand("SELECT zone FROM characters WHERE guid='" & charguid & "'", "zone")))
-        Main.arenaPoints =
+        Main.MainInstance.zone = CInt(Val(runfunction.runcommand("SELECT zone FROM characters WHERE guid='" & charguid & "'", "zone")))
+        Main.MainInstance.arenaPoints =
             CInt(Val(runfunction.runcommand("SELECT arenaPoints FROM characters WHERE guid='" & charguid & "'",
                                             "arenaPoints")))
-        Main.totalHonorPoints =
+        Main.MainInstance.totalHonorPoints =
             CInt(Val(runfunction.runcommand("SELECT totalHonorPoints FROM characters WHERE guid='" & charguid & "'",
                                             "totalHonorPoints")))
-        Main.totalKills =
+        Main.MainInstance.totalKills =
             CInt(Val(runfunction.runcommand("SELECT totalKills FROM characters WHERE guid='" & charguid & "'",
                                             "totalKills")))
-        Main.chosenTitle = runfunction.runcommand("SELECT chosenTitle FROM characters WHERE guid='" & charguid & "'",
+        Main.MainInstance.chosenTitle = runfunction.runcommand("SELECT chosenTitle FROM characters WHERE guid='" & charguid & "'",
                                                   "chosenTitle")
-        Main.knownCurrencies =
+        Main.MainInstance.knownCurrencies =
             runfunction.runcommand("SELECT knownCurrencies FROM characters WHERE guid='" & charguid & "'",
                                    "knownCurrencies")
-        Main.watchedFaction =
+        Main.MainInstance.watchedFaction =
             runfunction.runcommand("SELECT watchedFaction FROM characters WHERE guid='" & charguid & "'",
                                    "watchedFaction")
-        Main.health = CInt(Val(runfunction.runcommand("SELECT health FROM characters WHERE guid='" & charguid & "'",
+        Main.MainInstance.health = CInt(Val(runfunction.runcommand("SELECT health FROM characters WHERE guid='" & charguid & "'",
                                                       "health")))
-        Main.speccount =
+        Main.MainInstance.speccount =
             CInt(Val(runfunction.runcommand("SELECT speccount FROM characters WHERE guid='" & charguid & "'",
                                             "speccount")))
-        Main.activespec =
+        Main.MainInstance.activespec =
             CInt(Val(runfunction.runcommand("SELECT activespec FROM characters WHERE guid='" & charguid & "'",
                                             "activespec")))
-        Main.exploredZones = runfunction.runcommand("SELECT exploredZones FROM characters WHERE guid='" & charguid & "'",
+        Main.MainInstance.exploredZones = runfunction.runcommand("SELECT exploredZones FROM characters WHERE guid='" & charguid & "'",
                                                     "exploredZones")
-        Main.knownTitles = runfunction.runcommand("SELECT knownTitles FROM characters WHERE guid='" & charguid & "'",
+        Main.MainInstance.knownTitles = runfunction.runcommand("SELECT knownTitles FROM characters WHERE guid='" & charguid & "'",
                                                   "knownTitles")
-        Main.actionBars = runfunction.runcommand("SELECT actionBars FROM characters WHERE guid='" & charguid & "'",
+        Main.MainInstance.actionBars = runfunction.runcommand("SELECT actionBars FROM characters WHERE guid='" & charguid & "'",
                                                  "actionBars")
 
-        Main.accountname =
-            runfunction.runcommandRealmd("SELECT username FROM account WHERE `id`='" & Main.accountid.ToString & "'",
+        Main.MainInstance.accountname =
+            runfunction.runcommandRealmd("SELECT username FROM account WHERE `id`='" & Main.MainInstance.accountid.ToString & "'",
                                          "username")
-        Main.sha_pass_hash =
+        Main.MainInstance.sha_pass_hash =
             runfunction.runcommandRealmd(
-                "SELECT sha_pass_hash FROM account WHERE `id`='" & Main.accountid.ToString & "'", "sha_pass_hash")
-        Main.sessionkey =
-            runfunction.runcommandRealmd("SELECT sessionkey FROM account WHERE `id`='" & Main.accountid.ToString & "'",
+                "SELECT sha_pass_hash FROM account WHERE `id`='" & Main.MainInstance.accountid.ToString & "'", "sha_pass_hash")
+        Main.MainInstance.sessionkey =
+            runfunction.runcommandRealmd("SELECT sessionkey FROM account WHERE `id`='" & Main.MainInstance.accountid.ToString & "'",
                                          "sessionkey")
-        Main.account_v =
-            runfunction.runcommandRealmd("SELECT v FROM account WHERE `id`='" & Main.accountid.ToString & "'", "v")
-        Main.account_s =
-            runfunction.runcommandRealmd("SELECT s FROM account WHERE `id`='" & Main.accountid.ToString & "'", "s")
-        Main.email =
-            runfunction.runcommandRealmd("SELECT email FROM account WHERE `id`='" & Main.accountid.ToString & "'",
+        Main.MainInstance.account_v =
+            runfunction.runcommandRealmd("SELECT v FROM account WHERE `id`='" & Main.MainInstance.accountid.ToString & "'", "v")
+        Main.MainInstance.account_s =
+            runfunction.runcommandRealmd("SELECT s FROM account WHERE `id`='" & Main.MainInstance.accountid.ToString & "'", "s")
+        Main.MainInstance.email =
+            runfunction.runcommandRealmd("SELECT email FROM account WHERE `id`='" & Main.MainInstance.accountid.ToString & "'",
                                          "email")
-        Main.joindate =
-            runfunction.runcommandRealmd("SELECT joindate FROM account WHERE `id`='" & Main.accountid.ToString & "'",
+        Main.MainInstance.joindate =
+            runfunction.runcommandRealmd("SELECT joindate FROM account WHERE `id`='" & Main.MainInstance.accountid.ToString & "'",
                                          "joindate")
-        Main.expansion =
+        Main.MainInstance.expansion =
             CInt(
                 Val(
                     runfunction.runcommandRealmd(
-                        "SELECT expansion FROM account WHERE `id`='" & Main.accountid.ToString & "'", "expansion")))
-        Main.locale =
+                        "SELECT expansion FROM account WHERE `id`='" & Main.MainInstance.accountid.ToString & "'", "expansion")))
+        Main.MainInstance.locale =
             CInt(
                 Val(
                     runfunction.runcommandRealmd(
-                        "SELECT locale FROM account WHERE `id`='" & Main.accountid.ToString & "'", "locale")))
-        Main.account_access_gmlevel =
+                        "SELECT locale FROM account WHERE `id`='" & Main.MainInstance.accountid.ToString & "'", "locale")))
+        Main.MainInstance.account_access_gmlevel =
             CInt(
                 Val(
                     runfunction.runcommandRealmd(
-                        "SELECT gmlevel FROM account WHERE `id`='" & Main.accountid.ToString & "'", "gmlevel")))
-        Main.account_access_RealmID =
+                        "SELECT gmlevel FROM account WHERE `id`='" & Main.MainInstance.accountid.ToString & "'", "gmlevel")))
+        Main.MainInstance.account_access_RealmID =
             CInt(
                 Val(
                     runfunction.runcommandRealmd(
-                        "SELECT active_realm_id FROM account WHERE `id`='" & Main.accountid.ToString & "'", "RealmID")))
-        Main.level.Text = Main.char_name & ", " & Main.char_level & ", " & Main.char_race & ", " & Main.char_class
+                        "SELECT active_realm_id FROM account WHERE `id`='" & Main.MainInstance.accountid.ToString & "'", "RealmID")))
+        Main.MainInstance.level.Text = Main.MainInstance.char_name & ", " & Main.MainInstance.char_level & ", " & Main.MainInstance.char_race & ", " & Main.MainInstance.char_class
         Process_Status.processreport.appendText(
             Now.TimeOfDay.ToString & "/ Loading Character Homebind from Database..." & vbNewLine)
-        Main.character_homebind =
+        Main.MainInstance.character_homebind =
             ("<map>" &
              runfunction.runcommand(
-                 "SELECT " & Main.homebind_map & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString & "'",
-                 Main.homebind_map) & "</map><zone>" &
+                 "SELECT " & Main.MainInstance.homebind_map & " FROM character_homebind WHERE guid='" & Main.MainInstance.char_guid.ToString & "'",
+                 Main.MainInstance.homebind_map) & "</map><zone>" &
              runfunction.runcommand(
-                 "SELECT " & Main.homebind_zone & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
-                 "'", Main.homebind_zone) & "</zone><position_x>" &
+                 "SELECT " & Main.MainInstance.homebind_zone & " FROM character_homebind WHERE guid='" & Main.MainInstance.char_guid.ToString &
+                 "'", Main.MainInstance.homebind_zone) & "</zone><position_x>" &
              runfunction.runcommand(
-                 "SELECT " & Main.homebind_posx & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
-                 "'", Main.homebind_posx) & "</position_x><position_y>" &
+                 "SELECT " & Main.MainInstance.homebind_posx & " FROM character_homebind WHERE guid='" & Main.MainInstance.char_guid.ToString &
+                 "'", Main.MainInstance.homebind_posx) & "</position_x><position_y>" &
              runfunction.runcommand(
-                 "SELECT " & Main.homebind_posy & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
-                 "'", Main.homebind_posy) & "</position_y><position_z>" &
+                 "SELECT " & Main.MainInstance.homebind_posy & " FROM character_homebind WHERE guid='" & Main.MainInstance.char_guid.ToString &
+                 "'", Main.MainInstance.homebind_posy) & "</position_y><position_z>" &
              runfunction.runcommand(
-                 "SELECT " & Main.homebind_posz & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
-                 "'", Main.homebind_posz) & "</position_z>")
-        Main.level.Text = Main.char_name & ", " & Main.char_level & ", "
-        Select Case Main.char_race
+                 "SELECT " & Main.MainInstance.homebind_posz & " FROM character_homebind WHERE guid='" & Main.MainInstance.char_guid.ToString &
+                 "'", Main.MainInstance.homebind_posz) & "</position_z>")
+        Main.MainInstance.level.Text = Main.MainInstance.char_name & ", " & Main.MainInstance.char_level & ", "
+        Select Case Main.MainInstance.char_race
             Case 1
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Mensch" Else Main.level.Text = Main.level.Text & "Human"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Mensch" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Human"
             Case 2
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Orc" Else Main.level.Text = Main.level.Text & "Orc"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Orc" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Orc"
             Case 3
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Zwerg" Else Main.level.Text = Main.level.Text & "Dwarf"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Zwerg" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Dwarf"
             Case 4
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Nachtelf" Else Main.level.Text = Main.level.Text & "Night Elf"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Nachtelf" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Night Elf"
             Case 5
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Untot" Else Main.level.Text = Main.level.Text & "Undead"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Untot" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Undead"
             Case 6
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Tauren" Else Main.level.Text = Main.level.Text & "Tauren"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Tauren" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Tauren"
             Case 7
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Gnom" Else Main.level.Text = Main.level.Text & "Gnome"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Gnom" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Gnome"
             Case 8
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Troll" Else Main.level.Text = Main.level.Text & "Troll"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Troll" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Troll"
             Case 9
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Goblin" Else Main.level.Text = Main.level.Text & "Goblin"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Goblin" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Goblin"
             Case 10
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Blutelf" Else Main.level.Text = Main.level.Text & "Blood Elf"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Blutelf" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Blood Elf"
             Case 11
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Draenei" Else Main.level.Text = Main.level.Text & "Draenei"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Draenei" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Draenei"
             Case 22
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Worgen" Else Main.level.Text = Main.level.Text & "Worgen"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Worgen" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Worgen"
             Case Else
 
         End Select
-        Main.level.Text = Main.level.Text & ", "
-        Select Case Main.char_class
+        Main.MainInstance.level.Text = Main.MainInstance.level.Text & ", "
+        Select Case Main.MainInstance.char_class
             Case 1
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Krieger" Else Main.level.Text = Main.level.Text & "Warrior"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Krieger" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Warrior"
             Case 2
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Paladin" Else Main.level.Text = Main.level.Text & "Paladin"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Paladin" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Paladin"
             Case 3
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Jäger" Else Main.level.Text = Main.level.Text & "Hunter"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Jäger" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Hunter"
             Case 4
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Schurke" Else Main.level.Text = Main.level.Text & "Rogue"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Schurke" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Rogue"
             Case 5
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Priester" Else Main.level.Text = Main.level.Text & "Priest"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Priester" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Priest"
             Case 6
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Todesritter" Else Main.level.Text = Main.level.Text & "Death Knight"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Todesritter" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Death Knight"
             Case 7
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Schamane" Else Main.level.Text = Main.level.Text & "Shaman"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Schamane" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Shaman"
             Case 8
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Magier" Else Main.level.Text = Main.level.Text & "Mage"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Magier" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Mage"
             Case 9
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Hexenmeister" Else Main.level.Text = Main.level.Text & "Warlock"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Hexenmeister" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Warlock"
             Case 11
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Druide" Else Main.level.Text = Main.level.Text & "Druid"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Druide" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Druid"
             Case Else
 
         End Select
@@ -730,7 +730,7 @@ Public Class Mangos_core
         Application.DoEvents()
 
         saveglyphs()
-        Main.datasets += 1
+        Main.MainInstance.datasets += 1
         Dim addtataset As New CIUFile
         addtataset.adddataset()
 
@@ -738,11 +738,11 @@ Public Class Mangos_core
     End Sub
 
     Public Sub getspells()
-        runfunction.writelog("getspells_call @mangos for charguid: " & Main.char_guid.ToString)
+        runfunction.writelog("getspells_call @mangos for charguid: " & Main.MainInstance.char_guid.ToString)
         Dim _
             da As _
-                New MySqlDataAdapter("SELECT spell FROM character_spell WHERE guid='" & Main.char_guid.ToString & "'",
-                                     Main.GLOBALconn)
+                New MySqlDataAdapter("SELECT spell FROM character_spell WHERE guid='" & Main.MainInstance.char_guid.ToString & "'",
+                                     Main.MainInstance.GLOBALconn)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
@@ -756,13 +756,13 @@ Public Class Mangos_core
                     Dim active As String =
                             runfunction.runcommand(
                                 "SELECT `active` FROM character_spell WHERE spell='" & spell & "' AND guid='" &
-                                Main.char_guid.ToString & "'", "active")
+                                Main.MainInstance.char_guid.ToString & "'", "active")
                     Dim disabled As String =
                             runfunction.runcommand(
                                 "SELECT `disabled` FROM character_spell WHERE spell='" & spell & "' AND guid='" &
-                                Main.char_guid.ToString & "'", "disabled")
+                                Main.MainInstance.char_guid.ToString & "'", "disabled")
 
-                    Main.character_spells.Add(
+                    Main.MainInstance.character_spells.Add(
                         "<spell>" & spell & "</spell><active>" & active & "</active><disabled>" & disabled &
                         "</disabled>")
 
@@ -786,8 +786,8 @@ Public Class Mangos_core
             Dim _
                 da As _
                     New MySqlDataAdapter(
-                        "SELECT talent_id FROM character_talent WHERE guid='" & Main.char_guid.ToString &
-                        "' AND spec='0'", Main.GLOBALconn)
+                        "SELECT talent_id FROM character_talent WHERE guid='" & Main.MainInstance.char_guid.ToString &
+                        "' AND spec='0'", Main.MainInstance.GLOBALconn)
             Dim dt As New DataTable
 
             da.Fill(dt)
@@ -801,8 +801,8 @@ Public Class Mangos_core
                     Dim rurrentrank As String =
                             runfunction.runcommand(
                                 "SELECT current_rank FROM character_talent WHERE talent_id='" & idtalent &
-                                "' AND guid='" & Main.char_guid.ToString & "' AND spec='0'", "current_rank")
-                    Main.character_talent_list.Add("<spell>" & checkfield2(idtalent, rurrentrank) & "</spell><spec>0</spec>")
+                                "' AND guid='" & Main.MainInstance.char_guid.ToString & "' AND spec='0'", "current_rank")
+                    Main.MainInstance.character_talent_list.Add("<spell>" & checkfield2(idtalent, rurrentrank) & "</spell><spec>0</spec>")
 
                     count += 1
                 Loop Until count = lastcount
@@ -826,8 +826,8 @@ Public Class Mangos_core
             Dim _
                 da As _
                     New MySqlDataAdapter(
-                        "SELECT talent_id FROM character_talent WHERE guid='" & Main.char_guid.ToString &
-                        "' AND spec='1'", Main.GLOBALconn)
+                        "SELECT talent_id FROM character_talent WHERE guid='" & Main.MainInstance.char_guid.ToString &
+                        "' AND spec='1'", Main.MainInstance.GLOBALconn)
             Dim dt As New DataTable
 
             da.Fill(dt)
@@ -841,8 +841,8 @@ Public Class Mangos_core
                     Dim rurrentrank As String =
                             runfunction.runcommand(
                                 "SELECT current_rank FROM character_talent WHERE talent_id='" & idtalent &
-                                "' AND guid='" & Main.char_guid.ToString & "' AND spec='1'", "current_rank")
-                    Main.character_talent_list.Add(
+                                "' AND guid='" & Main.MainInstance.char_guid.ToString & "' AND spec='1'", "current_rank")
+                    Main.MainInstance.character_talent_list.Add(
                         "<spell>" & checkfield2(idtalent, rurrentrank) & "</spell><spec>1</spec>")
 
                     count += 1
@@ -893,8 +893,8 @@ Public Class Mangos_core
         Dim _
             da As _
                 New MySqlDataAdapter(
-                    "SELECT quest FROM character_queststatus WHERE guid='" & Main.char_guid.ToString & "'",
-                    Main.GLOBALconn)
+                    "SELECT quest FROM character_queststatus WHERE guid='" & Main.MainInstance.char_guid.ToString & "'",
+                    Main.MainInstance.GLOBALconn)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
@@ -908,22 +908,22 @@ Public Class Mangos_core
                     Dim status As String =
                             runfunction.runcommand(
                                 "SELECT `status` FROM character_queststatus WHERE quest='" & quest & "' AND guid='" &
-                                Main.char_guid.ToString & "'", "status")
+                                Main.MainInstance.char_guid.ToString & "'", "status")
                     Dim explored As String =
                             runfunction.runcommand(
                                 "SELECT `explored` FROM character_queststatus WHERE quest='" & quest & "' AND guid='" &
-                                Main.char_guid.ToString & "'", "explored")
+                                Main.MainInstance.char_guid.ToString & "'", "explored")
                     Dim timer As String =
                             runfunction.runcommand(
                                 "SELECT `timer` FROM character_queststatus WHERE quest='" & quest & "' AND guid='" &
-                                Main.char_guid.ToString & "'", "timer")
+                                Main.MainInstance.char_guid.ToString & "'", "timer")
                     Dim rewarded As String = runfunction.runcommand(
                         "SELECT rewarded FROM character_queststatus WHERE quest='" & quest &
-                        "' AND guid='" & Main.char_guid.ToString & "'", "rewarded")
+                        "' AND guid='" & Main.MainInstance.char_guid.ToString & "'", "rewarded")
                     If rewarded = "1" Then
-                        Main.finished_quests = Main.finished_quests & quest & ","
+                        Main.MainInstance.finished_quests = Main.MainInstance.finished_quests & quest & ","
                     Else
-                        Main.character_queststatus.Add(
+                        Main.MainInstance.character_queststatus.Add(
                                                "<quest>" & quest & "</quest><status>" & status & "</status><explored>" & explored &
                                                "</explored><timer>" & timer & "</timer>")
                     End If
@@ -943,8 +943,8 @@ Public Class Mangos_core
         runfunction.writelog("getskills_call @mangos")
         Dim _
             da As _
-                New MySqlDataAdapter("SELECT skill FROM character_skills WHERE guid='" & Main.char_guid.ToString & "'",
-                                     Main.GLOBALconn)
+                New MySqlDataAdapter("SELECT skill FROM character_skills WHERE guid='" & Main.MainInstance.char_guid.ToString & "'",
+                                     Main.MainInstance.GLOBALconn)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
@@ -958,13 +958,13 @@ Public Class Mangos_core
                     Dim value As String =
                             runfunction.runcommand(
                                 "SELECT `value` FROM character_skills WHERE skill='" & skill & "' AND guid='" &
-                                Main.char_guid.ToString & "'", "value")
+                                Main.MainInstance.char_guid.ToString & "'", "value")
                     Dim max As String =
                             runfunction.runcommand(
                                 "SELECT max FROM character_skills WHERE skill='" & skill & "' AND guid='" &
-                                Main.char_guid.ToString & "'", "max")
+                                Main.MainInstance.char_guid.ToString & "'", "max")
 
-                    Main.character_skills_list.Add(
+                    Main.MainInstance.character_skills_list.Add(
                         "<skill>" & skill & "</skill><value>" & value & "</value><max>" & max & "</max>")
 
                     count += 1
@@ -982,8 +982,8 @@ Public Class Mangos_core
         Dim _
             da As _
                 New MySqlDataAdapter(
-                    "SELECT faction FROM character_reputation WHERE guid='" & Main.char_guid.ToString & "'",
-                    Main.GLOBALconn)
+                    "SELECT faction FROM character_reputation WHERE guid='" & Main.MainInstance.char_guid.ToString & "'",
+                    Main.MainInstance.GLOBALconn)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
@@ -997,13 +997,13 @@ Public Class Mangos_core
                     Dim standing As String =
                             runfunction.runcommand(
                                 "SELECT standing FROM character_reputation WHERE faction='" & faction & "' AND guid='" &
-                                Main.char_guid.ToString & "'", "standing")
+                                Main.MainInstance.char_guid.ToString & "'", "standing")
                     Dim flags As String =
                             runfunction.runcommand(
                                 "SELECT flags FROM character_reputation WHERE faction='" & faction & "' AND guid='" &
-                                Main.char_guid.ToString & "'", "flags")
+                                Main.MainInstance.char_guid.ToString & "'", "flags")
 
-                    Main.character_reputatuion_list.Add(
+                    Main.MainInstance.character_reputatuion_list.Add(
                         "<faction>" & faction & "</faction><standing>" & standing & "</standing><flags>" & flags &
                         "</flags>")
 
@@ -1022,8 +1022,8 @@ Public Class Mangos_core
         runfunction.writelog("getactionlist_call @mangos")
         Dim _
             da As _
-                New MySqlDataAdapter("SELECT button FROM character_action WHERE guid='" & Main.char_guid.ToString & "'",
-                                     Main.GLOBALconn)
+                New MySqlDataAdapter("SELECT button FROM character_action WHERE guid='" & Main.MainInstance.char_guid.ToString & "'",
+                                     Main.MainInstance.GLOBALconn)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
@@ -1037,17 +1037,17 @@ Public Class Mangos_core
                     Dim spec As String =
                             runfunction.runcommand(
                                 "SELECT spec FROM character_action WHERE button='" & gbutton & "' AND guid='" &
-                                Main.char_guid.ToString & "'", "spec")
+                                Main.MainInstance.char_guid.ToString & "'", "spec")
                     Dim action As String =
                             runfunction.runcommand(
                                 "SELECT action FROM character_action WHERE button='" & gbutton & "' AND guid='" &
-                                Main.char_guid.ToString & "'", "action")
+                                Main.MainInstance.char_guid.ToString & "'", "action")
                     Dim atype As String =
                             runfunction.runcommand(
                                 "SELECT type FROM character_action WHERE button='" & gbutton & "' AND guid='" &
-                                Main.char_guid.ToString & "'", "type")
+                                Main.MainInstance.char_guid.ToString & "'", "type")
 
-                    Main.character_action_list.Add(
+                    Main.MainInstance.character_action_list.Add(
                         "<action>" & action & "</action><spec>" & spec & "</spec><button>" & gbutton & "</button><type>" &
                         atype & "</type>")
 
@@ -1066,8 +1066,8 @@ Public Class Mangos_core
         Dim _
             da As _
                 New MySqlDataAdapter(
-                    "SELECT achievement FROM character_achievement WHERE guid='" & Main.char_guid.ToString & "'",
-                    Main.GLOBALconn)
+                    "SELECT achievement FROM character_achievement WHERE guid='" & Main.MainInstance.char_guid.ToString & "'",
+                    Main.MainInstance.GLOBALconn)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
@@ -1081,8 +1081,8 @@ Public Class Mangos_core
                     Dim xdate As String =
                             runfunction.runcommand(
                                 "SELECT date FROM character_achievement WHERE achievement='" & avid & "' AND guid='" &
-                                Main.char_guid.ToString & "'", "date")
-                    Main.character_achievement_list.Add("<av>" & avid & "</av><date>" & xdate & "</date>")
+                                Main.MainInstance.char_guid.ToString & "'", "date")
+                    Main.MainInstance.character_achievement_list.Add("<av>" & avid & "</av><date>" & xdate & "</date>")
 
                     count += 1
                 Loop Until count = lastcount
@@ -1099,8 +1099,8 @@ Public Class Mangos_core
 
         Dim _
             da As _
-                New MySqlDataAdapter("SELECT item FROM character_inventory WHERE guid='" & Main.char_guid.ToString & "'",
-                                     Main.GLOBALconn)
+                New MySqlDataAdapter("SELECT item FROM character_inventory WHERE guid='" & Main.MainInstance.char_guid.ToString & "'",
+                                     Main.MainInstance.GLOBALconn)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
@@ -1113,7 +1113,7 @@ Public Class Mangos_core
                     tmpext = CInt(Val(readedcode))
                     Dim bagguid As String =
                             runfunction.runcommand(
-                                "SELECT bag FROM character_inventory WHERE guid='" & Main.char_guid.ToString &
+                                "SELECT bag FROM character_inventory WHERE guid='" & Main.MainInstance.char_guid.ToString &
                                 "' AND item='" & tmpext.ToString & "'", "bag")
                     If CInt(bagguid) = 0 Then
                         If tmpext > 18 Then
@@ -1126,11 +1126,11 @@ Public Class Mangos_core
                             bag = bagguid
 
                             item = tmpext.ToString()
-                            entryid = runfunction.runcommand("SELECT item_template FROM character_inventory WHERE guid = '" & Main.char_guid.ToString & "' AND item='" & item & "'", "item_template")
+                            entryid = runfunction.runcommand("SELECT item_template FROM character_inventory WHERE guid = '" & Main.MainInstance.char_guid.ToString & "' AND item='" & item & "'", "item_template")
                             enchantments = runfunction.runcommand("SELECT `data` FROM item_instance WHERE guid = '" & item & "'", "data")
                             itemcount = splititemdata(enchantments, 14)
                             slot = runfunction.runcommand("Select `slot` FROM character_inventory WHERE `item`='" & item & "'", "slot")
-                            Main.character_inventoryzero_list.Add(
+                            Main.MainInstance.character_inventoryzero_list.Add(
                                 "<slot>" & slot & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid &
                                   "</bagguid><item>" & entryid & "</item><enchant>" & enchantments & "</enchant><count>" & itemcount & "</count><oldguid>" & item & "</oldguid>")
                         End If
@@ -1144,11 +1144,11 @@ Public Class Mangos_core
 
                         bag = runfunction.runcommand("SELECT item_template FROM character_inventory WHERE item = '" & bagguid & "'", "item_template")
                         item = tmpext.ToString
-                        entryid = runfunction.runcommand("SELECT item_template FROM character_inventory WHERE guid = '" & Main.char_guid.ToString & "' AND item='" & tmpext.ToString & "'", "itemEntry")
+                        entryid = runfunction.runcommand("SELECT item_template FROM character_inventory WHERE guid = '" & Main.MainInstance.char_guid.ToString & "' AND item='" & tmpext.ToString & "'", "itemEntry")
                         enchantments = runfunction.runcommand("SELECT `data` FROM item_instance WHERE guid = '" & item & "'", "data")
                         itemcount = splititemdata(enchantments, 14)
                         slot = runfunction.runcommand("Select `slot` FROM character_inventory WHERE `item`='" & item & "'", "slot")
-                        Main.character_inventory_list.Add(
+                        Main.MainInstance.character_inventory_list.Add(
                             "<slot>" & slot & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid &
                            "</bagguid><item>" & entryid & "</item><enchant>" & enchantments & "</enchant><count>" & itemcount & "</count>")
                     End If
@@ -1175,8 +1175,8 @@ Public Class Mangos_core
 
         Dim _
             da As _
-                New MySqlDataAdapter("SELECT slot FROM character_inventory WHERE guid='" & Main.char_guid.ToString & "'",
-                                     Main.GLOBALconn)
+                New MySqlDataAdapter("SELECT slot FROM character_inventory WHERE guid='" & Main.MainInstance.char_guid.ToString & "'",
+                                     Main.MainInstance.GLOBALconn)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
@@ -1189,7 +1189,7 @@ Public Class Mangos_core
                     tmpext = CInt(Val(readedcode))
                     Dim bagguid As String =
                             runfunction.runcommand(
-                                "SELECT bag FROM character_inventory WHERE guid='" & Main.char_guid.ToString &
+                                "SELECT bag FROM character_inventory WHERE guid='" & Main.MainInstance.char_guid.ToString &
                                 "' AND slot='" & tmpext.ToString & "'", "bag")
                     If CInt(bagguid) = 0 Then
                         If tmpext > 18 Then
@@ -1204,17 +1204,17 @@ Public Class Mangos_core
 
                             item =
                                 runfunction.runcommand(
-                                    "SELECT item FROM character_inventory WHERE guid='" & Main.char_guid.ToString &
+                                    "SELECT item FROM character_inventory WHERE guid='" & Main.MainInstance.char_guid.ToString &
                                     "' AND slot='" & tmpext.ToString & "'", "item")
                             entryid =
                                 runfunction.runcommand(
                                     "SELECT item_template FROM character_inventory WHERE guid = '" &
-                                    Main.char_guid.ToString & "' AND slot='" & tmpext.ToString & "' AND item='" & item &
+                                    Main.MainInstance.char_guid.ToString & "' AND slot='" & tmpext.ToString & "' AND item='" & item &
                                     "'", "item_template")
                             enchantments =
                                 runfunction.runcommand("SELECT `data` FROM item_instance WHERE guid = '" & item & "'",
                                                        "data")
-                            Main.character_inventoryzero_list.Add(
+                            Main.MainInstance.character_inventoryzero_list.Add(
                                 "<slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid &
                                 "</bagguid><item>" & entryid & "</item><enchant>" & enchantments & "</enchant>")
                         End If
@@ -1231,16 +1231,16 @@ Public Class Mangos_core
 
                         item =
                             runfunction.runcommand(
-                                "SELECT item FROM character_inventory WHERE guid='" & Main.char_guid.ToString &
+                                "SELECT item FROM character_inventory WHERE guid='" & Main.MainInstance.char_guid.ToString &
                                 "' AND slot='" & tmpext.ToString & "'", "item")
                         entryid =
                             runfunction.runcommand(
-                                "SELECT item_template FROM character_inventory WHERE guid = '" & Main.char_guid.ToString &
+                                "SELECT item_template FROM character_inventory WHERE guid = '" & Main.MainInstance.char_guid.ToString &
                                 "' AND slot='" & tmpext.ToString & "' AND item='" & bagguid.ToString & "'", "itemEntry")
                         enchantments =
                             runfunction.runcommand("SELECT `data` FROM item_instance WHERE guid = '" & item & "'",
                                                    "data")
-                        Main.character_inventory_list.Add(
+                        Main.MainInstance.character_inventory_list.Add(
                             "<slot>" & tmpext.ToString & "</slot><bag>" & bag & "</bag><bagguid>" & bagguid &
                             "</bagguid><item>" & entryid & "</item><enchant>" & enchantments & "</enchant>")
                     End If
@@ -1271,11 +1271,11 @@ Public Class Mangos_core
                             "' AND spec='0' AND slot='0'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
-                If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
                 Glyphs.erheb1.Text = glyphname
-                Main.majorglyph1 = glyphid.ToString
+                Main.MainInstance.majorglyph1 = glyphid.ToString
                 Glyphs.erheb1.Visible = True
-                If Main.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.erheb1pic)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.erheb1pic)
             End If
         Catch ex As Exception
             Glyphs.erheb1pic.Image = My.Resources.empty
@@ -1289,11 +1289,11 @@ Public Class Mangos_core
                             "' AND spec='0' AND slot='3'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
-                If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
                 Glyphs.erheb2.Text = glyphname
-                Main.majorglyph2 = glyphid.ToString
+                Main.MainInstance.majorglyph2 = glyphid.ToString
                 Glyphs.erheb2.Visible = True
-                If Main.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.erheb2pic)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.erheb2pic)
             End If
         Catch ex As Exception
             Glyphs.erheb2pic.Image = My.Resources.empty
@@ -1311,11 +1311,11 @@ Public Class Mangos_core
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
                 Application.DoEvents()
-                If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
                 Glyphs.erheb3.Text = glyphname
-                Main.majorglyph3 = glyphid.ToString
+                Main.MainInstance.majorglyph3 = glyphid.ToString
                 Glyphs.erheb3.Visible = True
-                If Main.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.erheb3pic)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.erheb3pic)
             End If
         Catch ex As Exception
 
@@ -1330,11 +1330,11 @@ Public Class Mangos_core
                             "' AND spec='0' AND slot='4'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
-                If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
                 Glyphs.gering1.Text = glyphname
-                Main.minorglyph1 = glyphid.ToString
+                Main.MainInstance.minorglyph1 = glyphid.ToString
                 Glyphs.gering1.Visible = True
-                If Main.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.gering1pic)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.gering1pic)
             End If
         Catch ex As Exception
             Glyphs.gering1pic.Image = My.Resources.empty
@@ -1348,11 +1348,11 @@ Public Class Mangos_core
                             "' AND spec='0' AND slot='1'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
-                If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
                 Glyphs.gering2.Text = glyphname
-                Main.minorglyph2 = glyphid.ToString
+                Main.MainInstance.minorglyph2 = glyphid.ToString
                 Glyphs.gering2.Visible = True
-                If Main.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.gering2pic)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.gering2pic)
             End If
         Catch ex As Exception
             Glyphs.gering2pic.Image = My.Resources.empty
@@ -1366,11 +1366,11 @@ Public Class Mangos_core
                             "' AND spec='0' AND slot='2'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
-                If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
                 Glyphs.gering3.Text = glyphname
-                Main.minorglyph3 = glyphid.ToString
+                Main.MainInstance.minorglyph3 = glyphid.ToString
                 Glyphs.gering3.Visible = True
-                If Main.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.gering3pic)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.gering3pic)
             End If
         Catch ex As Exception
             Glyphs.gering3pic.Image = My.Resources.empty
@@ -1384,11 +1384,11 @@ Public Class Mangos_core
                             "' AND spec='0' AND slot='6'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
-                If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
                 Glyphs.prim1.Text = glyphname
-                Main.primeglyph1 = glyphid.ToString
+                Main.MainInstance.primeglyph1 = glyphid.ToString
                 Glyphs.prim1.Visible = True
-                If Main.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.prim1pic)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.prim1pic)
             End If
         Catch ex As Exception
             Glyphs.prim1pic.Image = My.Resources.empty
@@ -1402,11 +1402,11 @@ Public Class Mangos_core
                             "' AND spec='0' AND slot='7'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
-                If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
                 Glyphs.prim2.Text = glyphname
-                Main.primeglyph2 = glyphid.ToString
+                Main.MainInstance.primeglyph2 = glyphid.ToString
                 Glyphs.prim2.Visible = True
-                If Main.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.prim2pic)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.prim2pic)
             End If
         Catch ex As Exception
             Glyphs.prim2pic.Image = My.Resources.empty
@@ -1420,11 +1420,11 @@ Public Class Mangos_core
                             "' AND spec='0' AND slot='8'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
-                If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
                 Glyphs.prim3.Text = glyphname
-                Main.primeglyph3 = glyphid.ToString
+                Main.MainInstance.primeglyph3 = glyphid.ToString
                 Glyphs.prim3.Visible = True
-                If Main.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.prim3pic)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.prim3pic)
             End If
         Catch ex As Exception
             Glyphs.prim3pic.Image = My.Resources.empty
@@ -1445,11 +1445,11 @@ Public Class Mangos_core
                             "' AND spec='1' AND slot='0'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
-                If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
                 Glyphs.secerheb1.Text = glyphname
-                Main.secmajorglyph1 = glyphid.ToString
+                Main.MainInstance.secmajorglyph1 = glyphid.ToString
                 Glyphs.secerheb1.Visible = True
-                If Main.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.secerheb1pic)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.secerheb1pic)
             End If
         Catch ex As Exception
             Glyphs.secerheb1pic.Image = My.Resources.empty
@@ -1463,11 +1463,11 @@ Public Class Mangos_core
                             "' AND spec='1' AND slot='3'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
-                If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
                 Glyphs.secerheb2.Text = glyphname
-                Main.secmajorglyph2 = glyphid.ToString
+                Main.MainInstance.secmajorglyph2 = glyphid.ToString
                 Glyphs.secerheb2.Visible = True
-                If Main.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.secerheb2pic)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.secerheb2pic)
             End If
         Catch ex As Exception
             Glyphs.secerheb2pic.Image = My.Resources.empty
@@ -1481,11 +1481,11 @@ Public Class Mangos_core
                             "' AND spec='1' AND slot='5'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
-                If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
                 Glyphs.secerheb3.Text = glyphname
-                Main.secmajorglyph3 = glyphid.ToString
+                Main.MainInstance.secmajorglyph3 = glyphid.ToString
                 Glyphs.secerheb3.Visible = True
-                If Main.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.secerheb3pic)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.secerheb3pic)
             End If
         Catch ex As Exception
             Glyphs.secerheb3pic.Image = My.Resources.empty
@@ -1499,11 +1499,11 @@ Public Class Mangos_core
                             "' AND spec='1' AND slot='4'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
-                If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
                 Glyphs.secgering1.Text = glyphname
-                Main.secminorglyph1 = glyphid.ToString
+                Main.MainInstance.secminorglyph1 = glyphid.ToString
                 Glyphs.secgering1.Visible = True
-                If Main.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.secgering1pic)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.secgering1pic)
             End If
         Catch ex As Exception
             Glyphs.secgering1pic.Image = My.Resources.empty
@@ -1517,11 +1517,11 @@ Public Class Mangos_core
                             "' AND spec='1' AND slot='1'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
-                If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
                 Glyphs.secgering2.Text = glyphname
-                Main.secminorglyph2 = glyphid.ToString
+                Main.MainInstance.secminorglyph2 = glyphid.ToString
                 Glyphs.secgering2.Visible = True
-                If Main.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.secgering2pic)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.secgering2pic)
             End If
         Catch ex As Exception
             Glyphs.secgering2pic.Image = My.Resources.empty
@@ -1535,11 +1535,11 @@ Public Class Mangos_core
                             "' AND spec='1' AND slot='2'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
-                If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
                 Glyphs.secgering3.Text = glyphname
-                Main.secminorglyph3 = glyphid.ToString
+                Main.MainInstance.secminorglyph3 = glyphid.ToString
                 Glyphs.secgering3.Visible = True
-                If Main.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.secgering3pic)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.secgering3pic)
             End If
         Catch ex As Exception
             Glyphs.secgering3pic.Image = My.Resources.empty
@@ -1553,11 +1553,11 @@ Public Class Mangos_core
                             "' AND spec='1' AND slot='6'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
-                If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
                 Glyphs.secprim1.Text = glyphname
-                Main.secprimeglyph1 = glyphid.ToString
+                Main.MainInstance.secprimeglyph1 = glyphid.ToString
                 Glyphs.secprim1.Visible = True
-                If Main.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.secprim1pic)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.secprim1pic)
             End If
         Catch ex As Exception
             Glyphs.secprim1pic.Image = My.Resources.empty
@@ -1571,11 +1571,11 @@ Public Class Mangos_core
                             "' AND spec='1' AND slot='7'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
-                If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
                 Glyphs.secprim2.Text = glyphname
-                Main.secprimeglyph2 = glyphid.ToString
+                Main.MainInstance.secprimeglyph2 = glyphid.ToString
                 Glyphs.secprim2.Visible = True
-                If Main.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.secprim2pic)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.secprim2pic)
             End If
         Catch ex As Exception
             Glyphs.secprim2pic.Image = My.Resources.empty
@@ -1589,11 +1589,11 @@ Public Class Mangos_core
                             "' AND spec='1' AND slot='8'", "glyph")))
             If prevglyphid > 1 Then
                 glyphid = runfunction.getglyphid(prevglyphid)
-                If Main.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then glyphname = runfunction.getnamefromid(glyphid)
                 Glyphs.secprim3.Text = glyphname
-                Main.secprimeglyph3 = glyphid.ToString
+                Main.MainInstance.secprimeglyph3 = glyphid.ToString
                 Glyphs.secprim3.Visible = True
-                If Main.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.secprim3pic)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(glyphid, Glyphs.secprim3pic)
             End If
         Catch ex As Exception
             Glyphs.secprim3pic.Image = My.Resources.empty
@@ -1601,45 +1601,45 @@ Public Class Mangos_core
     End Sub
 
     Private Sub saveglyphs()
-        Main.textprimeglyph1 = Glyphs.prim1.Text
-        Main.textprimeglyph2 = Glyphs.prim2.Text
-        Main.textprimeglyph3 = Glyphs.prim3.Text
-        Main.textmajorglyph1 = Glyphs.erheb1.Text
-        Main.textmajorglyph2 = Glyphs.erheb2.Text
-        Main.textmajorglyph3 = Glyphs.erheb3.Text
-        Main.textminorglyph1 = Glyphs.gering1.Text
-        Main.textminorglyph2 = Glyphs.gering2.Text
-        Main.textminorglyph3 = Glyphs.gering3.Text
+        Main.MainInstance.textprimeglyph1 = Glyphs.prim1.Text
+        Main.MainInstance.textprimeglyph2 = Glyphs.prim2.Text
+        Main.MainInstance.textprimeglyph3 = Glyphs.prim3.Text
+        Main.MainInstance.textmajorglyph1 = Glyphs.erheb1.Text
+        Main.MainInstance.textmajorglyph2 = Glyphs.erheb2.Text
+        Main.MainInstance.textmajorglyph3 = Glyphs.erheb3.Text
+        Main.MainInstance.textminorglyph1 = Glyphs.gering1.Text
+        Main.MainInstance.textminorglyph2 = Glyphs.gering2.Text
+        Main.MainInstance.textminorglyph3 = Glyphs.gering3.Text
 
-        Main.glyphpic1 = Glyphs.prim1pic.Image
-        Main.glyphpic2 = Glyphs.prim2pic.Image
-        Main.glyphpic3 = Glyphs.prim3pic.Image
-        Main.glyphpic4 = Glyphs.erheb1pic.Image
-        Main.glyphpic5 = Glyphs.erheb2pic.Image
-        Main.glyphpic6 = Glyphs.erheb3pic.Image
-        Main.glyphpic7 = Glyphs.gering1pic.Image
-        Main.glyphpic8 = Glyphs.gering2pic.Image
-        Main.glyphpic9 = Glyphs.gering3pic.Image
+        Main.MainInstance.glyphpic1 = Glyphs.prim1pic.Image
+        Main.MainInstance.glyphpic2 = Glyphs.prim2pic.Image
+        Main.MainInstance.glyphpic3 = Glyphs.prim3pic.Image
+        Main.MainInstance.glyphpic4 = Glyphs.erheb1pic.Image
+        Main.MainInstance.glyphpic5 = Glyphs.erheb2pic.Image
+        Main.MainInstance.glyphpic6 = Glyphs.erheb3pic.Image
+        Main.MainInstance.glyphpic7 = Glyphs.gering1pic.Image
+        Main.MainInstance.glyphpic8 = Glyphs.gering2pic.Image
+        Main.MainInstance.glyphpic9 = Glyphs.gering3pic.Image
 
-        Main.sectextprimeglyph1 = Glyphs.secprim1.Text
-        Main.sectextprimeglyph2 = Glyphs.secprim2.Text
-        Main.sectextprimeglyph3 = Glyphs.secprim3.Text
-        Main.sectextmajorglyph1 = Glyphs.secerheb1.Text
-        Main.sectextmajorglyph2 = Glyphs.secerheb2.Text
-        Main.sectextmajorglyph3 = Glyphs.secerheb3.Text
-        Main.sectextminorglyph1 = Glyphs.secgering1.Text
-        Main.sectextminorglyph2 = Glyphs.secgering2.Text
-        Main.sectextminorglyph3 = Glyphs.secgering3.Text
+        Main.MainInstance.sectextprimeglyph1 = Glyphs.secprim1.Text
+        Main.MainInstance.sectextprimeglyph2 = Glyphs.secprim2.Text
+        Main.MainInstance.sectextprimeglyph3 = Glyphs.secprim3.Text
+        Main.MainInstance.sectextmajorglyph1 = Glyphs.secerheb1.Text
+        Main.MainInstance.sectextmajorglyph2 = Glyphs.secerheb2.Text
+        Main.MainInstance.sectextmajorglyph3 = Glyphs.secerheb3.Text
+        Main.MainInstance.sectextminorglyph1 = Glyphs.secgering1.Text
+        Main.MainInstance.sectextminorglyph2 = Glyphs.secgering2.Text
+        Main.MainInstance.sectextminorglyph3 = Glyphs.secgering3.Text
 
-        Main.secglyphpic1 = Glyphs.secprim1pic.Image
-        Main.secglyphpic2 = Glyphs.secprim2pic.Image
-        Main.secglyphpic3 = Glyphs.secprim3pic.Image
-        Main.secglyphpic4 = Glyphs.secerheb1pic.Image
-        Main.secglyphpic5 = Glyphs.secerheb2pic.Image
-        Main.secglyphpic6 = Glyphs.secerheb3pic.Image
-        Main.secglyphpic7 = Glyphs.secgering1pic.Image
-        Main.secglyphpic8 = Glyphs.secgering2pic.Image
-        Main.secglyphpic9 = Glyphs.secgering3pic.Image
+        Main.MainInstance.secglyphpic1 = Glyphs.secprim1pic.Image
+        Main.MainInstance.secglyphpic2 = Glyphs.secprim2pic.Image
+        Main.MainInstance.secglyphpic3 = Glyphs.secprim3pic.Image
+        Main.MainInstance.secglyphpic4 = Glyphs.secerheb1pic.Image
+        Main.MainInstance.secglyphpic5 = Glyphs.secerheb2pic.Image
+        Main.MainInstance.secglyphpic6 = Glyphs.secerheb3pic.Image
+        Main.MainInstance.secglyphpic7 = Glyphs.secgering1pic.Image
+        Main.MainInstance.secglyphpic8 = Glyphs.secgering2pic.Image
+        Main.MainInstance.secglyphpic9 = Glyphs.secgering3pic.Image
     End Sub
 
     Public Sub getitems()
@@ -1663,149 +1663,149 @@ Public Class Mangos_core
                             runfunction.runcommand(
                                 "SELECT item_template FROM character_inventory WHERE item = '" & xentryid & "'",
                                 "item_template")))
-                If Main.anzahldurchlaufe = 1 Then itemname = runfunction.getnamefromid(realxentryid)
+                If Main.MainInstance.anzahldurchlaufe = 1 Then itemname = runfunction.getnamefromid(realxentryid)
                 Dim wartemal As String = ""
             Catch ex As Exception
 
             End Try
             Select Case xslot
                 Case 0
-                    Main.Kopf.Text = itemname
-                    If Not itemname = "-" Then Main.Kopf.Visible = True
-                    Main.kopfid = realxentryid
-                    Main.kopfname = itemname
-                    If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.kopfpic)
-                    getitemstats(xentryid, Main.kopfench)
+                    Main.MainInstance.Kopf.Text = itemname
+                    If Not itemname = "-" Then Main.MainInstance.Kopf.Visible = True
+                    Main.MainInstance.kopfid = realxentryid
+                    Main.MainInstance.kopfname = itemname
+                    If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.MainInstance.kopfpic)
+                    getitemstats(xentryid, Main.MainInstance.kopfench)
                 Case 1
-                    Main.Hals.Text = itemname
-                    If Not itemname = "-" Then Main.Hals.Visible = True
-                    Main.halsid = realxentryid
-                    Main.halsname = itemname
-                    If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Halspic)
-                    getitemstats(xentryid, Main.halsench)
+                    Main.MainInstance.Hals.Text = itemname
+                    If Not itemname = "-" Then Main.MainInstance.Hals.Visible = True
+                    Main.MainInstance.halsid = realxentryid
+                    Main.MainInstance.halsname = itemname
+                    If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.MainInstance.Halspic)
+                    getitemstats(xentryid, Main.MainInstance.halsench)
                 Case 2
-                    Main.Schulter.Text = itemname
-                    If Not itemname = "-" Then Main.Schulter.Visible = True
-                    Main.schulterid = realxentryid
-                    Main.schultername = itemname
-                    If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Schulterpic)
-                    getitemstats(xentryid, Main.schulterench)
+                    Main.MainInstance.Schulter.Text = itemname
+                    If Not itemname = "-" Then Main.MainInstance.Schulter.Visible = True
+                    Main.MainInstance.schulterid = realxentryid
+                    Main.MainInstance.schultername = itemname
+                    If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.MainInstance.Schulterpic)
+                    getitemstats(xentryid, Main.MainInstance.schulterench)
                 Case 3
-                    Main.Hemd.Text = itemname
-                    If Not itemname = "-" Then Main.Hemd.Visible = True
-                    Main.hemdid = realxentryid
-                    Main.hemdname = itemname
-                    If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Hemdpic)
-                    getitemstats(xentryid, Main.hemdench)
+                    Main.MainInstance.Hemd.Text = itemname
+                    If Not itemname = "-" Then Main.MainInstance.Hemd.Visible = True
+                    Main.MainInstance.hemdid = realxentryid
+                    Main.MainInstance.hemdname = itemname
+                    If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.MainInstance.Hemdpic)
+                    getitemstats(xentryid, Main.MainInstance.hemdench)
                 Case 4
-                    Main.Brust.Text = itemname
-                    If Not itemname = "-" Then Main.Brust.Visible = True
-                    Main.brustid = realxentryid
-                    Main.brustname = itemname
-                    If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Brustpic)
-                    getitemstats(xentryid, Main.brustench)
+                    Main.MainInstance.Brust.Text = itemname
+                    If Not itemname = "-" Then Main.MainInstance.Brust.Visible = True
+                    Main.MainInstance.brustid = realxentryid
+                    Main.MainInstance.brustname = itemname
+                    If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.MainInstance.Brustpic)
+                    getitemstats(xentryid, Main.MainInstance.brustench)
                 Case 5
-                    Main.Guertel.Text = itemname
-                    If Not itemname = "-" Then Main.Guertel.Visible = True
-                    Main.guertelid = realxentryid
-                    Main.guertelname = itemname
-                    If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Guertelpic)
-                    getitemstats(xentryid, Main.guertelench)
+                    Main.MainInstance.Guertel.Text = itemname
+                    If Not itemname = "-" Then Main.MainInstance.Guertel.Visible = True
+                    Main.MainInstance.guertelid = realxentryid
+                    Main.MainInstance.guertelname = itemname
+                    If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.MainInstance.Guertelpic)
+                    getitemstats(xentryid, Main.MainInstance.guertelench)
                 Case 6
-                    Main.Beine.Text = itemname
-                    If Not itemname = "-" Then Main.Beine.Visible = True
-                    Main.beineid = realxentryid
-                    Main.beinename = itemname
-                    If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Beinepic)
-                    getitemstats(xentryid, Main.beineench)
+                    Main.MainInstance.Beine.Text = itemname
+                    If Not itemname = "-" Then Main.MainInstance.Beine.Visible = True
+                    Main.MainInstance.beineid = realxentryid
+                    Main.MainInstance.beinename = itemname
+                    If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.MainInstance.Beinepic)
+                    getitemstats(xentryid, Main.MainInstance.beineench)
                 Case 7
-                    Main.Stiefel.Text = itemname
-                    If Not itemname = "-" Then Main.Stiefel.Visible = True
-                    Main.stiefelid = realxentryid
-                    Main.stiefelname = itemname
-                    If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Stiefelpic)
-                    getitemstats(xentryid, Main.stiefelench)
+                    Main.MainInstance.Stiefel.Text = itemname
+                    If Not itemname = "-" Then Main.MainInstance.Stiefel.Visible = True
+                    Main.MainInstance.stiefelid = realxentryid
+                    Main.MainInstance.stiefelname = itemname
+                    If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.MainInstance.Stiefelpic)
+                    getitemstats(xentryid, Main.MainInstance.stiefelench)
                 Case 8
-                    Main.Handgelenke.Text = itemname
-                    If Not itemname = "-" Then Main.Handgelenke.Visible = True
-                    Main.handgelenkeid = realxentryid
-                    Main.handgelenkename = itemname
-                    If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Handgelenkepic)
-                    getitemstats(xentryid, Main.handgelenkeench)
+                    Main.MainInstance.Handgelenke.Text = itemname
+                    If Not itemname = "-" Then Main.MainInstance.Handgelenke.Visible = True
+                    Main.MainInstance.handgelenkeid = realxentryid
+                    Main.MainInstance.handgelenkename = itemname
+                    If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.MainInstance.Handgelenkepic)
+                    getitemstats(xentryid, Main.MainInstance.handgelenkeench)
                 Case 9
-                    Main.Haende.Text = itemname
-                    If Not itemname = "-" Then Main.Haende.Visible = True
-                    Main.haendeid = realxentryid
-                    Main.haendename = itemname
-                    If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Haendepic)
-                    getitemstats(xentryid, Main.haendeench)
+                    Main.MainInstance.Haende.Text = itemname
+                    If Not itemname = "-" Then Main.MainInstance.Haende.Visible = True
+                    Main.MainInstance.haendeid = realxentryid
+                    Main.MainInstance.haendename = itemname
+                    If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.MainInstance.Haendepic)
+                    getitemstats(xentryid, Main.MainInstance.haendeench)
                 Case 10
-                    Main.Ring1.Text = itemname
-                    If Not itemname = "-" Then Main.Ring1.Visible = True
-                    Main.ring1id = realxentryid
-                    Main.ring1name = itemname
-                    If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Ring1pic)
-                    getitemstats(xentryid, Main.ring1ench)
+                    Main.MainInstance.Ring1.Text = itemname
+                    If Not itemname = "-" Then Main.MainInstance.Ring1.Visible = True
+                    Main.MainInstance.ring1id = realxentryid
+                    Main.MainInstance.ring1name = itemname
+                    If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.MainInstance.Ring1pic)
+                    getitemstats(xentryid, Main.MainInstance.ring1ench)
                 Case 11
-                    Main.Ring2.Text = itemname
-                    If Not itemname = "-" Then Main.Ring2.Visible = True
-                    Main.ring2id = realxentryid
-                    Main.ring2name = itemname
-                    If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Ring2pic)
-                    getitemstats(xentryid, Main.ring2ench)
+                    Main.MainInstance.Ring2.Text = itemname
+                    If Not itemname = "-" Then Main.MainInstance.Ring2.Visible = True
+                    Main.MainInstance.ring2id = realxentryid
+                    Main.MainInstance.ring2name = itemname
+                    If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.MainInstance.Ring2pic)
+                    getitemstats(xentryid, Main.MainInstance.ring2ench)
                 Case 12
-                    Main.Schmuck1.Text = itemname
-                    If Not itemname = "-" Then Main.Schmuck1.Visible = True
-                    Main.schmuck1id = realxentryid
-                    Main.schmuck1name = itemname
-                    If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Schmuck1pic)
-                    getitemstats(xentryid, Main.schmuck1ench)
+                    Main.MainInstance.Schmuck1.Text = itemname
+                    If Not itemname = "-" Then Main.MainInstance.Schmuck1.Visible = True
+                    Main.MainInstance.schmuck1id = realxentryid
+                    Main.MainInstance.schmuck1name = itemname
+                    If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.MainInstance.Schmuck1pic)
+                    getitemstats(xentryid, Main.MainInstance.schmuck1ench)
                 Case 13
-                    Main.Schmuck2.Text = itemname
-                    If Not itemname = "-" Then Main.Schmuck2.Visible = True
-                    Main.schmuck2id = realxentryid
-                    Main.schmuck2name = itemname
-                    If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Schmuck2pic)
-                    getitemstats(xentryid, Main.schmuck2ench)
+                    Main.MainInstance.Schmuck2.Text = itemname
+                    If Not itemname = "-" Then Main.MainInstance.Schmuck2.Visible = True
+                    Main.MainInstance.schmuck2id = realxentryid
+                    Main.MainInstance.schmuck2name = itemname
+                    If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.MainInstance.Schmuck2pic)
+                    getitemstats(xentryid, Main.MainInstance.schmuck2ench)
                 Case 14
-                    Main.Ruecken.Text = itemname
-                    If Not itemname = "-" Then Main.Ruecken.Visible = True
-                    Main.rueckenid = realxentryid
-                    Main.rueckenname = itemname
-                    If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Rueckenpic)
-                    getitemstats(xentryid, Main.rueckenench)
+                    Main.MainInstance.Ruecken.Text = itemname
+                    If Not itemname = "-" Then Main.MainInstance.Ruecken.Visible = True
+                    Main.MainInstance.rueckenid = realxentryid
+                    Main.MainInstance.rueckenname = itemname
+                    If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.MainInstance.Rueckenpic)
+                    getitemstats(xentryid, Main.MainInstance.rueckenench)
 
                 Case 15
-                    Main.Haupt.Text = itemname
-                    If Not itemname = "-" Then Main.Haupt.Visible = True
-                    Main.hauptid = realxentryid
-                    Main.hauptname = itemname
-                    If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Hauptpic)
-                    getitemstats(xentryid, Main.hauptench)
+                    Main.MainInstance.Haupt.Text = itemname
+                    If Not itemname = "-" Then Main.MainInstance.Haupt.Visible = True
+                    Main.MainInstance.hauptid = realxentryid
+                    Main.MainInstance.hauptname = itemname
+                    If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.MainInstance.Hauptpic)
+                    getitemstats(xentryid, Main.MainInstance.hauptench)
                     runfunction.getweapontype(realxentryid)
                 Case 16
-                    Main.Off.Text = itemname
-                    If Not itemname = "-" Then Main.Off.Visible = True
-                    Main.offid = realxentryid
-                    Main.offname = itemname
-                    If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Offpic)
-                    getitemstats(xentryid, Main.offench)
+                    Main.MainInstance.Off.Text = itemname
+                    If Not itemname = "-" Then Main.MainInstance.Off.Visible = True
+                    Main.MainInstance.offid = realxentryid
+                    Main.MainInstance.offname = itemname
+                    If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.MainInstance.Offpic)
+                    getitemstats(xentryid, Main.MainInstance.offench)
                     runfunction.getweapontype(realxentryid)
                 Case 17
-                    Main.Distanz.Text = itemname
-                    If Not itemname = "-" Then Main.Distanz.Visible = True
-                    Main.distanzid = realxentryid
-                    Main.distanzname = itemname
-                    If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Distanzpic)
-                    getitemstats(xentryid, Main.distanzench)
+                    Main.MainInstance.Distanz.Text = itemname
+                    If Not itemname = "-" Then Main.MainInstance.Distanz.Visible = True
+                    Main.MainInstance.distanzid = realxentryid
+                    Main.MainInstance.distanzname = itemname
+                    If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.MainInstance.Distanzpic)
+                    getitemstats(xentryid, Main.MainInstance.distanzench)
                     runfunction.getweapontype(realxentryid)
                 Case 18
-                    Main.Wappenrock.Text = itemname
-                    If Not itemname = "-" Then Main.Wappenrock.Visible = True
-                    Main.wappenrockid = realxentryid
-                    Main.wappenrockname = itemname
-                    If Main.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.Wappenrockpic)
-                    getitemstats(xentryid, Main.wappenrockench)
+                    Main.MainInstance.Wappenrock.Text = itemname
+                    If Not itemname = "-" Then Main.MainInstance.Wappenrock.Visible = True
+                    Main.MainInstance.wappenrockid = realxentryid
+                    Main.MainInstance.wappenrockname = itemname
+                    If Main.MainInstance.anzahldurchlaufe = 1 Then runfunction.getimage(realxentryid, Main.MainInstance.Wappenrockpic)
+                    getitemstats(xentryid, Main.MainInstance.wappenrockench)
                 Case Else
             End Select
             xslot += 1
@@ -1814,114 +1814,114 @@ Public Class Mangos_core
 
     Public Sub handleenchantments()
         '///// Maybe bonus at position 38 will cause trouble!
-        If Main.anzahldurchlaufe = 1 Then Main.kopfvz.Text = splitstringvz(Main.kopfench, Main.kopfvzid, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.kopfsocket1.Text = splitstringgem(Main.kopfench, Main.kopfsocket1id, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.kopfsocket2.Text = splitstringgem(Main.kopfench, Main.kopfsocket2id, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.kopfsocket3.Text = splitstringgem(Main.kopfench, Main.kopfsocket3id, 35)
-        Main.kopfvz.Visible = True
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.kopfvz.Text = splitstringvz(Main.MainInstance.kopfench, Main.MainInstance.kopfvzid, 23)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.kopfsocket1.Text = splitstringgem(Main.MainInstance.kopfench, Main.MainInstance.kopfsocket1id, 29)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.kopfsocket2.Text = splitstringgem(Main.MainInstance.kopfench, Main.MainInstance.kopfsocket2id, 32)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.kopfsocket3.Text = splitstringgem(Main.MainInstance.kopfench, Main.MainInstance.kopfsocket3id, 35)
+        Main.MainInstance.kopfvz.Visible = True
 
 
-        If Main.anzahldurchlaufe = 1 Then Main.halsvz.Text = splitstringvz(Main.halsench, Main.halsvzid, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.halssocket1.Text = splitstringgem(Main.halsench, Main.halssocket1id, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.halssocket2.Text = splitstringgem(Main.halsench, Main.halssocket2id, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.halssocket3.Text = splitstringgem(Main.halsench, Main.halssocket3id, 35)
-        Main.halsvz.Visible = True
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.halsvz.Text = splitstringvz(Main.MainInstance.halsench, Main.MainInstance.halsvzid, 23)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.halssocket1.Text = splitstringgem(Main.MainInstance.halsench, Main.MainInstance.halssocket1id, 29)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.halssocket2.Text = splitstringgem(Main.MainInstance.halsench, Main.MainInstance.halssocket2id, 32)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.halssocket3.Text = splitstringgem(Main.MainInstance.halsench, Main.MainInstance.halssocket3id, 35)
+        Main.MainInstance.halsvz.Visible = True
 
-        If Main.anzahldurchlaufe = 1 Then Main.schultervz.Text = splitstringvz(Main.schulterench, Main.schultervzid, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.schultersocket1.Text = splitstringgem(Main.schulterench, Main.schultersocket1id, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.schultersocket2.Text = splitstringgem(Main.schulterench, Main.schultersocket2id, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.schultersocket3.Text = splitstringgem(Main.schulterench, Main.schultersocket3id, 35)
-        Main.schultervz.Visible = True
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.schultervz.Text = splitstringvz(Main.MainInstance.schulterench, Main.MainInstance.schultervzid, 23)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.schultersocket1.Text = splitstringgem(Main.MainInstance.schulterench, Main.MainInstance.schultersocket1id, 29)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.schultersocket2.Text = splitstringgem(Main.MainInstance.schulterench, Main.MainInstance.schultersocket2id, 32)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.schultersocket3.Text = splitstringgem(Main.MainInstance.schulterench, Main.MainInstance.schultersocket3id, 35)
+        Main.MainInstance.schultervz.Visible = True
 
-        If Main.anzahldurchlaufe = 1 Then Main.rueckenvz.Text = splitstringvz(Main.rueckenench, Main.rueckenvzid, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.rueckensocket1.Text = splitstringgem(Main.rueckenench, Main.rueckensocket1id, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.rueckensocket2.Text = splitstringgem(Main.rueckenench, Main.rueckensocket2id, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.rueckensocket3.Text = splitstringgem(Main.rueckenench, Main.rueckensocket3id, 35)
-        Main.rueckenvz.Visible = True
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.rueckenvz.Text = splitstringvz(Main.MainInstance.rueckenench, Main.MainInstance.rueckenvzid, 23)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.rueckensocket1.Text = splitstringgem(Main.MainInstance.rueckenench, Main.MainInstance.rueckensocket1id, 29)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.rueckensocket2.Text = splitstringgem(Main.MainInstance.rueckenench, Main.MainInstance.rueckensocket2id, 32)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.rueckensocket3.Text = splitstringgem(Main.MainInstance.rueckenench, Main.MainInstance.rueckensocket3id, 35)
+        Main.MainInstance.rueckenvz.Visible = True
 
-        Main.brustvz.Text = splitstringvz(Main.brustench, Main.brustvzid, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.brustsocket1.Text = splitstringgem(Main.brustench, Main.brustsocket1id, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.brustsocket2.Text = splitstringgem(Main.brustench, Main.brustsocket2id, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.brustsocket3.Text = splitstringgem(Main.brustench, Main.brustsocket3id, 35)
-        Main.brustvz.Visible = True
+        Main.MainInstance.brustvz.Text = splitstringvz(Main.MainInstance.brustench, Main.MainInstance.brustvzid, 23)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.brustsocket1.Text = splitstringgem(Main.MainInstance.brustench, Main.MainInstance.brustsocket1id, 29)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.brustsocket2.Text = splitstringgem(Main.MainInstance.brustench, Main.MainInstance.brustsocket2id, 32)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.brustsocket3.Text = splitstringgem(Main.MainInstance.brustench, Main.MainInstance.brustsocket3id, 35)
+        Main.MainInstance.brustvz.Visible = True
 
-        If Main.anzahldurchlaufe = 1 Then Main.handgelenkevz.Text = splitstringvz(Main.handgelenkeench, Main.handgelenkevzid, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.Handgelenkesocket1.Text = splitstringgem(Main.handgelenkeench, Main.handgelenkesocket1id, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.handgelenkesocket2.Text = splitstringgem(Main.handgelenkeench, Main.handgelenkesocket2id, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.Handgelenkesocket3.Text = splitstringgem(Main.handgelenkeench, Main.handgelenkesocket3id, 35)
-        Main.handgelenkevz.Visible = True
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.handgelenkevz.Text = splitstringvz(Main.MainInstance.handgelenkeench, Main.MainInstance.handgelenkevzid, 23)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.Handgelenkesocket1.Text = splitstringgem(Main.MainInstance.handgelenkeench, Main.MainInstance.handgelenkesocket1id, 29)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.handgelenkesocket2.Text = splitstringgem(Main.MainInstance.handgelenkeench, Main.MainInstance.handgelenkesocket2id, 32)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.Handgelenkesocket3.Text = splitstringgem(Main.MainInstance.handgelenkeench, Main.MainInstance.handgelenkesocket3id, 35)
+        Main.MainInstance.handgelenkevz.Visible = True
 
-        If Main.anzahldurchlaufe = 1 Then Main.hauptvz.Text = splitstringvz(Main.hauptench, Main.hauptvzid, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.Hauptsocket1.Text = splitstringgem(Main.hauptench, Main.hauptsocket1id, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.Hauptsocket2.Text = splitstringgem(Main.hauptench, Main.hauptsocket2id, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.hauptsocket3.Text = splitstringgem(Main.hauptench, Main.hauptsocket3id, 35)
-        Main.hauptvz.Visible = True
-        Main.hauptvzlabel2.Visible = True
-        Main.hauptvzlabel2.Text = Main.hauptvz.Text
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.hauptvz.Text = splitstringvz(Main.MainInstance.hauptench, Main.MainInstance.hauptvzid, 23)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.Hauptsocket1.Text = splitstringgem(Main.MainInstance.hauptench, Main.MainInstance.hauptsocket1id, 29)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.Hauptsocket2.Text = splitstringgem(Main.MainInstance.hauptench, Main.MainInstance.hauptsocket2id, 32)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.hauptsocket3.Text = splitstringgem(Main.MainInstance.hauptench, Main.MainInstance.hauptsocket3id, 35)
+        Main.MainInstance.hauptvz.Visible = True
+        Main.MainInstance.hauptvzlabel2.Visible = True
+        Main.MainInstance.hauptvzlabel2.Text = Main.MainInstance.hauptvz.Text
 
-        If Main.anzahldurchlaufe = 1 Then Main.offvz.Text = splitstringvz(Main.offench, Main.offvzid, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.Offsocket1.Text = splitstringgem(Main.offench, Main.offsocket1id, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.Offsocket2.Text = splitstringgem(Main.offench, Main.offsocket2id, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.offsocket3.Text = splitstringgem(Main.offench, Main.offsocket3id, 35)
-        Main.offvz.Visible = True
-        Main.offvzlabel2.Visible = True
-        Main.offvzlabel2.Text = Main.offvz.Text
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.offvz.Text = splitstringvz(Main.MainInstance.offench, Main.MainInstance.offvzid, 23)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.Offsocket1.Text = splitstringgem(Main.MainInstance.offench, Main.MainInstance.offsocket1id, 29)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.Offsocket2.Text = splitstringgem(Main.MainInstance.offench, Main.MainInstance.offsocket2id, 32)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.offsocket3.Text = splitstringgem(Main.MainInstance.offench, Main.MainInstance.offsocket3id, 35)
+        Main.MainInstance.offvz.Visible = True
+        Main.MainInstance.offvzlabel2.Visible = True
+        Main.MainInstance.offvzlabel2.Text = Main.MainInstance.offvz.Text
 
-        If Main.anzahldurchlaufe = 1 Then Main.distanzvz.Text = splitstringvz(Main.distanzench, Main.distanzvzid, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.Distanzsocket1.Text = splitstringgem(Main.distanzench, Main.distanzsocket1id, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.Distanzsocket2.Text = splitstringgem(Main.distanzench, Main.distanzsocket2id, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.distanzsocket3.Text = splitstringgem(Main.distanzench, Main.distanzsocket3id, 35)
-        Main.distanzvz.Visible = True
-        Main.distanzvzlabel2.Visible = True
-        Main.distanzvzlabel2.Text = Main.distanzvz.Text
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.distanzvz.Text = splitstringvz(Main.MainInstance.distanzench, Main.MainInstance.distanzvzid, 23)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.Distanzsocket1.Text = splitstringgem(Main.MainInstance.distanzench, Main.MainInstance.distanzsocket1id, 29)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.Distanzsocket2.Text = splitstringgem(Main.MainInstance.distanzench, Main.MainInstance.distanzsocket2id, 32)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.distanzsocket3.Text = splitstringgem(Main.MainInstance.distanzench, Main.MainInstance.distanzsocket3id, 35)
+        Main.MainInstance.distanzvz.Visible = True
+        Main.MainInstance.distanzvzlabel2.Visible = True
+        Main.MainInstance.distanzvzlabel2.Text = Main.MainInstance.distanzvz.Text
 
-        If Main.anzahldurchlaufe = 1 Then Main.haendevz.Text = splitstringvz(Main.haendeench, Main.haendevzid, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.haendesocket1.Text = splitstringgem(Main.haendeench, Main.haendesocket1id, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.haendesocket2.Text = splitstringgem(Main.haendeench, Main.haendesocket2id, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.haendesocket3.Text = splitstringgem(Main.haendeench, Main.haendesocket3id, 35)
-        Main.haendevz.Visible = True
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.haendevz.Text = splitstringvz(Main.MainInstance.haendeench, Main.MainInstance.haendevzid, 23)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.haendesocket1.Text = splitstringgem(Main.MainInstance.haendeench, Main.MainInstance.haendesocket1id, 29)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.haendesocket2.Text = splitstringgem(Main.MainInstance.haendeench, Main.MainInstance.haendesocket2id, 32)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.haendesocket3.Text = splitstringgem(Main.MainInstance.haendeench, Main.MainInstance.haendesocket3id, 35)
+        Main.MainInstance.haendevz.Visible = True
 
-        If Main.anzahldurchlaufe = 1 Then Main.guertelvz.Text = splitstringvz(Main.guertelench, Main.guertelvzid, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.guertelsocket1.Text = splitstringgem(Main.guertelench, Main.guertelsocket1id, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.guertelsocket2.Text = splitstringgem(Main.guertelench, Main.guertelsocket2id, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.guertelsocket3.Text = splitstringgem(Main.guertelench, Main.guertelsocket3id, 35)
-        Main.guertelvz.Visible = True
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.guertelvz.Text = splitstringvz(Main.MainInstance.guertelench, Main.MainInstance.guertelvzid, 23)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.guertelsocket1.Text = splitstringgem(Main.MainInstance.guertelench, Main.MainInstance.guertelsocket1id, 29)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.guertelsocket2.Text = splitstringgem(Main.MainInstance.guertelench, Main.MainInstance.guertelsocket2id, 32)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.guertelsocket3.Text = splitstringgem(Main.MainInstance.guertelench, Main.MainInstance.guertelsocket3id, 35)
+        Main.MainInstance.guertelvz.Visible = True
 
-        If Main.anzahldurchlaufe = 1 Then Main.beinevz.Text = splitstringvz(Main.beineench, Main.beinevzid, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.beinesocket1.Text = splitstringgem(Main.beineench, Main.beinesocket1id, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.beinesocket2.Text = splitstringgem(Main.beineench, Main.beinesocket2id, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.beinesocket3.Text = splitstringgem(Main.beineench, Main.beinesocket3id, 35)
-        Main.beinevz.Visible = True
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.beinevz.Text = splitstringvz(Main.MainInstance.beineench, Main.MainInstance.beinevzid, 23)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.beinesocket1.Text = splitstringgem(Main.MainInstance.beineench, Main.MainInstance.beinesocket1id, 29)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.beinesocket2.Text = splitstringgem(Main.MainInstance.beineench, Main.MainInstance.beinesocket2id, 32)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.beinesocket3.Text = splitstringgem(Main.MainInstance.beineench, Main.MainInstance.beinesocket3id, 35)
+        Main.MainInstance.beinevz.Visible = True
 
-        If Main.anzahldurchlaufe = 1 Then Main.stiefelvz.Text = splitstringvz(Main.stiefelench, Main.stiefelvzid, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.stiefelsocket1.Text = splitstringgem(Main.stiefelench, Main.stiefelsocket1id, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.stiefelsocket2.Text = splitstringgem(Main.stiefelench, Main.stiefelsocket2id, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.stiefelsocket3.Text = splitstringgem(Main.stiefelench, Main.stiefelsocket3id, 35)
-        Main.stiefelvz.Visible = True
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.stiefelvz.Text = splitstringvz(Main.MainInstance.stiefelench, Main.MainInstance.stiefelvzid, 23)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.stiefelsocket1.Text = splitstringgem(Main.MainInstance.stiefelench, Main.MainInstance.stiefelsocket1id, 29)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.stiefelsocket2.Text = splitstringgem(Main.MainInstance.stiefelench, Main.MainInstance.stiefelsocket2id, 32)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.stiefelsocket3.Text = splitstringgem(Main.MainInstance.stiefelench, Main.MainInstance.stiefelsocket3id, 35)
+        Main.MainInstance.stiefelvz.Visible = True
 
-        If Main.anzahldurchlaufe = 1 Then Main.ring1vz.Text = splitstringvz(Main.ring1ench, Main.ring1vzid, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.Ring1socket1.Text = splitstringgem(Main.ring1ench, Main.ring1socket1id, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.ring1socket2.Text = splitstringgem(Main.ring1ench, Main.ring1socket2id, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.ring1socket3.Text = splitstringgem(Main.ring1ench, Main.ring1socket3id, 35)
-        Main.ring1vz.Visible = True
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.ring1vz.Text = splitstringvz(Main.MainInstance.ring1ench, Main.MainInstance.ring1vzid, 23)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.Ring1socket1.Text = splitstringgem(Main.MainInstance.ring1ench, Main.MainInstance.ring1socket1id, 29)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.ring1socket2.Text = splitstringgem(Main.MainInstance.ring1ench, Main.MainInstance.ring1socket2id, 32)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.ring1socket3.Text = splitstringgem(Main.MainInstance.ring1ench, Main.MainInstance.ring1socket3id, 35)
+        Main.MainInstance.ring1vz.Visible = True
 
-        If Main.anzahldurchlaufe = 1 Then Main.ring2vz.Text = splitstringvz(Main.ring2ench, Main.ring2vzid, 23)
-        If Main.anzahldurchlaufe = 1 Then Main.ring2socket1.Text = splitstringgem(Main.ring2ench, Main.ring2socket1id, 29)
-        If Main.anzahldurchlaufe = 1 Then Main.ring2socket2.Text = splitstringgem(Main.ring2ench, Main.ring2socket2id, 32)
-        If Main.anzahldurchlaufe = 1 Then Main.ring2socket3.Text = splitstringgem(Main.ring2ench, Main.ring2socket3id, 35)
-        Main.ring2vz.Visible = True
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.ring2vz.Text = splitstringvz(Main.MainInstance.ring2ench, Main.MainInstance.ring2vzid, 23)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.ring2socket1.Text = splitstringgem(Main.MainInstance.ring2ench, Main.MainInstance.ring2socket1id, 29)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.ring2socket2.Text = splitstringgem(Main.MainInstance.ring2ench, Main.MainInstance.ring2socket2id, 32)
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.ring2socket3.Text = splitstringgem(Main.MainInstance.ring2ench, Main.MainInstance.ring2socket3id, 35)
+        Main.MainInstance.ring2vz.Visible = True
 
-        If Main.anzahldurchlaufe = 1 Then Main.schmuck1vz.Text = splitstringvz(Main.schmuck1ench, Main.schmuck1vzid, 23)
-        Main.schmuck1vz.Visible = True
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.schmuck1vz.Text = splitstringvz(Main.MainInstance.schmuck1ench, Main.MainInstance.schmuck1vzid, 23)
+        Main.MainInstance.schmuck1vz.Visible = True
 
-       If Main.anzahldurchlaufe = 1 Then Main.schmuck2vz.Text = splitstringvz(Main.schmuck2ench, Main.schmuck2vzid, 23)
-        Main.schmuck2vz.Visible = True
+        If Main.MainInstance.anzahldurchlaufe = 1 Then Main.MainInstance.schmuck2vz.Text = splitstringvz(Main.MainInstance.schmuck2ench, Main.MainInstance.schmuck2vzid, 23)
+        Main.MainInstance.schmuck2vz.Visible = True
 
     End Sub
 
     Public Function splitstringvz(ByVal input As String, ByRef obvalue As Integer, ByVal position As Integer) As String
         Dim xpacressource As String
-        Select Case Main.xpac
+        Select Case Main.MainInstance.xpac
             Case 3
                 xpacressource = My.Resources.VZ_ID_wotlk2
             Case 4
@@ -1961,7 +1961,7 @@ Public Class Mangos_core
 
     Public Function splitstringgem(ByVal input As String, ByVal obvalue As Integer, ByVal position As Integer) As String
         Dim xpacressource As String
-        Select Case Main.xpac
+        Select Case Main.MainInstance.xpac
             Case 3
                 xpacressource = My.Resources.VZ_ID_wotlk2
             Case 4
@@ -1973,7 +1973,7 @@ Public Class Mangos_core
             Dim parts() As String = input.Split(" "c)
             If Not parts(position - 1) = "0" Then
                 obvalue = CInt(parts(position - 1))
-               Return runfunction.geteffectnameofeffectid(CInt(parts(position - 1)))
+                Return runfunction.geteffectnameofeffectid(CInt(parts(position - 1)))
             Else
                 Return ""
             End If
@@ -2007,7 +2007,7 @@ Public Class Mangos_core
 
         Catch ex As Exception
 
-            Return - 1
+            Return -1
         End Try
     End Function
 
@@ -2054,7 +2054,7 @@ Public Class Mangos_core
 
             Dim sqlquery = "SELECT * FROM characters WHERE username = '" & accname & "'"
             Dim myCommand As New MySqlCommand()
-            myCommand.Connection = Main.GLOBALconn
+            myCommand.Connection = Main.MainInstance.GLOBALconn
             myCommand.CommandText = sqlquery
             'start query
             myAdapter.SelectCommand = myCommand
@@ -2085,7 +2085,7 @@ Public Class Mangos_core
                         runfunction.runcommand(
                             "SELECT guid FROM characters WHERE guid=(SELECT MAX(guid) FROM characters)", "guid"))) + 1
         guid = newcharguid.ToString
-        Main.coreguid = newcharguid.ToString
+        Main.MainInstance.coreguid = newcharguid.ToString
         targetaccount = runfunction.runcommandRealmd("SELECT id FROM account WHERE username='" & targetaccount & "'",
                                                      "id")
         If namechangeeverytime = True Then
@@ -2119,7 +2119,7 @@ Public Class Mangos_core
 
         End If
         Process_Status.processreport.AppendText(
-            Now.TimeOfDay.ToString & "// Creating Hearthstone for Character: " & Main.char_name & vbNewLine)
+            Now.TimeOfDay.ToString & "// Creating Hearthstone for Character: " & Main.MainInstance.char_name & vbNewLine)
 
         Dim newguid As String =
                 ((CInt(
@@ -2127,20 +2127,20 @@ Public Class Mangos_core
                         runfunction.runcommand(
                             "SELECT guid FROM item_instance WHERE guid=(SELECT MAX(guid) FROM item_instance)", "guid")))) +
                  1).ToString
-        If Main.xpac >= 3 Then
+        If Main.MainInstance.xpac >= 3 Then
             runfunction.normalsqlcommand(
-                "INSERT INTO item_instance ( guid, owner_guid, data ) VALUES ( '" & newguid & "', '" & Main.coreguid &
+                "INSERT INTO item_instance ( guid, owner_guid, data ) VALUES ( '" & newguid & "', '" & Main.MainInstance.coreguid &
                 "', '" & newguid &
                 " 1191182336 3 6948 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ' )")
         Else
             'MaNGOS 2.4.3 Core: Problem with data length, too long, remove 3 positions
             runfunction.normalsqlcommand(
-                "INSERT INTO item_instance ( guid, owner_guid, data ) VALUES ( '" & newguid & "', '" & Main.coreguid &
+                "INSERT INTO item_instance ( guid, owner_guid, data ) VALUES ( '" & newguid & "', '" & Main.MainInstance.coreguid &
                 "', '" & newguid &
                 " 1073741824 3 6948 1065353216 0 8 0 8 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ' )")
         End If
         runfunction.normalsqlcommand(
-            "INSERT INTO character_inventory ( guid, bag, slot, item, item_template ) VALUES ( '" & Main.coreguid &
+            "INSERT INTO character_inventory ( guid, bag, slot, item, item_template ) VALUES ( '" & Main.MainInstance.coreguid &
             "', '0', '23', '" & newguid & "', '6948')")
 
         Process_Status.processreport.AppendText(
@@ -2151,11 +2151,11 @@ Public Class Mangos_core
     Public Sub sethome()
         runfunction.writelog("sethome_call @mangos")
         runfunction.normalsqlcommand(
-            "INSERT INTO character_homebind ( guid, " & Main.homebind_map & ", " & Main.homebind_zone & ", " &
-            Main.homebind_posx & ", " & Main.homebind_posy & ", " & Main.homebind_posz & " ) VALUES ( '" & Main.coreguid &
-            "', '" & splitlist(Main.character_homebind, "map") & "', '" & splitlist(Main.character_homebind, "zone") &
-            "', '" & splitlist(Main.character_homebind, "position_x") & "', '" &
-            splitlist(Main.character_homebind, "position_y") & "', '" & splitlist(Main.character_homebind, "position_z") &
+            "INSERT INTO character_homebind ( guid, " & Main.MainInstance.homebind_map & ", " & Main.MainInstance.homebind_zone & ", " &
+            Main.MainInstance.homebind_posx & ", " & Main.MainInstance.homebind_posy & ", " & Main.MainInstance.homebind_posz & " ) VALUES ( '" & Main.MainInstance.coreguid &
+            "', '" & splitlist(Main.MainInstance.character_homebind, "map") & "', '" & splitlist(Main.MainInstance.character_homebind, "zone") &
+            "', '" & splitlist(Main.MainInstance.character_homebind, "position_x") & "', '" &
+            splitlist(Main.MainInstance.character_homebind, "position_y") & "', '" & splitlist(Main.MainInstance.character_homebind, "position_z") &
             "' )")
     End Sub
 
@@ -2172,7 +2172,7 @@ Public Class Mangos_core
         Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "// Creating Character " & charactername & "!" & vbNewLine)
         guid = newcharguid.ToString
-        Main.coreguid = newcharguid.ToString
+        Main.MainInstance.coreguid = newcharguid.ToString
         targetaccount = runfunction.runcommandRealmd("SELECT id FROM account WHERE username='" & targetaccount & "'",
                                                      "id")
         If namechangeeverytime = True Then
@@ -2182,13 +2182,13 @@ Public Class Mangos_core
             runfunction.normalsqlcommand(
                 "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, watchedFaction, `health`, exploredZones, knownTitles, actionBars ) VALUES ( '" &
                 newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
-                "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" & Main.playerBytes2.ToString &
-                "', '" & Main.playerFlags.ToString & "', '" & Main.position_x.ToString & "', '" &
-                Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 1).ToString & "', '" & Main.map.ToString &
-                "', '4,40671', '" & Main.taximask & "', '" & Main.totaltime.ToString & "', '" & Main.leveltime.ToString &
-                "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" & Main.at_login & "', '" &
-                Main.zone.ToString & "', '" & Main.chosenTitle & "', '" & Main.watchedFaction & "', '1000', '" &
-                Main.exploredZones & "', '" & Main.knownTitles & "', '" & Main.actionBars & "' )")
+                "', '0', '0', '0', '1', '0', '0', '" & Main.MainInstance.playerBytes.ToString & "', '" & Main.MainInstance.playerBytes2.ToString &
+                "', '" & Main.MainInstance.playerFlags.ToString & "', '" & Main.MainInstance.position_x.ToString & "', '" &
+                Main.MainInstance.position_y.ToString & "', '" & (CInt(Main.MainInstance.position_z) + 1).ToString & "', '" & Main.MainInstance.map.ToString &
+                "', '4,40671', '" & Main.MainInstance.taximask & "', '" & Main.MainInstance.totaltime.ToString & "', '" & Main.MainInstance.leveltime.ToString &
+                "', '" & Main.MainInstance.extra_flags & "', '" & Main.MainInstance.stable_slots & "', '" & Main.MainInstance.at_login & "', '" &
+                Main.MainInstance.zone.ToString & "', '" & Main.MainInstance.chosenTitle & "', '" & Main.MainInstance.watchedFaction & "', '1000', '" &
+                Main.MainInstance.exploredZones & "', '" & Main.MainInstance.knownTitles & "', '" & Main.MainInstance.actionBars & "' )")
 
             runfunction.normalsqlcommand("UPDATE characters SET at_login='1' WHERE guid='" & newcharguid.ToString & "'")
         Else
@@ -2198,28 +2198,28 @@ Public Class Mangos_core
                 runfunction.normalsqlcommand(
                     "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, watchedFaction, `health`, exploredZones, knownTitles, actionBars ) VALUES ( '" &
                     newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
-                    "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" &
-                    Main.playerBytes2.ToString & "', '" & Main.playerFlags.ToString & "', '" & Main.position_x.ToString &
-                    "', '" & Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 1).ToString & "', '" &
-                    Main.map.ToString & "', '4,40671', '" & Main.taximask & "', '" & Main.totaltime.ToString & "', '" &
-                    Main.leveltime.ToString & "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" &
-                    Main.at_login & "', '" & Main.zone.ToString & "', '" & Main.chosenTitle & "', '" &
-                    Main.watchedFaction & "', '1000', '" & Main.exploredZones & "', '" & Main.knownTitles & "', '" &
-                    Main.actionBars & "' )")
+                    "', '0', '0', '0', '1', '0', '0', '" & Main.MainInstance.playerBytes.ToString & "', '" &
+                    Main.MainInstance.playerBytes2.ToString & "', '" & Main.MainInstance.playerFlags.ToString & "', '" & Main.MainInstance.position_x.ToString &
+                    "', '" & Main.MainInstance.position_y.ToString & "', '" & (CInt(Main.MainInstance.position_z) + 1).ToString & "', '" &
+                    Main.MainInstance.map.ToString & "', '4,40671', '" & Main.MainInstance.taximask & "', '" & Main.MainInstance.totaltime.ToString & "', '" &
+                    Main.MainInstance.leveltime.ToString & "', '" & Main.MainInstance.extra_flags & "', '" & Main.MainInstance.stable_slots & "', '" &
+                    Main.MainInstance.at_login & "', '" & Main.MainInstance.zone.ToString & "', '" & Main.MainInstance.chosenTitle & "', '" &
+                    Main.MainInstance.watchedFaction & "', '1000', '" & Main.MainInstance.exploredZones & "', '" & Main.MainInstance.knownTitles & "', '" &
+                    Main.MainInstance.actionBars & "' )")
                 runfunction.normalsqlcommand(
                     "UPDATE characters SET at_login='1' WHERE guid='" & newcharguid.ToString & "'")
             Else
                 runfunction.normalsqlcommand(
                     "INSERT INTO characters ( `guid`, `account`, `name`, `race`, `class`, `gender`, `level`, `xp`, `money`, `playerBytes`, `playerBytes2`, `playerFlags`, `position_x`, position_y, position_z, map, orientation, taximask, totaltime, leveltime, extra_flags, stable_slots, at_login, zone, chosenTitle, watchedFaction, `health`, exploredZones, knownTitles, actionBars ) VALUES ( '" &
                     newcharguid.ToString & "', '" & targetaccount & "', '" & charactername &
-                    "', '0', '0', '0', '1', '0', '0', '" & Main.playerBytes.ToString & "', '" &
-                    Main.playerBytes2.ToString & "', '" & Main.playerFlags.ToString & "', '" & Main.position_x.ToString &
-                    "', '" & Main.position_y.ToString & "', '" & (CInt(Main.position_z) + 1).ToString & "', '" &
-                    Main.map.ToString & "', '4,40671', '" & Main.taximask & "', '" & Main.totaltime.ToString & "', '" &
-                    Main.leveltime.ToString & "', '" & Main.extra_flags & "', '" & Main.stable_slots & "', '" &
-                    Main.at_login & "', '" & Main.zone.ToString & "', '" & Main.chosenTitle & "', '" &
-                    Main.watchedFaction & "', '1000', '" & Main.exploredZones & "', '" & Main.knownTitles & "', '" &
-                    Main.actionBars & "' )")
+                    "', '0', '0', '0', '1', '0', '0', '" & Main.MainInstance.playerBytes.ToString & "', '" &
+                    Main.MainInstance.playerBytes2.ToString & "', '" & Main.MainInstance.playerFlags.ToString & "', '" & Main.MainInstance.position_x.ToString &
+                    "', '" & Main.MainInstance.position_y.ToString & "', '" & (CInt(Main.MainInstance.position_z) + 1).ToString & "', '" &
+                    Main.MainInstance.map.ToString & "', '4,40671', '" & Main.MainInstance.taximask & "', '" & Main.MainInstance.totaltime.ToString & "', '" &
+                    Main.MainInstance.leveltime.ToString & "', '" & Main.MainInstance.extra_flags & "', '" & Main.MainInstance.stable_slots & "', '" &
+                    Main.MainInstance.at_login & "', '" & Main.MainInstance.zone.ToString & "', '" & Main.MainInstance.chosenTitle & "', '" &
+                    Main.MainInstance.watchedFaction & "', '1000', '" & Main.MainInstance.exploredZones & "', '" & Main.MainInstance.knownTitles & "', '" &
+                    Main.MainInstance.actionBars & "' )")
 
             End If
 
@@ -2235,11 +2235,11 @@ Public Class Mangos_core
 
     Public Sub setmissingcolumns(ByVal guid As Integer)
         runfunction.normalsqlcommand(
-            "UPDATE characters SET knownCurrencies='" & Main.knownCurrencies & "' WHERE guid='" & guid.ToString & "'")
+            "UPDATE characters SET knownCurrencies='" & Main.MainInstance.knownCurrencies & "' WHERE guid='" & guid.ToString & "'")
         runfunction.normalsqlcommand(
-            "UPDATE characters SET speccount='" & Main.speccount.ToString & "' WHERE guid='" & guid.ToString & "'")
+            "UPDATE characters SET speccount='" & Main.MainInstance.speccount.ToString & "' WHERE guid='" & guid.ToString & "'")
         runfunction.normalsqlcommand(
-            "UPDATE characters SET activespec='" & Main.activespec.ToString & "' WHERE guid='" & guid.ToString & "'")
+            "UPDATE characters SET activespec='" & Main.MainInstance.activespec.ToString & "' WHERE guid='" & guid.ToString & "'")
     End Sub
 
     Public Sub requestnamechange(ByVal charname As String)
@@ -2256,7 +2256,7 @@ Public Class Mangos_core
 
             Dim sqlquery = "SELECT * FROM characters WHERE name = '" & charname & "'"
             Dim myCommand As New MySqlCommand()
-            myCommand.Connection = Main.GLOBALconn
+            myCommand.Connection = Main.MainInstance.GLOBALconn
             myCommand.CommandText = sqlquery
             'start query
             myAdapter.SelectCommand = myCommand
@@ -2285,38 +2285,38 @@ Public Class Mangos_core
     Public Sub getguidfromname(ByVal charactername As String)
         runfunction.writelog("getguidfromname_call @mangos for character: " & charactername)
         guid = runfunction.runcommand("SELECT guid FROM characters WHERE name = '" & charactername & "'", "guid")
-        Main.coreguid = guid
+        Main.MainInstance.coreguid = guid
         addaction()
     End Sub
 
     Public Sub additems()
         runfunction.writelog("additems_call @mangos")
-        guid = Main.coreguid
+        guid = Main.MainInstance.coreguid
         finalstring =
             "kopf 0 hals 0 schulter 0 hemd 0 brust 0 guertel 0 beine 0 stiefel 0 handgelenke 0 haende 0 finger1 0 finger2 0 schmuck1 0 schmuck2 0 ruecken 0 haupt 0 off 0 distanz 0 wappenrock 0 "
         lastnumber =
             runfunction.runcommand("SELECT guid FROM item_instance WHERE guid=(SELECT MAX(guid) FROM item_instance)",
                                    "guid")
         Process_Status.processreport.AppendText(
-            Now.TimeOfDay.ToString & "// Creating Items for Character: " & Main.char_name & vbNewLine)
+            Now.TimeOfDay.ToString & "// Creating Items for Character: " & Main.MainInstance.char_name & vbNewLine)
         Application.DoEvents()
-        If Main.char_class = 1 Or Main.char_class = 2 Or Main.char_class = 6 Then
+        If Main.MainInstance.char_class = 1 Or Main.MainInstance.char_class = 2 Or Main.MainInstance.char_class = 6 Then
             runfunction.normalsqlcommand(
                 "INSERT INTO character_spell ( guid, spell, active, disabled ) VALUES ( '" & guid &
                 "', '750', '1', '0' )")
             runfunction.normalsqlcommand(
                 "INSERT INTO character_skills ( guid, skill, value, max ) VALUES ( '" & guid & "', '293', '1', '1' )")
         ElseIf _
-            Main.char_class = 1 Or Main.char_class = 2 Or Main.char_class = 3 Or Main.char_class = 6 Or
-            Main.char_class = 7 Then
+            Main.MainInstance.char_class = 1 Or Main.MainInstance.char_class = 2 Or Main.MainInstance.char_class = 3 Or Main.MainInstance.char_class = 6 Or
+            Main.MainInstance.char_class = 7 Then
             runfunction.normalsqlcommand(
                 "INSERT INTO character_spell ( guid, spell, active, disabled ) VALUES ( '" & guid &
                 "', '8737', '1', '0' )")
             runfunction.normalsqlcommand(
                 "INSERT INTO character_skills ( guid, skill, value, max ) VALUES ( '" & guid & "', '413', '1', '1' )")
         ElseIf _
-            Main.char_class = 1 Or Main.char_class = 2 Or Main.char_class = 3 Or Main.char_class = 4 Or
-            Main.char_class = 6 Or Main.char_class = 7 Or Main.char_class = 11 Then
+            Main.MainInstance.char_class = 1 Or Main.MainInstance.char_class = 2 Or Main.MainInstance.char_class = 3 Or Main.MainInstance.char_class = 4 Or
+            Main.MainInstance.char_class = 6 Or Main.MainInstance.char_class = 7 Or Main.MainInstance.char_class = 11 Then
             runfunction.normalsqlcommand(
                 "INSERT INTO character_spell ( guid, spell, active, disabled ) VALUES ( '" & guid &
                 "', '9077', '1', '0' )")
@@ -2331,13 +2331,13 @@ Public Class Mangos_core
             Now.TimeOfDay.ToString & "// Creating special spells and skills for relevant items..." & vbNewLine)
         Dim spellcounter As Integer = 0
         Dim skillcounter As Integer = 0
-        For Each specialskill In Main.specialskills
+        For Each specialskill In Main.MainInstance.specialskills
             runfunction.normalsqlcommand(
                 "INSERT INTO character_skills ( guid, skill, value, max ) VALUES ( '" & guid & "', '" & specialskill &
                 "', '1', '1' )")
             skillcounter += 1
         Next
-        For Each specialspell In Main.specialspells
+        For Each specialspell In Main.MainInstance.specialspells
             runfunction.normalsqlcommand(
                 "INSERT INTO character_spell ( guid, spell, active, disabled ) VALUES ( '" & guid & "', '" &
                 specialspell & "', '1', '0' )")
@@ -2347,388 +2347,388 @@ Public Class Mangos_core
             Now.TimeOfDay.ToString & "// Created " & spellcounter.ToString & " spells and " & skillcounter.ToString &
             " skills!" & vbNewLine)
 
-        If Not Main.kopfid = Nothing Then
+        If Not Main.MainInstance.kopfid = Nothing Then
 
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             kopfwearguid = CInt(lastnumber)
-            If Main.xpac >= 3 Then
+            If Main.MainInstance.xpac >= 3 Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.kopfid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.kopfid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.kopfid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.kopfid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             End If
-            makestring(Main.kopfid, "kopf", False)
-            checkexist_anddelete(guid, "0", lastnumber, Main.kopfid)
+            makestring(Main.MainInstance.kopfid, "kopf", False)
+            checkexist_anddelete(guid, "0", lastnumber, Main.MainInstance.kopfid)
         End If
 
-        If Not Main.halsid = Nothing Then
+        If Not Main.MainInstance.halsid = Nothing Then
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             halswearguid = CInt(lastnumber)
-            If Main.xpac >= 3 Then
+            If Main.MainInstance.xpac >= 3 Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.halsid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.halsid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.halsid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.halsid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             End If
-            makestring(Main.halsid, "hals", False)
-            checkexist_anddelete(guid, "1", lastnumber, Main.halsid)
+            makestring(Main.MainInstance.halsid, "hals", False)
+            checkexist_anddelete(guid, "1", lastnumber, Main.MainInstance.halsid)
         End If
-        If Not Main.schulterid = Nothing Then
+        If Not Main.MainInstance.schulterid = Nothing Then
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             schulterwearguid = CInt(lastnumber)
-            If Main.xpac >= 3 Then
+            If Main.MainInstance.xpac >= 3 Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.schulterid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.schulterid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.schulterid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.schulterid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             End If
-            makestring(Main.schulterid, "schulter", False)
-            checkexist_anddelete(guid, "2", lastnumber, Main.schulterid)
+            makestring(Main.MainInstance.schulterid, "schulter", False)
+            checkexist_anddelete(guid, "2", lastnumber, Main.MainInstance.schulterid)
         End If
 
-        If Not Main.rueckenid = Nothing Then
+        If Not Main.MainInstance.rueckenid = Nothing Then
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             rueckenwearguid = CInt(lastnumber)
-            If Main.xpac >= 3 Then
+            If Main.MainInstance.xpac >= 3 Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.rueckenid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.rueckenid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.rueckenid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.rueckenid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             End If
-            makestring(Main.rueckenid, "ruecken", False)
-            checkexist_anddelete(guid, "14", lastnumber, Main.rueckenid)
+            makestring(Main.MainInstance.rueckenid, "ruecken", False)
+            checkexist_anddelete(guid, "14", lastnumber, Main.MainInstance.rueckenid)
         End If
-        If Not Main.brustid = Nothing Then
+        If Not Main.MainInstance.brustid = Nothing Then
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             brustwearguid = CInt(lastnumber)
-            If Main.xpac >= 3 Then
+            If Main.MainInstance.xpac >= 3 Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.brustid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.brustid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.brustid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.brustid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             End If
-            makestring(Main.brustid, "brust", False)
-            checkexist_anddelete(guid, "4", lastnumber, Main.brustid)
+            makestring(Main.MainInstance.brustid, "brust", False)
+            checkexist_anddelete(guid, "4", lastnumber, Main.MainInstance.brustid)
         End If
-        If Not Main.hemdid = Nothing Then
+        If Not Main.MainInstance.hemdid = Nothing Then
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             hemdwearguid = CInt(lastnumber)
-            If Main.xpac >= 3 Then
+            If Main.MainInstance.xpac >= 3 Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.hemdid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.hemdid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.hemdid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.hemdid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             End If
-            makestring(Main.hemdid, "hemd", False)
-            checkexist_anddelete(guid, "3", lastnumber, Main.hemdid)
+            makestring(Main.MainInstance.hemdid, "hemd", False)
+            checkexist_anddelete(guid, "3", lastnumber, Main.MainInstance.hemdid)
         End If
-        If Not Main.wappenrockid = Nothing Then
+        If Not Main.MainInstance.wappenrockid = Nothing Then
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             wappenrockwearguid = CInt(lastnumber)
-            If Main.xpac >= 3 Then
+            If Main.MainInstance.xpac >= 3 Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.wappenrockid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.wappenrockid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.wappenrockid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.wappenrockid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             End If
-            makestring(Main.wappenrockid, "wappenrock", False)
-            checkexist_anddelete(guid, "18", lastnumber, Main.wappenrockid)
+            makestring(Main.MainInstance.wappenrockid, "wappenrock", False)
+            checkexist_anddelete(guid, "18", lastnumber, Main.MainInstance.wappenrockid)
         End If
-        If Not Main.handgelenkeid = Nothing Then
+        If Not Main.MainInstance.handgelenkeid = Nothing Then
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             handgelenkewearguid = CInt(lastnumber)
-            If Main.xpac >= 3 Then
+            If Main.MainInstance.xpac >= 3 Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.handgelenkeid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.handgelenkeid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.handgelenkeid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.handgelenkeid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             End If
-            makestring(Main.handgelenkeid, "handgelenke", False)
-            checkexist_anddelete(guid, "8", lastnumber, Main.handgelenkeid)
+            makestring(Main.MainInstance.handgelenkeid, "handgelenke", False)
+            checkexist_anddelete(guid, "8", lastnumber, Main.MainInstance.handgelenkeid)
         End If
-        If Not Main.hauptid = Nothing Then
+        If Not Main.MainInstance.hauptid = Nothing Then
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             hauptwearguid = CInt(lastnumber)
-            If Main.xpac >= 3 Then
+            If Main.MainInstance.xpac >= 3 Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.hauptid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.hauptid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.hauptid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.hauptid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             End If
-            makestring(Main.hauptid, "haupt", False)
-            checkexist_anddelete(guid, "15", lastnumber, Main.hauptid)
+            makestring(Main.MainInstance.hauptid, "haupt", False)
+            checkexist_anddelete(guid, "15", lastnumber, Main.MainInstance.hauptid)
         End If
-        If Not Main.offid = Nothing Then
+        If Not Main.MainInstance.offid = Nothing Then
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             offwearguid = CInt(lastnumber)
-            If Main.xpac >= 3 Then
+            If Main.MainInstance.xpac >= 3 Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.offid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.offid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.offid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.offid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             End If
-            makestring(Main.offid, "off", False)
-            checkexist_anddelete(guid, "16", lastnumber, Main.offid)
+            makestring(Main.MainInstance.offid, "off", False)
+            checkexist_anddelete(guid, "16", lastnumber, Main.MainInstance.offid)
         End If
-        If Not Main.distanzid = Nothing Then
+        If Not Main.MainInstance.distanzid = Nothing Then
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             distanzwearguid = CInt(lastnumber)
-            If Main.xpac >= 3 Then
+            If Main.MainInstance.xpac >= 3 Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.distanzid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.distanzid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.distanzid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.distanzid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             End If
-            makestring(Main.distanzid, "distanz", False)
-            checkexist_anddelete(guid, "17", lastnumber, Main.distanzid)
+            makestring(Main.MainInstance.distanzid, "distanz", False)
+            checkexist_anddelete(guid, "17", lastnumber, Main.MainInstance.distanzid)
         End If
-        If Not Main.haendeid = Nothing Then
+        If Not Main.MainInstance.haendeid = Nothing Then
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             haendewearguid = CInt(lastnumber)
-            If Main.xpac >= 3 Then
+            If Main.MainInstance.xpac >= 3 Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.haendeid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.haendeid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.haendeid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.haendeid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             End If
-            makestring(Main.haendeid, "haende", False)
-            checkexist_anddelete(guid, "9", lastnumber, Main.haendeid)
+            makestring(Main.MainInstance.haendeid, "haende", False)
+            checkexist_anddelete(guid, "9", lastnumber, Main.MainInstance.haendeid)
         End If
-        If Not Main.guertelid = Nothing Then
+        If Not Main.MainInstance.guertelid = Nothing Then
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             guertelwearguid = CInt(lastnumber)
-            If Main.xpac >= 3 Then
+            If Main.MainInstance.xpac >= 3 Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.guertelid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.guertelid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.guertelid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.guertelid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             End If
-            makestring(Main.guertelid, "guertel", False)
-            checkexist_anddelete(guid, "5", lastnumber, Main.guertelid)
+            makestring(Main.MainInstance.guertelid, "guertel", False)
+            checkexist_anddelete(guid, "5", lastnumber, Main.MainInstance.guertelid)
         End If
-        If Not Main.beineid = Nothing Then
+        If Not Main.MainInstance.beineid = Nothing Then
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             beinewearguid = CInt(lastnumber)
-            If Main.xpac >= 3 Then
+            If Main.MainInstance.xpac >= 3 Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.beineid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.beineid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.beineid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.beineid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             End If
-            makestring(Main.beineid, "beine", False)
-            checkexist_anddelete(guid, "6", lastnumber, Main.beineid)
+            makestring(Main.MainInstance.beineid, "beine", False)
+            checkexist_anddelete(guid, "6", lastnumber, Main.MainInstance.beineid)
         End If
-        If Not Main.stiefelid = Nothing Then
+        If Not Main.MainInstance.stiefelid = Nothing Then
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             stiefelwearguid = CInt(lastnumber)
-            If Main.xpac >= 3 Then
+            If Main.MainInstance.xpac >= 3 Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.stiefelid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.stiefelid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.stiefelid.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.stiefelid.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             End If
-            makestring(Main.stiefelid, "stiefel", False)
-            checkexist_anddelete(guid, "7", lastnumber, Main.stiefelid)
+            makestring(Main.MainInstance.stiefelid, "stiefel", False)
+            checkexist_anddelete(guid, "7", lastnumber, Main.MainInstance.stiefelid)
         End If
-        If Not Main.ring1id = Nothing Then
+        If Not Main.MainInstance.ring1id = Nothing Then
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             ring1wearguid = CInt(lastnumber)
-            If Main.xpac >= 3 Then
+            If Main.MainInstance.xpac >= 3 Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.ring1id.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.ring1id.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.ring1id.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.ring1id.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             End If
-            makestring(Main.ring1id, "finger1", False)
-            checkexist_anddelete(guid, "10", lastnumber, Main.ring1id)
+            makestring(Main.MainInstance.ring1id, "finger1", False)
+            checkexist_anddelete(guid, "10", lastnumber, Main.MainInstance.ring1id)
         End If
-        If Not Main.ring2id = Nothing Then
+        If Not Main.MainInstance.ring2id = Nothing Then
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             ring2wearguid = CInt(lastnumber)
-            If Main.xpac >= 3 Then
+            If Main.MainInstance.xpac >= 3 Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.ring2id.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.ring2id.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.ring2id.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.ring2id.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             End If
-            makestring(Main.ring2id, "finger2", False)
-            checkexist_anddelete(guid, "11", lastnumber, Main.ring2id)
+            makestring(Main.MainInstance.ring2id, "finger2", False)
+            checkexist_anddelete(guid, "11", lastnumber, Main.MainInstance.ring2id)
         End If
-        If Not Main.schmuck1id = Nothing Then
+        If Not Main.MainInstance.schmuck1id = Nothing Then
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             schmuck1wearguid = CInt(lastnumber)
-            If Main.xpac >= 3 Then
+            If Main.MainInstance.xpac >= 3 Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.schmuck1id.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.schmuck1id.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.schmuck1id.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.schmuck1id.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             End If
-            makestring(Main.schmuck1id, "schmuck1", False)
-            checkexist_anddelete(guid, "12", lastnumber, Main.schmuck1id)
+            makestring(Main.MainInstance.schmuck1id, "schmuck1", False)
+            checkexist_anddelete(guid, "12", lastnumber, Main.MainInstance.schmuck1id)
         End If
-        If Not Main.schmuck2id = Nothing Then
+        If Not Main.MainInstance.schmuck2id = Nothing Then
             lastnumber = (CInt(Val(lastnumber)) + 1).ToString
             schmuck2wearguid = CInt(lastnumber)
-            If Main.xpac >= 3 Then
+            If Main.MainInstance.xpac >= 3 Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.schmuck2id.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.schmuck2id.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             Else
                 'MaNGOS_one has problems with data length
                 runfunction.normalsqlcommand(
                     "INSERT INTO item_instance ( guid, owner_guid, data) VALUES ( '" & lastnumber & "', '" & guid &
-                    "', '" & lastnumber & " 1191182336 3 " & Main.schmuck2id.ToString &
+                    "', '" & lastnumber & " 1191182336 3 " & Main.MainInstance.schmuck2id.ToString &
                     " 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 ')")
                 '3462 0 0 3448 0 0 3535 0 0 3753
             End If
-            makestring(Main.schmuck2id, "schmuck2", False)
-            checkexist_anddelete(guid, "13", lastnumber, Main.schmuck2id)
+            makestring(Main.MainInstance.schmuck2id, "schmuck2", False)
+            checkexist_anddelete(guid, "13", lastnumber, Main.MainInstance.schmuck2id)
         End If
         makestring(0, "", True)
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Created Items!" & vbNewLine)
@@ -2736,166 +2736,166 @@ Public Class Mangos_core
 
     Public Sub addglyphs(ByVal expansion As String)
         runfunction.writelog("addglyphs_call @mangos expansion: " & expansion)
-        newcharguid = Main.coreguid
-        guid = Main.coreguid
+        newcharguid = Main.MainInstance.coreguid
+        guid = Main.MainInstance.coreguid
         checkglyphsanddelete(newcharguid)
         Process_Status.processreport.AppendText(
-            Now.TimeOfDay.ToString & "// Adding Glyphs to Character: " & Main.char_name & vbNewLine)
+            Now.TimeOfDay.ToString & "// Adding Glyphs to Character: " & Main.MainInstance.char_name & vbNewLine)
         If expansion = "cata" Then
-            If Not Main.minorglyph1 = "" Then
+            If Not Main.MainInstance.minorglyph1 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '4', '" &
-                    runfunction.getglyphid2(Main.minorglyph1) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.minorglyph1) & "' )")
             End If
-            If Not Main.minorglyph2 = "" Then
+            If Not Main.MainInstance.minorglyph2 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '1', '" &
-                    runfunction.getglyphid2(Main.minorglyph2) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.minorglyph2) & "' )")
             End If
-            If Not Main.minorglyph3 = "" Then
+            If Not Main.MainInstance.minorglyph3 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '2', '" &
-                    runfunction.getglyphid2(Main.minorglyph3) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.minorglyph3) & "' )")
             End If
-            If Not Main.majorglyph1 = "" Then
+            If Not Main.MainInstance.majorglyph1 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '0', '" &
-                    runfunction.getglyphid2(Main.majorglyph1) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.majorglyph1) & "' )")
             End If
-            If Not Main.majorglyph2 = "" Then
+            If Not Main.MainInstance.majorglyph2 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '3', '" &
-                    runfunction.getglyphid2(Main.majorglyph2) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.majorglyph2) & "' )")
             End If
-            If Not Main.majorglyph3 = "" Then
+            If Not Main.MainInstance.majorglyph3 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '5', '" &
-                    runfunction.getglyphid2(Main.majorglyph3) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.majorglyph3) & "' )")
             End If
-            If Not Main.primeglyph1 = "" Then
+            If Not Main.MainInstance.primeglyph1 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '6', '" &
-                    runfunction.getglyphid2(Main.primeglyph1) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.primeglyph1) & "' )")
             End If
-            If Not Main.primeglyph2 = "" Then
+            If Not Main.MainInstance.primeglyph2 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '7', '" &
-                    runfunction.getglyphid2(Main.primeglyph2) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.primeglyph2) & "' )")
             End If
-            If Not Main.primeglyph3 = "" Then
+            If Not Main.MainInstance.primeglyph3 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '8', '" &
-                    runfunction.getglyphid2(Main.primeglyph3) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.primeglyph3) & "' )")
             End If
 
 
-            If Not Main.secminorglyph1 = "" Then
+            If Not Main.MainInstance.secminorglyph1 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '4', '" &
-                    runfunction.getglyphid2(Main.secminorglyph1) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.secminorglyph1) & "' )")
             End If
-            If Not Main.secminorglyph2 = "" Then
+            If Not Main.MainInstance.secminorglyph2 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '1', '" &
-                    runfunction.getglyphid2(Main.secminorglyph2) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.secminorglyph2) & "' )")
             End If
-            If Not Main.secminorglyph3 = "" Then
+            If Not Main.MainInstance.secminorglyph3 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '2', '" &
-                    runfunction.getglyphid2(Main.secminorglyph3) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.secminorglyph3) & "' )")
             End If
-            If Not Main.secmajorglyph1 = "" Then
+            If Not Main.MainInstance.secmajorglyph1 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '0', '" &
-                    runfunction.getglyphid2(Main.secmajorglyph1) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.secmajorglyph1) & "' )")
             End If
-            If Not Main.secmajorglyph2 = "" Then
+            If Not Main.MainInstance.secmajorglyph2 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '3', '" &
-                    runfunction.getglyphid2(Main.secmajorglyph2) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.secmajorglyph2) & "' )")
             End If
-            If Not Main.secmajorglyph3 = "" Then
+            If Not Main.MainInstance.secmajorglyph3 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '5', '" &
-                    runfunction.getglyphid2(Main.secmajorglyph3) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.secmajorglyph3) & "' )")
             End If
-            If Not Main.secprimeglyph1 = "" Then
+            If Not Main.MainInstance.secprimeglyph1 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '6', '" &
-                    runfunction.getglyphid2(Main.secprimeglyph1) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.secprimeglyph1) & "' )")
             End If
-            If Not Main.secprimeglyph2 = "" Then
+            If Not Main.MainInstance.secprimeglyph2 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '7', '" &
-                    runfunction.getglyphid2(Main.secprimeglyph2) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.secprimeglyph2) & "' )")
             End If
-            If Not Main.secprimeglyph3 = "" Then
+            If Not Main.MainInstance.secprimeglyph3 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '8', '" &
-                    runfunction.getglyphid2(Main.secprimeglyph3) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.secprimeglyph3) & "' )")
             End If
         Else
-            If Not Main.minorglyph1 = "" Then
+            If Not Main.MainInstance.minorglyph1 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '4', '" &
-                    runfunction.getglyphid2(Main.minorglyph1) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.minorglyph1) & "' )")
             End If
-            If Not Main.minorglyph2 = "" Then
+            If Not Main.MainInstance.minorglyph2 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '1', '" &
-                    runfunction.getglyphid2(Main.minorglyph2) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.minorglyph2) & "' )")
             End If
-            If Not Main.minorglyph3 = "" Then
+            If Not Main.MainInstance.minorglyph3 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '2', '" &
-                    runfunction.getglyphid2(Main.minorglyph3) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.minorglyph3) & "' )")
             End If
-            If Not Main.majorglyph1 = "" Then
+            If Not Main.MainInstance.majorglyph1 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '0', '" &
-                    runfunction.getglyphid2(Main.majorglyph1) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.majorglyph1) & "' )")
             End If
-            If Not Main.majorglyph2 = "" Then
+            If Not Main.MainInstance.majorglyph2 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '3', '" &
-                    runfunction.getglyphid2(Main.majorglyph2) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.majorglyph2) & "' )")
             End If
-            If Not Main.majorglyph3 = "" Then
+            If Not Main.MainInstance.majorglyph3 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '0', '5', '" &
-                    runfunction.getglyphid2(Main.majorglyph3) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.majorglyph3) & "' )")
             End If
 
 
-            If Not Main.secminorglyph1 = "" Then
+            If Not Main.MainInstance.secminorglyph1 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '4', '" &
-                    runfunction.getglyphid2(Main.secminorglyph1) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.secminorglyph1) & "' )")
             End If
-            If Not Main.secminorglyph2 = "" Then
+            If Not Main.MainInstance.secminorglyph2 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '1', '" &
-                    runfunction.getglyphid2(Main.secminorglyph2) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.secminorglyph2) & "' )")
             End If
-            If Not Main.secminorglyph3 = "" Then
+            If Not Main.MainInstance.secminorglyph3 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '2', '" &
-                    runfunction.getglyphid2(Main.secminorglyph3) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.secminorglyph3) & "' )")
             End If
-            If Not Main.secmajorglyph1 = "" Then
+            If Not Main.MainInstance.secmajorglyph1 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '0', '" &
-                    runfunction.getglyphid2(Main.secmajorglyph1) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.secmajorglyph1) & "' )")
             End If
-            If Not Main.secmajorglyph2 = "" Then
+            If Not Main.MainInstance.secmajorglyph2 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '3', '" &
-                    runfunction.getglyphid2(Main.secmajorglyph2) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.secmajorglyph2) & "' )")
             End If
-            If Not Main.secmajorglyph3 = "" Then
+            If Not Main.MainInstance.secmajorglyph3 = "" Then
                 runfunction.normalsqlcommand(
                     "INSERT INTO character_glyphs ( guid, spec, slot, glyph ) VALUES ( '" & guid & "', '1', '5', '" &
-                    runfunction.getglyphid2(Main.secmajorglyph3) & "' )")
+                    runfunction.getglyphid2(Main.MainInstance.secmajorglyph3) & "' )")
             End If
 
         End If
@@ -2905,58 +2905,58 @@ Public Class Mangos_core
     Public Sub setgender(ByVal gender As String)
         runfunction.writelog("setgender_call @mangos gender: " & gender)
         Process_Status.processreport.AppendText(
-            Now.TimeOfDay.ToString & "// Setting gender for Character: " & Main.char_name & vbNewLine)
-        guid = Main.coreguid
+            Now.TimeOfDay.ToString & "// Setting gender for Character: " & Main.MainInstance.char_name & vbNewLine)
+        guid = Main.MainInstance.coreguid
         runfunction.normalsqlcommand("UPDATE `characters` SET gender='" & gender & "' WHERE guid='" & guid & "'")
     End Sub
 
     Public Sub setlevel()
         runfunction.writelog("setlevel_call @mangos")
         Process_Status.processreport.AppendText(
-            Now.TimeOfDay.ToString & "// Setting Level for Character: " & Main.char_name & vbNewLine)
-        guid = Main.coreguid
+            Now.TimeOfDay.ToString & "// Setting Level for Character: " & Main.MainInstance.char_name & vbNewLine)
+        guid = Main.MainInstance.coreguid
         runfunction.normalsqlcommand(
-            "UPDATE `characters` SET level='" & Main.char_level.ToString & "' WHERE guid='" & guid & "'")
+            "UPDATE `characters` SET level='" & Main.MainInstance.char_level.ToString & "' WHERE guid='" & guid & "'")
     End Sub
 
     Public Sub setrace()
         runfunction.writelog("setrace_call @mangos")
         Process_Status.processreport.AppendText(
-            Now.TimeOfDay.ToString & "// Setting race for Character: " & Main.char_name & vbNewLine)
-        guid = Main.coreguid
+            Now.TimeOfDay.ToString & "// Setting race for Character: " & Main.MainInstance.char_name & vbNewLine)
+        guid = Main.MainInstance.coreguid
         runfunction.normalsqlcommand(
-            "UPDATE `characters` SET race='" & Main.char_race.ToString & "' WHERE guid='" & guid & "'")
+            "UPDATE `characters` SET race='" & Main.MainInstance.char_race.ToString & "' WHERE guid='" & guid & "'")
     End Sub
 
     Public Sub setclass()
         runfunction.writelog("setclass_call @mangos")
         Process_Status.processreport.AppendText(
-            Now.TimeOfDay.ToString & "// Setting class for Character: " & Main.char_name & vbNewLine)
-        guid = Main.coreguid
+            Now.TimeOfDay.ToString & "// Setting class for Character: " & Main.MainInstance.char_name & vbNewLine)
+        guid = Main.MainInstance.coreguid
         runfunction.normalsqlcommand(
-            "UPDATE `characters` SET `class`='" & Main.char_class.ToString & "' WHERE guid='" & guid & "'")
+            "UPDATE `characters` SET `class`='" & Main.MainInstance.char_class.ToString & "' WHERE guid='" & guid & "'")
     End Sub
 
     Public Sub setalternatelevel(ByVal alternatelevel As String)
         runfunction.writelog("setalternatelevel_call @mangos with a.level: " & alternatelevel)
         Process_Status.processreport.AppendText(
-            Now.TimeOfDay.ToString & "// Setting alternative level for Character: " & Main.char_name & vbNewLine)
-        guid = Main.coreguid
+            Now.TimeOfDay.ToString & "// Setting alternative level for Character: " & Main.MainInstance.char_name & vbNewLine)
+        guid = Main.MainInstance.coreguid
         runfunction.normalsqlcommand("UPDATE `characters` SET level='" & alternatelevel & "' WHERE guid='" & guid & "'")
     End Sub
 
     Public Sub setgold(ByVal amount As String)
         runfunction.writelog("setgold_call @mangos with amount: " & amount)
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Adding gold..." & vbNewLine)
-        guid = Main.coreguid
+        guid = Main.MainInstance.coreguid
         runfunction.normalsqlcommand(
-            "UPDATE `characters` SET money='" & (CInt(Val(amount))*10000).ToString & "' WHERE guid='" & guid & "'")
+            "UPDATE `characters` SET money='" & (CInt(Val(amount)) * 10000).ToString & "' WHERE guid='" & guid & "'")
     End Sub
 
     Public Sub addgold(ByVal amount As Integer)
         runfunction.writelog("addgold_call @mangos with amount: " & amount)
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Adding gold..." & vbNewLine)
-        guid = Main.coreguid
+        guid = Main.MainInstance.coreguid
         runfunction.normalsqlcommand("UPDATE `characters` SET money='" & amount.ToString & "' WHERE guid='" & guid & "'")
     End Sub
 
@@ -2968,11 +2968,11 @@ Public Class Mangos_core
         sdatatable.Dispose()
         sdatatable = gettable()
         Process_Status.processreport.AppendText(
-            Now.TimeOfDay.ToString & "// Setting Talents for Character: " & Main.char_name & vbNewLine)
+            Now.TimeOfDay.ToString & "// Setting Talents for Character: " & Main.MainInstance.char_name & vbNewLine)
         Dim talentlist As String = ""
         Dim talentlist2 As String = ""
         'talentid/rank
-        For Each talentstring As String In Main.character_talent_list
+        For Each talentstring As String In Main.MainInstance.character_talent_list
             talentid = checkfield(splitlist(talentstring, "spell"))
             Dim spec As String = splitlist(talentstring, "spec")
             If spec = "0" Then
@@ -2983,7 +2983,7 @@ Public Class Mangos_core
                         If CInt(Val(rank)) <= 4 Then
                         Else
                             runfunction.normalsqlcommand(
-                                "UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.coreguid &
+                                "UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.MainInstance.coreguid &
                                 "' AND talent_id='" & talentid & "' AND spec='0'")
                             talentlist = talentlist & " " & talentid & "rank" & rank
                         End If
@@ -2991,7 +2991,7 @@ Public Class Mangos_core
                         If CInt(Val(rank)) <= 3 Then
                         Else
                             runfunction.normalsqlcommand(
-                                "UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.coreguid &
+                                "UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.MainInstance.coreguid &
                                 "' AND talent_id='" & talentid & "' AND spec='0'")
                             talentlist = talentlist & " " & talentid & "rank" & rank
                         End If
@@ -2999,7 +2999,7 @@ Public Class Mangos_core
                         If CInt(Val(rank)) <= 2 Then
                         Else
                             runfunction.normalsqlcommand(
-                                "UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.coreguid &
+                                "UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.MainInstance.coreguid &
                                 "' AND talent_id='" & talentid & "' AND spec='0'")
                             talentlist = talentlist & " " & talentid & "rank" & rank
                         End If
@@ -3007,7 +3007,7 @@ Public Class Mangos_core
                         If CInt(Val(rank)) <= 1 Then
                         Else
                             runfunction.normalsqlcommand(
-                                "UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.coreguid &
+                                "UPDATE character_talent SET current_rank='" & rank & "' WHERE guid='" & Main.MainInstance.coreguid &
                                 "' AND talent_id='" & talentid & "' AND spec='0'")
                             talentlist = talentlist & " " & talentid & "rank" & rank
                         End If
@@ -3017,7 +3017,7 @@ Public Class Mangos_core
                 Else
                     runfunction.normalsqlcommand(
                         "INSERT INTO character_talent ( guid, talent_id, current_rank, spec ) VALUES ( '" &
-                        Main.coreguid & "', '" & talentid & "', '" & rank & "', '0' )")
+                        Main.MainInstance.coreguid & "', '" & talentid & "', '" & rank & "', '0' )")
 
                     talentlist = talentlist & " " & talentid & "rank" & rank
 
@@ -3032,7 +3032,7 @@ Public Class Mangos_core
                         If CInt(Val(rank2)) <= 4 Then
                         Else
                             runfunction.normalsqlcommand(
-                                "UPDATE character_talent SET current_rank='" & rank2 & "' WHERE guid='" & Main.coreguid &
+                                "UPDATE character_talent SET current_rank='" & rank2 & "' WHERE guid='" & Main.MainInstance.coreguid &
                                 "' AND talent_id='" & talentid & "' AND spec='1'")
                             talentlist2 = talentlist2 & " " & talentid & "rank" & rank2
                         End If
@@ -3040,7 +3040,7 @@ Public Class Mangos_core
                         If CInt(Val(rank2)) <= 3 Then
                         Else
                             runfunction.normalsqlcommand(
-                                "UPDATE character_talent SET current_rank='" & rank2 & "' WHERE guid='" & Main.coreguid &
+                                "UPDATE character_talent SET current_rank='" & rank2 & "' WHERE guid='" & Main.MainInstance.coreguid &
                                 "' AND talent_id='" & talentid & "' AND spec='1'")
                             talentlist2 = talentlist2 & " " & talentid & "rank" & rank2
                         End If
@@ -3048,7 +3048,7 @@ Public Class Mangos_core
                         If CInt(Val(rank2)) <= 2 Then
                         Else
                             runfunction.normalsqlcommand(
-                                "UPDATE character_talent SET current_rank='" & rank2 & "' WHERE guid='" & Main.coreguid &
+                                "UPDATE character_talent SET current_rank='" & rank2 & "' WHERE guid='" & Main.MainInstance.coreguid &
                                 "' AND talent_id='" & talentid & "' AND spec='1'")
                             talentlist2 = talentlist2 & " " & talentid & "rank" & rank2
                         End If
@@ -3056,7 +3056,7 @@ Public Class Mangos_core
                         If CInt(Val(rank2)) <= 1 Then
                         Else
                             runfunction.normalsqlcommand(
-                                "UPDATE character_talent SET current_rank='" & rank2 & "' WHERE guid='" & Main.coreguid &
+                                "UPDATE character_talent SET current_rank='" & rank2 & "' WHERE guid='" & Main.MainInstance.coreguid &
                                 "' AND talent_id='" & talentid & "' AND spec='1'")
                             talentlist2 = talentlist2 & " " & talentid & "rank" & rank2
                         End If
@@ -3066,7 +3066,7 @@ Public Class Mangos_core
                 Else
                     runfunction.normalsqlcommand(
                         "INSERT INTO character_talent ( guid, talent_id, current_rank, spec ) VALUES ( '" &
-                        Main.coreguid & "', '" & talentid & "', '" & rank2 & "', '1' )")
+                        Main.MainInstance.coreguid & "', '" & talentid & "', '" & rank2 & "', '1' )")
 
                     talentlist2 = talentlist2 & " " & talentid & "rank" & rank2
 
@@ -3165,24 +3165,24 @@ Public Class Mangos_core
     Public Sub setqueststatus()
         runfunction.writelog("setqueststatus_call @mangos")
         Process_Status.processreport.AppendText(
-            Now.TimeOfDay.ToString & "// Setting queststatus for Character: " & Main.char_name & vbNewLine)
-        For Each queststring As String In Main.character_queststatus
+            Now.TimeOfDay.ToString & "// Setting queststatus for Character: " & Main.MainInstance.char_name & vbNewLine)
+        For Each queststring As String In Main.MainInstance.character_queststatus
             Dim queststatus As String = splitlist(queststring, "status")
             If queststatus = "0" Then queststatus = "1"
             runfunction.normalsqlcommand(
-                "INSERT INTO character_queststatus ( guid, quest, `status`, `explored` ) VALUES ( '" & Main.coreguid &
+                "INSERT INTO character_queststatus ( guid, quest, `status`, `explored` ) VALUES ( '" & Main.MainInstance.coreguid &
                 "', '" & splitlist(queststring, "quest") & "', '" & queststatus & "', '" &
                 splitlist(queststring, "explored") & "')")
         Next
-        If Not Main.finished_quests = "" Then
-          Try
-                Dim parts() As String = Main.finished_quests.Split(","c)
-                Dim excounter As Integer = UBound(Main.finished_quests.Split(CChar(",")))
+        If Not Main.MainInstance.finished_quests = "" Then
+            Try
+                Dim parts() As String = Main.MainInstance.finished_quests.Split(","c)
+                Dim excounter As Integer = UBound(Main.MainInstance.finished_quests.Split(CChar(",")))
                 Dim startcounter As Integer = 0
                 Do
                     Dim questid As String = parts(startcounter)
                     runfunction.normalsqlcommand(
-               "INSERT INTO character_queststatus ( guid, quest, `status`, `rewarded` ) VALUES ( '" & Main.coreguid &
+               "INSERT INTO character_queststatus ( guid, quest, `status`, `rewarded` ) VALUES ( '" & Main.MainInstance.coreguid &
                "', '" & questid & "', '1', '1')")
                     startcounter += 1
                 Loop Until startcounter = excounter
@@ -3193,10 +3193,10 @@ Public Class Mangos_core
     Public Sub addachievements()
         runfunction.writelog("addachievements_call @mangos")
         Process_Status.processreport.AppendText(
-            Now.TimeOfDay.ToString & "// Adding achievements for Character: " & Main.char_name & vbNewLine)
-        For Each avstring As String In Main.character_achievement_list
+            Now.TimeOfDay.ToString & "// Adding achievements for Character: " & Main.MainInstance.char_name & vbNewLine)
+        For Each avstring As String In Main.MainInstance.character_achievement_list
             runfunction.normalsqlcommand(
-                "INSERT INTO character_achievement ( guid, achievement, date ) VALUES ( '" & Main.coreguid & "', '" &
+                "INSERT INTO character_achievement ( guid, achievement, date ) VALUES ( '" & Main.MainInstance.coreguid & "', '" &
                 splitlist(avstring, "av") & "', '" & splitlist(avstring, "date") & "')")
 
             ' "<av>" & avid & "</av><date>" & xdate & "</date>"
@@ -3206,10 +3206,10 @@ Public Class Mangos_core
     Public Sub addskills()
         runfunction.writelog("addskills_call @mangos")
         Process_Status.processreport.AppendText(
-            Now.TimeOfDay.ToString & "// Setting skills for Character: " & Main.char_name & vbNewLine)
-        For Each skill As String In Main.character_skills_list
+            Now.TimeOfDay.ToString & "// Setting skills for Character: " & Main.MainInstance.char_name & vbNewLine)
+        For Each skill As String In Main.MainInstance.character_skills_list
             runfunction.normalsqlcommand(
-                "INSERT INTO character_skills ( guid, skill, `value`, `max` ) VALUES ( '" & Main.coreguid & "', '" &
+                "INSERT INTO character_skills ( guid, skill, `value`, `max` ) VALUES ( '" & Main.MainInstance.coreguid & "', '" &
                 splitlist(skill, "skill") & "', '" & splitlist(skill, "value") & "', '" & splitlist(skill, "max") & "')")
 
             ' "<skill>" & skill & "</skill><value>" & value & "</value><max>" & max & "</max>"
@@ -3219,10 +3219,10 @@ Public Class Mangos_core
     Public Sub addspells()
         runfunction.writelog("addspells_call @mangos")
         Process_Status.processreport.AppendText(
-            Now.TimeOfDay.ToString & "// Teaching spells for Character: " & Main.char_name & vbNewLine)
-        For Each spell As String In Main.character_spells
+            Now.TimeOfDay.ToString & "// Teaching spells for Character: " & Main.MainInstance.char_name & vbNewLine)
+        For Each spell As String In Main.MainInstance.character_spells
             runfunction.normalsqlcommand(
-                "INSERT INTO character_spell ( guid, spell, `active`, `disabled` ) VALUES ( '" & Main.coreguid & "', '" &
+                "INSERT INTO character_spell ( guid, spell, `active`, `disabled` ) VALUES ( '" & Main.MainInstance.coreguid & "', '" &
                 splitlist(spell, "spell") & "', '" & splitlist(spell, "active") & "', '" & splitlist(spell, "disabled") &
                 "')")
 
@@ -3233,10 +3233,10 @@ Public Class Mangos_core
     Public Sub addreputation()
         runfunction.writelog("addreputation_call @mangos")
         Process_Status.processreport.AppendText(
-            Now.TimeOfDay.ToString & "// Adding reputation for Character: " & Main.char_name & vbNewLine)
-        For Each repstring As String In Main.character_reputatuion_list
+            Now.TimeOfDay.ToString & "// Adding reputation for Character: " & Main.MainInstance.char_name & vbNewLine)
+        For Each repstring As String In Main.MainInstance.character_reputatuion_list
             runfunction.normalsqlcommand(
-                "INSERT INTO character_reputation ( guid, faction, `standing`, `flags` ) VALUES ( '" & Main.coreguid &
+                "INSERT INTO character_reputation ( guid, faction, `standing`, `flags` ) VALUES ( '" & Main.MainInstance.coreguid &
                 "', '" & splitlist(repstring, "faction") & "', '" & splitlist(repstring, "standing") & "', '" &
                 splitlist(repstring, "flags") & "')")
 
@@ -3247,17 +3247,17 @@ Public Class Mangos_core
     Public Sub addaction()
         runfunction.writelog("addaction_call @mangos")
         Process_Status.processreport.AppendText(
-            Now.TimeOfDay.ToString & "// Setting up actionbars for Character: " & Main.char_name & vbNewLine)
-        For Each actionstring As String In Main.character_action_list
-            If Main.xpac >= 3 Then
+            Now.TimeOfDay.ToString & "// Setting up actionbars for Character: " & Main.MainInstance.char_name & vbNewLine)
+        For Each actionstring As String In Main.MainInstance.character_action_list
+            If Main.MainInstance.xpac >= 3 Then
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_action ( guid, spec, `button`, `action`, `type` ) VALUES ( '" & Main.coreguid &
+                    "INSERT INTO character_action ( guid, spec, `button`, `action`, `type` ) VALUES ( '" & Main.MainInstance.coreguid &
                     "', '" & splitlist(actionstring, "spec") & "', '" & splitlist(actionstring, "button") & "', '" &
                     splitlist(actionstring, "action") & "', '" & splitlist(actionstring, "type") & "')")
 
             Else
                 runfunction.normalsqlcommand(
-                    "INSERT INTO character_action ( guid, `button`, `action`, `type` ) VALUES ( '" & Main.coreguid &
+                    "INSERT INTO character_action ( guid, `button`, `action`, `type` ) VALUES ( '" & Main.MainInstance.coreguid &
                     "', '" & splitlist(actionstring, "button") & "', '" & splitlist(actionstring, "action") & "', '" &
                     splitlist(actionstring, "type") & "')")
 
@@ -3270,11 +3270,11 @@ Public Class Mangos_core
     Public Sub addinventory()
         runfunction.writelog("addinventory_call @mangos")
         Process_Status.processreport.AppendText(
-            Now.TimeOfDay.ToString & "// Adding Items to inventory for Character: " & Main.char_name & vbNewLine)
+            Now.TimeOfDay.ToString & "// Adding Items to inventory for Character: " & Main.MainInstance.char_name & vbNewLine)
         Dim bagexist As List(Of String) = New List(Of String)
         Dim bagstring As String = ""
         bagexist.Clear()
-        For Each inventorystring As String In Main.character_inventoryzero_list
+        For Each inventorystring As String In Main.MainInstance.character_inventoryzero_list
             Dim bagguid As String = splitlist(inventorystring, "bagguid")
             Dim bag As String = splitlist(inventorystring, "bag")
             Dim isabag As Boolean = False
@@ -3291,21 +3291,21 @@ Public Class Mangos_core
                     isabag = True
                 Case Else : End Select
             runfunction.normalsqlcommand(
-                "INSERT INTO item_instance ( guid, owner_guid, data ) VALUES ( '" & newguid & "', '" & Main.coreguid &
+                "INSERT INTO item_instance ( guid, owner_guid, data ) VALUES ( '" & newguid & "', '" & Main.MainInstance.coreguid &
                 "', '" &
-                splitenchstring(splitlist(inventorystring, "enchant"), CInt(newguid), Main.coreguid, splitlist(inventorystring, "item"), splitlist(inventorystring, "count"), isabag) &
+                splitenchstring(splitlist(inventorystring, "enchant"), CInt(newguid), Main.MainInstance.coreguid, splitlist(inventorystring, "item"), splitlist(inventorystring, "count"), isabag) &
                 "' )")
             runfunction.normalsqlcommand(
-                "INSERT INTO character_inventory ( guid, bag, slot, item, item_template ) VALUES ( '" & Main.coreguid &
+                "INSERT INTO character_inventory ( guid, bag, slot, item, item_template ) VALUES ( '" & Main.MainInstance.coreguid &
                 "', '" & bag & "', '" & splitlist(inventorystring, "slot") & "', '" & newguid & "', '" &
                 splitlist(inventorystring, "item") & "')")
             isabag = False
         Next
-        For Each inventorystring As String In Main.character_inventory_list
+        For Each inventorystring As String In Main.MainInstance.character_inventory_list
             Dim bagguid As String = splitlist(inventorystring, "bagguid")
             Dim bag As String = splitlist(inventorystring, "bag")
-            Dim newguid As String = ((CInt(Val(runfunction.runcommand("SELECT guid FROM item_instance WHERE guid=(SELECT MAX(guid) FROM item_instance)","guid")))) + 1).ToString
-            Dim newbagguid As String = runfunction.runcommand("SELECT item FROM character_inventory WHERE item_template='" & bag & "' AND guid='" & Main.coreguid & "'", "item")
+            Dim newguid As String = ((CInt(Val(runfunction.runcommand("SELECT guid FROM item_instance WHERE guid=(SELECT MAX(guid) FROM item_instance)", "guid")))) + 1).ToString
+            Dim newbagguid As String = runfunction.runcommand("SELECT item FROM character_inventory WHERE item_template='" & bag & "' AND guid='" & Main.MainInstance.coreguid & "'", "item")
             Select Case splitlist(inventorystring, "slot")
                 Case "19", "20", "21", "22", "67", "68", "69", "70", "71", "72", "73"
                 Case Else
@@ -3320,12 +3320,12 @@ Public Class Mangos_core
 
             End Select
             runfunction.normalsqlcommand(
-                "INSERT INTO item_instance ( guid, owner_guid, data ) VALUES ( '" & newguid & "', '" & Main.coreguid &
+                "INSERT INTO item_instance ( guid, owner_guid, data ) VALUES ( '" & newguid & "', '" & Main.MainInstance.coreguid &
                 "', '" &
-                splitenchstring(splitlist(inventorystring, "enchant"), CInt(newguid), Main.coreguid, splitlist(inventorystring, "item"), splitlist(inventorystring, "count")) &
+                splitenchstring(splitlist(inventorystring, "enchant"), CInt(newguid), Main.MainInstance.coreguid, splitlist(inventorystring, "item"), splitlist(inventorystring, "count")) &
                 "' )")
             runfunction.normalsqlcommand(
-                "INSERT INTO character_inventory ( guid, bag, slot, item, item_template ) VALUES ( '" & Main.coreguid &
+                "INSERT INTO character_inventory ( guid, bag, slot, item, item_template ) VALUES ( '" & Main.MainInstance.coreguid &
                 "', '" & newbagguid & "', '" & splitlist(inventorystring, "slot") & "', '" & newguid & "', '" &
                 splitlist(inventorystring, "item") & "')")
 
@@ -3338,7 +3338,7 @@ Public Class Mangos_core
 
         Dim Anzahl As Integer = UBound(enchstring.Split(CChar(" ")))
         Dim normalenchstring As String = "0 1191182336 3 0 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3753 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 "
-        If Main.xpac < 3 Then
+        If Main.MainInstance.xpac < 3 Then
 
             normalenchstring =
                 "0 1191182336 3 0 1065353216 0 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 3753 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 "
@@ -3406,7 +3406,7 @@ Public Class Mangos_core
         Else
             If Anzahl > 45 Then
                 'mangos
-                If Main.xpac >= 3 Then
+                If Main.MainInstance.xpac >= 3 Then
                     If Anzahl > 63 Then
                         'Sourcecore: WotLK/Cata
                         Dim input As String = enchstring
@@ -3510,7 +3510,7 @@ Public Class Mangos_core
                 xXquellcodeSplityx88 = Split(xXquellcodeyx88, xXanfangyx88, 5)(1)
                 xXquellcodeSplityx88 = Split(xXquellcodeSplityx88, xXendeyx88, 6)(0)
                 Dim resultString As String
-                If Main.xpac >= 3 Then
+                If Main.MainInstance.xpac >= 3 Then
                     resultString = guid & " 1191182336 3 " & entry & " 1065353216 0 1 0 1 0 0 0 0 0 " & numcount & " 0 0 0 0 0 0 1" &
                                    xXquellcodeSplityx88 &
                                    "0 0 3753 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 100 100 0 0 "
@@ -3546,195 +3546,195 @@ Public Class Mangos_core
         runfunction.writelog("addench_call @mangos")
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Adding item enchantments..." & vbNewLine)
         Application.DoEvents()
-        If Not Main.kopfench = "" Then _
+        If Not Main.MainInstance.kopfench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET data='" & splitenchstring(Main.kopfench, kopfwearguid, Main.coreguid, Main.kopfid.ToString) &
+                "UPDATE `item_instance` SET data='" & splitenchstring(Main.MainInstance.kopfench, kopfwearguid, Main.MainInstance.coreguid, Main.MainInstance.kopfid.ToString) &
                 "' WHERE guid='" & kopfwearguid & "'")
-        If Not Main.halsench = "" Then _
+        If Not Main.MainInstance.halsench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET data='" & splitenchstring(Main.halsench, halswearguid, Main.coreguid, Main.halsid.ToString) &
+                "UPDATE `item_instance` SET data='" & splitenchstring(Main.MainInstance.halsench, halswearguid, Main.MainInstance.coreguid, Main.MainInstance.halsid.ToString) &
                 "' WHERE guid='" & halswearguid & "'")
-        If Not Main.schulterench = "" Then _
+        If Not Main.MainInstance.schulterench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.schulterench, schulterwearguid, Main.coreguid, Main.schulterid.ToString) & "' WHERE guid='" &
+                splitenchstring(Main.MainInstance.schulterench, schulterwearguid, Main.MainInstance.coreguid, Main.MainInstance.schulterid.ToString) & "' WHERE guid='" &
                 schulterwearguid & "'")
-        If Not Main.rueckenench = "" Then _
+        If Not Main.MainInstance.rueckenench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.rueckenench, rueckenwearguid, Main.coreguid, Main.rueckenid.ToString) & "' WHERE guid='" &
+                splitenchstring(Main.MainInstance.rueckenench, rueckenwearguid, Main.MainInstance.coreguid, Main.MainInstance.rueckenid.ToString) & "' WHERE guid='" &
                 rueckenwearguid & "'")
-        If Not Main.brustench = "" Then _
+        If Not Main.MainInstance.brustench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.brustench, brustwearguid, Main.coreguid, Main.brustid.ToString) & "' WHERE guid='" & brustwearguid &
+                splitenchstring(Main.MainInstance.brustench, brustwearguid, Main.MainInstance.coreguid, Main.MainInstance.brustid.ToString) & "' WHERE guid='" & brustwearguid &
                 "'")
-        If Not Main.hemdench = "" Then _
+        If Not Main.MainInstance.hemdench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET data='" & splitenchstring(Main.hemdench, hemdwearguid, Main.coreguid, Main.hemdid.ToString) &
+                "UPDATE `item_instance` SET data='" & splitenchstring(Main.MainInstance.hemdench, hemdwearguid, Main.MainInstance.coreguid, Main.MainInstance.hemdid.ToString) &
                 "' WHERE guid='" & hemdwearguid & "'")
-        If Not Main.wappenrockench = "" Then _
+        If Not Main.MainInstance.wappenrockench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.wappenrockench, wappenrockwearguid, Main.coreguid, Main.wappenrockid.ToString) & "' WHERE guid='" &
+                splitenchstring(Main.MainInstance.wappenrockench, wappenrockwearguid, Main.MainInstance.coreguid, Main.MainInstance.wappenrockid.ToString) & "' WHERE guid='" &
                 wappenrockwearguid & "'")
-        If Not Main.handgelenkeench = "" Then _
+        If Not Main.MainInstance.handgelenkeench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.handgelenkeench, handgelenkewearguid, Main.coreguid, Main.handgelenkeid.ToString) &
+                splitenchstring(Main.MainInstance.handgelenkeench, handgelenkewearguid, Main.MainInstance.coreguid, Main.MainInstance.handgelenkeid.ToString) &
                 "' WHERE guid='" & handgelenkewearguid & "'")
-        If Not Main.haendeench = "" Then _
+        If Not Main.MainInstance.haendeench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.haendeench, haendewearguid, Main.coreguid, Main.haendeid.ToString) & "' WHERE guid='" &
+                splitenchstring(Main.MainInstance.haendeench, haendewearguid, Main.MainInstance.coreguid, Main.MainInstance.haendeid.ToString) & "' WHERE guid='" &
                 haendewearguid & "'")
-        If Not Main.hauptench = "" Then _
+        If Not Main.MainInstance.hauptench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.hauptench, hauptwearguid, Main.coreguid, Main.hauptid.ToString) & "' WHERE guid='" & hauptwearguid &
+                splitenchstring(Main.MainInstance.hauptench, hauptwearguid, Main.MainInstance.coreguid, Main.MainInstance.hauptid.ToString) & "' WHERE guid='" & hauptwearguid &
                 "'")
-        If Not Main.offench = "" Then _
+        If Not Main.MainInstance.offench = "" Then _
             runfunction.normalsqlcommand(
-                "UPDATE `item_instance` SET data='" & splitenchstring(Main.offench, offwearguid, Main.coreguid, Main.offid.ToString) &
+                "UPDATE `item_instance` SET data='" & splitenchstring(Main.MainInstance.offench, offwearguid, Main.MainInstance.coreguid, Main.MainInstance.offid.ToString) &
                 "' WHERE guid='" & offwearguid & "'")
-        If Not Main.distanzench = "" Then _
+        If Not Main.MainInstance.distanzench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.distanzench, distanzwearguid, Main.coreguid, Main.distanzid.ToString) & "' WHERE guid='" &
+                splitenchstring(Main.MainInstance.distanzench, distanzwearguid, Main.MainInstance.coreguid, Main.MainInstance.distanzid.ToString) & "' WHERE guid='" &
                 distanzwearguid & "'")
-        If Not Main.guertelench = "" Then _
+        If Not Main.MainInstance.guertelench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.guertelench, guertelwearguid, Main.coreguid, Main.guertelid.ToString) & "' WHERE guid='" &
+                splitenchstring(Main.MainInstance.guertelench, guertelwearguid, Main.MainInstance.coreguid, Main.MainInstance.guertelid.ToString) & "' WHERE guid='" &
                 guertelwearguid & "'")
-        If Not Main.beineench = "" Then _
+        If Not Main.MainInstance.beineench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.beineench, beinewearguid, Main.coreguid, Main.beineid.ToString) & "' WHERE guid='" & beinewearguid &
+                splitenchstring(Main.MainInstance.beineench, beinewearguid, Main.MainInstance.coreguid, Main.MainInstance.beineid.ToString) & "' WHERE guid='" & beinewearguid &
                 "'")
-        If Not Main.stiefelench = "" Then _
+        If Not Main.MainInstance.stiefelench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.stiefelench, stiefelwearguid, Main.coreguid, Main.stiefelid.ToString) & "' WHERE guid='" &
+                splitenchstring(Main.MainInstance.stiefelench, stiefelwearguid, Main.MainInstance.coreguid, Main.MainInstance.stiefelid.ToString) & "' WHERE guid='" &
                 stiefelwearguid & "'")
-        If Not Main.ring1ench = "" Then _
+        If Not Main.MainInstance.ring1ench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.ring1ench, ring1wearguid, Main.coreguid, Main.ring1id.ToString) & "' WHERE guid='" & ring1wearguid &
+                splitenchstring(Main.MainInstance.ring1ench, ring1wearguid, Main.MainInstance.coreguid, Main.MainInstance.ring1id.ToString) & "' WHERE guid='" & ring1wearguid &
                 "'")
-        If Not Main.ring2ench = "" Then _
+        If Not Main.MainInstance.ring2ench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.ring2ench, ring2wearguid, Main.coreguid, Main.ring2id.ToString) & "' WHERE guid='" & ring2wearguid &
+                splitenchstring(Main.MainInstance.ring2ench, ring2wearguid, Main.MainInstance.coreguid, Main.MainInstance.ring2id.ToString) & "' WHERE guid='" & ring2wearguid &
                 "'")
-        If Not Main.schmuck1ench = "" Then _
+        If Not Main.MainInstance.schmuck1ench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.schmuck1ench, schmuck1wearguid, Main.coreguid, Main.schmuck1id.ToString) & "' WHERE guid='" &
+                splitenchstring(Main.MainInstance.schmuck1ench, schmuck1wearguid, Main.MainInstance.coreguid, Main.MainInstance.schmuck1id.ToString) & "' WHERE guid='" &
                 schmuck1wearguid & "'")
-        If Not Main.schmuck2ench = "" Then _
+        If Not Main.MainInstance.schmuck2ench = "" Then _
             runfunction.normalsqlcommand(
                 "UPDATE `item_instance` SET data='" &
-                splitenchstring(Main.schmuck2ench, schmuck2wearguid, Main.coreguid, Main.schmuck2id.ToString) & "' WHERE guid='" &
+                splitenchstring(Main.MainInstance.schmuck2ench, schmuck2wearguid, Main.MainInstance.coreguid, Main.MainInstance.schmuck2id.ToString) & "' WHERE guid='" &
                 schmuck2wearguid & "'")
     End Sub
 
     Public Sub addgems()
         runfunction.writelog("addgems_call @mangos")
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "// Adding character gems..." & vbNewLine)
-        If Main.kopfsocket1id > 0 Then socketinsert(Main.kopfsocket1id.ToString, kopfwearguid.ToString, 7)
-        If Main.halssocket1id > 0 Then socketinsert(Main.halssocket1id.ToString, halswearguid.ToString, 7)
-        If Main.schultersocket1id > 0 Then socketinsert(Main.schultersocket1id.ToString, schulterwearguid.ToString, 7)
-        If Main.rueckensocket1id > 0 Then socketinsert(Main.rueckensocket1id.ToString, rueckenwearguid.ToString, 7)
-        If Main.brustsocket1id > 0 Then socketinsert(Main.brustsocket1id.ToString, brustwearguid.ToString, 7)
-        If Main.handgelenkesocket1id > 0 Then _
-            socketinsert(Main.handgelenkesocket1id.ToString, handgelenkewearguid.ToString, 7)
-        If Main.haendesocket1id > 0 Then socketinsert(Main.haendesocket1id.ToString, haendewearguid.ToString, 7)
-        If Main.guertelsocket1id > 0 Then
+        If Main.MainInstance.kopfsocket1id > 0 Then socketinsert(Main.MainInstance.kopfsocket1id.ToString, kopfwearguid.ToString, 7)
+        If Main.MainInstance.halssocket1id > 0 Then socketinsert(Main.MainInstance.halssocket1id.ToString, halswearguid.ToString, 7)
+        If Main.MainInstance.schultersocket1id > 0 Then socketinsert(Main.MainInstance.schultersocket1id.ToString, schulterwearguid.ToString, 7)
+        If Main.MainInstance.rueckensocket1id > 0 Then socketinsert(Main.MainInstance.rueckensocket1id.ToString, rueckenwearguid.ToString, 7)
+        If Main.MainInstance.brustsocket1id > 0 Then socketinsert(Main.MainInstance.brustsocket1id.ToString, brustwearguid.ToString, 7)
+        If Main.MainInstance.handgelenkesocket1id > 0 Then _
+            socketinsert(Main.MainInstance.handgelenkesocket1id.ToString, handgelenkewearguid.ToString, 7)
+        If Main.MainInstance.haendesocket1id > 0 Then socketinsert(Main.MainInstance.haendesocket1id.ToString, haendewearguid.ToString, 7)
+        If Main.MainInstance.guertelsocket1id > 0 Then
             beltinsert("3729", guertelwearguid.ToString, 41)
             '41 may be wrong!...
-            socketinsert(Main.guertelsocket1id.ToString, guertelwearguid.ToString, 7)
+            socketinsert(Main.MainInstance.guertelsocket1id.ToString, guertelwearguid.ToString, 7)
         End If
 
-        If Main.beinesocket1id > 0 Then socketinsert(Main.beinesocket1id.ToString, beinewearguid.ToString, 7)
-        If Main.stiefelsocket1id > 0 Then socketinsert(Main.stiefelsocket1id.ToString, stiefelwearguid.ToString, 7)
-        If Main.ring1socket1id > 0 Then socketinsert(Main.ring1socket1id.ToString, ring1wearguid.ToString, 7)
-        If Main.ring2socket1id > 0 Then socketinsert(Main.ring2socket1id.ToString, ring2wearguid.ToString, 7)
-        If Main.schmuck1socket1id > 0 Then socketinsert(Main.schmuck1socket1id.ToString, schmuck1wearguid.ToString, 7)
-        If Main.schmuck2socket1id > 0 Then socketinsert(Main.schmuck2socket1id.ToString, schmuck2wearguid.ToString, 7)
-        If Main.hauptsocket1id > 0 Then socketinsert(Main.hauptsocket1id.ToString, hauptwearguid.ToString, 7)
-        If Main.offsocket1id > 0 Then socketinsert(Main.offsocket1id.ToString, offwearguid.ToString, 7)
-        If Main.distanzsocket1id > 0 Then socketinsert(Main.distanzsocket1id.ToString, distanzwearguid.ToString, 7)
+        If Main.MainInstance.beinesocket1id > 0 Then socketinsert(Main.MainInstance.beinesocket1id.ToString, beinewearguid.ToString, 7)
+        If Main.MainInstance.stiefelsocket1id > 0 Then socketinsert(Main.MainInstance.stiefelsocket1id.ToString, stiefelwearguid.ToString, 7)
+        If Main.MainInstance.ring1socket1id > 0 Then socketinsert(Main.MainInstance.ring1socket1id.ToString, ring1wearguid.ToString, 7)
+        If Main.MainInstance.ring2socket1id > 0 Then socketinsert(Main.MainInstance.ring2socket1id.ToString, ring2wearguid.ToString, 7)
+        If Main.MainInstance.schmuck1socket1id > 0 Then socketinsert(Main.MainInstance.schmuck1socket1id.ToString, schmuck1wearguid.ToString, 7)
+        If Main.MainInstance.schmuck2socket1id > 0 Then socketinsert(Main.MainInstance.schmuck2socket1id.ToString, schmuck2wearguid.ToString, 7)
+        If Main.MainInstance.hauptsocket1id > 0 Then socketinsert(Main.MainInstance.hauptsocket1id.ToString, hauptwearguid.ToString, 7)
+        If Main.MainInstance.offsocket1id > 0 Then socketinsert(Main.MainInstance.offsocket1id.ToString, offwearguid.ToString, 7)
+        If Main.MainInstance.distanzsocket1id > 0 Then socketinsert(Main.MainInstance.distanzsocket1id.ToString, distanzwearguid.ToString, 7)
 
-        If Main.kopfsocket2id > 0 Then socketinsert(Main.kopfsocket2id.ToString, kopfwearguid.ToString, 10)
-        If Main.halssocket2id > 0 Then socketinsert(Main.halssocket2id.ToString, halswearguid.ToString, 10)
-        If Main.schultersocket2id > 0 Then socketinsert(Main.schultersocket2id.ToString, schulterwearguid.ToString, 10)
-        If Main.rueckensocket2id > 0 Then socketinsert(Main.rueckensocket2id.ToString, rueckenwearguid.ToString, 10)
-        If Main.brustsocket2id > 0 Then socketinsert(Main.brustsocket2id.ToString, brustwearguid.ToString, 10)
-        If Main.handgelenkesocket2id > 0 Then _
-            socketinsert(Main.handgelenkesocket2id.ToString, handgelenkewearguid.ToString, 10)
-        If Main.haendesocket2id > 0 Then socketinsert(Main.haendesocket2id.ToString, haendewearguid.ToString, 10)
-        If Main.guertelsocket2id > 0 Then
+        If Main.MainInstance.kopfsocket2id > 0 Then socketinsert(Main.MainInstance.kopfsocket2id.ToString, kopfwearguid.ToString, 10)
+        If Main.MainInstance.halssocket2id > 0 Then socketinsert(Main.MainInstance.halssocket2id.ToString, halswearguid.ToString, 10)
+        If Main.MainInstance.schultersocket2id > 0 Then socketinsert(Main.MainInstance.schultersocket2id.ToString, schulterwearguid.ToString, 10)
+        If Main.MainInstance.rueckensocket2id > 0 Then socketinsert(Main.MainInstance.rueckensocket2id.ToString, rueckenwearguid.ToString, 10)
+        If Main.MainInstance.brustsocket2id > 0 Then socketinsert(Main.MainInstance.brustsocket2id.ToString, brustwearguid.ToString, 10)
+        If Main.MainInstance.handgelenkesocket2id > 0 Then _
+            socketinsert(Main.MainInstance.handgelenkesocket2id.ToString, handgelenkewearguid.ToString, 10)
+        If Main.MainInstance.haendesocket2id > 0 Then socketinsert(Main.MainInstance.haendesocket2id.ToString, haendewearguid.ToString, 10)
+        If Main.MainInstance.guertelsocket2id > 0 Then
             beltinsert("3729", guertelwearguid.ToString, 41)
-            socketinsert(Main.guertelsocket2id.ToString, guertelwearguid.ToString, 10)
+            socketinsert(Main.MainInstance.guertelsocket2id.ToString, guertelwearguid.ToString, 10)
         End If
 
-        If Main.beinesocket2id > 0 Then socketinsert(Main.beinesocket2id.ToString, beinewearguid.ToString, 10)
-        If Main.stiefelsocket2id > 0 Then socketinsert(Main.stiefelsocket2id.ToString, stiefelwearguid.ToString, 10)
-        If Main.ring1socket2id > 0 Then socketinsert(Main.ring1socket2id.ToString, ring1wearguid.ToString, 10)
-        If Main.ring2socket2id > 0 Then socketinsert(Main.ring2socket2id.ToString, ring2wearguid.ToString, 10)
-        If Main.schmuck1socket2id > 0 Then socketinsert(Main.schmuck1socket2id.ToString, schmuck1wearguid.ToString, 10)
-        If Main.schmuck2socket2id > 0 Then socketinsert(Main.schmuck2socket2id.ToString, schmuck2wearguid.ToString, 10)
-        If Main.hauptsocket2id > 0 Then socketinsert(Main.hauptsocket2id.ToString, hauptwearguid.ToString, 10)
-        If Main.offsocket2id > 0 Then socketinsert(Main.offsocket2id.ToString, offwearguid.ToString, 10)
-        If Main.distanzsocket2id > 0 Then socketinsert(Main.distanzsocket2id.ToString, distanzwearguid.ToString, 10)
+        If Main.MainInstance.beinesocket2id > 0 Then socketinsert(Main.MainInstance.beinesocket2id.ToString, beinewearguid.ToString, 10)
+        If Main.MainInstance.stiefelsocket2id > 0 Then socketinsert(Main.MainInstance.stiefelsocket2id.ToString, stiefelwearguid.ToString, 10)
+        If Main.MainInstance.ring1socket2id > 0 Then socketinsert(Main.MainInstance.ring1socket2id.ToString, ring1wearguid.ToString, 10)
+        If Main.MainInstance.ring2socket2id > 0 Then socketinsert(Main.MainInstance.ring2socket2id.ToString, ring2wearguid.ToString, 10)
+        If Main.MainInstance.schmuck1socket2id > 0 Then socketinsert(Main.MainInstance.schmuck1socket2id.ToString, schmuck1wearguid.ToString, 10)
+        If Main.MainInstance.schmuck2socket2id > 0 Then socketinsert(Main.MainInstance.schmuck2socket2id.ToString, schmuck2wearguid.ToString, 10)
+        If Main.MainInstance.hauptsocket2id > 0 Then socketinsert(Main.MainInstance.hauptsocket2id.ToString, hauptwearguid.ToString, 10)
+        If Main.MainInstance.offsocket2id > 0 Then socketinsert(Main.MainInstance.offsocket2id.ToString, offwearguid.ToString, 10)
+        If Main.MainInstance.distanzsocket2id > 0 Then socketinsert(Main.MainInstance.distanzsocket2id.ToString, distanzwearguid.ToString, 10)
 
-        If Main.kopfsocket3id > 0 Then socketinsert(Main.kopfsocket3id.ToString, kopfwearguid.ToString, 13)
-        If Main.halssocket3id > 0 Then socketinsert(Main.halssocket3id.ToString, halswearguid.ToString, 13)
-        If Main.schultersocket3id > 0 Then socketinsert(Main.schultersocket3id.ToString, schulterwearguid.ToString, 13)
-        If Main.rueckensocket3id > 0 Then socketinsert(Main.rueckensocket3id.ToString, rueckenwearguid.ToString, 13)
-        If Main.brustsocket3id > 0 Then socketinsert(Main.brustsocket3id.ToString, brustwearguid.ToString, 13)
-        If Main.handgelenkesocket3id > 0 Then _
-            socketinsert(Main.handgelenkesocket3id.ToString, handgelenkewearguid.ToString, 13)
-        If Main.haendesocket3id > 0 Then socketinsert(Main.haendesocket3id.ToString, haendewearguid.ToString, 13)
-        If Main.guertelsocket3id > 0 Then
+        If Main.MainInstance.kopfsocket3id > 0 Then socketinsert(Main.MainInstance.kopfsocket3id.ToString, kopfwearguid.ToString, 13)
+        If Main.MainInstance.halssocket3id > 0 Then socketinsert(Main.MainInstance.halssocket3id.ToString, halswearguid.ToString, 13)
+        If Main.MainInstance.schultersocket3id > 0 Then socketinsert(Main.MainInstance.schultersocket3id.ToString, schulterwearguid.ToString, 13)
+        If Main.MainInstance.rueckensocket3id > 0 Then socketinsert(Main.MainInstance.rueckensocket3id.ToString, rueckenwearguid.ToString, 13)
+        If Main.MainInstance.brustsocket3id > 0 Then socketinsert(Main.MainInstance.brustsocket3id.ToString, brustwearguid.ToString, 13)
+        If Main.MainInstance.handgelenkesocket3id > 0 Then _
+            socketinsert(Main.MainInstance.handgelenkesocket3id.ToString, handgelenkewearguid.ToString, 13)
+        If Main.MainInstance.haendesocket3id > 0 Then socketinsert(Main.MainInstance.haendesocket3id.ToString, haendewearguid.ToString, 13)
+        If Main.MainInstance.guertelsocket3id > 0 Then
             beltinsert("3729", guertelwearguid.ToString, 41)
-            socketinsert(Main.guertelsocket3id.ToString, guertelwearguid.ToString, 13)
+            socketinsert(Main.MainInstance.guertelsocket3id.ToString, guertelwearguid.ToString, 13)
         End If
 
 
-        If Main.beinesocket3id > 0 Then socketinsert(Main.beinesocket3id.ToString, beinewearguid.ToString, 13)
-        If Main.stiefelsocket3id > 0 Then socketinsert(Main.stiefelsocket3id.ToString, stiefelwearguid.ToString, 13)
-        If Main.ring1socket3id > 0 Then socketinsert(Main.ring1socket3id.ToString, ring1wearguid.ToString, 13)
-        If Main.ring2socket3id > 0 Then socketinsert(Main.ring2socket3id.ToString, ring2wearguid.ToString, 13)
-        If Main.schmuck1socket3id > 0 Then socketinsert(Main.schmuck1socket3id.ToString, schmuck1wearguid.ToString, 13)
-        If Main.schmuck2socket3id > 0 Then socketinsert(Main.schmuck2socket3id.ToString, schmuck2wearguid.ToString, 13)
-        If Main.hauptsocket3id > 0 Then socketinsert(Main.hauptsocket3id.ToString, hauptwearguid.ToString, 13)
-        If Main.offsocket3id > 0 Then socketinsert(Main.offsocket3id.ToString, offwearguid.ToString, 13)
-        If Main.distanzsocket3id > 0 Then socketinsert(Main.distanzsocket3id.ToString, distanzwearguid.ToString, 13)
+        If Main.MainInstance.beinesocket3id > 0 Then socketinsert(Main.MainInstance.beinesocket3id.ToString, beinewearguid.ToString, 13)
+        If Main.MainInstance.stiefelsocket3id > 0 Then socketinsert(Main.MainInstance.stiefelsocket3id.ToString, stiefelwearguid.ToString, 13)
+        If Main.MainInstance.ring1socket3id > 0 Then socketinsert(Main.MainInstance.ring1socket3id.ToString, ring1wearguid.ToString, 13)
+        If Main.MainInstance.ring2socket3id > 0 Then socketinsert(Main.MainInstance.ring2socket3id.ToString, ring2wearguid.ToString, 13)
+        If Main.MainInstance.schmuck1socket3id > 0 Then socketinsert(Main.MainInstance.schmuck1socket3id.ToString, schmuck1wearguid.ToString, 13)
+        If Main.MainInstance.schmuck2socket3id > 0 Then socketinsert(Main.MainInstance.schmuck2socket3id.ToString, schmuck2wearguid.ToString, 13)
+        If Main.MainInstance.hauptsocket3id > 0 Then socketinsert(Main.MainInstance.hauptsocket3id.ToString, hauptwearguid.ToString, 13)
+        If Main.MainInstance.offsocket3id > 0 Then socketinsert(Main.MainInstance.offsocket3id.ToString, offwearguid.ToString, 13)
+        If Main.MainInstance.distanzsocket3id > 0 Then socketinsert(Main.MainInstance.distanzsocket3id.ToString, distanzwearguid.ToString, 13)
     End Sub
 
     Public Sub addenchantments()
         runfunction.writelog("addenchantments_call @mangos")
         Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "// Adding character enchantments..." & vbNewLine)
-        If Main.kopfvzid > 0 Then vzinsert(Main.kopfvzid, kopfwearguid, 1)
-        If Main.halsvzid > 0 Then vzinsert(Main.halsvzid, halswearguid, 1)
-        If Main.schultervzid > 0 Then vzinsert(Main.schultervzid, schulterwearguid, 1)
-        If Main.rueckenvzid > 0 Then vzinsert(Main.rueckenvzid, rueckenwearguid, 1)
-        If Main.brustvzid > 0 Then vzinsert(Main.brustvzid, brustwearguid, 1)
-        If Main.handgelenkevzid > 0 Then vzinsert(Main.handgelenkevzid, handgelenkewearguid, 1)
-        If Main.haendevzid > 0 Then vzinsert(Main.haendevzid, haendewearguid, 1)
-        If Main.guertelvzid > 0 Then vzinsert(Main.guertelvzid, guertelwearguid, 1)
-        If Main.beinevzid > 0 Then vzinsert(Main.beinevzid, beinewearguid, 1)
-        If Main.stiefelvzid > 0 Then vzinsert(Main.stiefelvzid, stiefelwearguid, 1)
-        If Main.ring1vzid > 0 Then vzinsert(Main.ring1vzid, ring1wearguid, 1)
-        If Main.ring2vzid > 0 Then vzinsert(Main.ring2vzid, ring2wearguid, 1)
-        If Main.schmuck1vzid > 0 Then vzinsert(Main.schmuck1vzid, schmuck1wearguid, 1)
-        If Main.schmuck2vzid > 0 Then vzinsert(Main.schmuck2vzid, schmuck2wearguid, 1)
-        If Main.hauptvzid > 0 Then vzinsert(Main.hauptvzid, hauptwearguid, 1)
-        If Main.offvzid > 0 Then vzinsert(Main.offvzid, offwearguid, 1)
-        If Main.distanzvzid > 0 Then vzinsert(Main.distanzvzid, distanzwearguid, 1)
+        If Main.MainInstance.kopfvzid > 0 Then vzinsert(Main.MainInstance.kopfvzid, kopfwearguid, 1)
+        If Main.MainInstance.halsvzid > 0 Then vzinsert(Main.MainInstance.halsvzid, halswearguid, 1)
+        If Main.MainInstance.schultervzid > 0 Then vzinsert(Main.MainInstance.schultervzid, schulterwearguid, 1)
+        If Main.MainInstance.rueckenvzid > 0 Then vzinsert(Main.MainInstance.rueckenvzid, rueckenwearguid, 1)
+        If Main.MainInstance.brustvzid > 0 Then vzinsert(Main.MainInstance.brustvzid, brustwearguid, 1)
+        If Main.MainInstance.handgelenkevzid > 0 Then vzinsert(Main.MainInstance.handgelenkevzid, handgelenkewearguid, 1)
+        If Main.MainInstance.haendevzid > 0 Then vzinsert(Main.MainInstance.haendevzid, haendewearguid, 1)
+        If Main.MainInstance.guertelvzid > 0 Then vzinsert(Main.MainInstance.guertelvzid, guertelwearguid, 1)
+        If Main.MainInstance.beinevzid > 0 Then vzinsert(Main.MainInstance.beinevzid, beinewearguid, 1)
+        If Main.MainInstance.stiefelvzid > 0 Then vzinsert(Main.MainInstance.stiefelvzid, stiefelwearguid, 1)
+        If Main.MainInstance.ring1vzid > 0 Then vzinsert(Main.MainInstance.ring1vzid, ring1wearguid, 1)
+        If Main.MainInstance.ring2vzid > 0 Then vzinsert(Main.MainInstance.ring2vzid, ring2wearguid, 1)
+        If Main.MainInstance.schmuck1vzid > 0 Then vzinsert(Main.MainInstance.schmuck1vzid, schmuck1wearguid, 1)
+        If Main.MainInstance.schmuck2vzid > 0 Then vzinsert(Main.MainInstance.schmuck2vzid, schmuck2wearguid, 1)
+        If Main.MainInstance.hauptvzid > 0 Then vzinsert(Main.MainInstance.hauptvzid, hauptwearguid, 1)
+        If Main.MainInstance.offvzid > 0 Then vzinsert(Main.MainInstance.offvzid, offwearguid, 1)
+        If Main.MainInstance.distanzvzid > 0 Then vzinsert(Main.MainInstance.distanzvzid, distanzwearguid, 1)
     End Sub
 
     Public Sub addpvp()
@@ -3743,12 +3743,12 @@ Public Class Mangos_core
             Now.TimeOfDay.ToString & "// Setting character honor/kills..." & vbNewLine)
 
         runfunction.normalsqlcommand(
-            "UPDATE `characters` SET arenaPoints='" & Main.arenaPoints.ToString & "' WHERE guid='" & Main.coreguid & "'")
+            "UPDATE `characters` SET arenaPoints='" & Main.MainInstance.arenaPoints.ToString & "' WHERE guid='" & Main.MainInstance.coreguid & "'")
         runfunction.normalsqlcommand(
-            "UPDATE `characters` SET totalHonorPoints='" & Main.totalHonorPoints.ToString & "' WHERE guid='" &
-            Main.coreguid & "'")
+            "UPDATE `characters` SET totalHonorPoints='" & Main.MainInstance.totalHonorPoints.ToString & "' WHERE guid='" &
+            Main.MainInstance.coreguid & "'")
         runfunction.normalsqlcommand(
-            "UPDATE `characters` SET totalKills='" & Main.totalKills.ToString & "' WHERE guid='" & Main.coreguid & "'")
+            "UPDATE `characters` SET totalKills='" & Main.MainInstance.totalKills.ToString & "' WHERE guid='" & Main.MainInstance.coreguid & "'")
     End Sub
 
     Public Sub socketinsert(ByVal socketid As String, ByVal itemguid As String, ByVal position As Integer)
@@ -3825,7 +3825,7 @@ Public Class Mangos_core
 
             Dim sqlquery = "SELECT * FROM character_inventory WHERE guid = '" & xguid & "' AND slot = '" & xslot & "'"
             Dim myCommand As New MySqlCommand()
-            myCommand.Connection = Main.GLOBALconn
+            myCommand.Connection = Main.MainInstance.GLOBALconn
             myCommand.CommandText = sqlquery
             'start query
             myAdapter.SelectCommand = myCommand
@@ -3860,7 +3860,7 @@ Public Class Mangos_core
 
 
     Private Sub makestring(ByVal addstring As Integer, ByVal replace As String, ByVal last As Boolean)
-        guid = Main.coreguid
+        guid = Main.MainInstance.coreguid
         If last = False Then
             Try
                 finalstring = finalstring.Replace(replace, addstring.ToString)

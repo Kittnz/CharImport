@@ -127,7 +127,13 @@ the program won't work with every revision of TrinityCore, ArcEmu, etc..
 However, there will be regular updates in order to support the latest revisions.</value>
   </data>
   <data name="RichTextBox1.Text" xml:space="preserve">
-    <value>|&lt;  BETA 0.11.5a &gt;|
+    <value>|&lt;  BETA 0.11.6 &gt;|
+
+ &gt; Fixed critical issues
+ &gt; Fixed character name case sensitivity
+ &gt; Fixed double separator
+
+|&lt;  BETA 0.11.5a &gt;|
 
  &gt; Users will no longer experience a message informing them about missing "knownCurrencies" column
 

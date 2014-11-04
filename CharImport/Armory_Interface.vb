@@ -32,26 +32,26 @@ Public Class Armory_Interface
         My.Settings.shellclose = False
         My.Settings.Save()
         runfunction.writelog("""Copy Characters directly into Database"" selected")
-        Main.importmode = 1
+        Main.MainInstance.importmode = 1
         My.Settings.savecontent = ""
         ' ???? 29/07 should fix: (Load char from db > load char from armory > store it > import template = first character)
         My.Settings.Save()
-        Main.overview = False
-        Main.linklist.Clear()
-        Main.linklist = New List(Of String)
+        Main.MainInstance.overview = False
+        Main.MainInstance.linklist.Clear()
+        Main.MainInstance.linklist = New List(Of String)
         My.Settings.shellclose = True
         My.Settings.Save()
         '   runfunction.writelog("Characters are: " & TextBox1.Text)
 
         For Each xitem As ListViewItem In ListView1.Items
-            Main.linklist.Add(xitem.SubItems(3).Text)
+            Main.MainInstance.linklist.Add(xitem.SubItems(3).Text)
         Next
 
         runfunction.writelog("Armory_Interface_Load call")
         If ListView1.Items.Count = 1 Then
             runfunction.writelog("Connect open request")
-            Main.getfromarmoryfirst = True
-            Main.showstarter = True
+            Main.MainInstance.getfromarmoryfirst = True
+            Main.MainInstance.showstarter = True
             runfunction.writelog("Armory_Interface_closing call")
 
             Me.Close()
@@ -60,7 +60,7 @@ Public Class Armory_Interface
 
         Else
             runfunction.writelog("Armory2Database open request")
-            Main.ausgangsformat = 1
+            Main.MainInstance.ausgangsformat = 1
             Me.Close()
             Armory2Database.Show()
             runfunction.writelog("Armory_Interface_closing call")
@@ -96,14 +96,14 @@ Public Class Armory_Interface
         My.Settings.savecontent = ""
         ' ???? 29/07 should fix: (Load char from db > load char from armory > store it > import template = first character)
         My.Settings.Save()
-        Main.setvisible(False)
-        Main.setallempty()
-        Main.overview = True
+        Main.MainInstance.setvisible(False)
+        Main.MainInstance.setallempty()
+        Main.MainInstance.overview = True
         runfunction.writelog("Character link is: " & ListView1.Items(0).SubItems(3).Text)
 
-        Main.importmode = 1
-        Main.progressmode = 1
-        Main.Show()
+        Main.MainInstance.importmode = 1
+        Main.MainInstance.progressmode = 1
+        Main.MainInstance.Show()
         Process_Status.Close()
         Process_Status.Dispose()
         Process_Status.Show()
@@ -164,30 +164,30 @@ Public Class Armory_Interface
             End If
             Exit Sub
         End If
-        Main.overview = False
-        Main.importmode = 1
-        Main.progressmode = 1
-        Main.linklist.Clear()
-        Main.linklist = New List(Of String)
+        Main.MainInstance.overview = False
+        Main.MainInstance.importmode = 1
+        Main.MainInstance.progressmode = 1
+        Main.MainInstance.linklist.Clear()
+        Main.MainInstance.linklist = New List(Of String)
         ' runfunction.writelog("Links entered: " & TextBox1.Text)
 
         Dim xnumber As Integer = 0
 
         For Each xitem As ListViewItem In ListView1.Items
-            Main.linklist.Add(xitem.SubItems(3).Text)
+            Main.MainInstance.linklist.Add(xitem.SubItems(3).Text)
         Next
 
 
         Process_Status.Show()
-        For Each link As String In Main.linklist
+        For Each link As String In Main.MainInstance.linklist
 
             runfunction.writelog("Load character from armory request")
             If ListView1.Items.Count = 1 Then
 
-                Main.overview = True
+                Main.MainInstance.overview = True
                 armoryproc.prozedur(link, xnumber, True)
             Else
-                Main.overview = False
+                Main.MainInstance.overview = False
                 armoryproc.prozedur(link, xnumber, False)
             End If
 
@@ -210,21 +210,20 @@ Public Class Armory_Interface
 
     Private Sub Armory_Interface_FormClosing(ByVal sender As Object, ByVal e As FormClosingEventArgs) _
         Handles Me.FormClosing
-        If My.Settings.shellclose = False Then
-            Starter.Show()
+
+        Starter.Show()
 
 
-        End If
     End Sub
 
     Private Sub Armory_Interface_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
-        Main.getfromarmoryfirst = False
+        Main.MainInstance.getfromarmoryfirst = False
         runfunction.writelog("Armory_Interface_Load call")
         Me.MaximumSize = Me.Size
-        Main.linklist = New List(Of String)
-        Main.datasets = vbEmpty
+        Main.MainInstance.linklist = New List(Of String)
+        Main.MainInstance.datasets = vbEmpty
     End Sub
-
+  
     Private Sub Button4_Click(ByVal sender As Object, ByVal e As EventArgs)
     End Sub
 

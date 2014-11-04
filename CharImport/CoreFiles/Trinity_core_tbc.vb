@@ -15,133 +15,133 @@ Public Class Trinity_core_tbc
     Public Overrides Sub GetCharFromDatabase(ByVal charguid As String)
 
         runfunction.writelog("GetCharFromDatabase_call with charguid: " & charguid)
-        Main.setallempty()
-        Main.anzahldurchlaufe += 1
-        Main.char_guid = CInt(Val(charguid))
+        Main.MainInstance.setallempty()
+        Main.MainInstance.anzahldurchlaufe += 1
+        Main.MainInstance.char_guid = CInt(Val(charguid))
         characterguid = CInt(Val(charguid))
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "/ Loading Character Race from Database..." & vbNewLine)
         Application.DoEvents()
-        Main.char_race = CInt(Val(runfunction.runcommand("SELECT race FROM characters WHERE guid='" & charguid & "'", "race")))
+        Main.MainInstance.char_race = CInt(Val(runfunction.runcommand("SELECT race FROM characters WHERE guid='" & charguid & "'", "race")))
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "/ Loading Character Class from Database..." & vbNewLine)
         Application.DoEvents()
-        Main.char_class = CInt(Val(runfunction.runcommand("SELECT class FROM characters WHERE guid='" & charguid & "'", "class")))
+        Main.MainInstance.char_class = CInt(Val(runfunction.runcommand("SELECT class FROM characters WHERE guid='" & charguid & "'", "class")))
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "/ Loading Character Gender from Database..." & vbNewLine)
         Application.DoEvents()
-        Main.char_gender = CInt(Val(runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 242), ' ', -1) AS UNSIGNED) AS `gender` FROM `characters` WHERE guid='" & charguid & "'", "gender")))
+        Main.MainInstance.char_gender = CInt(Val(runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 242), ' ', -1) AS UNSIGNED) AS `gender` FROM `characters` WHERE guid='" & charguid & "'", "gender")))
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "/ Loading Character Level from Database..." & vbNewLine)
         Application.DoEvents()
-        Main.char_level = CInt(Val(runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 35), ' ', -1) AS UNSIGNED) AS `level` FROM `characters` WHERE guid='" & charguid & "'", "level")))
+        Main.MainInstance.char_level = CInt(Val(runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 35), ' ', -1) AS UNSIGNED) AS `level` FROM `characters` WHERE guid='" & charguid & "'", "level")))
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "/ Loading Character Table..." & vbNewLine)
         Application.DoEvents()
-        Main.char_name = runfunction.runcommand("SELECT name FROM characters WHERE guid='" & charguid & "'", "name")
-        Main.accountid = CInt(Val(runfunction.runcommand("SELECT account FROM characters WHERE guid='" & charguid & "'", "account")))
-        Main.player_money = CInt(Val(runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 1398), ' ', -1) AS UNSIGNED) AS `money` FROM `characters` WHERE guid='" & charguid & "'", "money")))
-        Main.playerBytes = CInt(Val(runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 240), ' ', -1) AS UNSIGNED) AS `playerBytes` FROM `characters` WHERE guid='" & charguid & "'", "playerBytes")))
-        Main.playerBytes2 = CInt(Val(runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 241), ' ', -1) AS UNSIGNED) AS `playerBytes2` FROM `characters` WHERE guid='" & charguid & "'", "playerBytes2")))
-        Main.playerFlags = CInt(Val(runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 237), ' ', -1) AS UNSIGNED) AS `playerFlags` FROM `characters` WHERE guid='" & charguid & "'", "playerFlags")))
-        Main.char_xp = CInt(Val(runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 927), ' ', -1) AS UNSIGNED) AS `xp` FROM `characters` WHERE guid='" & charguid & "'", "xp")))
-        Main.position_x = runfunction.runcommand("SELECT position_x FROM characters WHERE guid='" & charguid & "'", "position_x")
-        Main.position_y = runfunction.runcommand("SELECT position_y FROM characters WHERE guid='" & charguid & "'", "position_y")
-        Main.position_z = runfunction.runcommand("SELECT position_z FROM characters WHERE guid='" & charguid & "'", "position_z")
-        Main.map = CInt(Val(runfunction.runcommand("SELECT map FROM characters WHERE guid='" & charguid & "'", "map")))
-        Main.orientation = runfunction.runcommand("SELECT orientation FROM characters WHERE guid='" & charguid & "'", "orientation")
-        Main.taximask = runfunction.runcommand("SELECT taximask FROM characters WHERE guid='" & charguid & "'", "taximask")
-        Main.cinematic = CInt(Val(runfunction.runcommand("SELECT cinematic FROM characters WHERE guid='" & charguid & "'", "cinematic")))
-        Main.totaltime = CInt(Val(runfunction.runcommand("SELECT totaltime FROM characters WHERE guid='" & charguid & "'", "totaltime")))
-        Main.leveltime = CInt(Val(runfunction.runcommand("SELECT leveltime FROM characters WHERE guid='" & charguid & "'", "leveltime")))
-        Main.extra_flags = runfunction.runcommand("SELECT extra_flags FROM characters WHERE guid='" & charguid & "'", "extra_flags")
-        Main.stable_slots = runfunction.runcommand("SELECT stable_slots FROM characters WHERE guid='" & charguid & "'", "stable_slots")
-        Main.at_login = runfunction.runcommand("SELECT at_login FROM characters WHERE guid='" & charguid & "'", "at_login")
-        Main.zone = CInt(Val(runfunction.runcommand("SELECT zone FROM characters WHERE guid='" & charguid & "'", "zone")))
-        Main.arenaPoints = CInt(Val(runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 1500), ' ', -1) AS UNSIGNED) AS `arenaPoints` FROM `characters` WHERE guid='" & charguid & "'", "arenaPoints")))
-        Main.totalHonorPoints = CInt(Val(runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 1499), ' ', -1) AS UNSIGNED) AS `totalHonorPoints` FROM `characters` WHERE guid='" & charguid & "'", "totalHonorPoints")))
-        Main.totalKills = CInt(Val(runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 1451), ' ', -1) AS UNSIGNED) AS `totalHonorPoints` FROM `characters` WHERE guid='" & charguid & "'", "totalKills")))
-        Main.chosenTitle = runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 649), ' ', -1) AS UNSIGNED) AS `chosenTitle` FROM `characters` WHERE guid='" & charguid & "'", "chosenTitle")
-        Main.watchedFaction = runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 1456), ' ', -1) AS UNSIGNED) AS `watchedFaction` FROM `characters` WHERE guid='" & charguid & "'", "watchedFaction")
-        Main.health = CInt(Val(runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 23), ' ', -1) AS UNSIGNED) AS `health` FROM `characters` WHERE guid='" & charguid & "'", "health")))
-        Main.exploredZones = runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 1333), ' ', -1) AS UNSIGNED) AS `exploredZones` FROM `characters` WHERE guid='" & charguid & "'", "exploredZones")
-        Main.knownTitles = runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 925), ' ', -1) AS UNSIGNED) AS `knownTitles` FROM `characters` WHERE guid='" & charguid & "'", "knownTitles")
-        Main.accountname = runfunction.runcommandRealmd("SELECT username FROM account WHERE `id`='" & Main.accountid.ToString & "'", "username")
-        Main.sha_pass_hash = runfunction.runcommandRealmd("SELECT sha_pass_hash FROM account WHERE `id`='" & Main.accountid.ToString & "'", "sha_pass_hash")
-        Main.sessionkey = runfunction.runcommandRealmd("SELECT sessionkey FROM account WHERE `id`='" & Main.accountid.ToString & "'", "sessionkey")
-        Main.account_v = runfunction.runcommandRealmd("SELECT v FROM account WHERE `id`='" & Main.accountid.ToString & "'", "v")
-        Main.account_s = runfunction.runcommandRealmd("SELECT s FROM account WHERE `id`='" & Main.accountid.ToString & "'", "s")
-        Main.email = runfunction.runcommandRealmd("SELECT email FROM account WHERE `id`='" & Main.accountid.ToString & "'", "email")
-        Main.joindate = runfunction.runcommandRealmd("SELECT joindate FROM account WHERE `id`='" & Main.accountid.ToString & "'", "joindate")
-        Main.expansion = CInt(Val(runfunction.runcommandRealmd("SELECT expansion FROM account WHERE `id`='" & Main.accountid.ToString & "'", "expansion"))) '//2=tbc?
-        Main.locale = CInt(Val(runfunction.runcommandRealmd("SELECT locale FROM account WHERE `id`='" & Main.accountid.ToString & "'", "locale")))
-        Main.account_access_gmlevel = CInt(Val(runfunction.runcommandRealmd("SELECT gmlevel FROM account WHERE `id`='" & Main.accountid.ToString & "'", "gmlevel")))
-        Main.level.Text = Main.char_name & ", " & Main.char_level & ", " & Main.char_race & ", " & Main.char_class
+        Main.MainInstance.char_name = runfunction.runcommand("SELECT name FROM characters WHERE guid='" & charguid & "'", "name")
+        Main.MainInstance.accountid = CInt(Val(runfunction.runcommand("SELECT account FROM characters WHERE guid='" & charguid & "'", "account")))
+        Main.MainInstance.player_money = CInt(Val(runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 1398), ' ', -1) AS UNSIGNED) AS `money` FROM `characters` WHERE guid='" & charguid & "'", "money")))
+        Main.MainInstance.playerBytes = CInt(Val(runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 240), ' ', -1) AS UNSIGNED) AS `playerBytes` FROM `characters` WHERE guid='" & charguid & "'", "playerBytes")))
+        Main.MainInstance.playerBytes2 = CInt(Val(runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 241), ' ', -1) AS UNSIGNED) AS `playerBytes2` FROM `characters` WHERE guid='" & charguid & "'", "playerBytes2")))
+        Main.MainInstance.playerFlags = CInt(Val(runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 237), ' ', -1) AS UNSIGNED) AS `playerFlags` FROM `characters` WHERE guid='" & charguid & "'", "playerFlags")))
+        Main.MainInstance.char_xp = CInt(Val(runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 927), ' ', -1) AS UNSIGNED) AS `xp` FROM `characters` WHERE guid='" & charguid & "'", "xp")))
+        Main.MainInstance.position_x = CDbl((runfunction.runcommand("SELECT position_x FROM characters WHERE guid='" & charguid & "'", "position_x")))
+        Main.MainInstance.position_y = CDbl((runfunction.runcommand("SELECT position_y FROM characters WHERE guid='" & charguid & "'", "position_y")))
+        Main.MainInstance.position_z = CDbl((runfunction.runcommand("SELECT position_z FROM characters WHERE guid='" & charguid & "'", "position_z")))
+        Main.MainInstance.map = CInt(Val(runfunction.runcommand("SELECT map FROM characters WHERE guid='" & charguid & "'", "map")))
+        Main.MainInstance.orientation = CDbl((runfunction.runcommand("SELECT orientation FROM characters WHERE guid='" & charguid & "'", "orientation")))
+        Main.MainInstance.taximask = runfunction.runcommand("SELECT taximask FROM characters WHERE guid='" & charguid & "'", "taximask")
+        Main.MainInstance.cinematic = CInt(Val(runfunction.runcommand("SELECT cinematic FROM characters WHERE guid='" & charguid & "'", "cinematic")))
+        Main.MainInstance.totaltime = CInt(Val(runfunction.runcommand("SELECT totaltime FROM characters WHERE guid='" & charguid & "'", "totaltime")))
+        Main.MainInstance.leveltime = CInt(Val(runfunction.runcommand("SELECT leveltime FROM characters WHERE guid='" & charguid & "'", "leveltime")))
+        Main.MainInstance.extra_flags = runfunction.runcommand("SELECT extra_flags FROM characters WHERE guid='" & charguid & "'", "extra_flags")
+        Main.MainInstance.stable_slots = runfunction.runcommand("SELECT stable_slots FROM characters WHERE guid='" & charguid & "'", "stable_slots")
+        Main.MainInstance.at_login = runfunction.runcommand("SELECT at_login FROM characters WHERE guid='" & charguid & "'", "at_login")
+        Main.MainInstance.zone = CInt(Val(runfunction.runcommand("SELECT zone FROM characters WHERE guid='" & charguid & "'", "zone")))
+        Main.MainInstance.arenaPoints = CInt(Val(runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 1500), ' ', -1) AS UNSIGNED) AS `arenaPoints` FROM `characters` WHERE guid='" & charguid & "'", "arenaPoints")))
+        Main.MainInstance.totalHonorPoints = CInt(Val(runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 1499), ' ', -1) AS UNSIGNED) AS `totalHonorPoints` FROM `characters` WHERE guid='" & charguid & "'", "totalHonorPoints")))
+        Main.MainInstance.totalKills = CInt(Val(runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 1451), ' ', -1) AS UNSIGNED) AS `totalHonorPoints` FROM `characters` WHERE guid='" & charguid & "'", "totalKills")))
+        Main.MainInstance.chosenTitle = runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 649), ' ', -1) AS UNSIGNED) AS `chosenTitle` FROM `characters` WHERE guid='" & charguid & "'", "chosenTitle")
+        Main.MainInstance.watchedFaction = runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 1456), ' ', -1) AS UNSIGNED) AS `watchedFaction` FROM `characters` WHERE guid='" & charguid & "'", "watchedFaction")
+        Main.MainInstance.health = CInt(Val(runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 23), ' ', -1) AS UNSIGNED) AS `health` FROM `characters` WHERE guid='" & charguid & "'", "health")))
+        Main.MainInstance.exploredZones = runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 1333), ' ', -1) AS UNSIGNED) AS `exploredZones` FROM `characters` WHERE guid='" & charguid & "'", "exploredZones")
+        Main.MainInstance.knownTitles = runfunction.runcommand("SELECT CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(`data`, ' ', 925), ' ', -1) AS UNSIGNED) AS `knownTitles` FROM `characters` WHERE guid='" & charguid & "'", "knownTitles")
+        Main.MainInstance.accountname = runfunction.runcommandRealmd("SELECT username FROM account WHERE `id`='" & Main.MainInstance.accountid.ToString & "'", "username")
+        Main.MainInstance.sha_pass_hash = runfunction.runcommandRealmd("SELECT sha_pass_hash FROM account WHERE `id`='" & Main.MainInstance.accountid.ToString & "'", "sha_pass_hash")
+        Main.MainInstance.sessionkey = runfunction.runcommandRealmd("SELECT sessionkey FROM account WHERE `id`='" & Main.MainInstance.accountid.ToString & "'", "sessionkey")
+        Main.MainInstance.account_v = runfunction.runcommandRealmd("SELECT v FROM account WHERE `id`='" & Main.MainInstance.accountid.ToString & "'", "v")
+        Main.MainInstance.account_s = runfunction.runcommandRealmd("SELECT s FROM account WHERE `id`='" & Main.MainInstance.accountid.ToString & "'", "s")
+        Main.MainInstance.email = runfunction.runcommandRealmd("SELECT email FROM account WHERE `id`='" & Main.MainInstance.accountid.ToString & "'", "email")
+        Main.MainInstance.joindate = runfunction.runcommandRealmd("SELECT joindate FROM account WHERE `id`='" & Main.MainInstance.accountid.ToString & "'", "joindate")
+        Main.MainInstance.expansion = CInt(Val(runfunction.runcommandRealmd("SELECT expansion FROM account WHERE `id`='" & Main.MainInstance.accountid.ToString & "'", "expansion"))) '//2=tbc?
+        Main.MainInstance.locale = CInt(Val(runfunction.runcommandRealmd("SELECT locale FROM account WHERE `id`='" & Main.MainInstance.accountid.ToString & "'", "locale")))
+        Main.MainInstance.account_access_gmlevel = CInt(Val(runfunction.runcommandRealmd("SELECT gmlevel FROM account WHERE `id`='" & Main.MainInstance.accountid.ToString & "'", "gmlevel")))
+        Main.MainInstance.level.Text = Main.MainInstance.char_name & ", " & Main.MainInstance.char_level & ", " & Main.MainInstance.char_race & ", " & Main.MainInstance.char_class
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "/ Loading Character Homebind from Database..." & vbNewLine)
-        Main.level.Text = Main.char_name & ", " & Main.char_level & ", "
-        Select Case Main.char_race
+        Main.MainInstance.level.Text = Main.MainInstance.char_name & ", " & Main.MainInstance.char_level & ", "
+        Select Case Main.MainInstance.char_race
             Case 1
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Mensch" Else Main.level.Text = Main.level.Text & "Human"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Mensch" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Human"
             Case 2
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Orc" Else Main.level.Text = Main.level.Text & "Orc"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Orc" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Orc"
             Case 3
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Zwerg" Else Main.level.Text = Main.level.Text & "Dwarf"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Zwerg" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Dwarf"
             Case 4
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Nachtelf" Else Main.level.Text = Main.level.Text & "Night Elf"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Nachtelf" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Night Elf"
             Case 5
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Untot" Else Main.level.Text = Main.level.Text & "Undead"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Untot" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Undead"
             Case 6
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Tauren" Else Main.level.Text = Main.level.Text & "Tauren"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Tauren" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Tauren"
             Case 7
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Gnom" Else Main.level.Text = Main.level.Text & "Gnome"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Gnom" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Gnome"
             Case 8
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Troll" Else Main.level.Text = Main.level.Text & "Troll"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Troll" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Troll"
             Case 9
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Goblin" Else Main.level.Text = Main.level.Text & "Goblin"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Goblin" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Goblin"
             Case 10
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Blutelf" Else Main.level.Text = Main.level.Text & "Blood Elf"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Blutelf" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Blood Elf"
             Case 11
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Draenei" Else Main.level.Text = Main.level.Text & "Draenei"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Draenei" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Draenei"
             Case 22
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Worgen" Else Main.level.Text = Main.level.Text & "Worgen"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Worgen" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Worgen"
             Case Else : End Select
-        Main.level.Text = Main.level.Text & ", "
-        Select Case Main.char_class
+        Main.MainInstance.level.Text = Main.MainInstance.level.Text & ", "
+        Select Case Main.MainInstance.char_class
             Case 1
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Krieger" Else Main.level.Text = Main.level.Text & "Warrior"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Krieger" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Warrior"
             Case 2
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Paladin" Else Main.level.Text = Main.level.Text & "Paladin"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Paladin" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Paladin"
             Case 3
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Jäger" Else Main.level.Text = Main.level.Text & "Hunter"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Jäger" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Hunter"
             Case 4
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Schurke" Else Main.level.Text = Main.level.Text & "Rogue"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Schurke" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Rogue"
             Case 5
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Priester" Else Main.level.Text = Main.level.Text & "Priest"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Priester" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Priest"
             Case 6
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Todesritter" Else Main.level.Text = Main.level.Text & "Death Knight"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Todesritter" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Death Knight"
             Case 7
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Schamane" Else Main.level.Text = Main.level.Text & "Shaman"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Schamane" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Shaman"
             Case 8
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Magier" Else Main.level.Text = Main.level.Text & "Mage"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Magier" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Mage"
             Case 9
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Hexenmeister" Else Main.level.Text = Main.level.Text & "Warlock"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Hexenmeister" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Warlock"
             Case 11
-                If My.Settings.language = "de" Then Main.level.Text = Main.level.Text & "Druide" Else Main.level.Text = Main.level.Text & "Druid"
+                If My.Settings.language = "de" Then Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Druide" Else Main.MainInstance.level.Text = Main.MainInstance.level.Text & "Druid"
             Case Else : End Select
         Process_Status.processreport.AppendText(
            Now.TimeOfDay.ToString & "/ Loading Character Homebind from Database..." & vbNewLine)
-        Main.character_homebind =
+        Main.MainInstance.character_homebind =
             ("<map>" &
              runfunction.runcommand(
-                 "SELECT " & Main.homebind_map & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString & "'",
-                 Main.homebind_map) & "</map><zone>" &
+                 "SELECT " & Main.MainInstance.homebind_map & " FROM character_homebind WHERE guid='" & Main.MainInstance.char_guid.ToString & "'",
+                 Main.MainInstance.homebind_map) & "</map><zone>" &
              runfunction.runcommand(
-                 "SELECT " & Main.homebind_zone & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
-                 "'", Main.homebind_zone) & "</zone><position_x>" &
+                 "SELECT " & Main.MainInstance.homebind_zone & " FROM character_homebind WHERE guid='" & Main.MainInstance.char_guid.ToString &
+                 "'", Main.MainInstance.homebind_zone) & "</zone><position_x>" &
              runfunction.runcommand(
-                 "SELECT " & Main.homebind_posx & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
-                 "'", Main.homebind_posx) & "</position_x><position_y>" &
+                 "SELECT " & Main.MainInstance.homebind_posx & " FROM character_homebind WHERE guid='" & Main.MainInstance.char_guid.ToString &
+                 "'", Main.MainInstance.homebind_posx) & "</position_x><position_y>" &
              runfunction.runcommand(
-                 "SELECT " & Main.homebind_posy & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
-                 "'", Main.homebind_posy) & "</position_y><position_z>" &
+                 "SELECT " & Main.MainInstance.homebind_posy & " FROM character_homebind WHERE guid='" & Main.MainInstance.char_guid.ToString &
+                 "'", Main.MainInstance.homebind_posy) & "</position_y><position_z>" &
              runfunction.runcommand(
-                 "SELECT " & Main.homebind_posz & " FROM character_homebind WHERE guid='" & Main.char_guid.ToString &
-                 "'", Main.homebind_posz) & "</position_z>")
+                 "SELECT " & Main.MainInstance.homebind_posz & " FROM character_homebind WHERE guid='" & Main.MainInstance.char_guid.ToString &
+                 "'", Main.MainInstance.homebind_posz) & "</position_z>")
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "/ Loading Character Spells from Database..." & vbNewLine)
         Application.DoEvents()
         getspells()
@@ -170,7 +170,7 @@ Public Class Trinity_core_tbc
         Process_Status.processreport.AppendText(Now.TimeOfDay.ToString & "/ Character loaded!..." & vbNewLine)
         Application.DoEvents()
         saveglyphs()
-        Main.datasets += 1
+        Main.MainInstance.datasets += 1
         Dim addtataset As New CIUFile
         addtataset.adddataset()
         Application.DoEvents()
@@ -181,8 +181,8 @@ Public Class Trinity_core_tbc
         Dim _
             da As _
                 New MySqlDataAdapter(
-                    "SELECT quest FROM character_queststatus WHERE guid='" & Main.char_guid.ToString & "'",
-                    Main.GLOBALconn)
+                    "SELECT quest FROM character_queststatus WHERE guid='" & Main.MainInstance.char_guid.ToString & "'",
+                    Main.MainInstance.GLOBALconn)
         Dim dt As New DataTable
         Try
             da.Fill(dt)
@@ -192,18 +192,18 @@ Public Class Trinity_core_tbc
                 Do
                     Dim readedcode As String = (dt.Rows(count).Item(0)).ToString
                     Dim quest As String = readedcode
-                    Dim status As String = runfunction.runcommand("SELECT `status` FROM character_queststatus WHERE quest='" & quest & "' AND guid='" & Main.char_guid.ToString & "'", "status")
-                    Dim explored As String = runfunction.runcommand("SELECT `explored` FROM character_queststatus WHERE quest='" & quest & "' AND guid='" & Main.char_guid.ToString & "'", "explored")
-                    Dim timer As String = runfunction.runcommand("SELECT `timer` FROM character_queststatus WHERE quest='" & quest & "' AND guid='" & Main.char_guid.ToString & "'", "timer")
-                    Dim rewarded As String = runfunction.runcommand("SELECT `rewarded` FROM character_queststatus WHERE quest='" & quest & "' AND guid='" & Main.char_guid.ToString & "'", "rewarded")
+                    Dim status As String = runfunction.runcommand("SELECT `status` FROM character_queststatus WHERE quest='" & quest & "' AND guid='" & Main.MainInstance.char_guid.ToString & "'", "status")
+                    Dim explored As String = runfunction.runcommand("SELECT `explored` FROM character_queststatus WHERE quest='" & quest & "' AND guid='" & Main.MainInstance.char_guid.ToString & "'", "explored")
+                    Dim timer As String = runfunction.runcommand("SELECT `timer` FROM character_queststatus WHERE quest='" & quest & "' AND guid='" & Main.MainInstance.char_guid.ToString & "'", "timer")
+                    Dim rewarded As String = runfunction.runcommand("SELECT `rewarded` FROM character_queststatus WHERE quest='" & quest & "' AND guid='" & Main.MainInstance.char_guid.ToString & "'", "rewarded")
                     If Not CInt(rewarded) = 1 Then
-                        Main.character_queststatus.Add("<quest>" & quest & "</quest><status>" & status & "</status><explored>" & explored & "</explored><timer>" & timer & "</timer>")
+                        Main.MainInstance.character_queststatus.Add("<quest>" & quest & "</quest><status>" & status & "</status><explored>" & explored & "</explored><timer>" & timer & "</timer>")
                     Else
-                        Main.finished_quests = Main.finished_quests & quest & ","
+                        Main.MainInstance.finished_quests = Main.MainInstance.finished_quests & quest & ","
                     End If
                     count += 1
                 Loop Until count = lastcount
             End If
         Catch : End Try
-     End Sub
+    End Sub
 End Class

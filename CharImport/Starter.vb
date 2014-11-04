@@ -13,7 +13,7 @@ Imports System.Net
 
 Public Class Starter
     Public runfunction As New Functions
-    Public programversion As Integer = 11007 '0.11.05c
+    Public programversion As Integer = 11060 '0.11.06
     Public required_template_version As Integer = 2 'increasing this value will cause the outdating of older template file formats
     Public downloadlink As String = ""
     Dim localeDE As New LanguageDE
@@ -43,7 +43,7 @@ Public Class Starter
             Database2Database.Close()
             Filtern.Close()
             Glyphs.Close()
-            Main.Close()
+            Main.MainInstance.Close()
             Welcome.Close()
             Application.Exit()
 
@@ -55,6 +55,7 @@ Public Class Starter
     Private Sub Starter_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Me.Text = "CharImport [Universal] - " & Me.ProductVersion & " (Beta)"
         My.Settings.writelog = True
+        Main.MainInstance = New Main()
         ' ###### Change it to false at pre-release ######
         My.Settings.savecontent = ""
         My.Settings.Save()
@@ -183,8 +184,8 @@ Public Class Starter
             runfunction.writelog("Failed to connect to FTP-Server at start: " & vbNewLine & ex.ToString)
         End Try
         Try
-            Main.itemname_dt.Clear()
-            Main.itemname_dt = New DataTable()
+            Main.MainInstance.itemname_dt.Clear()
+            Main.MainInstance.itemname_dt = New DataTable()
             Dim stext As String
             If My.Settings.language = "de" Then
                 stext = My.Resources.item_name_de
@@ -199,17 +200,17 @@ Public Class Starter
                 strArray = a(i).Split(CChar(";"))
                 If i = 0 Then
                     For Each value As String In strArray
-                        Main.itemname_dt.Columns.Add(value.Trim())
+                        Main.MainInstance.itemname_dt.Columns.Add(value.Trim())
                     Next
                 Else
-                    Dim dr As DataRow = Main.itemname_dt.NewRow()
-                    Main.itemname_dt.Rows.Add(strArray)
+                    Dim dr As DataRow = Main.MainInstance.itemname_dt.NewRow()
+                    Main.MainInstance.itemname_dt.Rows.Add(strArray)
                 End If
             Next i
         Catch : End Try
         Try
-            Main.effectname_dt.Clear()
-            Main.effectname_dt = New DataTable()
+            Main.MainInstance.effectname_dt.Clear()
+            Main.MainInstance.effectname_dt = New DataTable()
             Dim stext As String
             If My.Settings.language = "de" Then
                 stext = My.Resources.enchant_name_de
@@ -224,11 +225,11 @@ Public Class Starter
                 strArray = a(i).Split(CChar(";"))
                 If i = 0 Then
                     For Each value As String In strArray
-                        Main.effectname_dt.Columns.Add(value.Trim())
+                        Main.MainInstance.effectname_dt.Columns.Add(value.Trim())
                     Next
                 Else
-                    Dim dr As DataRow = Main.effectname_dt.NewRow()
-                    Main.effectname_dt.Rows.Add(strArray)
+                    Dim dr As DataRow = Main.MainInstance.effectname_dt.NewRow()
+                    Main.MainInstance.effectname_dt.Rows.Add(strArray)
                 End If
             Next i
         Catch : End Try
@@ -236,7 +237,7 @@ Public Class Starter
     End Sub
 
     Private Declare Function URLDownloadToFile Lib "urlmon" _
-        Alias "URLDownloadToFileA"(
+        Alias "URLDownloadToFileA" (
                                    ByVal pCaller As Long,
                                    ByVal szURL As String,
                                    ByVal szFileName As String,
@@ -244,7 +245,7 @@ Public Class Starter
                                    ByVal lpfnCB As Long) As Long
 
     Private Declare Function DeleteUrlCacheEntry Lib "wininet.dll" _
-        Alias "DeleteUrlCacheEntryA"(
+        Alias "DeleteUrlCacheEntryA" (
                                      ByVal lpszUrlName As String) As Long
 
     ' Datei-Download mit oder ohne Leerung des URL-Cache
@@ -271,20 +272,20 @@ Public Class Starter
 
     Private Sub Button1_Click(ByVal sender As Object, ByVal e As EventArgs)
 
-        Main.progressmode = 1
+        Main.MainInstance.progressmode = 1
         Armory_Interface.Show()
         Me.Hide()
     End Sub
 
     Private Sub Button2_Click(ByVal sender As Object, ByVal e As EventArgs)
-        Main.progressmode = 3
-        Main.Show()
+        Main.MainInstance.progressmode = 3
+        Main.MainInstance.Show()
         Me.Hide()
     End Sub
 
     Private Sub Button3_Click(ByVal sender As Object, ByVal e As EventArgs)
-        Main.progressmode = 2
-        Main.Show()
+        Main.MainInstance.progressmode = 2
+        Main.MainInstance.Show()
         Me.Hide()
     End Sub
 
@@ -294,8 +295,8 @@ Public Class Starter
     End Sub
 
     Private Sub Panel1_MouseClick(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Panel1.MouseClick
-        Main.progressmode = 1
-        Main.importmode = 1
+        Main.MainInstance.progressmode = 1
+        Main.MainInstance.importmode = 1
         Armory_Interface.Show()
         Me.Hide()
     End Sub
@@ -316,9 +317,9 @@ Public Class Starter
     End Sub
 
     Private Sub Panel2_MouseClick(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Panel2.MouseClick
-        Main.cuisets = 0
-        Main.progressmode = 3
-        Main.importmode = 3
+        Main.MainInstance.cuisets = 0
+        Main.MainInstance.progressmode = 3
+        Main.MainInstance.importmode = 3
         Database_Interface.Show()
         Me.Hide()
     End Sub
@@ -340,8 +341,8 @@ Public Class Starter
 
     Private Sub Panel3_MouseClick(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Panel3.MouseClick
         Try
-            Main.itemname_dt.Clear()
-            Main.itemname_dt = New DataTable()
+            Main.MainInstance.itemname_dt.Clear()
+            Main.MainInstance.itemname_dt = New DataTable()
             Dim stext As String
             If My.Settings.language = "de" Then
                 stext = My.Resources.item_name_de
@@ -356,17 +357,17 @@ Public Class Starter
                 strArray = a(i).Split(CChar(";"))
                 If i = 0 Then
                     For Each value As String In strArray
-                        Main.itemname_dt.Columns.Add(value.Trim())
+                        Main.MainInstance.itemname_dt.Columns.Add(value.Trim())
                     Next
                 Else
-                    Dim dr As DataRow = Main.itemname_dt.NewRow()
-                    Main.itemname_dt.Rows.Add(strArray)
+                    Dim dr As DataRow = Main.MainInstance.itemname_dt.NewRow()
+                    Main.MainInstance.itemname_dt.Rows.Add(strArray)
                 End If
             Next i
         Catch : End Try
         Try
-            Main.effectname_dt.Clear()
-            Main.effectname_dt = New DataTable()
+            Main.MainInstance.effectname_dt.Clear()
+            Main.MainInstance.effectname_dt = New DataTable()
             Dim stext As String
             If My.Settings.language = "de" Then
                 stext = My.Resources.enchant_name_de
@@ -381,18 +382,19 @@ Public Class Starter
                 strArray = a(i).Split(CChar(";"))
                 If i = 0 Then
                     For Each value As String In strArray
-                        Main.effectname_dt.Columns.Add(value.Trim())
+                        Main.MainInstance.effectname_dt.Columns.Add(value.Trim())
                     Next
                 Else
-                    Dim dr As DataRow = Main.effectname_dt.NewRow()
-                    Main.effectname_dt.Rows.Add(strArray)
+                    Dim dr As DataRow = Main.MainInstance.effectname_dt.NewRow()
+                    Main.MainInstance.effectname_dt.Rows.Add(strArray)
                 End If
             Next i
         Catch : End Try
         My.Settings.savecontent = ""
         ' ???? 29/07 should fix: (Load char from db > load char from armory > store it > import template = first character)
         My.Settings.Save()
-        Main.setallempty()
+        Main.MainInstance = New Main()
+        Main.MainInstance.setallempty()
         If My.Settings.language = "de" Then
             MsgBox(localeDE.armoryinterface_txt1)
         Else
@@ -421,8 +423,8 @@ Public Class Starter
                 If Not locPath = "" Then
 
                     Dim cit As New CIUFile
-                    Main.tmplpath = locPath
-                    Main.cuisets = 0
+                    Main.MainInstance.tmplpath = locPath
+                    Main.MainInstance.cuisets = 0
                     Dim ciu As New CIUFile
                     ciu.nowread()
                 End If
@@ -448,8 +450,8 @@ Public Class Starter
 
 
     Private Sub Label3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Label3.Click
-        Main.progressmode = 1
-        Main.importmode = 1
+        Main.MainInstance.progressmode = 1
+        Main.MainInstance.importmode = 1
         Armory_Interface.Show()
         Me.Hide()
     End Sub
@@ -467,8 +469,8 @@ Public Class Starter
     End Sub
 
     Private Sub Label2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Label2.Click
-        Main.progressmode = 1
-        Main.importmode = 1
+        Main.MainInstance.progressmode = 1
+        Main.MainInstance.importmode = 1
         Armory_Interface.Show()
         Me.Hide()
     End Sub
@@ -486,9 +488,9 @@ Public Class Starter
     End Sub
 
     Private Sub Label4_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Label4.Click
-        Main.cuisets = 0
-        Main.progressmode = 3
-        Main.importmode = 3
+        Main.MainInstance.cuisets = 0
+        Main.MainInstance.progressmode = 3
+        Main.MainInstance.importmode = 3
         Database_Interface.Show()
         Me.Hide()
     End Sub
@@ -506,9 +508,9 @@ Public Class Starter
     End Sub
 
     Private Sub Label5_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Label5.Click
-        Main.cuisets = 0
-        Main.progressmode = 3
-        Main.importmode = 3
+        Main.MainInstance.cuisets = 0
+        Main.MainInstance.progressmode = 3
+        Main.MainInstance.importmode = 3
         Database_Interface.Show()
         Me.Hide()
     End Sub
@@ -527,8 +529,8 @@ Public Class Starter
 
     Private Sub Label6_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Label6.Click
         Try
-            Main.itemname_dt.Clear()
-            Main.itemname_dt = New DataTable()
+            Main.MainInstance.itemname_dt.Clear()
+            Main.MainInstance.itemname_dt = New DataTable()
             Dim stext As String
             If My.Settings.language = "de" Then
                 stext = My.Resources.item_name_de
@@ -543,17 +545,17 @@ Public Class Starter
                 strArray = a(i).Split(CChar(";"))
                 If i = 0 Then
                     For Each value As String In strArray
-                        Main.itemname_dt.Columns.Add(value.Trim())
+                        Main.MainInstance.itemname_dt.Columns.Add(value.Trim())
                     Next
                 Else
-                    Dim dr As DataRow = Main.itemname_dt.NewRow()
-                    Main.itemname_dt.Rows.Add(strArray)
+                    Dim dr As DataRow = Main.MainInstance.itemname_dt.NewRow()
+                    Main.MainInstance.itemname_dt.Rows.Add(strArray)
                 End If
             Next i
         Catch : End Try
         Try
-            Main.effectname_dt.Clear()
-            Main.effectname_dt = New DataTable()
+            Main.MainInstance.effectname_dt.Clear()
+            Main.MainInstance.effectname_dt = New DataTable()
             Dim stext As String
             If My.Settings.language = "de" Then
                 stext = My.Resources.enchant_name_de
@@ -568,18 +570,19 @@ Public Class Starter
                 strArray = a(i).Split(CChar(";"))
                 If i = 0 Then
                     For Each value As String In strArray
-                        Main.effectname_dt.Columns.Add(value.Trim())
+                        Main.MainInstance.effectname_dt.Columns.Add(value.Trim())
                     Next
                 Else
-                    Dim dr As DataRow = Main.effectname_dt.NewRow()
-                    Main.effectname_dt.Rows.Add(strArray)
+                    Dim dr As DataRow = Main.MainInstance.effectname_dt.NewRow()
+                    Main.MainInstance.effectname_dt.Rows.Add(strArray)
                 End If
             Next i
         Catch : End Try
         My.Settings.savecontent = ""
         ' ???? 29/07 should fix: (Load char from db > load char from armory > store it > import template = first character)
         My.Settings.Save()
-        Main.setallempty()
+        Main.MainInstance = New Main()
+        Main.MainInstance.setallempty()
         If My.Settings.language = "de" Then
             MsgBox(localeDE.armoryinterface_txt1)
         Else
@@ -608,8 +611,8 @@ Public Class Starter
                 If Not locPath = "" Then
 
                     Dim cit As New CIUFile
-                    Main.tmplpath = locPath
-                    Main.cuisets = 0
+                    Main.MainInstance.tmplpath = locPath
+                    Main.MainInstance.cuisets = 0
                     Dim ciu As New CIUFile
                     ciu.nowread()
                 End If
@@ -632,8 +635,8 @@ Public Class Starter
 
     Private Sub Label7_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Label7.Click
         Try
-            Main.itemname_dt.Clear()
-            Main.itemname_dt = New DataTable()
+            Main.MainInstance.itemname_dt.Clear()
+            Main.MainInstance.itemname_dt = New DataTable()
             Dim stext As String
             If My.Settings.language = "de" Then
                 stext = My.Resources.item_name_de
@@ -648,17 +651,17 @@ Public Class Starter
                 strArray = a(i).Split(CChar(";"))
                 If i = 0 Then
                     For Each value As String In strArray
-                        Main.itemname_dt.Columns.Add(value.Trim())
+                        Main.MainInstance.itemname_dt.Columns.Add(value.Trim())
                     Next
                 Else
-                    Dim dr As DataRow = Main.itemname_dt.NewRow()
-                    Main.itemname_dt.Rows.Add(strArray)
+                    Dim dr As DataRow = Main.MainInstance.itemname_dt.NewRow()
+                    Main.MainInstance.itemname_dt.Rows.Add(strArray)
                 End If
             Next i
         Catch : End Try
         Try
-            Main.effectname_dt.Clear()
-            Main.effectname_dt = New DataTable()
+            Main.MainInstance.effectname_dt.Clear()
+            Main.MainInstance.effectname_dt = New DataTable()
             Dim stext As String
             If My.Settings.language = "de" Then
                 stext = My.Resources.enchant_name_de
@@ -673,18 +676,18 @@ Public Class Starter
                 strArray = a(i).Split(CChar(";"))
                 If i = 0 Then
                     For Each value As String In strArray
-                        Main.effectname_dt.Columns.Add(value.Trim())
+                        Main.MainInstance.effectname_dt.Columns.Add(value.Trim())
                     Next
                 Else
-                    Dim dr As DataRow = Main.effectname_dt.NewRow()
-                    Main.effectname_dt.Rows.Add(strArray)
+                    Dim dr As DataRow = Main.MainInstance.effectname_dt.NewRow()
+                    Main.MainInstance.effectname_dt.Rows.Add(strArray)
                 End If
             Next i
         Catch : End Try
         My.Settings.savecontent = ""
         ' ???? 29/07 should fix: (Load char from db > load char from armory > store it > import template = first character)
         My.Settings.Save()
-        Main.setallempty()
+        Main.MainInstance.setallempty()
         If My.Settings.language = "de" Then
             MsgBox(localeDE.armoryinterface_txt1)
         Else
@@ -713,8 +716,8 @@ Public Class Starter
                 If Not locPath = "" Then
 
                     Dim cit As New CIUFile
-                    Main.tmplpath = locPath
-                    Main.cuisets = 0
+                    Main.MainInstance.tmplpath = locPath
+                    Main.MainInstance.cuisets = 0
                     Dim ciu As New CIUFile
                     ciu.nowread()
                 End If

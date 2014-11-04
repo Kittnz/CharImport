@@ -19,7 +19,7 @@ Public Class Functions
     ' Dim conn As New MySqlConnection()
     Public Function getglyphid(ByVal glyphid As Integer) As Integer
         Try
-            Select Case Main.xpac
+            Select Case Main.MainInstance.xpac
                 Case 3
                     xpacressource = My.Resources.GlyphProperties_335
                 Case 4
@@ -65,56 +65,56 @@ Public Class Functions
                 Dim subClass As Integer = CInt(quellcodeSplityx88)
                 Select Case subClass
                     Case 18 'Crossbows
-                        Main.specialspells.Add("5011")
-                        Main.specialskills.Add("226")
+                        Main.MainInstance.specialspells.Add("5011")
+                        Main.MainInstance.specialskills.Add("226")
                     Case 2
-                        Main.specialspells.Add("264")
-                        Main.specialskills.Add("45")
+                        Main.MainInstance.specialspells.Add("264")
+                        Main.MainInstance.specialskills.Add("45")
                     Case 3
-                        Main.specialspells.Add("266")
-                        Main.specialskills.Add("46")
+                        Main.MainInstance.specialspells.Add("266")
+                        Main.MainInstance.specialskills.Add("46")
                     Case 16
-                        Main.specialspells.Add("2764")
-                        Main.specialspells.Add("2567")
-                        Main.specialskills.Add("176")
+                        Main.MainInstance.specialspells.Add("2764")
+                        Main.MainInstance.specialspells.Add("2567")
+                        Main.MainInstance.specialskills.Add("176")
                     Case 19
-                        Main.specialspells.Add("5009")
-                        Main.specialspells.Add("5019")
-                        Main.specialskills.Add("228")
+                        Main.MainInstance.specialspells.Add("5009")
+                        Main.MainInstance.specialspells.Add("5019")
+                        Main.MainInstance.specialskills.Add("228")
                     Case 7
-                        Main.specialspells.Add("201")
-                        Main.specialskills.Add("43")
+                        Main.MainInstance.specialspells.Add("201")
+                        Main.MainInstance.specialskills.Add("43")
                     Case 8
-                        Main.specialspells.Add("201")
-                        Main.specialskills.Add("43")
-                        Main.specialspells.Add("202")
-                        Main.specialskills.Add("55")
+                        Main.MainInstance.specialspells.Add("201")
+                        Main.MainInstance.specialskills.Add("43")
+                        Main.MainInstance.specialspells.Add("202")
+                        Main.MainInstance.specialskills.Add("55")
                     Case 15
-                        Main.specialspells.Add("1180")
-                        Main.specialskills.Add("173")
+                        Main.MainInstance.specialspells.Add("1180")
+                        Main.MainInstance.specialskills.Add("173")
                     Case 0
-                        Main.specialspells.Add("196")
-                        Main.specialskills.Add("44")
+                        Main.MainInstance.specialspells.Add("196")
+                        Main.MainInstance.specialskills.Add("44")
                     Case 1
-                        Main.specialspells.Add("197")
-                        Main.specialskills.Add("44")
-                        Main.specialspells.Add("196")
-                        Main.specialskills.Add("142")
+                        Main.MainInstance.specialspells.Add("197")
+                        Main.MainInstance.specialskills.Add("44")
+                        Main.MainInstance.specialspells.Add("196")
+                        Main.MainInstance.specialskills.Add("142")
 
                     Case 4
-                        Main.specialspells.Add("198")
-                        Main.specialskills.Add("54")
+                        Main.MainInstance.specialspells.Add("198")
+                        Main.MainInstance.specialskills.Add("54")
                     Case 5
-                        Main.specialskills.Add("54")
-                        Main.specialspells.Add("198")
-                        Main.specialskills.Add("160")
-                        Main.specialspells.Add("199")
+                        Main.MainInstance.specialskills.Add("54")
+                        Main.MainInstance.specialspells.Add("198")
+                        Main.MainInstance.specialskills.Add("160")
+                        Main.MainInstance.specialspells.Add("199")
                     Case 6
-                        Main.specialspells.Add("200")
-                        Main.specialskills.Add("229")
+                        Main.MainInstance.specialspells.Add("200")
+                        Main.MainInstance.specialskills.Add("229")
                     Case 10
-                        Main.specialspells.Add("227")
-                        Main.specialskills.Add("136")
+                        Main.MainInstance.specialspells.Add("227")
+                        Main.MainInstance.specialskills.Add("136")
                 End Select
             Catch ex As Exception
                 Process_Status.processreport.AppendText(
@@ -199,7 +199,7 @@ Public Class Functions
     Public Function getnamefromitemid(ByVal itemid As String) As String
         If itemid = "-" Or itemid = "" Or itemid = "0" Then Return "-"
         Try
-            Dim nameresult As String = executex("itemid", itemid, Main.itemname_dt)
+            Dim nameresult As String = executex("itemid", itemid, Main.MainInstance.itemname_dt)
             If nameresult = "-" Then
                 Return "Error loading itemname"
             Else
@@ -297,7 +297,7 @@ Public Class Functions
 
     Public Function runcommand(ByVal command As String, ByVal spalte As String) As String
 
-        Dim da As New MySqlDataAdapter(command, Main.GLOBALconn)
+        Dim da As New MySqlDataAdapter(command, Main.MainInstance.GLOBALconn)
         Dim dt As New DataTable
 
         Try
@@ -324,7 +324,7 @@ Public Class Functions
     End Function
 
     Public Function returncountresults(ByVal command As String, ByVal spalte As String) As Integer
-        Dim da As New MySqlDataAdapter(command, Main.GLOBALconn)
+        Dim da As New MySqlDataAdapter(command, Main.MainInstance.GLOBALconn)
         Dim dt As New DataTable
 
         Try
@@ -341,7 +341,7 @@ Public Class Functions
     End Function
 
     Public Function returnresultwithrow(ByVal command As String, ByVal spalte As String, ByVal row As Integer) As String
-        Dim da As New MySqlDataAdapter(command, Main.GLOBALconn)
+        Dim da As New MySqlDataAdapter(command, Main.MainInstance.GLOBALconn)
         Dim dt As New DataTable
 
         Try
@@ -369,7 +369,7 @@ Public Class Functions
 
     Public Function runcommandRealmd(ByVal command As String, ByVal spalte As String) As String
 
-        Dim da As New MySqlDataAdapter(command, Main.GLOBALconnRealmd)
+        Dim da As New MySqlDataAdapter(command, Main.MainInstance.GLOBALconnRealmd)
         Dim dt As New DataTable
 
         Try
@@ -455,7 +455,7 @@ Public Class Functions
         With cmd
             .CommandText = SQLStatement
             .CommandType = CommandType.Text
-            .Connection = Main.GLOBALconn
+            .Connection = Main.MainInstance.GLOBALconn
             ' .ExecuteNonQuery()
             Dim cres As IAsyncResult = .BeginExecuteNonQuery(Nothing, Nothing)
             .EndExecuteReader(cres)
@@ -471,7 +471,7 @@ Public Class Functions
         With cmd
             .CommandText = SQLStatement
             .CommandType = CommandType.Text
-            .Connection = Main.GLOBALconnRealmd
+            .Connection = Main.MainInstance.GLOBALconnRealmd
             ' .ExecuteNonQuery()
             Dim cres As IAsyncResult = .BeginExecuteNonQuery(Nothing, Nothing)
             .EndExecuteReader(cres)
@@ -483,7 +483,7 @@ Public Class Functions
     Public Function geteffectnameofeffectid(ByVal effectid As Integer) As String
 
         Try
-            Dim nameresult As String = executex2("effectid", effectid.ToString(), Main.effectname_dt)
+            Dim nameresult As String = executex2("effectid", effectid.ToString(), Main.MainInstance.effectname_dt)
             If nameresult = "-" Then
                 Return "Error loading effectname"
             Else
@@ -522,10 +522,10 @@ Public Class Functions
             Now.TimeOfDay.ToString & "// Getting effectid of effectname: " & effectname & vbNewLine)
 
         Try
-            Dim nameresult As String = executex2("effectname", addrating(effectname), Main.effectname_dt, 0)
+            Dim nameresult As String = executex2("effectname", addrating(effectname), Main.MainInstance.effectname_dt, 0)
             If nameresult = "-" Then
                 Try
-                    Dim nameresult2 As String = executex2("effectname", effectname, Main.effectname_dt, 0)
+                    Dim nameresult2 As String = executex2("effectname", effectname, Main.MainInstance.effectname_dt, 0)
                     If nameresult2 = "-" Then
                         Return 0
                     Else
@@ -541,7 +541,7 @@ Public Class Functions
             End If
         Catch ex As Exception
             Try
-                Dim nameresult As String = executex2("effectname", effectname, Main.effectname_dt, 0)
+                Dim nameresult As String = executex2("effectname", effectname, Main.MainInstance.effectname_dt, 0)
                 If nameresult = "-" Then
                     Return 0
                 Else
@@ -600,7 +600,7 @@ Public Class Functions
     Public Function getgemeffectid(ByVal gemid As String) As Integer
         Process_Status.processreport.AppendText(
             Now.TimeOfDay.ToString & "// Getting effectid of gemid: " & gemid & vbNewLine)
-        Select Case Main.xpac
+        Select Case Main.MainInstance.xpac
             Case 3
                 xpacressource = My.Resources.GEM_ID_wotlk
             Case 4
@@ -608,7 +608,7 @@ Public Class Functions
             Case Else
                 xpacressource = My.Resources.GEM_ID_wotlk
         End Select
-        If Main.armoryrun = True Then
+        If Main.MainInstance.armoryrun = True Then
             xpacressource = My.Resources.GEM_ID_MOP
         End If
         Try
@@ -631,7 +631,7 @@ Public Class Functions
         If Not glyphid = "" And Not glyphid = " " Then
             Process_Status.processreport.AppendText(
                 Now.TimeOfDay.ToString & "// Loading Glyphid from id: " & glyphid & "..." & vbNewLine)
-            Select Case Main.xpac
+            Select Case Main.MainInstance.xpac
                 Case 3
                     xpacressource = My.Resources.GlyphProperties_335
                 Case 4
@@ -681,7 +681,7 @@ Public Class Functions
 
     Public Function runcommandInfo(ByVal command As String, ByVal spalte As String) As String
 
-        Dim da As New MySqlDataAdapter(command, Main.GLOBALconn)
+        Dim da As New MySqlDataAdapter(command, Main.MainInstance.GLOBALconn)
         Dim dt As New DataTable
 
         da.Fill(dt)
